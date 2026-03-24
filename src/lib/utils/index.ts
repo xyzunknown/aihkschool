@@ -48,6 +48,22 @@ export const APPLICATION_RESULT_LABELS: Record<string, string> = {
   pending: "等待中",
 };
 
+export const SESSION_TYPE_LABELS: Record<string, string> = {
+  am: "上午",
+  pm: "下午",
+  whole_day: "全日",
+  am_pm: "上午及下午",
+  am_whole_day: "上午及全日",
+  pm_whole_day: "下午及全日",
+  am_pm_whole_day: "上午、下午及全日",
+};
+
+export const LANGUAGE_OPTIONS: Record<string, string> = {
+  chinese: "中文",
+  english: "英文",
+  bilingual: "双语",
+};
+
 export const MAX_FAVORITES = 10;
 export const REMINDER_DAYS = [7, 3, 1] as const;
 export const DEFAULT_PAGE_LIMIT = 20;
