@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { SchoolCard } from "@/components/schools/SchoolCard";
 import { SchoolCardSkeleton } from "@/components/ui/Skeleton";
@@ -29,19 +29,36 @@ interface SchoolData {
 export default function KGListClient() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const queryString = searchParams.toString();
 
   const [schools, setSchools] = useState<SchoolData[]>([]);
   const [count, setCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const selectedDistricts = searchParams.getAll("district") as District[];
-  const selectedType = searchParams.get("type") as SchoolType | null;
-  const selectedLanguage = searchParams.get("language");
-  const selectedSession = searchParams.get("session");
-  const hasVacancy = searchParams.get("has_vacancy") === "true";
-  const searchQuery = searchParams.get("search") ?? "";
-  const page = parseInt(searchParams.get("page") ?? "1", 10);
+  const filters = useMemo(() => {
+    const params = new URLSearchParams(queryString);
+
+    return {
+      selectedDistricts: params.getAll("district") as District[],
+      selectedType: params.get("type") as SchoolType | null,
+      selectedLanguage: params.get("language"),
+      selectedSession: params.get("session"),
+      hasVacancy: params.get("has_vacancy") === "true",
+      searchQuery: params.get("search") ?? "",
+      page: parseInt(params.get("page") ?? "1", 10),
+    };
+  }, [queryString]);
+
+  const {
+    selectedDistricts,
+    selectedType,
+    selectedLanguage,
+    selectedSession,
+    hasVacancy,
+    searchQuery,
+    page,
+  } = filters;
 
   const fetchData = useCallback(async () => {
     setLoading(true);
