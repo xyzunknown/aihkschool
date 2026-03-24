@@ -42,7 +42,7 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
         onClick={onClose}
       />
       {/* Content */}
-      <div className="relative bg-white rounded-card p-7 w-full max-w-[380px] shadow-lg animate-fade-in">
+      <div className="relative bg-white/95 backdrop-blur-xl rounded-card p-7 w-full max-w-[380px] shadow-[0_8px_40px_rgba(0,0,0,0.12)] animate-fade-in">
         {title && (
           <h3 className="text-h2 text-slate-950 mb-4">{title}</h3>
         )}

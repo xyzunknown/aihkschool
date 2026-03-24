@@ -43,7 +43,7 @@ export function SchoolCard({
 
   return (
     <div
-      className="relative bg-white/60 backdrop-blur-xl border border-slate-200/50 rounded-card p-7 cursor-pointer transition-transform duration-200 ease-out hover:scale-[1.02]"
+      className="relative glass-card rounded-card p-7 cursor-pointer transition-all duration-200 ease-out hover:scale-[1.02]"
       onClick={() => router.push(`/kg/${id}`)}
     >
       {/* Deadline pill */}

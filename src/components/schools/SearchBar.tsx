@@ -19,7 +19,7 @@ export function SearchBar({ initialQuery, onSearch }: SearchBarProps) {
   }, [input]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="bg-white/50 backdrop-blur-2xl border border-slate-200/50 rounded-card px-5 py-3 flex items-center gap-3 mb-6">
+    <div className="glass-card rounded-card px-5 py-3 flex items-center gap-3 mb-6">
       <svg
         className="w-4 h-4 text-slate-400 flex-shrink-0"
         viewBox="0 0 24 24"

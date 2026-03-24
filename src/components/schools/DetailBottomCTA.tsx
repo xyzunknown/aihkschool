@@ -11,7 +11,7 @@ interface DetailBottomCTAProps {
 
 export function DetailBottomCTA({ school, isFavorited, onToggleFavorite }: DetailBottomCTAProps) {
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-xl border-t border-slate-200/30 px-5 py-4 z-40">
+    <div className="fixed bottom-0 left-0 right-0 glass-header px-5 py-4 z-40">
       <div className="max-w-3xl mx-auto flex gap-3">
         {school.website ? (
           <a

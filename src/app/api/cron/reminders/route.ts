@@ -7,6 +7,15 @@ import { formatDateCN } from "@/lib/utils";
 const MAX_RETRIES = 3;
 
 export async function POST(request: NextRequest) {
+  return handleCronReminders(request);
+}
+
+// Vercel Cron sends GET requests
+export async function GET(request: NextRequest) {
+  return handleCronReminders(request);
+}
+
+async function handleCronReminders(request: NextRequest) {
   try {
     // Verify cron secret
     const authHeader = request.headers.get("authorization");
@@ -103,7 +112,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ success: true, sent: sentCount, failed: failCount });
   } catch (err) {
-    console.error("POST /api/cron/reminders error:", err);
+    console.error("Cron /api/cron/reminders error:", err);
     return NextResponse.json(
       { error: { code: "INTERNAL_ERROR", message: "Cron job failed" } },
       { status: 500 }

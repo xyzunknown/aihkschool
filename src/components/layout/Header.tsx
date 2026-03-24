@@ -9,7 +9,7 @@ export function Header() {
   const { user, signIn } = useAuth();
 
   return (
-    <header className="sticky top-0 z-40 bg-white/70 backdrop-blur-xl border-b border-slate-200/30">
+    <header className="sticky top-0 z-40 glass-header">
       <div className="max-w-3xl mx-auto px-5 md:px-8 h-14 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="text-base font-semibold text-slate-950 tracking-tight">

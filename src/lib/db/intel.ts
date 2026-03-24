@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server";
+import { createClient, createServiceClient } from "@/lib/supabase/server";
 import type { AdmissionIntel } from "@/types/database";
 
 export async function fetchApprovedIntel(schoolId: string, page = 1, limit = 20) {
@@ -112,4 +112,54 @@ export async function toggleHelpful(intelId: string, userId: string) {
   await supabase.rpc("increment_helpful_count", { p_intel_id: intelId });
 
   return { voted: true };
+}
+
+export async function fetchPendingIntel(page = 1, limit = 20) {
+  const supabase = await createServiceClient();
+  const safeLimit = Math.min(Math.max(limit, 1), 100);
+  const offset = (page - 1) * safeLimit;
+
+  const { data, error, count } = await supabase
+    .from("admission_intel")
+    .select(
+      `id, school_id, user_id, academic_year, grade_applied, interview_type,
+       interview_language, queue_time, has_second_interview, offer_month,
+       application_result, fee_registration_hkd, fee_interview_hkd, notes,
+       status, helpful_count, created_at, updated_at,
+       schools:school_id ( name_tc, district )`,
+      { count: "exact" }
+    )
+    .eq("status", "pending")
+    .order("created_at", { ascending: false })
+    .range(offset, offset + safeLimit - 1);
+
+  if (error) {
+    throw new Error(`Failed to fetch pending intel: ${error.message}`);
+  }
+
+  return { data: data ?? [], count: count ?? 0, page, limit: safeLimit };
+}
+
+export async function updateIntelStatus(
+  intelId: string,
+  status: "approved" | "rejected",
+  rejectionReason?: string
+) {
+  const supabase = await createServiceClient();
+
+  const updateData: Record<string, string> = { status };
+  if (status === "rejected" && rejectionReason) {
+    updateData.rejection_reason = rejectionReason;
+  }
+
+  const { error } = await supabase
+    .from("admission_intel")
+    .update(updateData)
+    .eq("id", intelId);
+
+  if (error) {
+    throw new Error(`Failed to update intel status: ${error.message}`);
+  }
+
+  return { success: true };
 }

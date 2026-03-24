@@ -11,10 +11,8 @@ export function GlassCard({ children, className = "", hoverable = false, onClick
   return (
     <div
       className={`
-        bg-white/60 backdrop-blur-xl
-        border border-slate-200/50
-        rounded-card p-7
-        ${hoverable ? "cursor-pointer transition-transform duration-200 ease-out hover:scale-[1.02]" : ""}
+        glass-card rounded-card p-7
+        ${hoverable ? "cursor-pointer transition-all duration-200 ease-out hover:scale-[1.02]" : "transition-shadow duration-200"}
         ${className}
       `}
       onClick={onClick}

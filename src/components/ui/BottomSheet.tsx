@@ -36,7 +36,7 @@ export function BottomSheet({ isOpen, onClose, title, children }: BottomSheetPro
       {/* Sheet */}
       <div
         ref={sheetRef}
-        className="absolute bottom-0 left-0 right-0 bg-white rounded-t-[2rem] px-7 pb-8 pt-4 animate-slide-up max-h-[85vh] overflow-y-auto"
+        className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-xl rounded-t-[2rem] px-7 pb-8 pt-4 animate-slide-up max-h-[85vh] overflow-y-auto shadow-[0_-4px_30px_rgba(0,0,0,0.08)]"
       >
         {/* Handle */}
         <div className="flex justify-center mb-4">
