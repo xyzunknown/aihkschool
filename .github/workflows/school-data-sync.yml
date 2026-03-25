@@ -1,0 +1,58 @@
+name: School Data Sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 19 * * 6"
+
+jobs:
+  sync:
+    runs-on: macos-latest
+    timeout-minutes: 90
+
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Refresh EDB fee data
+        run: python3 scripts/enrich_edb_fees.py
+
+      - name: Refresh private and international profile data
+        run: python3 scripts/enrich_private_international_profiles.py
+
+      - name: Apply data to Supabase
+        run: node scripts/apply_school_enrichment.mjs
+
+      - name: Commit refreshed snapshots
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/edb_fee_enrichment.json
+          git add data/private_international_profile_enrichment.json
+          git add public/logos
+          git add supabase/seed/004_private_international_profile_enrichment.sql
+          git add supabase/seed/005_edb_fee_enrichment.sql
+          if git diff --cached --quiet; then
+            echo "No snapshot changes to commit"
+            exit 0
+          fi
+          git commit -m "chore: refresh school data"
+          git push
