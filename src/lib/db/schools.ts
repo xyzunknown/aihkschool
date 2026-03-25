@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
+import { normalizeVacancyStatus } from "@/lib/utils";
 import type { School, District, SchoolType } from "@/types/database";
 
 export interface FetchSchoolsParams {
@@ -7,6 +8,7 @@ export interface FetchSchoolsParams {
   language?: string;
   session?: string;
   hasVacancy?: boolean;
+  vacancyStatuses?: string[];
   search?: string;
   page?: number;
   limit?: number;
@@ -19,6 +21,7 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
     type,
     language,
     session,
+    vacancyStatuses,
     search,
     page = 1,
     limit = 20,
@@ -30,7 +33,7 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
   let query = supabase
     .from("schools")
     .select(
-      `id, school_code, name_tc, name_en, district, phone, website,
+      `id, school_code, name_tc, name_en, district, phone, website, logo_url,
        school_type, kep_participant, session_type, language_primary,
        fee_monthly_hkd, grades_offered, data_source, last_verified_at,
        is_active, created_at, updated_at,
@@ -60,9 +63,11 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
     query = query.or(`name_tc.ilike.%${search.trim()}%,name_en.ilike.%${search.trim()}%`);
   }
 
-  query = query
-    .order("created_at", { ascending: false })
-    .range(offset, offset + safeLimit - 1);
+  query = query.order("created_at", { ascending: false });
+
+  if (!vacancyStatuses || vacancyStatuses.length === 0) {
+    query = query.range(offset, offset + safeLimit - 1);
+  }
 
   const { data, error, count } = await query;
 
@@ -70,7 +75,35 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
     throw new Error(`Failed to fetch schools: ${error.message}`);
   }
 
-  return { data: data ?? [], count: count ?? 0, page, limit: safeLimit };
+  let schools = data ?? [];
+
+  if (vacancyStatuses && vacancyStatuses.length > 0) {
+    schools = schools.filter((school) => {
+      const currentVacancy = school.vacancies?.[0];
+      if (!currentVacancy) return false;
+
+      const statuses = [
+        currentVacancy.n_vacancy,
+        currentVacancy.k1_vacancy,
+        currentVacancy.k2_vacancy,
+        currentVacancy.k3_vacancy,
+      ].map((status) => normalizeVacancyStatus(status));
+
+      return statuses.some((status) => vacancyStatuses.includes(status));
+    });
+  }
+
+  const pagedSchools =
+    vacancyStatuses && vacancyStatuses.length > 0
+      ? schools.slice(offset, offset + safeLimit)
+      : schools;
+
+  return {
+    data: pagedSchools,
+    count: vacancyStatuses && vacancyStatuses.length > 0 ? schools.length : count ?? 0,
+    page,
+    limit: safeLimit,
+  };
 }
 
 export async function fetchSchoolById(id: string) {
@@ -80,7 +113,7 @@ export async function fetchSchoolById(id: string) {
     .from("schools")
     .select(
       `id, school_code, name_tc, name_en, district, address_tc, address_en,
-       phone, fax, email, website, school_type, kep_participant, session_type,
+       phone, fax, email, website, logo_url, school_type, kep_participant, session_type,
        language_primary, language_secondary, fee_monthly_hkd, fee_annual_hkd,
        grades_offered, data_source, last_verified_at, is_active, created_at, updated_at`
     )

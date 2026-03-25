@@ -1,4 +1,5 @@
 import type { District } from "@/types/database";
+import type { VacancyStatus } from "@/types/database";
 
 export const DISTRICT_LABELS: Record<District, string> = {
   central_and_western: "中西區",
@@ -27,12 +28,33 @@ export const SCHOOL_TYPE_LABELS: Record<string, string> = {
   international: "國際",
 };
 
-export const VACANCY_STATUS_LABELS: Record<string, string> = {
-  has_vacancy: "尚有學額",
-  no_vacancy: "名額已滿",
-  not_offered: "未開放",
-  check_school: "請查閱官網",
+export const VACANCY_STATUS_LABELS: Record<NormalizedVacancyStatus, string> = {
+  has_vacancy: "有學位空缺",
+  no_vacancy: "沒有學位空缺",
+  waiting_list: "候補",
+  no_information: "暫無資訊",
 };
+
+export type NormalizedVacancyStatus =
+  | "has_vacancy"
+  | "no_vacancy"
+  | "waiting_list"
+  | "no_information";
+
+export function normalizeVacancyStatus(status: VacancyStatus): NormalizedVacancyStatus {
+  switch (status) {
+    case "has_vacancy":
+      return "has_vacancy";
+    case "no_vacancy":
+      return "no_vacancy";
+    case "waiting_list":
+      return "waiting_list";
+    case "no_information":
+    case "not_offered":
+    case "check_school":
+      return "no_information";
+  }
+}
 
 export const INTERVIEW_TYPE_LABELS: Record<string, string> = {
   parent_child: "親子面試",

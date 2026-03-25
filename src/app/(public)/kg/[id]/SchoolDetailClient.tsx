@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { SourceTag } from "@/components/schools/SourceTag";
+import { SchoolAvatar } from "@/components/schools/SchoolAvatar";
 import { VacancySection } from "@/components/schools/VacancySection";
 import { BasicInfoSection } from "@/components/schools/BasicInfoSection";
 import { FeesSection } from "@/components/schools/FeesSection";
@@ -30,6 +31,7 @@ export function SchoolDetailClient({ school, vacancy, initialIntel, intelCount }
 
   const stale = vacancy ? isVacancyStale(vacancy.edb_published_date) : true;
   const dlStatus = vacancy ? deadlineStatus(vacancy.application_deadline) : null;
+  const displayNameEn = school.name_en?.trim() || school.name_tc;
 
   // Check initial favorite status
   useEffect(() => {
@@ -115,21 +117,30 @@ export function SchoolDetailClient({ school, vacancy, initialIntel, intelCount }
     <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 pb-24">
       {/* School header */}
       <div className="mb-8">
-        <div className="flex items-center gap-2 mb-2">
-          <span className="text-small text-slate-400">
-            {DISTRICT_LABELS[school.district as keyof typeof DISTRICT_LABELS]}
-          </span>
-          {school.school_code && (
-            <span className="px-2 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-600">
-              {school.school_code}
-            </span>
-          )}
-          <SourceTag source={school.data_source as DataSource} />
+        <div className="flex items-start gap-4">
+          <SchoolAvatar
+            schoolId={school.id}
+            schoolName={school.name_tc}
+            logoUrl={school.logo_url}
+            size="lg"
+          />
+
+          <div className="min-w-0">
+            <div className="flex items-center gap-2 mb-2 flex-wrap">
+              <span className="text-small text-slate-400">
+                {DISTRICT_LABELS[school.district as keyof typeof DISTRICT_LABELS]}
+              </span>
+              {school.school_code && (
+                <span className="px-2 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-600">
+                  {school.school_code}
+                </span>
+              )}
+              <SourceTag source={school.data_source as DataSource} />
+            </div>
+            <h1 className="text-2xl font-bold tracking-tight text-slate-950">{school.name_tc}</h1>
+            <p className="text-base text-slate-500 mt-1">{displayNameEn}</p>
+          </div>
         </div>
-        <h1 className="text-2xl font-bold tracking-tight text-slate-950">{school.name_tc}</h1>
-        {school.name_en && (
-          <p className="text-base text-slate-500 mt-1">{school.name_en}</p>
-        )}
       </div>
 
       {/* Placeholder hero image */}

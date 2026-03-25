@@ -108,6 +108,7 @@ export default function AccountPage() {
           <div className="space-y-3">
             {favorites.map((fav) => (
               <FavoriteCard key={fav.id} schoolId={fav.school_id} nameTc={fav.schools.name_tc}
+                nameEn={fav.schools.name_en ?? fav.schools.name_tc}
                 district={fav.schools.district} reminderEnabled={fav.reminder_enabled}
                 onNavigate={() => router.push(`/kg/${fav.school_id}`)}
                 onToggleReminder={() => handleReminderToggle(fav)}

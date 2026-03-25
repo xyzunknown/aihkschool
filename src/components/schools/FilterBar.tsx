@@ -28,9 +28,10 @@ export function FilterBar({
   const pillInactive = "bg-white text-slate-600 border border-slate-200";
 
   const vacancyOptions = [
-    { key: "has_vacancy", label: "尚有學額" },
-    { key: "warn", label: "學額緊張" },
-    { key: "no_vacancy", label: "學位已滿" },
+    { key: "has_vacancy", label: "空缺" },
+    { key: "no_vacancy", label: "滿額" },
+    { key: "waiting_list", label: "候補" },
+    { key: "no_information", label: "暫無資訊" },
   ];
 
   const schoolTypeOptions = [

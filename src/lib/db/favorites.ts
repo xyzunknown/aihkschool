@@ -10,7 +10,7 @@ export async function fetchUserFavorites(userId: string) {
     .select(
       `id, user_id, school_id, reminder_enabled, reminder_days_before,
        created_at, updated_at,
-       schools ( id, name_tc, name_en, district, phone, website, school_type,
+       schools ( id, name_tc, name_en, district, phone, website, logo_url, school_type,
                  session_type, language_primary, fee_monthly_hkd )`
     )
     .eq("user_id", userId)

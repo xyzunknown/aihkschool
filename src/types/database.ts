@@ -26,7 +26,13 @@ export type SchoolType = "non_profit" | "private_independent" | "international";
 
 export type SessionType = "am" | "pm" | "whole_day" | "am_pm" | "am_whole_day" | "pm_whole_day" | "am_pm_whole_day";
 
-export type VacancyStatus = "has_vacancy" | "no_vacancy" | "not_offered" | "check_school";
+export type VacancyStatus =
+  | "has_vacancy"
+  | "no_vacancy"
+  | "waiting_list"
+  | "no_information"
+  | "not_offered"
+  | "check_school";
 
 export type InterviewType = "parent_child" | "child_only" | "none" | "unknown";
 
@@ -52,6 +58,7 @@ export interface School {
   fax: string | null;
   email: string | null;
   website: string | null;
+  logo_url: string | null;
   school_type: SchoolType;
   kep_participant: boolean;
   session_type: SessionType | null;

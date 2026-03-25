@@ -2,35 +2,34 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 
 export default function HomePage() {
-  // Placeholder school data for featured section
   const featuredSchools = [
     {
-      id: "1",
-      name_tc: "聖保羅幼稚園",
-      name_en: "St. Paul's Kindergarten",
+      href: "/kg?search=%E8%81%96%E4%BF%9D%E7%BE%85%E5%A0%82%E5%B9%BC%E7%A8%9A%E5%9C%92",
+      name_tc: "聖保羅堂幼稚園",
+      name_en: "ST PAUL'S CHURCH KINDERGARTEN",
       district: "中西區",
       description: "教學中英並用，着重兒童德智體群美五育發展。"
     },
     {
-      id: "2",
-      name_tc: "寶覺幼稚園",
-      name_en: "Po觉 Kindergarten",
-      district: "九龍城區",
-      description: "遵循蒙特梭利教育法，提供全日制及半日制課程。"
+      href: "/kg?search=%E5%98%89%E8%AB%BE%E6%92%92%E8%81%96%E5%BF%83%E5%B9%BC%E7%A8%9A%E5%9C%92",
+      name_tc: "嘉諾撒聖心幼稚園",
+      name_en: "SACRED HEART CANOSSIAN KINDERGARTEN",
+      district: "中西區",
+      description: "重視品德與全人發展，提供幼兒基礎學習與校園生活體驗。"
     },
     {
-      id: "3",
-      name_tc: "英基國際幼稚園",
-      name_en: "YCIS Hong Kong",
-      district: "跑馬地",
-      description: "国际教育課程，培養學生国際視野和跨文化能力。"
+      href: "/kg?search=%E7%9B%88%E6%80%9D%E5%B9%BC%E7%A8%9A%E5%9C%92",
+      name_tc: "盈思幼稚園",
+      name_en: "WITTY KINDERGARTEN",
+      district: "中西區",
+      description: "提供幼稚園課程與校本活動，方便家長先了解學校基本資訊。"
     }
   ];
 
   const vacancyUpdates = [
-    { school: "聖保羅幼稚園", status: "尚有學額", grade: "K1" },
-    { school: "拔萃女小學附屬幼稚園", status: "學額緊張", grade: "K2" },
-    { school: "香島幼稚園", status: "名額已滿", grade: "K3" }
+    { href: "/kg?search=%E8%BF%A6%E5%8D%97%E5%B9%BC%E7%A8%9A%E5%9C%92%EF%BC%88%E4%B8%AD%E7%92%B0%E5%A0%85%E9%81%93%EF%BC%89", school: "迦南幼稚園（中環堅道）", status: "空缺", grade: "K1" },
+    { href: "/kg?search=%E6%98%8E%E6%84%9B%E5%A0%85%E5%B0%BC%E5%9C%B0%E5%9F%8E%E5%B9%BC%E5%85%92%E5%AD%B8%E6%A0%A1", school: "明愛堅尼地城幼兒學校", status: "滿額", grade: "K1" },
+    { href: "/kg?search=%E7%9B%88%E6%80%9D%E5%B9%BC%E7%A8%9A%E5%9C%92", school: "盈思幼稚園", status: "暫無資訊", grade: "K1" }
   ];
 
   const communityInsights = [
@@ -99,7 +98,7 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {featuredSchools.map((school) => (
-            <Link key={school.id} href={`/kg/${school.id}`}>
+            <Link key={school.name_tc} href={school.href}>
               <div className="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-sm transition-shadow">
                 {/* Avatar */}
                 <div className="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center mb-4">
@@ -125,24 +124,28 @@ export default function HomePage() {
           {/* Left: 3 vacancy items */}
           <div className="md:col-span-2 space-y-3">
             {vacancyUpdates.map((item, idx) => (
-              <div key={idx} className="bg-white rounded-2xl border border-slate-200 p-4 flex items-center justify-between hover:shadow-sm transition-shadow">
-                <div>
-                  <p className="font-medium text-slate-950">{item.school}</p>
-                  <p className="text-sm text-slate-500">{item.grade}</p>
+              <Link key={idx} href={item.href} className="block">
+                <div className="bg-white rounded-2xl border border-slate-200 p-4 flex items-center justify-between hover:shadow-sm transition-shadow">
+                  <div>
+                    <p className="font-medium text-slate-950">{item.school}</p>
+                    <p className="text-sm text-slate-500">{item.grade}</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                      item.status === "空缺"
+                        ? "bg-emerald-50 text-emerald-700"
+                        : item.status === "候補"
+                          ? "bg-amber-50 text-amber-700"
+                          : item.status === "暫無資訊"
+                          ? "bg-slate-100 text-slate-500"
+                          : "bg-red-50 text-red-700"
+                    }`}>
+                      {item.status}
+                    </span>
+                    <span className="text-slate-400">→</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                    item.status === "尚有學額"
-                      ? "bg-emerald-50 text-emerald-700"
-                      : item.status === "學額緊張"
-                        ? "bg-amber-50 text-amber-700"
-                        : "bg-red-50 text-red-700"
-                  }`}>
-                    {item.status}
-                  </span>
-                  <span className="text-slate-400">→</span>
-                </div>
-              </div>
+              </Link>
             ))}
           </div>
 

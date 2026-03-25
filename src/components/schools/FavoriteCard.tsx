@@ -5,6 +5,7 @@ import { DISTRICT_LABELS } from "@/lib/utils";
 interface FavoriteCardProps {
   schoolId: string;
   nameTc: string;
+  nameEn: string;
   district: string;
   reminderEnabled: boolean;
   daysUntilDeadline?: number;
@@ -14,7 +15,7 @@ interface FavoriteCardProps {
 }
 
 export function FavoriteCard({
-  nameTc, district, reminderEnabled, daysUntilDeadline,
+  nameTc, nameEn, district, reminderEnabled, daysUntilDeadline,
   onNavigate, onToggleReminder, onUnfavorite,
 }: FavoriteCardProps) {
   return (
@@ -25,6 +26,7 @@ export function FavoriteCard({
             {DISTRICT_LABELS[district as keyof typeof DISTRICT_LABELS]}
           </p>
           <p className="text-base font-semibold text-slate-900 mt-0.5">{nameTc}</p>
+          <p className="text-sm text-slate-500 mt-1">{nameEn}</p>
           {daysUntilDeadline !== undefined && daysUntilDeadline < 7 && (
             <p className={`text-sm font-medium mt-2 ${daysUntilDeadline >= 0 ? "text-red-700" : "text-slate-400"}`}>
               {daysUntilDeadline >= 0 ? `截止日期：${daysUntilDeadline} 天` : "已逾期"}

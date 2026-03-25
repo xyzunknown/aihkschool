@@ -7,6 +7,14 @@ interface BasicInfoSectionProps {
 }
 
 export function BasicInfoSection({ school }: BasicInfoSectionProps) {
+  const mapQuery = [school.name_tc, school.address_tc].filter(Boolean).join(" ");
+  const mapSearchHref = mapQuery
+    ? `https://www.google.com/maps/search/${encodeURIComponent(mapQuery)}`
+    : null;
+  const mapEmbedSrc = mapQuery
+    ? `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=16&output=embed`
+    : null;
+
   const fields = [
     {
       label: "地址",
@@ -53,16 +61,34 @@ export function BasicInfoSection({ school }: BasicInfoSectionProps) {
 
         {/* Stats pills — reserved for future data fields (師生比例, 校舍面積) */}
 
-        {/* Map placeholder */}
-        <div className="mt-5 aspect-[4/3] rounded-2xl bg-slate-100 flex items-center justify-center">
-          <a
-            href={`https://www.google.com/maps/search/${encodeURIComponent(school.address_tc || school.name_tc)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-medium text-slate-600 hover:text-slate-900 underline"
-          >
-            在 Google 地圖中開啟
-          </a>
+        <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
+          {mapEmbedSrc ? (
+            <iframe
+              title={`${school.name_tc} 地圖`}
+              src={mapEmbedSrc}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="h-72 w-full border-0 md:h-80"
+            />
+          ) : (
+            <div className="flex aspect-[4/3] items-center justify-center px-6 text-center text-sm text-slate-500">
+              暫時未有足夠位置資料顯示地圖
+            </div>
+          )}
+
+          {mapSearchHref && (
+            <div className="flex items-center justify-between gap-3 border-t border-slate-200 bg-white px-4 py-3">
+              <p className="text-sm text-slate-500">地圖會根據學校名稱和地址自動定位</p>
+              <a
+                href={mapSearchHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 text-sm font-medium text-slate-700 underline hover:text-slate-950"
+              >
+                在 Google 地圖中開啟
+              </a>
+            </div>
+          )}
         </div>
       </GlassCard>
 

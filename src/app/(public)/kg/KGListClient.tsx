@@ -13,6 +13,7 @@ interface SchoolData {
   id: string;
   name_tc: string;
   name_en: string | null;
+  logo_url: string | null;
   district: string;
   school_type: string;
   language_primary: string | null;
@@ -169,6 +170,7 @@ export default function KGListClient() {
                 id={school.id}
                 nameTc={school.name_tc}
                 nameEn={school.name_en ?? undefined}
+                logoUrl={school.logo_url}
                 district={school.district}
                 vacancy={school.vacancies?.[0] ? {
                   k1_vacancy: school.vacancies[0].k1_vacancy,

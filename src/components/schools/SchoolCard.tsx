@@ -2,13 +2,15 @@
 
 import { useRouter } from "next/navigation";
 import { VacancyBadge } from "./VacancyBadge";
-import { DISTRICT_LABELS, getAvatarColor, isVacancyStale, timeAgo } from "@/lib/utils";
+import { SchoolAvatar } from "./SchoolAvatar";
+import { DISTRICT_LABELS, isVacancyStale, timeAgo } from "@/lib/utils";
 import type { VacancyStatus } from "@/types/database";
 
 interface SchoolCardProps {
   id: string;
   nameTc: string;
   nameEn?: string;
+  logoUrl?: string | null;
   district: string;
   vacancy?: {
     k1_vacancy: VacancyStatus;
@@ -22,13 +24,13 @@ export function SchoolCard({
   id,
   nameTc,
   nameEn,
+  logoUrl,
   district,
   vacancy,
 }: SchoolCardProps) {
   const router = useRouter();
   const stale = vacancy ? isVacancyStale(vacancy.edb_published_date) : true;
-  const avatarColor = getAvatarColor(id);
-  const firstChar = nameTc.charAt(0);
+  const displayNameEn = nameEn?.trim() || nameTc;
 
   return (
     <div
@@ -38,10 +40,8 @@ export function SchoolCard({
       {/* Avatar and badges row */}
       <div className="flex items-start justify-between mb-4">
         {/* Avatar */}
-        <div
-          className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 ${avatarColor.bg}`}
-        >
-          <span className={`text-lg font-semibold ${avatarColor.text}`}>{firstChar}</span>
+        <div className="flex-shrink-0">
+          <SchoolAvatar schoolId={id} schoolName={nameTc} logoUrl={logoUrl} />
         </div>
 
         {/* Badges - stacked top-right */}
@@ -58,7 +58,7 @@ export function SchoolCard({
       <h3 className="text-lg font-semibold text-slate-950 mb-1">{nameTc}</h3>
 
       {/* School name (English) if available */}
-      {nameEn && <p className="text-sm text-slate-500 mb-3">{nameEn}</p>}
+      <p className="text-sm text-slate-500 mb-3">{displayNameEn}</p>
 
       {/* District */}
       <div className="flex items-center gap-1 text-sm text-slate-700 mb-4">
