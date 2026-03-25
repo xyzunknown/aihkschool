@@ -9,6 +9,8 @@ import { SearchBar } from "@/components/schools/SearchBar";
 import { FilterBar } from "@/components/schools/FilterBar";
 import type { District, SchoolType, VacancyStatus } from "@/types/database";
 
+const PAGE_SIZE = 18;
+
 interface SchoolData {
   id: string;
   school_code: string | null;
@@ -72,7 +74,7 @@ export default function KGListClient() {
       vacancyFilter.forEach((v) => params.append("vacancy", v));
       if (searchQuery) params.set("search", searchQuery);
       params.set("page", String(page));
-      params.set("limit", "20");
+      params.set("limit", String(PAGE_SIZE));
 
       const res = await fetch(`/api/schools?${params.toString()}`);
       const json = await res.json();
@@ -138,7 +140,7 @@ export default function KGListClient() {
     router.push(`/kg?${params.toString()}`);
   };
 
-  const totalPages = Math.ceil(count / 20);
+  const totalPages = Math.ceil(count / PAGE_SIZE);
 
   return (
     <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">

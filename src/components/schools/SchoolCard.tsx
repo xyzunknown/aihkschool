@@ -10,6 +10,7 @@ import {
   getSessionTags,
   hasNurseryClass,
   isVacancyStale,
+  SCHOOL_TYPE_LABELS,
 } from "@/lib/utils";
 import type { VacancyStatus } from "@/types/database";
 
@@ -59,7 +60,17 @@ export function SchoolCard({
   // Derive tags
   const sessionTags = getSessionTags(sessionType ?? null);
   const showNursery = hasNurseryClass(gradesOffered ?? null);
-  const isInternational = schoolType === "international";
+  const schoolTypeTag = schoolType
+    ? {
+        label: SCHOOL_TYPE_LABELS[schoolType] ?? schoolType,
+        className:
+          schoolType === "international"
+            ? "bg-violet-50 text-violet-700"
+            : schoolType === "private_independent"
+              ? "bg-amber-50 text-amber-700"
+              : "bg-emerald-50 text-emerald-700",
+      }
+    : null;
 
   // Build vacancy grades to display
   const vacancyGrades: Array<{ grade: string; status: VacancyStatus }> = [];
@@ -116,7 +127,7 @@ export function SchoolCard({
       </div>
 
       {/* Row 3: Tags */}
-      {(sessionTags.length > 0 || showNursery || isInternational) && (
+      {(sessionTags.length > 0 || showNursery || schoolTypeTag) && (
         <div className="flex flex-wrap gap-2 mb-4">
           {sessionTags.map((tag) => (
             <span key={tag} className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700">
@@ -128,9 +139,9 @@ export function SchoolCard({
               設 N 班
             </span>
           )}
-          {isInternational && (
-            <span className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-violet-50 text-violet-700">
-              國際學校
+          {schoolTypeTag && (
+            <span className={`inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium ${schoolTypeTag.className}`}>
+              {schoolTypeTag.label}
             </span>
           )}
         </div>
