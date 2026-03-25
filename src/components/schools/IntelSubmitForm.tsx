@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { SchoolSearchInput } from "@/components/schools/SchoolSearchInput";
 import { useAuth } from "@/components/layout/AuthProvider";
 import { useToast } from "@/components/ui/Toast";
-import { NOTES_MAX_LENGTH } from "@/lib/utils";
+import { GRADE_LABELS, NOTES_MAX_LENGTH } from "@/lib/utils";
 
 const ACADEMIC_YEARS = ["2025/26", "2024/25", "2023/24"];
 const GRADES = ["N", "K1", "K2", "K3"];
@@ -75,7 +75,7 @@ export function IntelSubmitForm({ onSuccess }: IntelSubmitFormProps) {
         <div>
           <label className={lbl}>年級 *</label>
           <select value={form.grade_applied} onChange={(e) => update("grade_applied", e.target.value)} className={cls}>
-            {GRADES.map((g) => <option key={g} value={g}>{g}</option>)}
+            {GRADES.map((g) => <option key={g} value={g}>{GRADE_LABELS[g] ?? g}</option>)}
           </select>
         </div>
       </div>

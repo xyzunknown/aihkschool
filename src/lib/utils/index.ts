@@ -70,6 +70,13 @@ export const APPLICATION_RESULT_LABELS: Record<string, string> = {
   pending: "等待中",
 };
 
+export const GRADE_LABELS: Record<string, string> = {
+  N: "幼兒班",
+  K1: "細班",
+  K2: "中班",
+  K3: "大班",
+};
+
 export const SESSION_TYPE_LABELS: Record<string, string> = {
   am: "上午班",
   pm: "下午班",

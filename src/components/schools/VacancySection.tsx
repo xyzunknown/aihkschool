@@ -1,6 +1,6 @@
 import { VacancyBadge } from "@/components/schools/VacancyBadge";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { formatDateCN } from "@/lib/utils";
+import { formatDateCN, GRADE_LABELS } from "@/lib/utils";
 import type { Vacancy } from "@/types/database";
 
 interface VacancySectionProps {
@@ -10,13 +10,6 @@ interface VacancySectionProps {
 }
 
 export function VacancySection({ vacancy, isStale, deadlineStatus: dlStatus }: VacancySectionProps) {
-  const gradeLabels: Record<string, string> = {
-    N: "幼兒班 (N)",
-    K1: "幼低班 (K1)",
-    K2: "幼高班 (K2)",
-    K3: "上幼班 (K3)",
-  };
-
   return (
     <section className="mb-8">
       <div className="flex items-center justify-between mb-4">
@@ -32,7 +25,7 @@ export function VacancySection({ vacancy, isStale, deadlineStatus: dlStatus }: V
               <div className="flex items-start justify-between">
                 <div className="flex-1">
                   <h3 className="text-base font-semibold text-slate-950 mb-3">
-                    {gradeLabels[grade]}
+                    {`${GRADE_LABELS[grade]} (${grade})`}
                   </h3>
                   <div className="mb-3">
                     <VacancyBadge
