@@ -110,7 +110,7 @@ supabase/
 1. Before inserting: `UPDATE vacancies SET is_current = false WHERE school_id = $1`
 2. Insert new record with `is_current = true`
 3. If data fetch fails: do NOT update — preserve old `is_current = true` record
-4. Frontend: if `edb_published_date` > 30 days ago → show grey "请查官网" for all grades
+4. Frontend: if `edb_published_date` > 30 days ago → show grey "請查閱官網" for all grades
 
 ### RLS Summary
 
@@ -148,8 +148,8 @@ supabase/
 
 > The product is not a data source. It is an information aggregation + uncertainty-handling system.
 
-- If data exists → display with source tag (`EDB Official` / `School-published` / `Parent-submitted` / `Inferred`) and timestamp
-- If data missing → show `[暫無]` and link to school website
+- If data exists → display with source tag (`教育局官方` / `學校公佈` / `家長提交` / `推算`) and timestamp
+- If data missing → show `[暫無資料]` and link to school website
 - Never display uncertain data
 - Private/international schools: never show EDB vacancy (they don't participate in KEP) — show `check_school` with phone number
 
@@ -166,8 +166,33 @@ supabase/
 - Default to Server Components; `"use client"` only for `useState`/`useEffect`/event handlers
 - `"use client"` on the smallest possible component, never a whole page
 - Max 200 lines per component file
-- No `<img>` — always use Next.js `<Image>`
+- No `<img>` — always use Next.js `<Image>` (except for initial-letter avatars which use `<div>`)
 - No external fonts in V1 — system font stack: `-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif`
+- School cards must always render the initial-letter avatar; never show a broken image or empty space
+- All user-facing strings in Traditional Chinese (粵語); no hardcoded English UI text except brand name and school `name_en`
+
+## UI Language & Navigation
+
+All user-facing text must be **Traditional Chinese (粵語風格)**. Use conversational Cantonese-flavoured wording where appropriate (e.g. 「搵學校」not「查找學校」). English is only used for school English names, technical labels, and the brand name "HKSchoolPlace".
+
+### Navigation Bar
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  HKSchoolPlace     搵學校  ·  分享心得  ·  我的收藏    🔍  登入  │
+└─────────────────────────────────────────────────────────────┘
+```
+
+- **Logo** (left): "HKSchoolPlace" text, links to `/`
+- **Nav items** (center): `搵學校` → `/kg` · `分享心得` → `/submit` · `我的收藏` → `/account`
+- **Right**: Search icon (magnifier) + `登入` button (dark pill `bg-slate-950 text-white rounded-full px-4 py-2 text-sm`)
+- Logged-in state: `登入` replaced by user avatar circle, click → `/account`
+- Active nav item: underline indicator (2px `slate-950`)
+- Mobile: nav items collapse to hamburger menu; search icon remains visible
+
+### Footer
+
+4 columns: brand + tagline | 網站導覽 (sitemap links) | 支援服務 (聯絡我們, 服務條款, 私隱政策) | 訂閱電子報 (email input + 訂閱 button). Copyright: `© 2026 HKSchoolPlace`.
 
 ## Design System
 
@@ -180,60 +205,127 @@ supabase/
 | Use | Color |
 |-----|-------|
 | Base background | `slate-50` (#f8fafc) |
+| Card / surface | `white` (#ffffff) solid, no blur |
 | Primary text | `slate-950` (#020617) |
+| Secondary text | `slate-700` (#334155) |
 | Muted text | `slate-500` (#64748b) |
-| Border | `slate-200/50` |
-| Glass surface | `white/60` + `backdrop-blur(20px)` |
-| Has vacancy / safe (>14d) | Low-sat green: `rgba(220,252,231,.8)` |
-| Deadline warning (7-14d) | Low-sat orange: `rgba(255,237,213,.8)` |
-| Full / urgent (<7d) | Low-sat red: `rgba(254,226,226,.8)` |
+| Border | `slate-200` (#e2e8f0) |
+| Divider (light) | `slate-100` (#f1f5f9) |
+| Featured surface (dark card) | `slate-900` (#0f172a) with `text-white` |
 
-### Glass Card
+#### Status Colors (vacancy badges & deadline indicators only)
 
+| Status | Background | Text | Use |
+|--------|-----------|------|-----|
+| 尚有學額 / safe (>14d) | `emerald-50` (#ecfdf5) | `emerald-700` (#047857) | Has vacancy |
+| 學額緊張 / warning (7–14d) | `amber-50` (#fffbeb) | `amber-700` (#b45309) | Running low / deadline approaching |
+| 名額已滿 / urgent (<7d) | `red-50` (#fef2f2) | `red-700` (#b91c1c) | Full / deadline imminent |
+| 未開放 / not applicable | `slate-100` (#f1f5f9) | `slate-500` (#64748b) | Not offered / check school |
+
+### Cards
+
+Two card variants:
+
+**Content Card** (default — school list, detail sections, stats):
 ```
-bg-white/60 backdrop-blur-xl border border-slate-200/50 rounded-[2rem] p-7
-hover: scale(1.02) over 200ms — no color change, no deep shadows
+bg-white rounded-2xl border border-slate-200 p-6
+hover: shadow-sm transition-shadow duration-200 — no scale, no color change
 ```
+
+**Featured Card** (homepage highlights, promotional — max 1 per page section):
+```
+bg-slate-900 text-white rounded-2xl p-6
+```
+
+No glass/blur effect in V1. All cards use solid backgrounds.
 
 ### Buttons (Two Types Only)
 
-- **Primary** (max one per page): `bg-slate-950 text-white rounded-xl`
-- **Secondary**: `bg-white/70 backdrop-blur text-slate-900 border border-slate-200/50`
-- Hover: `scale(1.02)` — no color change
+- **Primary** (max one per page): `bg-slate-950 text-white rounded-xl px-6 py-3`
+- **Secondary**: `bg-white text-slate-900 border border-slate-200 rounded-xl px-6 py-3`
+- Hover: `scale(1.02)` over 200ms — no color change
 - Disabled: `opacity-50 cursor-not-allowed`
+
+### Vacancy Status Badges
+
+Pill-shaped badges positioned **top-right** of school cards:
+```
+inline-flex items-center rounded-full px-3 py-1 text-xs font-medium
+```
+
+- 尚有學額: `bg-emerald-50 text-emerald-700`
+- 學額緊張: `bg-amber-50 text-amber-700`
+- 名額已滿: `bg-red-50 text-red-700`
+- 未開放: `bg-slate-100 text-slate-500`
+
+Each grade (N/K1/K2/K3) gets its own badge. Show grade prefix: `K1 尚有學額`, `K2 學額緊張`.
+
+### School Images & Fallback
+
+V1 does not use real school photos. All school cards display an **initial-letter avatar**:
+
+```
+Avatar circle: w-12 h-12 rounded-full flex items-center justify-center
+Background: deterministic from school_id — cycle through:
+  slate-200, emerald-100, amber-100, sky-100, violet-100
+Text: first character of name_tc, text-lg font-semibold, color matching bg shade-700
+```
+
+Detail page hero area: show a **generic placeholder** illustration (classroom vector or solid color block with school name overlay). Reserve the image container dimensions (`aspect-[16/9] rounded-2xl bg-slate-100`) for future real photos.
 
 ### Spacing
 
-- Card padding: min `p-7` (28px)
-- Card gap: min `gap-4` (16px)
+- Card padding: `p-6` (24px)
+- Card gap: `gap-5` (20px)
 - Page margin: `px-5` mobile / `px-8` desktop
-- Section spacing: min `mb-8` (32px)
+- Section spacing: `mb-10` (40px)
+- Inner section gap: `space-y-4`
 
 ### Border Radii
 
-Tags/pills: `99px` · Buttons: `14px` / `rounded-xl` · Cards: `2rem` / `rounded-[2rem]`
+Tags/pills: `rounded-full` (99px) · Buttons: `rounded-xl` (14px) · Cards: `rounded-2xl` (16px) · Avatar: `rounded-full`
 
 ### Typography
 
-| Level | Size/Weight | Use |
-|-------|------------|-----|
-| Display | 36px / 600 / tight | Hero text |
-| H1 | 24px / 600 / tight | Page titles |
-| H2 | 18px / 600 / tight | Section headers |
-| Body | 15px / 400 / 1.6 | Main content |
-| Small | 13px / 400 | Timestamps, sources |
-| Label | 10px / 600 / uppercase 0.1em | Field labels |
+| Level | Tailwind | Size/Weight | Use |
+|-------|----------|------------|-----|
+| Display | `text-4xl font-bold tracking-tight` | 40px / 700 / tight | Homepage hero |
+| H1 | `text-2xl font-bold tracking-tight` | 28px / 700 / tight | Page titles (e.g. 「策劃香港卓越教育藍圖」) |
+| H2 | `text-xl font-semibold` | 20px / 600 | Section headers (e.g. 「即時學額狀態」) |
+| H3 | `text-lg font-semibold` | 18px / 600 | Card titles, school names |
+| Body | `text-base font-normal leading-relaxed` | 16px / 400 / 1.625 | Main content |
+| Small | `text-sm text-slate-500` | 14px / 400 | Timestamps, sources, update hints |
+| Label | `text-xs font-medium uppercase tracking-wide` | 12px / 500 | Field labels, grade prefix |
+
+## Page Layouts
+
+### Homepage (`/`)
+
+Top-to-bottom sections:
+
+1. **Hero** — Display heading (e.g. 「為您的孩子，探索全港優質教育資源。」), subtext, inline search bar with 「立即搜索」 primary button. Quick-filter pills below search: 3–4 popular districts/categories. Right side: stat card 「1,240+ 已收錄學校」 over a placeholder illustration.
+2. **精選教育機構** — Horizontal scroll row of 3 school cards (with avatar + name + short description + district + rating). Section header with 「查看全部 →」 link to `/kg`.
+3. **最新學額狀況** — Left: 3 recent vacancy update items (school name + status badge + arrow). Right: featured dark card 「家長心得與洞察」 with 3 article-style entries linking to intel/community content.
+4. **Newsletter CTA** — Heading 「緊貼最新入學資訊。」, email input + 「訂閱資訊」 button.
+
+### Account Page (`/account`) — V1 Scope
+
+No sidebar navigation. Single-page layout:
+
+1. **Welcome header** — 「你好，[display_name]」
+2. **收藏中的學校** — Grid of favourite school cards (same card component as list page, plus deadline countdown text in red if < 7 days). Empty state: 「未有收藏學校，去搵學校睇下？」 with link to `/kg`.
+3. **提醒設定** — Per-school toggle: reminder on/off, selected days (7d/3d/1d). Inline edit, no separate page.
 
 ## Key UX Flows
 
-### Favourite & Reminder
+### 收藏與提醒
 
 1. Click favourite → optimistic UI (heart fills instantly)
-2. Toast: "已收藏，要開啟截止提醒嗎？" with [開啟] and [暫不]
-3. [開啟] → Bottom Sheet: choose days (7d/3d/1d, all default checked)
+2. Toast: 「已收藏，要開啟截止提醒嗎？」 with [開啟] and [暫不]
+3. [開啟] → Bottom Sheet: choose days (7日前 / 3日前 / 1日前, all default checked)
 4. Save → `reminder_enabled = true`, create `reminders` rows
-5. Cancel favourite → confirm dialog → delete cascades reminders
-6. Max favourites per user: **10**
+5. Cancel favourite → confirm dialog 「確定取消收藏？相關提醒將一併刪除。」 → delete cascades reminders
+6. Max favourites per user: **10** — hitting limit shows toast 「已達收藏上限（10間），請先移除其他學校。」
 
 ### Cron Job (01:00 daily)
 
@@ -241,13 +333,40 @@ Tags/pills: `99px` · Buttons: `14px` / `rounded-xl` · Cards: `2rem` / `rounded
 - Send via Resend; success → `status = sent`; failure → retry up to 3 times, then `status = failed`
 - Verify `CRON_SECRET` header — reject all other callers
 
-### List Page Sorting
+### List Page (`/kg`)
 
-Default: has vacancy → nearest deadline → most recently updated. Search: 300ms debounce on `name_tc` + `name_en`. Filter state persisted in URL query string.
+**Layout**: Left filter sidebar (desktop) / top filter bar (mobile) + right 2-column card grid.
+
+**Filter sidebar** (3 groups):
+- 地區位置: checkbox list of 18 districts, max 3 selected at once
+- 學位狀態: pill toggles — 尚有學額 / 學額緊張 / 學位已滿 (multi-select)
+- 學校類別: radio buttons — 全部 / 非牟利 / 私立獨立 / 國際
+
+**School card layout** (in grid):
+```
+┌──────────────────────────────┐
+│  [Avatar]        [K1 badge]  │
+│                  [K2 badge]  │
+│  學校中文名                    │
+│  School English Name         │
+│  📍 地區                      │
+│                              │
+│  2小時前更新      查看詳情 →    │
+└──────────────────────────────┘
+```
+
+**Sorting**: default → has vacancy → nearest deadline → most recently updated. Search: 300ms debounce on `name_tc` + `name_en`. Filter state persisted in URL query string.
 
 ### Detail Page
 
-4 sections in order: Vacancy → Basic Info → Fees → Admission Intel. Fixed bottom CTA bar. Intel shows max 3 entries, "View all" expands.
+4 sections in order:
+
+1. **即時學額狀態** — One card per grade (N/K1/K2/K3), each showing vacancy status icon + status text + supplementary note (e.g. 「預計輪候等同：12 個月」). Include 「回報更新」 link for community corrections. If `edb_published_date` present, show 「最後更新：[date]」.
+2. **學校概況** — Address, website link, phone. Stats pills: 師生比例, 校舍面積 (if available, otherwise omit — never show `[暫無資料]` for stats pills). Reserve map placeholder (`aspect-[4/3] rounded-2xl bg-slate-100` with 「在 Google 地圖中開啟」 link).
+3. **學費及各項收費** — Comparison table with columns: 項目 / 半日制 / 全日制. Rows: 每月學費, 報名費, 年度教材費, 茶點費, etc. Footer note: 「註：校園及其他學費詳情內容以官方公佈為準。」If school only offers one session type, single-column layout.
+4. **家長心得與評價** — Max 3 intel entries. Each card: star rating (1–5), quoted text (truncate at 80 chars), author display name, date. 「撰寫評論」 link triggers login if needed. 「查看全部」 expands remaining entries.
+
+Fixed bottom CTA bar with primary action: 「申請 [year] 入學」 + secondary: 「下載學校簡介」(links to school website).
 
 ## Naming Conventions
 
