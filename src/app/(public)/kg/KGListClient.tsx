@@ -95,6 +95,12 @@ export default function KGListClient() {
     router.push(`/kg?${params.toString()}`);
   };
 
+  const goToPage = (nextPage: number) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("page", String(nextPage));
+    router.push(`/kg?${params.toString()}`);
+  };
+
   const handleSearch = (query: string) => {
     const params = new URLSearchParams(searchParams.toString());
     if (query) { params.set("search", query); } else { params.delete("search"); }
@@ -185,12 +191,12 @@ export default function KGListClient() {
           {totalPages > 1 && (
             <div className="flex justify-center gap-2 mt-8">
               <Button variant="secondary" size="sm" disabled={page <= 1}
-                onClick={() => updateFilter("page", String(page - 1))}>上一頁</Button>
+                onClick={() => goToPage(page - 1)}>上一頁</Button>
               <span className="flex items-center text-sm text-slate-400 px-3">
                 {page} / {totalPages}
               </span>
               <Button variant="secondary" size="sm" disabled={page >= totalPages}
-                onClick={() => updateFilter("page", String(page + 1))}>下一頁</Button>
+                onClick={() => goToPage(page + 1)}>下一頁</Button>
             </div>
           )}
         </>

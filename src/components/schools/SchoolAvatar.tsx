@@ -24,15 +24,9 @@ export function SchoolAvatar({
   const sizeClass = size === "lg" ? "w-16 h-16" : "w-12 h-12";
 
   return (
-    <div className={`relative ${sizeClass}`}>
-      <div
-        className={`absolute inset-0 rounded-full flex items-center justify-center ${avatarColor.bg}`}
-      >
-        <span className={`text-lg font-semibold ${avatarColor.text}`}>{firstChar}</span>
-      </div>
-
-      {showLogo && logoUrl && (
-        <div className="absolute inset-0 rounded-full bg-white p-1.5 overflow-hidden">
+    <div className={`${sizeClass} shrink-0 rounded-full border border-slate-200 bg-white p-1.5`}>
+      {showLogo && logoUrl ? (
+        <div className="relative h-full w-full overflow-hidden rounded-full bg-white">
           <Image
             src={logoUrl}
             alt={`${schoolName} logo`}
@@ -41,6 +35,12 @@ export function SchoolAvatar({
             sizes={size === "lg" ? "64px" : "48px"}
             onError={() => setShowLogo(false)}
           />
+        </div>
+      ) : (
+        <div
+          className={`flex h-full w-full items-center justify-center rounded-full ${avatarColor.bg}`}
+        >
+          <span className={`text-lg font-semibold ${avatarColor.text}`}>{firstChar}</span>
         </div>
       )}
     </div>

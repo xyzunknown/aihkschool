@@ -95,11 +95,13 @@ def parse_icon_links(html: str, base_url: str) -> list[str]:
 def find_candidate_urls(website: str) -> list[str]:
     parsed = urllib.parse.urlparse(website if "://" in website else f"https://{website}")
     base = f"{parsed.scheme or 'https'}://{parsed.netloc or parsed.path}"
+    domain = parsed.netloc or parsed.path
 
     candidates = [
         urllib.parse.urljoin(base, "/favicon.ico"),
         urllib.parse.urljoin(base, "/apple-touch-icon.png"),
         urllib.parse.urljoin(base, "/apple-touch-icon-precomposed.png"),
+        f"https://www.google.com/s2/favicons?domain={domain}&sz=128",
     ]
 
     html_bytes = request_url(base)
