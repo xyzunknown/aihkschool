@@ -30,10 +30,43 @@ export const SCHOOL_TYPE_LABELS: Record<string, string> = {
 
 export const VACANCY_STATUS_LABELS: Record<NormalizedVacancyStatus, string> = {
   has_vacancy: "空缺",
-  no_vacancy: "满额",
-  waiting_list: "候补",
+  no_vacancy: "滿額",
+  waiting_list: "候補",
   no_information: "待更新",
 };
+
+/**
+ * 從 session_type 推導出標籤列表：半日班 / 全日班
+ */
+export function getSessionTags(sessionType: string | null): string[] {
+  if (!sessionType) return [];
+  const tags: string[] = [];
+  if (sessionType.includes("am") || sessionType.includes("pm")) {
+    tags.push("半日班");
+  }
+  if (sessionType.includes("whole_day")) {
+    tags.push("全日班");
+  }
+  return tags;
+}
+
+/**
+ * 判斷學校是否開設 N 班
+ */
+export function hasNurseryClass(gradesOffered: string[] | null): boolean {
+  if (!gradesOffered) return false;
+  return gradesOffered.some((g) => g.toUpperCase() === "N" || g === "nursery" || g === "PN");
+}
+
+/**
+ * 格式化更新日期：更新於 X月X日
+ */
+export function formatUpdateDate(dateStr: string | null): string {
+  if (!dateStr) return "暫無更新";
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return "暫無更新";
+  return `更新於 ${d.getMonth() + 1}月${d.getDate()}日`;
+}
 
 export type NormalizedVacancyStatus =
   | "has_vacancy"

@@ -16,10 +16,13 @@ interface SchoolData {
   logo_url: string | null;
   district: string;
   school_type: string;
+  session_type: string | null;
+  grades_offered: string[] | null;
   language_primary: string | null;
   fee_monthly_hkd: number | null;
   vacancies: Array<{
     id: string;
+    n_vacancy: VacancyStatus;
     k1_vacancy: VacancyStatus;
     k2_vacancy: VacancyStatus;
     k3_vacancy: VacancyStatus;
@@ -153,7 +156,7 @@ export default function KGListClient() {
       />
 
       {loading ? (
-        <div className="grid gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {[1, 2, 3, 4].map((i) => <SchoolCardSkeleton key={i} />)}
         </div>
       ) : error ? (
@@ -169,23 +172,30 @@ export default function KGListClient() {
       ) : (
         <>
           <p className="text-sm text-slate-500 mb-4">共 {count} 所學校</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {schools.map((school) => (
-              <SchoolCard
-                key={school.id}
-                id={school.id}
-                nameTc={school.name_tc}
-                nameEn={school.name_en ?? undefined}
-                logoUrl={school.logo_url}
-                district={school.district}
-                vacancy={school.vacancies?.[0] ? {
-                  k1_vacancy: school.vacancies[0].k1_vacancy,
-                  k2_vacancy: school.vacancies[0].k2_vacancy,
-                  k3_vacancy: school.vacancies[0].k3_vacancy,
-                  edb_published_date: school.vacancies[0].edb_published_date,
-                } : null}
-              />
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {schools.map((school) => {
+              const currentVacancy = school.vacancies?.[0];
+              return (
+                <SchoolCard
+                  key={school.id}
+                  id={school.id}
+                  nameTc={school.name_tc}
+                  nameEn={school.name_en ?? undefined}
+                  logoUrl={school.logo_url}
+                  district={school.district}
+                  schoolType={school.school_type}
+                  sessionType={school.session_type}
+                  gradesOffered={school.grades_offered}
+                  vacancy={currentVacancy ? {
+                    n_vacancy: currentVacancy.n_vacancy,
+                    k1_vacancy: currentVacancy.k1_vacancy,
+                    k2_vacancy: currentVacancy.k2_vacancy,
+                    k3_vacancy: currentVacancy.k3_vacancy,
+                    edb_published_date: currentVacancy.edb_published_date,
+                  } : null}
+                />
+              );
+            })}
           </div>
 
           {totalPages > 1 && (

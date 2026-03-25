@@ -10,24 +10,30 @@ interface VacancyBadgeProps {
 export function VacancyBadge({ grade, status, isStale = false }: VacancyBadgeProps) {
   if (isStale) {
     return (
-      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-500">
-        {grade} {VACANCY_STATUS_LABELS.no_information}
-      </span>
+      <div className="flex flex-col items-center gap-1">
+        <span className="text-xs text-slate-400 font-medium">{grade}</span>
+        <span className="inline-flex items-center justify-center min-w-[72px] px-4 py-1.5 rounded-full text-xs font-medium border border-slate-200 text-slate-400 bg-slate-50">
+          {VACANCY_STATUS_LABELS.no_information}
+        </span>
+      </div>
     );
   }
 
   const normalizedStatus = normalizeVacancyStatus(status);
 
   const styles = {
-    has_vacancy: "bg-emerald-50 text-emerald-700",
-    no_vacancy: "bg-red-50 text-red-700",
-    waiting_list: "bg-amber-50 text-amber-700",
-    no_information: "bg-slate-100 text-slate-500",
+    has_vacancy: "border-emerald-300 text-emerald-600 bg-emerald-50",
+    no_vacancy: "border-red-300 text-red-600 bg-red-50",
+    waiting_list: "border-amber-300 text-amber-600 bg-amber-50",
+    no_information: "border-slate-200 text-slate-400 bg-slate-50",
   };
 
   return (
-    <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${styles[normalizedStatus]}`}>
-      {grade} {VACANCY_STATUS_LABELS[normalizedStatus]}
-    </span>
+    <div className="flex flex-col items-center gap-1">
+      <span className="text-xs text-slate-400 font-medium">{grade}</span>
+      <span className={`inline-flex items-center justify-center min-w-[72px] px-4 py-1.5 rounded-full text-xs font-medium border ${styles[normalizedStatus]}`}>
+        {VACANCY_STATUS_LABELS[normalizedStatus]}
+      </span>
+    </div>
   );
 }

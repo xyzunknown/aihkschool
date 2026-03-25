@@ -1,634 +1,713 @@
 [
   {
     "school_code": "593133",
-    "name_en": "TUTOR TIME INTERNATIONAL KINDERGARTEN (MID LEVELS)",
     "name_tc": "多多國際幼稚園（半山）",
+    "name_en": "TUTOR TIME INTERNATIONAL KINDERGARTEN (MID LEVELS)",
     "website": "http://www.tutortime.com.hk",
+    "source_url": "https://www.tutortime.com.hk/wp-content/uploads/2020/12/TT.ico",
     "logo_url": "/logos/593133.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "594725",
-    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL PRE-SCHOOL (MID-LEVELS)",
     "name_tc": "GUIDEPOST MONTESSORI INTERNATIONAL PRE-SCHOOL (MID-LEVELS)",
+    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL PRE-SCHOOL (MID-LEVELS)",
     "website": "https://guidepost.hk/locations/mid-levels",
+    "source_url": "https://guidepost.hk/dist/images/favicon.png",
     "logo_url": "/logos/594725.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "601420",
-    "name_en": "YORK INTERNATIONAL PRE-SCHOOL (HONG KONG)",
     "name_tc": "YORK INTERNATIONAL PRE-SCHOOL (HONG KONG)",
+    "name_en": "YORK INTERNATIONAL PRE-SCHOOL (HONG KONG)",
     "website": "http://www.york.edu.hk",
+    "source_url": "https://www.google.com/s2/favicons?domain=www.york.edu.hk&sz=128",
     "logo_url": "/logos/601420.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "603643",
-    "name_en": "MIGHTY OAKS INTERNATIONAL KINDERGARTEN",
     "name_tc": "奧恩國際幼稚園",
+    "name_en": "MIGHTY OAKS INTERNATIONAL KINDERGARTEN",
     "website": "https://www.mightyoaks.edu.hk",
+    "source_url": "https://cdn.durable.co/branding/1ekOqk1sCczay3CyPrnnnMZ4gKZjVJHirFaLBAdvmjvW5WnoNqg5Eml8ktLYJpu8.png",
     "logo_url": "/logos/603643.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "607215",
-    "name_en": "WILDERNESS INTERNATIONAL KINDERGARTEN",
     "name_tc": "WILDERNESS INTERNATIONAL KINDERGARTEN",
+    "name_en": "WILDERNESS INTERNATIONAL KINDERGARTEN",
     "website": "http://www.wilderness.asia",
+    "source_url": "https://images.squarespace-cdn.com/content/v1/6352bcec5d353d1f29095f33/c65b7f68-cd1c-4260-a0a4-bba9ee8fc128/favicon.ico",
     "logo_url": "/logos/607215.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "611484",
-    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (KENNEDY TOWN)",
     "name_tc": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (KENNEDY TOWN)",
+    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (KENNEDY TOWN)",
     "website": "https://guidepost.hk/locations/kennedy-town",
+    "source_url": "https://guidepost.hk/dist/images/favicon.png",
     "logo_url": "/logos/611484.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "614904",
-    "name_en": "LES PETITS LASCARS FRENCH INTERNATIONAL PRESCHOOL",
     "name_tc": "LES PETITS LASCARS FRENCH INTERNATIONAL PRESCHOOL",
+    "name_en": "LES PETITS LASCARS FRENCH INTERNATIONAL PRESCHOOL",
     "website": "https://hkkidsacademy.edu.hk/les-petits-lascars",
+    "source_url": "https://hkacademy.b-cdn.net/wp-content/uploads/2024/01/cropped-favicon-n-32x32.png",
     "logo_url": "/logos/614904.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "215635",
-    "name_en": "HAMILTON HILL INTERNATIONAL KINDERGARTEN (ISLAND EAST)",
     "name_tc": "HAMILTON HILL INTERNATIONAL KINDERGARTEN (ISLAND EAST)",
+    "name_en": "HAMILTON HILL INTERNATIONAL KINDERGARTEN (ISLAND EAST)",
     "website": "https://www.hhik.edu.hk",
+    "source_url": null,
     "logo_url": null,
     "status": "pending_manual_review"
   },
   {
     "school_code": "215767",
-    "name_en": "MAGART INTERNATIONAL KINDERGARTEN (KORNHILL)",
     "name_tc": "瑪歌瑞特國際幼稚園（康怡）",
+    "name_en": "MAGART INTERNATIONAL KINDERGARTEN (KORNHILL)",
     "website": "https://www.magartedu.com",
+    "source_url": null,
     "logo_url": null,
     "status": "pending_manual_review"
   },
   {
     "school_code": "566977",
-    "name_en": "MING WAI INTERNATIONAL KINDERGARTEN",
     "name_tc": "明慧國際幼稚園",
+    "name_en": "MING WAI INTERNATIONAL KINDERGARTEN",
     "website": "http://www.mingwai.edu.hk",
+    "source_url": "https://www.mingwai.edu.hk/wp-content/uploads/2021/09/MWicon.jpg",
     "logo_url": "/logos/566977.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "567329",
-    "name_en": "MING WAI INTERNATIONAL KINDERGARTEN (NORTH POINT BRANCH)",
     "name_tc": "明慧國際幼稚園（北角分校）",
+    "name_en": "MING WAI INTERNATIONAL KINDERGARTEN (NORTH POINT BRANCH)",
     "website": "http://www.mingwai.edu.hk",
+    "source_url": "https://www.mingwai.edu.hk/wp-content/uploads/2021/09/MWicon.jpg",
     "logo_url": "/logos/567329.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "575852",
-    "name_en": "TUTOR TIME BRAEMAR HILL INTERNATIONAL KINDERGARTEN",
     "name_tc": "多多寶馬山國際幼稚園",
+    "name_en": "TUTOR TIME BRAEMAR HILL INTERNATIONAL KINDERGARTEN",
     "website": "http://www.tutortime.com.hk/en/home",
+    "source_url": "https://www.tutortime.com.hk/wp-content/uploads/2020/12/TT.ico",
     "logo_url": "/logos/575852.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "602329",
-    "name_en": "ABC PATHWAYS INTERNATIONAL KINDERGARTEN",
     "name_tc": "ABC PATHWAYS INTERNATIONAL KINDERGARTEN",
+    "name_en": "ABC PATHWAYS INTERNATIONAL KINDERGARTEN",
     "website": "http://www.abcpathways.edu.hk",
+    "source_url": "https://www.google.com/s2/favicons?domain=www.abcpathways.edu.hk&sz=128",
     "logo_url": "/logos/602329.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "604585",
-    "name_en": "GRACE GARDEN INTERNATIONAL KINDERGARTEN (LEI KING WAN)",
     "name_tc": "雅惠國際幼稚園（鯉景灣）",
+    "name_en": "GRACE GARDEN INTERNATIONAL KINDERGARTEN (LEI KING WAN)",
     "website": "http://www.gracegarden.edu.hk",
+    "source_url": "http://www.gracegarden.edu.hk/wp-content/uploads/2020/04/cropped-Screen-Shot-2020-04-23-at-11.56.18-AM-32x32.jpg",
     "logo_url": "/logos/604585.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "607223",
-    "name_en": "ISLAND MONTESSORI INTERNATIONAL KINDERGARTEN",
     "name_tc": "港島蒙特梭利國際幼稚園",
+    "name_en": "ISLAND MONTESSORI INTERNATIONAL KINDERGARTEN",
     "website": "https://icms.edu.hk",
+    "source_url": "https://icms.edu.hk/wp-content/uploads/2017/09/favicon.ico",
     "logo_url": "/logos/607223.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "609285",
-    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (CHAI WAN)",
     "name_tc": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (CHAI WAN)",
+    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (CHAI WAN)",
     "website": "https://guidepost.hk/locations/chai-wan",
+    "source_url": "https://guidepost.hk/dist/images/favicon.png",
     "logo_url": "/logos/609285.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "609625",
-    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (DISCOVERY BAY)",
     "name_tc": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (DISCOVERY BAY)",
+    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (DISCOVERY BAY)",
     "website": "https://guidepost.hk/locations/discovery-bay",
+    "source_url": "https://guidepost.hk/dist/images/favicon.png",
     "logo_url": "/logos/609625.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "215120",
-    "name_en": "ST. CATHERINE'S INTERNATIONAL KINDERGARTEN",
     "name_tc": "國際英文幼稚園",
+    "name_en": "ST. CATHERINE'S INTERNATIONAL KINDERGARTEN",
     "website": "http://www.stcatherines.edu.hk",
+    "source_url": null,
     "logo_url": null,
     "status": "pending_manual_review"
   },
   {
     "school_code": "519863",
-    "name_en": "KINGSTON INTERNATIONAL KINDERGARTEN",
     "name_tc": "京斯敦國際幼稚園",
+    "name_en": "KINGSTON INTERNATIONAL KINDERGARTEN",
     "website": "http://www.kingston.edu.hk",
+    "source_url": "https://resources.finalsite.net/images/f_auto,q_auto/v1743553153/kingstoneduhk/oi17ukdrqhpdhoutgft4/Kingston_PNG_1.png",
     "logo_url": "/logos/519863.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "535818",
-    "name_en": "ANFIELD INTERNATIONAL KINDERGARTEN",
     "name_tc": "安菲爾國際幼稚園",
+    "name_en": "ANFIELD INTERNATIONAL KINDERGARTEN",
     "website": "https://anfield.edu.hk/lv/",
-    "logo_url": null,
-    "status": "pending_manual_review"
+    "source_url": "https://www.google.com/s2/favicons?domain=anfield.edu.hk&sz=128",
+    "logo_url": "/logos/535818.png",
+    "status": "downloaded"
   },
   {
     "school_code": "542504",
-    "name_en": "TUTOR TIME INTERNATIONAL KINDERGARTEN (KOWLOON TONG)",
     "name_tc": "多多國際幼稚園（九龍塘）",
+    "name_en": "TUTOR TIME INTERNATIONAL KINDERGARTEN (KOWLOON TONG)",
     "website": "http://www.tutortime.com.hk",
+    "source_url": "https://www.tutortime.com.hk/wp-content/uploads/2020/12/TT.ico",
     "logo_url": "/logos/542504.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "566900",
-    "name_en": "VICTORIA (HOMANTIN) INTERNATIONAL NURSERY",
     "name_tc": "維多利亞（何文田）國際幼兒園",
+    "name_en": "VICTORIA (HOMANTIN) INTERNATIONAL NURSERY",
     "website": "http://www.victoria.edu.hk",
+    "source_url": "https://www.victoria.edu.hk/wp-content/uploads/2024/09/cropped-VEO-ico-32x32.png",
     "logo_url": "/logos/566900.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "578479",
-    "name_en": "YORK INTERNATIONAL PRE-SCHOOL",
     "name_tc": "YORK INTERNATIONAL PRE-SCHOOL",
+    "name_en": "YORK INTERNATIONAL PRE-SCHOOL",
     "website": "http://www.york.edu.hk",
+    "source_url": "https://www.google.com/s2/favicons?domain=www.york.edu.hk&sz=128",
     "logo_url": "/logos/578479.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "581852",
-    "name_en": "YORK INTERNATIONAL KINDERGARTEN",
     "name_tc": "約克國際幼稚園",
+    "name_en": "YORK INTERNATIONAL KINDERGARTEN",
     "website": "http://www.york.edu.hk",
+    "source_url": "https://www.google.com/s2/favicons?domain=www.york.edu.hk&sz=128",
     "logo_url": "/logos/581852.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "597031",
-    "name_en": "GALILEE INTERNATIONAL KINDERGARTEN",
     "name_tc": "伽利利國際幼稚園",
+    "name_en": "GALILEE INTERNATIONAL KINDERGARTEN",
     "website": "http://www.gis.edu.hk",
+    "source_url": "https://static.wixstatic.com/media/f094c1_2f49035ef301471294554b832b9689f4%7Emv2.png/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/f094c1_2f49035ef301471294554b832b9689f4%7Emv2.png",
     "logo_url": "/logos/597031.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "597538",
-    "name_en": "SAINT BRIGIT INTERNATIONAL KINDERGARTEN",
     "name_tc": "聖姬莉國際幼稚園",
+    "name_en": "SAINT BRIGIT INTERNATIONAL KINDERGARTEN",
     "website": "http://www.stbrigit.edu.hk",
+    "source_url": "http://www.stbrigit.edu.hk/img/favicon.ico",
     "logo_url": "/logos/597538.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "599182",
-    "name_en": "CHATSWORTH INTERNATIONAL KINDERGARTEN (BOUNDARY STREET)",
     "name_tc": "新加坡卓薈國際幼稚園（界限街）",
+    "name_en": "CHATSWORTH INTERNATIONAL KINDERGARTEN (BOUNDARY STREET)",
     "website": "https://www.sdm-chatsworth.hk",
+    "source_url": null,
     "logo_url": null,
     "status": "pending_manual_review"
   },
   {
     "school_code": "603864",
-    "name_en": "ABC PATHWAYS INTERNATIONAL KINDERGARTEN (WHAMPOA GARDEN)",
     "name_tc": "ABC PATHWAYS INTERNATIONAL KINDERGARTEN (WHAMPOA GARDEN)",
+    "name_en": "ABC PATHWAYS INTERNATIONAL KINDERGARTEN (WHAMPOA GARDEN)",
     "website": "https://www.abcpathways.edu.hk/language/en/",
+    "source_url": "https://www.google.com/s2/favicons?domain=www.abcpathways.edu.hk&sz=128",
     "logo_url": "/logos/603864.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "610623",
-    "name_en": "MAGART INTERNATIONAL KINDERGARTEN",
     "name_tc": "瑪歌瑞特國際幼稚園",
+    "name_en": "MAGART INTERNATIONAL KINDERGARTEN",
     "website": "https://www.magartedu.com",
+    "source_url": null,
     "logo_url": null,
     "status": "pending_manual_review"
   },
   {
     "school_code": "618039",
-    "name_en": "VICTORIA (HOMANTIN) INTERNATIONAL KINDERGARTEN",
     "name_tc": "維多利亞（何文田）國際幼稚園",
+    "name_en": "VICTORIA (HOMANTIN) INTERNATIONAL KINDERGARTEN",
     "website": "https://www.victoria.edu.hk",
+    "source_url": "https://www.victoria.edu.hk/wp-content/uploads/2024/09/cropped-VEO-ico-32x32.png",
     "logo_url": "/logos/618039.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "216267",
-    "name_en": "THINK INTERNATIONAL KINDERGARTEN",
     "name_tc": "朗思國際幼稚園",
+    "name_en": "THINK INTERNATIONAL KINDERGARTEN",
     "website": "https://www.think.edu.hk/",
+    "source_url": "https://static.wixstatic.com/media/138d0a_1a0d21a36e9a40ab9a3c7e43353bed31%7Emv2.png/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/138d0a_1a0d21a36e9a40ab9a3c7e43353bed31%7Emv2.png",
     "logo_url": "/logos/216267.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "593788",
-    "name_en": "MAPLE BEAR CANADIAN INTERNATIONAL KINDERGARTEN (YAU TONG)",
     "name_tc": "楓葉小熊加拿大國際幼稚園（油塘）",
+    "name_en": "MAPLE BEAR CANADIAN INTERNATIONAL KINDERGARTEN (YAU TONG)",
     "website": "https://www.maplebear.hk/",
+    "source_url": "https://static.wixstatic.com/media/5d51bb_5f7e03322b33429bb5df500e4e63ff93%7Emv2_d_1200_1200_s_2.png/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/5d51bb_5f7e03322b33429bb5df500e4e63ff93%7Emv2_d_1200_1200_s_2.png",
     "logo_url": "/logos/593788.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "566241",
-    "name_en": "MAGART INTERNATIONAL KINDERGARTEN (FANLING)",
     "name_tc": "瑪歌瑞特國際幼稚園（粉嶺）",
+    "name_en": "MAGART INTERNATIONAL KINDERGARTEN (FANLING)",
     "website": "https://www.magartedu.com",
+    "source_url": null,
     "logo_url": null,
     "status": "pending_manual_review"
   },
   {
     "school_code": "601250",
-    "name_en": "MYNORS INTERNATIONAL KINDERGARTEN",
     "name_tc": "麥克萊國際幼稚園",
+    "name_en": "MYNORS INTERNATIONAL KINDERGARTEN",
     "website": "http://www.mynors.edu.hk",
+    "source_url": "https://mynors.edu.hk/wp-content/uploads/2021/03/MYNORS-logo-ny-11-e1615280468228.png",
     "logo_url": "/logos/601250.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "523984",
-    "name_en": "GREENFIELD ENGLISH (INTERNATIONAL) KINDERGARTEN (TSEUNG KWAN O)",
     "name_tc": "綠茵英文（國際）幼稚園（將軍澳）",
+    "name_en": "GREENFIELD ENGLISH (INTERNATIONAL) KINDERGARTEN (TSEUNG KWAN O)",
     "website": "http://greenfield.edu.hk/en",
+    "source_url": "http://greenfield.edu.hk/img/favicon.png",
     "logo_url": "/logos/523984.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "567108",
-    "name_en": "DEBORAH INTERNATIONAL PRE-SCHOOL (TSEUNG KWAN O)",
     "name_tc": "德寶國際幼兒學校（將軍澳）",
+    "name_en": "DEBORAH INTERNATIONAL PRE-SCHOOL (TSEUNG KWAN O)",
     "website": "http://www.deborah-intl.edu.hk",
+    "source_url": null,
     "logo_url": null,
     "status": "pending_manual_review"
   },
   {
     "school_code": "567116",
-    "name_en": "DEBORAH INTERNATIONAL PRE-SCHOOL (BAUHINIA GARDEN)",
     "name_tc": "德寶國際幼兒學校（寶盈花園）",
+    "name_en": "DEBORAH INTERNATIONAL PRE-SCHOOL (BAUHINIA GARDEN)",
     "website": "http://www.deborah-intl.edu.hk",
+    "source_url": null,
     "logo_url": null,
     "status": "pending_manual_review"
   },
   {
     "school_code": "578630",
-    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL PRE-SCHOOL (SAI KUNG)",
     "name_tc": "GUIDEPOST MONTESSORI INTERNATIONAL PRE-SCHOOL (SAI KUNG)",
+    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL PRE-SCHOOL (SAI KUNG)",
     "website": "https://guidepost.hk/locations/sai-kung",
+    "source_url": "https://guidepost.hk/dist/images/favicon.png",
     "logo_url": "/logos/578630.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "581836",
-    "name_en": "BOX HILL (HK) INTERNATIONAL KINDERGARTEN - TSEUNG KWAN O",
     "name_tc": "博士山（香港）國際幼稚園 - 將軍澳",
+    "name_en": "BOX HILL (HK) INTERNATIONAL KINDERGARTEN - TSEUNG KWAN O",
     "website": "http://www.boxhill.edu.hk",
-    "logo_url": null,
-    "status": "pending_manual_review"
+    "source_url": "https://www.google.com/s2/favicons?domain=www.boxhill.edu.hk&sz=128",
+    "logo_url": "/logos/581836.png",
+    "status": "downloaded"
   },
   {
     "school_code": "583774",
-    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (CLEARWATER BAY)",
     "name_tc": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (CLEARWATER BAY)",
+    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (CLEARWATER BAY)",
     "website": "https://guidepost.hk/locations/clearwater-bay",
+    "source_url": "https://guidepost.hk/dist/images/favicon.png",
     "logo_url": "/logos/583774.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "604372",
-    "name_en": "GREENFIELD ENGLISH (INTERNATIONAL) KINDERGARTEN (LOHAS PARK)",
     "name_tc": "綠茵英文（國際）幼稚園（日出康城）",
+    "name_en": "GREENFIELD ENGLISH (INTERNATIONAL) KINDERGARTEN (LOHAS PARK)",
     "website": "http://greenfield.edu.hk/en",
+    "source_url": "http://greenfield.edu.hk/img/favicon.png",
     "logo_url": "/logos/604372.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "609749",
-    "name_en": "YORK MONTESSORI INTERNATIONAL PRE-SCHOOL (TSEUNG KWAN O)",
     "name_tc": "YORK MONTESSORI INTERNATIONAL PRE-SCHOOL (TSEUNG KWAN O)",
+    "name_en": "YORK MONTESSORI INTERNATIONAL PRE-SCHOOL (TSEUNG KWAN O)",
     "website": "https://www.york.edu.hk",
+    "source_url": "https://www.google.com/s2/favicons?domain=www.york.edu.hk&sz=128",
     "logo_url": "/logos/609749.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "613665",
-    "name_en": "MAPLE BEAR CANADIAN INTERNATIONAL KINDERGARTEN",
     "name_tc": "楓葉小熊加拿大國際幼稚園",
+    "name_en": "MAPLE BEAR CANADIAN INTERNATIONAL KINDERGARTEN",
     "website": "https://www.maplebear.hk/",
+    "source_url": "https://static.wixstatic.com/media/5d51bb_5f7e03322b33429bb5df500e4e63ff93%7Emv2_d_1200_1200_s_2.png/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/5d51bb_5f7e03322b33429bb5df500e4e63ff93%7Emv2_d_1200_1200_s_2.png",
     "logo_url": "/logos/613665.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "616311",
-    "name_en": "MAPLE BEAR CANADIAN INTERNATIONAL KINDERGARTEN (LOHAS)",
     "name_tc": "楓葉小熊加拿大國際幼稚園（康城）",
+    "name_en": "MAPLE BEAR CANADIAN INTERNATIONAL KINDERGARTEN (LOHAS)",
     "website": "https://www.maplebear.hk/",
+    "source_url": "https://static.wixstatic.com/media/5d51bb_5f7e03322b33429bb5df500e4e63ff93%7Emv2_d_1200_1200_s_2.png/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/5d51bb_5f7e03322b33429bb5df500e4e63ff93%7Emv2_d_1200_1200_s_2.png",
     "logo_url": "/logos/616311.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "604470",
-    "name_en": "ARISTLE INTERNATIONAL KINDERGARTEN",
     "name_tc": "雅士圖國際幼稚園",
+    "name_en": "ARISTLE INTERNATIONAL KINDERGARTEN",
     "website": "http://www.aik.edu.hk",
+    "source_url": "https://static.wixstatic.com/media/ebd675_fd6acb4dcd7a4a3ea016dcf5f6dd2683%7Emv2.png/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/ebd675_fd6acb4dcd7a4a3ea016dcf5f6dd2683%7Emv2.png",
     "logo_url": "/logos/604470.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "604615",
-    "name_en": "YORK MONTESSORI INTERNATIONAL PRE-SCHOOL (MEI FOO)",
     "name_tc": "YORK MONTESSORI INTERNATIONAL PRE-SCHOOL (MEI FOO)",
+    "name_en": "YORK MONTESSORI INTERNATIONAL PRE-SCHOOL (MEI FOO)",
     "website": "http://www.york.edu.hk/",
+    "source_url": "https://www.google.com/s2/favicons?domain=www.york.edu.hk&sz=128",
     "logo_url": "/logos/604615.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "607703",
-    "name_en": "KENDALL INTERNATIONAL PRESCHOOL",
     "name_tc": "漢迪國際幼稚園",
+    "name_en": "KENDALL INTERNATIONAL PRESCHOOL",
     "website": "http://www.kendall.edu.hk",
+    "source_url": "https://www.kendall.edu.hk/wp-content/uploads/2021/01/cropped-favicon-32x32.png",
     "logo_url": "/logos/607703.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "612782",
-    "name_en": "THINK INTERNATIONAL KINDERGARTEN (NAM CHEONG)",
     "name_tc": "朗思國際幼稚園（南昌）",
+    "name_en": "THINK INTERNATIONAL KINDERGARTEN (NAM CHEONG)",
     "website": "https://www.think.edu.hk/",
+    "source_url": "https://static.wixstatic.com/media/138d0a_1a0d21a36e9a40ab9a3c7e43353bed31%7Emv2.png/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/138d0a_1a0d21a36e9a40ab9a3c7e43353bed31%7Emv2.png",
     "logo_url": "/logos/612782.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "533360",
-    "name_en": "THINK INTERNATIONAL KINDERGARTEN (MA ON SHAN)",
     "name_tc": "朗思國際幼稚園（馬鞍山）",
+    "name_en": "THINK INTERNATIONAL KINDERGARTEN (MA ON SHAN)",
     "website": "https://www.think.edu.hk/",
+    "source_url": "https://static.wixstatic.com/media/138d0a_1a0d21a36e9a40ab9a3c7e43353bed31%7Emv2.png/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/138d0a_1a0d21a36e9a40ab9a3c7e43353bed31%7Emv2.png",
     "logo_url": "/logos/533360.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "559415",
-    "name_en": "BOX HILL (HK) INTERNATIONAL KINDERGARTEN",
     "name_tc": "博士山（香港）國際幼稚園",
+    "name_en": "BOX HILL (HK) INTERNATIONAL KINDERGARTEN",
     "website": "https://www.boxhill.edu.hk",
-    "logo_url": null,
-    "status": "pending_manual_review"
+    "source_url": "https://www.google.com/s2/favicons?domain=www.boxhill.edu.hk&sz=128",
+    "logo_url": "/logos/559415.png",
+    "status": "downloaded"
   },
   {
     "school_code": "581739",
-    "name_en": "BOX HILL (HK) INTERNATIONAL KINDERGARTEN - FO TAN",
     "name_tc": "博士山（香港）國際幼稚園 - 火炭",
+    "name_en": "BOX HILL (HK) INTERNATIONAL KINDERGARTEN - FO TAN",
     "website": "http://www.boxhill.edu.hk",
-    "logo_url": null,
-    "status": "pending_manual_review"
+    "source_url": "https://www.google.com/s2/favicons?domain=www.boxhill.edu.hk&sz=128",
+    "logo_url": "/logos/581739.png",
+    "status": "downloaded"
   },
   {
     "school_code": "598054",
-    "name_en": "MULBERRY TREE INTERNATIONAL KINDERGARTEN",
     "name_tc": "童樂天國際幼稚園",
+    "name_en": "MULBERRY TREE INTERNATIONAL KINDERGARTEN",
     "website": "https://www.mulberrytree.edu.hk/",
+    "source_url": "https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,h_64,w_64/62928/MulberryTree_TreeLogo_yzuts9.png",
     "logo_url": "/logos/598054.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "613916",
-    "name_en": "PUI KIU INTERNATIONAL KINDERGARTEN",
     "name_tc": "培僑國際幼稚園",
+    "name_en": "PUI KIU INTERNATIONAL KINDERGARTEN",
     "website": "http://www.puikiukg.edu.hk/",
+    "source_url": "http://www.puikiukg.edu.hk/images/favicon-16x16.png",
     "logo_url": "/logos/613916.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "622389",
-    "name_en": "PUI KIU INTERNATIONAL KINDERGARTEN (PICTORIAL GARDEN)",
     "name_tc": "培僑國際幼稚園（碧濤花園）",
+    "name_en": "PUI KIU INTERNATIONAL KINDERGARTEN (PICTORIAL GARDEN)",
     "website": "http://www.puikiukg.edu.hk",
+    "source_url": "http://www.puikiukg.edu.hk/images/favicon-16x16.png",
     "logo_url": "/logos/622389.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "215937",
-    "name_en": "PARKVIEW INTERNATIONAL PRE-SCHOOL",
     "name_tc": "栢基國際幼稚園",
+    "name_en": "PARKVIEW INTERNATIONAL PRE-SCHOOL",
     "website": "http://www.pips.edu.hk/hk",
+    "source_url": "http://www.pips.edu.hk/images/icons/apple-touch-icon.png",
     "logo_url": "/logos/215937.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "216194",
-    "name_en": "VICTORIA (SOUTH HORIZONS) INTERNATIONAL KINDERGARTEN",
     "name_tc": "維多利亞（海怡）國際幼稚園",
+    "name_en": "VICTORIA (SOUTH HORIZONS) INTERNATIONAL KINDERGARTEN",
     "website": "http://www.victoria.edu.hk",
+    "source_url": "https://www.victoria.edu.hk/wp-content/uploads/2024/09/cropped-VEO-ico-32x32.png",
     "logo_url": "/logos/216194.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "578053",
-    "name_en": "MULBERRY HOUSE INTERNATIONAL KINDERGARTEN SOUTHSIDE",
     "name_tc": "MULBERRY HOUSE INTERNATIONAL KINDERGARTEN SOUTHSIDE",
+    "name_en": "MULBERRY HOUSE INTERNATIONAL KINDERGARTEN SOUTHSIDE",
     "website": "https://mulberryhousekg.com",
-    "logo_url": null,
-    "status": "pending_manual_review"
+    "source_url": "https://www.google.com/s2/favicons?domain=mulberryhousekg.com&sz=128",
+    "logo_url": "/logos/578053.png",
+    "status": "downloaded"
   },
   {
     "school_code": "598089",
-    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (POK FU LAM)",
     "name_tc": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (POK FU LAM)",
+    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (POK FU LAM)",
     "website": "https://guidepost.hk/locations/pok-fu-lam",
+    "source_url": "https://guidepost.hk/dist/images/favicon.png",
     "logo_url": "/logos/598089.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "602256",
-    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL PRE-SCHOOL (REPULSE BAY)",
     "name_tc": "GUIDEPOST MONTESSORI INTERNATIONAL PRE-SCHOOL (REPULSE BAY)",
+    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL PRE-SCHOOL (REPULSE BAY)",
     "website": "https://guidepost.hk/locations/repulse-bay",
+    "source_url": "https://guidepost.hk/dist/images/favicon.png",
     "logo_url": "/logos/602256.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "565199",
-    "name_en": "ANCHORS INTERNATIONAL NURSERY",
     "name_tc": "安基司國際幼兒園",
+    "name_en": "ANCHORS INTERNATIONAL NURSERY",
     "website": "http://www.anchors.edu.hk",
-    "logo_url": null,
-    "status": "pending_manual_review"
+    "source_url": "https://www.google.com/s2/favicons?domain=www.anchors.edu.hk&sz=128",
+    "logo_url": "/logos/565199.png",
+    "status": "downloaded"
   },
   {
     "school_code": "567027",
-    "name_en": "MINK INTERNATIONAL PRE-SCHOOL",
     "name_tc": "明雅國際幼兒學校",
+    "name_en": "MINK INTERNATIONAL PRE-SCHOOL",
     "website": "http://www.mink.edu.hk",
-    "logo_url": null,
-    "status": "pending_manual_review"
+    "source_url": "https://www.google.com/s2/favicons?domain=www.mink.edu.hk&sz=128",
+    "logo_url": "/logos/567027.png",
+    "status": "downloaded"
   },
   {
     "school_code": "601721",
-    "name_en": "MULBERRY HOUSE INTERNATIONAL KINDERGARTEN",
     "name_tc": "懋柏禮國際幼稚園",
+    "name_en": "MULBERRY HOUSE INTERNATIONAL KINDERGARTEN",
     "website": "https://mulberryhousekg.com/",
-    "logo_url": null,
-    "status": "pending_manual_review"
+    "source_url": "https://www.google.com/s2/favicons?domain=mulberryhousekg.com&sz=128",
+    "logo_url": "/logos/601721.png",
+    "status": "downloaded"
   },
   {
     "school_code": "619850",
-    "name_en": "VICTORIA (OCEAN PRIDE) INTERNATIONAL KINDERGARTEN",
     "name_tc": "維多利亞（海之戀）國際幼稚園",
+    "name_en": "VICTORIA (OCEAN PRIDE) INTERNATIONAL KINDERGARTEN",
     "website": "http://www.victoria.edu.hk",
+    "source_url": "https://www.victoria.edu.hk/wp-content/uploads/2024/09/cropped-VEO-ico-32x32.png",
     "logo_url": "/logos/619850.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "587524",
-    "name_en": "JING JING INTERNATIONAL KINDERGARTEN",
     "name_tc": "晶晶國際幼稚園",
+    "name_en": "JING JING INTERNATIONAL KINDERGARTEN",
     "website": "http://www.jingjing.edu.hk",
+    "source_url": "https://static.parastorage.com/client/pfavico.ico",
     "logo_url": "/logos/587524.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "590401",
-    "name_en": "WELLCOME INTERNATIONAL KINDERGARTEN",
     "name_tc": "宏廣國際幼稚園",
+    "name_en": "WELLCOME INTERNATIONAL KINDERGARTEN",
     "website": "http://www.wellcomekg.edu.hk",
-    "logo_url": null,
-    "status": "pending_manual_review"
+    "source_url": "https://www.google.com/s2/favicons?domain=www.wellcomekg.edu.hk&sz=128",
+    "logo_url": "/logos/590401.png",
+    "status": "downloaded"
   },
   {
     "school_code": "615170",
-    "name_en": "JOYFUL WORLD INTERNATIONAL KINDERGARTEN (TUEN MUN)",
     "name_tc": "心怡天地國際幼稚園（屯門）",
+    "name_en": "JOYFUL WORLD INTERNATIONAL KINDERGARTEN (TUEN MUN)",
     "website": "http://www.joyfulenglish.edu.hk/",
-    "logo_url": null,
-    "status": "pending_manual_review"
+    "source_url": "https://www.google.com/s2/favicons?domain=www.joyfulenglish.edu.hk&sz=128",
+    "logo_url": "/logos/615170.png",
+    "status": "downloaded"
   },
   {
     "school_code": "616990",
-    "name_en": "YORK INTERNATIONAL PRE-SCHOOL (TUEN MUN)",
     "name_tc": "YORK INTERNATIONAL PRE-SCHOOL (TUEN MUN)",
+    "name_en": "YORK INTERNATIONAL PRE-SCHOOL (TUEN MUN)",
     "website": "http://www.york.edu.hk",
+    "source_url": "https://www.google.com/s2/favicons?domain=www.york.edu.hk&sz=128",
     "logo_url": "/logos/616990.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "564958",
-    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL PRE-SCHOOL (HAPPY VALLEY HAWTHORN ROAD)",
     "name_tc": "GUIDEPOST MONTESSORI INTERNATIONAL PRE-SCHOOL (HAPPY VALLEY HAWTHORN ROAD)",
+    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL PRE-SCHOOL (HAPPY VALLEY HAWTHORN ROAD)",
     "website": "https://guidepost.hk/locations/happyvalley-hawthornroad",
+    "source_url": "https://guidepost.hk/dist/images/favicon.png",
     "logo_url": "/logos/564958.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "600334",
-    "name_en": "MASS INTERNATIONAL PRESCHOOL",
     "name_tc": "善行國際幼稚園",
+    "name_en": "MASS INTERNATIONAL PRESCHOOL",
     "website": "http://www.masspreschool.com",
+    "source_url": "https://static.wixstatic.com/media/e17c08_49ed85ebb7384f58afa3656cec8b2a18%7Emv2.jpg/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/e17c08_49ed85ebb7384f58afa3656cec8b2a18%7Emv2.jpg",
     "logo_url": "/logos/600334.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "216178",
-    "name_en": "YMCA OF HONG KONG CHRISTIAN INTERNATIONAL KINDERGARTEN",
     "name_tc": "港青基信國際幼稚園",
+    "name_en": "YMCA OF HONG KONG CHRISTIAN INTERNATIONAL KINDERGARTEN",
     "website": "http://ymcahk.org.hk/cikg/",
+    "source_url": "http://ymcahk.org.hk/favicon.ico",
     "logo_url": "/logos/216178.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "571490",
-    "name_en": "PARKVIEW INTERNATIONAL PRE-SCHOOL (KOWLOON)",
     "name_tc": "栢基國際幼稚園（九龍）",
+    "name_en": "PARKVIEW INTERNATIONAL PRE-SCHOOL (KOWLOON)",
     "website": "https://www.pips.edu.hk/kln/index.asp",
+    "source_url": "https://www.pips.edu.hk/images/icons/apple-touch-icon.png",
     "logo_url": "/logos/571490.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "583421",
-    "name_en": "MING WAI INTERNATIONAL KINDERGARTEN (PRINCE EDWARD BRANCH)",
     "name_tc": "明慧國際幼稚園（太子分校）",
+    "name_en": "MING WAI INTERNATIONAL KINDERGARTEN (PRINCE EDWARD BRANCH)",
     "website": "http://www.mingwai.edu.hk",
+    "source_url": "https://www.mingwai.edu.hk/wp-content/uploads/2021/09/MWicon.jpg",
     "logo_url": "/logos/583421.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "602000",
-    "name_en": "TOPKIDS INTERNATIONAL KINDERGARTEN (YUEN LONG)",
     "name_tc": "德怡國際幼稚園（元朗）",
+    "name_en": "TOPKIDS INTERNATIONAL KINDERGARTEN (YUEN LONG)",
     "website": "http://www.topkids.edu.hk",
+    "source_url": "https://static.parastorage.com/client/pfavico.ico",
     "logo_url": "/logos/602000.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "605441",
-    "name_en": "YORK MONTESSORI INTERNATIONAL PRE-SCHOOL (YUEN LONG)",
     "name_tc": "YORK MONTESSORI INTERNATIONAL PRE-SCHOOL (YUEN LONG)",
+    "name_en": "YORK MONTESSORI INTERNATIONAL PRE-SCHOOL (YUEN LONG)",
     "website": "http://www.york.edu.hk",
+    "source_url": "https://www.google.com/s2/favicons?domain=www.york.edu.hk&sz=128",
     "logo_url": "/logos/605441.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "605794",
-    "name_en": "TUTOR TIME INTERNATIONAL KINDERGARTEN (YOHO)",
     "name_tc": "多多國際幼稚園（形點）",
+    "name_en": "TUTOR TIME INTERNATIONAL KINDERGARTEN (YOHO)",
     "website": "http://www.tutortime.com.hk",
+    "source_url": "https://www.tutortime.com.hk/wp-content/uploads/2020/12/TT.ico",
     "logo_url": "/logos/605794.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "612189",
-    "name_en": "JOYFUL WORLD INTERNATIONAL KINDERGARTEN (YUEN LONG)",
     "name_tc": "心怡天地國際幼稚園（元朗）",
+    "name_en": "JOYFUL WORLD INTERNATIONAL KINDERGARTEN (YUEN LONG)",
     "website": "http://www.joyfulenglish.edu.hk/",
-    "logo_url": null,
-    "status": "pending_manual_review"
+    "source_url": "https://www.google.com/s2/favicons?domain=www.joyfulenglish.edu.hk&sz=128",
+    "logo_url": "/logos/612189.png",
+    "status": "downloaded"
   },
   {
     "school_code": "615633",
-    "name_en": "EIS INTERNATIONAL PRE-SCHOOL",
     "name_tc": "艾蒙特國際幼稚園",
+    "name_en": "EIS INTERNATIONAL PRE-SCHOOL",
     "website": "https://www.eminent-education.org",
+    "source_url": "https://images.squarespace-cdn.com/content/v1/5e0ec1ebf156d62772b5b64b/1582731422393-CNWE2A0OCUX21E5ZWA8R/favicon.ico?format=100w",
     "logo_url": "/logos/615633.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "621480",
-    "name_en": "YORK INTERNATIONAL PRE-SCHOOL (WETLAND)",
     "name_tc": "YORK INTERNATIONAL PRE-SCHOOL (WETLAND)",
+    "name_en": "YORK INTERNATIONAL PRE-SCHOOL (WETLAND)",
     "website": "http://www.york.edu.hk",
+    "source_url": "https://www.google.com/s2/favicons?domain=www.york.edu.hk&sz=128",
     "logo_url": "/logos/621480.png",
-    "status": "ready"
+    "status": "downloaded"
   },
   {
     "school_code": "622060",
-    "name_en": "ANCHORS ACADEMY AFFILIATED INTERNATIONAL KINDERGARTEN",
     "name_tc": "安基司學校附屬國際幼稚園",
+    "name_en": "ANCHORS ACADEMY AFFILIATED INTERNATIONAL KINDERGARTEN",
     "website": "https://www.anchorsacademy.edu.hk/",
-    "logo_url": null,
-    "status": "pending_manual_review"
+    "source_url": "https://www.google.com/s2/favicons?domain=www.anchorsacademy.edu.hk&sz=128",
+    "logo_url": "/logos/622060.png",
+    "status": "downloaded"
   }
 ]
