@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { VacancyBadge } from "./VacancyBadge";
 import { SchoolAvatar } from "./SchoolAvatar";
-import { DISTRICT_LABELS, isVacancyStale, timeAgo } from "@/lib/utils";
+import { DISTRICT_LABELS, formatEnglishSchoolName, isVacancyStale, timeAgo } from "@/lib/utils";
 import type { VacancyStatus } from "@/types/database";
 
 interface SchoolCardProps {
@@ -31,7 +31,7 @@ export function SchoolCard({
   const router = useRouter();
   const stale = vacancy ? isVacancyStale(vacancy.edb_published_date) : true;
   const hasChineseName = /[\u3400-\u9fff]/.test(nameTc);
-  const displayNameEn = nameEn?.trim() || nameTc;
+  const displayNameEn = formatEnglishSchoolName(nameEn?.trim() || nameTc);
   const primaryName = hasChineseName ? nameTc : displayNameEn;
   const secondaryName = hasChineseName && displayNameEn !== nameTc ? displayNameEn : null;
 

@@ -174,3 +174,23 @@ export function timeAgo(dateStr: string | null): string {
   if (diffDays < 30) return `${diffDays}天前更新`;
   return formatDateCN(dateStr);
 }
+
+export function formatEnglishSchoolName(name: string | null | undefined): string {
+  if (!name) return "";
+
+  const trimmed = name.trim();
+  if (!trimmed) return "";
+
+  const hasLowercase = /[a-z]/.test(trimmed);
+  const hasUppercase = /[A-Z]/.test(trimmed);
+  if (hasLowercase || !hasUppercase) {
+    return trimmed;
+  }
+
+  const keepUpper = new Set(["HK", "YMCA", "KCS", "ESF", "ICS", "IB"]);
+
+  return trimmed.replace(/[A-Z][A-Z'&.-]*/g, (word) => {
+    if (keepUpper.has(word)) return word;
+    return word.charAt(0) + word.slice(1).toLowerCase();
+  });
+}

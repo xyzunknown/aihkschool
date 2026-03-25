@@ -13,7 +13,7 @@ import { ReminderSheet } from "@/components/schools/ReminderSheet";
 import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
 import { useAuth } from "@/components/layout/AuthProvider";
 import { useToast } from "@/components/ui/Toast";
-import { DISTRICT_LABELS, isVacancyStale, deadlineStatus } from "@/lib/utils";
+import { DISTRICT_LABELS, formatEnglishSchoolName, isVacancyStale, deadlineStatus } from "@/lib/utils";
 import type { School, Vacancy, AdmissionIntel, DataSource } from "@/types/database";
 
 interface Props {
@@ -32,7 +32,7 @@ export function SchoolDetailClient({ school, vacancy, initialIntel, intelCount }
 
   const stale = vacancy ? isVacancyStale(vacancy.edb_published_date) : true;
   const dlStatus = vacancy ? deadlineStatus(vacancy.application_deadline) : null;
-  const displayNameEn = school.name_en?.trim() || school.name_tc;
+  const displayNameEn = formatEnglishSchoolName(school.name_en?.trim() || school.name_tc);
   const hasChineseName = /[\u3400-\u9fff]/.test(school.name_tc);
   const primaryName = hasChineseName ? school.name_tc : displayNameEn;
   const secondaryName = hasChineseName && displayNameEn !== school.name_tc ? displayNameEn : null;

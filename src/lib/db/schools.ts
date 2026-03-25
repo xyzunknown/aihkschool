@@ -35,10 +35,7 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
     .select(
       `id, school_code, name_tc, name_en, district, phone, website, logo_url,
        school_type, kep_participant, session_type, language_primary,
-       fee_monthly_hkd, fee_annual_hkd, application_fee_hkd, registration_fee_hkd,
-       other_fees_note, fee_notes, application_status, application_details,
-       application_url, open_day_details, open_day_url, grades_offered, data_source, last_verified_at,
-       last_profile_scraped_at,
+       fee_monthly_hkd, grades_offered, data_source, last_verified_at,
        is_active, created_at, updated_at,
        vacancies!inner ( id, academic_year, k1_vacancy, k2_vacancy, k3_vacancy, n_vacancy, application_deadline, edb_published_date, is_current )`,
       { count: "exact" }
@@ -112,25 +109,69 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
 export async function fetchSchoolById(id: string) {
   const supabase = await createClient();
 
+  const fullSelect = `id, school_code, name_tc, name_en, district, address_tc, address_en,
+     phone, fax, email, website, logo_url, school_type, kep_participant, session_type,
+     language_primary, language_secondary, fee_monthly_hkd, fee_annual_hkd,
+     application_fee_hkd, registration_fee_hkd, other_fees_note, fee_notes,
+     application_status, application_details, application_url, open_day_details, open_day_url,
+     grades_offered, data_source, last_verified_at, last_profile_scraped_at, is_active, created_at, updated_at`;
+
+  const legacySelect = `id, school_code, name_tc, name_en, district, address_tc, address_en,
+     phone, fax, email, website, logo_url, school_type, kep_participant, session_type,
+     language_primary, language_secondary, fee_monthly_hkd, fee_annual_hkd,
+     grades_offered, data_source, last_verified_at, is_active, created_at, updated_at`;
+
   const { data, error } = await supabase
     .from("schools")
-    .select(
-      `id, school_code, name_tc, name_en, district, address_tc, address_en,
-       phone, fax, email, website, logo_url, school_type, kep_participant, session_type,
-       language_primary, language_secondary, fee_monthly_hkd, fee_annual_hkd,
-       application_fee_hkd, registration_fee_hkd, other_fees_note, fee_notes,
-       application_status, application_details, application_url, open_day_details, open_day_url,
-       grades_offered, data_source, last_verified_at, last_profile_scraped_at, is_active, created_at, updated_at`
-    )
+    .select(fullSelect)
     .eq("id", id)
     .eq("is_active", true)
     .single();
 
-  if (error) {
+  if (!error) {
+    return data as School;
+  }
+
+  const shouldFallback =
+    error.message.includes("application_fee_hkd") ||
+    error.message.includes("registration_fee_hkd") ||
+    error.message.includes("other_fees_note") ||
+    error.message.includes("fee_notes") ||
+    error.message.includes("application_status") ||
+    error.message.includes("application_details") ||
+    error.message.includes("application_url") ||
+    error.message.includes("open_day_details") ||
+    error.message.includes("open_day_url") ||
+    error.message.includes("last_profile_scraped_at");
+
+  if (!shouldFallback) {
     return null;
   }
 
-  return data as School;
+  const legacyResult = await supabase
+    .from("schools")
+    .select(legacySelect)
+    .eq("id", id)
+    .eq("is_active", true)
+    .single();
+
+  if (legacyResult.error || !legacyResult.data) {
+    return null;
+  }
+
+  return {
+    ...legacyResult.data,
+    application_fee_hkd: null,
+    registration_fee_hkd: null,
+    other_fees_note: null,
+    fee_notes: null,
+    application_status: null,
+    application_details: null,
+    application_url: null,
+    open_day_details: null,
+    open_day_url: null,
+    last_profile_scraped_at: null,
+  } as School;
 }
 
 export async function searchSchools(query: string) {
