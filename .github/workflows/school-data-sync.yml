@@ -5,12 +5,16 @@ on:
   schedule:
     - cron: "0 19 * * 6"
 
+permissions:
+  contents: write
+
 jobs:
   sync:
     runs-on: macos-latest
     timeout-minutes: 90
 
     env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
       NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
       SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
 
