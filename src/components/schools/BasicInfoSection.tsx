@@ -33,6 +33,15 @@ export function BasicInfoSection({ school }: BasicInfoSectionProps) {
       value: SCHOOL_TYPE_LABELS[school.school_type] ?? school.school_type,
     },
     {
+      label: "資助計劃",
+      value:
+        school.school_type === "international"
+          ? null
+          : school.kep_participant
+            ? "已參加幼稚園教育計劃"
+            : "未參加幼稚園教育計劃",
+    },
+    {
       label: "教學語言",
       value: school.language_primary ? LANGUAGE_OPTIONS[school.language_primary] ?? school.language_primary : null,
     },
