@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { normalizeVacancyStatus } from "@/lib/utils";
+import { getFallbackEnglishName } from "@/lib/db/schoolNameFallback";
 import type { School, District, SchoolType } from "@/types/database";
 
 export interface FetchSchoolsParams {
@@ -98,8 +99,13 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
       ? schools.slice(offset, offset + safeLimit)
       : schools;
 
+  const normalizedSchools = pagedSchools.map((school) => ({
+    ...school,
+    name_en: school.name_en ?? getFallbackEnglishName(school.school_code),
+  }));
+
   return {
-    data: pagedSchools,
+    data: normalizedSchools,
     count: vacancyStatuses && vacancyStatuses.length > 0 ? schools.length : count ?? 0,
     page,
     limit: safeLimit,
@@ -129,7 +135,10 @@ export async function fetchSchoolById(id: string) {
     .single();
 
   if (!error) {
-    return data as School;
+    return {
+      ...data,
+      name_en: data.name_en ?? getFallbackEnglishName(data.school_code),
+    } as School;
   }
 
   const shouldFallback =
@@ -161,6 +170,7 @@ export async function fetchSchoolById(id: string) {
 
   return {
     ...legacyResult.data,
+    name_en: legacyResult.data.name_en ?? getFallbackEnglishName(legacyResult.data.school_code),
     application_fee_hkd: null,
     registration_fee_hkd: null,
     other_fees_note: null,
