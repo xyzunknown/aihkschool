@@ -18,6 +18,7 @@ interface SchoolCardProps {
   nameTc: string;
   nameEn?: string;
   logoUrl?: string | null;
+  schoolCode?: string | null;
   district: string;
   schoolType?: string;
   sessionType?: string | null;
@@ -38,6 +39,7 @@ export function SchoolCard({
   nameTc,
   nameEn,
   logoUrl,
+  schoolCode,
   district,
   schoolType,
   sessionType,
@@ -75,7 +77,7 @@ export function SchoolCard({
       {/* Row 1: Avatar + Name + Favorite */}
       <div className="flex items-start gap-3 mb-3">
         <div className="flex-shrink-0">
-          <SchoolAvatar schoolId={id} schoolName={primaryName} logoUrl={logoUrl} />
+          <SchoolAvatar schoolId={id} schoolName={primaryName} logoUrl={logoUrl} schoolCode={schoolCode} />
         </div>
         <div className="flex-1 min-w-0">
           <h3 className="text-base font-bold text-slate-900 leading-snug line-clamp-2">{primaryName}</h3>

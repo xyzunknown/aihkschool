@@ -11,6 +11,7 @@ import type { District, SchoolType, VacancyStatus } from "@/types/database";
 
 interface SchoolData {
   id: string;
+  school_code: string | null;
   name_tc: string;
   name_en: string | null;
   logo_url: string | null;
@@ -156,8 +157,8 @@ export default function KGListClient() {
       />
 
       {loading ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {[1, 2, 3, 4].map((i) => <SchoolCardSkeleton key={i} />)}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {[1, 2, 3, 4, 5, 6].map((i) => <SchoolCardSkeleton key={i} />)}
         </div>
       ) : error ? (
         <div className="text-center py-16">
@@ -172,7 +173,7 @@ export default function KGListClient() {
       ) : (
         <>
           <p className="text-sm text-slate-500 mb-4">共 {count} 所學校</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {schools.map((school) => {
               const currentVacancy = school.vacancies?.[0];
               return (
@@ -182,6 +183,7 @@ export default function KGListClient() {
                   nameTc={school.name_tc}
                   nameEn={school.name_en ?? undefined}
                   logoUrl={school.logo_url}
+                  schoolCode={school.school_code}
                   district={school.district}
                   schoolType={school.school_type}
                   sessionType={school.session_type}

@@ -126,6 +126,7 @@ export function SchoolDetailClient({ school, vacancy, initialIntel, intelCount }
             schoolId={school.id}
             schoolName={primaryName}
             logoUrl={school.logo_url}
+            schoolCode={school.school_code}
             size="lg"
           />
 
