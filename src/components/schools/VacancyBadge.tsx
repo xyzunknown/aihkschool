@@ -1,5 +1,5 @@
 import type { VacancyStatus } from "@/types/database";
-import { GRADE_LABELS, normalizeVacancyStatus, VACANCY_STATUS_LABELS } from "@/lib/utils";
+import { normalizeVacancyStatus, VACANCY_STATUS_LABELS } from "@/lib/utils";
 
 interface VacancyBadgeProps {
   grade: string;
@@ -8,12 +8,10 @@ interface VacancyBadgeProps {
 }
 
 export function VacancyBadge({ grade, status, isStale = false }: VacancyBadgeProps) {
-  const gradeLabel = GRADE_LABELS[grade] ?? grade;
-
   if (isStale) {
     return (
       <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-500">
-        {gradeLabel} {VACANCY_STATUS_LABELS.no_information}
+        {grade} {VACANCY_STATUS_LABELS.no_information}
       </span>
     );
   }
@@ -29,7 +27,7 @@ export function VacancyBadge({ grade, status, isStale = false }: VacancyBadgePro
 
   return (
     <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${styles[normalizedStatus]}`}>
-      {gradeLabel} {VACANCY_STATUS_LABELS[normalizedStatus]}
+      {grade} {VACANCY_STATUS_LABELS[normalizedStatus]}
     </span>
   );
 }

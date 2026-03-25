@@ -2,7 +2,6 @@ import type { InterviewType, ApplicationResult } from "@/types/database";
 import {
   INTERVIEW_TYPE_LABELS,
   APPLICATION_RESULT_LABELS,
-  GRADE_LABELS,
 } from "@/lib/utils";
 
 interface IntelCardProps {
@@ -34,8 +33,6 @@ export function IntelCard({
   isVoted,
   onHelpful,
 }: IntelCardProps) {
-  const gradeLabel = GRADE_LABELS[gradeApplied] ?? gradeApplied;
-
   const resultColors: Record<ApplicationResult, string> = {
     accepted: "text-green-800",
     waitlisted: "text-orange-800",
@@ -48,7 +45,7 @@ export function IntelCard({
       {/* Header */}
       <div className="flex justify-between items-center mb-3">
         <span className="text-base font-semibold text-slate-950">
-          {academicYear} {gradeLabel} 面試心得
+          {academicYear} {gradeApplied} 面試心得
         </span>
         <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-[11px] font-medium bg-amber-50 text-amber-700 border border-amber-200">
           家長提交

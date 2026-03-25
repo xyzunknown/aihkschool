@@ -7,10 +7,10 @@ export const revalidate = 3600; // ISR 1 hour
 
 export const metadata: Metadata = {
   title: "幼稚園列表 — HKSchoolPlace",
-  description: "搜尋全港幼稚園，查看細班至大班學位空缺狀態、申請截止日期，一站式對比。",
+  description: "搜尋全港幼稚園，查看 K1-K3 學位空缺狀態、申請截止日期，一站式對比。",
   openGraph: {
     title: "幼稚園列表 — HKSchoolPlace",
-    description: "搜尋全港幼稚園，查看細班至大班學位空缺狀態、申請截止日期。",
+    description: "搜尋全港幼稚園，查看 K1-K3 學位空缺狀態、申請截止日期。",
     type: "website",
     url: "https://aihkschool.vercel.app/kg",
   },

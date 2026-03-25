@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { getAvatarColor } from "@/lib/utils";
 
 interface SchoolAvatarProps {
   schoolId: string;
@@ -18,7 +17,7 @@ export function SchoolAvatar({
   size = "md",
 }: SchoolAvatarProps) {
   const [showLogo, setShowLogo] = useState(Boolean(logoUrl));
-  const avatarColor = getAvatarColor(schoolId);
+  void schoolId;
   const firstChar = schoolName.trim().charAt(0);
 
   const sizeClass = size === "lg" ? "w-16 h-16" : "w-12 h-12";
@@ -38,9 +37,9 @@ export function SchoolAvatar({
         </div>
       ) : (
         <div
-          className={`flex h-full w-full items-center justify-center rounded-full ${avatarColor.bg}`}
+          className="flex h-full w-full items-center justify-center rounded-full bg-slate-100"
         >
-          <span className={`text-lg font-semibold ${avatarColor.text}`}>{firstChar}</span>
+          <span className="text-lg font-semibold text-slate-700">{firstChar}</span>
         </div>
       )}
     </div>

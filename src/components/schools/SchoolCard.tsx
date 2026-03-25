@@ -30,7 +30,10 @@ export function SchoolCard({
 }: SchoolCardProps) {
   const router = useRouter();
   const stale = vacancy ? isVacancyStale(vacancy.edb_published_date) : true;
+  const hasChineseName = /[\u3400-\u9fff]/.test(nameTc);
   const displayNameEn = nameEn?.trim() || nameTc;
+  const primaryName = hasChineseName ? nameTc : displayNameEn;
+  const secondaryName = hasChineseName && displayNameEn !== nameTc ? displayNameEn : null;
 
   return (
     <div
@@ -41,7 +44,7 @@ export function SchoolCard({
       <div className="flex items-start justify-between mb-4">
         {/* Avatar */}
         <div className="flex-shrink-0">
-          <SchoolAvatar schoolId={id} schoolName={nameTc} logoUrl={logoUrl} />
+          <SchoolAvatar schoolId={id} schoolName={primaryName} logoUrl={logoUrl} />
         </div>
 
         {/* Badges - stacked top-right */}
@@ -55,10 +58,10 @@ export function SchoolCard({
       </div>
 
       {/* School name (Traditional Chinese) */}
-      <h3 className="text-lg font-semibold text-slate-950 mb-1">{nameTc}</h3>
+      <h3 className="text-lg font-semibold text-slate-950 mb-1">{primaryName}</h3>
 
       {/* School name (English) if available */}
-      <p className="text-sm text-slate-500 mb-3">{displayNameEn}</p>
+      {secondaryName && <p className="text-sm text-slate-500 mb-3">{secondaryName}</p>}
 
       {/* District */}
       <div className="flex items-center gap-1 text-sm text-slate-700 mb-4">

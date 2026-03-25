@@ -1,6 +1,6 @@
 import { VacancyBadge } from "@/components/schools/VacancyBadge";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { formatDateCN, GRADE_LABELS } from "@/lib/utils";
+import { formatDateCN } from "@/lib/utils";
 import type { Vacancy } from "@/types/database";
 
 interface VacancySectionProps {
@@ -25,7 +25,7 @@ export function VacancySection({ vacancy, isStale, deadlineStatus: dlStatus }: V
               <div className="flex items-start justify-between">
                 <div className="flex-1">
                   <h3 className="text-base font-semibold text-slate-950 mb-3">
-                    {`${GRADE_LABELS[grade]} (${grade})`}
+                    {grade}
                   </h3>
                   <div className="mb-3">
                     <VacancyBadge

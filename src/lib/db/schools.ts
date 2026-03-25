@@ -35,7 +35,10 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
     .select(
       `id, school_code, name_tc, name_en, district, phone, website, logo_url,
        school_type, kep_participant, session_type, language_primary,
-       fee_monthly_hkd, grades_offered, data_source, last_verified_at,
+       fee_monthly_hkd, fee_annual_hkd, application_fee_hkd, registration_fee_hkd,
+       other_fees_note, fee_notes, application_status, application_details,
+       application_url, open_day_details, open_day_url, grades_offered, data_source, last_verified_at,
+       last_profile_scraped_at,
        is_active, created_at, updated_at,
        vacancies!inner ( id, academic_year, k1_vacancy, k2_vacancy, k3_vacancy, n_vacancy, application_deadline, edb_published_date, is_current )`,
       { count: "exact" }
@@ -115,7 +118,9 @@ export async function fetchSchoolById(id: string) {
       `id, school_code, name_tc, name_en, district, address_tc, address_en,
        phone, fax, email, website, logo_url, school_type, kep_participant, session_type,
        language_primary, language_secondary, fee_monthly_hkd, fee_annual_hkd,
-       grades_offered, data_source, last_verified_at, is_active, created_at, updated_at`
+       application_fee_hkd, registration_fee_hkd, other_fees_note, fee_notes,
+       application_status, application_details, application_url, open_day_details, open_day_url,
+       grades_offered, data_source, last_verified_at, last_profile_scraped_at, is_active, created_at, updated_at`
     )
     .eq("id", id)
     .eq("is_active", true)
