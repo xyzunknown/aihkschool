@@ -37,7 +37,7 @@ export default function HomePage() {
   ];
 
   const vacancyUpdates = [
-    { href: "/kg?search=%E8%BF%A6%E5%8D%97%E5%B9%BC%E7%A8%9A%E5%9C%92%EF%BC%88%E4%B8%AD%E7%92%B0%E5%A0%85%E9%81%93%EF%BC%89", school: "迦南幼稚園（中環堅道）", status: "空缺", grade: "K1" },
+    { href: "/kg?search=%E8%BF%A6%E5%8D%97%E5%B9%BC%E7%A8%9A%E5%9C%92%EF%BC%88%E4%B8%AD%E7%92%B0%E5%A0%85%E9%81%93%EF%BC%89", school: "迦南幼稚園（中環堅道）", status: "有位", grade: "K1" },
     { href: "/kg?search=%E6%98%8E%E6%84%9B%E5%A0%85%E5%B0%BC%E5%9C%B0%E5%9F%8E%E5%B9%BC%E5%85%92%E5%AD%B8%E6%A0%A1", school: "明愛堅尼地城幼兒學校", status: "滿額", grade: "K1" },
     { href: "/kg?search=%E7%9B%88%E6%80%9D%E5%B9%BC%E7%A8%9A%E5%9C%92", school: "盈思幼稚園", status: "待更新", grade: "K1" }
   ];
@@ -172,7 +172,7 @@ export default function HomePage() {
                   </div>
                   <div className="flex items-center gap-3">
                     <span className={`px-3 py-1 rounded-full text-xs font-medium border ${
-                      item.status === "空缺"
+                      item.status === "有位"
                         ? "border-emerald-300 text-emerald-600 bg-emerald-50"
                         : item.status === "候補"
                           ? "border-amber-300 text-amber-600 bg-amber-50"

@@ -28,7 +28,7 @@ export function FilterBar({
   const pillInactive = "bg-white text-slate-600 border border-slate-200";
 
   const vacancyOptions = [
-    { key: "has_vacancy", label: "空缺" },
+    { key: "has_vacancy", label: "有位" },
     { key: "no_vacancy", label: "满额" },
     { key: "waiting_list", label: "候补" },
     { key: "no_information", label: "待更新" },

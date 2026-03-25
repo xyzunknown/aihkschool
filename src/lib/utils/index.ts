@@ -29,7 +29,7 @@ export const SCHOOL_TYPE_LABELS: Record<string, string> = {
 };
 
 export const VACANCY_STATUS_LABELS: Record<NormalizedVacancyStatus, string> = {
-  has_vacancy: "空缺",
+  has_vacancy: "有位",
   no_vacancy: "滿額",
   waiting_list: "候補",
   no_information: "待更新",
