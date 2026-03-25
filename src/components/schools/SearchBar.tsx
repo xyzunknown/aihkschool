@@ -19,7 +19,7 @@ export function SearchBar({ initialQuery, onSearch }: SearchBarProps) {
   }, [input]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="glass-card rounded-card px-5 py-3 flex items-center gap-3 mb-6">
+    <div className="bg-white rounded-2xl border border-slate-200 px-5 py-3 flex items-center gap-3 mb-6">
       <svg
         className="w-4 h-4 text-slate-400 flex-shrink-0"
         viewBox="0 0 24 24"
@@ -33,16 +33,16 @@ export function SearchBar({ initialQuery, onSearch }: SearchBarProps) {
       </svg>
       <input
         type="text"
-        placeholder="搜索学校名称…"
+        placeholder="搜尋學校名稱…"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        className="flex-1 bg-transparent text-body text-slate-900 placeholder:text-slate-400 outline-none"
+        className="flex-1 bg-transparent text-base text-slate-900 placeholder:text-slate-400 outline-none"
       />
       {input && (
         <button
           onClick={() => setInput("")}
           className="text-slate-400 hover:text-slate-600 transition-colors"
-          aria-label="清除搜索"
+          aria-label="清除搜尋"
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <line x1="18" y1="6" x2="6" y2="18" />

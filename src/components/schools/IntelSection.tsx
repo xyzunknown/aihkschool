@@ -54,9 +54,17 @@ export function IntelSection({ schoolId, initialIntel, intelCount }: IntelSectio
 
   return (
     <section className="mb-8">
-      <h2 className="text-label text-slate-400 uppercase mb-4">
-        申请情报 {intelCount > 0 && `(${intelCount})`}
-      </h2>
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="text-xl font-semibold text-slate-950">
+          家長心得與評價 {intelCount > 0 && `(${intelCount})`}
+        </h2>
+        <button
+          onClick={() => requireAuth(() => router.push("/submit"))}
+          className="text-sm text-slate-500 hover:text-slate-900 underline"
+        >
+          撰寫評論
+        </button>
+      </div>
       {allIntel.length > 0 ? (
         <div className="space-y-4">
           {allIntel.map((intel) => (
@@ -80,18 +88,18 @@ export function IntelSection({ schoolId, initialIntel, intelCount }: IntelSectio
               onClick={loadAllIntel}
               className="w-full text-center text-sm text-slate-500 hover:text-slate-700 py-3"
             >
-              查看全部 {intelCount} 条情报
+              查看全部 {intelCount} 條心得
             </button>
           )}
         </div>
       ) : (
         <GlassCard>
-          <p className="text-body text-slate-400 text-center">
-            暂无面试情报，成为第一个分享经验的家长吧！
+          <p className="text-base text-slate-900 text-center">
+            暫無面試心得，成為第一個分享經驗嘅家長！
           </p>
           <div className="text-center mt-4">
-            <Button variant="ghost" size="sm" onClick={() => router.push("/submit")}>
-              分享经验
+            <Button variant="secondary" size="sm" onClick={() => requireAuth(() => router.push("/submit"))}>
+              分享經驗
             </Button>
           </div>
         </GlassCard>

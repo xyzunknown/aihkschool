@@ -7,15 +7,15 @@ interface BadgeProps {
 }
 
 const variants: Record<string, string> = {
-  default: "bg-white/70 text-slate-600 border-slate-200/50",
+  default: "bg-slate-100 text-slate-500 border-transparent",
   active: "bg-slate-950 text-white border-slate-950",
-  success: "bg-green-100/80 text-green-800 border-green-300/40",
-  warning: "bg-orange-100/80 text-orange-800 border-orange-300/40",
-  danger: "bg-red-100/80 text-red-800 border-red-300/40",
+  success: "bg-emerald-50 text-emerald-700 border-transparent",
+  warning: "bg-amber-50 text-amber-700 border-transparent",
+  danger: "bg-red-50 text-red-700 border-transparent",
 };
 
 const sizes: Record<string, string> = {
-  default: "px-3 py-1.5 text-xs",
+  default: "px-3 py-1 text-xs",
   sm: "px-2 py-0.5 text-[11px]",
 };
 
@@ -27,7 +27,7 @@ export function Badge({
   onClick,
 }: BadgeProps) {
   const base =
-    "inline-flex items-center gap-1 rounded-pill font-medium border transition-colors whitespace-nowrap";
+    "inline-flex items-center gap-1 rounded-full font-medium border transition-colors whitespace-nowrap";
 
   const interactive = onClick
     ? "cursor-pointer hover:scale-[1.02] transition-transform"

@@ -10,43 +10,70 @@ interface VacancySectionProps {
 }
 
 export function VacancySection({ vacancy, isStale, deadlineStatus: dlStatus }: VacancySectionProps) {
+  const gradeLabels: Record<string, string> = {
+    N: "幼兒班 (N)",
+    K1: "幼低班 (K1)",
+    K2: "幼高班 (K2)",
+    K3: "上幼班 (K3)",
+  };
+
   return (
     <section className="mb-8">
-      <h2 className="text-label text-slate-400 uppercase mb-4">学位空缺</h2>
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="text-xl font-semibold text-slate-950">即時學額狀態</h2>
+        <a href="#report" className="text-sm text-slate-500 hover:text-slate-900 underline">
+          回報更新
+        </a>
+      </div>
       {vacancy ? (
-        <GlassCard>
-          <div className="flex items-center justify-between mb-4">
-            <span className="text-sm font-semibold text-slate-900">
-              {vacancy.academic_year} 学年
-            </span>
-            {vacancy.edb_published_date && (
-              <span className="text-small text-slate-400">
-                更新于 {formatDateCN(vacancy.edb_published_date)}
-              </span>
-            )}
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <VacancyBadge grade="N" status={vacancy.n_vacancy} isStale={isStale} />
-            <VacancyBadge grade="K1" status={vacancy.k1_vacancy} isStale={isStale} />
-            <VacancyBadge grade="K2" status={vacancy.k2_vacancy} isStale={isStale} />
-            <VacancyBadge grade="K3" status={vacancy.k3_vacancy} isStale={isStale} />
-          </div>
-          {isStale && (
-            <p className="mt-3 text-small text-slate-400">
-              数据更新超过 30 天，建议直接联系学校确认。
+        <div className="space-y-4">
+          {["N", "K1", "K2", "K3"].map((grade) => (
+            <GlassCard key={grade}>
+              <div className="flex items-start justify-between">
+                <div className="flex-1">
+                  <h3 className="text-base font-semibold text-slate-950 mb-3">
+                    {gradeLabels[grade]}
+                  </h3>
+                  <div className="mb-3">
+                    <VacancyBadge
+                      grade={grade}
+                      status={
+                        grade === "N"
+                          ? vacancy.n_vacancy
+                          : grade === "K1"
+                            ? vacancy.k1_vacancy
+                            : grade === "K2"
+                              ? vacancy.k2_vacancy
+                              : vacancy.k3_vacancy
+                      }
+                      isStale={isStale}
+                    />
+                  </div>
+                  {isStale && (
+                    <p className="text-sm text-slate-500 mb-2">
+                      數據更新超過 30 天，建議直接聯絡學校確認。
+                    </p>
+                  )}
+                  {vacancy.application_deadline && dlStatus && dlStatus !== "past" && (
+                    <p className="text-sm text-slate-600">
+                      申請截止：{formatDateCN(vacancy.application_deadline)}
+                    </p>
+                  )}
+                </div>
+              </div>
+            </GlassCard>
+          ))}
+          {vacancy.edb_published_date && (
+            <p className="text-sm text-slate-500">
+              最後更新：{formatDateCN(vacancy.edb_published_date)}
             </p>
           )}
-          {vacancy.application_deadline && dlStatus && dlStatus !== "past" && (
-            <div className="mt-3 pt-3 border-t border-slate-200/20">
-              <span className="text-sm text-slate-600">
-                申请截止：{formatDateCN(vacancy.application_deadline)}
-              </span>
-            </div>
-          )}
-        </GlassCard>
+        </div>
       ) : (
         <GlassCard>
-          <p className="text-body text-slate-400">暂无空缺数据，建议直接联系学校。</p>
+          <p className="text-base text-slate-900">
+            暫無空缺數據，建議直接聯絡學校。
+          </p>
         </GlassCard>
       )}
     </section>

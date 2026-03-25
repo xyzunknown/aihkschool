@@ -72,14 +72,14 @@ export function SchoolDetailClient({ school, vacancy, initialIntel, intelCount }
           showToast({ message: json.error.message });
         } else {
           showToast({
-            message: "已收藏，要开启截止提醒吗？",
-            action: { label: "开启", onClick: () => setShowReminderSheet(true) },
-            secondaryAction: { label: "暂不", onClick: () => {} },
+            message: "已收藏，要開啟截止提醒嗎？",
+            action: { label: "開啟", onClick: () => setShowReminderSheet(true) },
+            secondaryAction: { label: "暫不", onClick: () => {} },
           });
         }
       } catch {
         setIsFavorited(false);
-        showToast({ message: "收藏失败，请稍后重试" });
+        showToast({ message: "收藏失敗，請稍後再試" });
       }
     });
   };
@@ -91,7 +91,7 @@ export function SchoolDetailClient({ school, vacancy, initialIntel, intelCount }
       showToast({ message: "已取消收藏" });
     } catch {
       setIsFavorited(true);
-      showToast({ message: "操作失败" });
+      showToast({ message: "已取消收藏失敗" });
     }
   };
 
@@ -105,26 +105,36 @@ export function SchoolDetailClient({ school, vacancy, initialIntel, intelCount }
           reminder_days_before: selectedDays,
         }),
       });
-      showToast({ message: "提醒已开启" });
+      showToast({ message: "提醒已開啟" });
     } catch {
-      showToast({ message: "设置提醒失败" });
+      showToast({ message: "設定提醒失敗" });
     }
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-5 md:px-8 py-8 pb-24">
+    <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 pb-24">
       {/* School header */}
       <div className="mb-8">
         <div className="flex items-center gap-2 mb-2">
           <span className="text-small text-slate-400">
             {DISTRICT_LABELS[school.district as keyof typeof DISTRICT_LABELS]}
           </span>
+          {school.school_code && (
+            <span className="px-2 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-600">
+              {school.school_code}
+            </span>
+          )}
           <SourceTag source={school.data_source as DataSource} />
         </div>
-        <h1 className="text-h1 text-slate-950">{school.name_tc}</h1>
+        <h1 className="text-2xl font-bold tracking-tight text-slate-950">{school.name_tc}</h1>
         {school.name_en && (
-          <p className="text-body text-slate-400 mt-1">{school.name_en}</p>
+          <p className="text-base text-slate-500 mt-1">{school.name_en}</p>
         )}
+      </div>
+
+      {/* Placeholder hero image */}
+      <div className="aspect-video rounded-2xl bg-slate-100 mb-8 flex items-center justify-center">
+        <span className="text-slate-400">教育機構圖片</span>
       </div>
 
       <VacancySection vacancy={vacancy} isStale={stale} deadlineStatus={dlStatus} />
@@ -150,7 +160,7 @@ export function SchoolDetailClient({ school, vacancy, initialIntel, intelCount }
         onClose={() => setShowUnfavoriteConfirm(false)}
         onConfirm={handleUnfavorite}
         title="取消收藏"
-        message="取消收藏后，已设置的截止提醒也将被删除。确定要取消吗？"
+        message="確定取消收藏？相關提醒將一併刪除。"
         confirmLabel="取消收藏"
         cancelLabel="保留"
         variant="danger"

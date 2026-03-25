@@ -2,113 +2,177 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 
 export default function HomePage() {
+  // Placeholder school data for featured section
+  const featuredSchools = [
+    {
+      id: "1",
+      name_tc: "聖保羅幼稚園",
+      name_en: "St. Paul's Kindergarten",
+      district: "中西區",
+      description: "教學中英並用，着重兒童德智體群美五育發展。"
+    },
+    {
+      id: "2",
+      name_tc: "寶覺幼稚園",
+      name_en: "Po觉 Kindergarten",
+      district: "九龍城區",
+      description: "遵循蒙特梭利教育法，提供全日制及半日制課程。"
+    },
+    {
+      id: "3",
+      name_tc: "英基國際幼稚園",
+      name_en: "YCIS Hong Kong",
+      district: "跑馬地",
+      description: "国际教育課程，培養學生国際視野和跨文化能力。"
+    }
+  ];
+
+  const vacancyUpdates = [
+    { school: "聖保羅幼稚園", status: "尚有學額", grade: "K1" },
+    { school: "拔萃女小學附屬幼稚園", status: "學額緊張", grade: "K2" },
+    { school: "香島幼稚園", status: "名額已滿", grade: "K3" }
+  ];
+
+  const communityInsights = [
+    { title: "K1 面試流程分享", author: "家長A", date: "3週前" },
+    { title: "2026年報名截止日期整理", author: "家長B", date: "2週前" },
+    { title: "各區學費比較表", author: "家長C", date: "1週前" }
+  ];
+
   return (
-    <div className="max-w-3xl mx-auto px-5 md:px-8">
-      {/* Hero */}
+    <div className="max-w-6xl mx-auto px-5 md:px-8">
+      {/* a) Hero */}
       <section className="pt-16 pb-12 md:pt-24 md:pb-16">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-pill glass-card text-[11px] font-medium text-slate-500 mb-6">
-          <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-          2025/26 学年空缺数据已更新
-        </div>
-
-        <h1 className="text-display text-slate-950 text-balance">
-          为孩子找到
-          <br />
-          合适的幼稚园
+        <h1 className="text-4xl font-bold tracking-tight text-slate-950 mb-4">
+          為您的孩子，探索全港優質教育資源。
         </h1>
-        <p className="text-body text-slate-500 mt-4 max-w-md">
-          一站式查看香港幼稚园空缺、截止日期和家长面试情报，不再错过申请时机。
+        <p className="text-lg text-slate-600 mt-4 mb-8 max-w-2xl">
+          一站式查看香港幼稚園空缺、截止日期和家長面試心得，幫助您作出最適合的選擇。
         </p>
 
-        {/* Search entry */}
-        <Link href="/kg" className="block mt-8">
-          <div className="glass-card rounded-card px-7 py-5 flex items-center gap-3.5 transition-all duration-200 hover:scale-[1.01] hover:shadow-md">
-            <svg
-              className="w-[18px] h-[18px] text-slate-400 flex-shrink-0"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            >
-              <circle cx="11" cy="11" r="7" />
-              <line x1="16.5" y1="16.5" x2="22" y2="22" />
-            </svg>
-            <span className="text-[16px] text-slate-400 tracking-[-0.01em]">
-              寻找你的下一所学校…
-            </span>
-          </div>
-        </Link>
-      </section>
+        {/* Search bar with inline button */}
+        <div className="flex gap-3 mb-6">
+          <input
+            type="text"
+            placeholder="搜尋學校名稱、地區…"
+            className="flex-1 px-6 py-3 rounded-xl border border-slate-200 bg-white text-slate-950 placeholder-slate-400 focus:outline-none focus:border-slate-400"
+          />
+          <Link href="/kg">
+            <Button variant="primary" className="px-8 py-3">立即搜索</Button>
+          </Link>
+        </div>
 
-      {/* Stats bar */}
-      <section className="glass-card rounded-card px-7 py-5 mb-8">
-        <div className="grid grid-cols-3 divide-x divide-slate-200/50">
-          <div className="text-center pr-4">
-            <div className="text-h1 text-slate-950 font-semibold">713</div>
-            <div className="text-small text-slate-400 mt-0.5">幼稚园</div>
-          </div>
-          <div className="text-center px-4">
-            <div className="text-h1 text-slate-950 font-semibold">18</div>
-            <div className="text-small text-slate-400 mt-0.5">区域覆盖</div>
-          </div>
-          <div className="text-center pl-4">
-            <div className="text-h1 text-slate-950 font-semibold">K1-K3</div>
-            <div className="text-small text-slate-400 mt-0.5">年级空缺</div>
-          </div>
+        {/* Quick filter pills */}
+        <div className="flex flex-wrap gap-2">
+          <Link href="/kg?district=central-western" className="inline-block">
+            <button className="px-4 py-2 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200 text-sm transition">
+              中西區
+            </button>
+          </Link>
+          <Link href="/kg?district=kowloon-city" className="inline-block">
+            <button className="px-4 py-2 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200 text-sm transition">
+              九龍城區
+            </button>
+          </Link>
+          <Link href="/kg?type=international" className="inline-block">
+            <button className="px-4 py-2 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200 text-sm transition">
+              國際學校
+            </button>
+          </Link>
         </div>
-      </section>
 
-      {/* Value props */}
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-4 pb-16">
-        <div className="glass-card rounded-card p-7 group">
-          <div className="w-10 h-10 rounded-xl bg-green-100/80 flex items-center justify-center mb-4">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgb(22, 101, 52)" strokeWidth="1.5">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-              <polyline points="22 4 12 14.01 9 11.01" />
-            </svg>
-          </div>
-          <div className="text-label text-slate-400 uppercase mb-2">即时空缺</div>
-          <p className="text-body text-slate-600">
-            K1-K3 学位空缺状态一目了然，数据来自教育局官方公告。
-          </p>
-        </div>
-        <div className="glass-card rounded-card p-7 group">
-          <div className="w-10 h-10 rounded-xl bg-blue-100/80 flex items-center justify-center mb-4">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgb(29, 78, 216)" strokeWidth="1.5">
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-            </svg>
-          </div>
-          <div className="text-label text-slate-400 uppercase mb-2">截止提醒</div>
-          <p className="text-body text-slate-600">
-            收藏学校后开启邮件提醒，申请截止前 7 天、3 天、1 天自动通知。
-          </p>
-        </div>
-        <div className="glass-card rounded-card p-7 group">
-          <div className="w-10 h-10 rounded-xl bg-orange-100/80 flex items-center justify-center mb-4">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgb(194, 65, 12)" strokeWidth="1.5">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-              <circle cx="9" cy="7" r="4" />
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-            </svg>
-          </div>
-          <div className="text-label text-slate-400 uppercase mb-2">面试情报</div>
-          <p className="text-body text-slate-600">
-            真实家长的面试经验分享：面试形式、语言、排队时间、结果。
-          </p>
+        {/* Right side stat card */}
+        <div className="mt-8 bg-white rounded-2xl border border-slate-200 p-6 w-fit">
+          <div className="text-3xl font-bold text-slate-950">1,240+</div>
+          <p className="text-sm text-slate-500 mt-1">已收錄學校</p>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="text-center pb-16">
-        <Link href="/kg">
-          <Button variant="primary" className="px-8 py-3 text-base">浏览幼稚园</Button>
-        </Link>
-        <p className="text-small text-slate-400 mt-3">
-          无需登录即可浏览，收藏和投稿时才需要 Google 登录。
-        </p>
+      {/* b) 精選教育機構 */}
+      <section className="mb-16">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-semibold text-slate-950">精選教育機構</h2>
+          <Link href="/kg" className="text-slate-600 hover:text-slate-950 text-sm font-medium">
+            查看全部 →
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {featuredSchools.map((school) => (
+            <Link key={school.id} href={`/kg/${school.id}`}>
+              <div className="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-sm transition-shadow">
+                {/* Avatar */}
+                <div className="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center mb-4">
+                  <span className="text-lg font-semibold text-slate-700">
+                    {school.name_tc.charAt(0)}
+                  </span>
+                </div>
+                <h3 className="text-lg font-semibold text-slate-950 mb-1">{school.name_tc}</h3>
+                <p className="text-sm text-slate-500 mb-2">{school.name_en}</p>
+                <p className="text-sm text-slate-600 mb-3">{school.description}</p>
+                <p className="text-xs text-slate-400">📍 {school.district}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* c) 最新學額狀況 */}
+      <section className="mb-16">
+        <h2 className="text-2xl font-semibold text-slate-950 mb-6">最新學額狀況</h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Left: 3 vacancy items */}
+          <div className="md:col-span-2 space-y-3">
+            {vacancyUpdates.map((item, idx) => (
+              <div key={idx} className="bg-white rounded-2xl border border-slate-200 p-4 flex items-center justify-between hover:shadow-sm transition-shadow">
+                <div>
+                  <p className="font-medium text-slate-950">{item.school}</p>
+                  <p className="text-sm text-slate-500">{item.grade}</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                    item.status === "尚有學額"
+                      ? "bg-emerald-50 text-emerald-700"
+                      : item.status === "學額緊張"
+                        ? "bg-amber-50 text-amber-700"
+                        : "bg-red-50 text-red-700"
+                  }`}>
+                    {item.status}
+                  </span>
+                  <span className="text-slate-400">→</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Right: Featured dark card */}
+          <div className="bg-slate-900 text-white rounded-2xl p-6">
+            <h3 className="text-lg font-semibold mb-4">家長心得與洞察</h3>
+            <div className="space-y-3">
+              {communityInsights.map((insight, idx) => (
+                <div key={idx} className="pb-3 border-b border-slate-700 last:border-0">
+                  <p className="text-sm font-medium mb-1">{insight.title}</p>
+                  <p className="text-xs text-slate-400">{insight.author} · {insight.date}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* d) Newsletter CTA */}
+      <section className="mb-16 bg-white rounded-2xl border border-slate-200 p-8 text-center">
+        <h2 className="text-2xl font-semibold text-slate-950 mb-4">緊貼最新入學資訊。</h2>
+        <p className="text-slate-600 mb-6">訂閱我們的電子報，每週接收最新學額更新及家長心得。</p>
+        <div className="flex gap-3 max-w-md mx-auto">
+          <input
+            type="email"
+            placeholder="您的電郵地址"
+            className="flex-1 px-4 py-3 rounded-xl border border-slate-200 text-slate-950 placeholder-slate-400 focus:outline-none focus:border-slate-400"
+          />
+          <Button variant="primary" className="px-6 py-3">訂閱資訊</Button>
+        </div>
       </section>
     </div>
   );

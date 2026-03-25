@@ -2,21 +2,18 @@
 
 import { useRouter } from "next/navigation";
 import { VacancyBadge } from "./VacancyBadge";
-import { DISTRICT_LABELS, SCHOOL_TYPE_LABELS, deadlineStatus, formatDateCN, isVacancyStale } from "@/lib/utils";
+import { DISTRICT_LABELS, getAvatarColor, isVacancyStale, timeAgo } from "@/lib/utils";
 import type { VacancyStatus } from "@/types/database";
 
 interface SchoolCardProps {
   id: string;
   nameTc: string;
+  nameEn?: string;
   district: string;
-  schoolType: string;
-  languagePrimary: string | null;
-  feeMonthlyHkd: number | null;
   vacancy?: {
     k1_vacancy: VacancyStatus;
     k2_vacancy: VacancyStatus;
     k3_vacancy: VacancyStatus;
-    application_deadline: string | null;
     edb_published_date: string | null;
   } | null;
 }
@@ -24,86 +21,55 @@ interface SchoolCardProps {
 export function SchoolCard({
   id,
   nameTc,
+  nameEn,
   district,
-  schoolType,
-  languagePrimary,
-  feeMonthlyHkd,
   vacancy,
 }: SchoolCardProps) {
   const router = useRouter();
   const stale = vacancy ? isVacancyStale(vacancy.edb_published_date) : true;
-  const dlStatus = vacancy ? deadlineStatus(vacancy.application_deadline) : null;
-
-  const deadlineColors: Record<string, string> = {
-    safe: "bg-green-100/80 border-green-300/40 text-green-800",
-    warn: "bg-orange-100/80 border-orange-300/40 text-orange-800",
-    urgent: "bg-red-100/80 border-red-300/40 text-red-800",
-    past: "bg-slate-100/80 border-slate-200/40 text-slate-500",
-  };
+  const avatarColor = getAvatarColor(id);
+  const firstChar = nameTc.charAt(0);
 
   return (
     <div
-      className="relative glass-card rounded-card p-7 cursor-pointer transition-all duration-200 ease-out hover:scale-[1.02]"
+      className="relative bg-white rounded-2xl border border-slate-200 p-6 cursor-pointer hover:shadow-sm transition-shadow duration-200"
       onClick={() => router.push(`/kg/${id}`)}
     >
-      {/* Deadline pill */}
-      {vacancy?.application_deadline && dlStatus && dlStatus !== "past" && (
+      {/* Avatar and badges row */}
+      <div className="flex items-start justify-between mb-4">
+        {/* Avatar */}
         <div
-          className={`absolute top-6 right-6 px-3 py-1 rounded-pill text-[11px] font-semibold backdrop-blur-sm border ${deadlineColors[dlStatus]}`}
+          className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 ${avatarColor.bg}`}
         >
-          截止 {formatDateCN(vacancy.application_deadline)}
+          <span className={`text-lg font-semibold ${avatarColor.text}`}>{firstChar}</span>
         </div>
-      )}
+
+        {/* Badges - stacked top-right */}
+        {vacancy && (
+          <div className="flex flex-col gap-2">
+            <VacancyBadge grade="K1" status={vacancy.k1_vacancy} isStale={stale} />
+            <VacancyBadge grade="K2" status={vacancy.k2_vacancy} isStale={stale} />
+            <VacancyBadge grade="K3" status={vacancy.k3_vacancy} isStale={stale} />
+          </div>
+        )}
+      </div>
+
+      {/* School name (Traditional Chinese) */}
+      <h3 className="text-lg font-semibold text-slate-950 mb-1">{nameTc}</h3>
+
+      {/* School name (English) if available */}
+      {nameEn && <p className="text-sm text-slate-500 mb-3">{nameEn}</p>}
 
       {/* District */}
-      <div className="text-[11px] font-medium text-slate-400 tracking-wide">
-        {DISTRICT_LABELS[district as keyof typeof DISTRICT_LABELS] ?? district}
+      <div className="flex items-center gap-1 text-sm text-slate-700 mb-4">
+        <span>📍</span>
+        <span>{DISTRICT_LABELS[district as keyof typeof DISTRICT_LABELS] ?? district}</span>
       </div>
 
-      {/* Name */}
-      <h3 className="text-[17px] font-semibold text-slate-950 leading-tight mt-1 pr-24 tracking-[-0.02em]">
-        {nameTc}
-      </h3>
-
-      {/* Tags */}
-      <div className="flex flex-wrap gap-[7px] mt-4">
-        <span className="px-2.5 py-1 rounded-pill text-[11px] font-medium bg-slate-100/80 text-slate-600 border border-slate-200/40">
-          {SCHOOL_TYPE_LABELS[schoolType] ?? schoolType}
-        </span>
-        {feeMonthlyHkd !== null && (
-          <span className="px-2.5 py-1 rounded-pill text-[11px] font-medium bg-slate-100/80 text-slate-600 border border-slate-200/40">
-            HKD {feeMonthlyHkd.toLocaleString()}
-          </span>
-        )}
-        {languagePrimary && (
-          <span className="px-2.5 py-1 rounded-pill text-[11px] font-medium bg-slate-100/80 text-slate-600 border border-slate-200/40">
-            {languagePrimary}
-          </span>
-        )}
-      </div>
-
-      {/* Vacancy badges */}
-      {vacancy && (
-        <div className="flex flex-wrap gap-2 mt-4">
-          <VacancyBadge grade="K1" status={vacancy.k1_vacancy} isStale={stale} />
-          <VacancyBadge grade="K2" status={vacancy.k2_vacancy} isStale={stale} />
-          <VacancyBadge grade="K3" status={vacancy.k3_vacancy} isStale={stale} />
-        </div>
-      )}
-
-      {/* Footer */}
-      <div className="mt-5 pt-4 border-t border-slate-200/20 flex justify-between items-center">
-        <div className="text-[11px] text-slate-400">
-          {vacancy?.edb_published_date
-            ? `更新于 ${formatDateCN(vacancy.edb_published_date)}`
-            : "暂无更新"}
-        </div>
-        <div className="flex items-center gap-1 text-xs text-slate-400">
-          <span>详情</span>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="9 18 15 12 9 6" />
-          </svg>
-        </div>
+      {/* Footer - time and link */}
+      <div className="flex justify-between items-center pt-4 border-t border-slate-100 text-xs text-slate-500">
+        <span>{timeAgo(vacancy?.edb_published_date ?? null)}</span>
+        <span className="text-slate-600">查看詳情 →</span>
       </div>
     </div>
   );

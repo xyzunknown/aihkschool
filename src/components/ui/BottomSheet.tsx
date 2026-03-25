@@ -30,20 +30,20 @@ export function BottomSheet({ isOpen, onClose, title, children }: BottomSheetPro
     <div className="fixed inset-0 z-50">
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-black/30 backdrop-blur-sm transition-opacity"
+        className="absolute inset-0 bg-black/30 transition-opacity"
         onClick={onClose}
       />
       {/* Sheet */}
       <div
         ref={sheetRef}
-        className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-xl rounded-t-[2rem] px-7 pb-8 pt-4 animate-slide-up max-h-[85vh] overflow-y-auto shadow-[0_-4px_30px_rgba(0,0,0,0.08)]"
+        className="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl px-6 pb-8 pt-4 animate-slide-up max-h-[85vh] overflow-y-auto shadow-[0_-4px_30px_rgba(0,0,0,0.08)]"
       >
         {/* Handle */}
         <div className="flex justify-center mb-4">
           <div className="w-10 h-1 bg-slate-200 rounded-full" />
         </div>
         {title && (
-          <h3 className="text-h2 text-slate-950 mb-4">{title}</h3>
+          <h3 className="text-xl font-semibold text-slate-950 mb-4">{title}</h3>
         )}
         {children}
       </div>

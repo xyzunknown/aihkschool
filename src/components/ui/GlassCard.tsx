@@ -5,14 +5,25 @@ interface GlassCardProps {
   className?: string;
   hoverable?: boolean;
   onClick?: () => void;
+  variant?: "content" | "featured";
 }
 
-export function GlassCard({ children, className = "", hoverable = false, onClick }: GlassCardProps) {
+export function GlassCard({ children, className = "", hoverable = false, onClick, variant = "content" }: GlassCardProps) {
+  const baseStyles = "rounded-2xl p-6 transition-shadow duration-200";
+
+  const variantStyles = {
+    content: "bg-white border border-slate-200 hover:shadow-sm",
+    featured: "bg-slate-900 text-white rounded-2xl",
+  };
+
+  const interactiveStyles = hoverable ? "cursor-pointer" : "";
+
   return (
     <div
       className={`
-        glass-card rounded-card p-7
-        ${hoverable ? "cursor-pointer transition-all duration-200 ease-out hover:scale-[1.02]" : "transition-shadow duration-200"}
+        ${baseStyles}
+        ${variantStyles[variant]}
+        ${interactiveStyles}
         ${className}
       `}
       onClick={onClick}

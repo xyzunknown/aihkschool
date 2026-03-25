@@ -12,6 +12,7 @@ import type { District, SchoolType, VacancyStatus } from "@/types/database";
 interface SchoolData {
   id: string;
   name_tc: string;
+  name_en: string | null;
   district: string;
   school_type: string;
   language_primary: string | null;
@@ -42,9 +43,7 @@ export default function KGListClient() {
     return {
       selectedDistricts: params.getAll("district") as District[],
       selectedType: params.get("type") as SchoolType | null,
-      selectedLanguage: params.get("language"),
-      selectedSession: params.get("session"),
-      hasVacancy: params.get("has_vacancy") === "true",
+      vacancyFilter: params.getAll("vacancy"),
       searchQuery: params.get("search") ?? "",
       page: parseInt(params.get("page") ?? "1", 10),
     };
@@ -53,9 +52,7 @@ export default function KGListClient() {
   const {
     selectedDistricts,
     selectedType,
-    selectedLanguage,
-    selectedSession,
-    hasVacancy,
+    vacancyFilter,
     searchQuery,
     page,
   } = filters;
@@ -67,9 +64,7 @@ export default function KGListClient() {
       const params = new URLSearchParams();
       selectedDistricts.forEach((d) => params.append("district", d));
       if (selectedType) params.set("type", selectedType);
-      if (selectedLanguage) params.set("language", selectedLanguage);
-      if (selectedSession) params.set("session", selectedSession);
-      if (hasVacancy) params.set("has_vacancy", "true");
+      vacancyFilter.forEach((v) => params.append("vacancy", v));
       if (searchQuery) params.set("search", searchQuery);
       params.set("page", String(page));
       params.set("limit", "20");
@@ -84,11 +79,11 @@ export default function KGListClient() {
         setCount(json.count ?? 0);
       }
     } catch {
-      setError("加载失败，请稍后重试");
+      setError("載入失敗，請稍後再試");
     } finally {
       setLoading(false);
     }
-  }, [selectedDistricts, selectedType, selectedLanguage, selectedSession, hasVacancy, searchQuery, page]);
+  }, [selectedDistricts, selectedType, vacancyFilter, searchQuery, page]);
 
   useEffect(() => { fetchData(); }, [fetchData]);
 
@@ -119,22 +114,35 @@ export default function KGListClient() {
     router.push(`/kg?${params.toString()}`);
   };
 
+  const toggleVacancy = (status: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    const current = params.getAll("vacancy");
+    params.delete("vacancy");
+    if (current.includes(status)) {
+      current.filter((v) => v !== status).forEach((v) => params.append("vacancy", v));
+    } else {
+      [...current, status].forEach((v) => params.append("vacancy", v));
+    }
+    params.set("page", "1");
+    router.push(`/kg?${params.toString()}`);
+  };
+
   const totalPages = Math.ceil(count / 20);
 
   return (
-    <div className="max-w-3xl mx-auto px-5 md:px-8 py-8">
-      <h1 className="text-h1 text-slate-950 mb-6">幼稚园</h1>
+    <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
+      <h1 className="text-2xl font-bold tracking-tight text-slate-950 mb-2">策劃香港卓越教育藍圖</h1>
+      <p className="text-slate-600 mb-8">權威性的教育機構指南，即時更新學位空缺狀態及報名資訊。</p>
 
       <SearchBar initialQuery={searchQuery} onSearch={handleSearch} />
 
       <FilterBar
         selectedDistricts={selectedDistricts}
         selectedType={selectedType}
-        selectedLanguage={selectedLanguage}
-        selectedSession={selectedSession}
-        hasVacancy={hasVacancy}
+        vacancyFilter={vacancyFilter}
         onToggleDistrict={toggleDistrict}
         onUpdateFilter={updateFilter}
+        onToggleVacancy={toggleVacancy}
       />
 
       {loading ? (
@@ -143,32 +151,29 @@ export default function KGListClient() {
         </div>
       ) : error ? (
         <div className="text-center py-16">
-          <p className="text-body text-slate-500">{error}</p>
-          <Button variant="secondary" className="mt-4" onClick={fetchData}>重试</Button>
+          <p className="text-base text-slate-500">{error}</p>
+          <Button variant="secondary" className="mt-4" onClick={fetchData}>重試</Button>
         </div>
       ) : schools.length === 0 ? (
         <div className="text-center py-16">
-          <p className="text-h2 text-slate-400 mb-2">没有找到学校</p>
-          <p className="text-body text-slate-400">尝试调整筛选条件</p>
+          <p className="text-xl font-semibold text-slate-950 mb-2">沒有搵到學校</p>
+          <p className="text-base text-slate-500">試下調整篩選條件</p>
         </div>
       ) : (
         <>
-          <p className="text-small text-slate-400 mb-4">共 {count} 所学校</p>
-          <div className="grid gap-4">
+          <p className="text-sm text-slate-500 mb-4">共 {count} 所學校</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {schools.map((school) => (
               <SchoolCard
                 key={school.id}
                 id={school.id}
                 nameTc={school.name_tc}
+                nameEn={school.name_en ?? undefined}
                 district={school.district}
-                schoolType={school.school_type}
-                languagePrimary={school.language_primary}
-                feeMonthlyHkd={school.fee_monthly_hkd}
                 vacancy={school.vacancies?.[0] ? {
                   k1_vacancy: school.vacancies[0].k1_vacancy,
                   k2_vacancy: school.vacancies[0].k2_vacancy,
                   k3_vacancy: school.vacancies[0].k3_vacancy,
-                  application_deadline: school.vacancies[0].application_deadline,
                   edb_published_date: school.vacancies[0].edb_published_date,
                 } : null}
               />
@@ -177,13 +182,13 @@ export default function KGListClient() {
 
           {totalPages > 1 && (
             <div className="flex justify-center gap-2 mt-8">
-              <Button variant="ghost" size="sm" disabled={page <= 1}
-                onClick={() => updateFilter("page", String(page - 1))}>上一页</Button>
-              <span className="flex items-center text-small text-slate-400 px-3">
+              <Button variant="secondary" size="sm" disabled={page <= 1}
+                onClick={() => updateFilter("page", String(page - 1))}>上一頁</Button>
+              <span className="flex items-center text-sm text-slate-400 px-3">
                 {page} / {totalPages}
               </span>
-              <Button variant="ghost" size="sm" disabled={page >= totalPages}
-                onClick={() => updateFilter("page", String(page + 1))}>下一页</Button>
+              <Button variant="secondary" size="sm" disabled={page >= totalPages}
+                onClick={() => updateFilter("page", String(page + 1))}>下一頁</Button>
             </div>
           )}
         </>

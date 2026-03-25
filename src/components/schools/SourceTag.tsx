@@ -2,20 +2,20 @@ import type { DataSource } from "@/types/database";
 
 const sourceConfig: Record<DataSource, { label: string; className: string }> = {
   edb: {
-    label: "Official · EDB",
-    className: "bg-blue-50/60 text-blue-800 border-blue-200/30",
+    label: "教育局官方",
+    className: "bg-blue-50 text-blue-700",
   },
   school: {
-    label: "School-published",
-    className: "bg-green-50/60 text-green-800 border-green-200/30",
+    label: "學校公佈",
+    className: "bg-emerald-50 text-emerald-700",
   },
   parent: {
-    label: "家长投稿",
-    className: "bg-orange-50/60 text-orange-800 border-orange-200/30",
+    label: "家長提交",
+    className: "bg-amber-50 text-amber-700",
   },
   inferred: {
-    label: "Inferred",
-    className: "bg-slate-50/60 text-slate-500 border-slate-200/30",
+    label: "推算",
+    className: "bg-slate-100 text-slate-500",
   },
 };
 
@@ -28,9 +28,9 @@ export function SourceTag({ source }: SourceTagProps) {
 
   return (
     <span
-      className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-medium font-mono border ${config.className}`}
+      className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-xs font-medium ${config.className}`}
     >
-      <span className="w-[5px] h-[5px] rounded-full bg-current opacity-70" />
+      <span className="w-1.5 h-1.5 rounded-full bg-current" />
       {config.label}
     </span>
   );

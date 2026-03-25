@@ -10,35 +10,78 @@ interface DetailBottomCTAProps {
 }
 
 export function DetailBottomCTA({ school, isFavorited, onToggleFavorite }: DetailBottomCTAProps) {
+  const getApplyButtonText = () => {
+    // Would need current year from props or context, using 2025/26 as per CLAUDE.md example
+    return "申請 2025/26 入學";
+  };
+
+  const getPrimaryAction = () => {
+    if (school.website) {
+      return (
+        <a
+          href={school.website}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-1"
+        >
+          <Button variant="primary" className="w-full">
+            {getApplyButtonText()}
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              className="ml-2"
+            >
+              <polyline points="5 12 19 12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </Button>
+        </a>
+      );
+    }
+
+    if (school.phone) {
+      return (
+        <a href={`tel:${school.phone}`} className="flex-1">
+          <Button variant="primary" className="w-full">
+            致電學校
+          </Button>
+        </a>
+      );
+    }
+
+    return (
+      <Button variant="primary" className="flex-1" disabled>
+        暫無聯絡方式
+      </Button>
+    );
+  };
+
   return (
-    <div className="fixed bottom-0 left-0 right-0 glass-header px-5 py-4 z-40">
+    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 px-5 py-4 z-40">
       <div className="max-w-3xl mx-auto flex gap-3">
-        {school.website ? (
+        {getPrimaryAction()}
+
+        {school.website && (
           <a
             href={school.website}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1"
+            className="flex-none"
           >
-            <Button variant="primary" className="w-full">
-              前往官网申请
+            <Button variant="secondary">
+              下載學校簡介
             </Button>
           </a>
-        ) : school.phone ? (
-          <a href={`tel:${school.phone}`} className="flex-1">
-            <Button variant="primary" className="w-full">
-              致电学校
-            </Button>
-          </a>
-        ) : (
-          <Button variant="primary" className="flex-1" disabled>
-            暂无联系方式
-          </Button>
         )}
 
         <Button
           variant={isFavorited ? "primary" : "secondary"}
           onClick={onToggleFavorite}
+          className="flex-none"
         >
           <svg
             width="16"

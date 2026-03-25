@@ -20,7 +20,7 @@ export function ConfirmDialog({
   onConfirm,
   title,
   message,
-  confirmLabel = "确认",
+  confirmLabel = "確認",
   cancelLabel = "取消",
   variant = "default",
 }: ConfirmDialogProps) {
