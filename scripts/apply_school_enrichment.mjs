@@ -58,7 +58,7 @@ async function detectAvailableColumns(supabase, candidateColumns) {
 function pickPayload(source, allowedColumns) {
   const payload = {};
   for (const [key, value] of Object.entries(source)) {
-    if (value === undefined) continue;
+    if (value === undefined || value === null) continue;
     if (allowedColumns.has(key)) {
       payload[key] = value;
     }
@@ -74,22 +74,22 @@ async function applyDataset({ supabase, rows, allowedColumns, label }) {
 
     const payload = pickPayload(
       {
-        name_tc: row.name_tc ?? null,
-        name_en: row.name_en ?? null,
-        website: row.website ?? null,
-        logo_url: row.logo_url ?? null,
-        kep_participant: row.kep_participant ?? null,
-        fee_monthly_hkd: row.fee_monthly_hkd ?? null,
-        fee_annual_hkd: row.fee_annual_hkd ?? null,
-        application_fee_hkd: row.application_fee_hkd ?? null,
-        registration_fee_hkd: row.registration_fee_hkd ?? null,
-        fee_notes: row.fee_notes ?? null,
-        other_fees_note: row.other_fees_note ?? null,
-        application_status: row.application_status ?? null,
-        application_details: row.application_details ?? null,
-        application_url: row.application_url ?? null,
-        open_day_details: row.open_day_details ?? null,
-        open_day_url: row.open_day_url ?? null,
+        name_tc: row.name_tc,
+        name_en: row.name_en,
+        website: row.website,
+        logo_url: row.logo_url,
+        kep_participant: row.kep_participant,
+        fee_monthly_hkd: row.fee_monthly_hkd,
+        fee_annual_hkd: row.fee_annual_hkd,
+        application_fee_hkd: row.application_fee_hkd,
+        registration_fee_hkd: row.registration_fee_hkd,
+        fee_notes: row.fee_notes,
+        other_fees_note: row.other_fees_note,
+        application_status: row.application_status,
+        application_details: row.application_details,
+        application_url: row.application_url,
+        open_day_details: row.open_day_details,
+        open_day_url: row.open_day_url,
         last_profile_scraped_at: new Date().toISOString(),
       },
       allowedColumns
