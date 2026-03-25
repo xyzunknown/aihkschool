@@ -29,9 +29,9 @@ export function FilterBar({
 
   const vacancyOptions = [
     { key: "has_vacancy", label: "空缺" },
-    { key: "no_vacancy", label: "滿額" },
-    { key: "waiting_list", label: "候補" },
-    { key: "no_information", label: "暫無資訊" },
+    { key: "no_vacancy", label: "满额" },
+    { key: "waiting_list", label: "候补" },
+    { key: "no_information", label: "待更新" },
   ];
 
   const schoolTypeOptions = [

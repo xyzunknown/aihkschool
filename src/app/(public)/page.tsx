@@ -28,8 +28,8 @@ export default function HomePage() {
 
   const vacancyUpdates = [
     { href: "/kg?search=%E8%BF%A6%E5%8D%97%E5%B9%BC%E7%A8%9A%E5%9C%92%EF%BC%88%E4%B8%AD%E7%92%B0%E5%A0%85%E9%81%93%EF%BC%89", school: "迦南幼稚園（中環堅道）", status: "空缺", grade: "K1" },
-    { href: "/kg?search=%E6%98%8E%E6%84%9B%E5%A0%85%E5%B0%BC%E5%9C%B0%E5%9F%8E%E5%B9%BC%E5%85%92%E5%AD%B8%E6%A0%A1", school: "明愛堅尼地城幼兒學校", status: "滿額", grade: "K1" },
-    { href: "/kg?search=%E7%9B%88%E6%80%9D%E5%B9%BC%E7%A8%9A%E5%9C%92", school: "盈思幼稚園", status: "暫無資訊", grade: "K1" }
+    { href: "/kg?search=%E6%98%8E%E6%84%9B%E5%A0%85%E5%B0%BC%E5%9C%B0%E5%9F%8E%E5%B9%BC%E5%85%92%E5%AD%B8%E6%A0%A1", school: "明愛堅尼地城幼兒學校", status: "满额", grade: "K1" },
+    { href: "/kg?search=%E7%9B%88%E6%80%9D%E5%B9%BC%E7%A8%9A%E5%9C%92", school: "盈思幼稚園", status: "待更新", grade: "K1" }
   ];
 
   const communityInsights = [
@@ -134,9 +134,9 @@ export default function HomePage() {
                     <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                       item.status === "空缺"
                         ? "bg-emerald-50 text-emerald-700"
-                        : item.status === "候補"
+                        : item.status === "候补"
                           ? "bg-amber-50 text-amber-700"
-                          : item.status === "暫無資訊"
+                          : item.status === "待更新"
                           ? "bg-slate-100 text-slate-500"
                           : "bg-red-50 text-red-700"
                     }`}>

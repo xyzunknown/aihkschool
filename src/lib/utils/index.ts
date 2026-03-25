@@ -29,10 +29,10 @@ export const SCHOOL_TYPE_LABELS: Record<string, string> = {
 };
 
 export const VACANCY_STATUS_LABELS: Record<NormalizedVacancyStatus, string> = {
-  has_vacancy: "有學位空缺",
-  no_vacancy: "沒有學位空缺",
-  waiting_list: "候補",
-  no_information: "暫無資訊",
+  has_vacancy: "空缺",
+  no_vacancy: "满额",
+  waiting_list: "候补",
+  no_information: "待更新",
 };
 
 export type NormalizedVacancyStatus =
