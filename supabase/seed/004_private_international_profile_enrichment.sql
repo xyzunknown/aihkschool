@@ -54,13 +54,13 @@ UPDATE schools SET
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = NULL,
+  fee_notes = 'We loved the interaction & feedback from the teachers.',
   other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
-  open_day_details = NULL,
-  open_day_url = NULL,
+  application_status = 'website',
+  application_details = 'Extension & Gifted Programme Admission Admission Open Day Enquiry / Arrange a school tour Our Campus DMA IB Montessori Elementary(3',
+  application_url = 'http://www.dms.edu.hk/content.php?wid=37',
+  open_day_details = 'Enquiry / Arrange a school tour',
+  open_day_url = 'http://www.dms.edu.hk/content.php?wid=40',
   last_profile_scraped_at = now()
 WHERE school_code = '588032';
 UPDATE schools SET
@@ -225,18 +225,18 @@ UPDATE schools SET
 WHERE school_code = '611484';
 UPDATE schools SET
   name_tc = COALESCE('香港墨爾文國際幼稚園（港島西）', name_tc),
-  logo_url = '/logos/613037.svg',
+  logo_url = '/logos/613037.png',
   fee_monthly_hkd = NULL,
-  fee_annual_hkd = NULL,
+  fee_annual_hkd = 8000,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = NULL,
-  other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
-  open_day_details = NULL,
-  open_day_url = NULL,
+  fee_notes = 'Tuition and Fees / Tuition Fees / Annual tuition fee for the academic year 2025-26:',
+  other_fees_note = 'HK$ 11,091 x 11 instalments / HK$ 19,039 x 11 instalments',
+  application_status = 'closed',
+  application_details = 'Admissions Procedure',
+  application_url = 'https://www.malvernpreschool.hk/',
+  open_day_details = 'Campus Tour Please contact the admissions team for more details regarding a private campus tour.',
+  open_day_url = 'https://www.malvernpreschool.hk/campustour/',
   last_profile_scraped_at = now()
 WHERE school_code = '613037';
 UPDATE schools SET
@@ -289,18 +289,18 @@ UPDATE schools SET
 WHERE school_code = '215694';
 UPDATE schools SET
   name_tc = COALESCE('瑪歌瑞特國際幼稚園（康怡）', name_tc),
-  logo_url = '/logos/215767.png',
+  logo_url = '/logos/215767.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
-  application_fee_hkd = COALESCE(40, application_fee_hkd),
+  application_fee_hkd = COALESCE(NULL, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = 'Application fee ($40), non-refundable',
+  fee_notes = NULL,
   other_fees_note = NULL,
-  application_status = 'website',
-  application_details = 'CEMENT 2020-22 Primary Connection ADMISSIONS How To Apply FAQ ',
-  application_url = 'https://www.magartedu.com/en/how-to-apply/',
-  open_day_details = 'Book a School Tour / Trial',
-  open_day_url = 'https://www.magartedu.com/en/tour-trial/',
+  application_status = NULL,
+  application_details = NULL,
+  application_url = NULL,
+  open_day_details = NULL,
+  open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '215767';
 UPDATE schools SET
@@ -314,7 +314,7 @@ UPDATE schools SET
   other_fees_note = 'Fees are non-refundable. / Our school will not be responsible for any undelivered mail due to the insufficient stamp fees.',
   application_status = 'website',
   application_details = 'ce Edward Branch) Me n Wonderland Admissions North Point Branch Prince Edward Branch Contact Us Our curriculum follows the early childhood educa',
-  application_url = 'http://www.mingwai.edu.hk/#',
+  application_url = 'http://www.mingwai.edu.hk/',
   open_day_details = NULL,
   open_day_url = NULL,
   last_profile_scraped_at = now()
@@ -394,7 +394,7 @@ UPDATE schools SET
   other_fees_note = 'Fees are non-refundable. / Our school will not be responsible for any undelivered mail due to the insufficient stamp fees.',
   application_status = 'website',
   application_details = 'ce Edward Branch) Me n Wonderland Admissions North Point Branch Prince Edward Branch Contact Us Our curriculum follows the early childhood educa',
-  application_url = 'http://www.mingwai.edu.hk/#',
+  application_url = 'http://www.mingwai.edu.hk/',
   open_day_details = NULL,
   open_day_url = NULL,
   last_profile_scraped_at = now()
@@ -410,7 +410,7 @@ UPDATE schools SET
   other_fees_note = 'Fees are non-refundable. / Our school will not be responsible for any undelivered mail due to the insufficient stamp fees.',
   application_status = 'website',
   application_details = 'ce Edward Branch) Me n Wonderland Admissions North Point Branch Prince Edward Branch Contact Us Our curriculum follows the early childhood educa',
-  application_url = 'http://www.mingwai.edu.hk/#',
+  application_url = 'http://www.mingwai.edu.hk/',
   open_day_details = NULL,
   open_day_url = NULL,
   last_profile_scraped_at = now()
@@ -448,19 +448,19 @@ UPDATE schools SET
   last_profile_scraped_at = now()
 WHERE school_code = '575852';
 UPDATE schools SET
-  name_tc = COALESCE(NULL, name_tc),
-  logo_url = '/logos/602329.svg',
+  name_tc = COALESCE('幼稚園課程 Summer Camp現已推出！', name_tc),
+  logo_url = '/logos/602329.png',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
-  application_fee_hkd = COALESCE(NULL, application_fee_hkd),
+  application_fee_hkd = COALESCE(40, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = NULL,
-  other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
-  open_day_details = NULL,
-  open_day_url = NULL,
+  fee_notes = '高達$3,300早鳥優惠 / 報名費：HK$40 (報名費將不設退回，支票抬頭請寫 ABC Pathways Education Foundation Limited) / 支票 (學校會收取入學行政費HK$40，費用概不退還。本校在收訖報名費後，才會接納申請。支票抬頭請寫ABC Pathways Education Foundation Limited)',
+  other_fees_note = '半日班 (太古及黃埔校舍) ─ $7,380 / 全日班 (黃埔校舍) ─ $9,880 及 $550 (膳食費)',
+  application_status = 'website',
+  application_details = '【Band One 入學活動】升學優勢活動2日通行證',
+  application_url = 'https://www.abcpathways.edu.hk/%e5%85%a5%e5%ad%b8%e7%94%b3%e8%ab%8b/',
+  open_day_details = '日誌 相片集 入學 入學申請 升學佳績 入學講座及校園參觀 最新消息 聯絡我們 我們的校舍 中文 English 主頁 關於ABC 歷史 使命和理念 校監 校長 我們的老師 結盟學校 / 友好學校 學術課程 幼稚園暑期課程 ',
+  open_day_url = 'https://www.abcpathways.edu.hk/%e5%85%a5%e5%ad%b8%e8%ac%9b%e5%ba%a7%e5%8f%8a%e9%9d%a2%e8%a9%a6%e6%97%a5/',
   last_profile_scraped_at = now()
 WHERE school_code = '602329';
 UPDATE schools SET
@@ -554,7 +554,7 @@ UPDATE schools SET
   other_fees_note = NULL,
   application_status = 'year_round',
   application_details = 'Admission Procedures',
-  application_url = 'http://www.discoverymind.edu.hk/#',
+  application_url = 'http://www.discoverymind.edu.hk/',
   open_day_details = ' School Tour Apply Contact Us School Tour ',
   open_day_url = 'https://discoverymind.edu.hk/school-tour/',
   last_profile_scraped_at = now()
@@ -570,7 +570,7 @@ UPDATE schools SET
   other_fees_note = NULL,
   application_status = 'year_round',
   application_details = 'Admission Procedures',
-  application_url = 'http://www.discoverymind.edu.hk/#',
+  application_url = 'http://www.discoverymind.edu.hk/',
   open_day_details = ' School Tour Apply Contact Us School Tour ',
   open_day_url = 'https://discoverymind.edu.hk/school-tour/',
   last_profile_scraped_at = now()
@@ -582,13 +582,13 @@ UPDATE schools SET
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = NULL,
+  fee_notes = 'We loved the interaction & feedback from the teachers.',
   other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
-  open_day_details = NULL,
-  open_day_url = NULL,
+  application_status = 'website',
+  application_details = 'Extension & Gifted Programme Admission Admission Open Day Enquiry / Arrange a school tour Our Campus DMA IB Montessori Elementary(3',
+  application_url = 'http://www.dms.edu.hk/content.php?wid=37',
+  open_day_details = 'Enquiry / Arrange a school tour',
+  open_day_url = 'http://www.dms.edu.hk/content.php?wid=40',
   last_profile_scraped_at = now()
 WHERE school_code = '584606';
 UPDATE schools SET
@@ -614,12 +614,12 @@ UPDATE schools SET
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = 'No problem, change the look and feel with a single click.',
+  fee_notes = NULL,
   other_fees_note = NULL,
   application_status = 'website',
   application_details = 'Admissions for school year 2026-2027 are open.',
   application_url = 'https://www.godaddy.com/websites/website-builder?isc=pwugc&utm_source=wsb&utm_medium=applications&utm_campaign=en-ie_corp_applications_base',
-  open_day_details = 'SSL Certificates Show visitors your site is encrypted and trustworthy.',
+  open_day_details = NULL,
   open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '590029';
@@ -630,13 +630,13 @@ UPDATE schools SET
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = NULL,
+  fee_notes = 'We loved the interaction & feedback from the teachers.',
   other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
-  open_day_details = NULL,
-  open_day_url = NULL,
+  application_status = 'website',
+  application_details = 'Extension & Gifted Programme Admission Admission Open Day Enquiry / Arrange a school tour Our Campus DMA IB Montessori Elementary(3',
+  application_url = 'http://www.dms.edu.hk/content.php?wid=37',
+  open_day_details = 'Enquiry / Arrange a school tour',
+  open_day_url = 'http://www.dms.edu.hk/content.php?wid=40',
   last_profile_scraped_at = now()
 WHERE school_code = '600814';
 UPDATE schools SET
@@ -1057,18 +1057,18 @@ UPDATE schools SET
 WHERE school_code = '609528';
 UPDATE schools SET
   name_tc = COALESCE('瑪歌瑞特國際幼稚園', name_tc),
-  logo_url = '/logos/610623.png',
+  logo_url = '/logos/610623.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
-  application_fee_hkd = COALESCE(40, application_fee_hkd),
+  application_fee_hkd = COALESCE(NULL, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = 'Application fee ($40), non-refundable',
+  fee_notes = NULL,
   other_fees_note = NULL,
-  application_status = 'website',
-  application_details = 'CEMENT 2020-22 Primary Connection ADMISSIONS How To Apply FAQ ',
-  application_url = 'https://www.magartedu.com/en/how-to-apply/',
-  open_day_details = 'Book a School Tour / Trial',
-  open_day_url = 'https://www.magartedu.com/en/tour-trial/',
+  application_status = NULL,
+  application_details = NULL,
+  application_url = NULL,
+  open_day_details = NULL,
+  open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '610623';
 UPDATE schools SET
@@ -1233,18 +1233,18 @@ UPDATE schools SET
 WHERE school_code = '627275';
 UPDATE schools SET
   name_tc = COALESCE('瑪歌瑞特國際幼稚園（粉嶺）', name_tc),
-  logo_url = '/logos/566241.png',
+  logo_url = '/logos/566241.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
-  application_fee_hkd = COALESCE(40, application_fee_hkd),
+  application_fee_hkd = COALESCE(NULL, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = 'Application fee ($40), non-refundable',
+  fee_notes = NULL,
   other_fees_note = NULL,
-  application_status = 'website',
-  application_details = 'CEMENT 2020-22 Primary Connection ADMISSIONS How To Apply FAQ ',
-  application_url = 'https://www.magartedu.com/en/how-to-apply/',
-  open_day_details = 'Book a School Tour / Trial',
-  open_day_url = 'https://www.magartedu.com/en/tour-trial/',
+  application_status = NULL,
+  application_details = NULL,
+  application_url = NULL,
+  open_day_details = NULL,
+  open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '566241';
 UPDATE schools SET
@@ -1329,16 +1329,16 @@ UPDATE schools SET
 WHERE school_code = '532355';
 UPDATE schools SET
   name_tc = COALESCE('翠茵小宇宙幼稚園', name_tc),
-  logo_url = '/logos/537527.svg',
+  logo_url = '/logos/537527.png',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
   fee_notes = NULL,
   other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
+  application_status = 'website',
+  application_details = 'In those early days, our enrolment numbers totalled slightly over two hundred.',
+  application_url = 'http://www.greenvillekids.edu.hk/en/admission/',
   open_day_details = NULL,
   open_day_url = NULL,
   last_profile_scraped_at = now()
@@ -1409,18 +1409,18 @@ UPDATE schools SET
 WHERE school_code = '578630';
 UPDATE schools SET
   name_tc = COALESCE('博士山（香港）國際幼稚園 - 將軍澳', name_tc),
-  logo_url = '/logos/581836.svg',
+  logo_url = '/logos/581836.png',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
-  application_fee_hkd = COALESCE(NULL, application_fee_hkd),
+  application_fee_hkd = COALESCE(40, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = NULL,
-  other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
-  open_day_details = NULL,
-  open_day_url = NULL,
+  fee_notes = 'A non-refundable application fee of HK$40 will be collected online when you submit the form. / 請完整填寫網上申請表，並於提交時繳交港幣 $40 的報名費（不設退款）。你可以使用 VISA、萬事達卡、美國運通卡或銀聯卡付款。 / Applying to multiple campuses is permitted upon payment of the application fee to each campus.',
+  other_fees_note = '感謝你申請入讀博士山（香港）國際幼稚園暨幼兒園。家長可為 貴子女同時報讀多間分校，遞交到不同分校之每份申請均須繳交報名費，報名費用不能轉到其他分校，而所有申請只適用於一個學年。如聯絡資料有任何更改，請通知校務處。 / * School fees to be paid from August to June for eleven months.',
+  application_status = 'open',
+  application_details = 'Admissions Open for 2026/27',
+  application_url = 'https://boxhill.edu.hk/admission/',
+  open_day_details = 'Open Day – The Little Red Hen – Sep 2025',
+  open_day_url = 'https://boxhill.edu.hk/school-tour-info-session-jan-2026/',
   last_profile_scraped_at = now()
 WHERE school_code = '581836';
 UPDATE schools SET
@@ -1659,7 +1659,7 @@ UPDATE schools SET
   application_status = 'open',
   application_details = 'Primary One Admissions',
   application_url = 'http://www.catiline.edu.hk/primarynbsponenbspadmissions.html',
-  open_day_details = ' 嘉德麗幼稚園親子體驗日 © COPYRIGHT Catiline Educational Organisation 2021. ALL RIGHT',
+  open_day_details = ' 嘉德麗幼稚園親子體驗日 © COPYRIGHT Catiline Educational Organisation 2021. ALL R',
   open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '231266';
@@ -1705,7 +1705,7 @@ UPDATE schools SET
   fee_notes = NULL,
   other_fees_note = NULL,
   application_status = 'closed',
-  application_details = ' School Activities Admissions Contact Us Notice & Reply Slip Message Photo Album sample ',
+  application_details = ' School Activities Admissions Contact Us Notice & Reply Slip Message Photo Albu',
   application_url = 'http://www.hkpreschool.edu.hk/index.php/section/page/3142',
   open_day_details = NULL,
   open_day_url = NULL,
@@ -1729,18 +1729,18 @@ UPDATE schools SET
 WHERE school_code = '533360';
 UPDATE schools SET
   name_tc = COALESCE('博士山（香港）國際幼稚園', name_tc),
-  logo_url = '/logos/559415.svg',
+  logo_url = '/logos/559415.png',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
-  application_fee_hkd = COALESCE(NULL, application_fee_hkd),
+  application_fee_hkd = COALESCE(40, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = NULL,
-  other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
-  open_day_details = NULL,
-  open_day_url = NULL,
+  fee_notes = 'A non-refundable application fee of HK$40 will be collected online when you submit the form. / 請完整填寫網上申請表，並於提交時繳交港幣 $40 的報名費（不設退款）。你可以使用 VISA、萬事達卡、美國運通卡或銀聯卡付款。 / Applying to multiple campuses is permitted upon payment of the application fee to each campus.',
+  other_fees_note = '感謝你申請入讀博士山（香港）國際幼稚園暨幼兒園。家長可為 貴子女同時報讀多間分校，遞交到不同分校之每份申請均須繳交報名費，報名費用不能轉到其他分校，而所有申請只適用於一個學年。如聯絡資料有任何更改，請通知校務處。 / * School fees to be paid from August to June for eleven months.',
+  application_status = 'open',
+  application_details = 'Admissions Open for 2026/27',
+  application_url = 'https://boxhill.edu.hk/admission/',
+  open_day_details = 'Open Day – The Little Red Hen – Sep 2025',
+  open_day_url = 'https://boxhill.edu.hk/school-tour-info-session-jan-2026/',
   last_profile_scraped_at = now()
 WHERE school_code = '559415';
 UPDATE schools SET
@@ -1761,18 +1761,18 @@ UPDATE schools SET
 WHERE school_code = '565113';
 UPDATE schools SET
   name_tc = COALESCE('博士山（香港）國際幼稚園 - 火炭', name_tc),
-  logo_url = '/logos/581739.svg',
+  logo_url = '/logos/581739.png',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
-  application_fee_hkd = COALESCE(NULL, application_fee_hkd),
+  application_fee_hkd = COALESCE(40, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = NULL,
-  other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
-  open_day_details = NULL,
-  open_day_url = NULL,
+  fee_notes = 'A non-refundable application fee of HK$40 will be collected online when you submit the form. / 請完整填寫網上申請表，並於提交時繳交港幣 $40 的報名費（不設退款）。你可以使用 VISA、萬事達卡、美國運通卡或銀聯卡付款。 / Applying to multiple campuses is permitted upon payment of the application fee to each campus.',
+  other_fees_note = '感謝你申請入讀博士山（香港）國際幼稚園暨幼兒園。家長可為 貴子女同時報讀多間分校，遞交到不同分校之每份申請均須繳交報名費，報名費用不能轉到其他分校，而所有申請只適用於一個學年。如聯絡資料有任何更改，請通知校務處。 / * School fees to be paid from August to June for eleven months.',
+  application_status = 'open',
+  application_details = 'Admissions Open for 2026/27',
+  application_url = 'https://boxhill.edu.hk/admission/',
+  open_day_details = 'Open Day – The Little Red Hen – Sep 2025',
+  open_day_url = 'https://boxhill.edu.hk/school-tour-info-session-jan-2026/',
   last_profile_scraped_at = now()
 WHERE school_code = '581739';
 UPDATE schools SET
@@ -1881,7 +1881,7 @@ UPDATE schools SET
   fee_notes = 'Fees and Charges / Tuition fee for Academic Year 2024-2025 / Annual Tuition Fee',
   other_fees_note = '$ 10,200 / $ 18,360',
   application_status = 'year_round',
-  application_details = 'er 2s Programme PYP POI Admissions Programme Structure Application Process Fees and Charges Withdrawal Procedures Online Application School Bus Servi',
+  application_details = '2s Programme PYP POI Admissions Programme Structure Application Process Fees and Charges Withdrawal Procedures Online Application School Bus Serv',
   application_url = 'http://www.pips.edu.hk/hk/admission_playgroup.asp',
   open_day_details = 'We invite you, your family and your friends to our Open Day - Spring in the City!',
   open_day_url = NULL,
@@ -1937,18 +1937,18 @@ UPDATE schools SET
 WHERE school_code = '565466';
 UPDATE schools SET
   name_tc = COALESCE(NULL, name_tc),
-  logo_url = '/logos/578053.svg',
+  logo_url = '/logos/578053.png',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
-  application_fee_hkd = COALESCE(NULL, application_fee_hkd),
-  registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = NULL,
-  other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
-  open_day_details = NULL,
-  open_day_url = NULL,
+  application_fee_hkd = COALESCE(40, application_fee_hkd),
+  registration_fee_hkd = COALESCE(970, registration_fee_hkd),
+  fee_notes = 'Application Fee of HK$40 / We will review applications once all required documents and fees have been received. / Fee Policy',
+  other_fees_note = 'Application Fee: $40 (Mulberry House International Kindergarten’s application fee is a non-refundable, non-transferable and non-deferrable administration fee for admissions. / The collection of this fee does not constitute any assurance that a school place or an interview will be offered.)',
+  application_status = 'open',
+  application_details = 'Online Application Form',
+  application_url = 'https://mulberryhousekg.com/',
+  open_day_details = 'Fill out a quick form to visit us or to get more information.',
+  open_day_url = 'https://mulberryhousekg.com/info-session/',
   last_profile_scraped_at = now()
 WHERE school_code = '578053';
 UPDATE schools SET
@@ -2033,18 +2033,18 @@ UPDATE schools SET
 WHERE school_code = '567027';
 UPDATE schools SET
   name_tc = COALESCE('懋柏禮國際幼稚園', name_tc),
-  logo_url = '/logos/601721.svg',
+  logo_url = '/logos/601721.png',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
-  application_fee_hkd = COALESCE(NULL, application_fee_hkd),
-  registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = NULL,
-  other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
-  open_day_details = NULL,
-  open_day_url = NULL,
+  application_fee_hkd = COALESCE(40, application_fee_hkd),
+  registration_fee_hkd = COALESCE(970, registration_fee_hkd),
+  fee_notes = 'Application Fee of HK$40 / We will review applications once all required documents and fees have been received. / Fee Policy',
+  other_fees_note = 'Application Fee: $40 (Mulberry House International Kindergarten’s application fee is a non-refundable, non-transferable and non-deferrable administration fee for admissions. / The collection of this fee does not constitute any assurance that a school place or an interview will be offered.)',
+  application_status = 'open',
+  application_details = 'Online Application Form',
+  application_url = 'https://mulberryhousekg.com/',
+  open_day_details = 'Fill out a quick form to visit us or to get more information.',
+  open_day_url = 'https://mulberryhousekg.com/info-session/',
   last_profile_scraped_at = now()
 WHERE school_code = '601721';
 UPDATE schools SET
@@ -2065,7 +2065,7 @@ UPDATE schools SET
 WHERE school_code = '157716';
 UPDATE schools SET
   name_tc = COALESCE('海濱方方樂趣幼稚園', name_tc),
-  logo_url = '/logos/565105.svg',
+  logo_url = '/logos/565105.png',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -2321,18 +2321,18 @@ UPDATE schools SET
 WHERE school_code = '600334';
 UPDATE schools SET
   name_tc = COALESCE('道爾頓幼稚園', name_tc),
-  logo_url = '/logos/607592.svg',
+  logo_url = '/logos/607592.png',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = NULL,
+  fee_notes = 'Any attempt to provide misleading and false information to the school; or withheld information of the school from parent; or wilfully obstruct parent-school communication, may render the application invalid and no applic',
   other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
-  open_day_details = NULL,
-  open_day_url = NULL,
+  application_status = 'year_round',
+  application_details = 'Testimonials Teacher Testimonials Admissions Apply Now Visit Us Events Video Gallery Photo Gallery Contact 中文 Home About Mission and Pri',
+  application_url = 'https://littledalton.com/',
+  open_day_details = 'imonials Admissions Apply Now Visit Us Events Video Gallery Photo Gallery Contact 中文 Home About Mission and Principles Our Journey Mes',
+  open_day_url = 'https://littledalton.com/visit-us/',
   last_profile_scraped_at = now()
 WHERE school_code = '607592';
 UPDATE schools SET
@@ -2426,7 +2426,7 @@ UPDATE schools SET
   other_fees_note = 'Fees are non-refundable. / Our school will not be responsible for any undelivered mail due to the insufficient stamp fees.',
   application_status = 'website',
   application_details = 'ce Edward Branch) Me n Wonderland Admissions North Point Branch Prince Edward Branch Contact Us Our curriculum follows the early childhood educa',
-  application_url = 'http://www.mingwai.edu.hk/#',
+  application_url = 'http://www.mingwai.edu.hk/',
   open_day_details = NULL,
   open_day_url = NULL,
   last_profile_scraped_at = now()
@@ -2465,18 +2465,18 @@ UPDATE schools SET
 WHERE school_code = '601403';
 UPDATE schools SET
   name_tc = COALESCE('香港墨爾文國際幼稚園', name_tc),
-  logo_url = '/logos/606979.svg',
+  logo_url = '/logos/606979.png',
   fee_monthly_hkd = NULL,
-  fee_annual_hkd = NULL,
+  fee_annual_hkd = 8000,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = NULL,
-  other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
-  open_day_details = NULL,
-  open_day_url = NULL,
+  fee_notes = 'Tuition and Fees / Tuition Fees / Annual tuition fee for the academic year 2025-26:',
+  other_fees_note = 'HK$ 11,091 x 11 instalments / HK$ 19,039 x 11 instalments',
+  application_status = 'closed',
+  application_details = 'Admissions Procedure',
+  application_url = 'http://www.malvernpreschool.hk/',
+  open_day_details = 'Campus Tour Please contact the admissions team for more details regarding a private campus tour.',
+  open_day_url = 'https://www.malvernpreschool.hk/campustour/',
   last_profile_scraped_at = now()
 WHERE school_code = '606979';
 UPDATE schools SET

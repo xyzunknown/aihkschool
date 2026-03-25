@@ -79,18 +79,21 @@
     "website": "http://www.dms.edu.hk",
     "logo_url": "/logos/588032.svg",
     "logo_source_url": "generated_placeholder",
-    "application_status": null,
-    "application_details": null,
-    "application_url": null,
-    "open_day_details": null,
-    "open_day_url": null,
+    "application_status": "website",
+    "application_details": "Extension & Gifted Programme Admission Admission Open Day Enquiry / Arrange a school tour Our Campus DMA IB Montessori Elementary(3",
+    "application_url": "http://www.dms.edu.hk/content.php?wid=37",
+    "open_day_details": "Enquiry / Arrange a school tour",
+    "open_day_url": "http://www.dms.edu.hk/content.php?wid=40",
     "fee_monthly_hkd": null,
     "fee_annual_hkd": null,
     "application_fee_hkd": null,
     "registration_fee_hkd": null,
-    "fee_notes": null,
+    "fee_notes": "We loved the interaction & feedback from the teachers.",
     "other_fees_note": null,
-    "scrape_status": "homepage_unreachable"
+    "scrape_status": "ok",
+    "scraped_pages": [
+      "http://www.dms.edu.hk/"
+    ]
   },
   {
     "school_code": "590673",
@@ -337,20 +340,26 @@
     "name_tc": "香港墨爾文國際幼稚園（港島西）",
     "name_en": "MALVERN COLLEGE PRE-SCHOOL HONG KONG (ISLAND WEST)",
     "website": "https://www.malvernpreschool.hk",
-    "logo_url": "/logos/613037.svg",
-    "logo_source_url": "generated_placeholder",
-    "application_status": null,
-    "application_details": null,
-    "application_url": null,
-    "open_day_details": null,
-    "open_day_url": null,
+    "logo_url": "/logos/613037.png",
+    "logo_source_url": "https://www.malvernpreschool.hk/wp-content/themes/malverntheme/img/icons/favicon.ico",
+    "application_status": "closed",
+    "application_details": "Admissions Procedure",
+    "application_url": "https://www.malvernpreschool.hk/",
+    "open_day_details": "Campus Tour Please contact the admissions team for more details regarding a private campus tour.",
+    "open_day_url": "https://www.malvernpreschool.hk/campustour/",
     "fee_monthly_hkd": null,
-    "fee_annual_hkd": null,
+    "fee_annual_hkd": 8000.0,
     "application_fee_hkd": null,
     "registration_fee_hkd": null,
-    "fee_notes": null,
-    "other_fees_note": null,
-    "scrape_status": "homepage_unreachable"
+    "fee_notes": "Tuition and Fees / Tuition Fees / Annual tuition fee for the academic year 2025-26:",
+    "other_fees_note": "HK$ 11,091 x 11 instalments / HK$ 19,039 x 11 instalments",
+    "scrape_status": "ok",
+    "scraped_pages": [
+      "https://www.malvernpreschool.hk/",
+      "https://www.malvernpreschool.hk/admissions-overview/",
+      "https://www.malvernpreschool.hk/fees/",
+      "https://www.malvernpreschool.hk/campustour/"
+    ]
   },
   {
     "school_code": "614904",
@@ -373,8 +382,7 @@
     "scrape_status": "ok",
     "scraped_pages": [
       "https://hkkidsacademy.edu.hk/les-petits-lascars",
-      "https://hkkidsacademy.edu.hk/admissions",
-      "https://www.instagram.com/lespetitslascars_hk/"
+      "https://hkkidsacademy.edu.hk/admissions"
     ]
   },
   {
@@ -425,25 +433,20 @@
     "name_tc": "瑪歌瑞特國際幼稚園（康怡）",
     "name_en": "MAGART INTERNATIONAL KINDERGARTEN (KORNHILL)",
     "website": "https://www.magartedu.com",
-    "logo_url": "/logos/215767.png",
-    "logo_source_url": "https://www.magartedu.com/wp-content/uploads/2024/03/MAGART-VI_Horiz_CMYK.png",
-    "application_status": "website",
-    "application_details": "CEMENT 2020-22 Primary Connection ADMISSIONS How To Apply FAQ ",
-    "application_url": "https://www.magartedu.com/en/how-to-apply/",
-    "open_day_details": "Book a School Tour / Trial",
-    "open_day_url": "https://www.magartedu.com/en/tour-trial/",
+    "logo_url": "/logos/215767.svg",
+    "logo_source_url": "generated_placeholder",
+    "application_status": null,
+    "application_details": null,
+    "application_url": null,
+    "open_day_details": null,
+    "open_day_url": null,
     "fee_monthly_hkd": null,
     "fee_annual_hkd": null,
-    "application_fee_hkd": 40.0,
+    "application_fee_hkd": null,
     "registration_fee_hkd": null,
-    "fee_notes": "Application fee ($40), non-refundable",
+    "fee_notes": null,
     "other_fees_note": null,
-    "scrape_status": "ok",
-    "scraped_pages": [
-      "https://www.magartedu.com/",
-      "https://www.magartedu.com/en/how-to-apply/",
-      "https://www.magartedu.com/en/tour-trial/"
-    ]
+    "scrape_status": "homepage_unreachable"
   },
   {
     "school_code": "321087",
@@ -454,7 +457,7 @@
     "logo_source_url": "https://www.mingwai.edu.hk/wp-content/uploads/2021/09/MWicon.jpg",
     "application_status": "website",
     "application_details": "ce Edward Branch) Me n Wonderland Admissions North Point Branch Prince Edward Branch Contact Us Our curriculum follows the early childhood educa",
-    "application_url": "http://www.mingwai.edu.hk/#",
+    "application_url": "http://www.mingwai.edu.hk/",
     "open_day_details": null,
     "open_day_url": null,
     "fee_monthly_hkd": null,
@@ -466,7 +469,6 @@
     "scrape_status": "ok",
     "scraped_pages": [
       "http://www.mingwai.edu.hk/",
-      "http://www.mingwai.edu.hk/#",
       "https://www.mingwai.edu.hk/how-to-apply/north-point-admissions/admissions-information/",
       "https://www.mingwai.edu.hk/how-to-apply/prince-edward-admissions/admissions-information/",
       "https://www.mingwai.edu.hk/programs/"
@@ -579,7 +581,7 @@
     "logo_source_url": "https://www.mingwai.edu.hk/wp-content/uploads/2021/09/MWicon.jpg",
     "application_status": "website",
     "application_details": "ce Edward Branch) Me n Wonderland Admissions North Point Branch Prince Edward Branch Contact Us Our curriculum follows the early childhood educa",
-    "application_url": "http://www.mingwai.edu.hk/#",
+    "application_url": "http://www.mingwai.edu.hk/",
     "open_day_details": null,
     "open_day_url": null,
     "fee_monthly_hkd": null,
@@ -591,7 +593,6 @@
     "scrape_status": "ok",
     "scraped_pages": [
       "http://www.mingwai.edu.hk/",
-      "http://www.mingwai.edu.hk/#",
       "https://www.mingwai.edu.hk/how-to-apply/north-point-admissions/admissions-information/",
       "https://www.mingwai.edu.hk/how-to-apply/prince-edward-admissions/admissions-information/",
       "https://www.mingwai.edu.hk/programs/"
@@ -606,7 +607,7 @@
     "logo_source_url": "https://www.mingwai.edu.hk/wp-content/uploads/2021/09/MWicon.jpg",
     "application_status": "website",
     "application_details": "ce Edward Branch) Me n Wonderland Admissions North Point Branch Prince Edward Branch Contact Us Our curriculum follows the early childhood educa",
-    "application_url": "http://www.mingwai.edu.hk/#",
+    "application_url": "http://www.mingwai.edu.hk/",
     "open_day_details": null,
     "open_day_url": null,
     "fee_monthly_hkd": null,
@@ -618,7 +619,6 @@
     "scrape_status": "ok",
     "scraped_pages": [
       "http://www.mingwai.edu.hk/",
-      "http://www.mingwai.edu.hk/#",
       "https://www.mingwai.edu.hk/how-to-apply/north-point-admissions/admissions-information/",
       "https://www.mingwai.edu.hk/how-to-apply/prince-edward-admissions/admissions-information/",
       "https://www.mingwai.edu.hk/programs/"
@@ -680,25 +680,28 @@
   },
   {
     "school_code": "602329",
-    "name_tc": null,
+    "name_tc": "幼稚園課程 Summer Camp現已推出！",
     "name_en": "ABC PATHWAYS INTERNATIONAL KINDERGARTEN",
     "website": "http://www.abcpathways.edu.hk",
-    "logo_url": "/logos/602329.svg",
-    "logo_source_url": "generated_placeholder",
-    "application_status": null,
-    "application_details": null,
-    "application_url": null,
-    "open_day_details": null,
-    "open_day_url": null,
+    "logo_url": "/logos/602329.png",
+    "logo_source_url": "https://www.abcpathways.edu.hk/wp-content/uploads/2025/07/cropped-885658-32x32.png",
+    "application_status": "website",
+    "application_details": "【Band One 入學活動】升學優勢活動2日通行證",
+    "application_url": "https://www.abcpathways.edu.hk/%e5%85%a5%e5%ad%b8%e7%94%b3%e8%ab%8b/",
+    "open_day_details": "日誌 相片集 入學 入學申請 升學佳績 入學講座及校園參觀 最新消息 聯絡我們 我們的校舍 中文 English 主頁 關於ABC 歷史 使命和理念 校監 校長 我們的老師 結盟學校 / 友好學校 學術課程 幼稚園暑期課程 ",
+    "open_day_url": "https://www.abcpathways.edu.hk/%e5%85%a5%e5%ad%b8%e8%ac%9b%e5%ba%a7%e5%8f%8a%e9%9d%a2%e8%a9%a6%e6%97%a5/",
     "fee_monthly_hkd": null,
     "fee_annual_hkd": null,
-    "application_fee_hkd": null,
+    "application_fee_hkd": 40.0,
     "registration_fee_hkd": null,
-    "fee_notes": null,
-    "other_fees_note": null,
+    "fee_notes": "高達$3,300早鳥優惠 / 報名費：HK$40 (報名費將不設退回，支票抬頭請寫 ABC Pathways Education Foundation Limited) / 支票 (學校會收取入學行政費HK$40，費用概不退還。本校在收訖報名費後，才會接納申請。支票抬頭請寫ABC Pathways Education Foundation Limited)",
+    "other_fees_note": "半日班 (太古及黃埔校舍) ─ $7,380 / 全日班 (黃埔校舍) ─ $9,880 及 $550 (膳食費)",
     "scrape_status": "ok",
     "scraped_pages": [
-      "http://www.abcpathways.edu.hk/"
+      "http://www.abcpathways.edu.hk/",
+      "https://www.abcpathways.edu.hk/%e5%85%a5%e5%ad%b8%e7%94%b3%e8%ab%8b/",
+      "https://www.abcpathways.edu.hk/2026admissionevents/",
+      "https://www.abcpathways.edu.hk/%e5%85%a5%e5%ad%b8%e8%ac%9b%e5%ba%a7%e5%8f%8a%e9%9d%a2%e8%a9%a6%e6%97%a5/"
     ]
   },
   {
@@ -833,7 +836,7 @@
     "logo_source_url": "https://discoverymind.edu.hk/wp-content/uploads/2023/11/DiscoveryMind_Favicon-v2.png",
     "application_status": "year_round",
     "application_details": "Admission Procedures",
-    "application_url": "http://www.discoverymind.edu.hk/#",
+    "application_url": "http://www.discoverymind.edu.hk/",
     "open_day_details": " School Tour Apply Contact Us School Tour ",
     "open_day_url": "https://discoverymind.edu.hk/school-tour/",
     "fee_monthly_hkd": null,
@@ -845,7 +848,6 @@
     "scrape_status": "ok",
     "scraped_pages": [
       "http://www.discoverymind.edu.hk/",
-      "http://www.discoverymind.edu.hk/#",
       "https://fs19.formsite.com/DiscoveryMind/Admission/index",
       "https://discoverymind.edu.hk/admission-procedures/",
       "https://discoverymind.edu.hk/school-tour/"
@@ -860,7 +862,7 @@
     "logo_source_url": "https://discoverymind.edu.hk/wp-content/uploads/2023/11/DiscoveryMind_Favicon-v2.png",
     "application_status": "year_round",
     "application_details": "Admission Procedures",
-    "application_url": "http://www.discoverymind.edu.hk/#",
+    "application_url": "http://www.discoverymind.edu.hk/",
     "open_day_details": " School Tour Apply Contact Us School Tour ",
     "open_day_url": "https://discoverymind.edu.hk/school-tour/",
     "fee_monthly_hkd": null,
@@ -872,7 +874,6 @@
     "scrape_status": "ok",
     "scraped_pages": [
       "http://www.discoverymind.edu.hk/",
-      "http://www.discoverymind.edu.hk/#",
       "https://fs19.formsite.com/DiscoveryMind/Admission/index",
       "https://discoverymind.edu.hk/admission-procedures/",
       "https://discoverymind.edu.hk/school-tour/"
@@ -885,18 +886,21 @@
     "website": "http://www.dms.edu.hk",
     "logo_url": "/logos/584606.svg",
     "logo_source_url": "generated_placeholder",
-    "application_status": null,
-    "application_details": null,
-    "application_url": null,
-    "open_day_details": null,
-    "open_day_url": null,
+    "application_status": "website",
+    "application_details": "Extension & Gifted Programme Admission Admission Open Day Enquiry / Arrange a school tour Our Campus DMA IB Montessori Elementary(3",
+    "application_url": "http://www.dms.edu.hk/content.php?wid=37",
+    "open_day_details": "Enquiry / Arrange a school tour",
+    "open_day_url": "http://www.dms.edu.hk/content.php?wid=40",
     "fee_monthly_hkd": null,
     "fee_annual_hkd": null,
     "application_fee_hkd": null,
     "registration_fee_hkd": null,
-    "fee_notes": null,
+    "fee_notes": "We loved the interaction & feedback from the teachers.",
     "other_fees_note": null,
-    "scrape_status": "homepage_unreachable"
+    "scrape_status": "ok",
+    "scraped_pages": [
+      "http://www.dms.edu.hk/"
+    ]
   },
   {
     "school_code": "587877",
@@ -932,18 +936,17 @@
     "application_status": "website",
     "application_details": "Admissions for school year 2026-2027 are open.",
     "application_url": "https://www.godaddy.com/websites/website-builder?isc=pwugc&utm_source=wsb&utm_medium=applications&utm_campaign=en-ie_corp_applications_base",
-    "open_day_details": "SSL Certificates Show visitors your site is encrypted and trustworthy.",
+    "open_day_details": null,
     "open_day_url": null,
     "fee_monthly_hkd": null,
     "fee_annual_hkd": null,
     "application_fee_hkd": null,
     "registration_fee_hkd": null,
-    "fee_notes": "No problem, change the look and feel with a single click.",
+    "fee_notes": null,
     "other_fees_note": null,
     "scrape_status": "ok",
     "scraped_pages": [
-      "http://www.ecole-discovery.com/",
-      "https://www.godaddy.com/websites/website-builder?isc=pwugc&utm_source=wsb&utm_medium=applications&utm_campaign=en-ie_corp_applications_base"
+      "http://www.ecole-discovery.com/"
     ]
   },
   {
@@ -953,18 +956,21 @@
     "website": "http://www.dms.edu.hk",
     "logo_url": "/logos/600814.svg",
     "logo_source_url": "generated_placeholder",
-    "application_status": null,
-    "application_details": null,
-    "application_url": null,
-    "open_day_details": null,
-    "open_day_url": null,
+    "application_status": "website",
+    "application_details": "Extension & Gifted Programme Admission Admission Open Day Enquiry / Arrange a school tour Our Campus DMA IB Montessori Elementary(3",
+    "application_url": "http://www.dms.edu.hk/content.php?wid=37",
+    "open_day_details": "Enquiry / Arrange a school tour",
+    "open_day_url": "http://www.dms.edu.hk/content.php?wid=40",
     "fee_monthly_hkd": null,
     "fee_annual_hkd": null,
     "application_fee_hkd": null,
     "registration_fee_hkd": null,
-    "fee_notes": null,
+    "fee_notes": "We loved the interaction & feedback from the teachers.",
     "other_fees_note": null,
-    "scrape_status": "homepage_unreachable"
+    "scrape_status": "ok",
+    "scraped_pages": [
+      "http://www.dms.edu.hk/"
+    ]
   },
   {
     "school_code": "609625",
@@ -1015,7 +1021,6 @@
     "scraped_pages": [
       "http://www.st-johannes.edu.hk/",
       "https://st-johannes.edu.hk/applying-to-sjc/#admissions",
-      "http://www.st-johannes.edu.hk/#",
       "https://st-johannes.edu.hk/applying-to-sjc/",
       "https://st-johannes.edu.hk/tuition/"
     ]
@@ -1148,7 +1153,7 @@
       "http://www.kingston.edu.hk/admissions/admissions-process",
       "http://www.kingston.edu.hk/admissions/apply-online",
       "http://www.kingston.edu.hk/admissions/school-fees",
-      "http://www.kingston.edu.hk/#"
+      "http://www.kingston.edu.hk/admissions/school-tours"
     ]
   },
   {
@@ -1518,10 +1523,7 @@
     "registration_fee_hkd": null,
     "fee_notes": null,
     "other_fees_note": null,
-    "scrape_status": "ok",
-    "scraped_pages": [
-      "https://www.abcpathways.edu.hk/language/en/"
-    ]
+    "scrape_status": "homepage_unreachable"
   },
   {
     "school_code": "604445",
@@ -1568,25 +1570,20 @@
     "name_tc": "瑪歌瑞特國際幼稚園",
     "name_en": "MAGART INTERNATIONAL KINDERGARTEN",
     "website": "https://www.magartedu.com",
-    "logo_url": "/logos/610623.png",
-    "logo_source_url": "https://www.magartedu.com/wp-content/uploads/2024/03/MAGART-VI_Horiz_CMYK.png",
-    "application_status": "website",
-    "application_details": "CEMENT 2020-22 Primary Connection ADMISSIONS How To Apply FAQ ",
-    "application_url": "https://www.magartedu.com/en/how-to-apply/",
-    "open_day_details": "Book a School Tour / Trial",
-    "open_day_url": "https://www.magartedu.com/en/tour-trial/",
+    "logo_url": "/logos/610623.svg",
+    "logo_source_url": "generated_placeholder",
+    "application_status": null,
+    "application_details": null,
+    "application_url": null,
+    "open_day_details": null,
+    "open_day_url": null,
     "fee_monthly_hkd": null,
     "fee_annual_hkd": null,
-    "application_fee_hkd": 40.0,
+    "application_fee_hkd": null,
     "registration_fee_hkd": null,
-    "fee_notes": "Application fee ($40), non-refundable",
+    "fee_notes": null,
     "other_fees_note": null,
-    "scrape_status": "ok",
-    "scraped_pages": [
-      "https://www.magartedu.com/",
-      "https://www.magartedu.com/en/how-to-apply/",
-      "https://www.magartedu.com/en/tour-trial/"
-    ]
+    "scrape_status": "homepage_unreachable"
   },
   {
     "school_code": "617741",
@@ -1839,25 +1836,20 @@
     "name_tc": "瑪歌瑞特國際幼稚園（粉嶺）",
     "name_en": "MAGART INTERNATIONAL KINDERGARTEN (FANLING)",
     "website": "https://www.magartedu.com",
-    "logo_url": "/logos/566241.png",
-    "logo_source_url": "https://www.magartedu.com/wp-content/uploads/2024/03/MAGART-VI_Horiz_CMYK.png",
-    "application_status": "website",
-    "application_details": "CEMENT 2020-22 Primary Connection ADMISSIONS How To Apply FAQ ",
-    "application_url": "https://www.magartedu.com/en/how-to-apply/",
-    "open_day_details": "Book a School Tour / Trial",
-    "open_day_url": "https://www.magartedu.com/en/tour-trial/",
+    "logo_url": "/logos/566241.svg",
+    "logo_source_url": "generated_placeholder",
+    "application_status": null,
+    "application_details": null,
+    "application_url": null,
+    "open_day_details": null,
+    "open_day_url": null,
     "fee_monthly_hkd": null,
     "fee_annual_hkd": null,
-    "application_fee_hkd": 40.0,
+    "application_fee_hkd": null,
     "registration_fee_hkd": null,
-    "fee_notes": "Application fee ($40), non-refundable",
+    "fee_notes": null,
     "other_fees_note": null,
-    "scrape_status": "ok",
-    "scraped_pages": [
-      "https://www.magartedu.com/",
-      "https://www.magartedu.com/en/how-to-apply/",
-      "https://www.magartedu.com/en/tour-trial/"
-    ]
+    "scrape_status": "homepage_unreachable"
   },
   {
     "school_code": "582417",
@@ -1923,8 +1915,7 @@
     "other_fees_note": null,
     "scrape_status": "ok",
     "scraped_pages": [
-      "http://greenfield.edu.hk/en",
-      "http://greenfield.edu.hk/en#"
+      "http://greenfield.edu.hk/en"
     ]
   },
   {
@@ -1979,11 +1970,11 @@
     "name_tc": "翠茵小宇宙幼稚園",
     "name_en": "GREENVILLE KIDS' WORLD KINDERGARTEN",
     "website": "http://www.greenvillekids.edu.hk",
-    "logo_url": "/logos/537527.svg",
-    "logo_source_url": "generated_placeholder",
-    "application_status": null,
-    "application_details": null,
-    "application_url": null,
+    "logo_url": "/logos/537527.png",
+    "logo_source_url": "http://www.greenvillekids.edu.hk/img/favicon.ico",
+    "application_status": "website",
+    "application_details": "In those early days, our enrolment numbers totalled slightly over two hundred.",
+    "application_url": "http://www.greenvillekids.edu.hk/en/admission/",
     "open_day_details": null,
     "open_day_url": null,
     "fee_monthly_hkd": null,
@@ -1994,7 +1985,8 @@
     "other_fees_note": null,
     "scrape_status": "ok",
     "scraped_pages": [
-      "http://www.greenvillekids.edu.hk/"
+      "http://www.greenvillekids.edu.hk/",
+      "http://www.greenvillekids.edu.hk/en/admission/"
     ]
   },
   {
@@ -2100,22 +2092,26 @@
     "name_tc": "博士山（香港）國際幼稚園 - 將軍澳",
     "name_en": "BOX HILL (HK) INTERNATIONAL KINDERGARTEN - TSEUNG KWAN O",
     "website": "http://www.boxhill.edu.hk",
-    "logo_url": "/logos/581836.svg",
-    "logo_source_url": "generated_placeholder",
-    "application_status": null,
-    "application_details": null,
-    "application_url": null,
-    "open_day_details": null,
-    "open_day_url": null,
+    "logo_url": "/logos/581836.png",
+    "logo_source_url": "https://boxhill.edu.hk/wp-content/uploads/2020/09/cropped-masksite-logo-32x32.png",
+    "application_status": "open",
+    "application_details": "Admissions Open for 2026/27",
+    "application_url": "https://boxhill.edu.hk/admission/",
+    "open_day_details": "Open Day – The Little Red Hen – Sep 2025",
+    "open_day_url": "https://boxhill.edu.hk/school-tour-info-session-jan-2026/",
     "fee_monthly_hkd": null,
     "fee_annual_hkd": null,
-    "application_fee_hkd": null,
+    "application_fee_hkd": 40.0,
     "registration_fee_hkd": null,
-    "fee_notes": null,
-    "other_fees_note": null,
+    "fee_notes": "A non-refundable application fee of HK$40 will be collected online when you submit the form. / 請完整填寫網上申請表，並於提交時繳交港幣 $40 的報名費（不設退款）。你可以使用 VISA、萬事達卡、美國運通卡或銀聯卡付款。 / Applying to multiple campuses is permitted upon payment of the application fee to each campus.",
+    "other_fees_note": "感謝你申請入讀博士山（香港）國際幼稚園暨幼兒園。家長可為 貴子女同時報讀多間分校，遞交到不同分校之每份申請均須繳交報名費，報名費用不能轉到其他分校，而所有申請只適用於一個學年。如聯絡資料有任何更改，請通知校務處。 / * School fees to be paid from August to June for eleven months.",
     "scrape_status": "ok",
     "scraped_pages": [
-      "http://www.boxhill.edu.hk/"
+      "http://www.boxhill.edu.hk/",
+      "https://boxhill.edu.hk/admission/",
+      "https://bit.ly/webpopec",
+      "https://boxhill.edu.hk/school-tour-info-session-jan-2026/",
+      "https://boxhill.edu.hk/school-tour-info-session-oct-2025/"
     ]
   },
   {
@@ -2165,8 +2161,7 @@
     "other_fees_note": null,
     "scrape_status": "ok",
     "scraped_pages": [
-      "http://greenfield.edu.hk/en",
-      "http://greenfield.edu.hk/en#"
+      "http://greenfield.edu.hk/en"
     ]
   },
   {
@@ -2230,8 +2225,7 @@
     "scrape_status": "ok",
     "scraped_pages": [
       "https://loupichoun.com/",
-      "https://loupichoun.com/school-applications",
-      "https://loupichoun.com/#"
+      "https://loupichoun.com/school-applications"
     ]
   },
   {
@@ -2458,7 +2452,7 @@
     "application_status": "open",
     "application_details": "Primary One Admissions",
     "application_url": "http://www.catiline.edu.hk/primarynbsponenbspadmissions.html",
-    "open_day_details": " 嘉德麗幼稚園親子體驗日 © COPYRIGHT Catiline Educational Organisation 2021. ALL RIGHT",
+    "open_day_details": " 嘉德麗幼稚園親子體驗日 © COPYRIGHT Catiline Educational Organisation 2021. ALL R",
     "open_day_url": null,
     "fee_monthly_hkd": null,
     "fee_annual_hkd": null,
@@ -2526,7 +2520,7 @@
     "logo_url": "/logos/522953.png",
     "logo_source_url": "http://mykiddie.ephhk.com/upload/6978/430e61523919d76d87f026ca7b7128a0.png",
     "application_status": "closed",
-    "application_details": " School Activities Admissions Contact Us Notice & Reply Slip Message Photo Album sample ",
+    "application_details": " School Activities Admissions Contact Us Notice & Reply Slip Message Photo Albu",
     "application_url": "http://www.hkpreschool.edu.hk/index.php/section/page/3142",
     "open_day_details": null,
     "open_day_url": null,
@@ -2575,22 +2569,26 @@
     "name_tc": "博士山（香港）國際幼稚園",
     "name_en": "BOX HILL (HK) INTERNATIONAL KINDERGARTEN",
     "website": "https://www.boxhill.edu.hk",
-    "logo_url": "/logos/559415.svg",
-    "logo_source_url": "generated_placeholder",
-    "application_status": null,
-    "application_details": null,
-    "application_url": null,
-    "open_day_details": null,
-    "open_day_url": null,
+    "logo_url": "/logos/559415.png",
+    "logo_source_url": "https://boxhill.edu.hk/wp-content/uploads/2020/09/cropped-masksite-logo-32x32.png",
+    "application_status": "open",
+    "application_details": "Admissions Open for 2026/27",
+    "application_url": "https://boxhill.edu.hk/admission/",
+    "open_day_details": "Open Day – The Little Red Hen – Sep 2025",
+    "open_day_url": "https://boxhill.edu.hk/school-tour-info-session-jan-2026/",
     "fee_monthly_hkd": null,
     "fee_annual_hkd": null,
-    "application_fee_hkd": null,
+    "application_fee_hkd": 40.0,
     "registration_fee_hkd": null,
-    "fee_notes": null,
-    "other_fees_note": null,
+    "fee_notes": "A non-refundable application fee of HK$40 will be collected online when you submit the form. / 請完整填寫網上申請表，並於提交時繳交港幣 $40 的報名費（不設退款）。你可以使用 VISA、萬事達卡、美國運通卡或銀聯卡付款。 / Applying to multiple campuses is permitted upon payment of the application fee to each campus.",
+    "other_fees_note": "感謝你申請入讀博士山（香港）國際幼稚園暨幼兒園。家長可為 貴子女同時報讀多間分校，遞交到不同分校之每份申請均須繳交報名費，報名費用不能轉到其他分校，而所有申請只適用於一個學年。如聯絡資料有任何更改，請通知校務處。 / * School fees to be paid from August to June for eleven months.",
     "scrape_status": "ok",
     "scraped_pages": [
-      "https://www.boxhill.edu.hk/"
+      "https://www.boxhill.edu.hk/",
+      "https://boxhill.edu.hk/admission/",
+      "https://bit.ly/webpopec",
+      "https://boxhill.edu.hk/school-tour-info-session-jan-2026/",
+      "https://boxhill.edu.hk/school-tour-info-session-oct-2025/"
     ]
   },
   {
@@ -2621,22 +2619,26 @@
     "name_tc": "博士山（香港）國際幼稚園 - 火炭",
     "name_en": "BOX HILL (HK) INTERNATIONAL KINDERGARTEN - FO TAN",
     "website": "http://www.boxhill.edu.hk",
-    "logo_url": "/logos/581739.svg",
-    "logo_source_url": "generated_placeholder",
-    "application_status": null,
-    "application_details": null,
-    "application_url": null,
-    "open_day_details": null,
-    "open_day_url": null,
+    "logo_url": "/logos/581739.png",
+    "logo_source_url": "https://boxhill.edu.hk/wp-content/uploads/2020/09/cropped-masksite-logo-32x32.png",
+    "application_status": "open",
+    "application_details": "Admissions Open for 2026/27",
+    "application_url": "https://boxhill.edu.hk/admission/",
+    "open_day_details": "Open Day – The Little Red Hen – Sep 2025",
+    "open_day_url": "https://boxhill.edu.hk/school-tour-info-session-jan-2026/",
     "fee_monthly_hkd": null,
     "fee_annual_hkd": null,
-    "application_fee_hkd": null,
+    "application_fee_hkd": 40.0,
     "registration_fee_hkd": null,
-    "fee_notes": null,
-    "other_fees_note": null,
+    "fee_notes": "A non-refundable application fee of HK$40 will be collected online when you submit the form. / 請完整填寫網上申請表，並於提交時繳交港幣 $40 的報名費（不設退款）。你可以使用 VISA、萬事達卡、美國運通卡或銀聯卡付款。 / Applying to multiple campuses is permitted upon payment of the application fee to each campus.",
+    "other_fees_note": "感謝你申請入讀博士山（香港）國際幼稚園暨幼兒園。家長可為 貴子女同時報讀多間分校，遞交到不同分校之每份申請均須繳交報名費，報名費用不能轉到其他分校，而所有申請只適用於一個學年。如聯絡資料有任何更改，請通知校務處。 / * School fees to be paid from August to June for eleven months.",
     "scrape_status": "ok",
     "scraped_pages": [
-      "http://www.boxhill.edu.hk/"
+      "http://www.boxhill.edu.hk/",
+      "https://boxhill.edu.hk/admission/",
+      "https://bit.ly/webpopec",
+      "https://boxhill.edu.hk/school-tour-info-session-jan-2026/",
+      "https://boxhill.edu.hk/school-tour-info-session-oct-2025/"
     ]
   },
   {
@@ -2730,7 +2732,6 @@
     "scraped_pages": [
       "http://www.puikiukg.edu.hk/",
       "http://www.puikiukg.edu.hk/chi/application-procedures",
-      "http://www.puikiukg.edu.hk/#",
       "http://www.puikiukg.edu.hk/chi/enrolment-grades"
     ]
   },
@@ -2782,7 +2783,6 @@
     "scraped_pages": [
       "http://www.puikiukg.edu.hk/",
       "http://www.puikiukg.edu.hk/chi/application-procedures",
-      "http://www.puikiukg.edu.hk/#",
       "http://www.puikiukg.edu.hk/chi/enrolment-grades"
     ]
   },
@@ -2794,7 +2794,7 @@
     "logo_url": "/logos/215937.png",
     "logo_source_url": "https://www.pips.edu.hk/images/logo250.jpg",
     "application_status": "year_round",
-    "application_details": "er 2s Programme PYP POI Admissions Programme Structure Application Process Fees and Charges Withdrawal Procedures Online Application School Bus Servi",
+    "application_details": "2s Programme PYP POI Admissions Programme Structure Application Process Fees and Charges Withdrawal Procedures Online Application School Bus Serv",
     "application_url": "http://www.pips.edu.hk/hk/admission_playgroup.asp",
     "open_day_details": "We invite you, your family and your friends to our Open Day - Spring in the City!",
     "open_day_url": null,
@@ -2881,7 +2881,6 @@
     "scraped_pages": [
       "http://mfc.edu.hk/",
       "https://form.jotform.me/82552941042453",
-      "http://mfc.edu.hk/#",
       "http://mfc.edu.hk/application-casa_hk.html"
     ]
   },
@@ -2890,22 +2889,26 @@
     "name_tc": null,
     "name_en": "MULBERRY HOUSE INTERNATIONAL KINDERGARTEN SOUTHSIDE",
     "website": "https://mulberryhousekg.com",
-    "logo_url": "/logos/578053.svg",
-    "logo_source_url": "generated_placeholder",
-    "application_status": null,
-    "application_details": null,
-    "application_url": null,
-    "open_day_details": null,
-    "open_day_url": null,
+    "logo_url": "/logos/578053.png",
+    "logo_source_url": "https://mulberryhousekg.com/wp-content/uploads/2024/09/MH-Autumn-Camp-Page-1-2.png",
+    "application_status": "open",
+    "application_details": "Online Application Form",
+    "application_url": "https://mulberryhousekg.com/",
+    "open_day_details": "Fill out a quick form to visit us or to get more information.",
+    "open_day_url": "https://mulberryhousekg.com/info-session/",
     "fee_monthly_hkd": null,
     "fee_annual_hkd": null,
-    "application_fee_hkd": null,
-    "registration_fee_hkd": null,
-    "fee_notes": null,
-    "other_fees_note": null,
+    "application_fee_hkd": 40.0,
+    "registration_fee_hkd": 970.0,
+    "fee_notes": "Application Fee of HK$40 / We will review applications once all required documents and fees have been received. / Fee Policy",
+    "other_fees_note": "Application Fee: $40 (Mulberry House International Kindergarten’s application fee is a non-refundable, non-transferable and non-deferrable administration fee for admissions. / The collection of this fee does not constitute any assurance that a school place or an interview will be offered.)",
     "scrape_status": "ok",
     "scraped_pages": [
-      "https://mulberryhousekg.com/"
+      "https://mulberryhousekg.com/",
+      "https://mulberryhousekg.com/how-to-apply/",
+      "https://mulberryhousekg.com/en/online-application-form/",
+      "https://mulberryhousekg.com/info-session/",
+      "https://mulberryhousekg.com/en/school-tour/"
     ]
   },
   {
@@ -3026,22 +3029,26 @@
     "name_tc": "懋柏禮國際幼稚園",
     "name_en": "MULBERRY HOUSE INTERNATIONAL KINDERGARTEN",
     "website": "https://mulberryhousekg.com/",
-    "logo_url": "/logos/601721.svg",
-    "logo_source_url": "generated_placeholder",
-    "application_status": null,
-    "application_details": null,
-    "application_url": null,
-    "open_day_details": null,
-    "open_day_url": null,
+    "logo_url": "/logos/601721.png",
+    "logo_source_url": "https://mulberryhousekg.com/wp-content/uploads/2024/09/MH-Autumn-Camp-Page-1-2.png",
+    "application_status": "open",
+    "application_details": "Online Application Form",
+    "application_url": "https://mulberryhousekg.com/",
+    "open_day_details": "Fill out a quick form to visit us or to get more information.",
+    "open_day_url": "https://mulberryhousekg.com/info-session/",
     "fee_monthly_hkd": null,
     "fee_annual_hkd": null,
-    "application_fee_hkd": null,
-    "registration_fee_hkd": null,
-    "fee_notes": null,
-    "other_fees_note": null,
+    "application_fee_hkd": 40.0,
+    "registration_fee_hkd": 970.0,
+    "fee_notes": "Application Fee of HK$40 / We will review applications once all required documents and fees have been received. / Fee Policy",
+    "other_fees_note": "Application Fee: $40 (Mulberry House International Kindergarten’s application fee is a non-refundable, non-transferable and non-deferrable administration fee for admissions. / The collection of this fee does not constitute any assurance that a school place or an interview will be offered.)",
     "scrape_status": "ok",
     "scraped_pages": [
-      "https://mulberryhousekg.com/"
+      "https://mulberryhousekg.com/",
+      "https://mulberryhousekg.com/how-to-apply/",
+      "https://mulberryhousekg.com/en/online-application-form/",
+      "https://mulberryhousekg.com/info-session/",
+      "https://mulberryhousekg.com/en/school-tour/"
     ]
   },
   {
@@ -3072,8 +3079,8 @@
     "name_tc": "海濱方方樂趣幼稚園",
     "name_en": "RIVIERA FUNFUL KINDERGARTEN",
     "website": "http://www.funful.hk",
-    "logo_url": "/logos/565105.svg",
-    "logo_source_url": "generated_placeholder",
+    "logo_url": "/logos/565105.png",
+    "logo_source_url": "https://funful.hk/wp-content/uploads/2018/03/cropped-Funful-Group-Logo4-32x32.png",
     "application_status": null,
     "application_details": null,
     "application_url": null,
@@ -3451,22 +3458,25 @@
     "name_tc": "道爾頓幼稚園",
     "name_en": "LITTLE DALTON KINDERGARTEN",
     "website": "https://littledalton.com/",
-    "logo_url": "/logos/607592.svg",
-    "logo_source_url": "generated_placeholder",
-    "application_status": null,
-    "application_details": null,
-    "application_url": null,
-    "open_day_details": null,
-    "open_day_url": null,
+    "logo_url": "/logos/607592.png",
+    "logo_source_url": "https://littledalton.com/wp-content/uploads/2024/08/ldk-favicon-150x150.png",
+    "application_status": "year_round",
+    "application_details": "Testimonials Teacher Testimonials Admissions Apply Now Visit Us Events Video Gallery Photo Gallery Contact 中文 Home About Mission and Pri",
+    "application_url": "https://littledalton.com/",
+    "open_day_details": "imonials Admissions Apply Now Visit Us Events Video Gallery Photo Gallery Contact 中文 Home About Mission and Principles Our Journey Mes",
+    "open_day_url": "https://littledalton.com/visit-us/",
     "fee_monthly_hkd": null,
     "fee_annual_hkd": null,
     "application_fee_hkd": null,
     "registration_fee_hkd": null,
-    "fee_notes": null,
+    "fee_notes": "Any attempt to provide misleading and false information to the school; or withheld information of the school from parent; or wilfully obstruct parent-school communication, may render the application invalid and no applic",
     "other_fees_note": null,
     "scrape_status": "ok",
     "scraped_pages": [
-      "https://littledalton.com/"
+      "https://littledalton.com/",
+      "https://dshk.openapply.com/",
+      "https://dshk.openapply.com/roi",
+      "https://littledalton.com/visit-us/"
     ]
   },
   {
@@ -3533,7 +3543,6 @@
     "scrape_status": "ok",
     "scraped_pages": [
       "https://wfns.hkcschild.edu.hk/",
-      "https://wfns.hkcschild.edu.hk/#",
       "https://wfns.hkcschild.edu.hk/?page_id=2514",
       "https://wfns.hkcschild.edu.hk/?page_id=2630"
     ]
@@ -3598,7 +3607,7 @@
     "logo_source_url": "https://www.mingwai.edu.hk/wp-content/uploads/2021/09/MWicon.jpg",
     "application_status": "website",
     "application_details": "ce Edward Branch) Me n Wonderland Admissions North Point Branch Prince Edward Branch Contact Us Our curriculum follows the early childhood educa",
-    "application_url": "http://www.mingwai.edu.hk/#",
+    "application_url": "http://www.mingwai.edu.hk/",
     "open_day_details": null,
     "open_day_url": null,
     "fee_monthly_hkd": null,
@@ -3610,7 +3619,6 @@
     "scrape_status": "ok",
     "scraped_pages": [
       "http://www.mingwai.edu.hk/",
-      "http://www.mingwai.edu.hk/#",
       "https://www.mingwai.edu.hk/how-to-apply/north-point-admissions/admissions-information/",
       "https://www.mingwai.edu.hk/how-to-apply/prince-edward-admissions/admissions-information/",
       "https://www.mingwai.edu.hk/programs/"
@@ -3664,20 +3672,26 @@
     "name_tc": "香港墨爾文國際幼稚園",
     "name_en": "MALVERN COLLEGE PRE-SCHOOL HONG KONG",
     "website": "http://www.malvernpreschool.hk",
-    "logo_url": "/logos/606979.svg",
-    "logo_source_url": "generated_placeholder",
-    "application_status": null,
-    "application_details": null,
-    "application_url": null,
-    "open_day_details": null,
-    "open_day_url": null,
+    "logo_url": "/logos/606979.png",
+    "logo_source_url": "https://www.malvernpreschool.hk/wp-content/themes/malverntheme/img/icons/favicon.ico",
+    "application_status": "closed",
+    "application_details": "Admissions Procedure",
+    "application_url": "http://www.malvernpreschool.hk/",
+    "open_day_details": "Campus Tour Please contact the admissions team for more details regarding a private campus tour.",
+    "open_day_url": "https://www.malvernpreschool.hk/campustour/",
     "fee_monthly_hkd": null,
-    "fee_annual_hkd": null,
+    "fee_annual_hkd": 8000.0,
     "application_fee_hkd": null,
     "registration_fee_hkd": null,
-    "fee_notes": null,
-    "other_fees_note": null,
-    "scrape_status": "homepage_unreachable"
+    "fee_notes": "Tuition and Fees / Tuition Fees / Annual tuition fee for the academic year 2025-26:",
+    "other_fees_note": "HK$ 11,091 x 11 instalments / HK$ 19,039 x 11 instalments",
+    "scrape_status": "ok",
+    "scraped_pages": [
+      "http://www.malvernpreschool.hk/",
+      "https://www.malvernpreschool.hk/admissions-overview/",
+      "https://www.malvernpreschool.hk/fees/",
+      "https://www.malvernpreschool.hk/campustour/"
+    ]
   },
   {
     "school_code": "617474",
