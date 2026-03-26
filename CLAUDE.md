@@ -65,6 +65,7 @@ src/
   components/
     ui/                     # Base: Button, Card, Toast, Skeleton, BottomSheet
     schools/                # Domain: SchoolCard, VacancyBadge
+    home/                   # Homepage: BannerCarousel, BannerSlide, ParentMustKnow, NewsFeed, FeaturedSchools, HeroSearchBar
     layout/                 # Header, Footer
   lib/
     supabase/
@@ -83,6 +84,9 @@ src/
   types/
     database.ts             # Supabase-generated (never hand-edit)
     api.ts                  # Request/response types
+    homepage.ts             # Banner, OpenDay, Deadline, News, FeaturedSchool types
+  data/
+    homepage.ts             # Static homepage content (banners, news, featured schools)
 
 supabase/
   migrations/               # Numbered: 001_create_schools.sql, 002_...
@@ -303,10 +307,25 @@ Tags/pills: `rounded-full` (99px) · Buttons: `rounded-xl` (14px) · Cards: `rou
 
 Top-to-bottom sections:
 
-1. **Hero** — Display heading (e.g. 「為您的孩子，探索全港優質教育資源。」), subtext, inline search bar with 「立即搜索」 primary button. Quick-filter pills below search: 3–4 popular districts/categories. Right side: stat card 「1,240+ 已收錄學校」 over a placeholder illustration.
-2. **精選教育機構** — Horizontal scroll row of 3 school cards (with avatar + name + short description + district + rating). Section header with 「查看全部 →」 link to `/kg`.
-3. **最新學額狀況** — Left: 3 recent vacancy update items (school name + status badge + arrow). Right: featured dark card 「家長心得與洞察」 with 3 article-style entries linking to intel/community content.
-4. **Newsletter CTA** — Heading 「緊貼最新入學資訊。」, email input + 「訂閱資訊」 button.
+1. **Hero Banner** — 1-3 slide carousel with Ken Burns animation on background images. Each slide uses one of 3 text layout templates (`classic` / `event` / `minimal`) defined in `src/types/homepage.ts`. Auto-rotates every 8s, pauses on hover. Images stored in `public/images/banners/`. Below banner: search bar + quick-filter pills.
+2. **本週家長必知** — 2-column layout. Left: upcoming open days + approaching deadlines (time-sensitive, auto-expire). Right: dark card with recent parent intel from `admission_intel`.
+3. **消息動態** — EDB circulars + school official announcements (news articles, not actionable dates). Distinct from 本週家長必知 to avoid content overlap.
+4. **精選名校** — 3-col grid of curated/ranked schools. Supports future ad slot.
+5. **Footer** (unchanged).
+
+#### Banner Carousel Rules
+
+- Content defined in `src/data/homepage.ts` → `BANNERS` array
+- 0 banners → should not happen; always have at least 1
+- 1 banner → static display, no dots/controls
+- 2 banners → dot navigation, auto-rotate
+- 3 banners → if 3rd is ad, show "推廣" pill; ad always in last slot
+- 3 text layout templates:
+  - `classic`: source pill → title → subtitle → tag pills → 2 buttons → footer note (default)
+  - `event`: large event type badge → title + date → 1 button
+  - `minimal`: large title only → 1 button
+- Images: 16:7 aspect (desktop), 4:3 (mobile). Warm educational space, no people, no text. Subject right-weighted, left 40% clear for text overlay.
+- Ken Burns: `animation: ken-burns 20s ease-in-out infinite alternate` (scale 1→1.08 + translate)
 
 ### Account Page (`/account`) — V1 Scope
 

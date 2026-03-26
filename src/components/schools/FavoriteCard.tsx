@@ -19,7 +19,7 @@ export function FavoriteCard({
   onNavigate, onToggleReminder, onUnfavorite,
 }: FavoriteCardProps) {
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 p-6">
+    <div className="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200">
       <div className="flex justify-between items-start">
         <div className="flex-1 cursor-pointer" onClick={onNavigate}>
           <p className="text-xs font-medium text-slate-500 uppercase tracking-wide">
@@ -37,7 +37,7 @@ export function FavoriteCard({
       <div className="flex items-center gap-3 mt-4 pt-3 border-t border-slate-200">
         <button
           onClick={onToggleReminder}
-          className={`text-xs font-medium flex items-center gap-1 ${
+          className={`text-xs font-medium flex items-center gap-1 transition-colors duration-200 ${
             reminderEnabled ? "text-emerald-700" : "text-slate-500"
           }`}
         >
@@ -47,7 +47,7 @@ export function FavoriteCard({
           </svg>
           {reminderEnabled ? "提醒已開啟" : "開啟提醒"}
         </button>
-        <button onClick={onUnfavorite} className="text-xs text-red-600 hover:text-red-700">
+        <button onClick={onUnfavorite} className="text-xs text-red-600 hover:text-red-700 transition-colors duration-200">
           取消收藏
         </button>
       </div>
