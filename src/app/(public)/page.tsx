@@ -4,8 +4,11 @@ import { ParentMustKnow } from "@/components/home/ParentMustKnow";
 import { NewsFeed } from "@/components/home/NewsFeed";
 import { FeaturedSchools } from "@/components/home/FeaturedSchools";
 import { BANNERS } from "@/data/homepage";
+import { getHomepageLiveData } from "@/lib/homepage/liveData";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const liveData = await getHomepageLiveData();
+
   return (
     <div className="max-w-6xl mx-auto px-5 md:px-8">
       {/* Hero: Banner + Search */}
@@ -15,10 +18,14 @@ export default function HomePage() {
       </section>
 
       {/* 本週家長必知 */}
-      <ParentMustKnow />
+      <ParentMustKnow
+        openDays={liveData.openDays}
+        admissions={liveData.admissions}
+        officialLinks={liveData.officialLinks}
+      />
 
       {/* 消息動態 */}
-      <NewsFeed />
+      <NewsFeed items={liveData.newsItems} />
 
       {/* 精選名校 */}
       <FeaturedSchools />

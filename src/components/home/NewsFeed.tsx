@@ -1,29 +1,43 @@
 import Link from "next/link";
-import { NEWS_ITEMS } from "@/data/homepage";
+import type { NewsItem } from "@/types/homepage";
 
-export function NewsFeed() {
+interface NewsFeedProps {
+  items: NewsItem[];
+}
+
+export function NewsFeed({ items }: NewsFeedProps) {
   return (
     <section className="mb-10">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-semibold text-slate-950">消息動態</h2>
         <Link
-          href="/kg"
+          href="https://www.edb.gov.hk/en/"
+          target="_blank"
+          rel="noreferrer"
           className="text-slate-500 hover:text-slate-950 text-sm font-medium transition-colors"
         >
-          查看全部 →
+          更多官方消息 →
         </Link>
       </div>
 
       <div className="space-y-3">
-        {NEWS_ITEMS.map((item) => (
-          <Link key={item.id} href={item.href} className="block">
+        {items.map((item) => (
+          <Link
+            key={item.id}
+            href={item.href}
+            target="_blank"
+            rel="noreferrer"
+            className="block"
+          >
             <div className="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200">
               <div className="flex items-start gap-3">
                 <span
                   className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium flex-shrink-0 mt-0.5 ${
                     item.source === "edb"
                       ? "bg-emerald-50 text-emerald-700"
-                      : "bg-blue-50 text-blue-700"
+                      : item.source === "govhk"
+                        ? "bg-sky-50 text-sky-700"
+                        : "bg-blue-50 text-blue-700"
                   }`}
                 >
                   {item.source_label}

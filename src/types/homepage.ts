@@ -25,14 +25,15 @@ export interface OpenDayItem {
   school_name: string;
   date: string;
   href: string;
+  source_label?: string;
 }
 
 export interface DeadlineItem {
   id: string;
   school_name: string;
   deadline: string;
-  days_left: number;
   href: string;
+  badge?: string;
 }
 
 export interface InsightItem {
@@ -45,7 +46,7 @@ export interface InsightItem {
 
 export interface NewsItem {
   id: string;
-  source: "edb" | "school";
+  source: "edb" | "govhk" | "school";
   source_label: string;
   title: string;
   summary: string;
@@ -53,9 +54,16 @@ export interface NewsItem {
   href: string;
 }
 
+export interface OfficialLinkItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  href: string;
+}
+
 export interface FeaturedSchool {
   id: string;
-  schoolCode: string;
+  schoolCode?: string;
   name_tc: string;
   name_en: string;
   district: string;

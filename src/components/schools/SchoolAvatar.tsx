@@ -17,10 +17,14 @@ interface SchoolAvatarProps {
  * 1. Use DB logo_url if available
  * 2. Try /logos/{school_code}.png as auto-fallback
  */
-function resolveLogoUrl(logoUrl?: string | null, schoolCode?: string | null): string | null {
-  if (logoUrl) return logoUrl;
-  if (schoolCode) return `/logos/${schoolCode}.png`;
-  return null;
+function resolveLogoCandidates(logoUrl?: string | null, schoolCode?: string | null): string[] {
+  const candidates = [
+    logoUrl ?? null,
+    schoolCode ? `/logos/${schoolCode}.png` : null,
+    schoolCode ? `/logos/${schoolCode}.svg` : null,
+  ].filter((candidate): candidate is string => Boolean(candidate));
+
+  return Array.from(new Set(candidates));
 }
 
 export function SchoolAvatar({
@@ -30,8 +34,10 @@ export function SchoolAvatar({
   schoolCode,
   size = "md",
 }: SchoolAvatarProps) {
-  const resolved = resolveLogoUrl(logoUrl, schoolCode);
-  const [showLogo, setShowLogo] = useState(Boolean(resolved));
+  const candidates = resolveLogoCandidates(logoUrl, schoolCode);
+  const [logoIndex, setLogoIndex] = useState(0);
+  const resolved = candidates[logoIndex] ?? null;
+  const [showLogo, setShowLogo] = useState(candidates.length > 0);
   const firstChar = schoolName.trim().charAt(0);
   const colors = getAvatarColor(schoolId);
 
@@ -48,7 +54,14 @@ export function SchoolAvatar({
             fill
             className="object-contain p-1.5"
             sizes={size === "lg" ? "64px" : "48px"}
-            onError={() => setShowLogo(false)}
+            onError={() => {
+              if (logoIndex < candidates.length - 1) {
+                setLogoIndex((current) => current + 1);
+                return;
+              }
+
+              setShowLogo(false);
+            }}
           />
         </div>
       ) : (
