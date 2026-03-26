@@ -3,12 +3,19 @@ import "server-only";
 import fs from "node:fs/promises";
 import path from "node:path";
 import {
+  BANNERS,
   DEADLINES,
   NEWS_ITEMS,
   OFFICIAL_LINKS,
   OPEN_DAYS,
 } from "@/data/homepage";
+import {
+  DISTRICT_LABELS,
+  SCHOOL_TYPE_LABELS,
+  formatEnglishSchoolName,
+} from "@/lib/utils";
 import type {
+  HomeBanner,
   DeadlineItem,
   NewsItem,
   OfficialLinkItem,
@@ -19,11 +26,47 @@ type EnrichmentRow = {
   school_code?: string | null;
   name_tc?: string | null;
   name_en?: string | null;
+  website?: string | null;
   open_day_details?: string | null;
   open_day_url?: string | null;
   application_details?: string | null;
   application_url?: string | null;
 };
+
+type SchoolListRow = {
+  code?: string | null;
+  name_tc?: string | null;
+  name_en?: string | null;
+  district?: keyof typeof DISTRICT_LABELS | null;
+  school_type?: string | null;
+  session?: string | null;
+  k1?: string | null;
+  k2?: string | null;
+  k3?: string | null;
+  edb_date?: string | null;
+};
+
+const BANNER_IMAGES = [
+  {
+    src: "/images/banners/暖金色晨光-Banner-01.png",
+    alt: "溫暖明亮的幼稚園教室",
+    layout: "classic",
+  },
+  {
+    src: "/images/banners/美術室午后-Banner-02.png",
+    alt: "孩子在美術室內專注創作",
+    layout: "event",
+  },
+  {
+    src: "/images/banners/閱讀角午后-Banner-03.png",
+    alt: "安靜舒適的兒童閱讀角",
+    layout: "minimal",
+  },
+] as const satisfies Array<{
+  src: string;
+  alt: string;
+  layout: HomeBanner["layout"];
+}>;
 
 const KG_NEWS_REGEX =
   /(kindergarten|k1|pre-primary|pre primary|preschool|幼稚園|幼兒班|收生安排|收生|註冊證|註冊|家長簡介會)/i;
@@ -242,11 +285,85 @@ function toAdmissionLabel(row: EnrichmentRow): string {
   return shorten(safeDetail || "官方招生頁", 24);
 }
 
+function toSearchHref(row: { name_tc?: string | null; name_en?: string | null }) {
+  const keyword = row.name_tc || row.name_en || "";
+  return `/kg?search=${encodeURIComponent(keyword)}`;
+}
+
+function normalizeSessionTags(session: string | null | undefined): string[] {
+  if (!session) return [];
+
+  const tags: string[] = [];
+  const lowered = session.toLowerCase();
+
+  if (lowered.includes("whole_day")) {
+    tags.push("全日班");
+  }
+
+  if (lowered.includes("am") || lowered.includes("pm")) {
+    tags.push("半日班");
+  }
+
+  return tags;
+}
+
+function toVacancyTag(value: string | null | undefined): string | null {
+  if (!value) return null;
+
+  if (value === "has_vacancy") return "K1 有位";
+  if (value === "waiting_list") return "K1 候補";
+  if (value === "no_vacancy") return "K1 滿額";
+
+  return null;
+}
+
+function toSourceLabel(type: string | null | undefined): string {
+  if (type === "international") return "國際學校";
+  if (type === "private_independent") return "私立獨立";
+  return "學校官方";
+}
+
+function toBannerSummary(row: EnrichmentRow): string {
+  const application = cleanText(row.application_details || "");
+  const openDay = cleanText(row.open_day_details || "");
+  const preferred = [application, openDay].find(
+    (value) => value && value.length <= 72
+  );
+
+  return shorten(preferred || "查看學校最新招生與參觀安排", 56);
+}
+
+function scoreBannerCandidate(
+  profile: EnrichmentRow,
+  school: SchoolListRow | undefined
+): number {
+  return [
+    profile.name_tc ? 4 : 0,
+    profile.name_en ? 1 : 0,
+    profile.application_url ? 3 : 0,
+    profile.open_day_url ? 2 : 0,
+    profile.website ? 1 : 0,
+    school?.district ? 1 : 0,
+    school?.school_type ? 1 : 0,
+    school?.k1 ? 1 : 0,
+  ].reduce((sum, value) => sum + value, 0);
+}
+
 async function readSchoolEnrichment(): Promise<EnrichmentRow[]> {
   try {
     const filePath = path.join(process.cwd(), "data", "private_international_profile_enrichment.json");
     const raw = await fs.readFile(filePath, "utf8");
     return JSON.parse(raw) as EnrichmentRow[];
+  } catch {
+    return [];
+  }
+}
+
+async function readSchoolList(): Promise<SchoolListRow[]> {
+  try {
+    const filePath = path.join(process.cwd(), "data", "schools_merged.json");
+    const raw = await fs.readFile(filePath, "utf8");
+    return JSON.parse(raw) as SchoolListRow[];
   } catch {
     return [];
   }
@@ -320,18 +437,98 @@ async function getSchoolActionItems() {
   };
 }
 
+async function getHomepageBanners(): Promise<HomeBanner[]> {
+  const [profiles, schoolList] = await Promise.all([
+    readSchoolEnrichment(),
+    readSchoolList(),
+  ]);
+
+  if (profiles.length === 0 || schoolList.length === 0) {
+    return BANNERS;
+  }
+
+  const schoolMap = new Map(schoolList.map((row) => [row.code, row]));
+
+  const candidates = profiles
+    .map((profile) => {
+      const school = schoolMap.get(profile.school_code ?? "");
+
+      return {
+        profile,
+        school,
+        score: scoreBannerCandidate(profile, school),
+      };
+    })
+    .filter(({ profile, school }) => {
+      const hasName = Boolean(profile.name_tc || profile.name_en);
+      const hasAction = Boolean(
+        profile.application_url || profile.open_day_url || profile.website
+      );
+      const hasSchoolMeta = Boolean(school?.district || school?.school_type);
+      return hasName && hasAction && hasSchoolMeta;
+    })
+    .sort((left, right) => right.score - left.score)
+    .slice(0, BANNER_IMAGES.length);
+
+  if (candidates.length === 0) {
+    return BANNERS;
+  }
+
+  return candidates.map(({ profile, school }, index) => {
+    const image = BANNER_IMAGES[index] ?? BANNER_IMAGES[0];
+    const district =
+      school?.district && school.district in DISTRICT_LABELS
+        ? DISTRICT_LABELS[school.district]
+        : null;
+    const schoolType = school?.school_type
+      ? SCHOOL_TYPE_LABELS[school.school_type] ?? school.school_type
+      : null;
+    const sessionTags = normalizeSessionTags(school?.session);
+    const vacancyTag = toVacancyTag(school?.k1);
+    const tags = [district, schoolType, vacancyTag, ...sessionTags].filter(
+      (tag): tag is string => Boolean(tag)
+    );
+    const detailUrl = toSearchHref(profile);
+    const actionUrl =
+      profile.application_url || profile.open_day_url || profile.website || detailUrl;
+
+    return {
+      id: `live-banner-${profile.school_code || index + 1}`,
+      layout: image.layout,
+      source_label: toSourceLabel(school?.school_type),
+      title_tc: profile.name_tc || formatEnglishSchoolName(profile.name_en),
+      subtitle_en: formatEnglishSchoolName(profile.name_en),
+      tags: tags.slice(0, 3),
+      cta_primary: {
+        label: profile.application_url ? "查看招生" : "查看詳情",
+        url: actionUrl,
+      },
+      cta_secondary: {
+        label: "清單定位",
+        url: detailUrl,
+      },
+      footer_note: toBannerSummary(profile),
+      image_src: image.src,
+      image_alt: image.alt,
+    } satisfies HomeBanner;
+  });
+}
+
 export async function getHomepageLiveData(): Promise<{
+  banners: HomeBanner[];
   openDays: OpenDayItem[];
   admissions: DeadlineItem[];
   officialLinks: OfficialLinkItem[];
   newsItems: NewsItem[];
 }> {
-  const [schoolActions, newsItems] = await Promise.all([
+  const [banners, schoolActions, newsItems] = await Promise.all([
+    getHomepageBanners(),
     getSchoolActionItems(),
     getLiveNewsItems(),
   ]);
 
   return {
+    banners,
     openDays: schoolActions.openDays,
     admissions: schoolActions.admissions,
     officialLinks: OFFICIAL_LINKS,
