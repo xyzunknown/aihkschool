@@ -77,6 +77,26 @@ main {
   background: rgba(148, 163, 184, 0.5);
 }
 
+/* Ken Burns animation for banner images */
+@keyframes ken-burns {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.08) translate(-1%, -1%); }
+}
+
+.animate-ken-burns {
+  animation: ken-burns 20s ease-in-out infinite alternate;
+}
+
+/* Heart fill bounce */
+@keyframes heart-fill {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+}
+
+.animate-heart-fill {
+  animation: heart-fill 0.3s ease-out;
+}
+
 /* Focus ring for accessibility */
 *:focus-visible {
   outline: 2px solid rgba(15, 23, 42, 0.4);

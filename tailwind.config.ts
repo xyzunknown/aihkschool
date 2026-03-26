@@ -32,10 +32,15 @@ const config: Config = {
           "0%": { opacity: "0", transform: "scale(0.95)" },
           "100%": { opacity: "1", transform: "scale(1)" },
         },
+        "ken-burns": {
+          "0%": { transform: "scale(1) translate(0, 0)" },
+          "100%": { transform: "scale(1.08) translate(-1%, -1%)" },
+        },
       },
       animation: {
         "slide-up": "slide-up 0.3s ease-out",
         "fade-in": "fade-in 0.2s ease-out",
+        "ken-burns": "ken-burns 20s ease-in-out infinite alternate",
       },
     },
   },

@@ -24,6 +24,8 @@ interface SchoolCardProps {
   schoolType?: string;
   sessionType?: string | null;
   gradesOffered?: string[] | null;
+  admissionSummary?: string | null;
+  showAdmissionSummary?: boolean;
   vacancy?: {
     n_vacancy: VacancyStatus;
     k1_vacancy: VacancyStatus;
@@ -45,6 +47,8 @@ export function SchoolCard({
   schoolType,
   sessionType,
   gradesOffered,
+  admissionSummary,
+  showAdmissionSummary = false,
   vacancy,
   isFavorited = false,
   onToggleFavorite,
@@ -82,7 +86,7 @@ export function SchoolCard({
 
   return (
     <div
-      className="bg-white rounded-2xl border border-slate-200 p-5 cursor-pointer hover:shadow-sm transition-shadow duration-200"
+      className="bg-white rounded-2xl border border-slate-200 p-5 cursor-pointer hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200"
       onClick={() => router.push(`/kg/${id}`)}
     >
       {/* Row 1: Avatar + Name + Favorite */}
@@ -106,7 +110,7 @@ export function SchoolCard({
           aria-label={isFavorited ? "取消收藏" : "加入收藏"}
         >
           {isFavorited ? (
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="#f59e0b" stroke="none">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="#f59e0b" stroke="none" className="animate-heart-fill">
               <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
             </svg>
           ) : (
@@ -148,11 +152,17 @@ export function SchoolCard({
       )}
 
       {/* Row 4: Vacancy status badges — K1 K2 K3 horizontal */}
-      {vacancyGrades.length > 0 && (
+      {vacancyGrades.length > 0 && !showAdmissionSummary && (
         <div className="grid grid-cols-3 gap-2 mb-4">
           {vacancyGrades.map(({ grade, status }) => (
             <VacancyBadge key={grade} grade={grade} status={status} isStale={stale} />
           ))}
+        </div>
+      )}
+
+      {showAdmissionSummary && admissionSummary && (
+        <div className="mb-4 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+          <p className="text-sm font-medium text-slate-700">{admissionSummary}</p>
         </div>
       )}
 
