@@ -2,6 +2,16 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function updateSession(request: NextRequest) {
+  const url = request.nextUrl.clone();
+  const hasAuthCode = Boolean(url.searchParams.get("code"));
+
+  // Some OAuth providers can fall back to the site root instead of /auth/callback.
+  // When that happens, forward the request into the normal callback handler.
+  if (hasAuthCode && url.pathname !== "/auth/callback") {
+    url.pathname = "/auth/callback";
+    return NextResponse.redirect(url);
+  }
+
   let supabaseResponse = NextResponse.next({ request });
 
   const supabase = createServerClient(

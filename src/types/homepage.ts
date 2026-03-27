@@ -20,20 +20,29 @@ export interface HomeBanner {
   is_ad?: boolean;
 }
 
-export interface OpenDayItem {
-  id: string;
-  school_name: string;
-  date: string;
-  href: string;
-  source_label?: string;
-}
+/** Event types displayed in "近期家長必知" horizontal scroll cards */
+export type EventType =
+  | "open_day"
+  | "interview"
+  | "briefing"
+  | "deadline"
+  | "trial"
+  | "talk";
 
-export interface DeadlineItem {
+/** A time-sensitive school event (open day, interview, briefing, etc.) */
+export interface SchoolEventItem {
   id: string;
   school_name: string;
-  deadline: string;
+  /** Display date, e.g. "4月15日（六）" */
+  date: string;
+  /** ISO date for sorting/filtering, e.g. "2026-04-15" */
+  date_iso: string;
+  event_type: EventType;
+  /** Display label, e.g. "開放日" | "面試" | "簡介會" */
+  event_label: string;
   href: string;
-  badge?: string;
+  /** Auto-computed: true if date_iso < today */
+  is_past?: boolean;
 }
 
 export interface InsightItem {
@@ -46,20 +55,21 @@ export interface InsightItem {
 
 export interface NewsItem {
   id: string;
-  source: "edb" | "govhk" | "school" | "hk01";
+  /** Specific source identifier */
+  source: string;
+  /** Category for filtering: 政府信息 / 媒体信息 / 学校信息 */
+  source_category: "government" | "media" | "school";
+  /** Display label, e.g. "教育局" | "HK01" */
   source_label: string;
   title: string;
   summary: string;
+  /** Display date, e.g. "3月20日" */
   date: string;
+  /** ISO date for sorting */
   published_at: string;
   href: string;
-}
-
-export interface OfficialLinkItem {
-  id: string;
-  title: string;
-  subtitle: string;
-  href: string;
+  /** true = opens external link; false = has local /news/[id] page */
+  is_external: boolean;
 }
 
 export interface FeaturedSchool {

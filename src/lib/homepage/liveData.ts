@@ -4,10 +4,9 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import {
   BANNERS,
-  DEADLINES,
+  INSIGHTS,
   NEWS_ITEMS,
-  OFFICIAL_LINKS,
-  OPEN_DAYS,
+  SCHOOL_EVENTS,
 } from "@/data/homepage";
 import {
   DISTRICT_LABELS,
@@ -16,10 +15,9 @@ import {
 } from "@/lib/utils";
 import type {
   HomeBanner,
-  DeadlineItem,
+  InsightItem,
   NewsItem,
-  OfficialLinkItem,
-  OpenDayItem,
+  SchoolEventItem,
 } from "@/types/homepage";
 
 type EnrichmentRow = {
@@ -68,6 +66,8 @@ const BANNER_IMAGES = [
   layout: HomeBanner["layout"];
 }>;
 
+/* ─── Regex filters ─── */
+
 const KG_NEWS_REGEX =
   /(kindergarten|k1|pre-primary|pre primary|preschool|幼稚園|幼兒班|收生安排|收生|註冊證|註冊|家長簡介會)/i;
 const HK01_KG_NEWS_REGEX =
@@ -79,7 +79,17 @@ const OPEN_DAY_REGEX =
 const ADMISSION_REGEX =
   /(admission|apply|application|enrol|enrollment|招生|入學|申請|收生)/i;
 const BLOCKED_URL_REGEX = /(godaddy\.com|javascript:|facebook\.com)/i;
-const CURRENT_YEAR = new Date().getFullYear();
+
+/* ─── Freshness constants ─── */
+
+/** Only show news published within the last 60 days */
+const MAX_NEWS_AGE_DAYS = 60;
+/** Show events up to 30 days in the future */
+const MAX_EVENT_FUTURE_DAYS = 30;
+/** Keep past events for 7 days after they occurred */
+const MAX_EVENT_PAST_DAYS = 7;
+
+/* ─── Text helpers ─── */
 
 function decodeHtml(value: string): string {
   return value
@@ -88,13 +98,13 @@ function decodeHtml(value: string): string {
     .replace(/&amp;/g, "&")
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
-    .replace(/&ldquo;/g, "“")
-    .replace(/&rdquo;/g, "”")
+    .replace(/&ldquo;/g, "\u201C")
+    .replace(/&rdquo;/g, "\u201D")
     .replace(/&ndash;/g, "-")
     .replace(/&mdash;/g, "-")
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">")
-    .replace(/&hellip;/g, "…");
+    .replace(/&hellip;/g, "\u2026");
 }
 
 function stripHtml(value: string): string {
@@ -116,7 +126,7 @@ function cleanText(value: string): string {
 
 function shorten(text: string, maxLength: number): string {
   if (text.length <= maxLength) return text;
-  return `${text.slice(0, maxLength - 1).trim()}…`;
+  return `${text.slice(0, maxLength - 1).trim()}\u2026`;
 }
 
 function formatMonthDay(dateInput: string): string {
@@ -131,9 +141,12 @@ function parseDate(dateInput: string): Date | null {
   return date;
 }
 
-function isCurrentYear(dateInput: string): boolean {
-  const date = parseDate(dateInput);
-  return date ? date.getFullYear() === CURRENT_YEAR : false;
+/** Returns true if the date is within the last MAX_NEWS_AGE_DAYS days */
+function isRecent(publishedAt: string): boolean {
+  const date = parseDate(publishedAt);
+  if (!date) return false;
+  const age = Date.now() - date.getTime();
+  return age >= 0 && age < MAX_NEWS_AGE_DAYS * 24 * 60 * 60 * 1000;
 }
 
 function sortNewsByPublishedAt(items: NewsItem[]): NewsItem[] {
@@ -143,6 +156,8 @@ function sortNewsByPublishedAt(items: NewsItem[]): NewsItem[] {
     return secondTime - firstTime;
   });
 }
+
+/* ─── Fetch helpers ─── */
 
 function parseMetaContent(html: string, key: string): string | null {
   const patterns = [
@@ -226,8 +241,23 @@ async function fetchNewsSummary(url: string, fallbackTitle: string): Promise<str
   return shorten(fallbackTitle, 58);
 }
 
+/* ─── Source category mapping ─── */
+
+function toSourceCategory(source: string): "government" | "media" | "school" {
+  if (source === "edb" || source === "govhk") return "government";
+  if (source === "hk01") return "media";
+  return "school";
+}
+
+function isExternalSource(source: string): boolean {
+  return source !== "edb" && source !== "govhk";
+}
+
+/* ─── News fetchers ─── */
+
 async function getEdbNewsItems(): Promise<NewsItem[]> {
-  const rss = await fetchText("https://www.edb.gov.hk/en/whats_new_rss.xml");
+  // Use Traditional Chinese RSS feed
+  const rss = await fetchText("https://www.edb.gov.hk/tc/whats_new_rss.xml");
   if (!rss) return [];
 
   const relevant = parseRssItems(rss)
@@ -236,7 +266,7 @@ async function getEdbNewsItems(): Promise<NewsItem[]> {
         item.link &&
         item.title &&
         isRelevantNews(item.title) &&
-        isCurrentYear(item.pubDate)
+        isRecent(item.pubDate)
     )
     .slice(0, 6);
 
@@ -248,12 +278,14 @@ async function getEdbNewsItems(): Promise<NewsItem[]> {
       return {
         id: `live-news-edb-${index + 1}`,
         source,
+        source_category: toSourceCategory(source),
         source_label: source === "govhk" ? "政府公報" : "教育局",
         title: cleanText(item.title),
         summary,
         date: formatMonthDay(item.pubDate),
         published_at: new Date(item.pubDate).toISOString(),
         href: item.link,
+        is_external: isExternalSource(source),
       } satisfies NewsItem;
     })
   );
@@ -268,7 +300,7 @@ async function getHk01NewsItems(): Promise<NewsItem[]> {
       (item) =>
         item.link &&
         item.title &&
-        isCurrentYear(item.pubDate) &&
+        isRecent(item.pubDate) &&
         HK01_KG_NEWS_REGEX.test(`${item.title} ${item.link}`)
     )
     .slice(0, 4);
@@ -277,12 +309,14 @@ async function getHk01NewsItems(): Promise<NewsItem[]> {
     relevant.map(async (item, index) => ({
       id: `live-news-hk01-${index + 1}`,
       source: "hk01",
+      source_category: "media" as const,
       source_label: "HK01",
       title: cleanText(item.title),
       summary: await fetchNewsSummary(item.link, item.title),
       date: formatMonthDay(item.pubDate),
       published_at: new Date(item.pubDate).toISOString(),
       href: item.link,
+      is_external: true,
     }))
   );
 }
@@ -297,13 +331,35 @@ async function getLiveNewsItems(): Promise<NewsItem[]> {
   const fallback = sortNewsByPublishedAt(
     NEWS_ITEMS.filter(
       (fallbackItem) =>
-        isCurrentYear(fallbackItem.published_at) &&
+        isRecent(fallbackItem.published_at) &&
         !liveItems.some((item) => item.href === fallbackItem.href)
     )
   );
 
-  return sortNewsByPublishedAt([...liveItems, ...fallback]).slice(0, 4);
+  // Homepage shows 3 items; /news page fetches separately
+  return sortNewsByPublishedAt([...liveItems, ...fallback]).slice(0, 3);
 }
+
+/** Fetch all news (for /news page). No slice limit. */
+export async function getAllNewsItems(): Promise<NewsItem[]> {
+  const [edbItems, hk01Items] = await Promise.all([
+    getEdbNewsItems(),
+    getHk01NewsItems(),
+  ]);
+
+  const liveItems = sortNewsByPublishedAt([...edbItems, ...hk01Items]);
+  const fallback = sortNewsByPublishedAt(
+    NEWS_ITEMS.filter(
+      (fallbackItem) =>
+        isRecent(fallbackItem.published_at) &&
+        !liveItems.some((item) => item.href === fallbackItem.href)
+    )
+  );
+
+  return sortNewsByPublishedAt([...liveItems, ...fallback]);
+}
+
+/* ─── Event helpers ─── */
 
 function extractDateLabel(text: string): string | null {
   const lowered = text.toLowerCase();
@@ -332,50 +388,161 @@ function extractDateLabel(text: string): string | null {
   return null;
 }
 
+function extractIsoDate(text: string): string | null {
+  const dateLabel = extractDateLabel(text);
+  if (!dateLabel) return null;
+
+  const match = dateLabel.match(/(\d{1,2})月(\d{1,2})日/);
+  if (!match) return null;
+
+  const year = new Date().getFullYear();
+  const month = match[1].padStart(2, "0");
+  const day = match[2].padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
 function toSchoolName(row: EnrichmentRow): string {
   return row.name_tc || row.name_en || "學校官方";
 }
 
-function toOpenDayLabel(row: EnrichmentRow): string {
-  const detail = cleanText(row.open_day_details || "");
-  const safeDetail = detail.length > 80 ? "" : detail;
-  const dateLabel = extractDateLabel(safeDetail);
-
-  if (dateLabel && /open day|open house|開放日/i.test(safeDetail)) {
-    return `${dateLabel} 開放日`;
-  }
-
-  if (dateLabel) return `${dateLabel} 可查看詳情`;
-  if (/open house/i.test(detail)) return "官方 Open House 頁面";
-  if (/school tour|campus tour|visit us/i.test(detail)) return "官方頁面可預約參觀";
-  if (/開放日/i.test(detail)) return "官方開放日詳情";
-
-  return shorten(safeDetail || "官方頁面可預約參觀", 24);
+function detectEventType(details: string, url: string): { type: SchoolEventItem["event_type"]; label: string } {
+  const combined = `${details} ${url}`;
+  if (/interview|面試/i.test(combined)) return { type: "interview", label: "面試" };
+  if (/briefing|簡介會|info session/i.test(combined)) return { type: "briefing", label: "簡介會" };
+  if (/trial|體驗|taster/i.test(combined)) return { type: "trial", label: "體驗日" };
+  if (/deadline|截止/i.test(combined)) return { type: "deadline", label: "截止" };
+  return { type: "open_day", label: "開放日" };
 }
 
-function toAdmissionLabel(row: EnrichmentRow): string {
-  const detail = cleanText(row.application_details || "");
-  const safeDetail = detail.length > 80 ? "" : detail;
+function isEventInWindow(dateIso: string): boolean {
+  const eventDate = parseDate(dateIso);
+  if (!eventDate) return false;
 
-  if (/2025\/26/i.test(safeDetail) && /2026\/27/i.test(safeDetail)) {
-    return "2025/26 及 2026/27 可申請";
-  }
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const diffDays = (eventDate.getTime() - today.getTime()) / (24 * 60 * 60 * 1000);
 
-  if (/2026\/27|2026-2027|2026 \/ 2027/i.test(safeDetail)) {
-    return "2026/27 招生中";
-  }
+  return diffDays >= -MAX_EVENT_PAST_DAYS && diffDays <= MAX_EVENT_FUTURE_DAYS;
+}
 
-  if (/enrol now|enrollment is now open|apply/i.test(safeDetail)) {
-    return "入學申請開放";
-  }
+function isEventPast(dateIso: string): boolean {
+  const eventDate = parseDate(dateIso);
+  if (!eventDate) return false;
 
-  return shorten(safeDetail || "官方招生頁", 24);
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  return eventDate.getTime() < today.getTime();
 }
 
 function toSearchHref(row: { name_tc?: string | null; name_en?: string | null }) {
   const keyword = row.name_tc || row.name_en || "";
   return `/kg?search=${encodeURIComponent(keyword)}`;
 }
+
+/* ─── File readers ─── */
+
+async function readSchoolEnrichment(): Promise<EnrichmentRow[]> {
+  try {
+    const filePath = path.join(process.cwd(), "data", "private_international_profile_enrichment.json");
+    const raw = await fs.readFile(filePath, "utf8");
+    return JSON.parse(raw) as EnrichmentRow[];
+  } catch {
+    return [];
+  }
+}
+
+async function readSchoolList(): Promise<SchoolListRow[]> {
+  try {
+    const filePath = path.join(process.cwd(), "data", "schools_merged.json");
+    const raw = await fs.readFile(filePath, "utf8");
+    return JSON.parse(raw) as SchoolListRow[];
+  } catch {
+    return [];
+  }
+}
+
+function uniqueByHref<T extends { href: string }>(items: T[]): T[] {
+  const seen = new Set<string>();
+  return items.filter((item) => {
+    if (seen.has(item.href)) return false;
+    seen.add(item.href);
+    return true;
+  });
+}
+
+/* ─── School events (近期家長必知) ─── */
+
+async function getSchoolEvents(): Promise<SchoolEventItem[]> {
+  const rows = await readSchoolEnrichment();
+  if (rows.length === 0) return SCHOOL_EVENTS;
+
+  const events: SchoolEventItem[] = [];
+  let counter = 0;
+
+  for (const row of rows) {
+    // Open day events
+    if (
+      row.open_day_url &&
+      !BLOCKED_URL_REGEX.test(row.open_day_url) &&
+      OPEN_DAY_REGEX.test(`${row.open_day_details || ""} ${row.open_day_url}`)
+    ) {
+      const details = cleanText(row.open_day_details || "");
+      const dateIso = extractIsoDate(details);
+      const dateLabel = extractDateLabel(details);
+      const { type, label } = detectEventType(details, row.open_day_url);
+
+      if (dateIso && isEventInWindow(dateIso)) {
+        counter += 1;
+        events.push({
+          id: `evt-od-${counter}`,
+          school_name: toSchoolName(row),
+          date: dateLabel ? `${dateLabel} ${label}` : label,
+          date_iso: dateIso,
+          event_type: type,
+          event_label: label,
+          href: row.open_day_url,
+          is_past: isEventPast(dateIso),
+        });
+      }
+    }
+
+    // Admission/interview events (only if they have specific dates)
+    if (
+      row.application_url &&
+      !BLOCKED_URL_REGEX.test(row.application_url) &&
+      ADMISSION_REGEX.test(`${row.application_details || ""} ${row.application_url}`)
+    ) {
+      const details = cleanText(row.application_details || "");
+      const dateIso = extractIsoDate(details);
+      const dateLabel = extractDateLabel(details);
+
+      if (dateIso && isEventInWindow(dateIso)) {
+        const { type, label } = detectEventType(details, row.application_url);
+        counter += 1;
+        events.push({
+          id: `evt-adm-${counter}`,
+          school_name: toSchoolName(row),
+          date: dateLabel ? `${dateLabel} ${label}` : label,
+          date_iso: dateIso,
+          event_type: type,
+          event_label: label,
+          href: row.application_url,
+          is_past: isEventPast(dateIso),
+        });
+      }
+    }
+  }
+
+  // Sort by date ascending (nearest first), past events last
+  const sorted = uniqueByHref(events).sort((a, b) => {
+    if (a.is_past !== b.is_past) return a.is_past ? 1 : -1;
+    return a.date_iso.localeCompare(b.date_iso);
+  });
+
+  return sorted.length > 0 ? sorted : SCHOOL_EVENTS;
+}
+
+/* ─── Banner generation ─── */
 
 function normalizeSessionTags(session: string | null | undefined): string[] {
   if (!session) return [];
@@ -434,94 +601,6 @@ function scoreBannerCandidate(
     school?.school_type ? 1 : 0,
     school?.k1 ? 1 : 0,
   ].reduce((sum, value) => sum + value, 0);
-}
-
-async function readSchoolEnrichment(): Promise<EnrichmentRow[]> {
-  try {
-    const filePath = path.join(process.cwd(), "data", "private_international_profile_enrichment.json");
-    const raw = await fs.readFile(filePath, "utf8");
-    return JSON.parse(raw) as EnrichmentRow[];
-  } catch {
-    return [];
-  }
-}
-
-async function readSchoolList(): Promise<SchoolListRow[]> {
-  try {
-    const filePath = path.join(process.cwd(), "data", "schools_merged.json");
-    const raw = await fs.readFile(filePath, "utf8");
-    return JSON.parse(raw) as SchoolListRow[];
-  } catch {
-    return [];
-  }
-}
-
-function uniqueByHref<T extends { href: string }>(items: T[]): T[] {
-  const seen = new Set<string>();
-  return items.filter((item) => {
-    if (seen.has(item.href)) return false;
-    seen.add(item.href);
-    return true;
-  });
-}
-
-async function getSchoolActionItems() {
-  const rows = await readSchoolEnrichment();
-  if (rows.length === 0) {
-    return {
-      openDays: OPEN_DAYS,
-      admissions: DEADLINES,
-    };
-  }
-
-  const openDays = uniqueByHref(
-    rows
-      .filter(
-        (row) =>
-          row.open_day_url &&
-          !BLOCKED_URL_REGEX.test(row.open_day_url) &&
-          OPEN_DAY_REGEX.test(`${row.open_day_details || ""} ${row.open_day_url}`)
-      )
-      .map((row, index) => ({
-        id: `open-${index + 1}`,
-        school_name: toSchoolName(row),
-        date: toOpenDayLabel(row),
-        href: row.open_day_url!,
-        source_label: "學校官方",
-      }))
-      .sort((left, right) => {
-        const leftHasDate = /\d+月\d+日/.test(left.date) ? 1 : 0;
-        const rightHasDate = /\d+月\d+日/.test(right.date) ? 1 : 0;
-        return rightHasDate - leftHasDate;
-      })
-  ).slice(0, 3);
-
-  const admissions = uniqueByHref(
-    rows
-      .filter(
-        (row) =>
-          row.application_url &&
-          !BLOCKED_URL_REGEX.test(row.application_url) &&
-          ADMISSION_REGEX.test(`${row.application_details || ""} ${row.application_url}`)
-      )
-      .map((row, index) => ({
-        id: `admission-${index + 1}`,
-        school_name: toSchoolName(row),
-        deadline: toAdmissionLabel(row),
-        badge: "官方招生頁",
-        href: row.application_url!,
-      }))
-      .sort((left, right) => {
-        const leftPriority = /2026\/27|2025\/26/.test(left.deadline) ? 1 : 0;
-        const rightPriority = /2026\/27|2025\/26/.test(right.deadline) ? 1 : 0;
-        return rightPriority - leftPriority;
-      })
-  ).slice(0, 3);
-
-  return {
-    openDays: openDays.length > 0 ? openDays : OPEN_DAYS,
-    admissions: admissions.length > 0 ? admissions : DEADLINES,
-  };
 }
 
 async function getHomepageBanners(): Promise<HomeBanner[]> {
@@ -601,24 +680,24 @@ async function getHomepageBanners(): Promise<HomeBanner[]> {
   });
 }
 
+/* ─── Main export ─── */
+
 export async function getHomepageLiveData(): Promise<{
   banners: HomeBanner[];
-  openDays: OpenDayItem[];
-  admissions: DeadlineItem[];
-  officialLinks: OfficialLinkItem[];
+  events: SchoolEventItem[];
+  insights: InsightItem[];
   newsItems: NewsItem[];
 }> {
-  const [banners, schoolActions, newsItems] = await Promise.all([
+  const [banners, events, newsItems] = await Promise.all([
     getHomepageBanners(),
-    getSchoolActionItems(),
+    getSchoolEvents(),
     getLiveNewsItems(),
   ]);
 
   return {
     banners,
-    openDays: schoolActions.openDays,
-    admissions: schoolActions.admissions,
-    officialLinks: OFFICIAL_LINKS,
+    events,
+    insights: INSIGHTS,
     newsItems,
   };
 }

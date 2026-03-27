@@ -1,8 +1,7 @@
 import type {
   HomeBanner,
-  OpenDayItem,
-  DeadlineItem,
-  OfficialLinkItem,
+  SchoolEventItem,
+  InsightItem,
   NewsItem,
   FeaturedSchool,
 } from "@/types/homepage";
@@ -28,79 +27,87 @@ export const BANNERS: HomeBanner[] = [
   },
 ];
 
-export const OPEN_DAYS: OpenDayItem[] = [
+/** Fallback school events for "近期家長必知" horizontal scroll */
+export const SCHOOL_EVENTS: SchoolEventItem[] = [
   {
-    id: "od-1",
+    id: "evt-1",
     school_name: "聖保羅堂幼稚園",
     date: "4月12日（六）",
+    date_iso: "2026-04-12",
+    event_type: "open_day",
+    event_label: "開放日",
     href: "/kg?search=%E8%81%96%E4%BF%9D%E7%BE%85%E5%A0%82%E5%B9%BC%E7%A8%9A%E5%9C%92",
   },
   {
-    id: "od-2",
+    id: "evt-2",
     school_name: "嘉諾撒聖心幼稚園",
     date: "4月19日（六）",
+    date_iso: "2026-04-19",
+    event_type: "open_day",
+    event_label: "開放日",
     href: "/kg?search=%E5%98%89%E8%AB%BE%E6%92%92%E8%81%96%E5%BF%83%E5%B9%BC%E7%A8%9A%E5%9C%92",
   },
-];
-
-export const DEADLINES: DeadlineItem[] = [
   {
-    id: "dl-1",
-    school_name: "維多利亞（寶翠園）幼稚園",
-    deadline: "2026/27 招生中",
-    badge: "官方招生頁",
-    href: "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
-  },
-  {
-    id: "dl-2",
-    school_name: "伽利利國際幼稚園",
-    deadline: "2025/26 及 2026/27 可申請",
-    badge: "入學申請開放",
-    href: "https://docs.google.com/forms/d/e/1FAIpQLSf8U_m4qwPUCdYmoyj_Y11w6EZYB-81IVeIySgkH0N9toYEsA/viewform?usp=send_form",
+    id: "evt-3",
+    school_name: "京斯敦國際幼稚園",
+    date: "4月25日（五）",
+    date_iso: "2026-04-25",
+    event_type: "briefing",
+    event_label: "簡介會",
+    href: "/kg?search=%E4%BA%AC%E6%96%AF%E6%95%A6%E5%9C%8B%E9%9A%9B%E5%B9%BC%E7%A8%9A%E5%9C%92",
   },
 ];
 
-export const OFFICIAL_LINKS: OfficialLinkItem[] = [
+/** Fallback parent insights for dark card */
+export const INSIGHTS: InsightItem[] = [
   {
-    id: "official-1",
-    title: "K1 收生安排",
-    subtitle: "教育局 2026/27 學年官方安排",
-    href: "https://www.edb.gov.hk/k1-admission_tc",
+    id: "ins-1",
+    title: "K1 面試只考小朋友，家長在等候室",
+    author: "家長A",
+    date: "3天前",
+    href: "/submit",
   },
   {
-    id: "official-2",
-    title: "家長講座",
-    subtitle: "查看教育局最新家長講座安排",
-    href: "https://www.edb.gov.hk/parentstalks",
+    id: "ins-2",
+    title: "報名表要親身遞交，唔接受郵寄",
+    author: "家長B",
+    date: "1週前",
+    href: "/submit",
   },
   {
-    id: "official-3",
-    title: "幼稚園概覽",
-    subtitle: "查看學校資料與官方更新",
-    href: "https://kgp2025.chsc.hk/",
+    id: "ins-3",
+    title: "面試當日要帶出世紙正本",
+    author: "家長C",
+    date: "2週前",
+    href: "/submit",
   },
 ];
 
+/** Fallback news items for "消息動態" */
 export const NEWS_ITEMS: NewsItem[] = [
   {
     id: "news-1",
     source: "edb",
+    source_category: "government",
     source_label: "教育局",
     title: "2026/27 學年幼稚園幼兒班（K1）收生安排",
     summary: "教育局整合新學年 K1 收生安排、申請表格及學位空缺入口。",
     date: "1月6日",
     published_at: "2026-01-06T00:00:00+08:00",
-    href: "https://www.edb.gov.hk/k1-admission_tc",
+    href: "https://www.edb.gov.hk/tc/edu-system/preprimary-kindergarten/overview/k1-admission-arrangements.html",
+    is_external: false,
   },
   {
     id: "news-2",
     source: "govhk",
+    source_category: "government",
     source_label: "政府公報",
-    title: "Measures to support kindergartens",
+    title: "支援幼稚園措施",
     summary: "教育局回應業界經營壓力，說明幼稚園教育計劃與支援措施。",
     date: "3月18日",
     published_at: "2026-03-18T00:00:00+08:00",
     href: "https://www.info.gov.hk/gia/general/202603/18/P2026031800557.htm",
+    is_external: false,
   },
 ];
 

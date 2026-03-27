@@ -23,7 +23,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Explicitly Banned
 
-Redux/Zustand, Prisma/Drizzle ORM, GraphQL, Docker, Redis, automated scrapers, React Native.
+Redux/Zustand, Prisma/Drizzle ORM, GraphQL, Docker, Redis, React Native. Scraping paywalled content or content requiring login is banned; scheduled scraping of public education sources (EDB/GovHK/HK01) is allowed.
 
 ## Build & Development Commands
 
@@ -54,6 +54,9 @@ src/
         page.tsx            # /kg — KG list (ISR 3600s)
         [id]/page.tsx       # /kg/[id] — Detail (ISR 3600s)
       submit/page.tsx       # /submit — Submit intel (static)
+      news/
+        page.tsx            # /news — Full news list with category filters
+        [id]/page.tsx       # /news/[id] — Local article page (EDB/GovHK)
     (auth)/                 # Auth-required routes
       account/page.tsx      # /account — User account (dynamic)
     api/
@@ -61,6 +64,7 @@ src/
       vacancies/route.ts
       favorites/route.ts
       intel/route.ts
+      news/route.ts
       cron/reminders/route.ts
   components/
     ui/                     # Base: Button, Card, Toast, Skeleton, BottomSheet
@@ -308,8 +312,8 @@ Tags/pills: `rounded-full` (99px) · Buttons: `rounded-xl` (14px) · Cards: `rou
 Top-to-bottom sections:
 
 1. **Hero Banner** — 1-3 slide carousel with Ken Burns animation on background images. Each slide uses one of 3 text layout templates (`classic` / `event` / `minimal`) defined in `src/types/homepage.ts`. Auto-rotates every 8s, pauses on hover. Images stored in `public/images/banners/`. Below banner: search bar + quick-filter pills.
-2. **本週家長必知** — 2-column layout. Left: upcoming open days + approaching deadlines (time-sensitive, auto-expire). Right: dark card with recent parent intel from `admission_intel`.
-3. **消息動態** — EDB circulars + school official announcements (news articles, not actionable dates). Distinct from 本週家長必知 to avoid content overlap.
+2. **近期家長必知** — Horizontal scroll event cards (open days, interviews, briefings, deadlines, trials, talks) + full-width dark card below with parent intel. Events filtered by time window: future 30 days + past 7 days (greyed). No "招生進行中" (long-term status doesn't belong here). Fallback: "目前暫無近期學校活動資訊".
+3. **消息動態** — 3 items max. Sources: EDB (TC RSS), GovHK, HK01. Categories: 政府信息 / 媒體信息 / 學校信息. Government items link to local `/news/[id]` page; media/school items open external. "查看更多 →" links to `/news`.
 4. **精選名校** — 3-col grid of curated/ranked schools. Supports future ad slot.
 5. **Footer** (unchanged).
 

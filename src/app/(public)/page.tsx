@@ -16,11 +16,10 @@ export default async function HomePage() {
         <HeroSearchBar />
       </section>
 
-      {/* 本週家長必知 */}
+      {/* 近期家長必知 */}
       <ParentMustKnow
-        openDays={liveData.openDays}
-        admissions={liveData.admissions}
-        officialLinks={liveData.officialLinks}
+        events={liveData.events}
+        insights={liveData.insights}
       />
 
       {/* 消息動態 */}
