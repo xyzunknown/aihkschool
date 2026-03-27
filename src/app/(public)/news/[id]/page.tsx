@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getAllNewsItems } from "@/lib/homepage/liveData";
 import type { NewsItem } from "@/types/homepage";
 
-async function fetchArticleContent(url: string): Promise<string | null> {
+async function fetchHtml(url: string): Promise<string | null> {
   try {
     const response = await fetch(url, {
       next: { revalidate: 21600 },
@@ -16,6 +16,29 @@ async function fetchArticleContent(url: string): Promise<string | null> {
   } catch {
     return null;
   }
+}
+
+/**
+ * Fetch article content, auto-switching GovHK English pages to Traditional Chinese.
+ * GovHK English pages contain a link to the TC version: <a href="..."><img id="hdrTCLnk">
+ */
+async function fetchArticleContent(url: string): Promise<string | null> {
+  const html = await fetchHtml(url);
+  if (!html) return null;
+
+  // If this is a GovHK English page, find and fetch the Chinese version instead
+  if (url.includes("info.gov.hk")) {
+    const tcLinkMatch = html.match(
+      /<a\s+href=["']([^"']+)["'][^>]*>\s*<img[^>]*id=["']hdrTCLnk["']/i
+    );
+    if (tcLinkMatch?.[1]) {
+      const tcUrl = new URL(tcLinkMatch[1], url).href;
+      const tcHtml = await fetchHtml(tcUrl);
+      if (tcHtml) return tcHtml;
+    }
+  }
+
+  return html;
 }
 
 function extractMainContent(html: string): string {

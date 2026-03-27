@@ -109,7 +109,7 @@ export const NEWS_ITEMS: NewsItem[] = [
     summary: "教育局回應業界經營壓力，說明幼稚園教育計劃與支援措施。",
     date: "3月18日",
     published_at: "2026-03-18T00:00:00+08:00",
-    href: "https://www.info.gov.hk/gia/general/202603/18/P2026031800557.htm",
+    href: "https://www.info.gov.hk/gia/general/202603/18/P2026031800552.htm",
     is_external: false,
   },
 ];
