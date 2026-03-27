@@ -41,6 +41,8 @@ export interface SchoolEventItem {
   /** Display label, e.g. "開放日" | "面試" | "簡介會" */
   event_label: string;
   href: string;
+  /** Link to school detail/search page on HKSchoolPlace */
+  detail_href: string;
   /** Auto-computed: true if date_iso < today */
   is_past?: boolean;
 }

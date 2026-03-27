@@ -37,6 +37,7 @@ export const SCHOOL_EVENTS: SchoolEventItem[] = [
     event_type: "open_day",
     event_label: "開放日",
     href: "/kg?search=%E8%81%96%E4%BF%9D%E7%BE%85%E5%A0%82%E5%B9%BC%E7%A8%9A%E5%9C%92",
+    detail_href: "/kg?search=%E8%81%96%E4%BF%9D%E7%BE%85%E5%A0%82%E5%B9%BC%E7%A8%9A%E5%9C%92",
   },
   {
     id: "evt-2",
@@ -46,6 +47,7 @@ export const SCHOOL_EVENTS: SchoolEventItem[] = [
     event_type: "open_day",
     event_label: "開放日",
     href: "/kg?search=%E5%98%89%E8%AB%BE%E6%92%92%E8%81%96%E5%BF%83%E5%B9%BC%E7%A8%9A%E5%9C%92",
+    detail_href: "/kg?search=%E5%98%89%E8%AB%BE%E6%92%92%E8%81%96%E5%BF%83%E5%B9%BC%E7%A8%9A%E5%9C%92",
   },
   {
     id: "evt-3",
@@ -55,6 +57,7 @@ export const SCHOOL_EVENTS: SchoolEventItem[] = [
     event_type: "briefing",
     event_label: "簡介會",
     href: "/kg?search=%E4%BA%AC%E6%96%AF%E6%95%A6%E5%9C%8B%E9%9A%9B%E5%B9%BC%E7%A8%9A%E5%9C%92",
+    detail_href: "/kg?search=%E4%BA%AC%E6%96%AF%E6%95%A6%E5%9C%8B%E9%9A%9B%E5%B9%BC%E7%A8%9A%E5%9C%92",
   },
 ];
 

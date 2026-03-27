@@ -18,16 +18,23 @@ async function fetchArticleContent(url: string): Promise<string | null> {
 }
 
 function extractMainContent(html: string): string {
-  // Try to find article or main content area
-  const articleMatch =
+  // Try site-specific selectors first, then generic fallbacks
+  const contentMatch =
+    // GovHK press releases
+    html.match(/<div[^>]*id=["']pressrelease["'][^>]*>([\s\S]*?)<\/div>\s*<\/div>/i) ??
+    html.match(/<div[^>]*class=["']acontent["'][^>]*>([\s\S]*?)<\/div>/i) ??
+    // EDB content area
+    html.match(/<div[^>]*class=["'][^"]*edb-content[^"]*["'][^>]*>([\s\S]*?)<\/div>/i) ??
+    // Generic patterns
     html.match(/<article[^>]*>([\s\S]*?)<\/article>/i) ??
-    html.match(/<div[^>]*class="[^"]*content[^"]*"[^>]*>([\s\S]*?)<\/div>/i) ??
-    html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
+    html.match(/<main[^>]*>([\s\S]*?)<\/main>/i) ??
+    html.match(/<div[^>]*class=["'][^"]*content-body[^"]*["'][^>]*>([\s\S]*?)<\/div>/i) ??
+    html.match(/<div[^>]*role=["']main["'][^>]*>([\s\S]*?)<\/div>/i);
 
-  const raw = articleMatch?.[1] ?? "";
+  const raw = contentMatch?.[1] ?? "";
   if (!raw) return "";
 
-  // Strip scripts, styles, nav elements
+  // Strip scripts, styles, nav, forms, images
   return raw
     .replace(/<script[\s\S]*?<\/script>/gi, "")
     .replace(/<style[\s\S]*?<\/style>/gi, "")
@@ -38,24 +45,11 @@ function extractMainContent(html: string): string {
     .replace(/<img[^>]*>/gi, "")
     .replace(/<a\s[^>]*>([\s\S]*?)<\/a>/gi, "$1")
     .replace(/<[^>]+>/g, (tag) => {
-      // Keep p, h1-h6, ul, ol, li, br tags for basic structure
-      if (/^<\/?(p|h[1-6]|ul|ol|li|br)\s*\/?>/i.test(tag)) return tag;
+      if (/^<\/?(p|h[1-6]|ul|ol|li|br|blockquote)\s*\/?>/i.test(tag)) return tag;
       return "";
     })
     .replace(/\n{3,}/g, "\n\n")
     .trim();
-}
-
-function extractMetaDescription(html: string): string | null {
-  const patterns = [
-    /<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)["']/i,
-    /<meta[^>]+property=["']og:description["'][^>]+content=["']([^"']+)["']/i,
-  ];
-  for (const pattern of patterns) {
-    const match = html.match(pattern);
-    if (match?.[1]) return match[1].trim();
-  }
-  return null;
 }
 
 interface PageProps {
@@ -69,19 +63,16 @@ export default async function ArticlePage({ params }: PageProps) {
 
   if (!article) notFound();
 
-  // Only government sources have local pages
   if (article.is_external) {
     notFound();
   }
 
   const html = await fetchArticleContent(article.href);
   const mainContent = html ? extractMainContent(html) : "";
-  const metaDescription = html ? extractMetaDescription(html) : null;
-  const hasContent = mainContent.length > 50;
+  const hasContent = mainContent.length > 20;
 
   return (
     <div className="mx-auto max-w-3xl px-5 py-8 md:px-8 md:py-12">
-      {/* Back link */}
       <Link
         href="/news"
         className="mb-6 inline-flex items-center text-sm text-slate-500 transition-colors hover:text-slate-950"
@@ -89,7 +80,6 @@ export default async function ArticlePage({ params }: PageProps) {
         ← 返回消息動態
       </Link>
 
-      {/* Article header */}
       <div className="mb-8">
         <div className="mb-3 flex items-center gap-3">
           <span className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-700">
@@ -100,14 +90,13 @@ export default async function ArticlePage({ params }: PageProps) {
         <h1 className="text-2xl font-bold leading-tight tracking-tight text-slate-950">
           {article.title}
         </h1>
-        {(metaDescription ?? article.summary) && (
+        {article.summary && (
           <p className="mt-3 text-base leading-relaxed text-slate-600">
-            {metaDescription ?? article.summary}
+            {article.summary}
           </p>
         )}
       </div>
 
-      {/* Article content */}
       {hasContent ? (
         <div
           className="prose prose-slate max-w-none mb-8 [&_p]:mb-4 [&_p]:text-base [&_p]:leading-relaxed [&_p]:text-slate-700 [&_h1]:text-xl [&_h1]:font-bold [&_h1]:mt-8 [&_h1]:mb-4 [&_h2]:text-lg [&_h2]:font-semibold [&_h2]:mt-6 [&_h2]:mb-3 [&_h3]:text-base [&_h3]:font-semibold [&_h3]:mt-4 [&_h3]:mb-2 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_li]:mb-1 [&_li]:text-slate-700"
@@ -121,7 +110,6 @@ export default async function ArticlePage({ params }: PageProps) {
         </div>
       )}
 
-      {/* Source attribution — bottom right */}
       <div className="flex justify-end">
         <Link
           href={article.href}

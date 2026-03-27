@@ -501,6 +501,7 @@ async function getSchoolEvents(): Promise<SchoolEventItem[]> {
           event_type: type,
           event_label: label,
           href: row.open_day_url,
+          detail_href: toSearchHref(row),
           is_past: isEventPast(dateIso),
         });
       }
@@ -527,6 +528,7 @@ async function getSchoolEvents(): Promise<SchoolEventItem[]> {
           event_type: type,
           event_label: label,
           href: row.application_url,
+          detail_href: toSearchHref(row),
           is_past: isEventPast(dateIso),
         });
       }
