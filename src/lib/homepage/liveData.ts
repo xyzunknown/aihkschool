@@ -53,12 +53,12 @@ const BANNER_IMAGES = [
     layout: "classic",
   },
   {
-    src: "/images/banners/美術室午后-Banner-02.png",
+    src: "/images/banners/美术室午后-Banner-02.png",
     alt: "孩子在美術室內專注創作",
     layout: "event",
   },
   {
-    src: "/images/banners/閱讀角午后-Banner-03.png",
+    src: "/images/banners/阅读角午后-Banner-03.png",
     alt: "安靜舒適的兒童閱讀角",
     layout: "minimal",
   },
@@ -70,6 +70,8 @@ const BANNER_IMAGES = [
 
 const KG_NEWS_REGEX =
   /(kindergarten|k1|pre-primary|pre primary|preschool|幼稚園|幼兒班|收生安排|收生|註冊證|註冊|家長簡介會)/i;
+const HK01_KG_NEWS_REGEX =
+  /(幼稚園|幼兒|k1|學前|收生|入學|pn|幼教|校舍|停辦|學券|概覽)/i;
 const NOISE_REGEX =
   /(smart parent net|parent-child code|secondary|primary one|senior secondary|principals and teachers|vacant kindergarten premises)/i;
 const OPEN_DAY_REGEX =
@@ -77,6 +79,7 @@ const OPEN_DAY_REGEX =
 const ADMISSION_REGEX =
   /(admission|apply|application|enrol|enrollment|招生|入學|申請|收生)/i;
 const BLOCKED_URL_REGEX = /(godaddy\.com|javascript:|facebook\.com)/i;
+const CURRENT_YEAR = new Date().getFullYear();
 
 function decodeHtml(value: string): string {
   return value
@@ -122,10 +125,31 @@ function formatMonthDay(dateInput: string): string {
   return `${date.getMonth() + 1}月${date.getDate()}日`;
 }
 
+function parseDate(dateInput: string): Date | null {
+  const date = new Date(dateInput);
+  if (Number.isNaN(date.getTime())) return null;
+  return date;
+}
+
+function isCurrentYear(dateInput: string): boolean {
+  const date = parseDate(dateInput);
+  return date ? date.getFullYear() === CURRENT_YEAR : false;
+}
+
+function sortNewsByPublishedAt(items: NewsItem[]): NewsItem[] {
+  return [...items].sort((first, second) => {
+    const firstTime = parseDate(first.published_at)?.getTime() ?? 0;
+    const secondTime = parseDate(second.published_at)?.getTime() ?? 0;
+    return secondTime - firstTime;
+  });
+}
+
 function parseMetaContent(html: string, key: string): string | null {
   const patterns = [
     new RegExp(`<meta[^>]+name=["']${key}["'][^>]+content=["']([^"']+)["']`, "i"),
     new RegExp(`<meta[^>]+property=["']${key}["'][^>]+content=["']([^"']+)["']`, "i"),
+    new RegExp(`<meta[^>]+content=["']([^"']+)["'][^>]+name=["']${key}["']`, "i"),
+    new RegExp(`<meta[^>]+content=["']([^"']+)["'][^>]+property=["']${key}["']`, "i"),
   ];
 
   for (const pattern of patterns) {
@@ -163,6 +187,22 @@ function parseRssItems(xml: string) {
   });
 }
 
+function parseSitemapNewsItems(xml: string) {
+  return Array.from(xml.matchAll(/<url>([\s\S]*?)<\/url>/gi)).map((match) => {
+    const block = match[1];
+    const title = decodeHtml(
+      block.match(/<news:title>([\s\S]*?)<\/news:title>/i)?.[1] ?? ""
+    ).trim();
+    const link = decodeHtml(block.match(/<loc>([\s\S]*?)<\/loc>/i)?.[1] ?? "").trim();
+    const pubDate = decodeHtml(
+      block.match(/<news:publication_date>([\s\S]*?)<\/news:publication_date>/i)?.[1] ??
+        ""
+    ).trim();
+
+    return { title, link, pubDate };
+  });
+}
+
 function isRelevantNews(title: string): boolean {
   return KG_NEWS_REGEX.test(title) && !NOISE_REGEX.test(title);
 }
@@ -186,36 +226,83 @@ async function fetchNewsSummary(url: string, fallbackTitle: string): Promise<str
   return shorten(fallbackTitle, 58);
 }
 
-async function getLiveNewsItems(): Promise<NewsItem[]> {
+async function getEdbNewsItems(): Promise<NewsItem[]> {
   const rss = await fetchText("https://www.edb.gov.hk/en/whats_new_rss.xml");
-  if (!rss) return NEWS_ITEMS;
+  if (!rss) return [];
 
   const relevant = parseRssItems(rss)
-    .filter((item) => item.link && item.title && isRelevantNews(item.title))
+    .filter(
+      (item) =>
+        item.link &&
+        item.title &&
+        isRelevantNews(item.title) &&
+        isCurrentYear(item.pubDate)
+    )
     .slice(0, 6);
 
-  const mapped = await Promise.all(
+  return Promise.all(
     relevant.map(async (item, index) => {
       const summary = await fetchNewsSummary(item.link, item.title);
       const source = item.link.includes("info.gov.hk") ? "govhk" : "edb";
 
       return {
-        id: `live-news-${index + 1}`,
+        id: `live-news-edb-${index + 1}`,
         source,
         source_label: source === "govhk" ? "政府公報" : "教育局",
         title: cleanText(item.title),
         summary,
         date: formatMonthDay(item.pubDate),
+        published_at: new Date(item.pubDate).toISOString(),
         href: item.link,
       } satisfies NewsItem;
     })
   );
+}
 
-  const fallback = NEWS_ITEMS.filter(
-    (fallbackItem) => !mapped.some((item) => item.href === fallbackItem.href)
+async function getHk01NewsItems(): Promise<NewsItem[]> {
+  const sitemap = await fetchText("https://www.hk01.com/sitemapByLastMod.xml");
+  if (!sitemap) return [];
+
+  const relevant = parseSitemapNewsItems(sitemap)
+    .filter(
+      (item) =>
+        item.link &&
+        item.title &&
+        isCurrentYear(item.pubDate) &&
+        HK01_KG_NEWS_REGEX.test(`${item.title} ${item.link}`)
+    )
+    .slice(0, 4);
+
+  return Promise.all(
+    relevant.map(async (item, index) => ({
+      id: `live-news-hk01-${index + 1}`,
+      source: "hk01",
+      source_label: "HK01",
+      title: cleanText(item.title),
+      summary: await fetchNewsSummary(item.link, item.title),
+      date: formatMonthDay(item.pubDate),
+      published_at: new Date(item.pubDate).toISOString(),
+      href: item.link,
+    }))
+  );
+}
+
+async function getLiveNewsItems(): Promise<NewsItem[]> {
+  const [edbItems, hk01Items] = await Promise.all([
+    getEdbNewsItems(),
+    getHk01NewsItems(),
+  ]);
+
+  const liveItems = sortNewsByPublishedAt([...edbItems, ...hk01Items]);
+  const fallback = sortNewsByPublishedAt(
+    NEWS_ITEMS.filter(
+      (fallbackItem) =>
+        isCurrentYear(fallbackItem.published_at) &&
+        !liveItems.some((item) => item.href === fallbackItem.href)
+    )
   );
 
-  return [...mapped, ...fallback].slice(0, 4);
+  return sortNewsByPublishedAt([...liveItems, ...fallback]).slice(0, 4);
 }
 
 function extractDateLabel(text: string): string | null {

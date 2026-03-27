@@ -89,6 +89,7 @@ export const NEWS_ITEMS: NewsItem[] = [
     title: "2026/27 學年幼稚園幼兒班（K1）收生安排",
     summary: "教育局整合新學年 K1 收生安排、申請表格及學位空缺入口。",
     date: "1月6日",
+    published_at: "2026-01-06T00:00:00+08:00",
     href: "https://www.edb.gov.hk/k1-admission_tc",
   },
   {
@@ -98,25 +99,8 @@ export const NEWS_ITEMS: NewsItem[] = [
     title: "Measures to support kindergartens",
     summary: "教育局回應業界經營壓力，說明幼稚園教育計劃與支援措施。",
     date: "3月18日",
+    published_at: "2026-03-18T00:00:00+08:00",
     href: "https://www.info.gov.hk/gia/general/202603/18/P2026031800557.htm",
-  },
-  {
-    id: "news-3",
-    source: "govhk",
-    source_label: "政府公報",
-    title: "Profiles of kindergartens posted online",
-    summary: "幼稚園概覽網上版更新，家長可查閱學校資料及最新校方資訊。",
-    date: "10月16日",
-    href: "https://www.info.gov.hk/gia/general/202510/16/P2025101600313.htm",
-  },
-  {
-    id: "news-4",
-    source: "edb",
-    source_label: "教育局",
-    title: "「2026/27 學年幼稚園幼兒班（K1）收生安排」家長簡介會",
-    summary: "教育局公布家長簡介會與 K1 註冊文件、通知結果及統一註冊日期。",
-    date: "6月20日",
-    href: "https://www.edb.gov.hk/tc/student-parents/parents-related/ebulletin-for-parents/2024-2025/20250620.html",
   },
 ];
 
