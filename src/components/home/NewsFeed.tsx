@@ -16,7 +16,7 @@ export function NewsFeed({ items }: NewsFeedProps) {
           rel="noreferrer"
           className="text-slate-500 hover:text-slate-950 text-sm font-medium transition-colors"
         >
-          更多官方消息 →
+          教育局入口 →
         </Link>
       </div>
 
@@ -37,6 +37,8 @@ export function NewsFeed({ items }: NewsFeedProps) {
                       ? "bg-emerald-50 text-emerald-700"
                       : item.source === "govhk"
                         ? "bg-sky-50 text-sky-700"
+                        : item.source === "hk01"
+                          ? "bg-amber-50 text-amber-700"
                         : "bg-blue-50 text-blue-700"
                   }`}
                 >

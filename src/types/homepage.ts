@@ -46,11 +46,12 @@ export interface InsightItem {
 
 export interface NewsItem {
   id: string;
-  source: "edb" | "govhk" | "school";
+  source: "edb" | "govhk" | "school" | "hk01";
   source_label: string;
   title: string;
   summary: string;
   date: string;
+  published_at: string;
   href: string;
 }
 
