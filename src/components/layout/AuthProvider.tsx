@@ -25,6 +25,24 @@ export function useAuth() {
   return useContext(AuthContext);
 }
 
+function isIgnorableExtensionError(input: unknown): boolean {
+  const text =
+    typeof input === "string"
+      ? input
+      : input instanceof Error
+        ? `${input.message}\n${input.stack ?? ""}`
+        : JSON.stringify(input);
+
+  return (
+    text.includes("chrome-extension://") &&
+    (
+      text.includes("inpage.js") ||
+      text.includes("Origin not allowed") ||
+      text.includes("Unsafe attempt to load URL")
+    )
+  );
+}
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<SupabaseUser | null>(null);
   const [loading, setLoading] = useState(true);
@@ -53,6 +71,30 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     return () => subscription.unsubscribe();
   }, [supabase, pendingAction]);
+
+  useEffect(() => {
+    if (process.env.NODE_ENV !== "development") return;
+
+    const handleError = (event: ErrorEvent) => {
+      if (!isIgnorableExtensionError(event.error ?? event.message)) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+    };
+
+    const handleRejection = (event: PromiseRejectionEvent) => {
+      if (!isIgnorableExtensionError(event.reason)) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+    };
+
+    window.addEventListener("error", handleError);
+    window.addEventListener("unhandledrejection", handleRejection);
+
+    return () => {
+      window.removeEventListener("error", handleError);
+      window.removeEventListener("unhandledrejection", handleRejection);
+    };
+  }, []);
 
   const signIn = useCallback(async () => {
     await supabase.auth.signInWithOAuth({
