@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllNewsItems } from "@/lib/homepage/liveData";
+import type { NewsItem } from "@/types/homepage";
 
 async function fetchArticleContent(url: string): Promise<string | null> {
   try {
@@ -19,10 +20,11 @@ async function fetchArticleContent(url: string): Promise<string | null> {
 
 function extractMainContent(html: string): string {
   // Try site-specific selectors first, then generic fallbacks
+  // GovHK uses <span id="pressrelease">, not <div>
   const contentMatch =
-    // GovHK press releases
-    html.match(/<div[^>]*id=["']pressrelease["'][^>]*>([\s\S]*?)<\/div>\s*<\/div>/i) ??
-    html.match(/<div[^>]*class=["']acontent["'][^>]*>([\s\S]*?)<\/div>/i) ??
+    // GovHK press releases — uses <span> or <div>
+    html.match(/<(?:div|span)[^>]*id=["']pressrelease["'][^>]*>([\s\S]*?)<\/(?:div|span)>/i) ??
+    html.match(/<(?:div|span)[^>]*class=["']acontent["'][^>]*>([\s\S]*?)<\/(?:div|span)>/i) ??
     // EDB content area
     html.match(/<div[^>]*class=["'][^"]*edb-content[^"]*["'][^>]*>([\s\S]*?)<\/div>/i) ??
     // Generic patterns
@@ -34,7 +36,7 @@ function extractMainContent(html: string): string {
   const raw = contentMatch?.[1] ?? "";
   if (!raw) return "";
 
-  // Strip scripts, styles, nav, forms, images
+  // Strip scripts, styles, nav, forms, images, and GovHK boilerplate
   return raw
     .replace(/<script[\s\S]*?<\/script>/gi, "")
     .replace(/<style[\s\S]*?<\/style>/gi, "")
@@ -44,12 +46,54 @@ function extractMainContent(html: string): string {
     .replace(/<form[\s\S]*?<\/form>/gi, "")
     .replace(/<img[^>]*>/gi, "")
     .replace(/<a\s[^>]*>([\s\S]*?)<\/a>/gi, "$1")
+    // GovHK boilerplate cleanup
+    .replace(/<div[^>]*class=["'][^"]*controlDisplay[^"]*["'][^>]*>[\s\S]*?<\/div>/gi, "")
+    .replace(/\bNNNN\b/g, "")
+    .replace(/Ends\/\w+,\s+\w+\s+\d{1,2},\s+\d{4}/gi, "")
+    .replace(/完\s*\/\s*\S{2,3}\s*，\s*\d{1,2}月\d{1,2}日/g, "")
+    .replace(/Issued at HKT \d{2}:\d{2}/gi, "")
+    .replace(/於HKT \d{2}:\d{2}發出/g, "")
     .replace(/<[^>]+>/g, (tag) => {
       if (/^<\/?(p|h[1-6]|ul|ol|li|br|blockquote)\s*\/?>/i.test(tag)) return tag;
       return "";
     })
     .replace(/\n{3,}/g, "\n\n")
     .trim();
+}
+
+function extractHostname(url: string): string {
+  try {
+    return new URL(url).hostname;
+  } catch {
+    return url;
+  }
+}
+
+function RelatedNewsCard({ item }: { item: NewsItem }) {
+  const href = item.is_external
+    ? item.href
+    : `/news/${encodeURIComponent(item.id)}`;
+
+  return (
+    <Link
+      href={href}
+      target={item.is_external ? "_blank" : undefined}
+      rel={item.is_external ? "noreferrer" : undefined}
+      className="block"
+    >
+      <div className="rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm">
+        <div className="flex items-center gap-2 mb-2">
+          <span className="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-medium text-emerald-700">
+            {item.source_label}
+          </span>
+          <span className="text-xs text-slate-400">{item.date}</span>
+        </div>
+        <h3 className="text-sm font-semibold leading-snug text-slate-900 line-clamp-2">
+          {item.title}
+        </h3>
+      </div>
+    </Link>
+  );
 }
 
 interface PageProps {
@@ -70,9 +114,18 @@ export default async function ArticlePage({ params }: PageProps) {
   const html = await fetchArticleContent(article.href);
   const mainContent = html ? extractMainContent(html) : "";
   const hasContent = mainContent.length > 20;
+  const hostname = extractHostname(article.href);
+
+  const relatedNews = allNews
+    .filter(
+      (item) =>
+        item.id !== article.id &&
+        item.source_category === article.source_category
+    )
+    .slice(0, 3);
 
   return (
-    <div className="mx-auto max-w-3xl px-5 py-8 md:px-8 md:py-12">
+    <div className="mx-auto max-w-4xl px-5 py-8 md:px-8 md:py-12">
       <Link
         href="/news"
         className="mb-6 inline-flex items-center text-sm text-slate-500 transition-colors hover:text-slate-950"
@@ -80,7 +133,7 @@ export default async function ArticlePage({ params }: PageProps) {
         ← 返回消息動態
       </Link>
 
-      <div className="mb-8">
+      <div className="mb-6">
         <div className="mb-3 flex items-center gap-3">
           <span className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-700">
             {article.source_label}
@@ -98,24 +151,49 @@ export default async function ArticlePage({ params }: PageProps) {
       </div>
 
       {hasContent ? (
-        <div
-          className="prose prose-slate max-w-none mb-8 [&_p]:mb-4 [&_p]:text-base [&_p]:leading-relaxed [&_p]:text-slate-700 [&_h1]:text-xl [&_h1]:font-bold [&_h1]:mt-8 [&_h1]:mb-4 [&_h2]:text-lg [&_h2]:font-semibold [&_h2]:mt-6 [&_h2]:mb-3 [&_h3]:text-base [&_h3]:font-semibold [&_h3]:mt-4 [&_h3]:mb-2 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_li]:mb-1 [&_li]:text-slate-700"
-          dangerouslySetInnerHTML={{ __html: mainContent }}
-        />
+        <div className="mb-8 rounded-2xl border border-slate-200 bg-white p-6 md:p-8">
+          <div
+            className="prose prose-slate max-w-none [&_p]:mb-4 [&_p]:text-base [&_p]:leading-relaxed [&_p]:text-slate-700 [&_h1]:text-xl [&_h1]:font-bold [&_h1]:mt-8 [&_h1]:mb-4 [&_h2]:text-lg [&_h2]:font-semibold [&_h2]:mt-6 [&_h2]:mb-3 [&_h3]:text-base [&_h3]:font-semibold [&_h3]:mt-4 [&_h3]:mb-2 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_li]:mb-1 [&_li]:text-slate-700"
+            dangerouslySetInnerHTML={{ __html: mainContent }}
+          />
+        </div>
       ) : (
-        <div className="mb-8 rounded-2xl border border-slate-200 bg-white p-8 text-center">
-          <p className="text-sm text-slate-500">
+        <div className="mb-8 rounded-2xl border border-slate-200 bg-white p-10 text-center">
+          <p className="mb-5 text-sm text-slate-500">
             無法載入完整內容，請前往原始來源查看。
           </p>
+          <Link
+            href={article.href}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-xl bg-slate-950 px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-[1.02]"
+          >
+            閱讀全文
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
+          </Link>
+          <p className="mt-3 text-xs text-slate-400">{hostname}</p>
         </div>
       )}
 
-      <div className="flex justify-end">
+      <div className="mb-10 flex justify-center">
         <Link
           href={article.href}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50"
+          className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50"
         >
           來源：{article.source_label}
           <svg
@@ -135,6 +213,19 @@ export default async function ArticlePage({ params }: PageProps) {
           </svg>
         </Link>
       </div>
+
+      {relatedNews.length > 0 && (
+        <div>
+          <h2 className="mb-4 text-lg font-semibold text-slate-950">
+            相關消息
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {relatedNews.map((item) => (
+              <RelatedNewsCard key={item.id} item={item} />
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
