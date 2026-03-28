@@ -42,6 +42,9 @@ jobs:
       - name: Refresh private and international profile data
         run: python3 scripts/enrich_private_international_profiles.py
 
+      - name: Refresh private and international vacancy data
+        run: python3 scripts/enrich_private_international_vacancies.py
+
       - name: Apply data to Supabase
         run: node scripts/apply_school_enrichment.mjs
 
@@ -51,9 +54,11 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/edb_fee_enrichment.json
           git add data/private_international_profile_enrichment.json
+          git add data/private_international_vacancy_enrichment.json
           git add public/logos
           git add supabase/seed/004_private_international_profile_enrichment.sql
           git add supabase/seed/005_edb_fee_enrichment.sql
+          git add supabase/seed/006_private_international_vacancy_enrichment.sql
           if git diff --cached --quiet; then
             echo "No snapshot changes to commit"
             exit 0

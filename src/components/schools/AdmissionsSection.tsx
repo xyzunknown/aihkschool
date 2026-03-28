@@ -1,28 +1,13 @@
 import { GlassCard } from "@/components/ui/GlassCard";
+import { getApplicationStatusLabel, hasAdmissionInfo } from "@/lib/schools/admissions";
 import type { School } from "@/types/database";
 
 interface AdmissionsSectionProps {
   school: School;
 }
 
-const APPLICATION_STATUS_LABELS: Record<string, string> = {
-  open: "正在招生",
-  year_round: "全年接受申請",
-  closed: "本輪未開放",
-  website: "請查看官網",
-  unknown: "暫未確認",
-};
-
 export function AdmissionsSection({ school }: AdmissionsSectionProps) {
-  const hasAdmissionInfo = Boolean(
-    school.application_status ||
-      school.application_details ||
-      school.application_url ||
-      school.open_day_details ||
-      school.open_day_url
-  );
-
-  if (!hasAdmissionInfo) {
+  if (!hasAdmissionInfo(school)) {
     return (
       <section className="mb-8">
         <h2 className="text-xl font-semibold text-slate-950 mb-4">招生與開放日</h2>
@@ -45,9 +30,7 @@ export function AdmissionsSection({ school }: AdmissionsSectionProps) {
               報名狀態
             </div>
             <div className="text-base text-slate-900">
-              {school.application_status
-                ? APPLICATION_STATUS_LABELS[school.application_status] ?? school.application_status
-                : "暫未確認"}
+              {getApplicationStatusLabel(school.application_status)}
             </div>
           </div>
 

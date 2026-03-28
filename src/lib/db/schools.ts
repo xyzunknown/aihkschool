@@ -1,6 +1,10 @@
 import { createClient } from "@/lib/supabase/server";
 import { normalizeVacancyStatus } from "@/lib/utils";
 import { getFallbackEnglishName } from "@/lib/db/schoolNameFallback";
+import {
+  getAdmissionSummary,
+  shouldShowAdmissionSummary,
+} from "@/lib/schools/admissions";
 import type { School, District, SchoolType } from "@/types/database";
 
 export interface FetchSchoolsParams {
@@ -36,7 +40,8 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
     .select(
       `id, school_code, name_tc, name_en, district, phone, website, logo_url,
        school_type, kep_participant, session_type, language_primary,
-       fee_monthly_hkd, grades_offered, data_source, last_verified_at,
+       fee_monthly_hkd, application_status, application_details, application_url,
+       grades_offered, data_source, last_verified_at,
        is_active, created_at, updated_at,
        vacancies!inner ( id, academic_year, k1_vacancy, k2_vacancy, k3_vacancy, n_vacancy, application_deadline, edb_published_date, is_current )`,
       { count: "exact" }
@@ -102,6 +107,20 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
   const normalizedSchools = pagedSchools.map((school) => ({
     ...school,
     name_en: school.name_en ?? getFallbackEnglishName(school.school_code),
+    admission_summary: getAdmissionSummary({
+      schoolType: school.school_type,
+      applicationStatus: school.application_status,
+      applicationDetails: school.application_details,
+      applicationUrl: school.application_url,
+      vacancy: school.vacancies?.[0] ?? null,
+    }),
+    show_admission_summary: shouldShowAdmissionSummary({
+      schoolType: school.school_type,
+      applicationStatus: school.application_status,
+      applicationDetails: school.application_details,
+      applicationUrl: school.application_url,
+      vacancy: school.vacancies?.[0] ?? null,
+    }),
   }));
 
   return {

@@ -1,0 +1,4763 @@
+[
+  {
+    "school_code": "542164",
+    "name_tc": "維多利亞（寶翠園）幼稚園",
+    "name_en": "VICTORIA (BELCHER) KINDERGARTEN",
+    "website": "http://www.victoria.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "check_school",
+    "overall_status": "waiting_list",
+    "overall_summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+    "source_url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
+    "scraped_pages": [
+      "http://www.victoria.edu.hk/",
+      "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
+      "https://www.victoria.edu.hk/message-from-admission-team/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "n": {
+        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
+        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+      },
+      "k3": {
+        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
+        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+      },
+      "k1": {
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
+      },
+      "k2": {
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
+      }
+    }
+  },
+  {
+    "school_code": "545589",
+    "name_tc": "HIGHGATE HOUSE SCHOOL - THE PEAK",
+    "name_en": "HIGHGATE HOUSE SCHOOL - THE PEAK",
+    "website": "http://www.highgatehouse.edu.hk/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "We offer rolling admissions for families who are looking to get started right away!",
+    "source_url": "https://www.highgatehouse.edu.hk/admission-online-enrolment/",
+    "scraped_pages": [
+      "http://www.highgatehouse.edu.hk/",
+      "https://www.highgatehouse.edu.hk/admission-online-enrolment/",
+      "https://www.eventbrite.hk/e/parenting-with-confidence-turn-chaos-to-coorperation-tickets-1984096411778?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl",
+      "https://forms.office.com/r/402rDp05rC"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "566284",
+    "name_tc": "偉思幼兒園",
+    "name_en": "WISELY NURSERY",
+    "website": "http://www.wisely.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "not_offered",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.wisely.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "588032",
+    "name_tc": "香港國際蒙特梭利學校（中環）",
+    "name_en": "DISCOVERY MONTESSORI SCHOOL (CENTRAL)",
+    "website": "http://www.dms.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Extension & Gifted Programme Admission Admission Open Day Enquiry / Arrange a school tour Our Campus DMA IB Montessori Elementary(3",
+    "source_url": "http://www.dms.edu.hk/content.php?wid=37",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "590673",
+    "name_tc": "盈思幼稚園",
+    "name_en": "WITTY KINDERGARTEN",
+    "website": "http://www.witty.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.witty.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "593133",
+    "name_tc": "多多國際幼稚園（半山）",
+    "name_en": "TUTOR TIME INTERNATIONAL KINDERGARTEN (MID LEVELS)",
+    "website": "http://www.tutortime.com.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Apply Now",
+    "source_url": "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-2026-2027-new-students/",
+    "scraped_pages": [
+      "http://www.tutortime.com.hk/",
+      "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-2026-2027-new-students/",
+      "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-form-2025-2026-existing-students/",
+      "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-form-2025-2026-new-students/",
+      "https://www.tutortime.com.hk/admission/playlab-enrollment-form/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "594725",
+    "name_tc": "GUIDEPOST MONTESSORI INTERNATIONAL PRE-SCHOOL (MID-LEVELS)",
+    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL PRE-SCHOOL (MID-LEVELS)",
+    "website": "https://guidepost.hk/locations/mid-levels",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Apply Now",
+    "source_url": "https://guidepost.hk/apply-now",
+    "scraped_pages": [
+      "https://guidepost.hk/locations/mid-levels",
+      "https://guidepost.hk/apply-now",
+      "https://guidepost-ntloa.formstack.com/forms/guidepost_hk_application_new"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "601420",
+    "name_tc": "YORK INTERNATIONAL PRE-SCHOOL (HONG KONG)",
+    "name_en": "YORK INTERNATIONAL PRE-SCHOOL (HONG KONG)",
+    "website": "http://www.york.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "not_offered",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.york.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "603643",
+    "name_tc": "奧恩國際幼稚園",
+    "name_en": "MIGHTY OAKS INTERNATIONAL KINDERGARTEN",
+    "website": "https://www.mightyoaks.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "waiting_list",
+    "overall_summary": "Waitlist: Regular updates provided",
+    "source_url": "https://www.mightyoaks.edu.hk/admission",
+    "scraped_pages": [
+      "https://www.mightyoaks.edu.hk/",
+      "https://www.mightyoaks.edu.hk/admission"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "n": {
+        "summary": "Apply now to secure a place in our award-winning, nurturing, trilingual nursery and kindergarten.",
+        "url": "https://www.mightyoaks.edu.hk/admission"
+      },
+      "k1": {
+        "summary": "Admissions | Apply Now to Mighty Oaks International Kindergarten",
+        "url": "https://www.mightyoaks.edu.hk/admission"
+      },
+      "k2": {
+        "summary": "Admissions | Apply Now to Mighty Oaks International Kindergarten",
+        "url": "https://www.mightyoaks.edu.hk/admission"
+      },
+      "k3": {
+        "summary": "Admissions | Apply Now to Mighty Oaks International Kindergarten",
+        "url": "https://www.mightyoaks.edu.hk/admission"
+      }
+    }
+  },
+  {
+    "school_code": "603724",
+    "name_tc": "香港民生幼稚園（西區）",
+    "name_en": "HONG KONG MAN SANG KINDERGARTEN (WESTERN DISTRICT)",
+    "website": "http://www.mansangkg.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.mansangkg.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "605026",
+    "name_tc": "楓薈幼稚園",
+    "name_en": "FAIRCHILD KINDERGARTEN",
+    "website": "http://www.fairchild.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.fairchild.edu.hk/",
+    "scraped_pages": [
+      "http://www.fairchild.edu.hk/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "607215",
+    "name_tc": "WILDERNESS INTERNATIONAL KINDERGARTEN",
+    "name_en": "WILDERNESS INTERNATIONAL KINDERGARTEN",
+    "website": "http://www.wilderness.asia",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": " Gallery Admissions Testimonials Contact Careers ",
+    "source_url": "http://www.wilderness.asia/new-page-1",
+    "scraped_pages": [
+      "http://www.wilderness.asia/",
+      "http://www.wilderness.asia/new-page-1"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "608319",
+    "name_tc": "香島華德福學校",
+    "name_en": "ISLAND WALDORF SCHOOL",
+    "website": "https://iws.edu.hk/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "has_vacancy",
+    "k2_vacancy": "has_vacancy",
+    "k3_vacancy": "has_vacancy",
+    "overall_status": "check_school",
+    "overall_summary": "Upon receiving a child’s completed application and if there are spaces available, we will invite your family for an interview.",
+    "source_url": "https://iws.edu.hk/admissions/",
+    "scraped_pages": [
+      "https://iws.edu.hk/",
+      "https://wa.me/85255433251",
+      "https://iws.edu.hk/admissions/",
+      "https://iws.edu.hk/admissions/apply/",
+      "https://iws.edu.hk/admissions/tuition-fees/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "k1": {
+        "summary": "We have limited spaces available in each grade from Kindergarten to Class 8 (equivalent to Hong Kong’s S2, or UK’s Y9).",
+        "url": "https://iws.edu.hk/admissions/"
+      },
+      "k2": {
+        "summary": "We have limited spaces available in each grade from Kindergarten to Class 8 (equivalent to Hong Kong’s S2, or UK’s Y9).",
+        "url": "https://iws.edu.hk/admissions/"
+      },
+      "k3": {
+        "summary": "We have limited spaces available in each grade from Kindergarten to Class 8 (equivalent to Hong Kong’s S2, or UK’s Y9).",
+        "url": "https://iws.edu.hk/admissions/"
+      }
+    }
+  },
+  {
+    "school_code": "611484",
+    "name_tc": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (KENNEDY TOWN)",
+    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (KENNEDY TOWN)",
+    "website": "https://guidepost.hk/locations/kennedy-town",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Apply Now",
+    "source_url": "https://guidepost.hk/apply-now",
+    "scraped_pages": [
+      "https://guidepost.hk/locations/kennedy-town",
+      "https://guidepost.hk/apply-now",
+      "https://guidepost-ntloa.formstack.com/forms/guidepost_hk_application_new",
+      "https://explore.mybookingo.com/dashboard"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "613037",
+    "name_tc": "香港墨爾文國際幼稚園（港島西）",
+    "name_en": "MALVERN COLLEGE PRE-SCHOOL HONG KONG (ISLAND WEST)",
+    "website": "https://www.malvernpreschool.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Admissions Procedure",
+    "source_url": "https://www.malvernpreschool.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "614904",
+    "name_tc": "LES PETITS LASCARS FRENCH INTERNATIONAL PRESCHOOL",
+    "name_en": "LES PETITS LASCARS FRENCH INTERNATIONAL PRESCHOOL",
+    "website": "https://hkkidsacademy.edu.hk/les-petits-lascars",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Registrations are open throughout the year.",
+    "source_url": "https://hkkidsacademy.edu.hk/admissions",
+    "scraped_pages": [
+      "https://hkkidsacademy.edu.hk/les-petits-lascars",
+      "https://hkkidsacademy.edu.hk/admissions"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "215635",
+    "name_tc": "HAMILTON HILL INTERNATIONAL KINDERGARTEN (ISLAND EAST)",
+    "name_en": "HAMILTON HILL INTERNATIONAL KINDERGARTEN (ISLAND EAST)",
+    "website": "https://www.hhik.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "https://www.hhik.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "215694",
+    "name_tc": "奧伊斯嘉日本語幼稚園",
+    "name_en": "OISCA JAPANESE KINDERGARTEN",
+    "website": "http://www.oisca-youchien.com",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.oisca-youchien.com/",
+    "scraped_pages": [
+      "http://www.oisca-youchien.com/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "215767",
+    "name_tc": "瑪歌瑞特國際幼稚園（康怡）",
+    "name_en": "MAGART INTERNATIONAL KINDERGARTEN (KORNHILL)",
+    "website": "https://www.magartedu.com",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "https://www.magartedu.com/",
+    "scraped_pages": [
+      "https://www.magartedu.com/",
+      "https://www.magartedu.com/en/how-to-apply/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "321087",
+    "name_tc": "明慧幼稚園",
+    "name_en": "MING WAI KINDERGARTEN",
+    "website": "http://www.mingwai.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "ce Edward Branch) Me n Wonderland Admissions North Point Branch Prince Edward Branch Contact Us Our curriculum follows the early childhood educa",
+    "source_url": "http://www.mingwai.edu.hk/",
+    "scraped_pages": [
+      "http://www.mingwai.edu.hk/",
+      "http://www.mingwai.edu.hk/#",
+      "https://www.mingwai.edu.hk/how-to-apply/north-point-admissions/admissions-information/",
+      "https://www.mingwai.edu.hk/how-to-apply/prince-edward-admissions/admissions-information/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "324965",
+    "name_tc": "香港民生幼稚園（北角）",
+    "name_en": "HONG KONG MAN SANG KINDERGARTEN (NORTH POINT)",
+    "website": "http://www.mansangkg.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.mansangkg.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "325481",
+    "name_tc": "維多利亞幼稚園",
+    "name_en": "VICTORIA KINDERGARTEN",
+    "website": "http://www.victoria.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "check_school",
+    "overall_status": "waiting_list",
+    "overall_summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+    "source_url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
+    "scraped_pages": [
+      "http://www.victoria.edu.hk/",
+      "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
+      "https://www.victoria.edu.hk/message-from-admission-team/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "n": {
+        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
+        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+      },
+      "k3": {
+        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
+        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+      },
+      "k1": {
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
+      },
+      "k2": {
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
+      }
+    }
+  },
+  {
+    "school_code": "566934",
+    "name_tc": "維多利亞（海峰園）幼兒園",
+    "name_en": "VICTORIA NURSERY (HARBOUR HEIGHTS)",
+    "website": "http://www.victoria.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "check_school",
+    "overall_status": "waiting_list",
+    "overall_summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+    "source_url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
+    "scraped_pages": [
+      "http://www.victoria.edu.hk/",
+      "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
+      "https://www.victoria.edu.hk/message-from-admission-team/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "n": {
+        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
+        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+      },
+      "k3": {
+        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
+        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+      },
+      "k1": {
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
+      },
+      "k2": {
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
+      }
+    }
+  },
+  {
+    "school_code": "566942",
+    "name_tc": "銅鑼灣維多利亞（海峰園）幼兒園",
+    "name_en": "CAUSEWAY BAY VICTORIA NURSERY (HARBOUR HEIGHTS)",
+    "website": "http://www.victoria.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "check_school",
+    "overall_status": "waiting_list",
+    "overall_summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+    "source_url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
+    "scraped_pages": [
+      "http://www.victoria.edu.hk/",
+      "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
+      "https://www.victoria.edu.hk/message-from-admission-team/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "n": {
+        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
+        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+      },
+      "k3": {
+        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
+        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+      },
+      "k1": {
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
+      },
+      "k2": {
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
+      }
+    }
+  },
+  {
+    "school_code": "566977",
+    "name_tc": "明慧國際幼稚園",
+    "name_en": "MING WAI INTERNATIONAL KINDERGARTEN",
+    "website": "http://www.mingwai.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "ce Edward Branch) Me n Wonderland Admissions North Point Branch Prince Edward Branch Contact Us Our curriculum follows the early childhood educa",
+    "source_url": "http://www.mingwai.edu.hk/",
+    "scraped_pages": [
+      "http://www.mingwai.edu.hk/",
+      "http://www.mingwai.edu.hk/#",
+      "https://www.mingwai.edu.hk/how-to-apply/north-point-admissions/admissions-information/",
+      "https://www.mingwai.edu.hk/how-to-apply/prince-edward-admissions/admissions-information/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "567329",
+    "name_tc": "明慧國際幼稚園（北角分校）",
+    "name_en": "MING WAI INTERNATIONAL KINDERGARTEN (NORTH POINT BRANCH)",
+    "website": "http://www.mingwai.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "ce Edward Branch) Me n Wonderland Admissions North Point Branch Prince Edward Branch Contact Us Our curriculum follows the early childhood educa",
+    "source_url": "http://www.mingwai.edu.hk/",
+    "scraped_pages": [
+      "http://www.mingwai.edu.hk/",
+      "http://www.mingwai.edu.hk/#",
+      "https://www.mingwai.edu.hk/how-to-apply/north-point-admissions/admissions-information/",
+      "https://www.mingwai.edu.hk/how-to-apply/prince-edward-admissions/admissions-information/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "569828",
+    "name_tc": "康怡維多利亞幼稚園",
+    "name_en": "KORNHILL VICTORIA KINDERGARTEN",
+    "website": "http://www.victoria.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "check_school",
+    "overall_status": "waiting_list",
+    "overall_summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+    "source_url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
+    "scraped_pages": [
+      "http://www.victoria.edu.hk/",
+      "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
+      "https://www.victoria.edu.hk/message-from-admission-team/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "n": {
+        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
+        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+      },
+      "k3": {
+        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
+        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+      },
+      "k1": {
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
+      },
+      "k2": {
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
+      }
+    }
+  },
+  {
+    "school_code": "575852",
+    "name_tc": "多多寶馬山國際幼稚園",
+    "name_en": "TUTOR TIME BRAEMAR HILL INTERNATIONAL KINDERGARTEN",
+    "website": "http://www.tutortime.com.hk/en/home",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Apply Now",
+    "source_url": "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-2026-2027-new-students/",
+    "scraped_pages": [
+      "http://www.tutortime.com.hk/en/home",
+      "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-2026-2027-new-students/",
+      "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-form-2025-2026-existing-students/",
+      "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-form-2025-2026-new-students/",
+      "https://www.tutortime.com.hk/admission/playlab-enrollment-form/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "602329",
+    "name_tc": "ABC PATHWAYS INTERNATIONAL KINDERGARTEN",
+    "name_en": "ABC PATHWAYS INTERNATIONAL KINDERGARTEN",
+    "website": "http://www.abcpathways.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "【Band One 入學活動】升學優勢活動2日通行證",
+    "source_url": "https://www.abcpathways.edu.hk/%e5%85%a5%e5%ad%b8%e7%94%b3%e8%ab%8b/",
+    "scraped_pages": [
+      "http://www.abcpathways.edu.hk/",
+      "https://www.abcpathways.edu.hk/%e5%85%a5%e5%ad%b8%e7%94%b3%e8%ab%8b/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "604585",
+    "name_tc": "雅惠國際幼稚園（鯉景灣）",
+    "name_en": "GRACE GARDEN INTERNATIONAL KINDERGARTEN (LEI KING WAN)",
+    "website": "http://www.gracegarden.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "dergarten Our Campus LKW Campus Admissions School Life at GGIK More Terms & Conditions Privacy Policy Book a School Tour Home About Curr",
+    "source_url": "http://www.gracegarden.edu.hk/admissions",
+    "scraped_pages": [
+      "http://www.gracegarden.edu.hk/",
+      "http://www.gracegarden.edu.hk/admissions"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "607223",
+    "name_tc": "港島蒙特梭利國際幼稚園",
+    "name_en": "ISLAND MONTESSORI INTERNATIONAL KINDERGARTEN",
+    "website": "https://icms.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "not_offered",
+    "k1_vacancy": "has_vacancy",
+    "k2_vacancy": "has_vacancy",
+    "k3_vacancy": "has_vacancy",
+    "overall_status": "check_school",
+    "overall_summary": "If an applicant’s interview is successful but the preferred class session or campus is full, parents will be given the option to join another class session, campus or waitlist for the preferred class session.",
+    "source_url": "https://icms.edu.hk/admissions-2/",
+    "scraped_pages": [
+      "https://icms.edu.hk/",
+      "https://icms.edu.hk/admissions-2/",
+      "https://icmh.hk/playgroups/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "k1": {
+        "summary": "Limited spaces are still available in Pre-Nursery and Kindergarten.",
+        "url": "https://icms.edu.hk/admissions-2/"
+      },
+      "k2": {
+        "summary": "Limited spaces are still available in Pre-Nursery and Kindergarten.",
+        "url": "https://icms.edu.hk/admissions-2/"
+      },
+      "k3": {
+        "summary": "Limited spaces are still available in Pre-Nursery and Kindergarten.",
+        "url": "https://icms.edu.hk/admissions-2/"
+      }
+    }
+  },
+  {
+    "school_code": "609285",
+    "name_tc": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (CHAI WAN)",
+    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (CHAI WAN)",
+    "website": "https://guidepost.hk/locations/chai-wan",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Apply Now",
+    "source_url": "https://guidepost.hk/apply-now",
+    "scraped_pages": [
+      "https://guidepost.hk/locations/chai-wan",
+      "https://guidepost.hk/apply-now",
+      "https://guidepost-ntloa.formstack.com/forms/guidepost_hk_application_new",
+      "https://explore.mybookingo.com/dashboard"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "613681",
+    "name_tc": "學之園幼稚園（君豪峰）",
+    "name_en": "LEARNING HABITAT KINDERGARTEN (NOVUM EAST)",
+    "website": "http://www.learninghabitat.org",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.learninghabitat.org/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "622699",
+    "name_tc": "樂沛兒幼稚園 - 柴灣",
+    "name_en": "HONG KONG NOBEL PRESCHOOL - CHAI WAN",
+    "website": "http://www.nobelpreschool.org/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "waiting_list",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "waiting_list",
+    "overall_status": "waiting_list",
+    "overall_summary": "倘日後有家長放棄學位，校方會將空缺名額優先安排給候補生替補學位。",
+    "source_url": "http://www.nobelpreschool.org/admission-application/",
+    "scraped_pages": [
+      "http://www.nobelpreschool.org/",
+      "http://www.nobelpreschool.org/admission-application/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "n": {
+        "summary": "倘日後有家長放棄學位，校方會將空缺名額優先安排給候補生替補學位。",
+        "url": "http://www.nobelpreschool.org/admission-application/"
+      },
+      "k1": {
+        "summary": "倘日後有家長放棄學位，校方會將空缺名額優先安排給候補生替補學位。",
+        "url": "http://www.nobelpreschool.org/admission-application/"
+      },
+      "k2": {
+        "summary": "倘日後有家長放棄學位，校方會將空缺名額優先安排給候補生替補學位。",
+        "url": "http://www.nobelpreschool.org/admission-application/"
+      },
+      "k3": {
+        "summary": "倘日後有家長放棄學位，校方會將空缺名額優先安排給候補生替補學位。",
+        "url": "http://www.nobelpreschool.org/admission-application/"
+      }
+    }
+  },
+  {
+    "school_code": "519871",
+    "name_tc": "弘志幼稚園",
+    "name_en": "DISCOVERY MIND KINDERGARTEN",
+    "website": "http://www.discoverymind.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Apply and enrol anytime throughout the year for your child to begin learning",
+    "source_url": "http://www.discoverymind.edu.hk/",
+    "scraped_pages": [
+      "http://www.discoverymind.edu.hk/",
+      "http://www.discoverymind.edu.hk/#",
+      "https://fs19.formsite.com/DiscoveryMind/Admission/index",
+      "https://discoverymind.edu.hk/admission-procedures/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "578193",
+    "name_tc": "弘志幼稚園（東涌）",
+    "name_en": "DISCOVERY MIND KINDERGARTEN (TUNG CHUNG)",
+    "website": "http://www.discoverymind.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Apply and enrol anytime throughout the year for your child to begin learning",
+    "source_url": "http://www.discoverymind.edu.hk/",
+    "scraped_pages": [
+      "http://www.discoverymind.edu.hk/",
+      "http://www.discoverymind.edu.hk/#",
+      "https://fs19.formsite.com/DiscoveryMind/Admission/index",
+      "https://discoverymind.edu.hk/admission-procedures/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "584606",
+    "name_tc": "香港國際蒙特梭利學校",
+    "name_en": "DISCOVERY MONTESSORI SCHOOL",
+    "website": "http://www.dms.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Extension & Gifted Programme Admission Admission Open Day Enquiry / Arrange a school tour Our Campus DMA IB Montessori Elementary(3",
+    "source_url": "http://www.dms.edu.hk/content.php?wid=37",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "587877",
+    "name_tc": "小大嶼山蒙特梭利幼稚園",
+    "name_en": "LITTLE LANTAU MONTESSORI KINDERGARTEN",
+    "website": "https://www.littlelantaumontessori.com/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "waiting_list",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "waiting_list",
+    "overall_status": "waiting_list",
+    "overall_summary": "Some years we will have a waitlist and others we will not.",
+    "source_url": "https://www.littlelantaumontessori.com/admissions",
+    "scraped_pages": [
+      "https://www.littlelantaumontessori.com/",
+      "https://www.littlelantaumontessori.com/admissions"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "n": {
+        "summary": "Some years we will have a waitlist and others we will not.",
+        "url": "https://www.littlelantaumontessori.com/admissions"
+      },
+      "k1": {
+        "summary": "Some years we will have a waitlist and others we will not.",
+        "url": "https://www.littlelantaumontessori.com/admissions"
+      },
+      "k2": {
+        "summary": "Some years we will have a waitlist and others we will not.",
+        "url": "https://www.littlelantaumontessori.com/admissions"
+      },
+      "k3": {
+        "summary": "Some years we will have a waitlist and others we will not.",
+        "url": "https://www.littlelantaumontessori.com/admissions"
+      }
+    }
+  },
+  {
+    "school_code": "590029",
+    "name_tc": "LA PETITE ENFANCE KINDERGARTEN",
+    "name_en": "LA PETITE ENFANCE KINDERGARTEN",
+    "website": "http://www.ecole-discovery.com",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Admissions for school year 2026-2027 are open.",
+    "source_url": "https://www.godaddy.com/websites/website-builder?isc=pwugc&utm_source=wsb&utm_medium=applications&utm_campaign=en-ie_corp_applications_base",
+    "scraped_pages": [
+      "http://www.ecole-discovery.com/",
+      "https://www.godaddy.com/websites/website-builder?isc=pwugc&utm_source=wsb&utm_medium=applications&utm_campaign=en-ie_corp_applications_base"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "600814",
+    "name_tc": "DISCOVERY MONTESSORI ACADEMY",
+    "name_en": "DISCOVERY MONTESSORI ACADEMY",
+    "website": "http://www.dms.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Extension & Gifted Programme Admission Admission Open Day Enquiry / Arrange a school tour Our Campus DMA IB Montessori Elementary(3",
+    "source_url": "http://www.dms.edu.hk/content.php?wid=37",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "609625",
+    "name_tc": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (DISCOVERY BAY)",
+    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (DISCOVERY BAY)",
+    "website": "https://guidepost.hk/locations/discovery-bay",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Apply Now",
+    "source_url": "https://guidepost.hk/apply-now",
+    "scraped_pages": [
+      "https://guidepost.hk/locations/discovery-bay",
+      "https://guidepost.hk/apply-now",
+      "https://guidepost-ntloa.formstack.com/forms/guidepost_hk_application_new",
+      "https://explore.mybookingo.com/dashboard"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "212466",
+    "name_tc": "聖若望英文書院",
+    "name_en": "ST. JOHANNES COLLEGE",
+    "website": "http://www.st-johannes.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "waiting_list",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "waiting_list",
+    "overall_status": "waiting_list",
+    "overall_summary": "Placed on our waiting list for possible entry",
+    "source_url": "https://st-johannes.edu.hk/applying-to-sjc/#admissions",
+    "scraped_pages": [
+      "http://www.st-johannes.edu.hk/",
+      "https://st-johannes.edu.hk/applying-to-sjc/#admissions",
+      "http://www.st-johannes.edu.hk/#",
+      "https://st-johannes.edu.hk/applying-to-sjc/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "n": {
+        "summary": "Placed on our waiting list for possible entry",
+        "url": "https://st-johannes.edu.hk/applying-to-sjc/#admissions"
+      },
+      "k1": {
+        "summary": "Placed on our waiting list for possible entry",
+        "url": "https://st-johannes.edu.hk/applying-to-sjc/#admissions"
+      },
+      "k2": {
+        "summary": "Placed on our waiting list for possible entry",
+        "url": "https://st-johannes.edu.hk/applying-to-sjc/#admissions"
+      },
+      "k3": {
+        "summary": "Placed on our waiting list for possible entry",
+        "url": "https://st-johannes.edu.hk/applying-to-sjc/#admissions"
+      }
+    }
+  },
+  {
+    "school_code": "214868",
+    "name_tc": "金巴倫英文幼稚園",
+    "name_en": "ST. NICHOLAS' ENGLISH KINDERGARTEN",
+    "website": "http://www.stnicholas.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.stnicholas.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "215120",
+    "name_tc": "國際英文幼稚園",
+    "name_en": "ST. CATHERINE'S INTERNATIONAL KINDERGARTEN",
+    "website": "http://www.stcatherines.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.stcatherines.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "215449",
+    "name_tc": "約克中英文幼稚園",
+    "name_en": "YORK ENGLISH & CHINESE KINDERGARTEN",
+    "website": "http://www.york.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "not_offered",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.york.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "322300",
+    "name_tc": "根德園幼稚園",
+    "name_en": "KENTVILLE KINDERGARTEN",
+    "website": "http://www.kentville.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "not_offered",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.kentville.edu.hk/",
+    "scraped_pages": [
+      "http://www.kentville.edu.hk/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "322822",
+    "name_tc": "約克英文小學暨幼稚園（九龍塘）",
+    "name_en": "YORK ENGLISH PRIMARY SCHOOL & KINDERGARTEN (KOWLOON TONG)",
+    "website": "http://www.york.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "not_offered",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.york.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "519863",
+    "name_tc": "京斯敦國際幼稚園",
+    "name_en": "KINGSTON INTERNATIONAL KINDERGARTEN",
+    "website": "http://www.kingston.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Now accepting applications for 2025/26",
+    "source_url": "http://www.kingston.edu.hk/admissions",
+    "scraped_pages": [
+      "http://www.kingston.edu.hk/",
+      "http://www.kingston.edu.hk/admissions",
+      "http://www.kingston.edu.hk/admissions/admissions-process",
+      "http://www.kingston.edu.hk/admissions/apply-online",
+      "http://www.kingston.edu.hk/admissions/contact-our-admissions-team"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "526100",
+    "name_tc": "YORK ENGLISH PRE-SCHOOL",
+    "name_en": "YORK ENGLISH PRE-SCHOOL",
+    "website": "http://www.york.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "not_offered",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.york.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "535818",
+    "name_tc": "安菲爾國際幼稚園",
+    "name_en": "ANFIELD INTERNATIONAL KINDERGARTEN",
+    "website": "https://anfield.edu.hk/lv/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "https://anfield.edu.hk/lv/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "537713",
+    "name_tc": "劍鳴幼稚園",
+    "name_en": "KEEN MIND KINDERGARTEN",
+    "website": "http://www.keenmind.com.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.keenmind.com.hk/",
+    "scraped_pages": [
+      "http://www.keenmind.com.hk/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "542504",
+    "name_tc": "多多國際幼稚園（九龍塘）",
+    "name_en": "TUTOR TIME INTERNATIONAL KINDERGARTEN (KOWLOON TONG)",
+    "website": "http://www.tutortime.com.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Apply Now",
+    "source_url": "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-2026-2027-new-students/",
+    "scraped_pages": [
+      "http://www.tutortime.com.hk/",
+      "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-2026-2027-new-students/",
+      "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-form-2025-2026-existing-students/",
+      "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-form-2025-2026-new-students/",
+      "https://www.tutortime.com.hk/admission/playlab-enrollment-form/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "544744",
+    "name_tc": "啓思小學附屬幼稚園",
+    "name_en": "CREATIVE PRIMARY SCHOOL'S KINDERGARTEN",
+    "website": "http://www.cpskg.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "check_school",
+    "overall_summary": "Apply Now",
+    "source_url": "https://www.cpskg.edu.hk/admissions",
+    "scraped_pages": [
+      "http://www.cpskg.edu.hk/",
+      "https://www.cpskg.edu.hk/admissions",
+      "https://www.cpskg.edu.hk/copy-of-p1-admission-result-4"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "k1": {
+        "summary": "We are now accepting applications for K1 for the academic year 2026-2027.",
+        "url": "http://www.cpskg.edu.hk/"
+      }
+    }
+  },
+  {
+    "school_code": "566900",
+    "name_tc": "維多利亞（何文田）國際幼兒園",
+    "name_en": "VICTORIA (HOMANTIN) INTERNATIONAL NURSERY",
+    "website": "http://www.victoria.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "check_school",
+    "overall_status": "waiting_list",
+    "overall_summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+    "source_url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
+    "scraped_pages": [
+      "http://www.victoria.edu.hk/",
+      "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
+      "https://www.victoria.edu.hk/message-from-admission-team/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "n": {
+        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
+        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+      },
+      "k3": {
+        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
+        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+      },
+      "k1": {
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
+      },
+      "k2": {
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
+      }
+    }
+  },
+  {
+    "school_code": "578479",
+    "name_tc": "YORK INTERNATIONAL PRE-SCHOOL",
+    "name_en": "YORK INTERNATIONAL PRE-SCHOOL",
+    "website": "http://www.york.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.york.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "581852",
+    "name_tc": "約克國際幼稚園",
+    "name_en": "YORK INTERNATIONAL KINDERGARTEN",
+    "website": "http://www.york.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.york.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "584517",
+    "name_tc": "文娜雅拔幼稚園",
+    "name_en": "MANHABIT KINDERGARTEN",
+    "website": "http://www.manhabit.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Enrol Now for 2026-2027 Admission",
+    "source_url": "http://manhabit.edu.hk/2026-2027-admission-enrol-now/",
+    "scraped_pages": [
+      "http://www.manhabit.edu.hk/",
+      "http://manhabit.edu.hk/2026-2027-admission-enrol-now/",
+      "http://manhabit.edu.hk/admission/",
+      "http://www.manhabit.edu.hk/admission"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "586625",
+    "name_tc": "ST. CATHERINE'S KINDERGARTEN (HARBOUR PLACE)",
+    "name_en": "ST. CATHERINE'S KINDERGARTEN (HARBOUR PLACE)",
+    "website": "http://www.stcatherines.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "not_offered",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.stcatherines.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "593630",
+    "name_tc": "KOHITSUJI KINDERGARTEN",
+    "name_en": "KOHITSUJI KINDERGARTEN",
+    "website": "http://kohitsujiyouchien.com",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://kohitsujiyouchien.com/",
+    "scraped_pages": [
+      "http://kohitsujiyouchien.com/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "597031",
+    "name_tc": "伽利利國際幼稚園",
+    "name_en": "GALILEE INTERNATIONAL KINDERGARTEN",
+    "website": "http://www.gis.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Applications are accepted all year round.",
+    "source_url": "https://docs.google.com/forms/d/e/1FAIpQLSf8U_m4qwPUCdYmoyj_Y11w6EZYB-81IVeIySgkH0N9toYEsA/viewform?usp=send_form",
+    "scraped_pages": [
+      "http://www.gis.edu.hk/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "597538",
+    "name_tc": "聖姬莉國際幼稚園",
+    "name_en": "SAINT BRIGIT INTERNATIONAL KINDERGARTEN",
+    "website": "http://www.stbrigit.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Admission information for 2017/18 is available now.",
+    "source_url": "http://www.stbrigit.edu.hk/admission.html",
+    "scraped_pages": [
+      "http://www.stbrigit.edu.hk/",
+      "http://www.stbrigit.edu.hk/admission.html"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "599182",
+    "name_tc": "新加坡卓薈國際幼稚園（界限街）",
+    "name_en": "CHATSWORTH INTERNATIONAL KINDERGARTEN (BOUNDARY STREET)",
+    "website": "https://www.sdm-chatsworth.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "https://www.sdm-chatsworth.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "599263",
+    "name_tc": "樂沛兒幼稚園",
+    "name_en": "HONG KONG NOBEL PRESCHOOL",
+    "website": "http://www.nobelpreschool.org",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "waiting_list",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "waiting_list",
+    "overall_status": "waiting_list",
+    "overall_summary": "倘日後有家長放棄學位，校方會將空缺名額優先安排給候補生替補學位。",
+    "source_url": "http://www.nobelpreschool.org/admission-application/",
+    "scraped_pages": [
+      "http://www.nobelpreschool.org/",
+      "http://www.nobelpreschool.org/admission-application/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "n": {
+        "summary": "倘日後有家長放棄學位，校方會將空缺名額優先安排給候補生替補學位。",
+        "url": "http://www.nobelpreschool.org/admission-application/"
+      },
+      "k1": {
+        "summary": "倘日後有家長放棄學位，校方會將空缺名額優先安排給候補生替補學位。",
+        "url": "http://www.nobelpreschool.org/admission-application/"
+      },
+      "k2": {
+        "summary": "倘日後有家長放棄學位，校方會將空缺名額優先安排給候補生替補學位。",
+        "url": "http://www.nobelpreschool.org/admission-application/"
+      },
+      "k3": {
+        "summary": "倘日後有家長放棄學位，校方會將空缺名額優先安排給候補生替補學位。",
+        "url": "http://www.nobelpreschool.org/admission-application/"
+      }
+    }
+  },
+  {
+    "school_code": "603864",
+    "name_tc": "ABC PATHWAYS INTERNATIONAL KINDERGARTEN (WHAMPOA GARDEN)",
+    "name_en": "ABC PATHWAYS INTERNATIONAL KINDERGARTEN (WHAMPOA GARDEN)",
+    "website": "https://www.abcpathways.edu.hk/language/en/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "https://www.abcpathways.edu.hk/language/en/",
+    "scraped_pages": [
+      "https://www.abcpathways.edu.hk/language/en/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "604445",
+    "name_tc": "德萃幼稚園（紅磡）",
+    "name_en": "ST. HILARY'S KINDERGARTEN (HUNG HOM)",
+    "website": "http://www.kindergarten.sthilary.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.kindergarten.sthilary.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "609528",
+    "name_tc": "學之園幼稚園（昇御海逸）",
+    "name_en": "LEARNING HABITAT KINDERGARTEN (CHATHAM LV)",
+    "website": "http://www.learninghabitat.org",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.learninghabitat.org/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "610623",
+    "name_tc": "瑪歌瑞特國際幼稚園",
+    "name_en": "MAGART INTERNATIONAL KINDERGARTEN",
+    "website": "https://www.magartedu.com",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "https://www.magartedu.com/",
+    "scraped_pages": [
+      "https://www.magartedu.com/",
+      "https://www.magartedu.com/en/how-to-apply/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "617741",
+    "name_tc": "茵晴幼稚園",
+    "name_en": "IMPERIAL CHILDREN KINDERGARTEN",
+    "website": "https://www.imperialgroup.asia",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "打造多彩個人學習檔案：為小朋友的小一入學增添色彩",
+    "source_url": "https://www.imperialgroup.asia/en/news/view?id=18",
+    "scraped_pages": [
+      "https://www.imperialgroup.asia/",
+      "https://www.imperialgroup.asia/en/news/view?id=18"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "618039",
+    "name_tc": "維多利亞（何文田）國際幼稚園",
+    "name_en": "VICTORIA (HOMANTIN) INTERNATIONAL KINDERGARTEN",
+    "website": "https://www.victoria.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "check_school",
+    "overall_status": "waiting_list",
+    "overall_summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+    "source_url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
+    "scraped_pages": [
+      "https://www.victoria.edu.hk/",
+      "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
+      "https://www.victoria.edu.hk/message-from-admission-team/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "n": {
+        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
+        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+      },
+      "k3": {
+        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
+        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+      },
+      "k1": {
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
+      },
+      "k2": {
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
+      }
+    }
+  },
+  {
+    "school_code": "231614",
+    "name_tc": "康傑中英文幼稚園（青衣）",
+    "name_en": "GOOD HEALTH ANGLO-CHINESE KINDERGARTEN (TSING YI)",
+    "website": "http://www.good-health.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.good-health.edu.hk/",
+    "scraped_pages": [
+      "http://www.good-health.edu.hk/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "534200",
+    "name_tc": "學之園幼稚園",
+    "name_en": "LEARNING HABITAT KINDERGARTEN",
+    "website": "http://www.learninghabitat.org",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.learninghabitat.org/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "609919",
+    "name_tc": "康傑中英文幼稚園（青衣南）",
+    "name_en": "GOOD HEALTH ANGLO-CHINESE KINDERGARTEN (TSING YI SOUTH)",
+    "website": "http://www.good-health.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.good-health.edu.hk/",
+    "scraped_pages": [
+      "http://www.good-health.edu.hk/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "622982",
+    "name_tc": "奧基英文幼稚園",
+    "name_en": "OASIS ENGLISH KINDERGARTEN",
+    "website": "https://oasiskindergarten.com/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Gallery Gallery Parent Portal Admission Primary School Allocation Contact Us Home About Us Our School Calendar Bus Service Programs Gallery",
+    "source_url": "https://oasiskindergarten.com/admission/",
+    "scraped_pages": [
+      "https://oasiskindergarten.com/",
+      "https://oasiskindergarten.com/admission/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "216267",
+    "name_tc": "朗思國際幼稚園",
+    "name_en": "THINK INTERNATIONAL KINDERGARTEN",
+    "website": "https://www.think.edu.hk/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "2026 / 2027 Admission Enrol Now",
+    "source_url": "https://www.think.edu.hk/admission",
+    "scraped_pages": [
+      "https://www.think.edu.hk/",
+      "https://www.think.edu.hk/admission",
+      "https://www.think.edu.hk/admission2023",
+      "https://www.think.edu.hk/services-7"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "593788",
+    "name_tc": "楓葉小熊加拿大國際幼稚園（油塘）",
+    "name_en": "MAPLE BEAR CANADIAN INTERNATIONAL KINDERGARTEN (YAU TONG)",
+    "website": "https://www.maplebear.hk/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Apply to join Maple Bear Kindergarten Program and playgroup in one of our campuses in Hong Kong.",
+    "source_url": "https://www.maplebear.hk/admissions",
+    "scraped_pages": [
+      "https://www.maplebear.hk/",
+      "https://www.maplebear.hk/admissions"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "601985",
+    "name_tc": "德福英文幼稚園",
+    "name_en": "TELFORD GARDENS ENGLISH KINDERGARTEN",
+    "website": "http://www.telfordeducation.com",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "rs Parents’ Corner Contact Us Admissions Visit Us Email Us Alumni 戶外學習 ",
+    "source_url": "https://www.telfordeducation.com/contact-us/admissions",
+    "scraped_pages": [
+      "http://www.telfordeducation.com/",
+      "https://www.telfordeducation.com/contact-us/admissions",
+      "https://www.telfordeducation.com/admissions_zh"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "627275",
+    "name_tc": "哈羅小獅幼稚園",
+    "name_en": "HARROW LITTLE LIONS KINDERGARTEN",
+    "website": "https://www.harrowhongkong.hk/hll/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "not_offered",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Apply Now",
+    "source_url": "https://www.harrowhongkong.hk/hll/admissions/application/",
+    "scraped_pages": [
+      "https://www.harrowhongkong.hk/hll/",
+      "https://www.harrowhongkong.hk/hll/admissions/application/",
+      "https://www.harrowhongkong.hk/hll/admissions/",
+      "https://www.harrowhongkong.hk/hll/admissions/admissions-process/",
+      "https://www.harrowhongkong.hk/hll/#"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "k1": {
+        "summary": "Apply Now | Harrow Little Lions Kindergarten",
+        "url": "https://www.harrowhongkong.hk/hll/admissions/application/"
+      },
+      "k2": {
+        "summary": "Apply Now | Harrow Little Lions Kindergarten",
+        "url": "https://www.harrowhongkong.hk/hll/admissions/application/"
+      },
+      "k3": {
+        "summary": "Apply Now | Harrow Little Lions Kindergarten",
+        "url": "https://www.harrowhongkong.hk/hll/admissions/application/"
+      }
+    }
+  },
+  {
+    "school_code": "566241",
+    "name_tc": "瑪歌瑞特國際幼稚園（粉嶺）",
+    "name_en": "MAGART INTERNATIONAL KINDERGARTEN (FANLING)",
+    "website": "https://www.magartedu.com",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "https://www.magartedu.com/",
+    "scraped_pages": [
+      "https://www.magartedu.com/",
+      "https://www.magartedu.com/en/how-to-apply/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "582417",
+    "name_tc": "安基司幼稚園（粉嶺）",
+    "name_en": "ANCHORS KINDERGARTEN (FANLING)",
+    "website": "http://www.anchors.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.anchors.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "601250",
+    "name_tc": "麥克萊國際幼稚園",
+    "name_en": "MYNORS INTERNATIONAL KINDERGARTEN",
+    "website": "http://www.mynors.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "check_school",
+    "overall_summary": "Apply Now!",
+    "source_url": "http://www.mynors.edu.hk/",
+    "scraped_pages": [
+      "http://www.mynors.edu.hk/",
+      "https://mynors.edu.hk/kg-curriculum-duplicate-1/",
+      "http://www.mynors.edu.hk/#"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "n": {
+        "summary": "We are now accepting application for 2023-2024 Pre-nursery and Kindergarten classes!",
+        "url": "http://www.mynors.edu.hk/"
+      }
+    }
+  },
+  {
+    "school_code": "523984",
+    "name_tc": "綠茵英文（國際）幼稚園（將軍澳）",
+    "name_en": "GREENFIELD ENGLISH (INTERNATIONAL) KINDERGARTEN (TSEUNG KWAN O)",
+    "website": "http://greenfield.edu.hk/en",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Apply Now",
+    "source_url": "http://greenfield.edu.hk/admission.php?id=",
+    "scraped_pages": [
+      "http://greenfield.edu.hk/en",
+      "http://greenfield.edu.hk/en#"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "530131",
+    "name_tc": "德寶英文幼稚園（將軍澳）",
+    "name_en": "DEBORAH ENGLISH KINDERGARTEN (TSEUNG KWAN O)",
+    "website": "https://www.deborah.edu.hk/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Admission Arrangements for Nursery (K1) Classes in Kindergartens can refer to Education Bureau Website",
+    "source_url": "http://www.edb.gov.hk/k1-admission_e",
+    "scraped_pages": [
+      "https://www.deborah.edu.hk/",
+      "http://www.edb.gov.hk/k1-admission_e"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "532355",
+    "name_tc": "小蜜蜂幼稚園",
+    "name_en": "BUSY BEES KINDERGARTEN",
+    "website": "http://busybees.webhost.ust.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://busybees.webhost.ust.hk/",
+    "scraped_pages": [
+      "http://busybees.webhost.ust.hk/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "537527",
+    "name_tc": "翠茵小宇宙幼稚園",
+    "name_en": "GREENVILLE KIDS' WORLD KINDERGARTEN",
+    "website": "http://www.greenvillekids.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "In those early days, our enrolment numbers totalled slightly over two hundred.",
+    "source_url": "http://www.greenvillekids.edu.hk/en/admission/",
+    "scraped_pages": [
+      "http://www.greenvillekids.edu.hk/",
+      "http://www.greenvillekids.edu.hk/en/admission/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "567108",
+    "name_tc": "德寶國際幼兒學校（將軍澳）",
+    "name_en": "DEBORAH INTERNATIONAL PRE-SCHOOL (TSEUNG KWAN O)",
+    "website": "http://www.deborah-intl.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "not_offered",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.deborah-intl.edu.hk/",
+    "scraped_pages": [
+      "http://www.deborah-intl.edu.hk/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "567116",
+    "name_tc": "德寶國際幼兒學校（寶盈花園）",
+    "name_en": "DEBORAH INTERNATIONAL PRE-SCHOOL (BAUHINIA GARDEN)",
+    "website": "http://www.deborah-intl.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.deborah-intl.edu.hk/",
+    "scraped_pages": [
+      "http://www.deborah-intl.edu.hk/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "575755",
+    "name_tc": "GARDEN HOUSE WALDORF KINDERGARTEN",
+    "name_en": "GARDEN HOUSE WALDORF KINDERGARTEN",
+    "website": "http://www.gardenhouse.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Apply Now",
+    "source_url": "https://www.gardenhouse.edu.hk/admissions-overview",
+    "scraped_pages": [
+      "http://www.gardenhouse.edu.hk/",
+      "https://www.gardenhouse.edu.hk/admissions-overview",
+      "https://forms.gle/WxnwPhvQuSvwDRHv6"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "578630",
+    "name_tc": "GUIDEPOST MONTESSORI INTERNATIONAL PRE-SCHOOL (SAI KUNG)",
+    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL PRE-SCHOOL (SAI KUNG)",
+    "website": "https://guidepost.hk/locations/sai-kung",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Apply Now",
+    "source_url": "https://guidepost.hk/apply-now",
+    "scraped_pages": [
+      "https://guidepost.hk/locations/sai-kung",
+      "https://guidepost.hk/apply-now",
+      "https://guidepost-ntloa.formstack.com/forms/guidepost_hk_application_new"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "581836",
+    "name_tc": "博士山（香港）國際幼稚園 - 將軍澳",
+    "name_en": "BOX HILL (HK) INTERNATIONAL KINDERGARTEN - TSEUNG KWAN O",
+    "website": "http://www.boxhill.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Admissions Open for 2026/27",
+    "source_url": "https://boxhill.edu.hk/admission/",
+    "scraped_pages": [
+      "http://www.boxhill.edu.hk/",
+      "https://boxhill.edu.hk/admission/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "583774",
+    "name_tc": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (CLEARWATER BAY)",
+    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (CLEARWATER BAY)",
+    "website": "https://guidepost.hk/locations/clearwater-bay",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Apply Now",
+    "source_url": "https://guidepost.hk/apply-now",
+    "scraped_pages": [
+      "https://guidepost.hk/locations/clearwater-bay",
+      "https://guidepost.hk/apply-now",
+      "https://guidepost-ntloa.formstack.com/forms/guidepost_hk_application_new",
+      "https://explore.mybookingo.com/dashboard"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "604372",
+    "name_tc": "綠茵英文（國際）幼稚園（日出康城）",
+    "name_en": "GREENFIELD ENGLISH (INTERNATIONAL) KINDERGARTEN (LOHAS PARK)",
+    "website": "http://greenfield.edu.hk/en",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Apply Now",
+    "source_url": "http://greenfield.edu.hk/admission.php?id=",
+    "scraped_pages": [
+      "http://greenfield.edu.hk/en",
+      "http://greenfield.edu.hk/en#"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "609749",
+    "name_tc": "YORK MONTESSORI INTERNATIONAL PRE-SCHOOL (TSEUNG KWAN O)",
+    "name_en": "YORK MONTESSORI INTERNATIONAL PRE-SCHOOL (TSEUNG KWAN O)",
+    "website": "https://www.york.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "https://www.york.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "612391",
+    "name_tc": "學之園幼稚園（海翩康城）",
+    "name_en": "LEARNING HABITAT KINDERGARTEN (PAPILLONS LP)",
+    "website": "http://www.learninghabitat.org",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.learninghabitat.org/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "613088",
+    "name_tc": "樂必津法國幼稚園",
+    "name_en": "LOU PICHOUN FRENCH KINDERGARTEN",
+    "website": "https://loupichoun.com/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "2026/2027 ADMISSIONS",
+    "source_url": "https://loupichoun.com/school-applications",
+    "scraped_pages": [
+      "https://loupichoun.com/",
+      "https://loupichoun.com/school-applications",
+      "https://loupichoun.com/#"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "613665",
+    "name_tc": "楓葉小熊加拿大國際幼稚園",
+    "name_en": "MAPLE BEAR CANADIAN INTERNATIONAL KINDERGARTEN",
+    "website": "https://www.maplebear.hk/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Apply to join Maple Bear Kindergarten Program and playgroup in one of our campuses in Hong Kong.",
+    "source_url": "https://www.maplebear.hk/admissions",
+    "scraped_pages": [
+      "https://www.maplebear.hk/",
+      "https://www.maplebear.hk/admissions"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "615366",
+    "name_tc": "INVICTUS KINDERGARTEN",
+    "name_en": "INVICTUS KINDERGARTEN",
+    "website": "http://www.invictusschool.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.invictusschool.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "616311",
+    "name_tc": "楓葉小熊加拿大國際幼稚園（康城）",
+    "name_en": "MAPLE BEAR CANADIAN INTERNATIONAL KINDERGARTEN (LOHAS)",
+    "website": "https://www.maplebear.hk/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "not_offered",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Apply to join Maple Bear Kindergarten Program and playgroup in one of our campuses in Hong Kong.",
+    "source_url": "https://www.maplebear.hk/admissions",
+    "scraped_pages": [
+      "https://www.maplebear.hk/",
+      "https://www.maplebear.hk/admissions"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "616443",
+    "name_tc": "栢基幼稚園（康城）",
+    "name_en": "PARKVIEW PRE-SCHOOL (LOHAS)",
+    "website": "https://www.pips.edu.hk/lohas/index.asp",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "waiting_list",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "waiting_list",
+    "overall_status": "waiting_list",
+    "overall_summary": "Applications for future enrolment due to unavailability of places or other reasons will be placed on the waiting list.",
+    "source_url": "https://www.pips.edu.hk/lohas/admission_pn-kg.asp#nav00",
+    "scraped_pages": [
+      "https://www.pips.edu.hk/lohas/index.asp",
+      "https://www.pips.edu.hk/lohas/admission_pn-kg.asp#nav00",
+      "https://www.pips.edu.hk/lohas/application.asp#nav00",
+      "https://www.pips.edu.hk/lohas/admission_SteppingStonesProgramme.asp#nav00"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "n": {
+        "summary": "Applications for future enrolment due to unavailability of places or other reasons will be placed on the waiting list.",
+        "url": "https://www.pips.edu.hk/lohas/admission_pn-kg.asp#nav00"
+      },
+      "k1": {
+        "summary": "Applications for future enrolment due to unavailability of places or other reasons will be placed on the waiting list.",
+        "url": "https://www.pips.edu.hk/lohas/admission_pn-kg.asp#nav00"
+      },
+      "k2": {
+        "summary": "Applications for future enrolment due to unavailability of places or other reasons will be placed on the waiting list.",
+        "url": "https://www.pips.edu.hk/lohas/admission_pn-kg.asp#nav00"
+      },
+      "k3": {
+        "summary": "Applications for future enrolment due to unavailability of places or other reasons will be placed on the waiting list.",
+        "url": "https://www.pips.edu.hk/lohas/admission_pn-kg.asp#nav00"
+      }
+    }
+  },
+  {
+    "school_code": "604470",
+    "name_tc": "雅士圖國際幼稚園",
+    "name_en": "ARISTLE INTERNATIONAL KINDERGARTEN",
+    "website": "http://www.aik.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "We provide one-on-one primary school admission consultation to pave a stress-free path for students and their families.",
+    "source_url": "https://www.aik.edu.hk/apply-online",
+    "scraped_pages": [
+      "http://www.aik.edu.hk/",
+      "https://www.aik.edu.hk/apply-online",
+      "https://www.aik.edu.hk/apply",
+      "https://www.aik.edu.hk/schoolapplication"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "604615",
+    "name_tc": "YORK MONTESSORI INTERNATIONAL PRE-SCHOOL (MEI FOO)",
+    "name_en": "YORK MONTESSORI INTERNATIONAL PRE-SCHOOL (MEI FOO)",
+    "website": "http://www.york.edu.hk/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.york.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "607703",
+    "name_tc": "漢迪國際幼稚園",
+    "name_en": "KENDALL INTERNATIONAL PRESCHOOL",
+    "website": "http://www.kendall.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "has_vacancy",
+    "overall_summary": "Limited spaces are still available!",
+    "source_url": "https://www.kendall.edu.hk/admissions/#application-form",
+    "scraped_pages": [
+      "http://www.kendall.edu.hk/",
+      "https://www.kendall.edu.hk/admissions/#application-form",
+      "http://www.kendall.edu.hk/admissions#submission-of-application",
+      "http://www.kendall.edu.hk/admissions#application-form",
+      "http://www.kendall.edu.hk/admissions"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "612782",
+    "name_tc": "朗思國際幼稚園（南昌）",
+    "name_en": "THINK INTERNATIONAL KINDERGARTEN (NAM CHEONG)",
+    "website": "https://www.think.edu.hk/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "2026 / 2027 Admission Enrol Now",
+    "source_url": "https://www.think.edu.hk/admission",
+    "scraped_pages": [
+      "https://www.think.edu.hk/",
+      "https://www.think.edu.hk/admission",
+      "https://www.think.edu.hk/admission2023",
+      "https://www.think.edu.hk/services-7"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "615250",
+    "name_tc": "學之園幼稚園（星匯居）",
+    "name_en": "LEARNING HABITAT KINDERGARTEN (THE SPARKLE)",
+    "website": "http://www.learninghabitat.org/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.learninghabitat.org/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "231266",
+    "name_tc": "嘉德麗中英文幼稚園",
+    "name_en": "CATILINE ANGLO-CHINESE KINDERGARTEN",
+    "website": "http://www.catiline.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "「有教無類」助學金現正接受申請",
+    "source_url": "http://www.catiline.edu.hk/primarynbsponenbspadmissions.html",
+    "scraped_pages": [
+      "http://www.catiline.edu.hk/",
+      "http://www.catiline.edu.hk/primarynbsponenbspadmissions.html",
+      "http://www.catiline.edu.hk/onlineapplication-844287.html",
+      "https://www.catiline.edu.hk/onlineapplication-844287.html",
+      "http://www.catiline.edu.hk/guidancenotehk-721767.html"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "231517",
+    "name_tc": "大衛幼稚園",
+    "name_en": "DAVID (EXODUS) KINDERGARTEN",
+    "website": "http://www.dek.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "not_offered",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.dek.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "231657",
+    "name_tc": "康傑中英文幼稚園（馬鞍山）",
+    "name_en": "GOOD HEALTH ANGLO-CHINESE KINDERGARTEN (MA ON SHAN)",
+    "website": "http://www.good-health.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.good-health.edu.hk/",
+    "scraped_pages": [
+      "http://www.good-health.edu.hk/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "522953",
+    "name_tc": "樂基幼兒學校（駿景園）",
+    "name_en": "HONG KONG (ASCOT) PRESCHOOL",
+    "website": "http://www.hkpreschool.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": " School Activities Admissions Contact Us Notice & Reply Slip Message Photo Albu",
+    "source_url": "http://www.hkpreschool.edu.hk/index.php/section/page/3142",
+    "scraped_pages": [
+      "http://www.hkpreschool.edu.hk/",
+      "http://www.hkpreschool.edu.hk/index.php/section/page/3142",
+      "https://form.jotform.com/Admissions_HKPS/toddler-programme-application-2nd"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "533360",
+    "name_tc": "朗思國際幼稚園（馬鞍山）",
+    "name_en": "THINK INTERNATIONAL KINDERGARTEN (MA ON SHAN)",
+    "website": "https://www.think.edu.hk/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "2026 / 2027 Admission Enrol Now",
+    "source_url": "https://www.think.edu.hk/admission",
+    "scraped_pages": [
+      "https://www.think.edu.hk/",
+      "https://www.think.edu.hk/admission",
+      "https://www.think.edu.hk/admission2023",
+      "https://www.think.edu.hk/services-7"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "559415",
+    "name_tc": "博士山（香港）國際幼稚園",
+    "name_en": "BOX HILL (HK) INTERNATIONAL KINDERGARTEN",
+    "website": "https://www.boxhill.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Admissions Open for 2026/27",
+    "source_url": "https://boxhill.edu.hk/admission/",
+    "scraped_pages": [
+      "https://www.boxhill.edu.hk/",
+      "https://boxhill.edu.hk/admission/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "565113",
+    "name_tc": "康傑幼稚園〈馬鞍山〉",
+    "name_en": "GOOD HEALTH KINDERGARTEN (MA ON SHAN)",
+    "website": "http://www.good-health.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.good-health.edu.hk/",
+    "scraped_pages": [
+      "http://www.good-health.edu.hk/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "581739",
+    "name_tc": "博士山（香港）國際幼稚園 - 火炭",
+    "name_en": "BOX HILL (HK) INTERNATIONAL KINDERGARTEN - FO TAN",
+    "website": "http://www.boxhill.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Admissions Open for 2026/27",
+    "source_url": "https://boxhill.edu.hk/admission/",
+    "scraped_pages": [
+      "http://www.boxhill.edu.hk/",
+      "https://boxhill.edu.hk/admission/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "591777",
+    "name_tc": "心怡天地幼稚園（沙田）",
+    "name_en": "JOYFUL WORLD KINDERGARTEN (SHA TIN)",
+    "website": "http://www.joyfulenglish.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.joyfulenglish.edu.hk/",
+    "scraped_pages": [
+      "http://www.joyfulenglish.edu.hk/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "598054",
+    "name_tc": "童樂天國際幼稚園",
+    "name_en": "MULBERRY TREE INTERNATIONAL KINDERGARTEN",
+    "website": "https://www.mulberrytree.edu.hk/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "We are currently accepting applications throughout the year.",
+    "source_url": "https://www.mulberrytree.edu.hk/admissions",
+    "scraped_pages": [
+      "https://www.mulberrytree.edu.hk/",
+      "https://www.mulberrytree.edu.hk/admissions"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "604291",
+    "name_tc": "學之園幼稚園（迎海）",
+    "name_en": "LEARNING HABITAT KINDERGARTEN (DOUBLE COVE)",
+    "website": "http://www.learninghabitat.org",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.learninghabitat.org/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "613916",
+    "name_tc": "培僑國際幼稚園",
+    "name_en": "PUI KIU INTERNATIONAL KINDERGARTEN",
+    "website": "http://www.puikiukg.edu.hk/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "2026/27學年PN-K1現已接受報名",
+    "source_url": "http://www.puikiukg.edu.hk/chi/application-procedures",
+    "scraped_pages": [
+      "http://www.puikiukg.edu.hk/",
+      "http://www.puikiukg.edu.hk/chi/application-procedures",
+      "http://www.puikiukg.edu.hk/#",
+      "http://www.puikiukg.edu.hk/chi/enrolment-grades"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "616290",
+    "name_tc": "德萃幼稚園（馬鞍山）",
+    "name_en": "ST. HILARY'S KINDERGARTEN (MA ON SHAN)",
+    "website": "https://kindergarten.sthilarys.edu.hk/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Learn More & Apply Now",
+    "source_url": "https://kindergarten.sthilarys.edu.hk/?page_id=943",
+    "scraped_pages": [
+      "https://kindergarten.sthilarys.edu.hk/",
+      "https://kindergarten.sthilarys.edu.hk/?page_id=943",
+      "https://kindergarten.sthilarys.edu.hk/?page_id=330"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "622389",
+    "name_tc": "培僑國際幼稚園（碧濤花園）",
+    "name_en": "PUI KIU INTERNATIONAL KINDERGARTEN (PICTORIAL GARDEN)",
+    "website": "http://www.puikiukg.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "2026/27學年PN-K1現已接受報名",
+    "source_url": "http://www.puikiukg.edu.hk/chi/application-procedures",
+    "scraped_pages": [
+      "http://www.puikiukg.edu.hk/",
+      "http://www.puikiukg.edu.hk/chi/application-procedures",
+      "http://www.puikiukg.edu.hk/#",
+      "http://www.puikiukg.edu.hk/chi/enrolment-grades"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "215937",
+    "name_tc": "栢基國際幼稚園",
+    "name_en": "PARKVIEW INTERNATIONAL PRE-SCHOOL",
+    "website": "http://www.pips.edu.hk/hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "waiting_list",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "waiting_list",
+    "overall_status": "waiting_list",
+    "overall_summary": "Advance applications will be placed on the waiting list.",
+    "source_url": "http://www.pips.edu.hk/hk/admissions_process.asp#nav00",
+    "scraped_pages": [
+      "http://www.pips.edu.hk/hk",
+      "http://www.pips.edu.hk/hk/admission_playgroup.asp",
+      "http://www.pips.edu.hk/hk/admissions_process.asp#nav00",
+      "http://www.pips.edu.hk/hk/admissions_structure.asp#nav00",
+      "http://www.pips.edu.hk/hk/admissions_fees.asp#nav00"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "n": {
+        "summary": "Advance applications will be placed on the waiting list.",
+        "url": "http://www.pips.edu.hk/hk/admissions_process.asp#nav00"
+      },
+      "k1": {
+        "summary": "Advance applications will be placed on the waiting list.",
+        "url": "http://www.pips.edu.hk/hk/admissions_process.asp#nav00"
+      },
+      "k2": {
+        "summary": "Advance applications will be placed on the waiting list.",
+        "url": "http://www.pips.edu.hk/hk/admissions_process.asp#nav00"
+      },
+      "k3": {
+        "summary": "Advance applications will be placed on the waiting list.",
+        "url": "http://www.pips.edu.hk/hk/admissions_process.asp#nav00"
+      }
+    }
+  },
+  {
+    "school_code": "216194",
+    "name_tc": "維多利亞（海怡）國際幼稚園",
+    "name_en": "VICTORIA (SOUTH HORIZONS) INTERNATIONAL KINDERGARTEN",
+    "website": "http://www.victoria.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "check_school",
+    "overall_status": "waiting_list",
+    "overall_summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+    "source_url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
+    "scraped_pages": [
+      "http://www.victoria.edu.hk/",
+      "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
+      "https://www.victoria.edu.hk/message-from-admission-team/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "n": {
+        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
+        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+      },
+      "k3": {
+        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
+        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+      },
+      "k1": {
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
+      },
+      "k2": {
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
+      }
+    }
+  },
+  {
+    "school_code": "325961",
+    "name_tc": "右思維幼稚園",
+    "name_en": "RIGHTMIND KINDERGARTEN",
+    "website": "http://www.rmkg.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.rmkg.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "565466",
+    "name_tc": "MONTESSORI FOR CHILDREN (NURSERY)",
+    "name_en": "MONTESSORI FOR CHILDREN (NURSERY)",
+    "website": "http://mfc.edu.hk/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "For visitors outside of Hong Kong, we invite you to contact our admissions team.",
+    "source_url": "https://form.jotform.me/82552941042453",
+    "scraped_pages": [
+      "http://mfc.edu.hk/",
+      "https://form.jotform.me/82552941042453",
+      "http://mfc.edu.hk/#",
+      "http://mfc.edu.hk/application-casa_hk.html",
+      "http://mfc.edu.hk/application-infant_hk.html"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "578053",
+    "name_tc": "MULBERRY HOUSE INTERNATIONAL KINDERGARTEN SOUTHSIDE",
+    "name_en": "MULBERRY HOUSE INTERNATIONAL KINDERGARTEN SOUTHSIDE",
+    "website": "https://mulberryhousekg.com",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Online Application Form",
+    "source_url": "https://mulberryhousekg.com/",
+    "scraped_pages": [
+      "https://mulberryhousekg.com/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "598089",
+    "name_tc": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (POK FU LAM)",
+    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (POK FU LAM)",
+    "website": "https://guidepost.hk/locations/pok-fu-lam",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Apply Now",
+    "source_url": "https://guidepost.hk/apply-now",
+    "scraped_pages": [
+      "https://guidepost.hk/locations/pok-fu-lam",
+      "https://guidepost.hk/apply-now",
+      "https://guidepost-ntloa.formstack.com/forms/guidepost_hk_application_new",
+      "https://explore.mybookingo.com/dashboard"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "602256",
+    "name_tc": "GUIDEPOST MONTESSORI INTERNATIONAL PRE-SCHOOL (REPULSE BAY)",
+    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL PRE-SCHOOL (REPULSE BAY)",
+    "website": "https://guidepost.hk/locations/repulse-bay",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Apply Now",
+    "source_url": "https://guidepost.hk/apply-now",
+    "scraped_pages": [
+      "https://guidepost.hk/locations/repulse-bay",
+      "https://guidepost.hk/apply-now",
+      "https://guidepost-ntloa.formstack.com/forms/guidepost_hk_application_new"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "536067",
+    "name_tc": "安基司幼稚園",
+    "name_en": "ANCHORS KINDERGARTEN",
+    "website": "http://www.anchors.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.anchors.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "565199",
+    "name_tc": "安基司國際幼兒園",
+    "name_en": "ANCHORS INTERNATIONAL NURSERY",
+    "website": "http://www.anchors.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.anchors.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "567027",
+    "name_tc": "明雅國際幼兒學校",
+    "name_en": "MINK INTERNATIONAL PRE-SCHOOL",
+    "website": "http://www.mink.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.mink.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "601721",
+    "name_tc": "懋柏禮國際幼稚園",
+    "name_en": "MULBERRY HOUSE INTERNATIONAL KINDERGARTEN",
+    "website": "https://mulberryhousekg.com/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Online Application Form",
+    "source_url": "https://mulberryhousekg.com/",
+    "scraped_pages": [
+      "https://mulberryhousekg.com/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "157716",
+    "name_tc": "綠楊幼稚園",
+    "name_en": "LUK YEUNG KINDERGARTEN",
+    "website": "http://www.lukyeungkg.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.lukyeungkg.edu.hk/",
+    "scraped_pages": [
+      "http://www.lukyeungkg.edu.hk/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "565105",
+    "name_tc": "海濱方方樂趣幼稚園",
+    "name_en": "RIVIERA FUNFUL KINDERGARTEN",
+    "website": "http://www.funful.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.funful.hk/",
+    "scraped_pages": [
+      "http://www.funful.hk/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "583340",
+    "name_tc": "心怡天地幼稚園",
+    "name_en": "JOYFUL WORLD KINDERGARTEN",
+    "website": "http://www.joyfulenglish.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.joyfulenglish.edu.hk/",
+    "scraped_pages": [
+      "http://www.joyfulenglish.edu.hk/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "590860",
+    "name_tc": "思博幼稚園",
+    "name_en": "SWINDON KINDERGARTEN",
+    "website": "http://www.swindon.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.swindon.edu.hk/",
+    "scraped_pages": [
+      "http://www.swindon.edu.hk/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "597716",
+    "name_tc": "心怡天地幼稚園（麗城）",
+    "name_en": "JOYFUL WORLD KINDERGARTEN (BELVEDERE)",
+    "website": "http://www.joyfulenglish.edu.hk/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.joyfulenglish.edu.hk/",
+    "scraped_pages": [
+      "http://www.joyfulenglish.edu.hk/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "619850",
+    "name_tc": "維多利亞（海之戀）國際幼稚園",
+    "name_en": "VICTORIA (OCEAN PRIDE) INTERNATIONAL KINDERGARTEN",
+    "website": "http://www.victoria.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "check_school",
+    "overall_status": "waiting_list",
+    "overall_summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+    "source_url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
+    "scraped_pages": [
+      "http://www.victoria.edu.hk/",
+      "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
+      "https://www.victoria.edu.hk/message-from-admission-team/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "n": {
+        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
+        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+      },
+      "k3": {
+        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
+        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+      },
+      "k1": {
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
+      },
+      "k2": {
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
+      }
+    }
+  },
+  {
+    "school_code": "572764",
+    "name_tc": "加州天地幼稚園",
+    "name_en": "SUNKIDS KINDERGARTEN",
+    "website": "http://sunkids.edu.hk/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Now Accepting Enrollments 2024/25 現已接受申請",
+    "source_url": "http://sunkids.edu.hk/admissions",
+    "scraped_pages": [
+      "http://sunkids.edu.hk/",
+      "http://sunkids.edu.hk/admissions",
+      "https://admissions.sunkids.edu.hk/?page=forum-home"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "587524",
+    "name_tc": "晶晶國際幼稚園",
+    "name_en": "JING JING INTERNATIONAL KINDERGARTEN",
+    "website": "http://www.jingjing.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "ervices for NCS Students Staff Applications Events Contact Parent's Zone more Use tab to navigate through the menu items. Jing Jing ",
+    "source_url": "https://www.jingjing.edu.hk/applications",
+    "scraped_pages": [
+      "http://www.jingjing.edu.hk/",
+      "https://www.jingjing.edu.hk/applications"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "590401",
+    "name_tc": "宏廣國際幼稚園",
+    "name_en": "WELLCOME INTERNATIONAL KINDERGARTEN",
+    "website": "http://www.wellcomekg.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.wellcomekg.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "615170",
+    "name_tc": "心怡天地國際幼稚園（屯門）",
+    "name_en": "JOYFUL WORLD INTERNATIONAL KINDERGARTEN (TUEN MUN)",
+    "website": "http://www.joyfulenglish.edu.hk/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.joyfulenglish.edu.hk/",
+    "scraped_pages": [
+      "http://www.joyfulenglish.edu.hk/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "616990",
+    "name_tc": "YORK INTERNATIONAL PRE-SCHOOL (TUEN MUN)",
+    "name_en": "YORK INTERNATIONAL PRE-SCHOOL (TUEN MUN)",
+    "website": "http://www.york.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.york.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "325848",
+    "name_tc": "帝京香港幼稚園",
+    "name_en": "TEIKYO HONG KONG KINDERGARTEN",
+    "website": "http://www.teikyo.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.teikyo.edu.hk/",
+    "scraped_pages": [
+      "http://www.teikyo.edu.hk/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "564958",
+    "name_tc": "GUIDEPOST MONTESSORI INTERNATIONAL PRE-SCHOOL (HAPPY VALLEY HAWTHORN ROAD)",
+    "name_en": "GUIDEPOST MONTESSORI INTERNATIONAL PRE-SCHOOL (HAPPY VALLEY HAWTHORN ROAD)",
+    "website": "https://guidepost.hk/locations/happyvalley-hawthornroad",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Apply Now",
+    "source_url": "https://guidepost.hk/apply-now",
+    "scraped_pages": [
+      "https://guidepost.hk/locations/happyvalley-hawthornroad",
+      "https://guidepost.hk/apply-now",
+      "https://explore.mybookingo.com/dashboard",
+      "https://guidepost-ntloa.formstack.com/forms/guidepost_hk_application_new"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "565938",
+    "name_tc": "寶山幼兒園",
+    "name_en": "BRAEMAR HILL NURSERY SCHOOL",
+    "website": "http://www.braemarhillnurseryschool.edu.hk/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.braemarhillnurseryschool.edu.hk/",
+    "scraped_pages": [
+      "http://www.braemarhillnurseryschool.edu.hk/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "581119",
+    "name_tc": "港島兒童蒙特梭利幼稚園",
+    "name_en": "ISLAND CHILDREN'S MONTESSORI KINDERGARTEN",
+    "website": "https://icms.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "has_vacancy",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "check_school",
+    "overall_summary": "If an applicant’s interview is successful but the preferred class session or campus is full, parents will be given the option to join another class session, campus or waitlist for the preferred class session.",
+    "source_url": "https://icms.edu.hk/admissions-2/",
+    "scraped_pages": [
+      "https://icms.edu.hk/",
+      "https://icms.edu.hk/admissions-2/",
+      "https://icmh.hk/playgroups/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "n": {
+        "summary": "Limited spaces are still available in Pre-Nursery and Kindergarten.",
+        "url": "https://icms.edu.hk/admissions-2/"
+      }
+    }
+  },
+  {
+    "school_code": "593770",
+    "name_tc": "樂䔄幼稚園",
+    "name_en": "PODS KINDERGARTEN",
+    "website": "http://www.pods.com.hk/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Apply Now!",
+    "source_url": "http://www.pods.com.hk/pages/admissions",
+    "scraped_pages": [
+      "http://www.pods.com.hk/",
+      "http://www.pods.com.hk/pages/admissions",
+      "http://www.pods.com.hk/pages/christmas-camp"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "600334",
+    "name_tc": "善行國際幼稚園",
+    "name_en": "MASS INTERNATIONAL PRESCHOOL",
+    "website": "http://www.masspreschool.com",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Start Your Child's Learning Journey Early: Apply Now for the Playgroup!",
+    "source_url": "https://www.masspreschool.com/admission",
+    "scraped_pages": [
+      "http://www.masspreschool.com/",
+      "https://www.masspreschool.com/admission"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "607592",
+    "name_tc": "道爾頓幼稚園",
+    "name_en": "LITTLE DALTON KINDERGARTEN",
+    "website": "https://littledalton.com/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Testimonials Teacher Testimonials Admissions Apply Now Visit Us Events Video Gallery Photo Gallery Contact 中文 Home About Mission and Pri",
+    "source_url": "https://littledalton.com/",
+    "scraped_pages": [
+      "https://littledalton.com/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "216178",
+    "name_tc": "港青基信國際幼稚園",
+    "name_en": "YMCA OF HONG KONG CHRISTIAN INTERNATIONAL KINDERGARTEN",
+    "website": "http://ymcahk.org.hk/cikg/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://ymcahk.org.hk/cikg/",
+    "scraped_pages": [
+      "http://ymcahk.org.hk/cikg/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "561207",
+    "name_tc": "學之園幼稚園（凱帆薈）",
+    "name_en": "LEARNING HABITAT KINDERGARTEN (HAMPTON LOFT)",
+    "website": "http://www.learninghabitat.org",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.learninghabitat.org/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "566748",
+    "name_tc": "滙豐幼兒學校",
+    "name_en": "WAYFOONG NURSERY SCHOOL",
+    "website": "https://wfns.hkcschild.edu.hk/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": " K3 質素評核報告 入學及升學 入學須知 報名程序 幼稚園註冊證申請程序 教育局幼稚園幼兒班(K1)收生安排 升小資訊 升小程序 升小結果 升小家長心聲 新生適應期相片 學校活動 校內活動 校外活動 家校協作活動 社區協作活動 中華文化活動 家校",
+    "source_url": "https://www.edb.gov.hk/tc/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/index.html",
+    "scraped_pages": [
+      "https://wfns.hkcschild.edu.hk/",
+      "https://wfns.hkcschild.edu.hk/#",
+      "https://wfns.hkcschild.edu.hk/?page_id=2514",
+      "https://wfns.hkcschild.edu.hk/?page_id=2517"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "571490",
+    "name_tc": "栢基國際幼稚園（九龍）",
+    "name_en": "PARKVIEW INTERNATIONAL PRE-SCHOOL (KOWLOON)",
+    "website": "https://www.pips.edu.hk/kln/index.asp",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "waiting_list",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "waiting_list",
+    "overall_status": "waiting_list",
+    "overall_summary": "Applications for future enrollment due to unavailability of places or other reasons will be placed on the waiting list.",
+    "source_url": "https://www.pips.edu.hk/kln/admission_pn-kg.asp#nav00",
+    "scraped_pages": [
+      "https://www.pips.edu.hk/kln/index.asp",
+      "https://www.pips.edu.hk/kln/admission_pn-kg.asp#nav00",
+      "https://www.pips.edu.hk/kln/application.asp#nav00"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "n": {
+        "summary": "Applications for future enrollment due to unavailability of places or other reasons will be placed on the waiting list.",
+        "url": "https://www.pips.edu.hk/kln/admission_pn-kg.asp#nav00"
+      },
+      "k1": {
+        "summary": "Applications for future enrollment due to unavailability of places or other reasons will be placed on the waiting list.",
+        "url": "https://www.pips.edu.hk/kln/admission_pn-kg.asp#nav00"
+      },
+      "k2": {
+        "summary": "Applications for future enrollment due to unavailability of places or other reasons will be placed on the waiting list.",
+        "url": "https://www.pips.edu.hk/kln/admission_pn-kg.asp#nav00"
+      },
+      "k3": {
+        "summary": "Applications for future enrollment due to unavailability of places or other reasons will be placed on the waiting list.",
+        "url": "https://www.pips.edu.hk/kln/admission_pn-kg.asp#nav00"
+      }
+    }
+  },
+  {
+    "school_code": "574708",
+    "name_tc": "維多利亞（君匯港）幼稚園",
+    "name_en": "VICTORIA (HARBOUR GREEN) KINDERGARTEN",
+    "website": "http://www.victoria.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "check_school",
+    "overall_status": "waiting_list",
+    "overall_summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+    "source_url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
+    "scraped_pages": [
+      "http://www.victoria.edu.hk/",
+      "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
+      "https://www.victoria.edu.hk/message-from-admission-team/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "n": {
+        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
+        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+      },
+      "k3": {
+        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
+        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+      },
+      "k1": {
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
+      },
+      "k2": {
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
+      }
+    }
+  },
+  {
+    "school_code": "583421",
+    "name_tc": "明慧國際幼稚園（太子分校）",
+    "name_en": "MING WAI INTERNATIONAL KINDERGARTEN (PRINCE EDWARD BRANCH)",
+    "website": "http://www.mingwai.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "ce Edward Branch) Me n Wonderland Admissions North Point Branch Prince Edward Branch Contact Us Our curriculum follows the early childhood educa",
+    "source_url": "http://www.mingwai.edu.hk/",
+    "scraped_pages": [
+      "http://www.mingwai.edu.hk/",
+      "http://www.mingwai.edu.hk/#",
+      "https://www.mingwai.edu.hk/how-to-apply/north-point-admissions/admissions-information/",
+      "https://www.mingwai.edu.hk/how-to-apply/prince-edward-admissions/admissions-information/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "595543",
+    "name_tc": "蔚思幼稚園",
+    "name_en": "SOPHIE KINDERGARTEN",
+    "website": "http://www.sophiekg.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.sophiekg.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "601403",
+    "name_tc": "樂希幼兒學校",
+    "name_en": "HARTS PRESCHOOL",
+    "website": "http://www.hartspreschool.com",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.hartspreschool.com/",
+    "scraped_pages": [
+      "http://www.hartspreschool.com/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "606979",
+    "name_tc": "香港墨爾文國際幼稚園",
+    "name_en": "MALVERN COLLEGE PRE-SCHOOL HONG KONG",
+    "website": "http://www.malvernpreschool.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Admissions Procedure",
+    "source_url": "http://www.malvernpreschool.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "617474",
+    "name_tc": "學之園幼稚園（奧運）",
+    "name_en": "LEARNING HABITAT KINDERGARTEN (OLYMPIC)",
+    "website": "http://www.learninghabitat.org",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.learninghabitat.org/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "151696",
+    "name_tc": "萊恩幼稚園（元朗）",
+    "name_en": "ST. LORRAINE KINDERGARTEN (YUEN LONG)",
+    "website": "http://www.st-lorraine.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.st-lorraine.edu.hk/",
+    "scraped_pages": [
+      "http://www.st-lorraine.edu.hk/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "517828",
+    "name_tc": "萊恩英文幼稚園",
+    "name_en": "ST. LORRAINE ENGLISH KINDERGARTEN",
+    "website": "http://www.st-lorraine.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.st-lorraine.edu.hk/",
+    "scraped_pages": [
+      "http://www.st-lorraine.edu.hk/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "602000",
+    "name_tc": "德怡國際幼稚園（元朗）",
+    "name_en": "TOPKIDS INTERNATIONAL KINDERGARTEN (YUEN LONG)",
+    "website": "http://www.topkids.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Admission Arrangements for Nursery (K1) Classes in Kindergartens can refer to Education Bureau Website",
+    "source_url": "http://www.edb.gov.hk/k1-admission_e",
+    "scraped_pages": [
+      "http://www.topkids.edu.hk/",
+      "http://www.edb.gov.hk/k1-admission_e"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "605441",
+    "name_tc": "YORK MONTESSORI INTERNATIONAL PRE-SCHOOL (YUEN LONG)",
+    "name_en": "YORK MONTESSORI INTERNATIONAL PRE-SCHOOL (YUEN LONG)",
+    "website": "http://www.york.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.york.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "605794",
+    "name_tc": "多多國際幼稚園（形點）",
+    "name_en": "TUTOR TIME INTERNATIONAL KINDERGARTEN (YOHO)",
+    "website": "http://www.tutortime.com.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "Apply Now",
+    "source_url": "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-2026-2027-new-students/",
+    "scraped_pages": [
+      "http://www.tutortime.com.hk/",
+      "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-2026-2027-new-students/",
+      "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-form-2025-2026-existing-students/",
+      "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-form-2025-2026-new-students/",
+      "https://www.tutortime.com.hk/admission/playlab-enrollment-form/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "612189",
+    "name_tc": "心怡天地國際幼稚園（元朗）",
+    "name_en": "JOYFUL WORLD INTERNATIONAL KINDERGARTEN (YUEN LONG)",
+    "website": "http://www.joyfulenglish.edu.hk/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.joyfulenglish.edu.hk/",
+    "scraped_pages": [
+      "http://www.joyfulenglish.edu.hk/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  },
+  {
+    "school_code": "615633",
+    "name_tc": "艾蒙特國際幼稚園",
+    "name_en": "EIS INTERNATIONAL PRE-SCHOOL",
+    "website": "https://www.eminent-education.org",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "waiting_list",
+    "overall_summary": "In the event our classes are full, applicants shall be placed on our waitlist.",
+    "source_url": "https://www.eminent-education.org/admissions-1",
+    "scraped_pages": [
+      "https://www.eminent-education.org/",
+      "https://www.eminent-education.org/admissions-1",
+      "https://www.eminent-education.org/admission202627"
+    ],
+    "scrape_status": "ok",
+    "evidence": {
+      "n": {
+        "summary": "We are currently accepting applications for our Little Foresters Program (Age 2-3) and Kindergarten (K1, K2 & K3) for the 2026-2027 academic year.",
+        "url": "https://www.eminent-education.org/admission202627"
+      },
+      "k1": {
+        "summary": "We are currently accepting applications for our Little Foresters Program (Age 2-3) and Kindergarten (K1, K2 & K3) for the 2026-2027 academic year.",
+        "url": "https://www.eminent-education.org/admission202627"
+      },
+      "k2": {
+        "summary": "We are currently accepting applications for our Little Foresters Program (Age 2-3) and Kindergarten (K1, K2 & K3) for the 2026-2027 academic year.",
+        "url": "https://www.eminent-education.org/admission202627"
+      },
+      "k3": {
+        "summary": "We are currently accepting applications for our Little Foresters Program (Age 2-3) and Kindergarten (K1, K2 & K3) for the 2026-2027 academic year.",
+        "url": "https://www.eminent-education.org/admission202627"
+      }
+    }
+  },
+  {
+    "school_code": "621480",
+    "name_tc": "YORK INTERNATIONAL PRE-SCHOOL (WETLAND)",
+    "name_en": "YORK INTERNATIONAL PRE-SCHOOL (WETLAND)",
+    "website": "http://www.york.edu.hk",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.york.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
+  },
+  {
+    "school_code": "622060",
+    "name_tc": "安基司學校附屬國際幼稚園",
+    "name_en": "ANCHORS ACADEMY AFFILIATED INTERNATIONAL KINDERGARTEN",
+    "website": "https://www.anchorsacademy.edu.hk/",
+    "school_type": "private_independent",
+    "academic_year": "2026/27",
+    "grades_offered": [
+      "N",
+      "K1",
+      "K2",
+      "K3"
+    ],
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "https://www.anchorsacademy.edu.hk/",
+    "scraped_pages": [
+      "https://www.anchorsacademy.edu.hk/"
+    ],
+    "scrape_status": "ok",
+    "evidence": {}
+  }
+]

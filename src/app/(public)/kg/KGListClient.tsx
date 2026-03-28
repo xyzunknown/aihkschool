@@ -21,6 +21,11 @@ interface SchoolData {
   school_type: string;
   session_type: string | null;
   grades_offered: string[] | null;
+  application_status: string | null;
+  application_details: string | null;
+  application_url: string | null;
+  admission_summary: string;
+  show_admission_summary: boolean;
   language_primary: string | null;
   fee_monthly_hkd: number | null;
   vacancies: Array<{
@@ -178,6 +183,14 @@ export default function KGListClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {schools.map((school) => {
               const currentVacancy = school.vacancies?.[0];
+              const vacancy = currentVacancy ? {
+                n_vacancy: currentVacancy.n_vacancy,
+                k1_vacancy: currentVacancy.k1_vacancy,
+                k2_vacancy: currentVacancy.k2_vacancy,
+                k3_vacancy: currentVacancy.k3_vacancy,
+                edb_published_date: currentVacancy.edb_published_date,
+              } : null;
+
               return (
                 <SchoolCard
                   key={school.id}
@@ -190,13 +203,9 @@ export default function KGListClient() {
                   schoolType={school.school_type}
                   sessionType={school.session_type}
                   gradesOffered={school.grades_offered}
-                  vacancy={currentVacancy ? {
-                    n_vacancy: currentVacancy.n_vacancy,
-                    k1_vacancy: currentVacancy.k1_vacancy,
-                    k2_vacancy: currentVacancy.k2_vacancy,
-                    k3_vacancy: currentVacancy.k3_vacancy,
-                    edb_published_date: currentVacancy.edb_published_date,
-                  } : null}
+                  admissionSummary={school.admission_summary}
+                  showAdmissionSummary={school.show_admission_summary}
+                  vacancy={vacancy}
                 />
               );
             })}
