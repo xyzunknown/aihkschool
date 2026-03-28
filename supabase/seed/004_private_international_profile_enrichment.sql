@@ -1419,7 +1419,7 @@ UPDATE schools SET
   application_status = 'open',
   application_details = 'Admissions Open for 2026/27',
   application_url = 'https://boxhill.edu.hk/admission/',
-  open_day_details = 'Open Day – The Little Red Hen – Sep 2025',
+  open_day_details = 'Open Day – Under The Sea – Apr & May 2026',
   open_day_url = 'https://boxhill.edu.hk/school-tour-info-session-jan-2026/',
   last_profile_scraped_at = now()
 WHERE school_code = '581836';
@@ -1572,15 +1572,15 @@ UPDATE schools SET
   logo_url = '/logos/604470.png',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
-  application_fee_hkd = COALESCE(NULL, application_fee_hkd),
+  application_fee_hkd = COALESCE(40, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = 'School Fee & Info / Pre-nursery fee: HK$6,180 (11 installments)* / K1 school fee: HK$6,600 (11 installments)*',
-  other_fees_note = 'K2 school fee: HK$6,700 (11 installments)* / K3 school fee: HK$6,800 (11 installments)*',
-  application_status = 'closed',
-  application_details = 'We provide one-on-one primary school admission consultation to pave a stress-free path for students and their families.',
-  application_url = 'https://www.aik.edu.hk/apply-online',
-  open_day_details = 'Visitors are always welcome to our school.',
-  open_day_url = 'https://www.aik.edu.hk/apply-online',
+  fee_notes = '學費, 其他資料 / 學前預備班 (PN) 學費為 HK$6,180 (11期）* / 幼兒班 (K1) 學費為 HK$6,600 (11期）*',
+  other_fees_note = '低班 (K2) 學費為 HK$6,700 (11期）* / 高班 (K3) 學費為 HK$6,800 (11期）*',
+  application_status = 'website',
+  application_details = '入學申請電郵: admissions@aik.edu.hk',
+  application_url = 'https://zh.aik.edu.hk/apply',
+  open_day_details = '親子及暑期班 ​ ​ ​ ​ 登記 ​ 開放日及研討會 ​ ​ ​ ​ 登記 Media Room 最新消息 ​ 花一點時間來探索我們的幼稚園媒體室，我們的最新消息，信息和教育相關資料。我們希望與您分',
+  open_day_url = 'https://zh.aik.edu.hk/apply-online',
   last_profile_scraped_at = now()
 WHERE school_code = '604470';
 UPDATE schools SET
@@ -1739,7 +1739,7 @@ UPDATE schools SET
   application_status = 'open',
   application_details = 'Admissions Open for 2026/27',
   application_url = 'https://boxhill.edu.hk/admission/',
-  open_day_details = 'Open Day – The Little Red Hen – Sep 2025',
+  open_day_details = 'Open Day – Under The Sea – Apr & May 2026',
   open_day_url = 'https://boxhill.edu.hk/school-tour-info-session-jan-2026/',
   last_profile_scraped_at = now()
 WHERE school_code = '559415';
@@ -1771,7 +1771,7 @@ UPDATE schools SET
   application_status = 'open',
   application_details = 'Admissions Open for 2026/27',
   application_url = 'https://boxhill.edu.hk/admission/',
-  open_day_details = 'Open Day – The Little Red Hen – Sep 2025',
+  open_day_details = 'Open Day – Under The Sea – Apr & May 2026',
   open_day_url = 'https://boxhill.edu.hk/school-tour-info-session-jan-2026/',
   last_profile_scraped_at = now()
 WHERE school_code = '581739';

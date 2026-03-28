@@ -2097,7 +2097,7 @@
     "application_status": "open",
     "application_details": "Admissions Open for 2026/27",
     "application_url": "https://boxhill.edu.hk/admission/",
-    "open_day_details": "Open Day – The Little Red Hen – Sep 2025",
+    "open_day_details": "Open Day – Under The Sea – Apr & May 2026",
     "open_day_url": "https://boxhill.edu.hk/school-tour-info-session-jan-2026/",
     "fee_monthly_hkd": null,
     "fee_annual_hkd": null,
@@ -2111,7 +2111,7 @@
       "https://boxhill.edu.hk/admission/",
       "https://bit.ly/webpopec",
       "https://boxhill.edu.hk/school-tour-info-session-jan-2026/",
-      "https://boxhill.edu.hk/school-tour-info-session-oct-2025/"
+      "https://boxhill.edu.hk/open-day-under-the-sea-apr-may-2026/"
     ]
   },
   {
@@ -2210,7 +2210,7 @@
     "name_en": "LOU PICHOUN FRENCH KINDERGARTEN",
     "website": "https://loupichoun.com/",
     "logo_url": "/logos/613088.png",
-    "logo_source_url": "https://loupichoun.com/web/image/website/1/logo?unique=1bd93fe",
+    "logo_source_url": "https://loupichoun.com/web/image/website/1/logo?unique=6d1e9b9",
     "application_status": "website",
     "application_details": "2026/2027 ADMISSIONS",
     "application_url": "https://loupichoun.com/school-applications",
@@ -2328,23 +2328,24 @@
     "website": "http://www.aik.edu.hk",
     "logo_url": "/logos/604470.png",
     "logo_source_url": "https://static.wixstatic.com/media/ebd675_99edf3f23efc4d4fac63521787df65f0%7Emv2_d_9109_6724_s_4_2.jpg/v1/fit/w_2500,h_1330,al_c/ebd675_99edf3f23efc4d4fac63521787df65f0%7Emv2_d_9109_6724_s_4_2.jpg",
-    "application_status": "closed",
-    "application_details": "We provide one-on-one primary school admission consultation to pave a stress-free path for students and their families.",
-    "application_url": "https://www.aik.edu.hk/apply-online",
-    "open_day_details": "Visitors are always welcome to our school.",
-    "open_day_url": "https://www.aik.edu.hk/apply-online",
+    "application_status": "website",
+    "application_details": "入學申請電郵: admissions@aik.edu.hk",
+    "application_url": "https://zh.aik.edu.hk/apply",
+    "open_day_details": "親子及暑期班 ​ ​ ​ ​ 登記 ​ 開放日及研討會 ​ ​ ​ ​ 登記 Media Room 最新消息 ​ 花一點時間來探索我們的幼稚園媒體室，我們的最新消息，信息和教育相關資料。我們希望與您分",
+    "open_day_url": "https://zh.aik.edu.hk/apply-online",
     "fee_monthly_hkd": null,
     "fee_annual_hkd": null,
-    "application_fee_hkd": null,
+    "application_fee_hkd": 40.0,
     "registration_fee_hkd": null,
-    "fee_notes": "School Fee & Info / Pre-nursery fee: HK$6,180 (11 installments)* / K1 school fee: HK$6,600 (11 installments)*",
-    "other_fees_note": "K2 school fee: HK$6,700 (11 installments)* / K3 school fee: HK$6,800 (11 installments)*",
+    "fee_notes": "學費, 其他資料 / 學前預備班 (PN) 學費為 HK$6,180 (11期）* / 幼兒班 (K1) 學費為 HK$6,600 (11期）*",
+    "other_fees_note": "低班 (K2) 學費為 HK$6,700 (11期）* / 高班 (K3) 學費為 HK$6,800 (11期）*",
     "scrape_status": "ok",
     "scraped_pages": [
       "http://www.aik.edu.hk/",
-      "https://www.aik.edu.hk/apply-online",
-      "https://www.aik.edu.hk/apply",
-      "https://www.aik.edu.hk/school-fee-info"
+      "https://zh.aik.edu.hk/apply",
+      "https://zh.aik.edu.hk/schoolapplication",
+      "https://zh.aik.edu.hk/apply-online",
+      "https://zh.aik.edu.hk/school-fee-info"
     ]
   },
   {
@@ -2574,7 +2575,7 @@
     "application_status": "open",
     "application_details": "Admissions Open for 2026/27",
     "application_url": "https://boxhill.edu.hk/admission/",
-    "open_day_details": "Open Day – The Little Red Hen – Sep 2025",
+    "open_day_details": "Open Day – Under The Sea – Apr & May 2026",
     "open_day_url": "https://boxhill.edu.hk/school-tour-info-session-jan-2026/",
     "fee_monthly_hkd": null,
     "fee_annual_hkd": null,
@@ -2588,7 +2589,7 @@
       "https://boxhill.edu.hk/admission/",
       "https://bit.ly/webpopec",
       "https://boxhill.edu.hk/school-tour-info-session-jan-2026/",
-      "https://boxhill.edu.hk/school-tour-info-session-oct-2025/"
+      "https://boxhill.edu.hk/open-day-under-the-sea-apr-may-2026/"
     ]
   },
   {
@@ -2624,7 +2625,7 @@
     "application_status": "open",
     "application_details": "Admissions Open for 2026/27",
     "application_url": "https://boxhill.edu.hk/admission/",
-    "open_day_details": "Open Day – The Little Red Hen – Sep 2025",
+    "open_day_details": "Open Day – Under The Sea – Apr & May 2026",
     "open_day_url": "https://boxhill.edu.hk/school-tour-info-session-jan-2026/",
     "fee_monthly_hkd": null,
     "fee_annual_hkd": null,
@@ -2638,7 +2639,7 @@
       "https://boxhill.edu.hk/admission/",
       "https://bit.ly/webpopec",
       "https://boxhill.edu.hk/school-tour-info-session-jan-2026/",
-      "https://boxhill.edu.hk/school-tour-info-session-oct-2025/"
+      "https://boxhill.edu.hk/open-day-under-the-sea-apr-may-2026/"
     ]
   },
   {
