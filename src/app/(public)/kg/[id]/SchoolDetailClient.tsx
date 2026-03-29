@@ -7,22 +7,25 @@ import { VacancySection } from "@/components/schools/VacancySection";
 import { BasicInfoSection } from "@/components/schools/BasicInfoSection";
 import { FeesSection } from "@/components/schools/FeesSection";
 import { AdmissionsSection } from "@/components/schools/AdmissionsSection";
+import { InterviewIntelSection } from "@/components/schools/InterviewIntelSection";
+import { ApplicationTimelineSection } from "@/components/schools/ApplicationTimelineSection";
 import { DetailBottomCTA } from "@/components/schools/DetailBottomCTA";
 import { ReminderSheet } from "@/components/schools/ReminderSheet";
 import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
 import { useAuth } from "@/components/layout/AuthProvider";
 import { useToast } from "@/components/ui/Toast";
 import { DISTRICT_LABELS, formatEnglishSchoolName, isVacancyStale, deadlineStatus } from "@/lib/utils";
-import type { School, Vacancy, DataSource } from "@/types/database";
+import type { School, Vacancy, DataSource, SocialSummary } from "@/types/database";
 import { useCompare } from "@/lib/hooks/useCompare";
 import Link from "next/link";
 
 interface Props {
   school: School;
   vacancy: Vacancy | null;
+  socialSummary?: SocialSummary | null;
 }
 
-export function SchoolDetailClient({ school, vacancy }: Props) {
+export function SchoolDetailClient({ school, vacancy, socialSummary }: Props) {
   const { user, requireAuth } = useAuth();
   const { showToast } = useToast();
   const { addToCompare, removeFromCompare, isInCompare, canAdd } = useCompare();
@@ -163,10 +166,12 @@ export function SchoolDetailClient({ school, vacancy }: Props) {
         </div>
       </div>
 
-      <VacancySection vacancy={vacancy} isStale={stale} deadlineStatus={dlStatus} />
+      <VacancySection vacancy={vacancy} isStale={stale} deadlineStatus={dlStatus} competitionLevel={socialSummary?.competition_level} />
       <BasicInfoSection school={school} />
-      <FeesSection school={school} />
+      <FeesSection school={school} feeEstimates={socialSummary?.fee_estimates} />
       <AdmissionsSection school={school} />
+      {socialSummary && <InterviewIntelSection socialSummary={socialSummary} />}
+      {socialSummary && <ApplicationTimelineSection socialSummary={socialSummary} />}
 
       <DetailBottomCTA
         school={school}

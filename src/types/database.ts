@@ -157,6 +157,52 @@ export interface Reminder {
 }
 
 // ============================================================
+// Social Intelligence (小红书 aggregated data)
+// ============================================================
+
+/** social_summary 表对应类型 */
+export interface SocialSummary {
+  id: string;
+  school_id: string;
+  school_code: string;
+  total_posts: number;
+  total_engagement: number;
+  heat_rank_overall: number | null;
+  heat_rank_district: number | null;
+  interview_posts: number;
+  top_interview_keywords: [string, number][]; // [关键词, 频次]
+  interview_format_distribution: Record<string, number>; // {group: 9, individual: 2, ...}
+  avg_interview_duration: number | null; // 分钟
+  parent_interview_pct: number | null; // 0-100
+  interview_contributor_count: number;
+  sentiment_distribution: { positive: number; neutral: number; negative: number };
+  positive_keywords: Record<string, number>;
+  negative_keywords: Record<string, number>;
+  fee_estimates: Record<string, { low: number; high: number; count: number }>;
+  timeline_summary: Record<string, { typical_month: number; count: number }>;
+  competition_level: "high" | "medium" | "low" | null;
+  data_year_range: string | null; // "2022-2025"
+  last_updated: string;
+  created_at: string;
+}
+
+/** 排行榜项（首页 + 排行页用） */
+export interface HeatRankingItem {
+  school_id: string;
+  school_code: string;
+  name_tc: string;
+  name_en: string | null;
+  district: string;
+  school_type: string;
+  total_posts: number;
+  total_engagement: number;
+  interview_posts: number;
+  heat_rank_overall: number;
+  heat_rank_district: number | null;
+  competition_level: string | null;
+}
+
+// ============================================================
 // Supabase Database interface (for typed client)
 // ============================================================
 

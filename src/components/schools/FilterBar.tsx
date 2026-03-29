@@ -10,9 +10,11 @@ interface FilterBarProps {
   vacancyFilter: string[];
   sessionFilter: string | null;
   hasNurseryFilter: boolean;
+  hasInterviewFilter: boolean;
   onToggleDistrict: (district: District) => void;
   onUpdateFilter: (key: string, value: string | null) => void;
   onToggleVacancy: (status: string) => void;
+  onToggleInterviewFilter: () => void;
 }
 
 export function FilterBar({
@@ -21,13 +23,15 @@ export function FilterBar({
   vacancyFilter,
   sessionFilter,
   hasNurseryFilter,
+  hasInterviewFilter,
   onToggleDistrict,
   onUpdateFilter,
   onToggleVacancy,
+  onToggleInterviewFilter,
 }: FilterBarProps) {
   const [showDistrictFilter, setShowDistrictFilter] = useState(false);
   const [showMoreFilters, setShowMoreFilters] = useState(
-    !!(sessionFilter || hasNurseryFilter)
+    !!(sessionFilter || hasNurseryFilter || hasInterviewFilter)
   );
 
   const pillBase = "px-3 py-1.5 rounded-full text-xs font-medium transition-colors";
@@ -53,7 +57,7 @@ export function FilterBar({
   ];
 
   const moreFilterCount =
-    (sessionFilter ? 1 : 0) + (hasNurseryFilter ? 1 : 0);
+    (sessionFilter ? 1 : 0) + (hasNurseryFilter ? 1 : 0) + (hasInterviewFilter ? 1 : 0);
 
   return (
     <>
@@ -182,6 +186,17 @@ export function FilterBar({
                 className={`${pillBase} ${hasNurseryFilter ? pillActive : pillInactive}`}
               >
                 設有N班
+              </button>
+            </div>
+
+            {/* 有面試分享 */}
+            <div>
+              <h4 className="text-xs font-semibold text-slate-700 mb-2">社交平台資訊</h4>
+              <button
+                onClick={onToggleInterviewFilter}
+                className={`${pillBase} ${hasInterviewFilter ? pillActive : pillInactive}`}
+              >
+                有面試分享
               </button>
             </div>
           </div>

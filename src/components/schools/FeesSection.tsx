@@ -1,15 +1,17 @@
 import { GlassCard } from "@/components/ui/GlassCard";
+import { FEE_TYPE_LABELS } from "@/lib/utils";
 import type { School } from "@/types/database";
 
 interface FeesSectionProps {
   school: School;
+  feeEstimates?: Record<string, { low: number; high: number; count: number }> | null;
 }
 
 function formatCurrency(value: number) {
   return `HK$${value.toLocaleString()}`;
 }
 
-export function FeesSection({ school }: FeesSectionProps) {
+export function FeesSection({ school, feeEstimates }: FeesSectionProps) {
   const hasMonthlyFee = school.fee_monthly_hkd !== null;
   const hasAnnualFee = school.fee_annual_hkd !== null;
   const hasApplicationFee = school.application_fee_hkd !== null;
@@ -100,6 +102,49 @@ export function FeesSection({ school }: FeesSectionProps) {
             註：學費、報名費、留位費及其他收費以學校最新官方公布為準。
           </p>
         </div>
+
+        {/* 家長預估費用 */}
+        {feeEstimates && (() => {
+          const validFees = Object.entries(feeEstimates).filter(([, v]) => v.count >= 3);
+          if (validFees.length === 0) return null;
+          const totalLow = validFees.reduce((s, [, v]) => s + v.low, 0);
+          const totalHigh = validFees.reduce((s, [, v]) => s + v.high, 0);
+          return (
+            <>
+              <div className="border-t border-dashed border-slate-200 my-4" />
+              <div>
+                <h3 className="text-base font-semibold text-slate-950 mb-3">
+                  💡 家長預估費用
+                </h3>
+                <div className="space-y-2">
+                  {validFees.map(([feeType, { low, high, count }]) => (
+                    <div key={feeType} className="flex items-center justify-between">
+                      <span className="text-sm text-slate-700">
+                        {FEE_TYPE_LABELS[feeType] ?? feeType}
+                      </span>
+                      <div className="text-right">
+                        <span className="text-sm font-medium text-slate-700">
+                          約 HK${low.toLocaleString()}-{high.toLocaleString()}
+                        </span>
+                        <span className="text-xs text-slate-400 ml-2">
+                          {count} 位家長預估
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-3 pt-3 border-t border-slate-100">
+                  <p className="text-sm font-semibold text-slate-950">
+                    預計首年額外支出：約 HK${totalLow.toLocaleString()}-{totalHigh.toLocaleString()}
+                  </p>
+                </div>
+                <p className="text-xs text-slate-400 mt-2">
+                  數據來源：網絡公開內容整理，僅供參考
+                </p>
+              </div>
+            </>
+          );
+        })()}
       </GlassCard>
     </section>
   );

@@ -1,6 +1,7 @@
 import { BannerCarousel } from "@/components/home/BannerCarousel";
 import { HeroSearchBar } from "@/components/home/HeroSearchBar";
 import { ParentMustKnow } from "@/components/home/ParentMustKnow";
+import { HeatRanking } from "@/components/home/HeatRanking";
 import { NewsFeed } from "@/components/home/NewsFeed";
 import { FeaturedSchools } from "@/components/home/FeaturedSchools";
 import { getHomepageLiveData } from "@/lib/homepage/liveData";
@@ -20,6 +21,9 @@ export default async function HomePage() {
       <ParentMustKnow
         events={liveData.events}
       />
+
+      {/* 社交平台熱度榜 */}
+      <HeatRanking />
 
       {/* 消息動態 */}
       <NewsFeed items={liveData.newsItems} />

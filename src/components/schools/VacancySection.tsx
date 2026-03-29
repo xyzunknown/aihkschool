@@ -1,15 +1,16 @@
 import { VacancyBadge } from "@/components/schools/VacancyBadge";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { formatDateCN } from "@/lib/utils";
+import { formatDateCN, COMPETITION_CONFIG } from "@/lib/utils";
 import type { Vacancy } from "@/types/database";
 
 interface VacancySectionProps {
   vacancy: Vacancy | null;
   isStale: boolean;
   deadlineStatus: "safe" | "warn" | "urgent" | "past" | null;
+  competitionLevel?: "high" | "medium" | "low" | null;
 }
 
-export function VacancySection({ vacancy, isStale, deadlineStatus: dlStatus }: VacancySectionProps) {
+export function VacancySection({ vacancy, isStale, deadlineStatus: dlStatus, competitionLevel }: VacancySectionProps) {
   return (
     <section className="mb-8">
       <div className="flex items-center justify-between mb-4">
@@ -38,6 +39,18 @@ export function VacancySection({ vacancy, isStale, deadlineStatus: dlStatus }: V
               );
             })}
           </div>
+
+          {/* Competition level reference */}
+          {competitionLevel && COMPETITION_CONFIG[competitionLevel] && (
+            <div className="text-xs text-slate-500 mt-3 pt-3 border-t border-slate-100">
+              📊 競爭參考：
+              <span className={COMPETITION_CONFIG[competitionLevel].color}>
+                {COMPETITION_CONFIG[competitionLevel].label}
+              </span>
+              {" — "}
+              {COMPETITION_CONFIG[competitionLevel].description}
+            </div>
+          )}
 
           {/* Stale warning + deadline — only once at bottom */}
           <div className="mt-4 pt-3 border-t border-slate-100 space-y-1">

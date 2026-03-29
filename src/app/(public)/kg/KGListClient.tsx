@@ -12,7 +12,8 @@ import { useToast } from "@/components/ui/Toast";
 import { useGeolocation, haversineDistance } from "@/lib/hooks/useGeolocation";
 import { useCompare } from "@/lib/hooks/useCompare";
 import { CompareBar } from "@/components/compare/CompareBar";
-import type { District, SchoolType, VacancyStatus } from "@/types/database";
+import { formatFeeEstimateSummary } from "@/lib/utils";
+import type { District, SchoolType, VacancyStatus, SocialSummary } from "@/types/database";
 
 const PAGE_SIZE = 18;
 
@@ -58,6 +59,7 @@ export default function KGListClient() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [favoriteIds, setFavoriteIds] = useState<Set<string>>(new Set());
+  const [socialMap, setSocialMap] = useState<Record<string, SocialSummary>>({});
   const { latitude: userLat, longitude: userLng, requestLocation, loading: geoLoading } = useGeolocation();
   const {
     compareItems,
@@ -78,6 +80,8 @@ export default function KGListClient() {
       vacancyFilter: params.getAll("vacancy"),
       sessionFilter: params.get("session") as string | null,
       hasNurseryFilter: params.get("hasNursery") === "true",
+      hasInterviewFilter: params.get("hasInterview") === "true",
+      sortBy: params.get("sort") ?? "default",
       searchQuery: params.get("search") ?? "",
       page: parseInt(params.get("page") ?? "1", 10),
     };
@@ -89,6 +93,8 @@ export default function KGListClient() {
     vacancyFilter,
     sessionFilter,
     hasNurseryFilter,
+    hasInterviewFilter,
+    sortBy,
     searchQuery,
     page,
   } = filters;
@@ -113,8 +119,28 @@ export default function KGListClient() {
       if (json.error) {
         setError(json.error.message);
       } else {
-        setSchools(json.data ?? []);
+        const schoolsData: SchoolData[] = json.data ?? [];
+        setSchools(schoolsData);
         setCount(json.count ?? 0);
+
+        // Fetch social summaries for current page of schools
+        if (schoolsData.length > 0) {
+          try {
+            const ids = schoolsData.map((s) => s.id);
+            const socialRes = await fetch("/api/social-summaries", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ schoolIds: ids }),
+            });
+            const socialJson = await socialRes.json();
+            setSocialMap(socialJson.data ?? {});
+          } catch {
+            // Non-critical: social data unavailable
+            setSocialMap({});
+          }
+        } else {
+          setSocialMap({});
+        }
       }
     } catch {
       setError("載入失敗，請稍後再試");
@@ -198,6 +224,44 @@ export default function KGListClient() {
     router.push(`/kg?${params.toString()}`);
   };
 
+  const toggleInterviewFilter = () => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (hasInterviewFilter) { params.delete("hasInterview"); } else { params.set("hasInterview", "true"); }
+    params.set("page", "1");
+    router.push(`/kg?${params.toString()}`);
+  };
+
+  const handleSortChange = (value: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (value === "default") { params.delete("sort"); } else { params.set("sort", value); }
+    params.set("page", "1");
+    router.push(`/kg?${params.toString()}`);
+  };
+
+  // Client-side filtering for interview filter + sorting by heat
+  const displaySchools = useMemo(() => {
+    let filtered = schools;
+
+    // Filter: only schools with interview data
+    if (hasInterviewFilter) {
+      filtered = filtered.filter((s) => {
+        const social = socialMap[s.id];
+        return social && social.interview_posts >= 3;
+      });
+    }
+
+    // Sort by heat (total_posts descending) — client side for current page
+    if (sortBy === "heat") {
+      filtered = [...filtered].sort((a, b) => {
+        const aTotal = socialMap[a.id]?.total_posts ?? 0;
+        const bTotal = socialMap[b.id]?.total_posts ?? 0;
+        return bTotal - aTotal;
+      });
+    }
+
+    return filtered;
+  }, [schools, socialMap, hasInterviewFilter, sortBy]);
+
   const toggleDistrict = (district: District) => {
     const params = new URLSearchParams(searchParams.toString());
     const current = params.getAll("district");
@@ -239,9 +303,11 @@ export default function KGListClient() {
         vacancyFilter={vacancyFilter}
         sessionFilter={sessionFilter}
         hasNurseryFilter={hasNurseryFilter}
+        hasInterviewFilter={hasInterviewFilter}
         onToggleDistrict={toggleDistrict}
         onUpdateFilter={updateFilter}
         onToggleVacancy={toggleVacancy}
+        onToggleInterviewFilter={toggleInterviewFilter}
       />
 
       {loading ? (
@@ -262,31 +328,42 @@ export default function KGListClient() {
         <>
           <div className="flex items-center justify-between mb-4">
             <p className="text-sm text-slate-500">共 {count} 所學校</p>
-            {!userLat && (
-              <button
-                onClick={requestLocation}
-                disabled={geoLoading}
-                className="flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-700 transition-colors"
+            <div className="flex items-center gap-3">
+              {/* Sort dropdown */}
+              <select
+                value={sortBy}
+                onChange={(e) => handleSortChange(e.target.value)}
+                className="text-xs border border-slate-200 rounded-lg px-2 py-1.5 bg-white text-slate-600 focus:outline-none focus:ring-1 focus:ring-slate-300"
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="12" y1="2" x2="12" y2="6" />
-                  <line x1="12" y1="18" x2="12" y2="22" />
-                  <line x1="2" y1="12" x2="6" y2="12" />
-                  <line x1="18" y1="12" x2="22" y2="12" />
-                </svg>
-                {geoLoading ? "定位中…" : "顯示距離"}
-              </button>
-            )}
-            {userLat && (
-              <span className="text-xs text-emerald-600 flex items-center gap-1">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2l-3.5-3.5L4.1 14.1 9 19 20.4 7.6 19 6.2z"/></svg>
-                已定位
-              </span>
-            )}
+                <option value="default">預設排序</option>
+                <option value="heat">討論熱度</option>
+              </select>
+              {!userLat && (
+                <button
+                  onClick={requestLocation}
+                  disabled={geoLoading}
+                  className="flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-700 transition-colors"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="2" x2="12" y2="6" />
+                    <line x1="12" y1="18" x2="12" y2="22" />
+                    <line x1="2" y1="12" x2="6" y2="12" />
+                    <line x1="18" y1="12" x2="22" y2="12" />
+                  </svg>
+                  {geoLoading ? "定位中…" : "顯示距離"}
+                </button>
+              )}
+              {userLat && (
+                <span className="text-xs text-emerald-600 flex items-center gap-1">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2l-3.5-3.5L4.1 14.1 9 19 20.4 7.6 19 6.2z"/></svg>
+                  已定位
+                </span>
+              )}
+            </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {schools.map((school) => {
+            {displaySchools.map((school) => {
               const currentVacancy = school.vacancies?.[0];
               const vacancy = currentVacancy ? {
                 n_vacancy: currentVacancy.n_vacancy,
@@ -300,6 +377,12 @@ export default function KGListClient() {
                 userLat && userLng && school.latitude && school.longitude
                   ? haversineDistance(userLat, userLng, school.latitude, school.longitude)
                   : undefined;
+
+              const social = socialMap[school.id];
+              const heatRank = social?.heat_rank_overall ?? null;
+              const feeEstimate = social?.fee_estimates
+                ? formatFeeEstimateSummary(social.fee_estimates)
+                : null;
 
               return (
                 <SchoolCard
@@ -327,6 +410,8 @@ export default function KGListClient() {
                       addToCompare({ id: school.id, nameTc: school.name_tc, logoUrl: school.logo_url });
                     }
                   }}
+                  heatRank={heatRank}
+                  feeEstimate={feeEstimate}
                 />
               );
             })}

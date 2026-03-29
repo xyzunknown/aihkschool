@@ -227,3 +227,73 @@ export function formatEnglishSchoolName(name: string | null | undefined): string
     return word.charAt(0) + word.slice(1).toLowerCase();
   });
 }
+
+// ============================================================
+// Social Intelligence — constants & mappings
+// ============================================================
+
+/** 家長預估費用類型中文映射 */
+export const FEE_TYPE_LABELS: Record<string, string> = {
+  textbook: "教材費",
+  uniform: "校服費",
+  activity: "活動費",
+  snack: "茶點費",
+  bus: "校巴費",
+  registration: "報名費/註冊費",
+  deposit: "留位費",
+  other: "其他費用",
+};
+
+/** 面試形式中文映射 */
+export const INTERVIEW_FORMAT_LABELS: Record<string, string> = {
+  individual: "一對一",
+  group: "小組",
+  parent_interview: "家長面談",
+  observation: "觀察活動",
+  mixed: "混合形式",
+};
+
+/** 申請時間線事件配置 */
+export const TIMELINE_EVENT_CONFIG: Record<string, { label: string; icon: string }> = {
+  application_open: { label: "報名開始", icon: "📋" },
+  application_close: { label: "報名截止", icon: "⏰" },
+  interview_notice: { label: "面試通知", icon: "📩" },
+  interview: { label: "面試", icon: "🎤" },
+  result: { label: "放榜", icon: "📬" },
+  offer_deadline: { label: "回覆Offer截止", icon: "✅" },
+};
+
+/** 月份中文標籤 */
+export const MONTH_LABELS = [
+  "", "1月", "2月", "3月", "4月", "5月", "6月",
+  "7月", "8月", "9月", "10月", "11月", "12月",
+];
+
+/** 竞争度配置 */
+export const COMPETITION_CONFIG: Record<string, { label: string; color: string; description: string; pillBg: string; pillText: string }> = {
+  high: { label: "較高", color: "text-red-600", description: "多位家長反映面試分多輪，報名人數眾多", pillBg: "bg-red-50", pillText: "text-red-700" },
+  medium: { label: "一般", color: "text-amber-600", description: "面試競爭度適中", pillBg: "bg-amber-50", pillText: "text-amber-700" },
+  low: { label: "較低", color: "text-emerald-600", description: "面試競爭壓力較小", pillBg: "bg-emerald-50", pillText: "text-emerald-700" },
+};
+
+/** 情感分布配置 */
+export const SENTIMENT_CONFIG = [
+  { key: "positive" as const, label: "正面", barColor: "bg-emerald-200", textColor: "text-emerald-700" },
+  { key: "neutral" as const, label: "中性", barColor: "bg-slate-200", textColor: "text-slate-500" },
+  { key: "negative" as const, label: "需留意", barColor: "bg-amber-200", textColor: "text-amber-700" },
+];
+
+/**
+ * 格式化家長預估費用為字符串 (SchoolCard 用)
+ * 把所有費用類型的 low 求和、high 求和
+ */
+export function formatFeeEstimateSummary(
+  feeEstimates: Record<string, { low: number; high: number; count: number }> | null | undefined,
+): string | null {
+  if (!feeEstimates) return null;
+  const entries = Object.values(feeEstimates).filter((e) => e.count >= 3);
+  if (entries.length === 0) return null;
+  const totalLow = entries.reduce((s, e) => s + e.low, 0);
+  const totalHigh = entries.reduce((s, e) => s + e.high, 0);
+  return `家長預估費用約 HK$${totalLow.toLocaleString()}-${totalHigh.toLocaleString()}/年`;
+}
