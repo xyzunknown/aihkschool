@@ -7,6 +7,7 @@ import { useAuth } from "@/components/layout/AuthProvider";
 
 const NAV_ITEMS = [
   { href: "/kg", label: "搵學校" },
+  { href: "/timeline", label: "時間線" },
   { href: "/news", label: "資訊" },
   { href: "/account", label: "我的收藏" },
 ] as const;
@@ -30,7 +31,9 @@ export function Header() {
             const isActive =
               item.href === "/kg"
                 ? pathname.startsWith("/kg")
-                : pathname === item.href;
+                : item.href === "/timeline"
+                  ? pathname.startsWith("/timeline")
+                  : pathname === item.href;
             return (
               <Link
                 key={item.href}

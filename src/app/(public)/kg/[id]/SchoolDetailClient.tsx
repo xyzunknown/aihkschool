@@ -14,6 +14,7 @@ import { useAuth } from "@/components/layout/AuthProvider";
 import { useToast } from "@/components/ui/Toast";
 import { DISTRICT_LABELS, formatEnglishSchoolName, isVacancyStale, deadlineStatus } from "@/lib/utils";
 import type { School, Vacancy, DataSource } from "@/types/database";
+import { useCompare } from "@/lib/hooks/useCompare";
 import Link from "next/link";
 
 interface Props {
@@ -24,6 +25,7 @@ interface Props {
 export function SchoolDetailClient({ school, vacancy }: Props) {
   const { user, requireAuth } = useAuth();
   const { showToast } = useToast();
+  const { addToCompare, removeFromCompare, isInCompare, canAdd } = useCompare();
   const [isFavorited, setIsFavorited] = useState(false);
   const [showReminderSheet, setShowReminderSheet] = useState(false);
   const [showUnfavoriteConfirm, setShowUnfavoriteConfirm] = useState(false);
@@ -170,6 +172,14 @@ export function SchoolDetailClient({ school, vacancy }: Props) {
         school={school}
         isFavorited={isFavorited}
         onToggleFavorite={handleToggleFavorite}
+        isInCompare={isInCompare(school.id)}
+        onToggleCompare={() => {
+          if (isInCompare(school.id)) {
+            removeFromCompare(school.id);
+          } else if (canAdd) {
+            addToCompare({ id: school.id, nameTc: school.name_tc, logoUrl: school.logo_url });
+          }
+        }}
       />
 
       <ReminderSheet

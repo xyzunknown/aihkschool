@@ -68,7 +68,15 @@ export function ParentMustKnow({ events }: ParentMustKnowProps) {
 
   return (
     <section className="mb-10">
-      <h2 className="mb-6 text-xl font-semibold text-slate-950">近期家長必知</h2>
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-xl font-semibold text-slate-950">近期家長必知</h2>
+        <Link
+          href="/timeline"
+          className="text-sm font-medium text-slate-500 hover:text-slate-700 transition-colors"
+        >
+          查看完整時間線 →
+        </Link>
+      </div>
 
       {hasEvents ? (
         <div className="overflow-x-auto snap-x snap-mandatory flex gap-4 pb-2 hide-scrollbar">

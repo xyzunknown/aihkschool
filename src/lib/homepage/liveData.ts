@@ -86,6 +86,8 @@ const MAX_NEWS_AGE_DAYS = 60;
 const MAX_EVENT_FUTURE_DAYS = 30;
 /** Keep past events for 7 days after they occurred */
 const MAX_EVENT_PAST_DAYS = 7;
+/** Timeline page: show events up to 90 days in the future */
+const MAX_TIMELINE_FUTURE_DAYS = 90;
 
 /* ─── Text helpers ─── */
 
@@ -423,6 +425,17 @@ function isEventInWindow(dateIso: string): boolean {
   return diffDays >= -MAX_EVENT_PAST_DAYS && diffDays <= MAX_EVENT_FUTURE_DAYS;
 }
 
+function isEventInTimelineWindow(dateIso: string): boolean {
+  const eventDate = parseDate(dateIso);
+  if (!eventDate) return false;
+
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const diffDays = (eventDate.getTime() - today.getTime()) / (24 * 60 * 60 * 1000);
+
+  return diffDays >= -MAX_EVENT_PAST_DAYS && diffDays <= MAX_TIMELINE_FUTURE_DAYS;
+}
+
 function isEventPast(dateIso: string): boolean {
   const eventDate = parseDate(dateIso);
   if (!eventDate) return false;
@@ -542,6 +555,114 @@ async function getSchoolEvents(): Promise<SchoolEventItem[]> {
   });
 
   return sorted.length > 0 ? sorted : SCHOOL_EVENTS;
+}
+
+/** Compute days from today to event date (negative = past) */
+function computeDaysUntil(dateIso: string): number {
+  const eventDate = parseDate(dateIso);
+  if (!eventDate) return 0;
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  return Math.ceil((eventDate.getTime() - today.getTime()) / (24 * 60 * 60 * 1000));
+}
+
+/**
+ * Fetch all school events for the timeline page (90-day window).
+ * Also enriches events with days_until and school metadata from schools_merged.json.
+ */
+export async function getAllSchoolEvents(): Promise<SchoolEventItem[]> {
+  const [rows, schoolList] = await Promise.all([
+    readSchoolEnrichment(),
+    readSchoolList(),
+  ]);
+  if (rows.length === 0) return SCHOOL_EVENTS.map((e) => ({ ...e, days_until: computeDaysUntil(e.date_iso) }));
+
+  // Map school_code → metadata for district/school_type lookup
+  const schoolMap = new Map(schoolList.map((row) => [row.code, row]));
+  // Map name_tc → school metadata (enrichment doesn't always have school_code)
+  const schoolByName = new Map(schoolList.map((row) => [row.name_tc, row]));
+
+  const events: SchoolEventItem[] = [];
+  let counter = 0;
+
+  for (const row of rows) {
+    const schoolMeta =
+      schoolMap.get(row.school_code ?? "") ??
+      schoolByName.get(row.name_tc ?? "") ??
+      null;
+
+    const schoolType = schoolMeta?.school_type ?? "private_independent";
+    const district = schoolMeta?.district ?? undefined;
+
+    // Open day events
+    if (
+      row.open_day_url &&
+      !BLOCKED_URL_REGEX.test(row.open_day_url) &&
+      OPEN_DAY_REGEX.test(`${row.open_day_details || ""} ${row.open_day_url}`)
+    ) {
+      const details = cleanText(row.open_day_details || "");
+      const dateIso = extractIsoDate(details);
+      const dateLabel = extractDateLabel(details);
+      const { type, label } = detectEventType(details, row.open_day_url);
+
+      if (dateIso && isEventInTimelineWindow(dateIso)) {
+        counter += 1;
+        events.push({
+          id: `tl-od-${counter}`,
+          school_name: toSchoolName(row),
+          school_type: schoolType,
+          district,
+          date: dateLabel ? `${dateLabel} ${label}` : label,
+          date_iso: dateIso,
+          event_type: type,
+          event_label: label,
+          href: row.open_day_url,
+          detail_href: toSearchHref(row),
+          is_past: isEventPast(dateIso),
+          days_until: computeDaysUntil(dateIso),
+        });
+      }
+    }
+
+    // Admission/interview events
+    if (
+      row.application_url &&
+      !BLOCKED_URL_REGEX.test(row.application_url) &&
+      ADMISSION_REGEX.test(`${row.application_details || ""} ${row.application_url}`)
+    ) {
+      const details = cleanText(row.application_details || "");
+      const dateIso = extractIsoDate(details);
+      const dateLabel = extractDateLabel(details);
+
+      if (dateIso && isEventInTimelineWindow(dateIso)) {
+        const { type, label } = detectEventType(details, row.application_url);
+        counter += 1;
+        events.push({
+          id: `tl-adm-${counter}`,
+          school_name: toSchoolName(row),
+          school_type: schoolType,
+          district,
+          date: dateLabel ? `${dateLabel} ${label}` : label,
+          date_iso: dateIso,
+          event_type: type,
+          event_label: label,
+          href: row.application_url,
+          detail_href: toSearchHref(row),
+          is_past: isEventPast(dateIso),
+          days_until: computeDaysUntil(dateIso),
+        });
+      }
+    }
+  }
+
+  const sorted = uniqueByHref(events).sort((a, b) => {
+    if (a.is_past !== b.is_past) return a.is_past ? 1 : -1;
+    return a.date_iso.localeCompare(b.date_iso);
+  });
+
+  return sorted.length > 0
+    ? sorted
+    : SCHOOL_EVENTS.map((e) => ({ ...e, days_until: computeDaysUntil(e.date_iso) }));
 }
 
 /* ─── Banner generation ─── */

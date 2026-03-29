@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **HKSchoolPlace** is a mobile-first web app helping Hong Kong parents find, compare, and track kindergarten (幼稚園) applications. It aggregates EDB vacancy data, school basics, and parent-submitted interview intel into one place, with Google login, school favouriting, and email deadline reminders.
 
-**Status:** Pre-build specification phase. All specs are complete in the .docx files; no application code exists yet.
+**Status:** Active development. Core pages (homepage, school list, school detail, account) are built. News section and advanced features (compare, timeline) are in progress.
 
 **V1 scope:** Kindergartens only (N/K1/K2/K3). Solo developer project.
 
@@ -52,10 +52,11 @@ src/
       page.tsx              # / — Homepage (static)
       kg/
         page.tsx            # /kg — KG list (ISR 3600s)
+        KGListClient.tsx    # /kg — Client-side list with filters, geolocation, pagination
         [id]/page.tsx       # /kg/[id] — Detail (ISR 3600s)
-      submit/page.tsx       # /submit — Submit intel (static)
+        [id]/SchoolDetailClient.tsx  # Detail page client interactions
       news/
-        page.tsx            # /news — Full news list with category filters
+        page.tsx            # /news — Full news list with category filters (planned)
         [id]/page.tsx       # /news/[id] — Local article page (EDB/GovHK)
     (auth)/                 # Auth-required routes
       account/page.tsx      # /account — User account (dynamic)
@@ -63,24 +64,29 @@ src/
       schools/route.ts
       vacancies/route.ts
       favorites/route.ts
-      intel/route.ts
       news/route.ts
       cron/reminders/route.ts
   components/
     ui/                     # Base: Button, Card, Toast, Skeleton, BottomSheet
-    schools/                # Domain: SchoolCard, VacancyBadge
+    schools/                # Domain: SchoolCard, VacancyBadge, FilterBar, SchoolAvatar
     home/                   # Homepage: BannerCarousel, BannerSlide, ParentMustKnow, NewsFeed, FeaturedSchools, HeroSearchBar
-    layout/                 # Header, Footer
+    layout/                 # Header, Footer, AuthProvider
   lib/
     supabase/
       client.ts             # Browser Supabase client
       server.ts             # Server Supabase client
       middleware.ts          # Auth middleware
     db/                     # All DB query functions (never write SQL in route handlers)
-      schools.ts
+      schools.ts            # fetchSchools (with migration fallback), fetchSchoolById, searchSchools
       vacancies.ts
-      intel.ts
       favorites.ts
+      schoolNameFallback.ts # CSV-based English name fallback
+    homepage/
+      liveData.ts           # Live data fetching: getSchoolEvents, getLatestNews, getFeaturedSchools
+    schools/
+      admissions.ts         # Admission status labels, getAdmissionSummary, shouldShowAdmissionSummary
+    hooks/
+      useGeolocation.ts     # Browser geolocation hook + haversineDistance() utility
     email/
       resend.ts             # Resend wrapper
       templates/            # Email templates
@@ -88,13 +94,15 @@ src/
   types/
     database.ts             # Supabase-generated (never hand-edit)
     api.ts                  # Request/response types
-    homepage.ts             # Banner, OpenDay, Deadline, News, FeaturedSchool types
+    homepage.ts             # Banner, OpenDay, Deadline, News, FeaturedSchool, SchoolEventItem types
   data/
     homepage.ts             # Static homepage content (banners, news, featured schools)
 
 supabase/
   migrations/               # Numbered: 001_create_schools.sql, 002_...
   seed/
+scripts/
+  regenerate_seed.py        # Generates seed SQL from schools_merged.json
 ```
 
 ## Database Architecture
@@ -112,6 +120,15 @@ supabase/
 - Migrations numbered sequentially; never modify an already-run migration
 - Never use `SELECT *` — always name columns
 - No JOINs spanning more than 3 tables
+
+### Migration Fallback Pattern
+
+`fetchSchools()` and `fetchSchoolById()` in `src/lib/db/schools.ts` use a resilient query pattern:
+1. Try full query with all columns (including newer ones from migrations 006/008: `has_nursery`, `latitude`, `longitude`, `application_status`, `application_details`, `application_url`)
+2. If error mentions a missing column name → retry with legacy column set (omitting those columns)
+3. Fill missing columns with defaults in-memory (`has_nursery: false`, `latitude: null`, etc.)
+
+This allows the app to work even if newer migrations haven't been applied to the production database yet. Both `FULL_LIST_SELECT` and `LEGACY_LIST_SELECT` constants are defined in `schools.ts`.
 
 ### Vacancy Update Protocol
 
@@ -159,7 +176,7 @@ supabase/
 - If data exists → display with source tag (`教育局官方` / `學校公佈` / `家長提交` / `推算`) and timestamp
 - If data missing → show `[暫無資料]` and link to school website
 - Never display uncertain data
-- Private/international schools: never show EDB vacancy (they don't participate in KEP) — show `check_school` with phone number
+- Private/international schools: never show EDB vacancy (they don't participate in KEP) — show admission status from `src/lib/schools/admissions.ts` (接受申請中/全年接受申請/官網招生/本輪未開放/請聯繫學校查詢) when available, otherwise show `check_school` with phone number
 
 ### Auth Flow
 
@@ -186,13 +203,13 @@ All user-facing text must be **Traditional Chinese (粵語風格)**. Use convers
 ### Navigation Bar
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  HKSchoolPlace     搵學校  ·  分享心得  ·  我的收藏    🔍  登入  │
-└─────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│  HKSchoolPlace     搵學校  ·  時間線  ·  資訊  ·  我的收藏    🔍  登入  │
+└──────────────────────────────────────────────────────────────────┘
 ```
 
 - **Logo** (left): "HKSchoolPlace" text, links to `/`
-- **Nav items** (center): `搵學校` → `/kg` · `分享心得` → `/submit` · `我的收藏` → `/account`
+- **Nav items** (center): `搵學校` → `/kg` · `時間線` → `/timeline` · `資訊` → `/news` · `我的收藏` → `/account`
 - **Right**: Search icon (magnifier) + `登入` button (dark pill `bg-slate-950 text-white rounded-full px-4 py-2 text-sm`)
 - Logged-in state: `登入` replaced by user avatar circle, click → `/account`
 - Active nav item: underline indicator (2px `slate-950`)
@@ -200,7 +217,7 @@ All user-facing text must be **Traditional Chinese (粵語風格)**. Use convers
 
 ### Footer
 
-4 columns: brand + tagline | 網站導覽 (sitemap links) | 支援服務 (聯絡我們, 服務條款, 私隱政策) | 訂閱電子報 (email input + 訂閱 button). Copyright: `© 2026 HKSchoolPlace`.
+3 columns: brand + tagline | 網站導覽 (搵學校, 消息動態, 我的收藏) | 支援服務 (聯絡我們, 服務條款, 私隱政策 — placeholder links with `cursor-not-allowed`). Copyright: `© 2026 HKSchoolPlace`. Newsletter subscription removed.
 
 ## Design System
 
@@ -312,10 +329,10 @@ Tags/pills: `rounded-full` (99px) · Buttons: `rounded-xl` (14px) · Cards: `rou
 Top-to-bottom sections:
 
 1. **Hero Banner** — 1-3 slide carousel with Ken Burns animation on background images. Each slide uses one of 3 text layout templates (`classic` / `event` / `minimal`) defined in `src/types/homepage.ts`. Auto-rotates every 8s, pauses on hover. Images stored in `public/images/banners/`. Below banner: search bar + quick-filter pills.
-2. **近期家長必知** — Horizontal scroll event cards (open days, interviews, briefings, deadlines, trials, talks) + full-width dark card below with parent intel. Events filtered by time window: future 30 days + past 7 days (greyed). No "招生進行中" (long-term status doesn't belong here). Fallback: "目前暫無近期學校活動資訊".
+2. **近期家長必知** — Horizontal scroll event cards (open days, interviews, briefings, deadlines, trials, talks). Events filtered by time window: future 30 days + past 7 days (greyed). No "招生進行中" (long-term status doesn't belong here). Fallback: "目前暫無近期學校活動資訊". Note: the dark "家長心得" insight card has been removed from this section.
 3. **消息動態** — 3 items max. Sources: EDB (TC RSS), GovHK, HK01. Categories: 政府信息 / 媒體信息 / 學校信息. Government items link to local `/news/[id]` page; media/school items open external. "查看更多 →" links to `/news`.
-4. **精選名校** — 3-col grid of curated/ranked schools. Supports future ad slot.
-5. **Footer** (unchanged).
+4. **精選名校** — 3-col grid of curated/ranked schools with K1/K2/K3 vacancy status badges. Supports future ad slot.
+5. **Footer**.
 
 #### Banner Carousel Rules
 
@@ -358,38 +375,45 @@ No sidebar navigation. Single-page layout:
 
 ### List Page (`/kg`)
 
-**Layout**: Left filter sidebar (desktop) / top filter bar (mobile) + right 2-column card grid.
+**Layout**: Search bar + FilterBar (top) + 3-column card grid (desktop) / stacked (mobile). Geolocation toggle button for distance display.
 
-**Filter sidebar** (3 groups):
-- 地區位置: checkbox list of 18 districts, max 3 selected at once
-- 學位狀態: pill toggles — 尚有學額 / 學額緊張 / 學位已滿 (multi-select)
+**FilterBar** (`src/components/schools/FilterBar.tsx`) — 4 filter groups:
+- 地區位置: dropdown with checkbox list of 18 districts
+- 學位狀態: pill toggles — 有位 / 满额 / 候补 / 待更新 (multi-select)
 - 學校類別: radio buttons — 全部 / 非牟利 / 私立獨立 / 國際
+- 更多篩選 (expandable): 上課時段 (session type) + 設有N班 (nursery filter)
+
+**Geolocation**: 「📍 顯示距離」button triggers browser location permission. Once granted, each school card shows distance (km or m) after district name. Uses `useGeolocation()` hook + `haversineDistance()` from `src/lib/hooks/useGeolocation.ts`. Requires `latitude`/`longitude` columns in schools table (migration 008).
 
 **School card layout** (in grid):
 ```
 ┌──────────────────────────────┐
-│  [Avatar]        [K1 badge]  │
-│                  [K2 badge]  │
-│  學校中文名                    │
-│  School English Name         │
-│  📍 地區                      │
+│  [Avatar]  學校中文名          │
+│            English Name       │
+│  📍 地區 · 1.2km              │
+│  [半日班] [全日班] [非牟利]     │
 │                              │
-│  2小時前更新      查看詳情 →    │
+│  K1 有位  K2 满额  K3 有位    │
+│            ♡ 查看詳情 →       │
 └──────────────────────────────┘
 ```
 
-**Sorting**: default → has vacancy → nearest deadline → most recently updated. Search: 300ms debounce on `name_tc` + `name_en`. Filter state persisted in URL query string.
+**Tags on cards**: Session tags (半日班/全日班) from `getSessionTags(session_type)`, N班 tag from `hasNurseryClass(grades_offered)`, school type tag (非牟利/私立獨立/國際). All tags render identically regardless of school type — if tags are missing, it's a data issue (NULL `session_type` or empty `grades_offered`).
+
+**Sorting**: default → has vacancy → nearest deadline → most recently updated. Search: 300ms debounce on `name_tc` + `name_en`. Filter state persisted in URL query string. Pagination with page display.
+
+**Private/international schools**: Show admission summary badge (接受申請中/全年接受申請/官網招生 etc.) from `src/lib/schools/admissions.ts` instead of EDB vacancy badges, when `shouldShowAdmissionSummary()` returns true.
 
 ### Detail Page
 
 4 sections in order:
 
-1. **即時學額狀態** — One card per grade (N/K1/K2/K3), each showing vacancy status icon + status text + supplementary note (e.g. 「預計輪候等同：12 個月」). Include 「回報更新」 link for community corrections. If `edb_published_date` present, show 「最後更新：[date]」.
+1. **即時學額狀態** — Single card with compact 2-col (mobile) / 4-col (desktop) grid showing all grades (N/K1/K2/K3) with vacancy status badges. Stale data warning and application deadline info consolidated once at the bottom of the card (not repeated per grade). If `edb_published_date` > 30 days → show grey "請查閱官網". For private/international schools with admission info, show admission status section (`src/components/schools/AdmissionsSection.tsx`).
 2. **學校概況** — Address, website link, phone. Stats pills: 師生比例, 校舍面積 (if available, otherwise omit — never show `[暫無資料]` for stats pills). Reserve map placeholder (`aspect-[4/3] rounded-2xl bg-slate-100` with 「在 Google 地圖中開啟」 link).
 3. **學費及各項收費** — Comparison table with columns: 項目 / 半日制 / 全日制. Rows: 每月學費, 報名費, 年度教材費, 茶點費, etc. Footer note: 「註：校園及其他學費詳情內容以官方公佈為準。」If school only offers one session type, single-column layout.
-4. **家長心得與評價** — Max 3 intel entries. Each card: star rating (1–5), quoted text (truncate at 80 chars), author display name, date. 「撰寫評論」 link triggers login if needed. 「查看全部」 expands remaining entries.
+4. **家長心得與評價** — Planned but intel submission (`/submit`) and intel components (`IntelSection`, `IntelCard`, `IntelSubmitForm`) have been removed. To be redesigned.
 
-Fixed bottom CTA bar with primary action: 「申請 [year] 入學」 + secondary: 「下載學校簡介」(links to school website).
+Fixed bottom CTA bar with primary action: 「申請 [YYYY/YY] 入學」(academic year calculated dynamically: if current month ≥ September → next year, else current year). Secondary "download" button removed.
 
 ## Naming Conventions
 

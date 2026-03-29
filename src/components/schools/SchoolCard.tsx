@@ -36,6 +36,8 @@ interface SchoolCardProps {
   isFavorited?: boolean;
   onToggleFavorite?: () => void;
   distanceKm?: number;
+  isInCompare?: boolean;
+  onToggleCompare?: () => void;
 }
 
 export function SchoolCard({
@@ -54,6 +56,8 @@ export function SchoolCard({
   isFavorited = false,
   onToggleFavorite,
   distanceKm,
+  isInCompare = false,
+  onToggleCompare,
 }: SchoolCardProps) {
   const router = useRouter();
   const stale = vacancy ? isVacancyStale(vacancy.edb_published_date) : true;
@@ -102,15 +106,33 @@ export function SchoolCard({
             <p className="text-sm text-slate-400 leading-snug mt-0.5 line-clamp-1">{secondaryName}</p>
           )}
         </div>
-        {/* Favorite button — no border */}
-        <button
-          className="flex-shrink-0 p-1 -mr-1 -mt-0.5"
-          onClick={(e) => {
-            e.stopPropagation();
-            onToggleFavorite?.();
-          }}
-          aria-label={isFavorited ? "取消收藏" : "加入收藏"}
-        >
+        {/* Favorite + Compare buttons */}
+        <div className="flex-shrink-0 flex items-center gap-0.5">
+          {/* Compare button */}
+          {onToggleCompare && (
+            <button
+              className="p-1"
+              onClick={(e) => {
+                e.stopPropagation();
+                onToggleCompare();
+              }}
+              aria-label={isInCompare ? "取消對比" : "加入對比"}
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={isInCompare ? "#0ea5e9" : "#cbd5e1"} strokeWidth="1.5">
+                <rect x="3" y="3" width="8" height="18" rx="1.5" fill={isInCompare ? "#e0f2fe" : "none"} />
+                <rect x="13" y="3" width="8" height="18" rx="1.5" fill={isInCompare ? "#e0f2fe" : "none"} />
+              </svg>
+            </button>
+          )}
+          {/* Favorite button */}
+          <button
+            className="p-1 -mr-1"
+            onClick={(e) => {
+              e.stopPropagation();
+              onToggleFavorite?.();
+            }}
+            aria-label={isFavorited ? "取消收藏" : "加入收藏"}
+          >
           {isFavorited ? (
             <svg width="28" height="28" viewBox="0 0 24 24" fill="#f59e0b" stroke="none" className="animate-heart-fill">
               <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
@@ -121,6 +143,7 @@ export function SchoolCard({
             </svg>
           )}
         </button>
+        </div>
       </div>
 
       {/* Row 2: District + Distance */}

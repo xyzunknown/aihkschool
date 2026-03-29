@@ -10,6 +10,8 @@ import { FilterBar } from "@/components/schools/FilterBar";
 import { useAuth } from "@/components/layout/AuthProvider";
 import { useToast } from "@/components/ui/Toast";
 import { useGeolocation, haversineDistance } from "@/lib/hooks/useGeolocation";
+import { useCompare } from "@/lib/hooks/useCompare";
+import { CompareBar } from "@/components/compare/CompareBar";
 import type { District, SchoolType, VacancyStatus } from "@/types/database";
 
 const PAGE_SIZE = 18;
@@ -57,6 +59,15 @@ export default function KGListClient() {
   const [error, setError] = useState<string | null>(null);
   const [favoriteIds, setFavoriteIds] = useState<Set<string>>(new Set());
   const { latitude: userLat, longitude: userLng, requestLocation, loading: geoLoading } = useGeolocation();
+  const {
+    compareItems,
+    addToCompare,
+    removeFromCompare,
+    clearCompare,
+    isInCompare,
+    compareUrl,
+    canAdd,
+  } = useCompare();
 
   const filters = useMemo(() => {
     const params = new URLSearchParams(queryString);
@@ -308,6 +319,14 @@ export default function KGListClient() {
                   isFavorited={favoriteIds.has(school.id)}
                   onToggleFavorite={() => handleToggleFavorite(school.id)}
                   distanceKm={distanceKm}
+                  isInCompare={isInCompare(school.id)}
+                  onToggleCompare={() => {
+                    if (isInCompare(school.id)) {
+                      removeFromCompare(school.id);
+                    } else if (canAdd) {
+                      addToCompare({ id: school.id, nameTc: school.name_tc, logoUrl: school.logo_url });
+                    }
+                  }}
                 />
               );
             })}
@@ -326,6 +345,14 @@ export default function KGListClient() {
           )}
         </>
       )}
+
+      {/* Compare floating bar */}
+      <CompareBar
+        items={compareItems}
+        compareUrl={compareUrl}
+        onRemove={removeFromCompare}
+        onClear={clearCompare}
+      />
     </div>
   );
 }
