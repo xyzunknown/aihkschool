@@ -5,7 +5,7 @@ import {
   getAdmissionSummary,
   shouldShowAdmissionSummary,
 } from "@/lib/schools/admissions";
-import type { School, District, SchoolType } from "@/types/database";
+import type { School, District, SchoolType, VacancyStatus } from "@/types/database";
 
 export interface FetchSchoolsParams {
   districts?: District[];
@@ -20,18 +20,35 @@ export interface FetchSchoolsParams {
   limit?: number;
 }
 
-export async function fetchSchools(params: FetchSchoolsParams = {}) {
-  const supabase = await createClient();
+const FULL_LIST_SELECT = `id, school_code, name_tc, name_en, district, phone, website, logo_url,
+  school_type, kep_participant, session_type, language_primary, has_nursery,
+  latitude, longitude,
+  fee_monthly_hkd, application_status, application_details, application_url,
+  grades_offered, data_source, last_verified_at,
+  is_active, created_at, updated_at,
+  vacancies ( id, academic_year, k1_vacancy, k2_vacancy, k3_vacancy, n_vacancy, application_deadline, edb_published_date, is_current )`;
+
+const LEGACY_LIST_SELECT = `id, school_code, name_tc, name_en, district, phone, website, logo_url,
+  school_type, kep_participant, session_type, language_primary,
+  fee_monthly_hkd, grades_offered, data_source, last_verified_at,
+  is_active, created_at, updated_at,
+  vacancies ( id, academic_year, k1_vacancy, k2_vacancy, k3_vacancy, n_vacancy, application_deadline, edb_published_date, is_current )`;
+
+const NEW_COLUMN_NAMES = [
+  "has_nursery", "latitude", "longitude",
+  "application_status", "application_details", "application_url",
+];
+
+function buildSchoolListQuery(
+  supabase: Awaited<ReturnType<typeof createClient>>,
+  selectStr: string,
+  params: FetchSchoolsParams,
+  isLegacy: boolean,
+) {
   const {
-    districts,
-    type,
-    language,
-    session,
-    hasNursery,
-    vacancyStatuses,
-    search,
-    page = 1,
-    limit = 20,
+    districts, type, language, session, hasNursery,
+    search, vacancyStatuses,
+    page = 1, limit = 20,
   } = params;
 
   const safeLimit = Math.min(Math.max(limit, 1), 100);
@@ -39,32 +56,19 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
 
   let query = supabase
     .from("schools")
-    .select(
-      `id, school_code, name_tc, name_en, district, phone, website, logo_url,
-       school_type, kep_participant, session_type, language_primary, has_nursery,
-       latitude, longitude,
-       fee_monthly_hkd, application_status, application_details, application_url,
-       grades_offered, data_source, last_verified_at,
-       is_active, created_at, updated_at,
-       vacancies ( id, academic_year, k1_vacancy, k2_vacancy, k3_vacancy, n_vacancy, application_deadline, edb_published_date, is_current )`,
-      { count: "exact" }
-    )
+    .select(selectStr, { count: "exact" })
     .eq("is_active", true);
 
   if (districts && districts.length > 0) {
     query = query.in("district", districts);
   }
-
   if (type) {
     query = query.eq("school_type", type);
   }
-
   if (language) {
     query = query.eq("language_primary", language);
   }
-
   if (session) {
-    // half_day = any session with am/pm component; whole_day = any with whole_day component
     if (session === "half_day") {
       query = query.or("session_type.eq.am,session_type.eq.pm,session_type.eq.am_pm,session_type.eq.am_whole_day,session_type.eq.pm_whole_day,session_type.eq.am_pm_whole_day");
     } else if (session === "whole_day") {
@@ -73,11 +77,10 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
       query = query.eq("session_type", session);
     }
   }
-
-  if (hasNursery) {
+  // Skip has_nursery filter in legacy mode (column doesn't exist)
+  if (hasNursery && !isLegacy) {
     query = query.eq("has_nursery", true);
   }
-
   if (search && search.trim()) {
     query = query.or(`name_tc.ilike.%${search.trim()}%,name_en.ilike.%${search.trim()}%`);
   }
@@ -88,15 +91,53 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
     query = query.range(offset, offset + safeLimit - 1);
   }
 
-  const { data, error, count } = await query;
+  return query;
+}
 
-  if (error) {
-    throw new Error(`Failed to fetch schools: ${error.message}`);
+export async function fetchSchools(params: FetchSchoolsParams = {}) {
+  const supabase = await createClient();
+  const {
+    vacancyStatuses,
+    page = 1,
+    limit = 20,
+  } = params;
+
+  const safeLimit = Math.min(Math.max(limit, 1), 100);
+  const offset = (page - 1) * safeLimit;
+
+  // Try full query first, fallback to legacy if new columns don't exist
+  let result = await buildSchoolListQuery(supabase, FULL_LIST_SELECT, params, false);
+  let isLegacy = false;
+
+  if (result.error) {
+    const needsFallback = NEW_COLUMN_NAMES.some((col) =>
+      result.error!.message.includes(col)
+    );
+    if (needsFallback) {
+      console.warn("fetchSchools: falling back to legacy select (missing columns):", result.error.message);
+      result = await buildSchoolListQuery(supabase, LEGACY_LIST_SELECT, params, true);
+      isLegacy = true;
+    }
+    if (result.error) {
+      throw new Error(`Failed to fetch schools: ${result.error.message}`);
+    }
   }
 
-  // Filter vacancies to only is_current=true (done in-memory since left join doesn't filter nested)
-  let schools = (data ?? []).map((school) => ({
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const rawData: any[] = (result.data as any[]) ?? [];
+
+  // Filter vacancies to only is_current=true in-memory
+  let schools = rawData.map((school) => ({
     ...school,
+    // Fill missing columns with defaults when in legacy mode
+    ...(isLegacy ? {
+      has_nursery: false,
+      latitude: null,
+      longitude: null,
+      application_status: null,
+      application_details: null,
+      application_url: null,
+    } : {}),
     vacancies: (school.vacancies ?? []).filter(
       (v: { is_current: boolean }) => v.is_current
     ),
@@ -112,7 +153,7 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
         currentVacancy.k1_vacancy,
         currentVacancy.k2_vacancy,
         currentVacancy.k3_vacancy,
-      ].map((status) => normalizeVacancyStatus(status));
+      ].map((status: string) => normalizeVacancyStatus(status as VacancyStatus));
 
       return statuses.some((status) => vacancyStatuses.includes(status));
     });
@@ -128,23 +169,23 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
     name_en: school.name_en ?? getFallbackEnglishName(school.school_code),
     admission_summary: getAdmissionSummary({
       schoolType: school.school_type,
-      applicationStatus: school.application_status,
-      applicationDetails: school.application_details,
-      applicationUrl: school.application_url,
+      applicationStatus: school.application_status ?? null,
+      applicationDetails: school.application_details ?? null,
+      applicationUrl: school.application_url ?? null,
       vacancy: school.vacancies?.[0] ?? null,
     }),
     show_admission_summary: shouldShowAdmissionSummary({
       schoolType: school.school_type,
-      applicationStatus: school.application_status,
-      applicationDetails: school.application_details,
-      applicationUrl: school.application_url,
+      applicationStatus: school.application_status ?? null,
+      applicationDetails: school.application_details ?? null,
+      applicationUrl: school.application_url ?? null,
       vacancy: school.vacancies?.[0] ?? null,
     }),
   }));
 
   return {
     data: normalizedSchools,
-    count: vacancyStatuses && vacancyStatuses.length > 0 ? schools.length : count ?? 0,
+    count: vacancyStatuses && vacancyStatuses.length > 0 ? schools.length : result.count ?? 0,
     page,
     limit: safeLimit,
   };
