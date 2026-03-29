@@ -46,11 +46,10 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
        fee_monthly_hkd, application_status, application_details, application_url,
        grades_offered, data_source, last_verified_at,
        is_active, created_at, updated_at,
-       vacancies!inner ( id, academic_year, k1_vacancy, k2_vacancy, k3_vacancy, n_vacancy, application_deadline, edb_published_date, is_current )`,
+       vacancies ( id, academic_year, k1_vacancy, k2_vacancy, k3_vacancy, n_vacancy, application_deadline, edb_published_date, is_current )`,
       { count: "exact" }
     )
-    .eq("is_active", true)
-    .eq("vacancies.is_current", true);
+    .eq("is_active", true);
 
   if (districts && districts.length > 0) {
     query = query.in("district", districts);
@@ -95,7 +94,13 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
     throw new Error(`Failed to fetch schools: ${error.message}`);
   }
 
-  let schools = data ?? [];
+  // Filter vacancies to only is_current=true (done in-memory since left join doesn't filter nested)
+  let schools = (data ?? []).map((school) => ({
+    ...school,
+    vacancies: (school.vacancies ?? []).filter(
+      (v: { is_current: boolean }) => v.is_current
+    ),
+  }));
 
   if (vacancyStatuses && vacancyStatuses.length > 0) {
     schools = schools.filter((school) => {

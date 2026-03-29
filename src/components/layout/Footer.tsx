@@ -23,8 +23,8 @@ export function Footer() {
               <Link href="/kg" className="block text-sm text-slate-500 hover:text-slate-700 transition-colors">
                 搵學校
               </Link>
-              <Link href="/submit" className="block text-sm text-slate-500 hover:text-slate-700 transition-colors">
-                分享心得
+              <Link href="/news" className="block text-sm text-slate-500 hover:text-slate-700 transition-colors">
+                消息動態
               </Link>
               <Link href="/account" className="block text-sm text-slate-500 hover:text-slate-700 transition-colors">
                 我的收藏

@@ -68,21 +68,21 @@ export const INSIGHTS: InsightItem[] = [
     title: "K1 面試只考小朋友，家長在等候室",
     author: "家長A",
     date: "3天前",
-    href: "/submit",
+    href: "#",
   },
   {
     id: "ins-2",
     title: "報名表要親身遞交，唔接受郵寄",
     author: "家長B",
     date: "1週前",
-    href: "/submit",
+    href: "#",
   },
   {
     id: "ins-3",
     title: "面試當日要帶出世紙正本",
     author: "家長C",
     date: "2週前",
-    href: "/submit",
+    href: "#",
   },
 ];
 

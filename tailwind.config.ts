@@ -36,11 +36,17 @@ const config: Config = {
           "0%": { transform: "scale(1) translate(0, 0)" },
           "100%": { transform: "scale(1.08) translate(-1%, -1%)" },
         },
+        "heart-fill": {
+          "0%": { transform: "scale(0.8)", opacity: "0.5" },
+          "50%": { transform: "scale(1.2)" },
+          "100%": { transform: "scale(1)", opacity: "1" },
+        },
       },
       animation: {
         "slide-up": "slide-up 0.3s ease-out",
         "fade-in": "fade-in 0.2s ease-out",
         "ken-burns": "ken-burns 20s ease-in-out infinite alternate",
+        "heart-fill": "heart-fill 0.3s ease-out forwards",
       },
     },
   },
