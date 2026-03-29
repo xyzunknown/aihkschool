@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer className="border-t border-slate-200 mt-16 bg-white">
       <div className="max-w-6xl mx-auto px-5 md:px-8 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
             <p className="text-base font-bold text-slate-950">HKSchoolPlace</p>
@@ -32,29 +32,14 @@ export function Footer() {
             </nav>
           </div>
 
-          {/* Support */}
+          {/* Support — greyed-out links (coming soon) */}
           <div>
             <h4 className="text-xs font-medium text-slate-950 uppercase tracking-wide mb-3">支援服務</h4>
             <nav className="space-y-2">
-              <span className="block text-sm text-slate-500">聯絡我們</span>
-              <span className="block text-sm text-slate-500">服務條款</span>
-              <span className="block text-sm text-slate-500">私隱政策</span>
+              <span className="block text-sm text-slate-400 cursor-not-allowed">聯絡我們</span>
+              <span className="block text-sm text-slate-400 cursor-not-allowed">服務條款</span>
+              <span className="block text-sm text-slate-400 cursor-not-allowed">私隱政策</span>
             </nav>
-          </div>
-
-          {/* Newsletter */}
-          <div>
-            <h4 className="text-xs font-medium text-slate-950 uppercase tracking-wide mb-3">訂閱電子報</h4>
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder="電郵地址"
-                className="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 outline-none focus:border-slate-400"
-              />
-              <button className="bg-slate-950 text-white rounded-xl px-4 py-2 text-sm font-medium hover:scale-[1.02] transition-transform">
-                訂閱
-              </button>
-            </div>
           </div>
         </div>
       </div>

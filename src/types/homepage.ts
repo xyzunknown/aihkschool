@@ -49,14 +49,6 @@ export interface SchoolEventItem {
   is_past?: boolean;
 }
 
-export interface InsightItem {
-  id: string;
-  title: string;
-  author: string;
-  date: string;
-  href: string;
-}
-
 export interface NewsItem {
   id: string;
   /** Specific source identifier */
@@ -85,4 +77,5 @@ export interface FeaturedSchool {
   sessionTags: string[];
   hasN: boolean;
   href: string;
+  vacancyStatus?: { k1: string; k2: string; k3: string };
 }

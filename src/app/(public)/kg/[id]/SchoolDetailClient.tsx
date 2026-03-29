@@ -14,6 +14,7 @@ import { useAuth } from "@/components/layout/AuthProvider";
 import { useToast } from "@/components/ui/Toast";
 import { DISTRICT_LABELS, formatEnglishSchoolName, isVacancyStale, deadlineStatus } from "@/lib/utils";
 import type { School, Vacancy, DataSource } from "@/types/database";
+import Link from "next/link";
 
 interface Props {
   school: School;
@@ -31,8 +32,12 @@ export function SchoolDetailClient({ school, vacancy }: Props) {
   const dlStatus = vacancy ? deadlineStatus(vacancy.application_deadline) : null;
   const displayNameEn = formatEnglishSchoolName(school.name_en?.trim() || school.name_tc);
   const hasChineseName = /[\u3400-\u9fff]/.test(school.name_tc);
+  // 中文名存在 → 中文为主标题、英文为副标题
+  // 无中文名 → 英文为主标题、若 name_tc 和 displayNameEn 不同则作为副标题
   const primaryName = hasChineseName ? school.name_tc : displayNameEn;
-  const secondaryName = hasChineseName && displayNameEn !== school.name_tc ? displayNameEn : null;
+  const secondaryName = hasChineseName
+    ? (displayNameEn !== school.name_tc ? displayNameEn : null)
+    : (school.name_tc !== displayNameEn ? school.name_tc : null);
 
   // Check initial favorite status
   useEffect(() => {
@@ -116,6 +121,17 @@ export function SchoolDetailClient({ school, vacancy }: Props) {
 
   return (
     <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 pb-24">
+      {/* Back link */}
+      <Link
+        href="/kg"
+        className="inline-flex items-center gap-1 text-sm text-slate-500 hover:text-slate-700 transition-colors mb-6"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+        返回搵學校
+      </Link>
+
       {/* School header */}
       <div className="mb-8">
         <div className="flex items-start gap-4">

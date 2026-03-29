@@ -19,49 +19,45 @@ export function VacancySection({ vacancy, isStale, deadlineStatus: dlStatus }: V
         </a>
       </div>
       {vacancy ? (
-        <div className="space-y-4">
-          {["N", "K1", "K2", "K3"].map((grade) => (
-            <GlassCard key={grade}>
-              <div className="flex items-start justify-between">
-                <div className="flex-1">
-                  <h3 className="text-base font-semibold text-slate-950 mb-3">
-                    {grade}
-                  </h3>
-                  <div className="mb-3">
-                    <VacancyBadge
-                      grade={grade}
-                      status={
-                        grade === "N"
-                          ? vacancy.n_vacancy
-                          : grade === "K1"
-                            ? vacancy.k1_vacancy
-                            : grade === "K2"
-                              ? vacancy.k2_vacancy
-                              : vacancy.k3_vacancy
-                      }
-                      isStale={isStale}
-                    />
-                  </div>
-                  {isStale && (
-                    <p className="text-sm text-slate-500 mb-2">
-                      數據更新超過 30 天，建議直接聯絡學校確認。
-                    </p>
-                  )}
-                  {vacancy.application_deadline && dlStatus && dlStatus !== "past" && (
-                    <p className="text-sm text-slate-600">
-                      申請截止：{formatDateCN(vacancy.application_deadline)}
-                    </p>
-                  )}
+        <GlassCard>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {(["N", "K1", "K2", "K3"] as const).map((grade) => {
+              const status =
+                grade === "N"
+                  ? vacancy.n_vacancy
+                  : grade === "K1"
+                    ? vacancy.k1_vacancy
+                    : grade === "K2"
+                      ? vacancy.k2_vacancy
+                      : vacancy.k3_vacancy;
+              return (
+                <div key={grade} className="text-center">
+                  <h3 className="text-sm font-semibold text-slate-950 mb-2">{grade}</h3>
+                  <VacancyBadge grade={grade} status={status} isStale={isStale} />
                 </div>
-              </div>
-            </GlassCard>
-          ))}
-          {vacancy.edb_published_date && (
-            <p className="text-sm text-slate-500">
-              最後更新：{formatDateCN(vacancy.edb_published_date)}
-            </p>
-          )}
-        </div>
+              );
+            })}
+          </div>
+
+          {/* Stale warning + deadline — only once at bottom */}
+          <div className="mt-4 pt-3 border-t border-slate-100 space-y-1">
+            {isStale && (
+              <p className="text-sm text-slate-500">
+                數據更新超過 30 天，建議直接聯絡學校確認。
+              </p>
+            )}
+            {vacancy.application_deadline && dlStatus && dlStatus !== "past" && (
+              <p className="text-sm text-slate-600">
+                申請截止：{formatDateCN(vacancy.application_deadline)}
+              </p>
+            )}
+            {vacancy.edb_published_date && (
+              <p className="text-sm text-slate-400">
+                最後更新：{formatDateCN(vacancy.edb_published_date)}
+              </p>
+            )}
+          </div>
+        </GlassCard>
       ) : (
         <GlassCard>
           <p className="text-base text-slate-900">

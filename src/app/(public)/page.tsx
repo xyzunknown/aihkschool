@@ -19,7 +19,6 @@ export default async function HomePage() {
       {/* 近期家長必知 */}
       <ParentMustKnow
         events={liveData.events}
-        insights={liveData.insights}
       />
 
       {/* 消息動態 */}

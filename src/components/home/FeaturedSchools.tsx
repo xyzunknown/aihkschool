@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SchoolAvatar } from "@/components/schools/SchoolAvatar";
+import { VacancyBadge } from "@/components/schools/VacancyBadge";
 import { FEATURED_SCHOOLS } from "@/data/homepage";
 
 export function FeaturedSchools() {
@@ -68,6 +69,20 @@ export function FeaturedSchools() {
                   </span>
                 )}
               </div>
+
+              {/* Vacancy status */}
+              {school.vacancyStatus && (
+                <div className="flex items-center gap-2 mb-3">
+                  {(["k1", "k2", "k3"] as const).map((grade) => (
+                    <VacancyBadge
+                      key={grade}
+                      grade={grade.toUpperCase()}
+                      status={school.vacancyStatus![grade] as import("@/types/database").VacancyStatus}
+                      isStale={false}
+                    />
+                  ))}
+                </div>
+              )}
 
               <div className="flex justify-end pt-3 border-t border-slate-100">
                 <span className="text-blue-600 text-xs font-medium">

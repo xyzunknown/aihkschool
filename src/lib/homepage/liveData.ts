@@ -4,7 +4,6 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import {
   BANNERS,
-  INSIGHTS,
   NEWS_ITEMS,
   SCHOOL_EVENTS,
 } from "@/data/homepage";
@@ -15,7 +14,6 @@ import {
 } from "@/lib/utils";
 import type {
   HomeBanner,
-  InsightItem,
   NewsItem,
   SchoolEventItem,
 } from "@/types/homepage";
@@ -689,7 +687,6 @@ async function getHomepageBanners(): Promise<HomeBanner[]> {
 export async function getHomepageLiveData(): Promise<{
   banners: HomeBanner[];
   events: SchoolEventItem[];
-  insights: InsightItem[];
   newsItems: NewsItem[];
 }> {
   const [banners, events, newsItems] = await Promise.all([
@@ -701,7 +698,6 @@ export async function getHomepageLiveData(): Promise<{
   return {
     banners,
     events,
-    insights: INSIGHTS,
     newsItems,
   };
 }

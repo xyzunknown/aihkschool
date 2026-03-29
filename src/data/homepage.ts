@@ -1,7 +1,6 @@
 import type {
   HomeBanner,
   SchoolEventItem,
-  InsightItem,
   NewsItem,
   FeaturedSchool,
 } from "@/types/homepage";
@@ -61,31 +60,6 @@ export const SCHOOL_EVENTS: SchoolEventItem[] = [
   },
 ];
 
-/** Fallback parent insights for dark card */
-export const INSIGHTS: InsightItem[] = [
-  {
-    id: "ins-1",
-    title: "K1 面試只考小朋友，家長在等候室",
-    author: "家長A",
-    date: "3天前",
-    href: "#",
-  },
-  {
-    id: "ins-2",
-    title: "報名表要親身遞交，唔接受郵寄",
-    author: "家長B",
-    date: "1週前",
-    href: "#",
-  },
-  {
-    id: "ins-3",
-    title: "面試當日要帶出世紙正本",
-    author: "家長C",
-    date: "2週前",
-    href: "#",
-  },
-];
-
 /** Fallback news items for "消息動態" */
 export const NEWS_ITEMS: NewsItem[] = [
   {
@@ -117,21 +91,25 @@ export const NEWS_ITEMS: NewsItem[] = [
 export const FEATURED_SCHOOLS: FeaturedSchool[] = [
   {
     id: "st-pauls-church-kg",
+    schoolCode: "131466",
     name_tc: "聖保羅堂幼稚園",
     name_en: "St Paul's Church Kindergarten",
     district: "中西區",
     sessionTags: ["全日班"],
     hasN: false,
     href: "/kg?search=%E8%81%96%E4%BF%9D%E7%BE%85%E5%A0%82%E5%B9%BC%E7%A8%9A%E5%9C%92",
+    vacancyStatus: { k1: "no_vacancy", k2: "no_vacancy", k3: "no_vacancy" },
   },
   {
     id: "sacred-heart-canossian-kg",
+    schoolCode: "325970",
     name_tc: "嘉諾撒聖心幼稚園",
     name_en: "Sacred Heart Canossian Kindergarten",
     district: "中西區",
     sessionTags: ["半日班"],
     hasN: false,
     href: "/kg?search=%E5%98%89%E8%AB%BE%E6%92%92%E8%81%96%E5%BF%83%E5%B9%BC%E7%A8%9A%E5%9C%92",
+    vacancyStatus: { k1: "no_vacancy", k2: "no_vacancy", k3: "no_vacancy" },
   },
   {
     id: "witty-kg",
@@ -142,5 +120,6 @@ export const FEATURED_SCHOOLS: FeaturedSchool[] = [
     sessionTags: ["半日班", "全日班"],
     hasN: true,
     href: "/kg?search=%E7%9B%88%E6%80%9D%E5%B9%BC%E7%A8%9A%E5%9C%92",
+    vacancyStatus: { k1: "has_vacancy", k2: "has_vacancy", k3: "has_vacancy" },
   },
 ];

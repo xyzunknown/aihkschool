@@ -10,9 +10,17 @@ interface DetailBottomCTAProps {
 }
 
 export function DetailBottomCTA({ school, isFavorited, onToggleFavorite }: DetailBottomCTAProps) {
+  const getAcademicYear = () => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1; // 1-indexed
+    // ≥ 9 月 → 下学年 (year+1)/(year+2)；否则 → 当年/(year+1)
+    const startYear = month >= 9 ? year + 1 : year;
+    return `${startYear}/${String(startYear + 1).slice(-2)}`;
+  };
+
   const getApplyButtonText = () => {
-    // Would need current year from props or context, using 2025/26 as per CLAUDE.md example
-    return "申請 2025/26 入學";
+    return `申請 ${getAcademicYear()} 入學`;
   };
 
   const getPrimaryAction = () => {
@@ -64,19 +72,6 @@ export function DetailBottomCTA({ school, isFavorited, onToggleFavorite }: Detai
     <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 px-5 py-4 z-40">
       <div className="max-w-3xl mx-auto flex gap-3">
         {getPrimaryAction()}
-
-        {school.website && (
-          <a
-            href={school.website}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-none"
-          >
-            <Button variant="secondary">
-              下載學校簡介
-            </Button>
-          </a>
-        )}
 
         <Button
           variant={isFavorited ? "primary" : "secondary"}

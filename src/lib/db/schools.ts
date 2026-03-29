@@ -47,12 +47,8 @@ function buildSchoolListQuery(
 ) {
   const {
     districts, type, language, session, hasNursery,
-    search, vacancyStatuses,
-    page = 1, limit = 20,
+    search,
   } = params;
-
-  const safeLimit = Math.min(Math.max(limit, 1), 100);
-  const offset = (page - 1) * safeLimit;
 
   let query = supabase
     .from("schools")
@@ -85,11 +81,8 @@ function buildSchoolListQuery(
     query = query.or(`name_tc.ilike.%${search.trim()}%,name_en.ilike.%${search.trim()}%`);
   }
 
-  query = query.order("created_at", { ascending: false });
-
-  if (!vacancyStatuses || vacancyStatuses.length === 0) {
-    query = query.range(offset, offset + safeLimit - 1);
-  }
+  // No DB-level sort — we sort in-memory after vacancy enrichment
+  // No DB-level pagination — we paginate after sorting
 
   return query;
 }
@@ -159,10 +152,31 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
     });
   }
 
-  const pagedSchools =
-    vacancyStatuses && vacancyStatuses.length > 0
-      ? schools.slice(offset, offset + safeLimit)
-      : schools;
+  // Sort: has_vacancy first → nearest deadline → most recently updated
+  schools.sort((a, b) => {
+    const vA = a.vacancies?.[0];
+    const vB = b.vacancies?.[0];
+
+    // 1. Schools with any vacancy come first
+    const hasVacA = vA ? [vA.k1_vacancy, vA.k2_vacancy, vA.k3_vacancy, vA.n_vacancy]
+      .some((s: string) => normalizeVacancyStatus(s as VacancyStatus) === "has_vacancy") : false;
+    const hasVacB = vB ? [vB.k1_vacancy, vB.k2_vacancy, vB.k3_vacancy, vB.n_vacancy]
+      .some((s: string) => normalizeVacancyStatus(s as VacancyStatus) === "has_vacancy") : false;
+    if (hasVacA !== hasVacB) return hasVacA ? -1 : 1;
+
+    // 2. Nearest deadline first (null deadlines go to end)
+    const dlA = vA?.application_deadline ? new Date(vA.application_deadline).getTime() : Infinity;
+    const dlB = vB?.application_deadline ? new Date(vB.application_deadline).getTime() : Infinity;
+    if (dlA !== dlB) return dlA - dlB;
+
+    // 3. Most recently updated first
+    const updA = a.updated_at ? new Date(a.updated_at).getTime() : 0;
+    const updB = b.updated_at ? new Date(b.updated_at).getTime() : 0;
+    return updB - updA;
+  });
+
+  const totalCount = schools.length;
+  const pagedSchools = schools.slice(offset, offset + safeLimit);
 
   const normalizedSchools = pagedSchools.map((school) => ({
     ...school,
@@ -185,7 +199,7 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
 
   return {
     data: normalizedSchools,
-    count: vacancyStatuses && vacancyStatuses.length > 0 ? schools.length : result.count ?? 0,
+    count: totalCount,
     page,
     limit: safeLimit,
   };
