@@ -12,6 +12,7 @@ export interface FetchSchoolsParams {
   type?: SchoolType;
   language?: string;
   session?: string;
+  hasNursery?: boolean;
   hasVacancy?: boolean;
   vacancyStatuses?: string[];
   search?: string;
@@ -26,6 +27,7 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
     type,
     language,
     session,
+    hasNursery,
     vacancyStatuses,
     search,
     page = 1,
@@ -39,7 +41,8 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
     .from("schools")
     .select(
       `id, school_code, name_tc, name_en, district, phone, website, logo_url,
-       school_type, kep_participant, session_type, language_primary,
+       school_type, kep_participant, session_type, language_primary, has_nursery,
+       latitude, longitude,
        fee_monthly_hkd, application_status, application_details, application_url,
        grades_offered, data_source, last_verified_at,
        is_active, created_at, updated_at,
@@ -62,7 +65,18 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
   }
 
   if (session) {
-    query = query.eq("session_type", session);
+    // half_day = any session with am/pm component; whole_day = any with whole_day component
+    if (session === "half_day") {
+      query = query.or("session_type.eq.am,session_type.eq.pm,session_type.eq.am_pm,session_type.eq.am_whole_day,session_type.eq.pm_whole_day,session_type.eq.am_pm_whole_day");
+    } else if (session === "whole_day") {
+      query = query.or("session_type.eq.whole_day,session_type.eq.am_whole_day,session_type.eq.pm_whole_day,session_type.eq.am_pm_whole_day");
+    } else {
+      query = query.eq("session_type", session);
+    }
+  }
+
+  if (hasNursery) {
+    query = query.eq("has_nursery", true);
   }
 
   if (search && search.trim()) {

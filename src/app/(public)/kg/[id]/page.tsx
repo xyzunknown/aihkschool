@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { fetchSchoolById } from "@/lib/db/schools";
 import { fetchCurrentVacancy } from "@/lib/db/vacancies";
-import { fetchApprovedIntel } from "@/lib/db/intel";
 import { SchoolDetailClient } from "./SchoolDetailClient";
 import { DISTRICT_LABELS } from "@/lib/utils";
 
@@ -43,14 +42,11 @@ export default async function SchoolDetailPage({ params }: Props) {
   }
 
   const vacancy = await fetchCurrentVacancy(params.id);
-  const intelResult = await fetchApprovedIntel(params.id, 1, 3);
 
   return (
     <SchoolDetailClient
       school={school}
       vacancy={vacancy}
-      initialIntel={intelResult.data}
-      intelCount={intelResult.count}
     />
   );
 }

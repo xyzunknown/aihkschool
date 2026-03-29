@@ -496,6 +496,7 @@ async function getSchoolEvents(): Promise<SchoolEventItem[]> {
         events.push({
           id: `evt-od-${counter}`,
           school_name: toSchoolName(row),
+          school_type: "private_independent",
           date: dateLabel ? `${dateLabel} ${label}` : label,
           date_iso: dateIso,
           event_type: type,
@@ -523,6 +524,7 @@ async function getSchoolEvents(): Promise<SchoolEventItem[]> {
         events.push({
           id: `evt-adm-${counter}`,
           school_name: toSchoolName(row),
+          school_type: "private_independent",
           date: dateLabel ? `${dateLabel} ${label}` : label,
           date_iso: dateIso,
           event_type: type,

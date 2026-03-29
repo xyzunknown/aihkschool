@@ -39,3 +39,6 @@ next-env.d.ts
 data/logo-cache/
 data/profile-cache/
 scripts/__pycache__/
+data/logo-cache/
+__pycache__/
+data/profile-cache/

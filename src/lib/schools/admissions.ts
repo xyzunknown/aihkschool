@@ -74,7 +74,9 @@ export function hasReliableVacancy(vacancy: VacancySnapshot): boolean {
 }
 
 export function shouldShowAdmissionSummary(input: AdmissionSummaryInput): boolean {
-  return input.schoolType === "international" && !hasReliableVacancy(input.vacancy ?? null);
+  const isPrivateOrInternational =
+    input.schoolType === "international" || input.schoolType === "private_independent";
+  return isPrivateOrInternational && Boolean(input.applicationStatus || input.applicationDetails || input.applicationUrl);
 }
 
 export function getAdmissionSummary(input: AdmissionSummaryInput): string {

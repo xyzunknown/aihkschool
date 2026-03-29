@@ -7,7 +7,7 @@ import { useAuth } from "@/components/layout/AuthProvider";
 
 const NAV_ITEMS = [
   { href: "/kg", label: "搵學校" },
-  { href: "/submit", label: "分享心得" },
+  { href: "/news", label: "資訊" },
   { href: "/account", label: "我的收藏" },
 ] as const;
 

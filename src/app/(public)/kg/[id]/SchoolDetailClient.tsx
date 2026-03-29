@@ -7,23 +7,20 @@ import { VacancySection } from "@/components/schools/VacancySection";
 import { BasicInfoSection } from "@/components/schools/BasicInfoSection";
 import { FeesSection } from "@/components/schools/FeesSection";
 import { AdmissionsSection } from "@/components/schools/AdmissionsSection";
-import { IntelSection } from "@/components/schools/IntelSection";
 import { DetailBottomCTA } from "@/components/schools/DetailBottomCTA";
 import { ReminderSheet } from "@/components/schools/ReminderSheet";
 import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
 import { useAuth } from "@/components/layout/AuthProvider";
 import { useToast } from "@/components/ui/Toast";
 import { DISTRICT_LABELS, formatEnglishSchoolName, isVacancyStale, deadlineStatus } from "@/lib/utils";
-import type { School, Vacancy, AdmissionIntel, DataSource } from "@/types/database";
+import type { School, Vacancy, DataSource } from "@/types/database";
 
 interface Props {
   school: School;
   vacancy: Vacancy | null;
-  initialIntel: AdmissionIntel[];
-  intelCount: number;
 }
 
-export function SchoolDetailClient({ school, vacancy, initialIntel, intelCount }: Props) {
+export function SchoolDetailClient({ school, vacancy }: Props) {
   const { user, requireAuth } = useAuth();
   const { showToast } = useToast();
   const [isFavorited, setIsFavorited] = useState(false);
@@ -148,16 +145,10 @@ export function SchoolDetailClient({ school, vacancy, initialIntel, intelCount }
         </div>
       </div>
 
-      {/* Placeholder hero image */}
-      <div className="aspect-video rounded-2xl bg-slate-100 mb-8 flex items-center justify-center">
-        <span className="text-slate-400">教育機構圖片</span>
-      </div>
-
       <VacancySection vacancy={vacancy} isStale={stale} deadlineStatus={dlStatus} />
       <BasicInfoSection school={school} />
       <FeesSection school={school} />
       <AdmissionsSection school={school} />
-      <IntelSection schoolId={school.id} initialIntel={initialIntel} intelCount={intelCount} />
 
       <DetailBottomCTA
         school={school}

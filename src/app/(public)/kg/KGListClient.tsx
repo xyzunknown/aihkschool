@@ -7,6 +7,9 @@ import { SchoolCardSkeleton } from "@/components/ui/Skeleton";
 import { Button } from "@/components/ui/Button";
 import { SearchBar } from "@/components/schools/SearchBar";
 import { FilterBar } from "@/components/schools/FilterBar";
+import { useAuth } from "@/components/layout/AuthProvider";
+import { useToast } from "@/components/ui/Toast";
+import { useGeolocation, haversineDistance } from "@/lib/hooks/useGeolocation";
 import type { District, SchoolType, VacancyStatus } from "@/types/database";
 
 const PAGE_SIZE = 18;
@@ -28,6 +31,8 @@ interface SchoolData {
   show_admission_summary: boolean;
   language_primary: string | null;
   fee_monthly_hkd: number | null;
+  latitude: number | null;
+  longitude: number | null;
   vacancies: Array<{
     id: string;
     n_vacancy: VacancyStatus;
@@ -43,11 +48,15 @@ export default function KGListClient() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const queryString = searchParams.toString();
+  const { user, requireAuth } = useAuth();
+  const { showToast } = useToast();
 
   const [schools, setSchools] = useState<SchoolData[]>([]);
   const [count, setCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [favoriteIds, setFavoriteIds] = useState<Set<string>>(new Set());
+  const { latitude: userLat, longitude: userLng, requestLocation, loading: geoLoading } = useGeolocation();
 
   const filters = useMemo(() => {
     const params = new URLSearchParams(queryString);
@@ -56,6 +65,8 @@ export default function KGListClient() {
       selectedDistricts: params.getAll("district") as District[],
       selectedType: params.get("type") as SchoolType | null,
       vacancyFilter: params.getAll("vacancy"),
+      sessionFilter: params.get("session") as string | null,
+      hasNurseryFilter: params.get("hasNursery") === "true",
       searchQuery: params.get("search") ?? "",
       page: parseInt(params.get("page") ?? "1", 10),
     };
@@ -65,6 +76,8 @@ export default function KGListClient() {
     selectedDistricts,
     selectedType,
     vacancyFilter,
+    sessionFilter,
+    hasNurseryFilter,
     searchQuery,
     page,
   } = filters;
@@ -77,6 +90,8 @@ export default function KGListClient() {
       selectedDistricts.forEach((d) => params.append("district", d));
       if (selectedType) params.set("type", selectedType);
       vacancyFilter.forEach((v) => params.append("vacancy", v));
+      if (sessionFilter) params.set("session", sessionFilter);
+      if (hasNurseryFilter) params.set("hasNursery", "true");
       if (searchQuery) params.set("search", searchQuery);
       params.set("page", String(page));
       params.set("limit", String(PAGE_SIZE));
@@ -95,9 +110,62 @@ export default function KGListClient() {
     } finally {
       setLoading(false);
     }
-  }, [selectedDistricts, selectedType, vacancyFilter, searchQuery, page]);
+  }, [selectedDistricts, selectedType, vacancyFilter, sessionFilter, hasNurseryFilter, searchQuery, page]);
 
   useEffect(() => { fetchData(); }, [fetchData]);
+
+  // Fetch user favorites
+  useEffect(() => {
+    if (!user) { setFavoriteIds(new Set()); return; }
+    const loadFavorites = async () => {
+      try {
+        const res = await fetch("/api/favorites");
+        const json = await res.json();
+        if (json.data) {
+          setFavoriteIds(new Set(json.data.map((f: { school_id: string }) => f.school_id)));
+        }
+      } catch { /* non-critical */ }
+    };
+    loadFavorites();
+  }, [user]);
+
+  const handleToggleFavorite = useCallback((schoolId: string) => {
+    const alreadyFavorited = favoriteIds.has(schoolId);
+
+    if (alreadyFavorited) {
+      // Optimistic remove
+      setFavoriteIds((prev) => { const next = new Set(prev); next.delete(schoolId); return next; });
+      fetch(`/api/favorites/${schoolId}`, { method: "DELETE" })
+        .then(() => showToast({ message: "已取消收藏" }))
+        .catch(() => {
+          setFavoriteIds((prev) => new Set(prev).add(schoolId));
+          showToast({ message: "取消收藏失敗" });
+        });
+      return;
+    }
+
+    requireAuth(async () => {
+      // Optimistic add
+      setFavoriteIds((prev) => new Set(prev).add(schoolId));
+      try {
+        const res = await fetch("/api/favorites", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ school_id: schoolId }),
+        });
+        const json = await res.json();
+        if (json.error) {
+          setFavoriteIds((prev) => { const next = new Set(prev); next.delete(schoolId); return next; });
+          showToast({ message: json.error.message });
+        } else {
+          showToast({ message: "已加入收藏" });
+        }
+      } catch {
+        setFavoriteIds((prev) => { const next = new Set(prev); next.delete(schoolId); return next; });
+        showToast({ message: "收藏失敗，請稍後再試" });
+      }
+    });
+  }, [favoriteIds, requireAuth, showToast]);
 
   const updateFilter = (key: string, value: string | null) => {
     const params = new URLSearchParams(searchParams.toString());
@@ -158,6 +226,8 @@ export default function KGListClient() {
         selectedDistricts={selectedDistricts}
         selectedType={selectedType}
         vacancyFilter={vacancyFilter}
+        sessionFilter={sessionFilter}
+        hasNurseryFilter={hasNurseryFilter}
         onToggleDistrict={toggleDistrict}
         onUpdateFilter={updateFilter}
         onToggleVacancy={toggleVacancy}
@@ -179,7 +249,31 @@ export default function KGListClient() {
         </div>
       ) : (
         <>
-          <p className="text-sm text-slate-500 mb-4">共 {count} 所學校</p>
+          <div className="flex items-center justify-between mb-4">
+            <p className="text-sm text-slate-500">共 {count} 所學校</p>
+            {!userLat && (
+              <button
+                onClick={requestLocation}
+                disabled={geoLoading}
+                className="flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-700 transition-colors"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="2" x2="12" y2="6" />
+                  <line x1="12" y1="18" x2="12" y2="22" />
+                  <line x1="2" y1="12" x2="6" y2="12" />
+                  <line x1="18" y1="12" x2="22" y2="12" />
+                </svg>
+                {geoLoading ? "定位中…" : "顯示距離"}
+              </button>
+            )}
+            {userLat && (
+              <span className="text-xs text-emerald-600 flex items-center gap-1">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2l-3.5-3.5L4.1 14.1 9 19 20.4 7.6 19 6.2z"/></svg>
+                已定位
+              </span>
+            )}
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {schools.map((school) => {
               const currentVacancy = school.vacancies?.[0];
@@ -190,6 +284,11 @@ export default function KGListClient() {
                 k3_vacancy: currentVacancy.k3_vacancy,
                 edb_published_date: currentVacancy.edb_published_date,
               } : null;
+
+              const distanceKm =
+                userLat && userLng && school.latitude && school.longitude
+                  ? haversineDistance(userLat, userLng, school.latitude, school.longitude)
+                  : undefined;
 
               return (
                 <SchoolCard
@@ -206,6 +305,9 @@ export default function KGListClient() {
                   admissionSummary={school.admission_summary}
                   showAdmissionSummary={school.show_admission_summary}
                   vacancy={vacancy}
+                  isFavorited={favoriteIds.has(school.id)}
+                  onToggleFavorite={() => handleToggleFavorite(school.id)}
+                  distanceKm={distanceKm}
                 />
               );
             })}

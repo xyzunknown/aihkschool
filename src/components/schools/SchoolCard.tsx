@@ -35,6 +35,7 @@ interface SchoolCardProps {
   } | null;
   isFavorited?: boolean;
   onToggleFavorite?: () => void;
+  distanceKm?: number;
 }
 
 export function SchoolCard({
@@ -52,6 +53,7 @@ export function SchoolCard({
   vacancy,
   isFavorited = false,
   onToggleFavorite,
+  distanceKm,
 }: SchoolCardProps) {
   const router = useRouter();
   const stale = vacancy ? isVacancyStale(vacancy.edb_published_date) : true;
@@ -121,13 +123,23 @@ export function SchoolCard({
         </button>
       </div>
 
-      {/* Row 2: District */}
+      {/* Row 2: District + Distance */}
       <div className="flex items-center gap-1 text-sm text-slate-500 mb-2.5">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-slate-400">
           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
           <circle cx="12" cy="10" r="3" />
         </svg>
         <span>{DISTRICT_LABELS[district as keyof typeof DISTRICT_LABELS] ?? district}</span>
+        {distanceKm != null && (
+          <>
+            <span className="text-slate-300 mx-0.5">·</span>
+            <span className="text-slate-400">
+              {distanceKm < 1
+                ? `${Math.round(distanceKm * 1000)}m`
+                : `${distanceKm.toFixed(1)}km`}
+            </span>
+          </>
+        )}
       </div>
 
       {/* Row 3: Tags */}
@@ -152,7 +164,7 @@ export function SchoolCard({
       )}
 
       {/* Row 4: Vacancy status badges — K1 K2 K3 horizontal */}
-      {vacancyGrades.length > 0 && !showAdmissionSummary && (
+      {vacancyGrades.length > 0 && (
         <div className="grid grid-cols-3 gap-2 mb-4">
           {vacancyGrades.map(({ grade, status }) => (
             <VacancyBadge key={grade} grade={grade} status={status} isStale={stale} />
@@ -161,8 +173,8 @@ export function SchoolCard({
       )}
 
       {showAdmissionSummary && admissionSummary && (
-        <div className="mb-4 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
-          <p className="text-sm font-medium text-slate-700">{admissionSummary}</p>
+        <div className="mb-4 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5">
+          <p className="text-xs font-medium text-slate-600">{admissionSummary}</p>
         </div>
       )}
 

@@ -12,6 +12,7 @@ export async function GET(request: NextRequest) {
     const type = searchParams.get("type") as SchoolType | null;
     const language = searchParams.get("language");
     const session = searchParams.get("session");
+    const hasNursery = searchParams.get("hasNursery");
     const vacancyStatuses = searchParams.getAll("vacancy");
     const search = searchParams.get("search");
     const page = parseInt(searchParams.get("page") ?? "1", 10);
@@ -22,6 +23,7 @@ export async function GET(request: NextRequest) {
       type: type ?? undefined,
       language: language ?? undefined,
       session: session ?? undefined,
+      hasNursery: hasNursery === "true" ? true : undefined,
       vacancyStatuses: vacancyStatuses.length > 0 ? vacancyStatuses : undefined,
       search: search ?? undefined,
       page: isNaN(page) ? 1 : page,

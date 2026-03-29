@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SCHOOL_TYPE_LABELS } from "@/lib/utils";
 import type { SchoolEventItem, InsightItem, EventType } from "@/types/homepage";
 
 const EVENT_PILL_STYLES: Record<EventType, string> = {
@@ -8,6 +9,12 @@ const EVENT_PILL_STYLES: Record<EventType, string> = {
   deadline: "bg-red-50 text-red-700",
   trial: "bg-violet-50 text-violet-700",
   talk: "bg-slate-100 text-slate-500",
+};
+
+const SCHOOL_TYPE_PILL_STYLES: Record<string, string> = {
+  non_profit: "bg-emerald-50 text-emerald-700",
+  private_independent: "bg-amber-50 text-amber-700",
+  international: "bg-violet-50 text-violet-700",
 };
 
 function EventCard({ event }: { event: SchoolEventItem }) {
@@ -26,6 +33,13 @@ function EventCard({ event }: { event: SchoolEventItem }) {
       >
         {event.is_past ? "已結束" : event.event_label}
       </span>
+      {event.school_type && (
+        <span
+          className={`ml-1.5 inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${SCHOOL_TYPE_PILL_STYLES[event.school_type] ?? "bg-slate-100 text-slate-500"}`}
+        >
+          {SCHOOL_TYPE_LABELS[event.school_type] ?? event.school_type}
+        </span>
+      )}
       <Link
         href={event.detail_href}
         className="mt-3 block text-sm font-semibold text-slate-950 leading-snug line-clamp-2 hover:underline"
@@ -91,10 +105,10 @@ export function ParentMustKnow({ events, insights }: ParentMustKnowProps) {
             ))}
           </div>
           <Link
-            href="/submit"
+            href="/kg"
             className="mt-4 block text-center text-sm text-slate-400 transition-colors hover:text-white"
           >
-            分享你的心得 →
+            瀏覽更多學校 →
           </Link>
         </div>
       </div>

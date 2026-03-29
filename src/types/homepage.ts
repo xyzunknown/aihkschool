@@ -33,6 +33,8 @@ export type EventType =
 export interface SchoolEventItem {
   id: string;
   school_name: string;
+  /** school_type: non_profit | private_independent | international */
+  school_type?: string;
   /** Display date, e.g. "4月15日（六）" */
   date: string;
   /** ISO date for sorting/filtering, e.g. "2026-04-15" */
