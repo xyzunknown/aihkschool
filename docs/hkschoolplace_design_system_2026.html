@@ -1,0 +1,324 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Display', sans-serif; background: #f8fafc; color: #020617; }
+
+  .page { padding: 32px 24px; max-width: 680px; }
+  .sec { margin-bottom: 40px; }
+  .sec-label { font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #94a3b8; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid rgba(148,163,184,.2); }
+
+  /* PALETTE */
+  .palette { display: flex; gap: 12px; flex-wrap: wrap; }
+  .sw-wrap { display: flex; flex-direction: column; gap: 6px; }
+  .sw { height: 52px; border-radius: 16px; border: 1px solid rgba(0,0,0,.06); }
+  .sw-name { font-size: 11px; font-weight: 500; color: #475569; }
+  .sw-val  { font-size: 10px; color: #94a3b8; font-family: 'SF Mono', monospace; }
+
+  /* TYPE */
+  .type-stack { display: flex; flex-direction: column; gap: 0; }
+  .tr { display: flex; align-items: baseline; gap: 20px; padding: 10px 0; border-bottom: 1px solid rgba(148,163,184,.12); }
+  .tr:last-child { border-bottom: none; }
+  .tr-meta { width: 148px; flex-shrink: 0; font-size: 10px; color: #94a3b8; font-family: 'SF Mono', monospace; line-height: 1.4; }
+
+  /* GLASS CARD */
+  .glass-card {
+    background: rgba(255,255,255,.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(226,232,240,.5);
+    border-radius: 2rem;
+    padding: 28px;
+    transition: transform .2s ease;
+    cursor: pointer;
+  }
+  .glass-card:hover { transform: scale(1.02); }
+
+  /* SCHOOL CARD */
+  .school-card {
+    background: rgba(255,255,255,.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(226,232,240,.5);
+    border-radius: 2rem;
+    padding: 28px 28px 20px;
+    position: relative;
+    transition: transform .2s ease;
+    cursor: pointer;
+    max-width: 320px;
+  }
+  .school-card:hover { transform: scale(1.02); }
+
+  .deadline-pill {
+    position: absolute;
+    top: 24px; right: 24px;
+    background: rgba(220,252,231,.8);
+    border: 1px solid rgba(134,239,172,.4);
+    border-radius: 99px;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #15803d;
+    backdrop-filter: blur(8px);
+  }
+  .deadline-pill.warn {
+    background: rgba(255,237,213,.8);
+    border-color: rgba(253,186,116,.4);
+    color: #c2410c;
+  }
+  .deadline-pill.urgent {
+    background: rgba(254,226,226,.8);
+    border-color: rgba(252,165,165,.4);
+    color: #b91c1c;
+  }
+
+  .school-name { font-size: 17px; font-weight: 600; letter-spacing: -.02em; color: #020617; line-height: 1.3; margin-top: 4px; padding-right: 90px; }
+  .school-district { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+  .tag-row { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 16px; }
+  .tag { padding: 4px 10px; border-radius: 99px; font-size: 11px; font-weight: 500; background: rgba(241,245,249,.8); color: #475569; border: 1px solid rgba(203,213,225,.4); }
+  .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(148,163,184,.12); }
+  .action-icon { width: 32px; height: 32px; border-radius: 10px; background: rgba(241,245,249,.8); border: 1px solid rgba(203,213,225,.3); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform .15s; }
+  .action-icon:hover { transform: scale(1.1); }
+  .action-icon svg { width: 14px; height: 14px; stroke: #64748b; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .detail-link { display: flex; align-items: center; gap: 4px; font-size: 12px; color: #94a3b8; }
+  .detail-link svg { width: 12px; height: 12px; stroke: #94a3b8; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* VACANCY PILLS */
+  .vac-row { display: flex; gap: 8px; }
+  .vac-pill { padding: 6px 14px; border-radius: 99px; font-size: 12px; font-weight: 600; }
+  .vac-y { background: rgba(220,252,231,.8); color: #15803d; border: 1px solid rgba(134,239,172,.3); }
+  .vac-n { background: rgba(254,226,226,.8); color: #b91c1c; border: 1px solid rgba(252,165,165,.3); }
+  .vac-u { background: rgba(241,245,249,.8); color: #64748b; border: 1px solid rgba(203,213,225,.3); }
+
+  /* BUTTONS */
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .btn { border: none; border-radius: 14px; font-size: 14px; font-weight: 500; cursor: pointer; font-family: inherit; transition: transform .15s, opacity .15s; letter-spacing: -.01em; display: inline-flex; align-items: center; gap: 6px; }
+  .btn:hover { transform: scale(1.02); opacity: .9; }
+  .btn-black { background: #020617; color: #fff; padding: 11px 22px; border-radius: 14px; }
+  .btn-glass { background: rgba(255,255,255,.7); color: #020617; padding: 11px 22px; border: 1px solid rgba(203,213,225,.5); backdrop-filter: blur(8px); }
+  .btn-ghost { background: transparent; color: #64748b; padding: 11px 16px; border: 1px solid rgba(203,213,225,.4); }
+  .btn-sm { padding: 7px 14px; font-size: 12px; border-radius: 10px; }
+
+  /* SOURCE */
+  .src { display: inline-flex; align-items: center; gap: 5px; padding: 3px 9px; border-radius: 6px; font-size: 11px; font-weight: 500; font-family: 'SF Mono', monospace; }
+  .src-edb    { background: rgba(219,234,254,.6); color: #1e40af; border: 1px solid rgba(147,197,253,.3); }
+  .src-school { background: rgba(220,252,231,.6); color: #15803d; border: 1px solid rgba(134,239,172,.3); }
+  .src-parent { background: rgba(255,237,213,.6); color: #c2410c; border: 1px solid rgba(253,186,116,.3); }
+  .src-infer  { background: rgba(241,245,249,.6); color: #64748b; border: 1px solid rgba(203,213,225,.3); }
+  .src-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; opacity: .7; }
+
+  /* SPACING */
+  .sp-row { display: flex; gap: 8px; align-items: flex-end; }
+  .sp-item { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+  .sp-bar { background: rgba(147,197,253,.4); border-radius: 4px; width: 20px; }
+  .sp-val { font-size: 10px; color: #94a3b8; font-family: 'SF Mono', monospace; }
+
+  /* RADIUS */
+  .rd-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .rd-item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .rd-box { width: 52px; height: 36px; background: rgba(255,255,255,.7); border: 1px solid rgba(203,213,225,.5); }
+  .rd-val { font-size: 10px; color: #94a3b8; font-family: 'SF Mono', monospace; }
+
+  /* INTEL CARD */
+  .intel-card {
+    background: rgba(255,255,255,.55);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(226,232,240,.5);
+    border-radius: 1.5rem;
+    padding: 22px 24px;
+    max-width: 340px;
+  }
+  .intel-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px 8px; margin-top: 14px; }
+  .ig-label { font-size: 10px; font-weight: 500; color: #94a3b8; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 3px; }
+  .ig-val   { font-size: 13px; font-weight: 500; color: #0f172a; }
+
+  /* SEARCH BOX preview */
+  .search-preview {
+    background: rgba(255,255,255,.5);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(226,232,240,.5);
+    border-radius: 2rem;
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .search-icon { width: 18px; height: 18px; stroke: #94a3b8; fill: none; stroke-width: 1.5; stroke-linecap: round; flex-shrink: 0; }
+  .search-text { font-size: 16px; color: #94a3b8; letter-spacing: -.01em; }
+</style>
+
+<div class="page">
+
+  <!-- PALETTE -->
+  <div class="sec">
+    <div class="sec-label">色彩系统 — Minimal Palette</div>
+    <div class="palette">
+      <div class="sw-wrap"><div class="sw" style="width:72px;background:#f8fafc;"></div><div class="sw-name">Base</div><div class="sw-val">slate-50</div></div>
+      <div class="sw-wrap"><div class="sw" style="width:72px;background:#020617;"></div><div class="sw-name">Primary</div><div class="sw-val">slate-950</div></div>
+      <div class="sw-wrap"><div class="sw" style="width:72px;background:#64748b;"></div><div class="sw-name">Muted</div><div class="sw-val">slate-500</div></div>
+      <div class="sw-wrap"><div class="sw" style="width:72px;background:#e2e8f0;border-color:rgba(0,0,0,.04);"></div><div class="sw-name">Border</div><div class="sw-val">slate-200/50</div></div>
+      <div class="sw-wrap"><div class="sw" style="width:72px;background:rgba(255,255,255,.6);backdrop-filter:blur(20px);"></div><div class="sw-name">Glass</div><div class="sw-val">white/60</div></div>
+      <div class="sw-wrap"><div class="sw" style="width:72px;background:rgba(220,252,231,.8);border-color:rgba(134,239,172,.3);"></div><div class="sw-name">有空缺</div><div class="sw-val">green/low</div></div>
+      <div class="sw-wrap"><div class="sw" style="width:72px;background:rgba(254,226,226,.8);border-color:rgba(252,165,165,.3);"></div><div class="sw-name">已满</div><div class="sw-val">red/low</div></div>
+      <div class="sw-wrap"><div class="sw" style="width:72px;background:rgba(255,237,213,.8);border-color:rgba(253,186,116,.3);"></div><div class="sw-name">截止警示</div><div class="sw-val">orange/low</div></div>
+    </div>
+    <div style="margin-top:12px;font-size:11px;color:#94a3b8;line-height:1.8;">
+      原则：只有状态才有色彩，其余全部黑白灰。饱和度控制在 20% 以内。
+    </div>
+  </div>
+
+  <!-- TYPOGRAPHY -->
+  <div class="sec">
+    <div class="sec-label">字体系统 — System Sans</div>
+    <div class="type-stack">
+      <div class="tr"><span class="tr-meta">display<br>36 / 600 / tight</span><span style="font-size:36px;font-weight:600;letter-spacing:-.03em;color:#020617;line-height:1;">寻找学校</span></div>
+      <div class="tr"><span class="tr-meta">h1<br>24 / 600 / tight</span><span style="font-size:24px;font-weight:600;letter-spacing:-.02em;color:#020617;">幼稚园列表</span></div>
+      <div class="tr"><span class="tr-meta">h2<br>18 / 600 / tight</span><span style="font-size:18px;font-weight:600;letter-spacing:-.015em;color:#020617;">九龙城浸信会禧年</span></div>
+      <div class="tr"><span class="tr-meta">body<br>15 / 400 / normal</span><span style="font-size:15px;color:#0f172a;line-height:1.6;">学校简介正文，行高 1.6，不贴边。</span></div>
+      <div class="tr"><span class="tr-meta">small<br>13 / 400 / normal</span><span style="font-size:13px;color:#64748b;">次要说明 · 时间戳 · 来源标注</span></div>
+      <div class="tr"><span class="tr-meta">label<br>10 / 600 / wide</span><span style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#94a3b8;">字段标签 · Source</span></div>
+    </div>
+  </div>
+
+  <!-- SEARCH -->
+  <div class="sec">
+    <div class="sec-label">搜索框 — Glass Search</div>
+    <div class="search-preview">
+      <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+      <span class="search-text">寻找你的下一所学校…</span>
+    </div>
+  </div>
+
+  <!-- VACANCY -->
+  <div class="sec">
+    <div class="sec-label">学位空缺 — 第一视觉优先级</div>
+    <div class="vac-row">
+      <span class="vac-pill vac-y">K1 有空缺</span>
+      <span class="vac-pill vac-n">K2 已满</span>
+      <span class="vac-pill vac-y">K3 有空缺</span>
+      <span class="vac-pill vac-u">N 请查官网</span>
+    </div>
+    <div style="margin-top:10px;font-size:11px;color:#94a3b8;">低饱和度色块，不抢夺视线，但状态清晰可辨。</div>
+  </div>
+
+  <!-- SCHOOL CARDS -->
+  <div class="sec">
+    <div class="sec-label">学校卡片 — Glass Card</div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;">
+      <div class="school-card">
+        <div class="deadline-pill">截止 10月31日</div>
+        <div style="font-size:11px;font-weight:500;color:#94a3b8;letter-spacing:.04em;">九龙城区</div>
+        <div class="school-name">九龙城浸信会禧年幼稚园</div>
+        <div class="tag-row">
+          <span class="tag">非牟利</span>
+          <span class="tag">HKD 3,200</span>
+          <span class="tag">粤语</span>
+        </div>
+        <div class="card-footer">
+          <div class="action-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+          </div>
+          <div class="detail-link">
+            <span>详情</span>
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="school-card">
+        <div class="deadline-pill warn">截止 11月7日</div>
+        <div style="font-size:11px;font-weight:500;color:#94a3b8;letter-spacing:.04em;">沙田区</div>
+        <div class="school-name">沙田培基幼稚园暨幼儿中心</div>
+        <div class="tag-row">
+          <span class="tag">私立</span>
+          <span class="tag">HKD 5,800</span>
+          <span class="tag">英文</span>
+        </div>
+        <div class="card-footer">
+          <div class="action-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+          </div>
+          <div class="detail-link">
+            <span>详情</span>
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTEL CARD -->
+  <div class="sec">
+    <div class="sec-label">申请情报卡片 — Intel Card</div>
+    <div class="intel-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div style="font-size:14px;font-weight:600;letter-spacing:-.01em;color:#0f172a;">2025/26 面试情报</div>
+        <span class="src src-parent"><span class="src-dot"></span>家长投稿</span>
+      </div>
+      <div class="intel-grid">
+        <div><div class="ig-label">面试形式</div><div class="ig-val">亲子</div></div>
+        <div><div class="ig-label">面试语言</div><div class="ig-val">粤语</div></div>
+        <div><div class="ig-label">排队时间</div><div class="ig-val">1–3h</div></div>
+        <div><div class="ig-label">Offer 月份</div><div class="ig-val">11月下</div></div>
+        <div><div class="ig-label">二次面试</div><div class="ig-val">否</div></div>
+        <div><div class="ig-label">结果</div><div class="ig-val" style="color:#15803d;">录取 ✓</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DATA SOURCE -->
+  <div class="sec">
+    <div class="sec-label">数据来源标签 — Source Tags</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+      <span class="src src-edb"><span class="src-dot"></span>Official · EDB</span>
+      <span class="src src-school"><span class="src-dot"></span>School-published</span>
+      <span class="src src-parent"><span class="src-dot"></span>Parent-submitted</span>
+      <span class="src src-infer"><span class="src-dot"></span>Inferred</span>
+    </div>
+    <div style="margin-top:10px;font-size:11px;color:#94a3b8;">每条数据强制携带。透明不确定性，不假装准确。</div>
+  </div>
+
+  <!-- BUTTONS -->
+  <div class="sec">
+    <div class="sec-label">按钮系统</div>
+    <div class="btn-row">
+      <button class="btn btn-black">前往官网申请</button>
+      <button class="btn btn-glass">收藏学校</button>
+      <button class="btn btn-ghost">分享经验</button>
+      <button class="btn btn-black btn-sm">开启提醒</button>
+      <button class="btn btn-glass btn-sm">查看详情</button>
+    </div>
+    <div style="margin-top:10px;font-size:11px;color:#94a3b8;">主按钮纯黑，次按钮磨砂白。Hover 只做 scale(1.02)，无色彩变化。</div>
+  </div>
+
+  <!-- SPACING + RADIUS -->
+  <div class="sec">
+    <div class="sec-label">间距 · 圆角</div>
+    <div style="display:flex;gap:40px;flex-wrap:wrap;">
+      <div>
+        <div class="sp-row">
+          <div class="sp-item"><div class="sp-bar" style="height:8px;"></div><div class="sp-val">4</div></div>
+          <div class="sp-item"><div class="sp-bar" style="height:16px;"></div><div class="sp-val">8</div></div>
+          <div class="sp-item"><div class="sp-bar" style="height:24px;"></div><div class="sp-val">12</div></div>
+          <div class="sp-item"><div class="sp-bar" style="height:32px;"></div><div class="sp-val">16</div></div>
+          <div class="sp-item"><div class="sp-bar" style="height:40px;"></div><div class="sp-val">24</div></div>
+          <div class="sp-item"><div class="sp-bar" style="height:52px;"></div><div class="sp-val">32</div></div>
+          <div class="sp-item"><div class="sp-bar" style="height:64px;"></div><div class="sp-val">40</div></div>
+        </div>
+        <div style="font-size:10px;color:#94a3b8;margin-top:8px;">基准 +30% 留白，最小 padding p-7 (28px)</div>
+      </div>
+      <div>
+        <div class="rd-row">
+          <div class="rd-item"><div class="rd-box" style="border-radius:8px;"></div><div class="rd-val">8px tag</div></div>
+          <div class="rd-item"><div class="rd-box" style="border-radius:14px;"></div><div class="rd-val">14px btn</div></div>
+          <div class="rd-item"><div class="rd-box" style="border-radius:24px;"></div><div class="rd-val">24px card</div></div>
+          <div class="rd-item"><div class="rd-box" style="border-radius:99px;width:72px;"></div><div class="rd-val">99px pill</div></div>
+        </div>
+        <div style="font-size:10px;color:#94a3b8;margin-top:8px;">iOS 风格，卡片统一 rounded-[2rem]</div>
+      </div>
+    </div>
+  </div>
+
+</div>

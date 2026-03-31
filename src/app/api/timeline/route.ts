@@ -2,11 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { getAllSchoolEvents } from "@/lib/homepage/liveData";
 import type { EventType } from "@/types/homepage";
 
-export const revalidate = 21600; // 6 hours ISR
+export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url);
+    const searchParams = request.nextUrl.searchParams;
 
     const eventType = searchParams.get("type") as EventType | null;
     const schoolType = searchParams.get("school_type");

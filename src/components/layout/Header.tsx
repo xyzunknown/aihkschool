@@ -113,7 +113,9 @@ export function Header() {
             const isActive =
               item.href === "/kg"
                 ? pathname.startsWith("/kg")
-                : pathname === item.href;
+                : item.href === "/timeline"
+                  ? pathname.startsWith("/timeline")
+                  : pathname === item.href;
             return (
               <Link
                 key={item.href}

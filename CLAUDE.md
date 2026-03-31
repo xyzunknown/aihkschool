@@ -415,6 +415,26 @@ No sidebar navigation. Single-page layout:
 
 Fixed bottom CTA bar with primary action: 「申請 [YYYY/YY] 入學」(academic year calculated dynamically: if current month ≥ September → next year, else current year). Secondary "download" button removed.
 
+### Compare Page (`/compare`)
+
+Side-by-side comparison of 2-3 schools. URL: `/compare?ids=id1,id2,id3`.
+
+**Compare table rows** (in order): 地區, 學校類別, KEP 計劃, 班制, 設 N 班, K1 學位, K2 學位, K3 學位, 月費, 全年學費, 報名費, 註冊費, 教學語言. Rows where values differ across schools highlight with `bg-amber-50/50`.
+
+**N 班學位不納入對比表**：非牟利幼稚園無法取得 N 班學額數據（EDB 不公佈），大部分國際及私立學校亦不開設 N 班。對比表只顯示「設 N 班」（是/否），不顯示 N 班學額狀態。
+
+**useCompare hook** (`src/lib/hooks/useCompare.ts`): localStorage 持久化 (`hksp-compare-ids`)，最多 3 校，跨標籤頁透過 `storage` 事件同步。
+
+**CompareBar** (`src/components/compare/CompareBar.tsx`): fixed bottom floating bar on `/kg` list page. Shows selected school pills, clear button, compare button (disabled if <2 schools).
+
+### Timeline Page (`/timeline`)
+
+Shows school events (open days, interviews, briefings, deadlines, trials, talks) in a 90-day future + 7-day past window. Server component fetches via `getAllSchoolEvents()`, client component handles filtering.
+
+**Filters**: Event type (6 types + all) and school type (3 types + all) as pill buttons. Events grouped by month with dividers.
+
+**Countdown badge**: Colored dot + text — red (≤7d), amber (≤14d), green (>14d), grey text for past events. No emoji in status indicators.
+
 ## Naming Conventions
 
 | Thing | Convention | Example |

@@ -37,7 +37,7 @@ export function TimelineClient({ events }: TimelineClientProps) {
         <p className="text-slate-600">
           未來 90 天內的開放日、面試、簡介會及報名截止日期
           {futureCount > 0 && (
-            <span className="ml-2 text-sm text-emerald-600 font-medium">
+            <span className="ml-2 text-sm text-slate-700 font-medium">
               · {futureCount} 個即將到來
             </span>
           )}

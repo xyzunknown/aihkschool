@@ -117,7 +117,25 @@ export const LANGUAGE_OPTIONS: Record<string, string> = {
   chinese: "中文",
   english: "英文",
   bilingual: "雙語",
+  putonghua: "普通話",
 };
+
+/**
+ * 格式化費用金額
+ */
+export function formatFee(amount: number | null | undefined): string {
+  if (amount == null) return "—";
+  if (amount === 0) return "免費";
+  return `HK$${amount.toLocaleString()}`;
+}
+
+/**
+ * 語言代碼轉中文標籤
+ */
+export function getLanguageLabel(lang: string | null): string {
+  if (!lang) return "—";
+  return LANGUAGE_OPTIONS[lang] ?? lang;
+}
 
 export const MAX_FAVORITES = 10;
 export const REMINDER_DAYS = [7, 3, 1] as const;

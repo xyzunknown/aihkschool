@@ -63,7 +63,7 @@ export function CompareBar({ items, compareUrl, onRemove, onClear }: CompareBarP
           ) : (
             <button
               disabled
-              className="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-300 text-white rounded-xl text-sm font-medium cursor-not-allowed"
+              className="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-950 text-white rounded-xl text-sm font-medium opacity-50 cursor-not-allowed"
             >
               對比（{items.length}）
             </button>

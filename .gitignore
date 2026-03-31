@@ -42,3 +42,9 @@ scripts/__pycache__/
 data/logo-cache/
 __pycache__/
 data/profile-cache/
+
+# XHS scraping data (raw / cookies / progress)
+data/xhs/cookies.json
+data/xhs/raw_posts/
+data/xhs/raw_comments/
+data/xhs/progress.json

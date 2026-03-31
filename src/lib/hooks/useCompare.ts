@@ -34,9 +34,17 @@ function saveToStorage(items: CompareItem[]) {
 export function useCompare() {
   const [compareItems, setCompareItems] = useState<CompareItem[]>([]);
 
-  // Load from localStorage on mount
+  // Load from localStorage on mount + sync across tabs
   useEffect(() => {
     setCompareItems(loadFromStorage());
+
+    const handleStorage = (e: StorageEvent) => {
+      if (e.key === STORAGE_KEY) {
+        setCompareItems(loadFromStorage());
+      }
+    };
+    window.addEventListener("storage", handleStorage);
+    return () => window.removeEventListener("storage", handleStorage);
   }, []);
 
   const addToCompare = useCallback(

@@ -24,7 +24,7 @@ function EventCard({ event }: { event: SchoolEventItem }) {
 
   return (
     <div
-      className={`min-w-[220px] snap-start flex-shrink-0 rounded-2xl border border-slate-200 bg-white p-5 ${
+      className={`min-w-[220px] snap-start flex-shrink-0 rounded-2xl border border-slate-200 bg-white p-6 ${
         event.is_past ? "opacity-50" : ""
       }`}
     >

@@ -11,6 +11,8 @@ import {
   SCHOOL_TYPE_LABELS,
   SESSION_TYPE_LABELS,
   formatEnglishSchoolName,
+  formatFee,
+  getLanguageLabel,
 } from "@/lib/utils";
 import type { VacancyStatus } from "@/types/database";
 
@@ -37,6 +39,18 @@ interface SchoolCompareData {
     n_vacancy: VacancyStatus;
     edb_published_date: string | null;
   } | null;
+}
+
+function hasNursery(grades: string[] | null): boolean {
+  if (!grades) return false;
+  return grades.some((g) => g.toUpperCase() === "N" || g === "nursery" || g === "PN");
+}
+
+// Check if values differ across schools
+function valuesDiffer(values: (string | null | undefined)[]): boolean {
+  const nonNull = values.filter((v) => v != null);
+  if (nonNull.length <= 1) return false;
+  return new Set(nonNull).size > 1;
 }
 
 async function fetchSchoolForCompare(id: string): Promise<SchoolCompareData | null> {
@@ -82,49 +96,21 @@ async function fetchSchoolForCompare(id: string): Promise<SchoolCompareData | nu
   }
 }
 
-function formatFee(amount: number | null | undefined): string {
-  if (amount == null) return "—";
-  if (amount === 0) return "免費";
-  return `HK$${amount.toLocaleString()}`;
-}
-
-function getLanguageLabel(lang: string | null): string {
-  if (!lang) return "—";
-  const map: Record<string, string> = {
-    chinese: "中文",
-    english: "英文",
-    bilingual: "中英雙語",
-    putonghua: "普通話",
-  };
-  return map[lang] ?? lang;
-}
-
-function hasNursery(grades: string[] | null): boolean {
-  if (!grades) return false;
-  return grades.some((g) => g.toUpperCase() === "N" || g === "nursery" || g === "PN");
-}
-
-// Check if values differ across schools
-function valuesDiffer(values: (string | null | undefined)[]): boolean {
-  const nonNull = values.filter((v) => v != null);
-  if (nonNull.length <= 1) return false;
-  return new Set(nonNull).size > 1;
-}
-
 interface CompareRowProps {
   label: string;
   values: React.ReactNode[];
+  schoolIds: string[];
   highlight?: boolean;
 }
 
-function CompareRow({ label, values, highlight }: CompareRowProps) {
+function CompareRow({ label, values, schoolIds, highlight }: CompareRowProps) {
   return (
     <tr className={highlight ? "bg-amber-50/50" : ""}>
       <td className="sticky left-0 z-10 bg-inherit py-3 px-4 text-xs font-medium text-slate-500 whitespace-nowrap border-b border-slate-100">
         {label}
       </td>
       {values.map((val, i) => (
-        <td key={i} className="py-3 px-4 text-sm text-slate-900 border-b border-slate-100 min-w-[160px]">
+        <td key={schoolIds[i]} className="py-3 px-4 text-sm text-slate-900 border-b border-slate-100 min-w-[160px]">
           {val ?? "—"}
         </td>
       ))}
@@ -146,16 +132,21 @@ export function CompareClient() {
     .slice(0, 3);
 
   const fetchAll = useCallback(async () => {
-    if (ids.length === 0) {
+    const currentIds = idsParam
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean)
+      .slice(0, 3);
+    if (currentIds.length === 0) {
       setSchools([]);
       setLoading(false);
       return;
     }
     setLoading(true);
-    const results = await Promise.all(ids.map(fetchSchoolForCompare));
+    const results = await Promise.all(currentIds.map(fetchSchoolForCompare));
     setSchools(results.filter((r): r is SchoolCompareData => r !== null));
     setLoading(false);
-  }, [idsParam]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [idsParam]);
 
   useEffect(() => {
     fetchAll();
@@ -197,6 +188,7 @@ export function CompareClient() {
     );
   }
 
+  const schoolIds = schools.map((s) => s.id);
   const districtValues = schools.map((s) => DISTRICT_LABELS[s.district as keyof typeof DISTRICT_LABELS] ?? s.district);
   const typeValues = schools.map((s) => SCHOOL_TYPE_LABELS[s.school_type] ?? s.school_type);
   const kepValues = schools.map((s) => (s.kep_participant ? "✅ 已參加" : "❌ 未參加"));
@@ -267,13 +259,14 @@ export function CompareClient() {
             </tr>
           </thead>
           <tbody>
-            <CompareRow label="地區" values={districtValues} highlight={valuesDiffer(districtValues)} />
-            <CompareRow label="學校類別" values={typeValues} highlight={valuesDiffer(typeValues)} />
-            <CompareRow label="KEP 計劃" values={kepValues} highlight={valuesDiffer(kepValues)} />
-            <CompareRow label="班制" values={sessionValues} highlight={valuesDiffer(sessionValues)} />
-            <CompareRow label="設 N 班" values={nurseryValues} highlight={valuesDiffer(nurseryValues)} />
+            <CompareRow label="地區" values={districtValues} schoolIds={schoolIds} highlight={valuesDiffer(districtValues)} />
+            <CompareRow label="學校類別" values={typeValues} schoolIds={schoolIds} highlight={valuesDiffer(typeValues)} />
+            <CompareRow label="KEP 計劃" values={kepValues} schoolIds={schoolIds} highlight={valuesDiffer(kepValues)} />
+            <CompareRow label="班制" values={sessionValues} schoolIds={schoolIds} highlight={valuesDiffer(sessionValues)} />
+            <CompareRow label="設 N 班" values={nurseryValues} schoolIds={schoolIds} highlight={valuesDiffer(nurseryValues)} />
             <CompareRow
               label="K1 學位"
+              schoolIds={schoolIds}
               values={schools.map((s) =>
                 s.vacancy ? (
                   <VacancyBadge key={s.id} grade="K1" status={s.vacancy.k1_vacancy} isStale={false} />
@@ -284,6 +277,7 @@ export function CompareClient() {
             />
             <CompareRow
               label="K2 學位"
+              schoolIds={schoolIds}
               values={schools.map((s) =>
                 s.vacancy ? (
                   <VacancyBadge key={s.id} grade="K2" status={s.vacancy.k2_vacancy} isStale={false} />
@@ -294,6 +288,7 @@ export function CompareClient() {
             />
             <CompareRow
               label="K3 學位"
+              schoolIds={schoolIds}
               values={schools.map((s) =>
                 s.vacancy ? (
                   <VacancyBadge key={s.id} grade="K3" status={s.vacancy.k3_vacancy} isStale={false} />
@@ -302,11 +297,11 @@ export function CompareClient() {
                 ),
               )}
             />
-            <CompareRow label="月費" values={monthlyValues} highlight={valuesDiffer(monthlyValues)} />
-            <CompareRow label="全年學費" values={annualValues} highlight={valuesDiffer(annualValues)} />
-            <CompareRow label="報名費" values={appFeeValues} highlight={valuesDiffer(appFeeValues)} />
-            <CompareRow label="註冊費" values={regFeeValues} highlight={valuesDiffer(regFeeValues)} />
-            <CompareRow label="教學語言" values={langValues} highlight={valuesDiffer(langValues)} />
+            <CompareRow label="月費" values={monthlyValues} schoolIds={schoolIds} highlight={valuesDiffer(monthlyValues)} />
+            <CompareRow label="全年學費" values={annualValues} schoolIds={schoolIds} highlight={valuesDiffer(annualValues)} />
+            <CompareRow label="報名費" values={appFeeValues} schoolIds={schoolIds} highlight={valuesDiffer(appFeeValues)} />
+            <CompareRow label="註冊費" values={regFeeValues} schoolIds={schoolIds} highlight={valuesDiffer(regFeeValues)} />
+            <CompareRow label="教學語言" values={langValues} schoolIds={schoolIds} highlight={valuesDiffer(langValues)} />
           </tbody>
         </table>
       </div>

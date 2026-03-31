@@ -9,6 +9,7 @@ const EVENT_TYPE_OPTIONS: Array<{ value: EventType | "all"; label: string }> = [
   { value: "briefing", label: "簡介會" },
   { value: "deadline", label: "報名截止" },
   { value: "trial", label: "試堂" },
+  { value: "talk", label: "座談" },
 ];
 
 const SCHOOL_TYPE_OPTIONS: Array<{ value: string; label: string }> = [

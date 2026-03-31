@@ -33,15 +33,31 @@ function CountdownBadge({ daysUntil, isPast }: { daysUntil: number; isPast?: boo
     return <span className="text-xs text-slate-400">已結束</span>;
   }
   if (daysUntil === 0) {
-    return <span className="text-xs font-medium text-red-600">🔴 今天</span>;
+    return (
+      <span className="inline-flex items-center gap-1 text-xs font-medium text-red-600">
+        <span className="w-2 h-2 rounded-full bg-red-500" />今天
+      </span>
+    );
   }
   if (daysUntil <= 7) {
-    return <span className="text-xs font-medium text-red-600">🔴 還有 {daysUntil} 天</span>;
+    return (
+      <span className="inline-flex items-center gap-1 text-xs font-medium text-red-600">
+        <span className="w-2 h-2 rounded-full bg-red-500" />還有 {daysUntil} 天
+      </span>
+    );
   }
   if (daysUntil <= 14) {
-    return <span className="text-xs font-medium text-amber-600">🟠 還有 {daysUntil} 天</span>;
+    return (
+      <span className="inline-flex items-center gap-1 text-xs font-medium text-amber-600">
+        <span className="w-2 h-2 rounded-full bg-amber-500" />還有 {daysUntil} 天
+      </span>
+    );
   }
-  return <span className="text-xs font-medium text-emerald-600">🟢 還有 {daysUntil} 天</span>;
+  return (
+    <span className="inline-flex items-center gap-1 text-xs font-medium text-emerald-600">
+      <span className="w-2 h-2 rounded-full bg-emerald-500" />還有 {daysUntil} 天
+    </span>
+  );
 }
 
 interface EventRowProps {
@@ -59,7 +75,7 @@ export function EventRow({ event }: EventRowProps) {
 
   return (
     <div
-      className={`flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 transition-shadow hover:shadow-sm ${
+      className={`flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-6 transition-shadow hover:shadow-sm ${
         event.is_past ? "opacity-50" : ""
       }`}
     >
