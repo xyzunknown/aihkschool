@@ -166,12 +166,28 @@ export function SchoolDetailClient({ school, vacancy, socialSummary }: Props) {
         </div>
       </div>
 
-      <VacancySection vacancy={vacancy} isStale={stale} deadlineStatus={dlStatus} competitionLevel={socialSummary?.competition_level} />
+      <VacancySection vacancy={vacancy} isStale={stale} deadlineStatus={dlStatus} competitionLevel={socialSummary?.competition_level} schoolWebsite={school.website} />
       <BasicInfoSection school={school} />
       <FeesSection school={school} feeEstimates={socialSummary?.fee_estimates} />
       <AdmissionsSection school={school} />
-      {socialSummary && <InterviewIntelSection socialSummary={socialSummary} />}
-      {socialSummary && <ApplicationTimelineSection socialSummary={socialSummary} />}
+      {socialSummary ? (
+        <>
+          <InterviewIntelSection socialSummary={socialSummary} />
+          <ApplicationTimelineSection socialSummary={socialSummary} />
+        </>
+      ) : (
+        <section className="mb-10">
+          <h2 className="text-xl font-semibold text-slate-950 mb-4">家長心得與評價</h2>
+          <div className="rounded-2xl border border-slate-200 bg-white p-8 text-center">
+            <p className="text-sm text-slate-500">
+              暫無家長分享嘅面試情報同評價
+            </p>
+            <p className="text-xs text-slate-400 mt-2">
+              我哋正喺收集緊相關資訊，稍後會更新
+            </p>
+          </div>
+        </section>
+      )}
 
       <DetailBottomCTA
         school={school}

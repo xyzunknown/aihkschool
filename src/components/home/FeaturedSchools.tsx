@@ -2,8 +2,13 @@ import Link from "next/link";
 import { SchoolAvatar } from "@/components/schools/SchoolAvatar";
 import { VacancyBadge } from "@/components/schools/VacancyBadge";
 import { FEATURED_SCHOOLS } from "@/data/homepage";
+import type { FeaturedSchool } from "@/types/homepage";
 
-export function FeaturedSchools() {
+interface FeaturedSchoolsProps {
+  schools?: FeaturedSchool[];
+}
+
+export function FeaturedSchools({ schools }: FeaturedSchoolsProps) {
   return (
     <section className="mb-10">
       <div className="flex items-center justify-between mb-6">
@@ -17,7 +22,7 @@ export function FeaturedSchools() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-        {FEATURED_SCHOOLS.map((school) => (
+        {(schools && schools.length > 0 ? schools : FEATURED_SCHOOLS).map((school) => (
           <Link key={school.id} href={school.href}>
             <div className="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200">
               <div className="flex items-start gap-3 mb-3">

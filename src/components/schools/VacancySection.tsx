@@ -8,9 +8,10 @@ interface VacancySectionProps {
   isStale: boolean;
   deadlineStatus: "safe" | "warn" | "urgent" | "past" | null;
   competitionLevel?: "high" | "medium" | "low" | null;
+  schoolWebsite?: string | null;
 }
 
-export function VacancySection({ vacancy, isStale, deadlineStatus: dlStatus, competitionLevel }: VacancySectionProps) {
+export function VacancySection({ vacancy, isStale, deadlineStatus: dlStatus, competitionLevel, schoolWebsite }: VacancySectionProps) {
   return (
     <section className="mb-8">
       <div className="flex items-center justify-between mb-4">
@@ -57,6 +58,19 @@ export function VacancySection({ vacancy, isStale, deadlineStatus: dlStatus, com
             {isStale && (
               <p className="text-sm text-slate-500">
                 數據更新超過 30 天，建議直接聯絡學校確認。
+                {schoolWebsite && (
+                  <>
+                    {" "}
+                    <a
+                      href={schoolWebsite}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-slate-700 underline underline-offset-2 hover:text-slate-950"
+                    >
+                      前往學校官網 →
+                    </a>
+                  </>
+                )}
               </p>
             )}
             {vacancy.application_deadline && dlStatus && dlStatus !== "past" && (
@@ -76,6 +90,16 @@ export function VacancySection({ vacancy, isStale, deadlineStatus: dlStatus, com
           <p className="text-base text-slate-900">
             暫無空缺數據，建議直接聯絡學校。
           </p>
+          {schoolWebsite && (
+            <a
+              href={schoolWebsite}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-3 text-sm text-slate-700 underline underline-offset-2 hover:text-slate-950"
+            >
+              前往學校官網查詢 →
+            </a>
+          )}
         </GlassCard>
       )}
     </section>

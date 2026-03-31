@@ -29,7 +29,7 @@ export default async function HomePage() {
       <NewsFeed items={liveData.newsItems} />
 
       {/* 精選名校 */}
-      <FeaturedSchools />
+      <FeaturedSchools schools={liveData.featuredSchools} />
     </div>
   );
 }

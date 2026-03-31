@@ -4,6 +4,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import {
   BANNERS,
+  FEATURED_SCHOOLS,
   NEWS_ITEMS,
   SCHOOL_EVENTS,
 } from "@/data/homepage";
@@ -13,6 +14,7 @@ import {
   formatEnglishSchoolName,
 } from "@/lib/utils";
 import type {
+  FeaturedSchool,
   HomeBanner,
   NewsItem,
   SchoolEventItem,
@@ -328,16 +330,21 @@ async function getLiveNewsItems(): Promise<NewsItem[]> {
   ]);
 
   const liveItems = sortNewsByPublishedAt([...edbItems, ...hk01Items]);
-  const fallback = sortNewsByPublishedAt(
-    NEWS_ITEMS.filter(
-      (fallbackItem) =>
-        isRecent(fallbackItem.published_at) &&
-        !liveItems.some((item) => item.href === fallbackItem.href)
-    )
-  );
 
-  // Homepage shows 3 items; /news page fetches separately
-  return sortNewsByPublishedAt([...liveItems, ...fallback]).slice(0, 3);
+  // If live fetch succeeded, merge with recent fallback (deduped)
+  if (liveItems.length > 0) {
+    const recentFallback = sortNewsByPublishedAt(
+      NEWS_ITEMS.filter(
+        (fallbackItem) =>
+          isRecent(fallbackItem.published_at) &&
+          !liveItems.some((item) => item.href === fallbackItem.href)
+      )
+    );
+    return sortNewsByPublishedAt([...liveItems, ...recentFallback]).slice(0, 3);
+  }
+
+  // Live fetch completely failed — always return fallback data regardless of age
+  return sortNewsByPublishedAt(NEWS_ITEMS).slice(0, 3);
 }
 
 /** Fetch all news (for /news page). No slice limit. */
@@ -348,15 +355,20 @@ export async function getAllNewsItems(): Promise<NewsItem[]> {
   ]);
 
   const liveItems = sortNewsByPublishedAt([...edbItems, ...hk01Items]);
-  const fallback = sortNewsByPublishedAt(
-    NEWS_ITEMS.filter(
-      (fallbackItem) =>
-        isRecent(fallbackItem.published_at) &&
-        !liveItems.some((item) => item.href === fallbackItem.href)
-    )
-  );
 
-  return sortNewsByPublishedAt([...liveItems, ...fallback]);
+  if (liveItems.length > 0) {
+    const recentFallback = sortNewsByPublishedAt(
+      NEWS_ITEMS.filter(
+        (fallbackItem) =>
+          isRecent(fallbackItem.published_at) &&
+          !liveItems.some((item) => item.href === fallbackItem.href)
+      )
+    );
+    return sortNewsByPublishedAt([...liveItems, ...recentFallback]);
+  }
+
+  // Live fetch completely failed — return all fallback data regardless of age
+  return sortNewsByPublishedAt(NEWS_ITEMS);
 }
 
 /* ─── Event helpers ─── */
@@ -803,22 +815,90 @@ async function getHomepageBanners(): Promise<HomeBanner[]> {
   });
 }
 
+/* ─── Featured schools (dynamic from vacancy data) ─── */
+
+async function getFeaturedSchoolsLive(): Promise<FeaturedSchool[]> {
+  const schoolList = await readSchoolList();
+  if (schoolList.length === 0) return FEATURED_SCHOOLS;
+
+  // Pick schools that have vacancy data and diverse districts
+  const withVacancy = schoolList.filter(
+    (row) => row.name_tc && row.district && (row.k1 || row.k2 || row.k3)
+  );
+
+  if (withVacancy.length < 3) return FEATURED_SCHOOLS;
+
+  // Diversify by district: pick from different districts
+  const seenDistricts = new Set<string>();
+  const picked: SchoolListRow[] = [];
+
+  // First pass: one per district, prefer schools with has_vacancy
+  const sorted = [...withVacancy].sort((a, b) => {
+    const aScore = (a.k1 === "has_vacancy" ? 2 : 0) + (a.k2 === "has_vacancy" ? 1 : 0);
+    const bScore = (b.k1 === "has_vacancy" ? 2 : 0) + (b.k2 === "has_vacancy" ? 1 : 0);
+    return bScore - aScore;
+  });
+
+  for (const row of sorted) {
+    if (picked.length >= 3) break;
+    if (row.district && !seenDistricts.has(row.district)) {
+      seenDistricts.add(row.district);
+      picked.push(row);
+    }
+  }
+
+  // Fill remaining slots if needed
+  for (const row of sorted) {
+    if (picked.length >= 3) break;
+    if (!picked.includes(row)) picked.push(row);
+  }
+
+  if (picked.length < 3) return FEATURED_SCHOOLS;
+
+  return picked.map((row) => {
+    const district =
+      row.district && row.district in DISTRICT_LABELS
+        ? DISTRICT_LABELS[row.district as keyof typeof DISTRICT_LABELS]
+        : row.district ?? "";
+    const sessionTags = normalizeSessionTags(row.session);
+
+    return {
+      id: row.code ?? row.name_tc ?? "",
+      schoolCode: row.code ?? undefined,
+      name_tc: row.name_tc ?? "",
+      name_en: formatEnglishSchoolName(row.name_en),
+      district,
+      sessionTags,
+      hasN: false,
+      href: `/kg?search=${encodeURIComponent(row.name_tc ?? "")}`,
+      vacancyStatus: {
+        k1: row.k1 ?? "no_information",
+        k2: row.k2 ?? "no_information",
+        k3: row.k3 ?? "no_information",
+      },
+    } satisfies FeaturedSchool;
+  });
+}
+
 /* ─── Main export ─── */
 
 export async function getHomepageLiveData(): Promise<{
   banners: HomeBanner[];
   events: SchoolEventItem[];
   newsItems: NewsItem[];
+  featuredSchools: FeaturedSchool[];
 }> {
-  const [banners, events, newsItems] = await Promise.all([
+  const [banners, events, newsItems, featuredSchools] = await Promise.all([
     getHomepageBanners(),
     getSchoolEvents(),
     getLiveNewsItems(),
+    getFeaturedSchoolsLive(),
   ]);
 
   return {
     banners,
     events,
     newsItems,
+    featuredSchools,
   };
 }

@@ -8,10 +8,19 @@ interface SendEmailParams {
   html: string;
 }
 
+const EMAIL_FROM = process.env.EMAIL_FROM || "HKSchoolPlace <onboarding@resend.dev>";
+
 export async function sendEmail({ to, subject, html }: SendEmailParams) {
+  if (EMAIL_FROM.includes("resend.dev")) {
+    console.warn(
+      "[Email] Using Resend test domain — emails may land in spam. " +
+      "Set EMAIL_FROM env var to your custom domain (e.g. noreply@hkschoolplace.com)."
+    );
+  }
+
   try {
     const { data, error } = await resend.emails.send({
-      from: "HKSchoolPlace <onboarding@resend.dev>",
+      from: EMAIL_FROM,
       to,
       subject,
       html,
