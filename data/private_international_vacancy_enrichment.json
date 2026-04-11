@@ -114,10 +114,12 @@
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
     "overall_status": "check_school",
-    "overall_summary": "Extension & Gifted Programme Admission Admission Open Day Enquiry / Arrange a school tour Our Campus DMA IB Montessori Elementary(3",
+    "overall_summary": "d Programme Summer Camp Admission Admission Open Day Enquiry / Arrange a school tour Our Campus DMA IB Montessori Elementary(3",
     "source_url": "http://www.dms.edu.hk/content.php?wid=37",
-    "scraped_pages": [],
-    "scrape_status": "homepage_unreachable",
+    "scraped_pages": [
+      "http://www.dms.edu.hk/"
+    ],
+    "scrape_status": "ok",
     "evidence": {}
   },
   {
@@ -436,10 +438,13 @@
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
     "overall_status": "check_school",
-    "overall_summary": "Admissions Procedure",
+    "overall_summary": "If no places are available for the desired entry date, the applicant will be placed on the waiting list and notified when a place becomes available.",
     "source_url": "https://www.malvernpreschool.hk/",
-    "scraped_pages": [],
-    "scrape_status": "homepage_unreachable",
+    "scraped_pages": [
+      "https://www.malvernpreschool.hk/",
+      "https://www.malvernpreschool.hk/admissions-overview/"
+    ],
+    "scrape_status": "ok",
     "evidence": {}
   },
   {
@@ -539,11 +544,8 @@
     "overall_status": "no_information",
     "overall_summary": null,
     "source_url": "https://www.magartedu.com/",
-    "scraped_pages": [
-      "https://www.magartedu.com/",
-      "https://www.magartedu.com/en/how-to-apply/"
-    ],
-    "scrape_status": "ok",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
     "evidence": {}
   },
   {
@@ -568,7 +570,6 @@
     "source_url": "http://www.mingwai.edu.hk/",
     "scraped_pages": [
       "http://www.mingwai.edu.hk/",
-      "http://www.mingwai.edu.hk/#",
       "https://www.mingwai.edu.hk/how-to-apply/north-point-admissions/admissions-information/",
       "https://www.mingwai.edu.hk/how-to-apply/prince-edward-admissions/admissions-information/"
     ],
@@ -756,7 +757,6 @@
     "source_url": "http://www.mingwai.edu.hk/",
     "scraped_pages": [
       "http://www.mingwai.edu.hk/",
-      "http://www.mingwai.edu.hk/#",
       "https://www.mingwai.edu.hk/how-to-apply/north-point-admissions/admissions-information/",
       "https://www.mingwai.edu.hk/how-to-apply/prince-edward-admissions/admissions-information/"
     ],
@@ -785,7 +785,6 @@
     "source_url": "http://www.mingwai.edu.hk/",
     "scraped_pages": [
       "http://www.mingwai.edu.hk/",
-      "http://www.mingwai.edu.hk/#",
       "https://www.mingwai.edu.hk/how-to-apply/north-point-admissions/admissions-information/",
       "https://www.mingwai.edu.hk/how-to-apply/prince-edward-admissions/admissions-information/"
     ],
@@ -889,7 +888,10 @@
     "source_url": "https://www.abcpathways.edu.hk/%e5%85%a5%e5%ad%b8%e7%94%b3%e8%ab%8b/",
     "scraped_pages": [
       "http://www.abcpathways.edu.hk/",
-      "https://www.abcpathways.edu.hk/%e5%85%a5%e5%ad%b8%e7%94%b3%e8%ab%8b/"
+      "https://www.abcpathways.edu.hk/%e5%85%a5%e5%ad%b8%e7%94%b3%e8%ab%8b/",
+      "https://www.abcpathways.edu.hk/2026admissionevents/",
+      "https://www.abcpathways.edu.hk/%e5%85%a5%e5%ad%b8%e8%ac%9b%e5%ba%a7%e5%8f%8a%e9%9d%a2%e8%a9%a6%e6%97%a5/",
+      "https://www.abcpathways.edu.hk/%e5%8d%87%e5%ad%b8%e4%bd%b3%e7%b8%be/"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -1080,7 +1082,6 @@
     "source_url": "http://www.discoverymind.edu.hk/",
     "scraped_pages": [
       "http://www.discoverymind.edu.hk/",
-      "http://www.discoverymind.edu.hk/#",
       "https://fs19.formsite.com/DiscoveryMind/Admission/index",
       "https://discoverymind.edu.hk/admission-procedures/"
     ],
@@ -1109,7 +1110,6 @@
     "source_url": "http://www.discoverymind.edu.hk/",
     "scraped_pages": [
       "http://www.discoverymind.edu.hk/",
-      "http://www.discoverymind.edu.hk/#",
       "https://fs19.formsite.com/DiscoveryMind/Admission/index",
       "https://discoverymind.edu.hk/admission-procedures/"
     ],
@@ -1134,10 +1134,12 @@
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
     "overall_status": "check_school",
-    "overall_summary": "Extension & Gifted Programme Admission Admission Open Day Enquiry / Arrange a school tour Our Campus DMA IB Montessori Elementary(3",
+    "overall_summary": "d Programme Summer Camp Admission Admission Open Day Enquiry / Arrange a school tour Our Campus DMA IB Montessori Elementary(3",
     "source_url": "http://www.dms.edu.hk/content.php?wid=37",
-    "scraped_pages": [],
-    "scrape_status": "homepage_unreachable",
+    "scraped_pages": [
+      "http://www.dms.edu.hk/"
+    ],
+    "scrape_status": "ok",
     "evidence": {}
   },
   {
@@ -1205,8 +1207,7 @@
     "overall_summary": "Admissions for school year 2026-2027 are open.",
     "source_url": "https://www.godaddy.com/websites/website-builder?isc=pwugc&utm_source=wsb&utm_medium=applications&utm_campaign=en-ie_corp_applications_base",
     "scraped_pages": [
-      "http://www.ecole-discovery.com/",
-      "https://www.godaddy.com/websites/website-builder?isc=pwugc&utm_source=wsb&utm_medium=applications&utm_campaign=en-ie_corp_applications_base"
+      "http://www.ecole-discovery.com/"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -1229,10 +1230,12 @@
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
     "overall_status": "check_school",
-    "overall_summary": "Extension & Gifted Programme Admission Admission Open Day Enquiry / Arrange a school tour Our Campus DMA IB Montessori Elementary(3",
+    "overall_summary": "d Programme Summer Camp Admission Admission Open Day Enquiry / Arrange a school tour Our Campus DMA IB Montessori Elementary(3",
     "source_url": "http://www.dms.edu.hk/content.php?wid=37",
-    "scraped_pages": [],
-    "scrape_status": "homepage_unreachable",
+    "scraped_pages": [
+      "http://www.dms.edu.hk/"
+    ],
+    "scrape_status": "ok",
     "evidence": {}
   },
   {
@@ -1287,7 +1290,6 @@
     "scraped_pages": [
       "http://www.st-johannes.edu.hk/",
       "https://st-johannes.edu.hk/applying-to-sjc/#admissions",
-      "http://www.st-johannes.edu.hk/#",
       "https://st-johannes.edu.hk/applying-to-sjc/"
     ],
     "scrape_status": "ok",
@@ -1907,10 +1909,8 @@
     "overall_status": "no_information",
     "overall_summary": null,
     "source_url": "https://www.abcpathways.edu.hk/language/en/",
-    "scraped_pages": [
-      "https://www.abcpathways.edu.hk/language/en/"
-    ],
-    "scrape_status": "ok",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
     "evidence": {}
   },
   {
@@ -1981,11 +1981,8 @@
     "overall_status": "no_information",
     "overall_summary": null,
     "source_url": "https://www.magartedu.com/",
-    "scraped_pages": [
-      "https://www.magartedu.com/",
-      "https://www.magartedu.com/en/how-to-apply/"
-    ],
-    "scrape_status": "ok",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
     "evidence": {}
   },
   {
@@ -2270,8 +2267,7 @@
       "https://www.harrowhongkong.hk/hll/",
       "https://www.harrowhongkong.hk/hll/admissions/application/",
       "https://www.harrowhongkong.hk/hll/admissions/",
-      "https://www.harrowhongkong.hk/hll/admissions/admissions-process/",
-      "https://www.harrowhongkong.hk/hll/#"
+      "https://www.harrowhongkong.hk/hll/admissions/admissions-process/"
     ],
     "scrape_status": "ok",
     "evidence": {
@@ -2309,11 +2305,8 @@
     "overall_status": "no_information",
     "overall_summary": null,
     "source_url": "https://www.magartedu.com/",
-    "scraped_pages": [
-      "https://www.magartedu.com/",
-      "https://www.magartedu.com/en/how-to-apply/"
-    ],
-    "scrape_status": "ok",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
     "evidence": {}
   },
   {
@@ -2362,8 +2355,7 @@
     "source_url": "http://www.mynors.edu.hk/",
     "scraped_pages": [
       "http://www.mynors.edu.hk/",
-      "https://mynors.edu.hk/kg-curriculum-duplicate-1/",
-      "http://www.mynors.edu.hk/#"
+      "https://mynors.edu.hk/kg-curriculum-duplicate-1/"
     ],
     "scrape_status": "ok",
     "evidence": {
@@ -2394,8 +2386,7 @@
     "overall_summary": "Apply Now",
     "source_url": "http://greenfield.edu.hk/admission.php?id=",
     "scraped_pages": [
-      "http://greenfield.edu.hk/en",
-      "http://greenfield.edu.hk/en#"
+      "http://greenfield.edu.hk/en"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -2664,8 +2655,7 @@
     "overall_summary": "Apply Now",
     "source_url": "http://greenfield.edu.hk/admission.php?id=",
     "scraped_pages": [
-      "http://greenfield.edu.hk/en",
-      "http://greenfield.edu.hk/en#"
+      "http://greenfield.edu.hk/en"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -2740,8 +2730,7 @@
     "source_url": "https://loupichoun.com/school-applications",
     "scraped_pages": [
       "https://loupichoun.com/",
-      "https://loupichoun.com/school-applications",
-      "https://loupichoun.com/#"
+      "https://loupichoun.com/school-applications"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -2882,21 +2871,26 @@
       "K2",
       "K3"
     ],
-    "n_vacancy": "check_school",
-    "k1_vacancy": "check_school",
-    "k2_vacancy": "check_school",
-    "k3_vacancy": "check_school",
-    "overall_status": "check_school",
-    "overall_summary": "We provide one-on-one primary school admission consultation to pave a stress-free path for students and their families.",
-    "source_url": "https://www.aik.edu.hk/apply-online",
+    "n_vacancy": "no_information",
+    "k1_vacancy": "has_vacancy",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "https://zh.aik.edu.hk/apply",
     "scraped_pages": [
       "http://www.aik.edu.hk/",
-      "https://www.aik.edu.hk/apply-online",
-      "https://www.aik.edu.hk/apply",
-      "https://www.aik.edu.hk/schoolapplication"
+      "https://zh.aik.edu.hk/apply",
+      "https://zh.aik.edu.hk/schoolapplication",
+      "https://zh.aik.edu.hk/apply-online"
     ],
     "scrape_status": "ok",
-    "evidence": {}
+    "evidence": {
+      "k1": {
+        "summary": "2025-2026 K1-K2插班生申請：個別班級或有少量空缺，請填寫並遞交網上申請表，入學部會根據實際學位空缺與您聯繫。",
+        "url": "https://zh.aik.edu.hk/schoolapplication"
+      }
+    }
   },
   {
     "school_code": "604615",
@@ -3018,21 +3012,15 @@
       "K2",
       "K3"
     ],
-    "n_vacancy": "check_school",
-    "k1_vacancy": "check_school",
-    "k2_vacancy": "check_school",
-    "k3_vacancy": "check_school",
-    "overall_status": "check_school",
-    "overall_summary": "「有教無類」助學金現正接受申請",
-    "source_url": "http://www.catiline.edu.hk/primarynbsponenbspadmissions.html",
-    "scraped_pages": [
-      "http://www.catiline.edu.hk/",
-      "http://www.catiline.edu.hk/primarynbsponenbspadmissions.html",
-      "http://www.catiline.edu.hk/onlineapplication-844287.html",
-      "https://www.catiline.edu.hk/onlineapplication-844287.html",
-      "http://www.catiline.edu.hk/guidancenotehk-721767.html"
-    ],
-    "scrape_status": "ok",
+    "n_vacancy": "no_information",
+    "k1_vacancy": "no_information",
+    "k2_vacancy": "no_information",
+    "k3_vacancy": "no_information",
+    "overall_status": "no_information",
+    "overall_summary": null,
+    "source_url": "http://www.catiline.edu.hk/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
     "evidence": {}
   },
   {
@@ -3321,7 +3309,6 @@
     "scraped_pages": [
       "http://www.puikiukg.edu.hk/",
       "http://www.puikiukg.edu.hk/chi/application-procedures",
-      "http://www.puikiukg.edu.hk/#",
       "http://www.puikiukg.edu.hk/chi/enrolment-grades"
     ],
     "scrape_status": "ok",
@@ -3378,7 +3365,6 @@
     "scraped_pages": [
       "http://www.puikiukg.edu.hk/",
       "http://www.puikiukg.edu.hk/chi/application-procedures",
-      "http://www.puikiukg.edu.hk/#",
       "http://www.puikiukg.edu.hk/chi/enrolment-grades"
     ],
     "scrape_status": "ok",
@@ -3523,7 +3509,6 @@
     "scraped_pages": [
       "http://mfc.edu.hk/",
       "https://form.jotform.me/82552941042453",
-      "http://mfc.edu.hk/#",
       "http://mfc.edu.hk/application-casa_hk.html",
       "http://mfc.edu.hk/application-infant_hk.html"
     ],
@@ -3543,18 +3528,38 @@
       "K2",
       "K3"
     ],
-    "n_vacancy": "check_school",
-    "k1_vacancy": "check_school",
-    "k2_vacancy": "check_school",
-    "k3_vacancy": "check_school",
-    "overall_status": "check_school",
-    "overall_summary": "Online Application Form",
-    "source_url": "https://mulberryhousekg.com/",
+    "n_vacancy": "waiting_list",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "waiting_list",
+    "overall_status": "waiting_list",
+    "overall_summary": "Your child will be allotted a class and a date of commencement, or be placed on the waiting list.",
+    "source_url": "https://mulberryhousekg.com/how-to-apply/",
     "scraped_pages": [
-      "https://mulberryhousekg.com/"
+      "https://mulberryhousekg.com/",
+      "https://mulberryhousekg.com/how-to-apply/",
+      "https://mulberryhousekg.com/en/online-application-form/",
+      "https://mulberryhousekg.com/online-application-form/"
     ],
     "scrape_status": "ok",
-    "evidence": {}
+    "evidence": {
+      "n": {
+        "summary": "Your child will be allotted a class and a date of commencement, or be placed on the waiting list.",
+        "url": "https://mulberryhousekg.com/how-to-apply/"
+      },
+      "k1": {
+        "summary": "Your child will be allotted a class and a date of commencement, or be placed on the waiting list.",
+        "url": "https://mulberryhousekg.com/how-to-apply/"
+      },
+      "k2": {
+        "summary": "Your child will be allotted a class and a date of commencement, or be placed on the waiting list.",
+        "url": "https://mulberryhousekg.com/how-to-apply/"
+      },
+      "k3": {
+        "summary": "Your child will be allotted a class and a date of commencement, or be placed on the waiting list.",
+        "url": "https://mulberryhousekg.com/how-to-apply/"
+      }
+    }
   },
   {
     "school_code": "598089",
@@ -3698,18 +3703,38 @@
       "K2",
       "K3"
     ],
-    "n_vacancy": "check_school",
-    "k1_vacancy": "check_school",
-    "k2_vacancy": "check_school",
-    "k3_vacancy": "check_school",
-    "overall_status": "check_school",
-    "overall_summary": "Online Application Form",
-    "source_url": "https://mulberryhousekg.com/",
+    "n_vacancy": "waiting_list",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "waiting_list",
+    "overall_status": "waiting_list",
+    "overall_summary": "Your child will be allotted a class and a date of commencement, or be placed on the waiting list.",
+    "source_url": "https://mulberryhousekg.com/how-to-apply/",
     "scraped_pages": [
-      "https://mulberryhousekg.com/"
+      "https://mulberryhousekg.com/",
+      "https://mulberryhousekg.com/how-to-apply/",
+      "https://mulberryhousekg.com/en/online-application-form/",
+      "https://mulberryhousekg.com/online-application-form/"
     ],
     "scrape_status": "ok",
-    "evidence": {}
+    "evidence": {
+      "n": {
+        "summary": "Your child will be allotted a class and a date of commencement, or be placed on the waiting list.",
+        "url": "https://mulberryhousekg.com/how-to-apply/"
+      },
+      "k1": {
+        "summary": "Your child will be allotted a class and a date of commencement, or be placed on the waiting list.",
+        "url": "https://mulberryhousekg.com/how-to-apply/"
+      },
+      "k2": {
+        "summary": "Your child will be allotted a class and a date of commencement, or be placed on the waiting list.",
+        "url": "https://mulberryhousekg.com/how-to-apply/"
+      },
+      "k3": {
+        "summary": "Your child will be allotted a class and a date of commencement, or be placed on the waiting list.",
+        "url": "https://mulberryhousekg.com/how-to-apply/"
+      }
+    }
   },
   {
     "school_code": "157716",
@@ -3757,10 +3782,8 @@
     "overall_status": "no_information",
     "overall_summary": null,
     "source_url": "http://www.funful.hk/",
-    "scraped_pages": [
-      "http://www.funful.hk/"
-    ],
-    "scrape_status": "ok",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
     "evidence": {}
   },
   {
@@ -4147,12 +4170,11 @@
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
     "overall_status": "check_school",
-    "overall_summary": "Apply Now!",
+    "overall_summary": "M - 6Years Old eClass Admissions Pods Learning School Pods Learning School Pods Learning School Language Art Performin",
     "source_url": "http://www.pods.com.hk/pages/admissions",
     "scraped_pages": [
       "http://www.pods.com.hk/",
-      "http://www.pods.com.hk/pages/admissions",
-      "http://www.pods.com.hk/pages/christmas-camp"
+      "http://www.pods.com.hk/pages/admissions"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -4202,10 +4224,12 @@
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
     "overall_status": "check_school",
-    "overall_summary": "Testimonials Teacher Testimonials Admissions Apply Now Visit Us Events Video Gallery Photo Gallery Contact 中文 Home About Mission and Pri",
+    "overall_summary": "Apply Now",
     "source_url": "https://littledalton.com/",
     "scraped_pages": [
-      "https://littledalton.com/"
+      "https://littledalton.com/",
+      "https://dshk.openapply.com/",
+      "https://dshk.openapply.com/roi"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -4282,7 +4306,6 @@
     "source_url": "https://www.edb.gov.hk/tc/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/index.html",
     "scraped_pages": [
       "https://wfns.hkcschild.edu.hk/",
-      "https://wfns.hkcschild.edu.hk/#",
       "https://wfns.hkcschild.edu.hk/?page_id=2514",
       "https://wfns.hkcschild.edu.hk/?page_id=2517"
     ],
@@ -4401,7 +4424,6 @@
     "source_url": "http://www.mingwai.edu.hk/",
     "scraped_pages": [
       "http://www.mingwai.edu.hk/",
-      "http://www.mingwai.edu.hk/#",
       "https://www.mingwai.edu.hk/how-to-apply/north-point-admissions/admissions-information/",
       "https://www.mingwai.edu.hk/how-to-apply/prince-edward-admissions/admissions-information/"
     ],
@@ -4476,10 +4498,13 @@
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
     "overall_status": "check_school",
-    "overall_summary": "Admissions Procedure",
+    "overall_summary": "If no places are available for the desired entry date, the applicant will be placed on the waiting list and notified when a place becomes available.",
     "source_url": "http://www.malvernpreschool.hk/",
-    "scraped_pages": [],
-    "scrape_status": "homepage_unreachable",
+    "scraped_pages": [
+      "http://www.malvernpreschool.hk/",
+      "https://www.malvernpreschool.hk/admissions-overview/"
+    ],
+    "scrape_status": "ok",
     "evidence": {}
   },
   {

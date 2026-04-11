@@ -1471,15 +1471,15 @@ WHERE school_code = '616443' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'check_school',
-  k1_vacancy = 'check_school',
-  k2_vacancy = 'check_school',
-  k3_vacancy = 'check_school',
-  edb_source_url = 'https://www.aik.edu.hk/apply-online'
+  n_vacancy = 'no_information',
+  k1_vacancy = 'has_vacancy',
+  k2_vacancy = 'no_information',
+  k3_vacancy = 'no_information',
+  edb_source_url = 'https://zh.aik.edu.hk/apply'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '604470' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'https://www.aik.edu.hk/apply-online', true
+SELECT id, '2026/27', 'no_information', 'has_vacancy', 'no_information', 'no_information', 'https://zh.aik.edu.hk/apply', true
 FROM schools
 WHERE school_code = '604470' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -1546,15 +1546,15 @@ WHERE school_code = '615250' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'check_school',
-  k1_vacancy = 'check_school',
-  k2_vacancy = 'check_school',
-  k3_vacancy = 'check_school',
-  edb_source_url = 'http://www.catiline.edu.hk/primarynbsponenbspadmissions.html'
+  n_vacancy = 'no_information',
+  k1_vacancy = 'no_information',
+  k2_vacancy = 'no_information',
+  k3_vacancy = 'no_information',
+  edb_source_url = 'http://www.catiline.edu.hk/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '231266' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'http://www.catiline.edu.hk/primarynbsponenbspadmissions.html', true
+SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'http://www.catiline.edu.hk/', true
 FROM schools
 WHERE school_code = '231266' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -1816,15 +1816,15 @@ WHERE school_code = '565466' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'check_school',
-  k1_vacancy = 'check_school',
-  k2_vacancy = 'check_school',
-  k3_vacancy = 'check_school',
-  edb_source_url = 'https://mulberryhousekg.com/'
+  n_vacancy = 'waiting_list',
+  k1_vacancy = 'waiting_list',
+  k2_vacancy = 'waiting_list',
+  k3_vacancy = 'waiting_list',
+  edb_source_url = 'https://mulberryhousekg.com/how-to-apply/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '578053' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'https://mulberryhousekg.com/', true
+SELECT id, '2026/27', 'waiting_list', 'waiting_list', 'waiting_list', 'waiting_list', 'https://mulberryhousekg.com/how-to-apply/', true
 FROM schools
 WHERE school_code = '578053' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -1906,15 +1906,15 @@ WHERE school_code = '567027' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'check_school',
-  k1_vacancy = 'check_school',
-  k2_vacancy = 'check_school',
-  k3_vacancy = 'check_school',
-  edb_source_url = 'https://mulberryhousekg.com/'
+  n_vacancy = 'waiting_list',
+  k1_vacancy = 'waiting_list',
+  k2_vacancy = 'waiting_list',
+  k3_vacancy = 'waiting_list',
+  edb_source_url = 'https://mulberryhousekg.com/how-to-apply/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '601721' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'https://mulberryhousekg.com/', true
+SELECT id, '2026/27', 'waiting_list', 'waiting_list', 'waiting_list', 'waiting_list', 'https://mulberryhousekg.com/how-to-apply/', true
 FROM schools
 WHERE school_code = '601721' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true

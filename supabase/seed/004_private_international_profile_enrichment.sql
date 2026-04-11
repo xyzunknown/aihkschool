@@ -11,8 +11,8 @@ UPDATE schools SET
   application_status = 'year_round',
   application_details = 'AY2026/27 Admissions Seminar Replay Online Soon!',
   application_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1',
-  open_day_details = 'Missed the event or want to revisit the highlights?',
-  open_day_url = NULL,
+  open_day_details = 'K3 Visit City Gallery (MK)',
+  open_day_url = 'https://www.victoria.edu.hk/news/2025-2026-k3-visit-city-gallery-%e9%ab%98%e7%8f%ad%e5%8f%83%e8%a7%80%e5%b1%95%e5%9f%8e%e9%a4%a8-mk/',
   last_profile_scraped_at = now()
 WHERE school_code = '542164';
 UPDATE schools SET
@@ -57,7 +57,7 @@ UPDATE schools SET
   fee_notes = 'We loved the interaction & feedback from the teachers.',
   other_fees_note = NULL,
   application_status = 'website',
-  application_details = 'Extension & Gifted Programme Admission Admission Open Day Enquiry / Arrange a school tour Our Campus DMA IB Montessori Elementary(3',
+  application_details = 'd Programme Summer Camp Admission Admission Open Day Enquiry / Arrange a school tour Our Campus DMA IB Montessori Elementary(3',
   application_url = 'http://www.dms.edu.hk/content.php?wid=37',
   open_day_details = 'Enquiry / Arrange a school tour',
   open_day_url = 'http://www.dms.edu.hk/content.php?wid=40',
@@ -105,7 +105,7 @@ UPDATE schools SET
   fee_notes = 'Schedule & Program Fees / Schedule and fees / Our team can provide more information on availability, daily schedule, and tuition rates.',
   other_fees_note = 'Guidepost Hong Kong | Schedule & Program Fees / Our fees vary by location and program',
   application_status = 'year_round',
-  application_details = 'Enrollment is now open for our Spring & Summer Camps!',
+  application_details = 'Enrollment is now open for our Summer Camp!',
   application_url = 'https://guidepost.hk/apply-now',
   open_day_details = ' Come and visit us Book a Tour Guidepost Montessori Mid-Levels Inquire Now Complete this brief',
   open_day_url = NULL,
@@ -217,7 +217,7 @@ UPDATE schools SET
   fee_notes = 'Schedule & Program Fees / Our entrance is on Yat Fu Lane, next to the Pacific Coffee Company, just off of Queen''s Road West. / Schedule and fees',
   other_fees_note = 'schedule and fees / Our team can provide more information on availability, daily schedule, and tuition rates.',
   application_status = 'year_round',
-  application_details = 'Enrollment is now open for our Spring & Summer Camps!',
+  application_details = 'Enrollment is now open for our Summer Camp!',
   application_url = 'https://guidepost.hk/apply-now',
   open_day_details = ' Come and visit us Book a Tour Guidepost Montessori Kennedy Town Inquire Now Complete this bri',
   open_day_url = NULL,
@@ -347,8 +347,8 @@ UPDATE schools SET
   application_status = 'year_round',
   application_details = 'AY2026/27 Admissions Seminar Replay Online Soon!',
   application_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1',
-  open_day_details = 'Missed the event or want to revisit the highlights?',
-  open_day_url = NULL,
+  open_day_details = 'K3 Visit City Gallery (MK)',
+  open_day_url = 'https://www.victoria.edu.hk/news/2025-2026-k3-visit-city-gallery-%e9%ab%98%e7%8f%ad%e5%8f%83%e8%a7%80%e5%b1%95%e5%9f%8e%e9%a4%a8-mk/',
   last_profile_scraped_at = now()
 WHERE school_code = '325481';
 UPDATE schools SET
@@ -363,8 +363,8 @@ UPDATE schools SET
   application_status = 'year_round',
   application_details = 'AY2026/27 Admissions Seminar Replay Online Soon!',
   application_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1',
-  open_day_details = 'Missed the event or want to revisit the highlights?',
-  open_day_url = NULL,
+  open_day_details = 'K3 Visit City Gallery (MK)',
+  open_day_url = 'https://www.victoria.edu.hk/news/2025-2026-k3-visit-city-gallery-%e9%ab%98%e7%8f%ad%e5%8f%83%e8%a7%80%e5%b1%95%e5%9f%8e%e9%a4%a8-mk/',
   last_profile_scraped_at = now()
 WHERE school_code = '566934';
 UPDATE schools SET
@@ -379,8 +379,8 @@ UPDATE schools SET
   application_status = 'year_round',
   application_details = 'AY2026/27 Admissions Seminar Replay Online Soon!',
   application_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1',
-  open_day_details = 'Missed the event or want to revisit the highlights?',
-  open_day_url = NULL,
+  open_day_details = 'K3 Visit City Gallery (MK)',
+  open_day_url = 'https://www.victoria.edu.hk/news/2025-2026-k3-visit-city-gallery-%e9%ab%98%e7%8f%ad%e5%8f%83%e8%a7%80%e5%b1%95%e5%9f%8e%e9%a4%a8-mk/',
   last_profile_scraped_at = now()
 WHERE school_code = '566942';
 UPDATE schools SET
@@ -427,8 +427,8 @@ UPDATE schools SET
   application_status = 'year_round',
   application_details = 'AY2026/27 Admissions Seminar Replay Online Soon!',
   application_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1',
-  open_day_details = 'Missed the event or want to revisit the highlights?',
-  open_day_url = NULL,
+  open_day_details = 'K3 Visit City Gallery (MK)',
+  open_day_url = 'https://www.victoria.edu.hk/news/2025-2026-k3-visit-city-gallery-%e9%ab%98%e7%8f%ad%e5%8f%83%e8%a7%80%e5%b1%95%e5%9f%8e%e9%a4%a8-mk/',
   last_profile_scraped_at = now()
 WHERE school_code = '569828';
 UPDATE schools SET
@@ -505,7 +505,7 @@ UPDATE schools SET
   fee_notes = 'Schedule & Program Fees / schedule and fees / Schedule and fees',
   other_fees_note = 'Our team can provide more information on availability, daily schedule, and tuition rates. / Guidepost Hong Kong | Schedule & Program Fees',
   application_status = 'year_round',
-  application_details = 'Enrollment is now open for our Spring & Summer Camps!',
+  application_details = 'Enrollment is now open for our Summer Camp!',
   application_url = 'https://guidepost.hk/apply-now',
   open_day_details = ' Come and visit us Book a tour Guidepost Montessori Chai Wan Inquire Now Complete this brief f',
   open_day_url = NULL,
@@ -585,7 +585,7 @@ UPDATE schools SET
   fee_notes = 'We loved the interaction & feedback from the teachers.',
   other_fees_note = NULL,
   application_status = 'website',
-  application_details = 'Extension & Gifted Programme Admission Admission Open Day Enquiry / Arrange a school tour Our Campus DMA IB Montessori Elementary(3',
+  application_details = 'd Programme Summer Camp Admission Admission Open Day Enquiry / Arrange a school tour Our Campus DMA IB Montessori Elementary(3',
   application_url = 'http://www.dms.edu.hk/content.php?wid=37',
   open_day_details = 'Enquiry / Arrange a school tour',
   open_day_url = 'http://www.dms.edu.hk/content.php?wid=40',
@@ -633,7 +633,7 @@ UPDATE schools SET
   fee_notes = 'We loved the interaction & feedback from the teachers.',
   other_fees_note = NULL,
   application_status = 'website',
-  application_details = 'Extension & Gifted Programme Admission Admission Open Day Enquiry / Arrange a school tour Our Campus DMA IB Montessori Elementary(3',
+  application_details = 'd Programme Summer Camp Admission Admission Open Day Enquiry / Arrange a school tour Our Campus DMA IB Montessori Elementary(3',
   application_url = 'http://www.dms.edu.hk/content.php?wid=37',
   open_day_details = 'Enquiry / Arrange a school tour',
   open_day_url = 'http://www.dms.edu.hk/content.php?wid=40',
@@ -649,7 +649,7 @@ UPDATE schools SET
   fee_notes = 'Schedule & Program Fees / schedule and fees / Schedule and fees',
   other_fees_note = 'Our team can provide more information on availability, daily schedule, and tuition rates. / Guidepost Hong Kong | Schedule & Program Fees',
   application_status = 'year_round',
-  application_details = 'Enrollment is now open for our Spring & Summer Camps!',
+  application_details = 'Enrollment is now open for our Summer Camp!',
   application_url = 'https://guidepost.hk/apply-now',
   open_day_details = ' Come and visit us Book a tour Guidepost Montessori Discovery Bay Inquire Now Complete this br',
   open_day_url = NULL,
@@ -859,8 +859,8 @@ UPDATE schools SET
   application_status = 'year_round',
   application_details = 'AY2026/27 Admissions Seminar Replay Online Soon!',
   application_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1',
-  open_day_details = 'Missed the event or want to revisit the highlights?',
-  open_day_url = NULL,
+  open_day_details = 'K3 Visit City Gallery (MK)',
+  open_day_url = 'https://www.victoria.edu.hk/news/2025-2026-k3-visit-city-gallery-%e9%ab%98%e7%8f%ad%e5%8f%83%e8%a7%80%e5%b1%95%e5%9f%8e%e9%a4%a8-mk/',
   last_profile_scraped_at = now()
 WHERE school_code = '566900';
 UPDATE schools SET
@@ -1099,8 +1099,8 @@ UPDATE schools SET
   application_status = 'year_round',
   application_details = 'AY2026/27 Admissions Seminar Replay Online Soon!',
   application_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1',
-  open_day_details = 'Missed the event or want to revisit the highlights?',
-  open_day_url = NULL,
+  open_day_details = 'K3 Visit City Gallery (MK)',
+  open_day_url = 'https://www.victoria.edu.hk/news/2025-2026-k3-visit-city-gallery-%e9%ab%98%e7%8f%ad%e5%8f%83%e8%a7%80%e5%b1%95%e5%9f%8e%e9%a4%a8-mk/',
   last_profile_scraped_at = now()
 WHERE school_code = '618039';
 UPDATE schools SET
@@ -1195,7 +1195,7 @@ UPDATE schools SET
   application_status = 'website',
   application_details = 'Apply to join Maple Bear Kindergarten Program and playgroup in one of our campuses in Hong Kong.',
   application_url = 'https://www.maplebear.hk/admissions',
-  open_day_details = 'INGUAL EDUCATION BLOG ADMISSIONS OPEN HOUSE APPLICATION FORM MAPLE BEAR ACADEMY BEAR CARE BRIDGING CLASS EXTRA CURRICULAR ACTIVITIES EASTER CAMP 2026 JOIN U',
+  open_day_details = 'INGUAL EDUCATION BLOG ADMISSIONS OPEN HOUSE APPLICATION FORM MAPLE BEAR ACADEMY BEAR CARE BRIDGING CLASS EXTRA CURRICULAR ACTIVITIES SUMMER CAMP 2026 JOIN U',
   open_day_url = 'https://www.maplebear.hk/admissions',
   last_profile_scraped_at = now()
 WHERE school_code = '593788';
@@ -1401,7 +1401,7 @@ UPDATE schools SET
   fee_notes = 'Schedule & Program Fees / Schedule and fees / schedule and fees',
   other_fees_note = 'Our team can provide more information on availability, daily schedule, and tuition rates. / Guidepost Hong Kong | Schedule & Program Fees',
   application_status = 'year_round',
-  application_details = 'Enrollment is now open for our Spring & Summer Camps!',
+  application_details = 'Enrollment is now open for our Summer Camp!',
   application_url = 'https://guidepost.hk/apply-now',
   open_day_details = ' Come and visit us Book a Tour Guidepost Montessori Sai Kung Inquire Now Complete this brief f',
   open_day_url = NULL,
@@ -1433,7 +1433,7 @@ UPDATE schools SET
   fee_notes = 'Schedule & Program Fees / schedule and fees / Schedule and fees',
   other_fees_note = 'Our team can provide more information on availability, daily schedule, and tuition rates. / Guidepost Hong Kong | Schedule & Program Fees',
   application_status = 'year_round',
-  application_details = 'Enrollment is now open for our Spring & Summer Camps!',
+  application_details = 'Enrollment is now open for our Summer Camp!',
   application_url = 'https://guidepost.hk/apply-now',
   open_day_details = ' Come and visit us Book a Tour Guidepost Montessori Clearwater Bay Inquire Now Complete this b',
   open_day_url = NULL,
@@ -1515,7 +1515,7 @@ UPDATE schools SET
   application_status = 'website',
   application_details = 'Apply to join Maple Bear Kindergarten Program and playgroup in one of our campuses in Hong Kong.',
   application_url = 'https://www.maplebear.hk/admissions',
-  open_day_details = 'INGUAL EDUCATION BLOG ADMISSIONS OPEN HOUSE APPLICATION FORM MAPLE BEAR ACADEMY BEAR CARE BRIDGING CLASS EXTRA CURRICULAR ACTIVITIES EASTER CAMP 2026 JOIN U',
+  open_day_details = 'INGUAL EDUCATION BLOG ADMISSIONS OPEN HOUSE APPLICATION FORM MAPLE BEAR ACADEMY BEAR CARE BRIDGING CLASS EXTRA CURRICULAR ACTIVITIES SUMMER CAMP 2026 JOIN U',
   open_day_url = 'https://www.maplebear.hk/admissions',
   last_profile_scraped_at = now()
 WHERE school_code = '613665';
@@ -1547,7 +1547,7 @@ UPDATE schools SET
   application_status = 'website',
   application_details = 'Apply to join Maple Bear Kindergarten Program and playgroup in one of our campuses in Hong Kong.',
   application_url = 'https://www.maplebear.hk/admissions',
-  open_day_details = 'INGUAL EDUCATION BLOG ADMISSIONS OPEN HOUSE APPLICATION FORM MAPLE BEAR ACADEMY BEAR CARE BRIDGING CLASS EXTRA CURRICULAR ACTIVITIES EASTER CAMP 2026 JOIN U',
+  open_day_details = 'INGUAL EDUCATION BLOG ADMISSIONS OPEN HOUSE APPLICATION FORM MAPLE BEAR ACADEMY BEAR CARE BRIDGING CLASS EXTRA CURRICULAR ACTIVITIES SUMMER CAMP 2026 JOIN U',
   open_day_url = 'https://www.maplebear.hk/admissions',
   last_profile_scraped_at = now()
 WHERE school_code = '616311';
@@ -1649,17 +1649,17 @@ UPDATE schools SET
 WHERE school_code = '615250';
 UPDATE schools SET
   name_tc = COALESCE('嘉德麗中英文幼稚園', name_tc),
-  logo_url = '/logos/231266.png',
+  logo_url = '/logos/231266.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = 'Catiline School Fees Remission Program / Catiline School Fees Remission Program - 嘉德麗中英文幼稚園 | 嘉德麗國際幼兒園 (沙田) / ​Catiline School Fees Remission Program',
-  other_fees_note = 'In 2014, as part of our Silver Anniversary Commemoration, in pursuit of the objective of considering student enrollments on a “need blind” basis (consistent with the concept “Education without Differentiation” first advo / Normally this scheme is offered as part of the enrollment process at the beginning of a school year, but in April 2020, due to financial hardships suffered by many parents due to the pandemic, we launched an “Emergency S',
-  application_status = 'open',
-  application_details = 'Primary One Admissions',
-  application_url = 'http://www.catiline.edu.hk/primarynbsponenbspadmissions.html',
-  open_day_details = ' 嘉德麗幼稚園親子體驗日 © COPYRIGHT Catiline Educational Organisation 2021. ALL R',
+  fee_notes = NULL,
+  other_fees_note = NULL,
+  application_status = NULL,
+  application_details = NULL,
+  application_url = NULL,
+  open_day_details = NULL,
   open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '231266';
@@ -1899,8 +1899,8 @@ UPDATE schools SET
   application_status = 'year_round',
   application_details = 'AY2026/27 Admissions Seminar Replay Online Soon!',
   application_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1',
-  open_day_details = 'Missed the event or want to revisit the highlights?',
-  open_day_url = NULL,
+  open_day_details = 'K3 Visit City Gallery (MK)',
+  open_day_url = 'https://www.victoria.edu.hk/news/2025-2026-k3-visit-city-gallery-%e9%ab%98%e7%8f%ad%e5%8f%83%e8%a7%80%e5%b1%95%e5%9f%8e%e9%a4%a8-mk/',
   last_profile_scraped_at = now()
 WHERE school_code = '216194';
 UPDATE schools SET
@@ -1961,7 +1961,7 @@ UPDATE schools SET
   fee_notes = 'Schedule & Program Fees / schedule and fees / Schedule and fees',
   other_fees_note = 'Our team can provide more information on availability, daily schedule, and tuition rates. / Guidepost Hong Kong | Schedule & Program Fees',
   application_status = 'year_round',
-  application_details = 'Enrollment is now open for our Spring & Summer Camps!',
+  application_details = 'Enrollment is now open for our Summer Camp!',
   application_url = 'https://guidepost.hk/apply-now',
   open_day_details = ' Come and visit us Book a Tour Guidepost Montessori Pok Fu Lam Inquire Now Complete this brief',
   open_day_url = NULL,
@@ -1977,7 +1977,7 @@ UPDATE schools SET
   fee_notes = 'Schedule & Program Fees / schedule and fees / Schedule and fees',
   other_fees_note = 'Our team can provide more information on availability, daily schedule, and tuition rates. / Guidepost Hong Kong | Schedule & Program Fees',
   application_status = 'year_round',
-  application_details = 'Enrollment is now open for our Spring & Summer Camps!',
+  application_details = 'Enrollment is now open for our Summer Camp!',
   application_url = 'https://guidepost.hk/apply-now',
   open_day_details = ' Come and visit us Book a Tour Guidepost Montessori Repulse Bay Inquire Now Complete this brie',
   open_day_url = NULL,
@@ -2065,7 +2065,7 @@ UPDATE schools SET
 WHERE school_code = '157716';
 UPDATE schools SET
   name_tc = COALESCE('海濱方方樂趣幼稚園', name_tc),
-  logo_url = '/logos/565105.png',
+  logo_url = '/logos/565105.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -2139,8 +2139,8 @@ UPDATE schools SET
   application_status = 'year_round',
   application_details = 'AY2026/27 Admissions Seminar Replay Online Soon!',
   application_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1',
-  open_day_details = 'Missed the event or want to revisit the highlights?',
-  open_day_url = NULL,
+  open_day_details = 'K3 Visit City Gallery (MK)',
+  open_day_url = 'https://www.victoria.edu.hk/news/2025-2026-k3-visit-city-gallery-%e9%ab%98%e7%8f%ad%e5%8f%83%e8%a7%80%e5%b1%95%e5%9f%8e%e9%a4%a8-mk/',
   last_profile_scraped_at = now()
 WHERE school_code = '619850';
 UPDATE schools SET
@@ -2249,7 +2249,7 @@ UPDATE schools SET
   fee_notes = 'Schedule & Program Fees / Schedule and fees / Our team can provide more information on availability, daily schedule, and tuition rates.',
   other_fees_note = 'Guidepost Hong Kong | Schedule & Program Fees / Our fees vary by location and program',
   application_status = 'year_round',
-  application_details = 'Enrollment is now open for our Spring & Summer Camps!',
+  application_details = 'Enrollment is now open for our Summer Camp!',
   application_url = 'https://guidepost.hk/apply-now',
   open_day_details = ' Come and visit us Book a tour Guidepost Montessori Happy Valley Hawthorn Road Inquire Now Com',
   open_day_url = NULL,
@@ -2296,7 +2296,7 @@ UPDATE schools SET
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
   fee_notes = 'Admission Fee: HKD$40 Cash',
   other_fees_note = NULL,
-  application_status = 'open',
+  application_status = 'website',
   application_details = 'M - 6Years Old eClass Admissions Pods Learning School Pods Learning School Pods Learning School Language Art Performin',
   application_url = 'http://www.pods.com.hk/pages/admissions',
   open_day_details = 'Though our students may move on to new chapters, we warmly welcome them back to revisit the memories, friendships, and joyful moments that shaped their early years.',
@@ -2411,8 +2411,8 @@ UPDATE schools SET
   application_status = 'year_round',
   application_details = 'AY2026/27 Admissions Seminar Replay Online Soon!',
   application_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1',
-  open_day_details = 'Missed the event or want to revisit the highlights?',
-  open_day_url = NULL,
+  open_day_details = 'K3 Visit City Gallery (MK)',
+  open_day_url = 'https://www.victoria.edu.hk/news/2025-2026-k3-visit-city-gallery-%e9%ab%98%e7%8f%ad%e5%8f%83%e8%a7%80%e5%b1%95%e5%9f%8e%e9%a4%a8-mk/',
   last_profile_scraped_at = now()
 WHERE school_code = '574708';
 UPDATE schools SET
