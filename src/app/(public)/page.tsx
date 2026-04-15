@@ -4,6 +4,7 @@ import { ParentMustKnow } from "@/components/home/ParentMustKnow";
 import { HeatRanking } from "@/components/home/HeatRanking";
 import { NewsFeed } from "@/components/home/NewsFeed";
 import { FeaturedSchools } from "@/components/home/FeaturedSchools";
+import { ActivitiesPreview } from "@/components/home/ActivitiesPreview";
 import { getHomepageLiveData } from "@/lib/homepage/liveData";
 
 export default async function HomePage() {
@@ -21,6 +22,9 @@ export default async function HomePage() {
       <ParentMustKnow
         events={liveData.events}
       />
+
+      {/* 課外活動精選 */}
+      <ActivitiesPreview />
 
       {/* 社交平台熱度榜 */}
       <HeatRanking />

@@ -1,0 +1,52 @@
+name: Crawl Activities
+
+on:
+  schedule:
+    # Every Monday 03:00 HKT = 19:00 UTC Sunday
+    - cron: "0 19 * * 0"
+  workflow_dispatch: # manual trigger
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install project deps
+        run: npm ci
+
+      - name: Install crawler deps (isolated)
+        run: |
+          npm install --no-save playwright @anthropic-ai/sdk @supabase/supabase-js
+          npx playwright install --with-deps chromium
+
+      - name: Scrape LCSD
+        run: node scripts/crawlers/lcsd.mjs --limit 100
+
+      - name: Extract with Claude
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/crawlers/extract.mjs
+
+      - name: Upsert to Supabase
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: node scripts/crawlers/upsert.mjs
+
+      - name: Upload artifacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: crawler-debug
+          path: tmp/
+          retention-days: 7
