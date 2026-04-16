@@ -33,7 +33,7 @@ export function ActivityCard({ activity }: ActivityCardProps) {
             </span>
           ) : (
             <span className="text-xs font-medium text-slate-500">
-              {fee.label}
+              {fee.shortLabel}
             </span>
           )}
         </div>

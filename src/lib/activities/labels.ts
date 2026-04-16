@@ -77,15 +77,26 @@ export const DISTRICT_ORDER: ActivityDistrict[] = [
 // ============================================================
 
 export function formatFee(activity: Pick<Activity, "fee" | "fee_note">): {
+  /** Short label for cards — just the price, no fee_note */
+  shortLabel: string;
+  /** Full label for detail page — includes fee_note */
+  fullLabel: string;
+  /** @deprecated Use shortLabel or fullLabel instead */
   label: string;
   isFree: boolean;
 } {
-  if (activity.fee === 0) return { label: "免費", isFree: true };
-  if (activity.fee === null || activity.fee === undefined) {
-    return { label: "費用待定", isFree: false };
+  if (activity.fee === 0) {
+    return { shortLabel: "免費", fullLabel: "免費", label: "免費", isFree: true };
   }
+  if (activity.fee === null || activity.fee === undefined) {
+    return { shortLabel: "費用待定", fullLabel: "費用待定", label: "費用待定", isFree: false };
+  }
+  const price = `HK$${Number(activity.fee).toLocaleString()}`;
+  const full = activity.fee_note ? `${price} · ${activity.fee_note}` : price;
   return {
-    label: `HK$${Number(activity.fee).toLocaleString()}${activity.fee_note ? ` · ${activity.fee_note}` : ""}`,
+    shortLabel: price,
+    fullLabel: full,
+    label: full,
     isFree: false,
   };
 }

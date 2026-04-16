@@ -100,8 +100,6 @@ export function ActivityFilterBar({
             </svg>
           </button>
           {districtOpen && (
-            <>
-              <div className="fixed inset-0 z-10" aria-hidden />
               <div className="absolute left-0 top-full z-20 mt-2 max-h-72 w-56 overflow-auto rounded-2xl border border-slate-200 bg-white p-2 shadow-lg">
                 <button
                   onClick={() => {
@@ -133,7 +131,6 @@ export function ActivityFilterBar({
                   </button>
                 ))}
               </div>
-            </>
           )}
         </div>
 

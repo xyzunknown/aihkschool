@@ -6,6 +6,7 @@ import {
   fetchRelatedActivities,
 } from "@/lib/db/activities";
 import { ActivityCard } from "@/components/activities/ActivityCard";
+import { AddToCalendarButton } from "@/components/activities/AddToCalendarButton";
 import {
   CATEGORY_LABELS,
   DISTRICT_LABELS,
@@ -96,12 +97,21 @@ export default async function ActivityDetailPage({ params }: PageProps) {
             />
           )}
           {activity.address && (
-            <InfoRow label="地址" value={activity.address} />
+            <InfoRow
+              label="地址"
+              value={activity.address}
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(activity.address)}`}
+              external
+            />
           )}
           {ageRange && <InfoRow label="適合年齡" value={ageRange} />}
-          <InfoRow label="費用" value={fee.label} />
+          <InfoRow label="費用" value={fee.fullLabel} />
           {activity.contact_phone && (
-            <InfoRow label="聯繫電話" value={activity.contact_phone} />
+            <InfoRow
+              label="聯繫電話"
+              value={activity.contact_phone}
+              href={`tel:${activity.contact_phone}`}
+            />
           )}
         </dl>
       </div>
@@ -117,31 +127,48 @@ export default async function ActivityDetailPage({ params }: PageProps) {
       )}
 
       {/* CTA */}
-      {activity.contact_url && !expired && (
-        <div className="mb-10">
-          <a
-            href={activity.contact_url}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center justify-center rounded-xl bg-slate-950 px-6 py-3 text-base font-medium text-white transition-transform hover:scale-[1.02]"
-          >
-            立即了解 / 報名
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="ml-2"
+      {!expired && (
+        <div className="mb-10 flex flex-wrap items-center gap-4">
+          {(activity.source_url || activity.contact_url) && (
+            <a
+              href={activity.source_url || activity.contact_url || "#"}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center rounded-xl bg-slate-950 px-6 py-3 text-base font-medium text-white transition-transform hover:scale-[1.02]"
             >
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-              <polyline points="15 3 21 3 21 9" />
-              <line x1="10" y1="14" x2="21" y2="3" />
-            </svg>
-          </a>
+              立即了解 / 報名
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="ml-2"
+              >
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+            </a>
+          )}
+          {activity.start_date && (
+            <AddToCalendarButton activity={activity} />
+          )}
+          {activity.contact_url &&
+            activity.source_url &&
+            activity.contact_url !== activity.source_url && (
+              <a
+                href={activity.contact_url}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1 text-sm text-slate-500 underline decoration-slate-300 underline-offset-2 hover:text-slate-950 hover:decoration-slate-950"
+              >
+                主辦方官網
+              </a>
+            )}
         </div>
       )}
 
@@ -162,13 +189,54 @@ export default async function ActivityDetailPage({ params }: PageProps) {
   );
 }
 
-function InfoRow({ label, value }: { label: string; value: string }) {
+function InfoRow({
+  label,
+  value,
+  href,
+  external,
+}: {
+  label: string;
+  value: string;
+  href?: string;
+  external?: boolean;
+}) {
   return (
     <div>
       <dt className="text-xs font-medium uppercase tracking-wide text-slate-500">
         {label}
       </dt>
-      <dd className="mt-1 text-base text-slate-900">{value}</dd>
+      <dd className="mt-1 text-base text-slate-900">
+        {href ? (
+          <a
+            href={href}
+            {...(external
+              ? { target: "_blank", rel: "noopener noreferrer" }
+              : {})}
+            className="inline-flex items-center gap-1 text-slate-950 underline decoration-slate-300 underline-offset-2 hover:decoration-slate-950"
+          >
+            {value}
+            {external && (
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="flex-shrink-0 text-slate-400"
+              >
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+            )}
+          </a>
+        ) : (
+          value
+        )}
+      </dd>
     </div>
   );
 }

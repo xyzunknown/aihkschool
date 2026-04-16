@@ -35,12 +35,31 @@ const LIMIT = parseInt(args.limit, 10) || 200;
 const GRAPHQL_URL = "https://timable.com/api/GraphQL";
 const TIMABLE_BASE = "https://timable.com/hk/event";
 
-// ─── Timable 親子 category ID ──────────────────────────────────────────────
-const KIDS_CATEGORY_ID = "63ad67db21d85bceb5e95458";
+// ─── Timable category IDs ──────────────────────────────────────────────────
+// Primary: 親子 (always included, no filtering needed)
+// Secondary: broader categories that may contain kids-relevant activities
+const CATEGORY_IDS = {
+  親子: "63ad67db21d85bceb5e95458",
+  運動: "63ad68bc21d85bceb5e955ec",
+  音樂: "63ad4ac371cd5f7c4dd434f1",
+  劇場: "63ad677c21d85bceb5e953c8",
+  展覽: "63ad684021d85bceb5e954f5",
+  體驗: "63ad686921d85bceb5e95530",
+  增值: "63ad687d21d85bceb5e9554c",
+};
 
-// ─── GraphQL query ─────────────────────────────────────────────────────────
-const EVENTS_QUERY = `
-query GetKidsEvents($limit: Int!, $page: Int!, $after: DateTime!) {
+// Keywords to filter kids-relevant events from non-親子 categories
+const KIDS_KEYWORDS = [
+  "親子", "兒童", "小朋友", "小孩", "幼兒", "幼稚園", "kids", "family",
+  "children", "child", "junior", "baby", "嬰兒", "BB", "幼童", "學童",
+  "家庭", "童", "少兒", "小學", "暑期班", "興趣班", "playgroup",
+];
+
+const KIDS_KEYWORDS_RE = new RegExp(KIDS_KEYWORDS.join("|"), "i");
+
+function buildEventsQuery(categoryId) {
+  return `
+query GetEvents($limit: Int!, $page: Int!, $after: DateTime!) {
   Events(
     limit: $limit
     page: $page
@@ -49,7 +68,7 @@ query GetKidsEvents($limit: Int!, $page: Int!, $after: DateTime!) {
       region: { equals: hk }
       status: { equals: "published" }
       latestEndDate: { greater_than_equal: $after }
-      criteria__categories: { in: [$kidsId] }
+      criteria__categories: { in: ["${categoryId}"] }
     }
     sort: "earliestStartDate"
   ) {
@@ -84,8 +103,28 @@ query GetKidsEvents($limit: Int!, $page: Int!, $after: DateTime!) {
       }
     }
   }
+}`;
 }
-`.replace("$kidsId", `"${KIDS_CATEGORY_ID}"`);
+
+/** Check if an event is kids-relevant based on its metadata */
+function isKidsRelevant(doc) {
+  // Check category names — if it has 親子, always relevant
+  const catNames = doc.criteria?.categories?.map((c) => c.name) || [];
+  if (catNames.includes("親子")) return true;
+
+  // Check audiences
+  const audiences = doc.criteria?.audiences?.map((a) => a.name).join(" ") || "";
+  if (KIDS_KEYWORDS_RE.test(audiences)) return true;
+
+  // Check tags
+  const tags = doc.criteria?.tags?.map((t) => t.name).join(" ") || "";
+  if (KIDS_KEYWORDS_RE.test(tags)) return true;
+
+  // Check title
+  if (KIDS_KEYWORDS_RE.test(doc.name || "")) return true;
+
+  return false;
+}
 
 // ─── District mapping: Timable Chinese → our 18-district enum ──────────────
 const DISTRICT_MAP = {
@@ -284,7 +323,7 @@ function transformEvent(doc) {
     end_date: parseDate(doc.latestEndDate),
     schedule: buildSchedule(doc),
     contact_phone: doc.contact?.phone || null,
-    contact_url: doc.contact?.page || timableUrl,
+    contact_url: doc.contact?.page || null,
     image_url: doc.thumbnail?.url || null,
     source: "timable",
     source_url: timableUrl,
@@ -303,15 +342,16 @@ function transformEvent(doc) {
 }
 
 // ─── GraphQL fetch with pagination ─────────────────────────────────────────
-async function fetchAllEvents() {
+async function fetchCategoryEvents(categoryName, categoryId) {
   const today = new Date().toISOString();
   const PER_PAGE = 50;
+  const query = buildEventsQuery(categoryId);
   const allDocs = [];
   let page = 1;
   let totalPages = 1;
 
   while (page <= totalPages) {
-    console.log(`[timable] fetching page ${page}/${totalPages}`);
+    console.log(`[timable] [${categoryName}] fetching page ${page}/${totalPages}`);
     const resp = await fetch(GRAPHQL_URL, {
       method: "POST",
       headers: {
@@ -319,7 +359,7 @@ async function fetchAllEvents() {
         "User-Agent": "HKSchoolPlace/1.0 (open data consumer)",
       },
       body: JSON.stringify({
-        query: EVENTS_QUERY,
+        query,
         variables: {
           limit: PER_PAGE,
           page,
@@ -341,12 +381,38 @@ async function fetchAllEvents() {
     totalPages = events.totalPages || 1;
     allDocs.push(...events.docs);
 
+    // Limit per category to avoid over-fetching
+    if (allDocs.length >= 200) break;
+    page++;
+  }
+
+  return allDocs;
+}
+
+async function fetchAllEvents() {
+  const seen = new Set();
+  const allDocs = [];
+
+  for (const [catName, catId] of Object.entries(CATEGORY_IDS)) {
+    const isPrimary = catName === "親子";
+    const docs = await fetchCategoryEvents(catName, catId);
+    console.log(`[timable] [${catName}] fetched ${docs.length} raw events`);
+
+    let added = 0;
+    for (const doc of docs) {
+      if (seen.has(doc.id)) continue;
+      // For non-親子 categories, filter for kids relevance
+      if (!isPrimary && !isKidsRelevant(doc)) continue;
+      seen.add(doc.id);
+      allDocs.push(doc);
+      added++;
+    }
+    console.log(`[timable] [${catName}] added ${added} unique kids events`);
+
     if (LIMIT > 0 && allDocs.length >= LIMIT) {
       allDocs.length = LIMIT;
       break;
     }
-
-    page++;
   }
 
   return allDocs;
