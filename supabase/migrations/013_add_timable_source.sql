@@ -13,3 +13,8 @@ ALTER TABLE activities ADD CONSTRAINT activities_source_check
         'timable', 'eventbrite',
         'manual', 'other'
     ));
+
+-- 修復 012 遺漏的 GRANT：anon 需要 SELECT 權限配合 RLS
+GRANT SELECT ON activities TO anon;
+GRANT SELECT ON activities TO authenticated;
+GRANT ALL ON activities TO service_role;
