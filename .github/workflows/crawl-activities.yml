@@ -2,16 +2,15 @@ name: Crawl Activities
 
 on:
   schedule:
-    # Every Monday 03:00 HKT = 19:00 UTC Sunday
-    # LCSD updates on the 15th → run on the 16th of each month at 03:00 HKT
-    - cron: "0 19 15 * *"
+    # Every Monday 03:00 HKT = Sunday 19:00 UTC
+    - cron: "0 19 * * 0"
   workflow_dispatch: # manual trigger
 
 jobs:
-  crawl-lcsd:
-    name: LCSD Open Data Sync
+  crawl-timable:
+    name: Timable GraphQL Sync
     runs-on: ubuntu-latest
-    timeout-minutes: 10 # Fast — no browser, no AI, just fetch + upsert
+    timeout-minutes: 10
 
     steps:
       - name: Checkout
@@ -26,12 +25,22 @@ jobs:
       - name: Install deps
         run: npm install --no-save @supabase/supabase-js
 
-      - name: Fetch LCSD JSON + upsert to Supabase
+      - name: Run migration 013 (add timable source)
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          if [ -n "$DATABASE_URL" ]; then
+            psql "$DATABASE_URL" -f supabase/migrations/013_add_timable_source.sql || echo "Migration already applied or skipped"
+          else
+            echo "DATABASE_URL not set — skipping migration"
+          fi
+
+      - name: Fetch Timable kids events + upsert to Supabase
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-        run: node scripts/crawlers/lcsd.mjs
+        run: node scripts/crawlers/timable.mjs
 
       - name: Summary
         if: always()
-        run: echo "LCSD sync complete. Check logs above for insert count."
+        run: echo "Timable sync complete. Check logs above for insert count."
