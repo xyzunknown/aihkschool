@@ -3,13 +3,15 @@ name: Crawl Activities
 on:
   schedule:
     # Every Monday 03:00 HKT = 19:00 UTC Sunday
-    - cron: "0 19 * * 0"
+    # LCSD updates on the 15th → run on the 16th of each month at 03:00 HKT
+    - cron: "0 19 15 * *"
   workflow_dispatch: # manual trigger
 
 jobs:
-  crawl:
+  crawl-lcsd:
+    name: LCSD Open Data Sync
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 10 # Fast — no browser, no AI, just fetch + upsert
 
     steps:
       - name: Checkout
@@ -21,32 +23,15 @@ jobs:
           node-version: "20"
           cache: "npm"
 
-      - name: Install project deps
-        run: npm ci
+      - name: Install deps
+        run: npm install --no-save @supabase/supabase-js
 
-      - name: Install crawler deps (isolated)
-        run: |
-          npm install --no-save playwright @anthropic-ai/sdk @supabase/supabase-js
-          npx playwright install --with-deps chromium
-
-      - name: Scrape LCSD
-        run: node scripts/crawlers/lcsd.mjs --limit 100
-
-      - name: Extract with Claude
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: node scripts/crawlers/extract.mjs
-
-      - name: Upsert to Supabase
+      - name: Fetch LCSD JSON + upsert to Supabase
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-        run: node scripts/crawlers/upsert.mjs
+        run: node scripts/crawlers/lcsd.mjs
 
-      - name: Upload artifacts on failure
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: crawler-debug
-          path: tmp/
-          retention-days: 7
+      - name: Summary
+        if: always()
+        run: echo "LCSD sync complete. Check logs above for insert count."
