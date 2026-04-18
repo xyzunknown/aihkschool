@@ -1649,17 +1649,17 @@ UPDATE schools SET
 WHERE school_code = '615250';
 UPDATE schools SET
   name_tc = COALESCE('嘉德麗中英文幼稚園', name_tc),
-  logo_url = '/logos/231266.svg',
+  logo_url = '/logos/231266.png',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = NULL,
-  other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
-  open_day_details = NULL,
+  fee_notes = 'Catiline School Fees Remission Program / Catiline School Fees Remission Program - 嘉德麗中英文幼稚園 | 嘉德麗國際幼兒園 (沙田) / ​Catiline School Fees Remission Program',
+  other_fees_note = 'In 2014, as part of our Silver Anniversary Commemoration, in pursuit of the objective of considering student enrollments on a “need blind” basis (consistent with the concept “Education without Differentiation” first advo / Normally this scheme is offered as part of the enrollment process at the beginning of a school year, but in April 2020, due to financial hardships suffered by many parents due to the pandemic, we launched an “Emergency S',
+  application_status = 'open',
+  application_details = 'Primary One Admissions',
+  application_url = 'http://www.catiline.edu.hk/primarynbsponenbspadmissions.html',
+  open_day_details = ' 嘉德麗幼稚園親子體驗日 © COPYRIGHT Catiline Educational Organisation 2021. ALL R',
   open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '231266';
@@ -1883,7 +1883,7 @@ UPDATE schools SET
   application_status = 'year_round',
   application_details = '2s Programme PYP POI Admissions Programme Structure Application Process Fees and Charges Withdrawal Procedures Online Application School Bus Serv',
   application_url = 'http://www.pips.edu.hk/hk/admission_playgroup.asp',
-  open_day_details = 'We invite you, your family and your friends to our Open Day - Spring in the City!',
+  open_day_details = 'Please schedule a school tour with us by contacting our School Office at 2812-6023.',
   open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '215937';
@@ -2315,7 +2315,7 @@ UPDATE schools SET
   application_status = 'year_round',
   application_details = 'Learn more about the school, our environment, our admissions process, or to complete an application.',
   application_url = 'https://www.masspreschool.com/admission',
-  open_day_details = ' Gallery Admission Programmes School Tour ECA Contact More Use tab to navigate through the menu items. Spanish Playgroup Poster (1600 x 913 mm) ',
+  open_day_details = ' Gallery Admission Programmes School Tour ECA Contact More Use tab to navigate through the menu items. summer school banner Spanish Playgrou',
   open_day_url = 'https://www.masspreschool.com/schooltour',
   last_profile_scraped_at = now()
 WHERE school_code = '600334';
@@ -2395,7 +2395,7 @@ UPDATE schools SET
   application_status = 'website',
   application_details = 'Under 2''s Programme Admission Guidelines',
   application_url = 'https://www.pips.edu.hk/kln/admission_Under 2',
-  open_day_details = 'We invite you, your family and your friends to our Open Day - Spring in the City!',
+  open_day_details = 'Please click here to sign up for our Open Day 2026.',
   open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '571490';

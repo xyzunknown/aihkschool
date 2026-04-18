@@ -1546,15 +1546,15 @@ WHERE school_code = '615250' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'no_information',
-  k1_vacancy = 'no_information',
-  k2_vacancy = 'no_information',
-  k3_vacancy = 'no_information',
-  edb_source_url = 'http://www.catiline.edu.hk/'
+  n_vacancy = 'check_school',
+  k1_vacancy = 'check_school',
+  k2_vacancy = 'check_school',
+  k3_vacancy = 'check_school',
+  edb_source_url = 'http://www.catiline.edu.hk/primarynbsponenbspadmissions.html'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '231266' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'http://www.catiline.edu.hk/', true
+SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'http://www.catiline.edu.hk/primarynbsponenbspadmissions.html', true
 FROM schools
 WHERE school_code = '231266' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true

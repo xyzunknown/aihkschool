@@ -1083,7 +1083,8 @@
     "scraped_pages": [
       "http://www.discoverymind.edu.hk/",
       "https://fs19.formsite.com/DiscoveryMind/Admission/index",
-      "https://discoverymind.edu.hk/admission-procedures/"
+      "https://discoverymind.edu.hk/admission-procedures/",
+      "https://docs.google.com/forms/d/e/1FAIpQLSe1pOT5f9oLYg1Og16hjSPOy8OtiWlvWeA3KaAnOcOLqt_pJg/viewform"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -1111,7 +1112,8 @@
     "scraped_pages": [
       "http://www.discoverymind.edu.hk/",
       "https://fs19.formsite.com/DiscoveryMind/Admission/index",
-      "https://discoverymind.edu.hk/admission-procedures/"
+      "https://discoverymind.edu.hk/admission-procedures/",
+      "https://docs.google.com/forms/d/e/1FAIpQLSe1pOT5f9oLYg1Og16hjSPOy8OtiWlvWeA3KaAnOcOLqt_pJg/viewform"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -3012,15 +3014,21 @@
       "K2",
       "K3"
     ],
-    "n_vacancy": "no_information",
-    "k1_vacancy": "no_information",
-    "k2_vacancy": "no_information",
-    "k3_vacancy": "no_information",
-    "overall_status": "no_information",
-    "overall_summary": null,
-    "source_url": "http://www.catiline.edu.hk/",
-    "scraped_pages": [],
-    "scrape_status": "homepage_unreachable",
+    "n_vacancy": "check_school",
+    "k1_vacancy": "check_school",
+    "k2_vacancy": "check_school",
+    "k3_vacancy": "check_school",
+    "overall_status": "check_school",
+    "overall_summary": "「有教無類」助學金現正接受申請",
+    "source_url": "http://www.catiline.edu.hk/primarynbsponenbspadmissions.html",
+    "scraped_pages": [
+      "http://www.catiline.edu.hk/",
+      "http://www.catiline.edu.hk/primarynbsponenbspadmissions.html",
+      "http://www.catiline.edu.hk/onlineapplication-844287.html",
+      "https://www.catiline.edu.hk/onlineapplication-844287.html",
+      "http://www.catiline.edu.hk/guidancenotehk-721767.html"
+    ],
+    "scrape_status": "ok",
     "evidence": {}
   },
   {
