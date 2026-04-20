@@ -1,0 +1,100 @@
+{
+  "timestamp": "2026-04-19T00:36:13.557Z",
+  "stats": {
+    "total": 5,
+    "ok": 0,
+    "unchanged": 0,
+    "content_insufficient": 2,
+    "robots_blocked": 0,
+    "unreachable": 3,
+    "spa_detected": 0,
+    "pdf_only": 0,
+    "no_website": 0,
+    "dry_run": 0,
+    "error": 0
+  },
+  "details": [
+    {
+      "school_id": "202a6e2f-add1-4203-a288-e8b74b481a24",
+      "name_tc": "ABC PATHWAYS INTERNATIONAL KINDERGARTEN (WHAMPOA GARDEN)",
+      "name_en": "ABC PATHWAYS INTERNATIONAL KINDERGARTEN (WHAMPOA GARDEN)",
+      "website": "https://www.abcpathways.edu.hk/language/en/",
+      "crawl_url": "https://www.abcpathways.edu.hk/language/en/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=403 anti-bot on both protocols.",
+        "Playwright fallback used for www.abcpathways.edu.hk",
+        "base page textLen=62, too short",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "www.abcpathways.edu.hk: Playwright fallback used for www.abcpathways.edu.hk",
+        "www.abcpathways.edu.hk: Playwright fallback used for www.abcpathways.edu.hk",
+        "www.abcpathways.edu.hk: Playwright fallback used for www.abcpathways.edu.hk",
+        "www.abcpathways.edu.hk: Playwright fallback used for www.abcpathways.edu.hk",
+        "www.abcpathways.edu.hk: Playwright fallback used for www.abcpathways.edu.hk",
+        "confidence=low, baseTextLen=62, pages=5, pdfs=0"
+      ]
+    },
+    {
+      "school_id": "73d2035f-0962-4acb-ad43-ab4b838a3750",
+      "name_tc": "INVICTUS KINDERGARTEN",
+      "name_en": "INVICTUS KINDERGARTEN",
+      "website": "http://www.invictusschool.hk",
+      "crawl_url": "https://www.invictus.edu.hk/",
+      "status": "unreachable",
+      "error": null,
+      "notes": [
+        "normalized_url=https://www.invictus.edu.hk/",
+        "base page unreachable"
+      ]
+    },
+    {
+      "school_id": "9aa229f9-75ab-4ac9-b5c0-acd769df8506",
+      "name_tc": "明我幼稚園",
+      "name_en": "DOMINIC SAVIO KINDERGARTEN",
+      "website": "http://www.dominicsaviokg.org/",
+      "crawl_url": "http://www.dominicsaviokg.org/",
+      "status": "unreachable",
+      "error": null,
+      "notes": [
+        "domain_policy=HTTP homepage is reachable while HTTPS fails; keep the shared site on HTTP and retry serially.",
+        "base page textLen=0, too short",
+        "no dynamic links found, using SUB_PATHS fallback"
+      ]
+    },
+    {
+      "school_id": "4b86aea7-13a6-4632-879e-d33dad5b12ea",
+      "name_tc": "明雅中英文幼稚園",
+      "name_en": "MINK ANGLO-CHINESE KINDERGARTEN",
+      "website": "http://www.mink.edu.hk",
+      "crawl_url": "https://www.mink.edu.hk/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=403 anti-bot on both protocols.",
+        "normalized_url=https://www.mink.edu.hk/",
+        "Playwright fallback used for www.mink.edu.hk",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "www.mink.edu.hk: Playwright fallback used for www.mink.edu.hk",
+        "www.mink.edu.hk: Playwright fallback used for www.mink.edu.hk",
+        "www.mink.edu.hk: Playwright fallback used for www.mink.edu.hk",
+        "www.mink.edu.hk: Playwright fallback used for www.mink.edu.hk",
+        "confidence=low, baseTextLen=1126, pages=5, pdfs=0"
+      ]
+    },
+    {
+      "school_id": "ce0fba62-5661-4838-9f51-6f92e4a2950d",
+      "name_tc": "真理浸信會幼稚園",
+      "name_en": "TRUTH BAPTIST CHURCH KINDERGARTEN",
+      "website": "http://www.tbcas.edu.hk/SCH01WW/",
+      "crawl_url": "https://www.tbcas.edu.hk/SCH01WW/",
+      "status": "unreachable",
+      "error": null,
+      "notes": [
+        "domain_policy=Branch pages upgrade cleanly to HTTPS; shared host benefits from a serialized retry pass.",
+        "normalized_url=https://www.tbcas.edu.hk/SCH01WW/",
+        "base page unreachable"
+      ]
+    }
+  ]
+}

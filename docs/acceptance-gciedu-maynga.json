@@ -1,0 +1,98 @@
+{
+  "timestamp": "2026-04-19T02:09:05.190Z",
+  "stats": {
+    "total": 5,
+    "ok": 2,
+    "unchanged": 0,
+    "content_insufficient": 3,
+    "robots_blocked": 0,
+    "unreachable": 0,
+    "spa_detected": 0,
+    "pdf_only": 0,
+    "no_website": 0,
+    "dry_run": 0,
+    "error": 0
+  },
+  "details": [
+    {
+      "school_id": "28b3504b-b1e5-4120-9725-d53361d0af52",
+      "name_tc": "美雅幼兒園",
+      "name_en": "MAY NGA NURSERY",
+      "website": "http://www.maynga.edu.hk",
+      "crawl_url": "https://www.maynga.edu.hk/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=Shared Angular site should crawl over HTTPS, prefer browser rendering, and be retried serially when needed.",
+        "normalized_url=https://www.maynga.edu.hk/",
+        "base page textLen=0, too short",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "confidence=low, baseTextLen=0, pages=5, pdfs=0"
+      ]
+    },
+    {
+      "school_id": "272e940b-1cd0-4713-be47-57ebdb4cb3c2",
+      "name_tc": "美雅幼稚園",
+      "name_en": "MAY NGA KINDERGARTEN",
+      "website": "http://www.maynga.edu.hk",
+      "crawl_url": "https://www.maynga.edu.hk/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=Shared Angular site should crawl over HTTPS, prefer browser rendering, and be retried serially when needed.",
+        "normalized_url=https://www.maynga.edu.hk/",
+        "base page textLen=0, too short",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "confidence=low, baseTextLen=0, pages=5, pdfs=0"
+      ]
+    },
+    {
+      "school_id": "a5cf39cb-f661-4e59-b672-bf0cd1e62619",
+      "name_tc": "美雅幼稚園（分校）",
+      "name_en": "MAY NGA KINDERGARTEN (BRANCH)",
+      "website": "http://www.maynga.edu.hk",
+      "crawl_url": "https://www.maynga.edu.hk/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=Shared Angular site should crawl over HTTPS, prefer browser rendering, and be retried serially when needed.",
+        "normalized_url=https://www.maynga.edu.hk/",
+        "base page textLen=0, too short",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "confidence=low, baseTextLen=0, pages=5, pdfs=0"
+      ]
+    },
+    {
+      "school_id": "ed36f22b-845b-4376-a766-c490223695e1",
+      "name_tc": "耀基創藝幼稚園",
+      "name_en": "GLORIA CREATIVE KINDERGARTEN",
+      "website": "http://www.gciedu.hk",
+      "crawl_url": "https://www.gciedu.hk/",
+      "status": "ok",
+      "error": null,
+      "notes": [
+        "domain_policy=Shared GCI site upgrades to HTTPS and should be retried serially.",
+        "normalized_url=https://www.gciedu.hk/",
+        "host_adapter=gciedu_fixed_navigation",
+        "original_website=https://www.gciedu.hk/",
+        "gciedu_pages=4"
+      ]
+    },
+    {
+      "school_id": "0b6eb962-12f5-44c2-af2d-4d38c83c72de",
+      "name_tc": "耀基創藝幼稚園（上水）",
+      "name_en": "GLORIA CREATIVE KG (SHEUNG SHUI)",
+      "website": "http://www.gciedu.hk",
+      "crawl_url": "https://www.gciedu.hk/",
+      "status": "ok",
+      "error": null,
+      "notes": [
+        "domain_policy=Shared GCI site upgrades to HTTPS and should be retried serially.",
+        "normalized_url=https://www.gciedu.hk/",
+        "host_adapter=gciedu_fixed_navigation",
+        "original_website=https://www.gciedu.hk/",
+        "gciedu_pages=4"
+      ]
+    }
+  ]
+}

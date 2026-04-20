@@ -1,0 +1,31 @@
+{
+  "timestamp": "2026-04-19T00:26:54.960Z",
+  "stats": {
+    "total": 1,
+    "ok": 0,
+    "unchanged": 0,
+    "content_insufficient": 0,
+    "robots_blocked": 0,
+    "unreachable": 1,
+    "spa_detected": 0,
+    "pdf_only": 0,
+    "no_website": 0,
+    "dry_run": 0,
+    "error": 0
+  },
+  "details": [
+    {
+      "school_id": "c5e22fed-bdeb-4d28-9a44-b505e542fa31",
+      "name_tc": "啓思幼兒園（匯景）",
+      "name_en": "CREATIVE DAY NURSERY (SCENEWAY)",
+      "website": "http://www.creative.edu.hk",
+      "crawl_url": "https://creative.edu.hk/",
+      "status": "unreachable",
+      "error": null,
+      "notes": [
+        "normalized_url=https://creative.edu.hk/",
+        "base page unreachable"
+      ]
+    }
+  ]
+}

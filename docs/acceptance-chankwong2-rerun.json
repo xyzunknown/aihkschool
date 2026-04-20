@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-04-19T08:47:31.622Z",
+  "stats": {
+    "total": 1,
+    "ok": 0,
+    "unchanged": 1,
+    "content_insufficient": 0,
+    "robots_blocked": 0,
+    "unreachable": 0,
+    "spa_detected": 0,
+    "pdf_only": 0,
+    "no_website": 0,
+    "dry_run": 0,
+    "error": 0
+  },
+  "details": [
+    {
+      "school_id": "c42ca723-bccd-47b4-b807-92cfd7fb502e",
+      "name_tc": "中華基督教會元朗堂真光幼稚園二校",
+      "name_en": "YL CHURCH (CCC) CHAN KWONG NO. 2 KG",
+      "website": "https://chankwong2.edu.hk/",
+      "crawl_url": "https://chankwong2.edu.hk/",
+      "status": "unchanged",
+      "error": null,
+      "notes": []
+    }
+  ]
+}

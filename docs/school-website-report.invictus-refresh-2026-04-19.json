@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-04-19T12:10:22.384Z",
+  "stats": {
+    "total": 1,
+    "ok": 0,
+    "unchanged": 0,
+    "content_insufficient": 1,
+    "robots_blocked": 0,
+    "unreachable": 0,
+    "spa_detected": 0,
+    "pdf_only": 0,
+    "no_website": 0,
+    "dry_run": 0,
+    "error": 0
+  },
+  "details": [
+    {
+      "school_id": "73d2035f-0962-4acb-ad43-ab4b838a3750",
+      "name_tc": "INVICTUS KINDERGARTEN",
+      "name_en": "INVICTUS KINDERGARTEN",
+      "website": "https://www.invictus.edu.hk/tko",
+      "crawl_url": "https://www.invictus.edu.hk/tko",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=Invictus campus pages still reset fetch sessions intermittently; prefer browser fallback and serialized retries.",
+        "Playwright fallback used for www.invictus.edu.hk",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "www.invictus.edu.hk: Playwright fallback used for www.invictus.edu.hk",
+        "www.invictus.edu.hk: Playwright fallback used for www.invictus.edu.hk",
+        "www.invictus.edu.hk: Playwright fallback used for www.invictus.edu.hk",
+        "www.invictus.edu.hk: Playwright fallback used for www.invictus.edu.hk",
+        "confidence=low, baseTextLen=1932, pages=5, pdfs=0"
+      ]
+    }
+  ]
+}

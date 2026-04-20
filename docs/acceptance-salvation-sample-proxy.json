@@ -1,0 +1,64 @@
+{
+  "timestamp": "2026-04-19T06:29:06.793Z",
+  "stats": {
+    "total": 3,
+    "ok": 2,
+    "unchanged": 1,
+    "content_insufficient": 0,
+    "robots_blocked": 0,
+    "unreachable": 0,
+    "spa_detected": 0,
+    "pdf_only": 0,
+    "no_website": 0,
+    "dry_run": 0,
+    "error": 0
+  },
+  "details": [
+    {
+      "school_id": "4a5f1f67-bfca-4e42-9ea1-5080b78d6670",
+      "name_tc": "救世軍三聖幼兒學校",
+      "name_en": "SA SAM SHING NURSERY SCH",
+      "website": "http://www.salvationarmy.org.hk/esd/ssns/",
+      "crawl_url": "https://www.salvationarmy.org.hk/esd/ssns/",
+      "status": "unchanged",
+      "error": null,
+      "notes": [
+        "domain_policy=Shared Salvation Army nursery paths; keep canonical https even though the host is often down.",
+        "normalized_url=https://www.salvationarmy.org.hk/esd/ssns/",
+        "host_adapter=salvation_army_branch",
+        "salvation_branch_root=https://www.salvationarmy.org.hk/esd/ssns/",
+        "salvation_pages=5"
+      ]
+    },
+    {
+      "school_id": "473d7efd-bf79-4a1a-a49a-fb32922f7ae3",
+      "name_tc": "救世軍慶恩幼稚園",
+      "name_en": "SA HING YAN KINDERGARTEN",
+      "website": "https://salvationarmy.org.hk/esd/hykg/home.html",
+      "crawl_url": "https://salvationarmy.org.hk/esd/hykg/home.html",
+      "status": "ok",
+      "error": null,
+      "notes": [
+        "domain_policy=Shared Salvation Army nursery paths on the apex host; keep branch paths intact.",
+        "host_adapter=salvation_army_branch",
+        "salvation_branch_root=https://salvationarmy.org.hk/esd/hykg/",
+        "salvation_pages=5"
+      ]
+    },
+    {
+      "school_id": "52021c2c-4d3f-428b-9de7-e2f9e8931acb",
+      "name_tc": "救世軍田家炳幼稚園",
+      "name_en": "SA TIN KA PING KINDERGARTEN",
+      "website": "https://www.salvationarmy.org.hk/esd/tkpkg/",
+      "crawl_url": "https://www.salvationarmy.org.hk/esd/tkpkg/",
+      "status": "ok",
+      "error": null,
+      "notes": [
+        "domain_policy=Shared Salvation Army nursery paths; keep canonical https even though the host is often down.",
+        "host_adapter=salvation_army_branch",
+        "salvation_branch_root=https://www.salvationarmy.org.hk/esd/tkpkg/",
+        "salvation_pages=5"
+      ]
+    }
+  ]
+}

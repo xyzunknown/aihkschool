@@ -1,0 +1,51 @@
+name: Crawl Social Posts
+
+on:
+  schedule:
+    # Daily 03:00 UTC = 11:00 HKT
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Max posts to ingest per run (0 = all)"
+        required: false
+        default: "0"
+      dry_run:
+        description: "Dry-run (no DB writes)"
+        required: false
+        default: "false"
+
+jobs:
+  ingest-xhs:
+    name: Ingest 小紅書 posts into social_posts_raw
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install deps
+        run: npm install --no-save @supabase/supabase-js
+
+      - name: Ingest xhs raw posts
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          LIMIT="${{ github.event.inputs.limit || '0' }}"
+          DRY_RUN_FLAG=""
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            DRY_RUN_FLAG="--dry-run"
+          fi
+          node scripts/crawlers/xhs-posts.mjs --limit "$LIMIT" $DRY_RUN_FLAG
+
+      - name: Summary
+        if: always()
+        run: echo "Social posts ingest complete."

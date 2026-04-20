@@ -1,0 +1,66 @@
+{
+  "timestamp": "2026-04-20T02:10:07.116Z",
+  "stats": {
+    "total": 3,
+    "ok": 0,
+    "unchanged": 0,
+    "content_insufficient": 3,
+    "robots_blocked": 0,
+    "unreachable": 0,
+    "spa_detected": 0,
+    "pdf_only": 0,
+    "no_website": 0,
+    "dry_run": 0,
+    "error": 0
+  },
+  "details": [
+    {
+      "school_id": "fd37ffd1-7f28-43cd-8671-ce022d824429",
+      "name_tc": "新翠培元幼稚園",
+      "name_en": "NEW JADE ELEMENTI KINDERGARTEN",
+      "website": "http://www.elementiedu.org",
+      "crawl_url": "https://www.elementiedu.org/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=Reachable but inconsistent when many branch schools hit the same site.",
+        "normalized_url=https://www.elementiedu.org/",
+        "base page textLen=58, too short",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "confidence=low, baseTextLen=169, pages=5, pdfs=0"
+      ]
+    },
+    {
+      "school_id": "fd74ff02-0b36-47fd-867d-961f9636df4c",
+      "name_tc": "牽晴間培元英文幼稚園",
+      "name_en": "DAWNING VIEWS ELEMENTI ENGLISH KG",
+      "website": "http://www.elementiedu.org",
+      "crawl_url": "https://www.elementiedu.org/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=Reachable but inconsistent when many branch schools hit the same site.",
+        "normalized_url=https://www.elementiedu.org/",
+        "base page textLen=58, too short",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "confidence=low, baseTextLen=169, pages=5, pdfs=0"
+      ]
+    },
+    {
+      "school_id": "de4b2304-64c6-430f-868e-2cb2c59f6d5a",
+      "name_tc": "筲箕灣街坊福利會張錦添紀念幼稚園",
+      "name_en": "SHAUKIWAN KF WEL CMY CTR CKT MEM KG",
+      "website": "http://www.elementiedu.org",
+      "crawl_url": "https://www.elementiedu.org/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=Reachable but inconsistent when many branch schools hit the same site.",
+        "normalized_url=https://www.elementiedu.org/",
+        "base page textLen=58, too short",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "confidence=low, baseTextLen=169, pages=5, pdfs=0"
+      ]
+    }
+  ]
+}

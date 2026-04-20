@@ -1,0 +1,347 @@
+#!/usr/bin/env node
+/**
+ * School website enrichment crawler
+ *
+ * Pipeline:
+ *   1. Load schools from Supabase (or --school-ids)
+ *   2. Fetch school website HTML (+ heuristic sub-pages: /admission, /apply, /open-day, /contact)
+ *   3. Clean HTML → plain text
+ *   4. Claude Haiku tool_use → structured JSON (admission_hours, open_day_date, etc.)
+ *   5. Upsert into school_enrichments
+ *
+ * Usage:
+ *   node scripts/crawlers/school-website.mjs [--dry-run] [--limit N] [--school-ids id1,id2]
+ *
+ * Env vars (non-dry-run):
+ *   NEXT_PUBLIC_SUPABASE_URL
+ *   SUPABASE_SERVICE_ROLE_KEY
+ *   ANTHROPIC_API_KEY
+ */
+
+import { createClient } from "@supabase/supabase-js";
+import { parseArgs } from "node:util";
+
+const { values: args } = parseArgs({
+  options: {
+    "dry-run": { type: "boolean", default: false },
+    limit: { type: "string", default: "0" },
+    "school-ids": { type: "string", default: "" },
+    concurrency: { type: "string", default: "3" },
+  },
+});
+
+const DRY_RUN = args["dry-run"];
+const LIMIT = parseInt(args.limit, 10) || 0;
+const SCHOOL_IDS = args["school-ids"] ? args["school-ids"].split(",") : null;
+const CONCURRENCY = parseInt(args.concurrency, 10) || 3;
+
+const ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages";
+const CLAUDE_MODEL = "claude-haiku-4-5";
+const UA = "Mozilla/5.0 HKSchoolPlace-Bot/1.0 (+https://hkschoolplace.com/about)";
+
+const SUB_PATHS = [
+  "/admission",
+  "/admissions",
+  "/apply",
+  "/application",
+  "/open-day",
+  "/openday",
+  "/contact",
+  "/about",
+  "/招生",
+  "/入學",
+];
+
+// ─── HTML cleaning ────────────────────────────────────────────────────────
+
+function cleanHtml(html) {
+  if (!html) return "";
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<noscript[\s\S]*?<\/noscript>/gi, " ")
+    .replace(/<!--[\s\S]*?-->/g, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+async function fetchWithTimeout(url, timeoutMs = 15000) {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+  try {
+    const resp = await fetch(url, {
+      headers: { "User-Agent": UA, "Accept-Language": "zh-HK,zh;q=0.9,en;q=0.8" },
+      signal: ctrl.signal,
+      redirect: "follow",
+    });
+    if (!resp.ok) return null;
+    return await resp.text();
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function fetchSchoolPages(website) {
+  if (!website) return { pages: [], base: null };
+  let base;
+  try {
+    base = new URL(website);
+  } catch {
+    return { pages: [], base: null };
+  }
+  const origin = `${base.protocol}//${base.host}`;
+
+  const urls = [website, ...SUB_PATHS.map((p) => `${origin}${p}`)];
+  const seen = new Set();
+  const results = [];
+
+  for (const u of urls) {
+    if (seen.has(u)) continue;
+    seen.add(u);
+    const html = await fetchWithTimeout(u);
+    if (!html) continue;
+    const text = cleanHtml(html);
+    if (text.length < 100) continue;
+    results.push({ url: u, text: text.slice(0, 8000) });
+    if (results.length >= 4) break;
+  }
+
+  return { pages: results, base: origin };
+}
+
+// ─── Claude extraction ────────────────────────────────────────────────────
+
+const EXTRACTION_TOOL = {
+  name: "save_school_enrichment",
+  description:
+    "Save structured admission/enrichment data extracted from a HK kindergarten school's website.",
+  input_schema: {
+    type: "object",
+    properties: {
+      admission_hours: {
+        type: ["string", "null"],
+        description:
+          "Admission office hours or application counter opening times, e.g. '週一至週五 09:00-16:00'. Null if not found.",
+      },
+      application_process: {
+        type: ["string", "null"],
+        description:
+          "Brief 1-3 sentence summary (Traditional Chinese) of how to apply. Null if not found.",
+      },
+      application_url: {
+        type: ["string", "null"],
+        description: "Direct URL to apply / download application form. Null if not found.",
+      },
+      open_day_date: {
+        type: ["string", "null"],
+        description:
+          "Next open day date in YYYY-MM-DD (current or next academic year only). Null if not explicitly stated.",
+      },
+      open_day_details: {
+        type: ["string", "null"],
+        description: "Short open day description (time, need to register, etc). Null if not found.",
+      },
+      vacancy_k1: {
+        type: ["string", "null"],
+        description:
+          "K1 vacancy status from the site — one of: 'has_vacancy', 'waiting_list', 'no_vacancy', 'accepting_application', or null if not stated.",
+      },
+      vacancy_k2: { type: ["string", "null"], description: "K2 vacancy — same enum as vacancy_k1." },
+      vacancy_k3: { type: ["string", "null"], description: "K3 vacancy — same enum as vacancy_k1." },
+      official_website: {
+        type: ["string", "null"],
+        description: "Canonical school website URL (e.g. a homepage link from the site itself).",
+      },
+      scrape_confidence: {
+        type: "string",
+        enum: ["high", "medium", "low"],
+        description:
+          "Your confidence in the extraction. 'high' = multiple fields clearly found and recent. 'medium' = some fields found. 'low' = very sparse or ambiguous.",
+      },
+    },
+    required: ["scrape_confidence"],
+  },
+};
+
+const SYSTEM_PROMPT = `你是 HK 幼稚園招生信息提取助手。從給定的學校網站文字中提取結構化招生數據。
+
+規則：
+- 只提取明確陳述的信息，不要推斷或編造
+- 日期必須是明確寫出的具體日期（不是「本學年」這種模糊詞）
+- URL 必須是完整絕對 URL
+- 對學額狀態：「尚有學額」→ has_vacancy；「額滿」→ no_vacancy；「候補」→ waiting_list；「接受申請中」→ accepting_application
+- 所有文字字段用繁體中文
+- 找不到就填 null，不要猜`;
+
+async function extractWithClaude(schoolName, pagesText) {
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) throw new Error("ANTHROPIC_API_KEY not set");
+
+  const userContent = `學校名稱：${schoolName}
+
+網站內容（已清洗）：
+${pagesText.map((p) => `--- ${p.url} ---\n${p.text}`).join("\n\n")}`;
+
+  const resp = await fetch(ANTHROPIC_API_URL, {
+    method: "POST",
+    headers: {
+      "x-api-key": apiKey,
+      "anthropic-version": "2023-06-01",
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      model: CLAUDE_MODEL,
+      max_tokens: 1500,
+      system: SYSTEM_PROMPT,
+      tools: [EXTRACTION_TOOL],
+      tool_choice: { type: "tool", name: "save_school_enrichment" },
+      messages: [{ role: "user", content: userContent }],
+    }),
+  });
+
+  if (!resp.ok) {
+    const errTxt = await resp.text();
+    throw new Error(`Anthropic API ${resp.status}: ${errTxt.slice(0, 200)}`);
+  }
+
+  const json = await resp.json();
+  const toolUse = json.content?.find((c) => c.type === "tool_use");
+  if (!toolUse) throw new Error("No tool_use in Claude response");
+  return toolUse.input;
+}
+
+// ─── DB helpers ───────────────────────────────────────────────────────────
+
+function getSupabase() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!supabaseUrl || !serviceKey) {
+    throw new Error("NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY required");
+  }
+  return createClient(supabaseUrl, serviceKey, { auth: { persistSession: false } });
+}
+
+async function loadTargetSchools(supabase) {
+  let query = supabase
+    .from("schools")
+    .select("id, name_tc, name_en, website, school_type")
+    .eq("is_active", true)
+    .not("website", "is", null);
+
+  if (SCHOOL_IDS && SCHOOL_IDS.length > 0) {
+    query = query.in("id", SCHOOL_IDS);
+  } else {
+    // prioritize private + international (they have richer admission info)
+    query = query.in("school_type", ["private_independent", "international"]);
+  }
+
+  const { data, error } = await query.order("name_tc");
+  if (error) throw error;
+
+  const rows = data || [];
+  return LIMIT > 0 ? rows.slice(0, LIMIT) : rows;
+}
+
+async function upsertEnrichment(supabase, schoolId, extracted) {
+  const payload = {
+    school_id: schoolId,
+    admission_hours: extracted.admission_hours ?? null,
+    application_process: extracted.application_process ?? null,
+    application_url: extracted.application_url ?? null,
+    open_day_date: extracted.open_day_date ?? null,
+    open_day_details: extracted.open_day_details ?? null,
+    vacancy_k1: extracted.vacancy_k1 ?? null,
+    vacancy_k2: extracted.vacancy_k2 ?? null,
+    vacancy_k3: extracted.vacancy_k3 ?? null,
+    vacancy_last_checked: new Date().toISOString().split("T")[0],
+    official_website: extracted.official_website ?? null,
+    scrape_confidence: extracted.scrape_confidence ?? "low",
+    raw_extracted: extracted,
+    last_crawled_at: new Date().toISOString(),
+  };
+
+  const { error } = await supabase
+    .from("school_enrichments")
+    .upsert(payload, { onConflict: "school_id" });
+
+  if (error) throw error;
+}
+
+// ─── Main ─────────────────────────────────────────────────────────────────
+
+async function processSchool(school, supabase) {
+  const name = school.name_tc || school.name_en;
+  console.log(`[school-website] processing: ${name} (${school.website})`);
+
+  const { pages } = await fetchSchoolPages(school.website);
+  if (pages.length === 0) {
+    console.log(`[school-website]   skip — no reachable pages`);
+    return { school, status: "skipped", reason: "no_pages" };
+  }
+
+  try {
+    const extracted = await extractWithClaude(name, pages);
+    if (DRY_RUN) {
+      console.log(`[school-website]   dry-run extracted:`);
+      console.log(JSON.stringify(extracted, null, 2));
+      return { school, status: "dry_run", extracted };
+    }
+    await upsertEnrichment(supabase, school.id, extracted);
+    console.log(`[school-website]   upserted (confidence=${extracted.scrape_confidence})`);
+    return { school, status: "ok", extracted };
+  } catch (err) {
+    console.error(`[school-website]   error:`, err.message);
+    return { school, status: "error", error: err.message };
+  }
+}
+
+async function main() {
+  console.log(
+    `[school-website] starting — dry-run=${DRY_RUN} limit=${LIMIT || "∞"} concurrency=${CONCURRENCY}`
+  );
+
+  // In dry-run without SUPABASE vars, allow a synthetic school mode for testing
+  let schools;
+  let supabase = null;
+
+  if (DRY_RUN && !process.env.NEXT_PUBLIC_SUPABASE_URL) {
+    console.log("[school-website] dry-run without SUPABASE env — using synthetic test schools");
+    schools = [
+      { id: "test-1", name_tc: "測試學校A", name_en: "Test School A", website: "https://example.com" },
+    ];
+  } else {
+    supabase = getSupabase();
+    schools = await loadTargetSchools(supabase);
+  }
+
+  console.log(`[school-website] loaded ${schools.length} target schools`);
+
+  const results = [];
+  for (let i = 0; i < schools.length; i += CONCURRENCY) {
+    const batch = schools.slice(i, i + CONCURRENCY);
+    const batchResults = await Promise.all(batch.map((s) => processSchool(s, supabase)));
+    results.push(...batchResults);
+  }
+
+  const stats = {
+    ok: results.filter((r) => r.status === "ok").length,
+    dry_run: results.filter((r) => r.status === "dry_run").length,
+    skipped: results.filter((r) => r.status === "skipped").length,
+    error: results.filter((r) => r.status === "error").length,
+  };
+  console.log(`[school-website] done:`, stats);
+}
+
+main().catch((err) => {
+  console.error("[school-website] fatal:", err);
+  process.exit(1);
+});

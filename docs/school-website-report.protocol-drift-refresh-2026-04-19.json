@@ -1,0 +1,276 @@
+{
+  "timestamp": "2026-04-19T13:26:56.804Z",
+  "stats": {
+    "total": 13,
+    "ok": 0,
+    "unchanged": 0,
+    "content_insufficient": 13,
+    "robots_blocked": 0,
+    "unreachable": 0,
+    "spa_detected": 0,
+    "pdf_only": 0,
+    "no_website": 0,
+    "dry_run": 0,
+    "error": 0
+  },
+  "details": [
+    {
+      "school_id": "f9565281-3b25-488d-a9eb-f6aea44cacaa",
+      "name_tc": "ST. CATHERINE'S KINDERGARTEN (HARBOUR PLACE)",
+      "name_en": "ST. CATHERINE'S KINDERGARTEN (HARBOUR PLACE)",
+      "website": "https://www.stcatherines.edu.hk",
+      "crawl_url": "https://www.stcatherines.edu.hk/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=403 anti-bot on both protocols.",
+        "normalized_url=https://www.stcatherines.edu.hk/",
+        "Playwright fallback used for www.stcatherines.edu.hk",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "www.stcatherines.edu.hk: Playwright fallback used for www.stcatherines.edu.hk",
+        "www.stcatherines.edu.hk: Playwright fallback used for www.stcatherines.edu.hk",
+        "www.stcatherines.edu.hk: Playwright fallback used for www.stcatherines.edu.hk",
+        "www.stcatherines.edu.hk: Playwright fallback used for www.stcatherines.edu.hk",
+        "confidence=low, baseTextLen=2036, pages=5, pdfs=0"
+      ]
+    },
+    {
+      "school_id": "f0afbb6f-6d5d-4626-9596-ab2383358b4c",
+      "name_tc": "世佛會文殊幼兒學校",
+      "name_en": "W.F.B. MANJUSRI NURSERY SCH",
+      "website": "https://www.wfb.edu.hk",
+      "crawl_url": "https://www.wfb.edu.hk/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=403 anti-bot on the base site and branch pages.",
+        "normalized_url=https://www.wfb.edu.hk/",
+        "Playwright fallback used for www.wfb.edu.hk",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "www.wfb.edu.hk: Playwright fallback used for www.wfb.edu.hk",
+        "www.wfb.edu.hk: Playwright fallback used for www.wfb.edu.hk",
+        "www.wfb.edu.hk: Playwright fallback used for www.wfb.edu.hk",
+        "www.wfb.edu.hk: Playwright fallback used for www.wfb.edu.hk",
+        "confidence=low, baseTextLen=1124, pages=5, pdfs=0"
+      ]
+    },
+    {
+      "school_id": "72f05e0d-ad69-4de5-a82e-6b486ff118db",
+      "name_tc": "世佛會真言宗幼兒學校",
+      "name_en": "W.F.B. MANTRA INSTITUTE NURSERY SCH",
+      "website": "https://www.wfb.edu.hk/min/",
+      "crawl_url": "https://www.wfb.edu.hk/min/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=403 anti-bot on the base site and branch pages.",
+        "Playwright fallback used for www.wfb.edu.hk",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "www.wfb.edu.hk: Playwright fallback used for www.wfb.edu.hk",
+        "www.wfb.edu.hk: Playwright fallback used for www.wfb.edu.hk",
+        "www.wfb.edu.hk: Playwright fallback used for www.wfb.edu.hk",
+        "www.wfb.edu.hk: Playwright fallback used for www.wfb.edu.hk",
+        "confidence=low, baseTextLen=1124, pages=5, pdfs=0"
+      ]
+    },
+    {
+      "school_id": "4cfecc94-79e3-4d53-8b7f-a6d91679a965",
+      "name_tc": "世佛會觀自在幼兒學校",
+      "name_en": "W.F.B. AVALOKITESVARA NURSERY SCH",
+      "website": "https://www.wfb.edu.hk/1",
+      "crawl_url": "https://www.wfb.edu.hk/1",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=403 anti-bot on the base site and branch pages.",
+        "Playwright fallback used for www.wfb.edu.hk",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "www.wfb.edu.hk: Playwright fallback used for www.wfb.edu.hk",
+        "www.wfb.edu.hk: Playwright fallback used for www.wfb.edu.hk",
+        "www.wfb.edu.hk: Playwright fallback used for www.wfb.edu.hk",
+        "www.wfb.edu.hk: Playwright fallback used for www.wfb.edu.hk",
+        "confidence=low, baseTextLen=1124, pages=5, pdfs=0"
+      ]
+    },
+    {
+      "school_id": "82528e7f-f6e6-4e7b-a5ac-e8617eccf322",
+      "name_tc": "九龍靈糧堂幼兒園",
+      "name_en": "KOWLOON LING LIANG CHURCH DAY NURSERY",
+      "website": "https://www.kllck.edu.hk",
+      "crawl_url": "https://www.kllck.edu.hk/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=403 anti-bot on both protocols.",
+        "normalized_url=https://www.kllck.edu.hk/",
+        "Playwright fallback used for www.kllck.edu.hk",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "www.kllck.edu.hk: Playwright fallback used for www.kllck.edu.hk",
+        "www.kllck.edu.hk: Playwright fallback used for www.kllck.edu.hk",
+        "www.kllck.edu.hk: Playwright fallback used for www.kllck.edu.hk",
+        "www.kllck.edu.hk: Playwright fallback used for www.kllck.edu.hk",
+        "confidence=low, baseTextLen=1126, pages=5, pdfs=0"
+      ]
+    },
+    {
+      "school_id": "a7e46bf7-3101-42b3-9f4e-72ca92bb4a0d",
+      "name_tc": "九龍靈糧堂幼稚園",
+      "name_en": "KOWLOON LING LIANG CHURCH KINDERGARTEN",
+      "website": "https://www.kllck.edu.hk",
+      "crawl_url": "https://www.kllck.edu.hk/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=403 anti-bot on both protocols.",
+        "normalized_url=https://www.kllck.edu.hk/",
+        "Playwright fallback used for www.kllck.edu.hk",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "www.kllck.edu.hk: Playwright fallback used for www.kllck.edu.hk",
+        "www.kllck.edu.hk: Playwright fallback used for www.kllck.edu.hk",
+        "www.kllck.edu.hk: Playwright fallback used for www.kllck.edu.hk",
+        "www.kllck.edu.hk: Playwright fallback used for www.kllck.edu.hk",
+        "confidence=low, baseTextLen=1126, pages=5, pdfs=0"
+      ]
+    },
+    {
+      "school_id": "745c261e-22c8-4ef5-9417-4d7459e75be5",
+      "name_tc": "偉思幼兒園",
+      "name_en": "WISELY NURSERY",
+      "website": "https://www.wisely.edu.hk",
+      "crawl_url": "https://www.wisely.edu.hk/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=403 anti-bot on both protocols.",
+        "normalized_url=https://www.wisely.edu.hk/",
+        "Playwright fallback used for www.wisely.edu.hk",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "www.wisely.edu.hk: Playwright fallback used for www.wisely.edu.hk",
+        "www.wisely.edu.hk: Playwright fallback used for www.wisely.edu.hk",
+        "www.wisely.edu.hk: Playwright fallback used for www.wisely.edu.hk",
+        "www.wisely.edu.hk: Playwright fallback used for www.wisely.edu.hk",
+        "confidence=low, baseTextLen=1127, pages=5, pdfs=0"
+      ]
+    },
+    {
+      "school_id": "f9057189-e5c2-478e-bf6d-a0ac46221cc4",
+      "name_tc": "偉思幼稚園",
+      "name_en": "WISELY KINDERGARTEN",
+      "website": "https://www.wisely.edu.hk",
+      "crawl_url": "https://www.wisely.edu.hk/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=403 anti-bot on both protocols.",
+        "normalized_url=https://www.wisely.edu.hk/",
+        "Playwright fallback used for www.wisely.edu.hk",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "www.wisely.edu.hk: Playwright fallback used for www.wisely.edu.hk",
+        "www.wisely.edu.hk: Playwright fallback used for www.wisely.edu.hk",
+        "www.wisely.edu.hk: Playwright fallback used for www.wisely.edu.hk",
+        "www.wisely.edu.hk: Playwright fallback used for www.wisely.edu.hk",
+        "confidence=low, baseTextLen=1127, pages=5, pdfs=0"
+      ]
+    },
+    {
+      "school_id": "76baaa4b-e5e7-4fd7-bca9-178eaf5cc343",
+      "name_tc": "國際英文幼稚園",
+      "name_en": "ST. CATHERINE'S INTERNATIONAL KINDERGARTEN",
+      "website": "https://www.stcatherines.edu.hk",
+      "crawl_url": "https://www.stcatherines.edu.hk/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=403 anti-bot on both protocols.",
+        "normalized_url=https://www.stcatherines.edu.hk/",
+        "Playwright fallback used for www.stcatherines.edu.hk",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "www.stcatherines.edu.hk: Playwright fallback used for www.stcatherines.edu.hk",
+        "www.stcatherines.edu.hk: Playwright fallback used for www.stcatherines.edu.hk",
+        "www.stcatherines.edu.hk: Playwright fallback used for www.stcatherines.edu.hk",
+        "www.stcatherines.edu.hk: Playwright fallback used for www.stcatherines.edu.hk",
+        "confidence=low, baseTextLen=2036, pages=5, pdfs=0"
+      ]
+    },
+    {
+      "school_id": "030241c6-7350-4135-b44c-6d3e6a2dea40",
+      "name_tc": "基督教中心幼稚園",
+      "name_en": "CHRISTIAN YOUTH CENTRE KINDERGARTEN",
+      "website": "https://www.cyckg.edu.hk",
+      "crawl_url": "https://www.cyckg.edu.hk/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=403 anti-bot on both protocols.",
+        "normalized_url=https://www.cyckg.edu.hk/",
+        "Playwright fallback used for www.cyckg.edu.hk",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "www.cyckg.edu.hk: Playwright fallback used for www.cyckg.edu.hk",
+        "www.cyckg.edu.hk: Playwright fallback used for www.cyckg.edu.hk",
+        "www.cyckg.edu.hk: Playwright fallback used for www.cyckg.edu.hk",
+        "www.cyckg.edu.hk: Playwright fallback used for www.cyckg.edu.hk",
+        "confidence=low, baseTextLen=1126, pages=5, pdfs=0"
+      ]
+    },
+    {
+      "school_id": "3ef9c813-6662-4042-8969-f1e0d7a69224",
+      "name_tc": "基督教中心幼稚園（油塘）",
+      "name_en": "CHRISTIAN YOUTH CENTRE KG (YAU TONG)",
+      "website": "https://www.cyckg.edu.hk",
+      "crawl_url": "https://www.cyckg.edu.hk/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=403 anti-bot on both protocols.",
+        "normalized_url=https://www.cyckg.edu.hk/",
+        "Playwright fallback used for www.cyckg.edu.hk",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "www.cyckg.edu.hk: Playwright fallback used for www.cyckg.edu.hk",
+        "www.cyckg.edu.hk: Playwright fallback used for www.cyckg.edu.hk",
+        "www.cyckg.edu.hk: Playwright fallback used for www.cyckg.edu.hk",
+        "www.cyckg.edu.hk: Playwright fallback used for www.cyckg.edu.hk",
+        "confidence=low, baseTextLen=1126, pages=5, pdfs=0"
+      ]
+    },
+    {
+      "school_id": "220d8550-c159-4cce-8877-42e915c07375",
+      "name_tc": "基督教安得兒幼稚園",
+      "name_en": "CHRISTIAN ADRIANNE KINDERGARTEN",
+      "website": "https://www.christianadrianne.edu.hk",
+      "crawl_url": "https://www.christianadrianne.edu.hk/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=403 anti-bot on both protocols.",
+        "normalized_url=https://www.christianadrianne.edu.hk/",
+        "Playwright fallback used for www.christianadrianne.edu.hk",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "www.christianadrianne.edu.hk: Playwright fallback used for www.christianadrianne.edu.hk",
+        "www.christianadrianne.edu.hk: Playwright fallback used for www.christianadrianne.edu.hk",
+        "www.christianadrianne.edu.hk: Playwright fallback used for www.christianadrianne.edu.hk",
+        "www.christianadrianne.edu.hk: Playwright fallback used for www.christianadrianne.edu.hk",
+        "confidence=low, baseTextLen=1138, pages=5, pdfs=0"
+      ]
+    },
+    {
+      "school_id": "9f540534-dd49-47f8-85d1-c2030d928e2f",
+      "name_tc": "基督教安得兒幼稚園（灣景）",
+      "name_en": "CHRISTIAN ADRIANNE KG (BAYVIEW)",
+      "website": "https://www.christianadrianne.edu.hk",
+      "crawl_url": "https://www.christianadrianne.edu.hk/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=403 anti-bot on both protocols.",
+        "normalized_url=https://www.christianadrianne.edu.hk/",
+        "Playwright fallback used for www.christianadrianne.edu.hk",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "www.christianadrianne.edu.hk: Playwright fallback used for www.christianadrianne.edu.hk",
+        "www.christianadrianne.edu.hk: Playwright fallback used for www.christianadrianne.edu.hk",
+        "www.christianadrianne.edu.hk: Playwright fallback used for www.christianadrianne.edu.hk",
+        "www.christianadrianne.edu.hk: Playwright fallback used for www.christianadrianne.edu.hk",
+        "confidence=low, baseTextLen=1138, pages=5, pdfs=0"
+      ]
+    }
+  ]
+}

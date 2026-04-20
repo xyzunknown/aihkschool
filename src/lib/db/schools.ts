@@ -197,8 +197,36 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
     }),
   }));
 
+  // Batch-fetch enrichment badges for this page of schools
+  const schoolIds = normalizedSchools.map((s) => s.id);
+  const enrichmentMap: Record<string, { application_url: string | null; open_day_date: string | null; open_day_details: string | null }> = {};
+  if (schoolIds.length > 0) {
+    try {
+      const { data: enrichRows } = await supabase
+        .from("school_enrichments")
+        .select("school_id, application_url, open_day_date, open_day_details")
+        .in("school_id", schoolIds);
+      if (enrichRows) {
+        for (const row of enrichRows) {
+          enrichmentMap[row.school_id] = {
+            application_url: row.application_url,
+            open_day_date: row.open_day_date,
+            open_day_details: row.open_day_details,
+          };
+        }
+      }
+    } catch {
+      // Table missing or error — enrichment badges just won't show
+    }
+  }
+
+  const schoolsWithEnrichment = normalizedSchools.map((s) => ({
+    ...s,
+    enrichment: enrichmentMap[s.id] ?? null,
+  }));
+
   return {
-    data: normalizedSchools,
+    data: schoolsWithEnrichment,
     count: totalCount,
     page,
     limit: safeLimit,
@@ -275,6 +303,104 @@ export async function fetchSchoolById(id: string) {
     open_day_url: null,
     last_profile_scraped_at: null,
   } as School;
+}
+
+// ── School Enrichment ──────────────────────────────────────────────────────
+
+export interface ReputationTag {
+  tag: string;
+  count: number;
+}
+
+export interface QuoteHighlight {
+  text: string;
+  source_platform: string;
+  posted_at?: string | null;
+}
+
+export interface SchoolEnrichment {
+  school_id: string;
+  // Official layer
+  admission_hours: string | null;
+  application_process: string | null;
+  application_url: string | null;
+  open_day_date: string | null;
+  open_day_details: string | null;
+  vacancy_k1: string | null;
+  vacancy_k2: string | null;
+  vacancy_k3: string | null;
+  // Reputation layer
+  reputation_summary: string | null;
+  pros_tags: ReputationTag[];
+  cons_tags: ReputationTag[];
+  interview_style: string | null;
+  quote_highlights: QuoteHighlight[] | null;
+  sentiment_positive_ratio: number | null;
+  source_count_by_platform: Record<string, number>;
+  scrape_confidence: "high" | "medium" | "low" | null;
+  last_updated_at: string;
+  reputation_last_updated: string | null;
+}
+
+/**
+ * Columns GRANTed to anon in migration 019.
+ * Selecting anything outside this set causes PostgREST permission denied for guests.
+ */
+const ENRICHMENT_ANON_SELECT = `school_id, admission_hours, application_process, application_url, open_day_date, open_day_details, vacancy_k1, vacancy_k2, vacancy_k3, reputation_summary, pros_tags, cons_tags, interview_style, sentiment_positive_ratio, source_count_by_platform, scrape_confidence, last_updated_at, reputation_last_updated`;
+
+const ENRICHMENT_RESTRICTED_SELECT = `school_id, admission_hours, application_process, application_url, open_day_date, open_day_details, vacancy_k1, vacancy_k2, vacancy_k3, reputation_summary, pros_tags, cons_tags, interview_style, sentiment_positive_ratio, source_count_by_platform, scrape_confidence, last_updated_at, reputation_last_updated, quote_highlights`;
+
+/**
+ * Fetch the enrichment row for a single school. Returns null if the table
+ * doesn't exist yet (migration 015 not applied) or no data for this school.
+ *
+ * @param includeRestricted — true to include quote_highlights (requires authenticated role)
+ */
+export async function fetchSchoolEnrichment(
+  schoolId: string,
+  opts?: { includeRestricted?: boolean },
+): Promise<SchoolEnrichment | null> {
+  const supabase = await createClient();
+  const selectStr = opts?.includeRestricted
+    ? ENRICHMENT_RESTRICTED_SELECT
+    : ENRICHMENT_ANON_SELECT;
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const { data, error } = await supabase
+    .from("school_enrichments")
+    .select(selectStr)
+    .eq("school_id", schoolId)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    .maybeSingle() as { data: any; error: any };
+
+  if (error) {
+    // Table missing (migration not applied) or transient — return null, caller falls back
+    const msg = error.message || "";
+    if (
+      msg.includes("school_enrichments") ||
+      msg.includes("does not exist") ||
+      msg.includes("relation")
+    ) {
+      return null;
+    }
+    console.warn("fetchSchoolEnrichment error:", msg);
+    return null;
+  }
+
+  if (!data) return null;
+
+  return {
+    ...data,
+    pros_tags: Array.isArray(data.pros_tags) ? (data.pros_tags as ReputationTag[]) : [],
+    cons_tags: Array.isArray(data.cons_tags) ? (data.cons_tags as ReputationTag[]) : [],
+    quote_highlights: Array.isArray(data.quote_highlights)
+      ? (data.quote_highlights as QuoteHighlight[])
+      : (opts?.includeRestricted ? [] : null),
+    source_count_by_platform:
+      data.source_count_by_platform && typeof data.source_count_by_platform === "object"
+        ? (data.source_count_by_platform as Record<string, number>)
+        : {},
+  } as SchoolEnrichment;
 }
 
 export async function searchSchools(query: string) {

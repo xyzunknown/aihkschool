@@ -1,0 +1,78 @@
+{
+  "timestamp": "2026-04-19T06:28:18.520Z",
+  "stats": {
+    "total": 6,
+    "ok": 6,
+    "unchanged": 0,
+    "content_insufficient": 0,
+    "robots_blocked": 0,
+    "unreachable": 0,
+    "spa_detected": 0,
+    "pdf_only": 0,
+    "no_website": 0,
+    "dry_run": 0,
+    "error": 0
+  },
+  "details": [
+    {
+      "school_id": "b73701b7-2af9-439e-be6e-bba3a275b094",
+      "name_tc": "樂善堂文吳泳沂幼稚園",
+      "name_en": "LOK SIN TONG MAN NG WING YEE KG",
+      "website": "http://www.loksintongkg.edu.hk/lst_manngwingyee/",
+      "crawl_url": "http://www.loksintongkg.edu.hk/lst_manngwingyee/",
+      "status": "ok",
+      "error": null,
+      "notes": []
+    },
+    {
+      "school_id": "11d0b93c-bab9-4693-b9b2-d0748df63007",
+      "name_tc": "樂善堂李賢義幼稚園",
+      "name_en": "LOK SIN TONG LEE YIN YEE KINDERGARTEN",
+      "website": "http://www.loksintongkg.edu.hk/lst/",
+      "crawl_url": "http://www.loksintongkg.edu.hk/lst/",
+      "status": "ok",
+      "error": null,
+      "notes": []
+    },
+    {
+      "school_id": "c161b054-e95f-4b4d-a927-5ab8d56f81b2",
+      "name_tc": "樂善堂梁泳釗幼稚園",
+      "name_en": "LOK SIN TONG STEPHEN LEUNG KINDERGARTEN",
+      "website": "https://www.lstslkg.edu.hk",
+      "crawl_url": "https://www.lstslkg.edu.hk",
+      "status": "ok",
+      "error": null,
+      "notes": []
+    },
+    {
+      "school_id": "045ba9bb-a401-4fbd-97c1-46db3e24933b",
+      "name_tc": "樂善堂董清波幼稚園",
+      "name_en": "LOK SIN TONG TUNG CHING BOR KINDERGARTEN",
+      "website": "https://lsttcb.loksintongkg.edu.hk/",
+      "crawl_url": "https://lsttcb.loksintongkg.edu.hk/",
+      "status": "ok",
+      "error": null,
+      "notes": []
+    },
+    {
+      "school_id": "a4982baa-2bc8-40ea-a9bc-9e41aefd26ec",
+      "name_tc": "樂善堂鄧德濂幼稚園",
+      "name_en": "LST TANG TAK LIM KINDERGARTEN",
+      "website": "http://www.lstkgttl.edu.hk",
+      "crawl_url": "http://www.lstkgttl.edu.hk",
+      "status": "ok",
+      "error": null,
+      "notes": []
+    },
+    {
+      "school_id": "78f0bf6f-d01c-4f9d-89d6-00188e7dc148",
+      "name_tc": "樂善堂顧李覺鮮幼稚園",
+      "name_en": "LOK SIN TONG KU LEE KWOK SIN KG",
+      "website": "http://www.loksintongkg.edu.hk/lst_kuleekwoksin/",
+      "crawl_url": "http://www.loksintongkg.edu.hk/lst_kuleekwoksin/",
+      "status": "ok",
+      "error": null,
+      "notes": []
+    }
+  ]
+}

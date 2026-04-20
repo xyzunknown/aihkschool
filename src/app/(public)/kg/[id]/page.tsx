@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { fetchSchoolById } from "@/lib/db/schools";
+import { fetchSchoolById, fetchSchoolEnrichment } from "@/lib/db/schools";
 import { fetchCurrentVacancy } from "@/lib/db/vacancies";
-import { fetchSocialSummary } from "@/lib/db/socialIntel";
 import { SchoolDetailClient } from "./SchoolDetailClient";
+import { ReputationSection } from "@/components/schools/ReputationSection";
 import { DISTRICT_LABELS } from "@/lib/utils";
 
 export const revalidate = 3600; // ISR 1 hour
@@ -32,6 +32,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
       url: `https://aihkschool.vercel.app/kg/${params.id}`,
     },
+    robots: {
+      index: true,
+      follow: true,
+      noarchive: true,
+      "max-snippet": 160,
+    },
   };
 }
 
@@ -42,14 +48,21 @@ export default async function SchoolDetailPage({ params }: Props) {
     notFound();
   }
 
-  const vacancy = await fetchCurrentVacancy(params.id);
-  const socialSummary = await fetchSocialSummary(params.id);
+  const [vacancy, enrichment] = await Promise.all([
+    fetchCurrentVacancy(params.id),
+    fetchSchoolEnrichment(params.id),
+  ]);
 
   return (
-    <SchoolDetailClient
-      school={school}
-      vacancy={vacancy}
-      socialSummary={socialSummary}
-    />
+    <>
+      <SchoolDetailClient
+        school={school}
+        vacancy={vacancy}
+        enrichment={enrichment}
+      />
+      <div className="mx-auto max-w-4xl px-5 md:px-8">
+        <ReputationSection enrichment={enrichment} />
+      </div>
+    </>
   );
 }

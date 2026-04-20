@@ -1,0 +1,82 @@
+{
+  "timestamp": "2026-04-19T15:39:38.343Z",
+  "stats": {
+    "total": 4,
+    "ok": 1,
+    "unchanged": 3,
+    "content_insufficient": 0,
+    "robots_blocked": 0,
+    "unreachable": 0,
+    "spa_detected": 0,
+    "pdf_only": 0,
+    "no_website": 0,
+    "dry_run": 0,
+    "error": 0
+  },
+  "details": [
+    {
+      "school_id": "5134f1aa-1929-48ee-8823-2dbe4423a98a",
+      "name_tc": "康傑中英文幼稚園（青衣）",
+      "name_en": "GOOD HEALTH ANGLO-CHINESE KINDERGARTEN (TSING YI)",
+      "website": "https://www.good-health.edu.hk/",
+      "crawl_url": "https://www.good-health.edu.hk/",
+      "status": "unchanged",
+      "error": null,
+      "notes": [
+        "domain_policy=HTTP upgrades cleanly to HTTPS but the shared site benefits from a second low-concurrency pass.",
+        "host_adapter=good_health_campus",
+        "good_health_subdomain=ty",
+        "original_website=https://www.good-health.edu.hk/",
+        "good_health_pages=4"
+      ]
+    },
+    {
+      "school_id": "6d0eb677-2637-4f42-826b-296048da0c6c",
+      "name_tc": "康傑中英文幼稚園（青衣南）",
+      "name_en": "GOOD HEALTH ANGLO-CHINESE KINDERGARTEN (TSING YI SOUTH)",
+      "website": "https://www.good-health.edu.hk/",
+      "crawl_url": "https://www.good-health.edu.hk/",
+      "status": "unchanged",
+      "error": null,
+      "notes": [
+        "domain_policy=HTTP upgrades cleanly to HTTPS but the shared site benefits from a second low-concurrency pass.",
+        "host_adapter=good_health_campus",
+        "good_health_subdomain=tys",
+        "original_website=https://www.good-health.edu.hk/",
+        "good_health_pages=4"
+      ]
+    },
+    {
+      "school_id": "456fc307-30d2-4e1c-a119-fccf82774ff4",
+      "name_tc": "康傑中英文幼稚園（馬鞍山）",
+      "name_en": "GOOD HEALTH ANGLO-CHINESE KINDERGARTEN (MA ON SHAN)",
+      "website": "https://www.good-health.edu.hk/",
+      "crawl_url": "https://www.good-health.edu.hk/",
+      "status": "ok",
+      "error": null,
+      "notes": [
+        "domain_policy=HTTP upgrades cleanly to HTTPS but the shared site benefits from a second low-concurrency pass.",
+        "host_adapter=good_health_campus",
+        "good_health_subdomain=tys",
+        "original_website=https://www.good-health.edu.hk/",
+        "good_health_pages=4"
+      ]
+    },
+    {
+      "school_id": "25ab1f82-c356-4280-9974-79da75d76140",
+      "name_tc": "康傑幼稚園〈馬鞍山〉",
+      "name_en": "GOOD HEALTH KINDERGARTEN (MA ON SHAN)",
+      "website": "https://www.good-health.edu.hk/",
+      "crawl_url": "https://www.good-health.edu.hk/",
+      "status": "unchanged",
+      "error": null,
+      "notes": [
+        "domain_policy=HTTP upgrades cleanly to HTTPS but the shared site benefits from a second low-concurrency pass.",
+        "host_adapter=good_health_campus",
+        "good_health_subdomain=tys",
+        "original_website=https://www.good-health.edu.hk/",
+        "good_health_pages=4"
+      ]
+    }
+  ]
+}

@@ -7,25 +7,24 @@ import { VacancySection } from "@/components/schools/VacancySection";
 import { BasicInfoSection } from "@/components/schools/BasicInfoSection";
 import { FeesSection } from "@/components/schools/FeesSection";
 import { AdmissionsSection } from "@/components/schools/AdmissionsSection";
-import { InterviewIntelSection } from "@/components/schools/InterviewIntelSection";
-import { ApplicationTimelineSection } from "@/components/schools/ApplicationTimelineSection";
 import { DetailBottomCTA } from "@/components/schools/DetailBottomCTA";
 import { ReminderSheet } from "@/components/schools/ReminderSheet";
 import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
 import { useAuth } from "@/components/layout/AuthProvider";
 import { useToast } from "@/components/ui/Toast";
 import { DISTRICT_LABELS, formatEnglishSchoolName, isVacancyStale, deadlineStatus } from "@/lib/utils";
-import type { School, Vacancy, DataSource, SocialSummary } from "@/types/database";
+import type { School, Vacancy, DataSource } from "@/types/database";
+import type { SchoolEnrichment } from "@/lib/db/schools";
 import { useCompare } from "@/lib/hooks/useCompare";
 import Link from "next/link";
 
 interface Props {
   school: School;
   vacancy: Vacancy | null;
-  socialSummary?: SocialSummary | null;
+  enrichment?: SchoolEnrichment | null;
 }
 
-export function SchoolDetailClient({ school, vacancy, socialSummary }: Props) {
+export function SchoolDetailClient({ school, vacancy, enrichment }: Props) {
   const { user, requireAuth } = useAuth();
   const { showToast } = useToast();
   const { addToCompare, removeFromCompare, isInCompare, canAdd } = useCompare();
@@ -166,28 +165,10 @@ export function SchoolDetailClient({ school, vacancy, socialSummary }: Props) {
         </div>
       </div>
 
-      <VacancySection vacancy={vacancy} isStale={stale} deadlineStatus={dlStatus} competitionLevel={socialSummary?.competition_level} schoolWebsite={school.website} />
+      <VacancySection vacancy={vacancy} isStale={stale} deadlineStatus={dlStatus} schoolWebsite={school.website} />
       <BasicInfoSection school={school} />
-      <FeesSection school={school} feeEstimates={socialSummary?.fee_estimates} />
-      <AdmissionsSection school={school} />
-      {socialSummary ? (
-        <>
-          <InterviewIntelSection socialSummary={socialSummary} />
-          <ApplicationTimelineSection socialSummary={socialSummary} />
-        </>
-      ) : (
-        <section className="mb-10">
-          <h2 className="text-xl font-semibold text-slate-950 mb-4">家長心得與評價</h2>
-          <div className="rounded-2xl border border-slate-200 bg-white p-8 text-center">
-            <p className="text-sm text-slate-500">
-              暫無家長分享嘅面試情報同評價
-            </p>
-            <p className="text-xs text-slate-400 mt-2">
-              我哋正喺收集緊相關資訊，稍後會更新
-            </p>
-          </div>
-        </section>
-      )}
+      <FeesSection school={school} />
+      <AdmissionsSection school={school} enrichment={enrichment ?? null} />
 
       <DetailBottomCTA
         school={school}

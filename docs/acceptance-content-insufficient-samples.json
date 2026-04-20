@@ -1,0 +1,113 @@
+{
+  "timestamp": "2026-04-19T02:05:29.523Z",
+  "stats": {
+    "total": 5,
+    "ok": 0,
+    "unchanged": 0,
+    "content_insufficient": 5,
+    "robots_blocked": 0,
+    "unreachable": 0,
+    "spa_detected": 0,
+    "pdf_only": 0,
+    "no_website": 0,
+    "dry_run": 0,
+    "error": 0
+  },
+  "details": [
+    {
+      "school_id": "f0afbb6f-6d5d-4626-9596-ab2383358b4c",
+      "name_tc": "世佛會文殊幼兒學校",
+      "name_en": "W.F.B. MANJUSRI NURSERY SCH",
+      "website": "http://www.wfb.edu.hk",
+      "crawl_url": "https://www.wfb.edu.hk/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=403 anti-bot on the base site and branch pages.",
+        "normalized_url=https://www.wfb.edu.hk/",
+        "Playwright fallback used for www.wfb.edu.hk",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "www.wfb.edu.hk: Playwright fallback used for www.wfb.edu.hk",
+        "www.wfb.edu.hk: Playwright fallback used for www.wfb.edu.hk",
+        "www.wfb.edu.hk: Playwright fallback used for www.wfb.edu.hk",
+        "www.wfb.edu.hk: Playwright fallback used for www.wfb.edu.hk",
+        "confidence=low, baseTextLen=1125, pages=5, pdfs=0"
+      ]
+    },
+    {
+      "school_id": "dde54228-3b0e-40db-bbf9-44dec56722e4",
+      "name_tc": "博士山（香港）國際幼稚園",
+      "name_en": "BOX HILL (HK) INTERNATIONAL KINDERGARTEN",
+      "website": "https://www.boxhill.edu.hk",
+      "crawl_url": "https://www.boxhill.edu.hk/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=202/JS gate on fetch; allow browser fallback and serialize retries.",
+        "normalized_url=https://www.boxhill.edu.hk/",
+        "Playwright fallback used for www.boxhill.edu.hk",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "www.boxhill.edu.hk: Playwright fallback used for www.boxhill.edu.hk",
+        "www.boxhill.edu.hk: Playwright fallback used for www.boxhill.edu.hk",
+        "www.boxhill.edu.hk: Playwright fallback used for www.boxhill.edu.hk",
+        "www.boxhill.edu.hk: Playwright fallback used for www.boxhill.edu.hk",
+        "confidence=low, baseTextLen=176, pages=5, pdfs=0"
+      ]
+    },
+    {
+      "school_id": "d14b002a-e300-410a-92a4-416a73623f55",
+      "name_tc": "圓玄幼稚園（天逸邨）",
+      "name_en": "YUEN YUEN KINDERGARTEN (TIN YAT ESTATE)",
+      "website": "https://www.yuenyuenkg.edu.hk/tinyat/",
+      "crawl_url": "https://www.yuenyuenkg.edu.hk/tinyat/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=403 anti-bot on both root and branch pages.",
+        "Playwright fallback used for www.yuenyuenkg.edu.hk",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "www.yuenyuenkg.edu.hk: Playwright fallback used for www.yuenyuenkg.edu.hk",
+        "www.yuenyuenkg.edu.hk: Playwright fallback used for www.yuenyuenkg.edu.hk",
+        "www.yuenyuenkg.edu.hk: Playwright fallback used for www.yuenyuenkg.edu.hk",
+        "www.yuenyuenkg.edu.hk: Playwright fallback used for www.yuenyuenkg.edu.hk",
+        "confidence=low, baseTextLen=1132, pages=5, pdfs=0"
+      ]
+    },
+    {
+      "school_id": "0cb192aa-b1c8-42ef-8522-85bc9dae6efb",
+      "name_tc": "安基司國際幼兒園",
+      "name_en": "ANCHORS INTERNATIONAL NURSERY",
+      "website": "http://www.anchors.edu.hk",
+      "crawl_url": "https://www.anchors.edu.hk/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=403 anti-bot on both HTTP and HTTPS.",
+        "normalized_url=https://www.anchors.edu.hk/",
+        "Playwright fallback used for www.anchors.edu.hk",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "www.anchors.edu.hk: Playwright fallback used for www.anchors.edu.hk",
+        "www.anchors.edu.hk: Playwright fallback used for www.anchors.edu.hk",
+        "www.anchors.edu.hk: Playwright fallback used for www.anchors.edu.hk",
+        "www.anchors.edu.hk: Playwright fallback used for www.anchors.edu.hk",
+        "confidence=low, baseTextLen=1129, pages=5, pdfs=0"
+      ]
+    },
+    {
+      "school_id": "28b3504b-b1e5-4120-9725-d53361d0af52",
+      "name_tc": "美雅幼兒園",
+      "name_en": "MAY NGA NURSERY",
+      "website": "http://www.maynga.edu.hk",
+      "crawl_url": "https://www.maynga.edu.hk/",
+      "status": "content_insufficient",
+      "error": null,
+      "notes": [
+        "domain_policy=Shared site should crawl over HTTPS and be retried serially when needed.",
+        "normalized_url=https://www.maynga.edu.hk/",
+        "base page textLen=0, too short",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "confidence=low, baseTextLen=0, pages=5, pdfs=0"
+      ]
+    }
+  ]
+}

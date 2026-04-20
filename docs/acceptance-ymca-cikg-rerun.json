@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-04-19T08:54:37.326Z",
+  "stats": {
+    "total": 1,
+    "ok": 1,
+    "unchanged": 0,
+    "content_insufficient": 0,
+    "robots_blocked": 0,
+    "unreachable": 0,
+    "spa_detected": 0,
+    "pdf_only": 0,
+    "no_website": 0,
+    "dry_run": 0,
+    "error": 0
+  },
+  "details": [
+    {
+      "school_id": "724520b6-81ce-47ce-ab22-7c0d981ccc31",
+      "name_tc": "港青基信國際幼稚園",
+      "name_en": "YMCA OF HONG KONG CHRISTIAN INTERNATIONAL KINDERGARTEN",
+      "website": "http://ymcahk.org.hk/cikg/",
+      "crawl_url": "https://ymcahk.org.hk/cikg/",
+      "status": "ok",
+      "error": null,
+      "notes": [
+        "domain_policy=YMCA branch pages expose admission and school info after browser rendering.",
+        "normalized_url=https://ymcahk.org.hk/cikg/",
+        "Playwright fallback used for ymcahk.org.hk",
+        "ymcahk.org.hk: Playwright fallback used for ymcahk.org.hk",
+        "ymcahk.org.hk: Playwright fallback used for ymcahk.org.hk",
+        "ymcahk.org.hk: Playwright fallback used for ymcahk.org.hk",
+        "ymcahk.org.hk: Playwright fallback used for ymcahk.org.hk"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "timestamp": "2026-04-19T17:05:34.670Z",
+  "stats": {
+    "total": 4,
+    "ok": 0,
+    "unchanged": 2,
+    "content_insufficient": 0,
+    "robots_blocked": 0,
+    "unreachable": 2,
+    "spa_detected": 0,
+    "pdf_only": 0,
+    "no_website": 0,
+    "dry_run": 0,
+    "error": 0
+  },
+  "details": [
+    {
+      "school_id": "4c60d579-dadb-401d-b548-f9051b12fd05",
+      "name_tc": "幼稚園課程 Summer Camp現已推出！",
+      "name_en": "ABC PATHWAYS INTERNATIONAL KINDERGARTEN",
+      "website": "https://www.abcpathways.edu.hk/",
+      "crawl_url": "https://www.abcpathways.edu.hk/",
+      "status": "unchanged",
+      "error": null,
+      "notes": [
+        "domain_policy=403 anti-bot on both protocols.",
+        "host_adapter=abc_pathways_navigation",
+        "original_website=https://www.abcpathways.edu.hk/",
+        "abc_pages=6"
+      ]
+    },
+    {
+      "school_id": "724520b6-81ce-47ce-ab22-7c0d981ccc31",
+      "name_tc": "港青基信國際幼稚園",
+      "name_en": "YMCA OF HONG KONG CHRISTIAN INTERNATIONAL KINDERGARTEN",
+      "website": "https://ymcahk.org.hk/cikg/",
+      "crawl_url": "https://ymcahk.org.hk/cikg/",
+      "status": "unchanged",
+      "error": null,
+      "notes": [
+        "domain_policy=YMCA branch pages expose admission and school info after browser rendering.",
+        "Playwright fallback used for ymcahk.org.hk",
+        "ymcahk.org.hk: Playwright fallback used for ymcahk.org.hk",
+        "ymcahk.org.hk: Playwright fallback used for ymcahk.org.hk",
+        "ymcahk.org.hk: Playwright fallback used for ymcahk.org.hk",
+        "ymcahk.org.hk: Playwright fallback used for ymcahk.org.hk"
+      ]
+    },
+    {
+      "school_id": "ce0fba62-5661-4838-9f51-6f92e4a2950d",
+      "name_tc": "真理浸信會幼稚園",
+      "name_en": "TRUTH BAPTIST CHURCH KINDERGARTEN",
+      "website": "https://www.tbcas.edu.hk/SCH01WW/",
+      "crawl_url": "https://www.tbcas.edu.hk/SCH01WW/",
+      "status": "unreachable",
+      "error": null,
+      "notes": [
+        "domain_policy=Branch pages upgrade cleanly to HTTPS; shared host benefits from a serialized retry pass.",
+        "base page unreachable"
+      ]
+    },
+    {
+      "school_id": "9e8d6360-2d22-4fbe-9ca6-5101cefbd3be",
+      "name_tc": "真理浸信會榮光幼兒園",
+      "name_en": "TRUTH BAPTIST CHURCH GLORY NURSERY",
+      "website": "https://www.tbcas.edu.hk/SCH06GN/",
+      "crawl_url": "https://www.tbcas.edu.hk/SCH06GN/",
+      "status": "unreachable",
+      "error": null,
+      "notes": [
+        "domain_policy=Branch pages upgrade cleanly to HTTPS; shared host benefits from a serialized retry pass.",
+        "base page unreachable"
+      ]
+    }
+  ]
+}

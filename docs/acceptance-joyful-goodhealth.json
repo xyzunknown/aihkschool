@@ -1,0 +1,153 @@
+{
+  "timestamp": "2026-04-19T02:04:20.674Z",
+  "stats": {
+    "total": 9,
+    "ok": 9,
+    "unchanged": 0,
+    "content_insufficient": 0,
+    "robots_blocked": 0,
+    "unreachable": 0,
+    "spa_detected": 0,
+    "pdf_only": 0,
+    "no_website": 0,
+    "dry_run": 0,
+    "error": 0
+  },
+  "details": [
+    {
+      "school_id": "5134f1aa-1929-48ee-8823-2dbe4423a98a",
+      "name_tc": "康傑中英文幼稚園（青衣）",
+      "name_en": "GOOD HEALTH ANGLO-CHINESE KINDERGARTEN (TSING YI)",
+      "website": "http://www.good-health.edu.hk",
+      "crawl_url": "https://www.good-health.edu.hk/",
+      "status": "ok",
+      "error": null,
+      "notes": [
+        "domain_policy=HTTP upgrades cleanly to HTTPS but the shared site benefits from a second low-concurrency pass.",
+        "normalized_url=https://www.good-health.edu.hk/",
+        "host_adapter=good_health_campus",
+        "good_health_subdomain=ty",
+        "original_website=https://www.good-health.edu.hk/",
+        "good_health_pages=4"
+      ]
+    },
+    {
+      "school_id": "6d0eb677-2637-4f42-826b-296048da0c6c",
+      "name_tc": "康傑中英文幼稚園（青衣南）",
+      "name_en": "GOOD HEALTH ANGLO-CHINESE KINDERGARTEN (TSING YI SOUTH)",
+      "website": "http://www.good-health.edu.hk",
+      "crawl_url": "https://www.good-health.edu.hk/",
+      "status": "ok",
+      "error": null,
+      "notes": [
+        "domain_policy=HTTP upgrades cleanly to HTTPS but the shared site benefits from a second low-concurrency pass.",
+        "normalized_url=https://www.good-health.edu.hk/",
+        "host_adapter=good_health_campus",
+        "good_health_subdomain=tys",
+        "original_website=https://www.good-health.edu.hk/",
+        "good_health_pages=4"
+      ]
+    },
+    {
+      "school_id": "456fc307-30d2-4e1c-a119-fccf82774ff4",
+      "name_tc": "康傑中英文幼稚園（馬鞍山）",
+      "name_en": "GOOD HEALTH ANGLO-CHINESE KINDERGARTEN (MA ON SHAN)",
+      "website": "http://www.good-health.edu.hk",
+      "crawl_url": "https://www.good-health.edu.hk/",
+      "status": "ok",
+      "error": null,
+      "notes": [
+        "domain_policy=HTTP upgrades cleanly to HTTPS but the shared site benefits from a second low-concurrency pass.",
+        "normalized_url=https://www.good-health.edu.hk/",
+        "host_adapter=good_health_campus",
+        "good_health_subdomain=mos",
+        "original_website=https://www.good-health.edu.hk/",
+        "good_health_pages=4"
+      ]
+    },
+    {
+      "school_id": "25ab1f82-c356-4280-9974-79da75d76140",
+      "name_tc": "康傑幼稚園〈馬鞍山〉",
+      "name_en": "GOOD HEALTH KINDERGARTEN (MA ON SHAN)",
+      "website": "http://www.good-health.edu.hk",
+      "crawl_url": "https://www.good-health.edu.hk/",
+      "status": "ok",
+      "error": null,
+      "notes": [
+        "domain_policy=HTTP upgrades cleanly to HTTPS but the shared site benefits from a second low-concurrency pass.",
+        "normalized_url=https://www.good-health.edu.hk/",
+        "host_adapter=good_health_campus",
+        "good_health_subdomain=ty",
+        "original_website=https://www.good-health.edu.hk/",
+        "good_health_pages=4"
+      ]
+    },
+    {
+      "school_id": "04a7af49-fbd5-437d-9263-e874fc115747",
+      "name_tc": "心怡天地國際幼稚園（元朗）",
+      "name_en": "JOYFUL WORLD INTERNATIONAL KINDERGARTEN (YUEN LONG)",
+      "website": "http://www.joyfulenglish.edu.hk/",
+      "crawl_url": "http://www.joyfulenglish.edu.hk/",
+      "status": "ok",
+      "error": null,
+      "notes": [
+        "domain_policy=HTTP homepage is reachable while HTTPS often fails; keep retries serialized.",
+        "meta_refresh=http://www.joyfulenglish.edu.hk/en/index.html"
+      ]
+    },
+    {
+      "school_id": "ce046d52-053a-4b45-aaef-c4a424537444",
+      "name_tc": "心怡天地國際幼稚園（屯門）",
+      "name_en": "JOYFUL WORLD INTERNATIONAL KINDERGARTEN (TUEN MUN)",
+      "website": "http://www.joyfulenglish.edu.hk/",
+      "crawl_url": "http://www.joyfulenglish.edu.hk/",
+      "status": "ok",
+      "error": null,
+      "notes": [
+        "domain_policy=HTTP homepage is reachable while HTTPS often fails; keep retries serialized.",
+        "meta_refresh=http://www.joyfulenglish.edu.hk/en/index.html"
+      ]
+    },
+    {
+      "school_id": "119f79bb-e537-41c6-961a-372a6a1019bc",
+      "name_tc": "心怡天地幼稚園",
+      "name_en": "JOYFUL WORLD KINDERGARTEN",
+      "website": "http://www.joyfulenglish.edu.hk",
+      "crawl_url": "http://www.joyfulenglish.edu.hk/",
+      "status": "ok",
+      "error": null,
+      "notes": [
+        "domain_policy=HTTP homepage is reachable while HTTPS often fails; keep retries serialized.",
+        "normalized_url=http://www.joyfulenglish.edu.hk/",
+        "meta_refresh=http://www.joyfulenglish.edu.hk/en/index.html"
+      ]
+    },
+    {
+      "school_id": "7d602efd-47f6-4465-ae1f-9a0a34d243ae",
+      "name_tc": "心怡天地幼稚園（沙田）",
+      "name_en": "JOYFUL WORLD KINDERGARTEN (SHA TIN)",
+      "website": "http://www.joyfulenglish.edu.hk",
+      "crawl_url": "http://www.joyfulenglish.edu.hk/",
+      "status": "ok",
+      "error": null,
+      "notes": [
+        "domain_policy=HTTP homepage is reachable while HTTPS often fails; keep retries serialized.",
+        "normalized_url=http://www.joyfulenglish.edu.hk/",
+        "meta_refresh=http://www.joyfulenglish.edu.hk/en/index.html"
+      ]
+    },
+    {
+      "school_id": "63817328-b9d1-44e7-9785-974eb9ce11ba",
+      "name_tc": "心怡天地幼稚園（麗城）",
+      "name_en": "JOYFUL WORLD KINDERGARTEN (BELVEDERE)",
+      "website": "http://www.joyfulenglish.edu.hk/",
+      "crawl_url": "http://www.joyfulenglish.edu.hk/",
+      "status": "ok",
+      "error": null,
+      "notes": [
+        "domain_policy=HTTP homepage is reachable while HTTPS often fails; keep retries serialized.",
+        "meta_refresh=http://www.joyfulenglish.edu.hk/en/index.html"
+      ]
+    }
+  ]
+}

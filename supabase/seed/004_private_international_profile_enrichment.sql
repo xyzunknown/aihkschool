@@ -792,11 +792,11 @@ UPDATE schools SET
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
   fee_notes = NULL,
   other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
-  open_day_details = NULL,
-  open_day_url = NULL,
+  application_status = 'open',
+  application_details = 'Current campus enrolment links are published under the main Anfield site after the legacy /lv/ path was retired.',
+  application_url = 'https://anfield.edu.hk/',
+  open_day_details = 'Open Day 2026 registration is published on the Anfield news page.',
+  open_day_url = 'https://anfield.edu.hk/newsevent/open-day-2025-17-jan-2026/',
   last_profile_scraped_at = now()
 WHERE school_code = '535818';
 UPDATE schools SET

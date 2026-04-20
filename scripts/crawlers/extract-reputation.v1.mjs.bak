@@ -1,0 +1,342 @@
+#!/usr/bin/env node
+/**
+ * Reputation aggregator
+ *
+ * Pipeline:
+ *   1. For each school that has social_posts_raw rows matched to it:
+ *      fetch up to N recent posts
+ *   2. Feed to Claude Sonnet tool_use with schema:
+ *      { reputation_summary, pros_tags[], cons_tags[], interview_style,
+ *        quote_highlights[], sentiment_positive_ratio }
+ *   3. Upsert into school_enrichments (reputation_* fields only, preserve
+ *      official fields from school-website crawler)
+ *
+ * Usage:
+ *   node scripts/crawlers/extract-reputation.mjs [--dry-run] [--limit N] [--school-id UUID]
+ *
+ * Env vars (non-dry-run):
+ *   NEXT_PUBLIC_SUPABASE_URL
+ *   SUPABASE_SERVICE_ROLE_KEY
+ *   ANTHROPIC_API_KEY
+ */
+
+import { createClient } from "@supabase/supabase-js";
+import { parseArgs } from "node:util";
+
+const { values: args } = parseArgs({
+  options: {
+    "dry-run": { type: "boolean", default: false },
+    limit: { type: "string", default: "0" },
+    "school-id": { type: "string", default: "" },
+    "min-posts": { type: "string", default: "3" },
+    "max-posts-per-school": { type: "string", default: "30" },
+  },
+});
+
+const DRY_RUN = args["dry-run"];
+const LIMIT = parseInt(args.limit, 10) || 0;
+const SCHOOL_ID = args["school-id"] || null;
+const MIN_POSTS = parseInt(args["min-posts"], 10) || 3;
+const MAX_POSTS = parseInt(args["max-posts-per-school"], 10) || 30;
+
+const ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages";
+const CLAUDE_MODEL = "claude-sonnet-4-5";
+
+// ─── Claude tool schema ───────────────────────────────────────────────────
+
+const AGGREGATION_TOOL = {
+  name: "save_school_reputation",
+  description:
+    "Aggregate social media posts about one HK kindergarten into a structured reputation profile.",
+  input_schema: {
+    type: "object",
+    properties: {
+      reputation_summary: {
+        type: "string",
+        description:
+          "50-150 字繁體中文概括。中立客觀，呈現家長普遍反饋，不做商業包裝。",
+      },
+      pros_tags: {
+        type: "array",
+        description: "優點標籤（最多 5 個），按提及頻次排序。",
+        items: {
+          type: "object",
+          properties: {
+            tag: { type: "string", description: "標籤，2-6 個繁體中文字，例如「師資強」「環境佳」" },
+            count: { type: "integer", description: "提及此標籤的帖文數" },
+          },
+          required: ["tag", "count"],
+        },
+        maxItems: 5,
+      },
+      cons_tags: {
+        type: "array",
+        description: "缺點/爭議標籤（最多 5 個），按提及頻次排序。",
+        items: {
+          type: "object",
+          properties: {
+            tag: { type: "string" },
+            count: { type: "integer" },
+          },
+          required: ["tag", "count"],
+        },
+        maxItems: 5,
+      },
+      interview_style: {
+        type: ["string", "null"],
+        description: "面試風格畫像 1-3 句，繁體。若資料不足則 null。",
+      },
+      quote_highlights: {
+        type: "array",
+        description: "最具代表性的家長原文引用，最多 3 條。每條 ≤ 40 字，已移除個資。",
+        items: {
+          type: "object",
+          properties: {
+            text: { type: "string", description: "引用原文，≤ 40 字" },
+            source_platform: { type: "string", enum: ["xhs", "bkmilk", "babykingdom", "threads", "facebook"] },
+          },
+          required: ["text", "source_platform"],
+        },
+        maxItems: 3,
+      },
+      sentiment_positive_ratio: {
+        type: "number",
+        description: "正面情緒佔比 0.000-1.000",
+      },
+      scrape_confidence: {
+        type: "string",
+        enum: ["high", "medium", "low"],
+        description: "資料充足度：high >= 15 帖；medium 5-14；low < 5 或噪音多",
+      },
+    },
+    required: ["reputation_summary", "pros_tags", "cons_tags", "sentiment_positive_ratio", "scrape_confidence"],
+  },
+};
+
+const SYSTEM_PROMPT = `你是 HK 幼稚園家長口碑聚合分析師。從多條社交媒體貼文中提煉出結構化、中立、可信的學校口碑畫像。
+
+核心原則：
+- 中立客觀，不做商業包裝
+- 只基於提供的貼文內容，不要補充外部知識
+- quote_highlights 必須移除任何可識別個資（家長姓名、孩子姓名、具體住址）
+- 標籤用 2-6 個繁體中文字概括，避免長句
+- 情緒比例基於整體貼文語氣實際計算
+- 當資料量不足（< 5 帖）時，pros_tags/cons_tags 可以是空陣列，confidence 設為 low`;
+
+// ─── DB ───────────────────────────────────────────────────────────────────
+
+function getSupabase() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!supabaseUrl || !serviceKey) {
+    throw new Error("NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY required");
+  }
+  return createClient(supabaseUrl, serviceKey, { auth: { persistSession: false } });
+}
+
+async function loadSchoolsWithPosts(supabase) {
+  // Find school_ids that have posts. We query social_posts_raw and group.
+  const { data, error } = await supabase
+    .from("social_posts_raw")
+    .select("school_matches")
+    .limit(10000);
+
+  if (error) throw error;
+
+  const counts = new Map();
+  for (const row of data || []) {
+    const matches = row.school_matches || [];
+    for (const m of matches) {
+      if (!m.school_id) continue;
+      counts.set(m.school_id, (counts.get(m.school_id) || 0) + 1);
+    }
+  }
+
+  const eligible = Array.from(counts.entries())
+    .filter(([, count]) => count >= MIN_POSTS)
+    .sort((a, b) => b[1] - a[1])
+    .map(([school_id, count]) => ({ school_id, post_count: count }));
+
+  if (SCHOOL_ID) return eligible.filter((e) => e.school_id === SCHOOL_ID);
+  return LIMIT > 0 ? eligible.slice(0, LIMIT) : eligible;
+}
+
+async function loadPostsForSchool(supabase, schoolId) {
+  const { data, error } = await supabase
+    .from("social_posts_raw")
+    .select("platform, url, posted_at, raw_text, school_matches")
+    .order("posted_at", { ascending: false, nullsFirst: false })
+    .limit(MAX_POSTS * 3); // over-fetch, filter below
+
+  if (error) throw error;
+
+  return (data || [])
+    .filter((p) => (p.school_matches || []).some((m) => m.school_id === schoolId))
+    .slice(0, MAX_POSTS);
+}
+
+async function loadSchoolName(supabase, schoolId) {
+  const { data, error } = await supabase
+    .from("schools")
+    .select("name_tc, name_en")
+    .eq("id", schoolId)
+    .single();
+
+  if (error) return null;
+  return data;
+}
+
+// ─── Claude ───────────────────────────────────────────────────────────────
+
+async function aggregateWithClaude(schoolName, posts) {
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) throw new Error("ANTHROPIC_API_KEY not set");
+
+  const postsText = posts
+    .map((p, i) => {
+      const date = p.posted_at ? p.posted_at.split("T")[0] : "unknown";
+      return `[帖文 ${i + 1}][${p.platform}][${date}]\n${p.raw_text || ""}`;
+    })
+    .join("\n\n");
+
+  const userContent = `學校名稱：${schoolName}
+帖文總數：${posts.length}
+
+${postsText}`;
+
+  const resp = await fetch(ANTHROPIC_API_URL, {
+    method: "POST",
+    headers: {
+      "x-api-key": apiKey,
+      "anthropic-version": "2023-06-01",
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      model: CLAUDE_MODEL,
+      max_tokens: 2000,
+      system: [
+        { type: "text", text: SYSTEM_PROMPT, cache_control: { type: "ephemeral" } },
+      ],
+      tools: [AGGREGATION_TOOL],
+      tool_choice: { type: "tool", name: "save_school_reputation" },
+      messages: [{ role: "user", content: userContent }],
+    }),
+  });
+
+  if (!resp.ok) {
+    const errTxt = await resp.text();
+    throw new Error(`Anthropic API ${resp.status}: ${errTxt.slice(0, 300)}`);
+  }
+
+  const json = await resp.json();
+  const toolUse = json.content?.find((c) => c.type === "tool_use");
+  if (!toolUse) throw new Error("No tool_use in Claude response");
+  return toolUse.input;
+}
+
+// ─── Upsert (preserve official fields) ────────────────────────────────────
+
+async function upsertReputation(supabase, schoolId, extracted, postCountByPlatform) {
+  const payload = {
+    school_id: schoolId,
+    reputation_summary: extracted.reputation_summary ?? null,
+    pros_tags: extracted.pros_tags ?? [],
+    cons_tags: extracted.cons_tags ?? [],
+    interview_style: extracted.interview_style ?? null,
+    quote_highlights: extracted.quote_highlights ?? [],
+    sentiment_positive_ratio: extracted.sentiment_positive_ratio ?? null,
+    source_count_by_platform: postCountByPlatform,
+    scrape_confidence: extracted.scrape_confidence ?? "low",
+    last_crawled_at: new Date().toISOString(),
+  };
+
+  // Use upsert that merges (default PostgreSQL upsert replaces, but since we
+  // only set reputation fields, official fields remain if row existed with
+  // them null-unset won't happen because we don't list them. But upsert will
+  // overwrite NULLs. Safer: use update-or-insert pattern.
+  const { data: existing } = await supabase
+    .from("school_enrichments")
+    .select("school_id")
+    .eq("school_id", schoolId)
+    .maybeSingle();
+
+  if (existing) {
+    const { error } = await supabase
+      .from("school_enrichments")
+      .update(payload)
+      .eq("school_id", schoolId);
+    if (error) throw error;
+  } else {
+    const { error } = await supabase.from("school_enrichments").insert(payload);
+    if (error) throw error;
+  }
+}
+
+// ─── Main ─────────────────────────────────────────────────────────────────
+
+async function processSchool(supabase, entry) {
+  const { school_id } = entry;
+  const schoolMeta = await loadSchoolName(supabase, school_id);
+  if (!schoolMeta) {
+    console.log(`[reputation] skip ${school_id}: school not found`);
+    return { status: "skipped" };
+  }
+
+  const posts = await loadPostsForSchool(supabase, school_id);
+  if (posts.length < MIN_POSTS) {
+    console.log(`[reputation] skip ${schoolMeta.name_tc}: only ${posts.length} posts`);
+    return { status: "skipped", reason: "too_few_posts" };
+  }
+
+  const countByPlatform = {};
+  for (const p of posts) {
+    countByPlatform[p.platform] = (countByPlatform[p.platform] || 0) + 1;
+  }
+
+  console.log(
+    `[reputation] processing: ${schoolMeta.name_tc} (${posts.length} posts, ${JSON.stringify(countByPlatform)})`
+  );
+
+  try {
+    const extracted = await aggregateWithClaude(schoolMeta.name_tc, posts);
+    if (DRY_RUN) {
+      console.log(`[reputation]   dry-run output:`);
+      console.log(JSON.stringify(extracted, null, 2));
+      return { status: "dry_run", extracted };
+    }
+    await upsertReputation(supabase, school_id, extracted, countByPlatform);
+    console.log(`[reputation]   upserted (confidence=${extracted.scrape_confidence})`);
+    return { status: "ok", extracted };
+  } catch (err) {
+    console.error(`[reputation]   error:`, err.message);
+    return { status: "error", error: err.message };
+  }
+}
+
+async function main() {
+  console.log(
+    `[reputation] starting — dry-run=${DRY_RUN} limit=${LIMIT || "∞"} min-posts=${MIN_POSTS}`
+  );
+
+  const supabase = getSupabase();
+  const eligible = await loadSchoolsWithPosts(supabase);
+  console.log(`[reputation] eligible schools (≥${MIN_POSTS} posts): ${eligible.length}`);
+
+  const results = [];
+  for (const entry of eligible) {
+    results.push(await processSchool(supabase, entry));
+  }
+
+  const stats = {
+    ok: results.filter((r) => r.status === "ok").length,
+    dry_run: results.filter((r) => r.status === "dry_run").length,
+    skipped: results.filter((r) => r.status === "skipped").length,
+    error: results.filter((r) => r.status === "error").length,
+  };
+  console.log(`[reputation] done:`, stats);
+}
+
+main().catch((err) => {
+  console.error("[reputation] fatal:", err);
+  process.exit(1);
+});

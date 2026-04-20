@@ -200,6 +200,33 @@ def classify_kg_post(title: str, content: str) -> str:
 
 # ─── Multi-branch matching ───────────────────────────────────────────
 
+def extract_en_short_name(name_en: str | None) -> str | None:
+    """Extract the first meaningful English word from the school name."""
+    if not name_en:
+        return None
+    words = [
+        w for w in name_en.split()
+        if w.upper() not in config.EN_NOISE_WORDS
+    ]
+    if not words:
+        return None
+    return words[0].title()
+
+
+def looks_like_ui_shell_text(text: str) -> bool:
+    """Detect homepage/shell text that is not actual post content."""
+    if not text:
+        return False
+    compact = re.sub(r"\s+", "", text)
+    if compact in {
+        "发现直播发布通知我",
+        "发现直播发布通知",
+        "直播发布通知我",
+        "发现发布通知我",
+    }:
+        return True
+    return False
+
 def match_post_to_school(
     post: dict,
     school_query: dict,
@@ -220,21 +247,45 @@ def match_post_to_school(
             "match_confidence": "high",
         }
 
-    # 2. Non-multi-branch: main name match is enough
+    main_name, branch = split_name_and_branch(school_query["name_tc"])
+    core = extract_core_name(main_name)
+    core_no_prefix = strip_prefix(core)
+    en_short = extract_en_short_name(school_query.get("name_en"))
+    match_keywords = [
+        kw for kw in school_query.get("match_keywords", [])
+        if isinstance(kw, str) and len(kw.strip()) >= 2
+    ]
+
+    # 2. Explicit keyword hits
+    for kw in match_keywords:
+        if kw in text:
+            return {
+                "school_code": school_query["school_code"],
+                "branch_identified": branch is None or kw == branch,
+                "match_confidence": "high" if kw in (school_query["name_tc"], main_name) else "medium",
+            }
+
+    # 3. Non-multi-branch: allow core/alias hits
     if not school_query["is_multi_branch"]:
-        main_name, _ = split_name_and_branch(school_query["name_tc"])
         if main_name in text:
             return {
                 "school_code": school_query["school_code"],
                 "branch_identified": True,
                 "match_confidence": "high",
             }
+        for alias in [core, core_no_prefix, core + "幼稚園", en_short]:
+            if alias and len(alias) >= 2 and alias in text:
+                return {
+                    "school_code": school_query["school_code"],
+                    "branch_identified": True,
+                    "match_confidence": "medium",
+                }
 
-    # 3. Multi-branch: try branch identifiers and address keywords
+    # 4. Multi-branch: try branch identifiers and address keywords
     if school_query["is_multi_branch"] and group_schools:
         for sibling in group_schools:
-            _, branch = split_name_and_branch(sibling["name_tc"])
-            if branch and branch in text:
+            _, sibling_branch = split_name_and_branch(sibling["name_tc"])
+            if sibling_branch and sibling_branch in text:
                 return {
                     "school_code": sibling["code"],
                     "branch_identified": True,
@@ -249,19 +300,28 @@ def match_post_to_school(
                         "match_confidence": "medium",
                     }
 
-        # Can't determine branch → low confidence
+        # Main-brand-only mentions are too ambiguous for multi-branch schools.
+        if main_name in text or (core and core in text) or (en_short and en_short in text):
+            return {
+                "school_code": school_query["school_code"],
+                "branch_identified": False,
+                "match_confidence": "low",
+                "group_name": school_query.get("group_name"),
+            }
+
+        # Can't determine branch
         return {
             "school_code": school_query["school_code"],
             "branch_identified": False,
-            "match_confidence": "low",
+            "match_confidence": "none",
             "group_name": school_query.get("group_name"),
         }
 
-    # 4. Fallback
+    # 5. Fallback: no explicit school signal found
     return {
         "school_code": school_query["school_code"],
         "branch_identified": not school_query["is_multi_branch"],
-        "match_confidence": "medium",
+        "match_confidence": "none",
     }
 
 
@@ -279,11 +339,17 @@ def load_progress() -> dict:
             "round": 1,
             "last_updated": None,
         }
+    completed = data.get("completed_schools", [])
+    if isinstance(completed, list):
+        data["completed_schools"] = list(dict.fromkeys(completed))
     return data
 
 
 def save_progress(progress: dict) -> None:
     """Save scraping progress."""
+    completed = progress.get("completed_schools", [])
+    if isinstance(completed, list):
+        progress["completed_schools"] = list(dict.fromkeys(completed))
     progress["last_updated"] = datetime.now().isoformat()
     save_json(progress, config.PROGRESS_PATH)
 
@@ -291,10 +357,29 @@ def save_progress(progress: dict) -> None:
 # ─── Misc ────────────────────────────────────────────────────────────
 
 def random_delay(min_s: float | None = None, max_s: float | None = None) -> None:
-    """Sleep for a random duration."""
+    """Sleep for a random duration with optional Gaussian jitter for realism."""
     lo = min_s or config.MIN_DELAY
     hi = max_s or config.MAX_DELAY
-    time.sleep(lo + random.random() * (hi - lo))
+    base = lo + random.random() * (hi - lo)
+    # Add Gaussian jitter (±20%) for less regular timing patterns
+    jitter = random.gauss(0, base * 0.15)
+    delay = max(lo * 0.5, base + jitter)  # Never go below half of min
+    time.sleep(delay)
+
+
+def maybe_long_pause(label: str = "") -> None:
+    """
+    Randomly trigger a long 'human' pause (模拟喝水/看手机).
+    Called between requests; fires with RANDOM_LONG_PAUSE_PROBABILITY.
+    """
+    if random.random() < config.RANDOM_LONG_PAUSE_PROBABILITY:
+        pause = config.RANDOM_LONG_PAUSE_MIN + random.random() * (
+            config.RANDOM_LONG_PAUSE_MAX - config.RANDOM_LONG_PAUSE_MIN
+        )
+        import logging
+        log = logging.getLogger("xhs_scraper")
+        log.info(f"    ☕ 随机长停顿 {pause:.0f}s {label}")
+        time.sleep(pause)
 
 
 def parse_date(date_str: str | None) -> str | None:

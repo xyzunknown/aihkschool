@@ -25,6 +25,7 @@ if __name__ == "__main__":
     sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from scripts.xhs import config
+from scripts.xhs.site import build_post_url
 from scripts.xhs.utils import load_json, save_json, chunk_list
 
 # ─── Extraction prompt ───────────────────────────────────────────────
@@ -305,7 +306,7 @@ def process_school(
             for item in result.get("extracted_items", []):
                 all_items.append({
                     "post_id": post_id,
-                    "source_url": f"https://www.xiaohongshu.com/explore/{post_id}",
+                    "source_url": original.get("url") if original and original.get("url") else build_post_url(post_id),
                     "source_date": original.get("publish_date") if original else None,
                     "engagement_score": engagement,
                     "branch_identified": original.get("branch_identified", True) if original else True,

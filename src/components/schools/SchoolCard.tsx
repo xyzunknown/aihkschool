@@ -38,8 +38,11 @@ interface SchoolCardProps {
   distanceKm?: number;
   isInCompare?: boolean;
   onToggleCompare?: () => void;
-  heatRank?: number | null;
-  feeEstimate?: string | null;
+  enrichment?: {
+    application_url: string | null;
+    open_day_date: string | null;
+    open_day_details: string | null;
+  } | null;
 }
 
 export function SchoolCard({
@@ -60,8 +63,7 @@ export function SchoolCard({
   distanceKm,
   isInCompare = false,
   onToggleCompare,
-  heatRank,
-  feeEstimate,
+  enrichment,
 }: SchoolCardProps) {
   const router = useRouter();
   const stale = vacancy ? isVacancyStale(vacancy.edb_published_date) : true;
@@ -110,12 +112,6 @@ export function SchoolCard({
             <p className="text-sm text-slate-400 leading-snug mt-0.5 line-clamp-1">{secondaryName}</p>
           )}
         </div>
-        {/* Heat rank badge */}
-        {heatRank != null && heatRank <= 50 && (
-          <span className="flex-shrink-0 bg-orange-50 text-orange-600 px-2 py-0.5 rounded-full text-[10px] font-medium whitespace-nowrap">
-            🔥 熱門
-          </span>
-        )}
         {/* Favorite + Compare buttons */}
         <div className="flex-shrink-0 flex items-center gap-0.5">
           {/* Compare button */}
@@ -211,9 +207,20 @@ export function SchoolCard({
         </div>
       )}
 
-      {/* Fee estimate row */}
-      {feeEstimate && (
-        <p className="text-xs text-slate-400 mb-3">💡 {feeEstimate}</p>
+      {/* Enrichment badges */}
+      {enrichment && (enrichment.application_url || (enrichment.open_day_date && enrichment.open_day_date >= new Date().toISOString().slice(0, 10))) && (
+        <div className="flex flex-wrap gap-2 mb-3">
+          {enrichment.application_url && (
+            <span className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-emerald-50 text-emerald-700">
+              已開放申請
+            </span>
+          )}
+          {enrichment.open_day_date && enrichment.open_day_date >= new Date().toISOString().slice(0, 10) && (
+            <span className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700">
+              開放日 {new Date(enrichment.open_day_date + "T00:00:00").toLocaleDateString("zh-HK", { month: "numeric", day: "numeric" })}
+            </span>
+          )}
+        </div>
       )}
 
       {/* Row 5: Footer */}

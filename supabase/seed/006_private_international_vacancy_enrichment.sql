@@ -35,11 +35,11 @@ SET
   k1_vacancy = 'no_information',
   k2_vacancy = 'no_information',
   k3_vacancy = 'no_information',
-  edb_source_url = 'http://www.wisely.edu.hk/'
+  edb_source_url = 'https://www.wisely.edu.hk/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '566284' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'not_offered', 'no_information', 'no_information', 'no_information', 'http://www.wisely.edu.hk/', true
+SELECT id, '2026/27', 'not_offered', 'no_information', 'no_information', 'no_information', 'https://www.wisely.edu.hk/', true
 FROM schools
 WHERE school_code = '566284' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -650,11 +650,11 @@ SET
   k1_vacancy = 'no_information',
   k2_vacancy = 'no_information',
   k3_vacancy = 'no_information',
-  edb_source_url = 'http://www.stcatherines.edu.hk/'
+  edb_source_url = 'https://www.stcatherines.edu.hk/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '215120' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'http://www.stcatherines.edu.hk/', true
+SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'https://www.stcatherines.edu.hk/', true
 FROM schools
 WHERE school_code = '215120' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -740,11 +740,11 @@ SET
   k1_vacancy = 'no_information',
   k2_vacancy = 'no_information',
   k3_vacancy = 'no_information',
-  edb_source_url = 'https://anfield.edu.hk/lv/'
+  edb_source_url = 'https://anfield.edu.hk/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '535818' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'https://anfield.edu.hk/lv/', true
+SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'https://anfield.edu.hk/', true
 FROM schools
 WHERE school_code = '535818' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -860,11 +860,11 @@ SET
   k1_vacancy = 'no_information',
   k2_vacancy = 'no_information',
   k3_vacancy = 'no_information',
-  edb_source_url = 'http://www.stcatherines.edu.hk/'
+  edb_source_url = 'https://www.stcatherines.edu.hk/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '586625' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'not_offered', 'no_information', 'no_information', 'no_information', 'http://www.stcatherines.edu.hk/', true
+SELECT id, '2026/27', 'not_offered', 'no_information', 'no_information', 'no_information', 'https://www.stcatherines.edu.hk/', true
 FROM schools
 WHERE school_code = '586625' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -1430,11 +1430,11 @@ SET
   k1_vacancy = 'no_information',
   k2_vacancy = 'no_information',
   k3_vacancy = 'no_information',
-  edb_source_url = 'http://www.invictusschool.hk/'
+  edb_source_url = 'https://www.invictus.edu.hk/tko'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '615366' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'http://www.invictusschool.hk/', true
+SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'https://www.invictus.edu.hk/tko', true
 FROM schools
 WHERE school_code = '615366' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true

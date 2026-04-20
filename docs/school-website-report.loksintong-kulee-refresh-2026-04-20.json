@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-04-20T01:41:46.221Z",
+  "stats": {
+    "total": 1,
+    "ok": 0,
+    "unchanged": 1,
+    "content_insufficient": 0,
+    "robots_blocked": 0,
+    "unreachable": 0,
+    "spa_detected": 0,
+    "pdf_only": 0,
+    "no_website": 0,
+    "dry_run": 0,
+    "error": 0
+  },
+  "details": [
+    {
+      "school_id": "78f0bf6f-d01c-4f9d-89d6-00188e7dc148",
+      "name_tc": "樂善堂顧李覺鮮幼稚園",
+      "name_en": "LOK SIN TONG KU LEE KWOK SIN KG",
+      "website": "http://www.loksintongkg.edu.hk/lst_kuleekwoksin/",
+      "crawl_url": "http://www.loksintongkg.edu.hk/lst_kuleekwoksin/",
+      "status": "unchanged",
+      "error": null,
+      "notes": []
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "timestamp": "2026-04-19T02:06:41.290Z",
+  "stats": {
+    "total": 5,
+    "ok": 0,
+    "unchanged": 0,
+    "content_insufficient": 0,
+    "robots_blocked": 0,
+    "unreachable": 4,
+    "spa_detected": 0,
+    "pdf_only": 0,
+    "no_website": 0,
+    "dry_run": 1,
+    "error": 0
+  },
+  "details": [
+    {
+      "school_id": "40c5b70a-8032-435c-bf7a-9742f90332bd",
+      "name_tc": "嶺南幼稚園（小西灣）",
+      "name_en": "LINGNAN KINDERGARTEN (SIU SAI WAN)",
+      "website": "http://www.lingnankn.edu.hk",
+      "crawl_url": "https://www.lingnankn.edu.hk/",
+      "status": "unreachable",
+      "error": null,
+      "notes": [
+        "domain_policy=Shared Lingnan site currently returns 502 intermittently; keep retries serialized.",
+        "normalized_url=https://www.lingnankn.edu.hk/",
+        "base page unreachable"
+      ]
+    },
+    {
+      "school_id": "fd37ffd1-7f28-43cd-8671-ce022d824429",
+      "name_tc": "新翠培元幼稚園",
+      "name_en": "NEW JADE ELEMENTI KINDERGARTEN",
+      "website": "http://www.elementiedu.org",
+      "crawl_url": "https://www.elementiedu.org/",
+      "status": "unreachable",
+      "error": null,
+      "notes": [
+        "domain_policy=Reachable but inconsistent when many branch schools hit the same site.",
+        "normalized_url=https://www.elementiedu.org/",
+        "base page unreachable"
+      ]
+    },
+    {
+      "school_id": "9aa229f9-75ab-4ac9-b5c0-acd769df8506",
+      "name_tc": "明我幼稚園",
+      "name_en": "DOMINIC SAVIO KINDERGARTEN",
+      "website": "http://www.dominicsaviokg.org/",
+      "crawl_url": "http://www.dominicsaviokg.org/",
+      "status": "unreachable",
+      "error": null,
+      "notes": [
+        "domain_policy=HTTP homepage is reachable while HTTPS fails; keep the shared site on HTTP and retry serially.",
+        "meta_refresh=http://www.dominicsaviokg.edu.hk/",
+        "base page textLen=0, too short",
+        "no dynamic links found, using SUB_PATHS fallback"
+      ]
+    },
+    {
+      "school_id": "b73701b7-2af9-439e-be6e-bba3a275b094",
+      "name_tc": "樂善堂文吳泳沂幼稚園",
+      "name_en": "LOK SIN TONG MAN NG WING YEE KG",
+      "website": "http://www.loksintongkg.edu.hk/lst_manngwingyee/",
+      "crawl_url": "http://www.loksintongkg.edu.hk/lst_manngwingyee/",
+      "status": "unreachable",
+      "error": null,
+      "notes": [
+        "base page unreachable"
+      ]
+    },
+    {
+      "school_id": "ed36f22b-845b-4376-a766-c490223695e1",
+      "name_tc": "耀基創藝幼稚園",
+      "name_en": "GLORIA CREATIVE KINDERGARTEN",
+      "website": "http://www.gciedu.hk",
+      "crawl_url": "https://www.gciedu.hk/",
+      "status": "dry_run",
+      "error": null,
+      "notes": [
+        "domain_policy=Shared GCI site upgrades to HTTPS and should be retried serially.",
+        "normalized_url=https://www.gciedu.hk/",
+        "meta_refresh=https://gciedu.hk/home/"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-04-20T01:41:35.935Z",
+  "stats": {
+    "total": 1,
+    "ok": 0,
+    "unchanged": 1,
+    "content_insufficient": 0,
+    "robots_blocked": 0,
+    "unreachable": 0,
+    "spa_detected": 0,
+    "pdf_only": 0,
+    "no_website": 0,
+    "dry_run": 0,
+    "error": 0
+  },
+  "details": [
+    {
+      "school_id": "a4982baa-2bc8-40ea-a9bc-9e41aefd26ec",
+      "name_tc": "樂善堂鄧德濂幼稚園",
+      "name_en": "LST TANG TAK LIM KINDERGARTEN",
+      "website": "http://www.lstkgttl.edu.hk",
+      "crawl_url": "http://www.lstkgttl.edu.hk",
+      "status": "unchanged",
+      "error": null,
+      "notes": []
+    }
+  ]
+}

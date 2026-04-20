@@ -1,0 +1,47 @@
+{
+  "timestamp": "2026-04-20T02:49:13.056Z",
+  "stats": {
+    "total": 2,
+    "ok": 0,
+    "unchanged": 0,
+    "content_insufficient": 0,
+    "robots_blocked": 0,
+    "unreachable": 2,
+    "spa_detected": 0,
+    "pdf_only": 0,
+    "no_website": 0,
+    "dry_run": 0,
+    "error": 0
+  },
+  "details": [
+    {
+      "school_id": "9aa229f9-75ab-4ac9-b5c0-acd769df8506",
+      "name_tc": "明我幼稚園",
+      "name_en": "DOMINIC SAVIO KINDERGARTEN",
+      "website": "http://www.dominicsaviokg.org/",
+      "crawl_url": "http://www.dominicsaviokg.org/",
+      "status": "unreachable",
+      "error": null,
+      "notes": [
+        "domain_policy=HTTP homepage is reachable while HTTPS fails; keep the shared site on HTTP and retry serially.",
+        "meta_refresh=http://www.dominicsaviokg.edu.hk/",
+        "anti_bot_challenge=www.dominicsaviokg.edu.hk"
+      ]
+    },
+    {
+      "school_id": "ecbaf4a7-d58c-44b1-b3f8-d83142c51a32",
+      "name_tc": "明我幼稚園（奧運校）",
+      "name_en": "DOMINIC SAVIO KG (OLYMPIC BR)",
+      "website": "http://www.dominicsaviokg.org",
+      "crawl_url": "http://www.dominicsaviokg.org/",
+      "status": "unreachable",
+      "error": null,
+      "notes": [
+        "domain_policy=HTTP homepage is reachable while HTTPS fails; keep the shared site on HTTP and retry serially.",
+        "normalized_url=http://www.dominicsaviokg.org/",
+        "meta_refresh=http://www.dominicsaviokg.edu.hk/",
+        "anti_bot_challenge=www.dominicsaviokg.edu.hk"
+      ]
+    }
+  ]
+}

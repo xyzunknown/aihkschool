@@ -2,6 +2,7 @@ import "server-only";
 
 import fs from "node:fs/promises";
 import path from "node:path";
+import { createClient } from "@/lib/supabase/server";
 import {
   BANNERS,
   FEATURED_SCHOOLS,
@@ -464,6 +465,69 @@ function toSearchHref(row: { name_tc?: string | null; name_en?: string | null })
 
 /* ─── File readers ─── */
 
+/**
+ * Fetch enrichment rows from the `school_enrichments` DB table (migration 015).
+ * Returns [] if the table doesn't exist yet or has no data — caller falls
+ * back to the JSON file.
+ */
+async function fetchEnrichmentsFromDB(): Promise<EnrichmentRow[]> {
+  try {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+      .from("school_enrichments")
+      .select(
+        `school_id, application_url, application_process, open_day_date,
+         open_day_details, official_website`,
+      )
+      .or("open_day_date.not.is.null,application_url.not.is.null");
+
+    if (error) return [];
+    if (!data || data.length === 0) return [];
+
+    // Join school names
+    const schoolIds = data.map((d) => d.school_id);
+    const { data: schoolData } = await supabase
+      .from("schools")
+      .select("id, school_code, name_tc, name_en, website")
+      .in("id", schoolIds);
+
+    const schoolMap = new Map<string, { school_code: string | null; name_tc: string | null; name_en: string | null; website: string | null }>();
+    for (const s of schoolData || []) {
+      schoolMap.set(s.id, {
+        school_code: s.school_code,
+        name_tc: s.name_tc,
+        name_en: s.name_en,
+        website: s.website,
+      });
+    }
+
+    return data.map((row) => {
+      const meta = schoolMap.get(row.school_id) ?? {
+        school_code: null,
+        name_tc: null,
+        name_en: null,
+        website: null,
+      };
+      const openDayDetails = row.open_day_date
+        ? `${row.open_day_date}${row.open_day_details ? " — " + row.open_day_details : ""}`
+        : row.open_day_details ?? null;
+
+      return {
+        school_code: meta.school_code ?? null,
+        name_tc: meta.name_tc ?? null,
+        name_en: meta.name_en ?? null,
+        website: meta.website ?? row.official_website ?? null,
+        open_day_details: openDayDetails,
+        open_day_url: row.official_website ?? meta.website ?? null,
+        application_details: row.application_process ?? null,
+        application_url: row.application_url ?? null,
+      } satisfies EnrichmentRow;
+    });
+  } catch {
+    return [];
+  }
+}
+
 async function readSchoolEnrichment(): Promise<EnrichmentRow[]> {
   try {
     const filePath = path.join(process.cwd(), "data", "private_international_profile_enrichment.json");
@@ -495,8 +559,36 @@ function uniqueByHref<T extends { href: string }>(items: T[]): T[] {
 
 /* ─── School events (近期家長必知) ─── */
 
+/**
+ * Merge enrichment rows from DB + JSON. DB takes precedence when the same
+ * school is present in both (keyed by name_tc or school_code).
+ */
+async function mergedEnrichmentRows(): Promise<EnrichmentRow[]> {
+  const [dbRows, jsonRows] = await Promise.all([
+    fetchEnrichmentsFromDB(),
+    readSchoolEnrichment(),
+  ]);
+
+  if (dbRows.length === 0) return jsonRows;
+  if (jsonRows.length === 0) return dbRows;
+
+  const seen = new Set<string>();
+  const merged: EnrichmentRow[] = [];
+  for (const row of dbRows) {
+    const key = row.school_code || row.name_tc || "";
+    if (key) seen.add(key);
+    merged.push(row);
+  }
+  for (const row of jsonRows) {
+    const key = row.school_code || row.name_tc || "";
+    if (key && seen.has(key)) continue;
+    merged.push(row);
+  }
+  return merged;
+}
+
 async function getSchoolEvents(): Promise<SchoolEventItem[]> {
-  const rows = await readSchoolEnrichment();
+  const rows = await mergedEnrichmentRows();
   if (rows.length === 0) return SCHOOL_EVENTS;
 
   const events: SchoolEventItem[] = [];
@@ -584,7 +676,7 @@ function computeDaysUntil(dateIso: string): number {
  */
 export async function getAllSchoolEvents(): Promise<SchoolEventItem[]> {
   const [rows, schoolList] = await Promise.all([
-    readSchoolEnrichment(),
+    mergedEnrichmentRows(),
     readSchoolList(),
   ]);
   if (rows.length === 0) return SCHOOL_EVENTS.map((e) => ({ ...e, days_until: computeDaysUntil(e.date_iso) }));
@@ -740,7 +832,7 @@ function scoreBannerCandidate(
 
 async function getHomepageBanners(): Promise<HomeBanner[]> {
   const [profiles, schoolList] = await Promise.all([
-    readSchoolEnrichment(),
+    mergedEnrichmentRows(),
     readSchoolList(),
   ]);
 

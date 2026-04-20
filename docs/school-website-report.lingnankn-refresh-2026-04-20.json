@@ -1,0 +1,44 @@
+{
+  "timestamp": "2026-04-20T02:09:23.952Z",
+  "stats": {
+    "total": 2,
+    "ok": 0,
+    "unchanged": 2,
+    "content_insufficient": 0,
+    "robots_blocked": 0,
+    "unreachable": 0,
+    "spa_detected": 0,
+    "pdf_only": 0,
+    "no_website": 0,
+    "dry_run": 0,
+    "error": 0
+  },
+  "details": [
+    {
+      "school_id": "40c5b70a-8032-435c-bf7a-9742f90332bd",
+      "name_tc": "嶺南幼稚園（小西灣）",
+      "name_en": "LINGNAN KINDERGARTEN (SIU SAI WAN)",
+      "website": "http://www.lingnankn.edu.hk",
+      "crawl_url": "https://www.lingnankn.edu.hk/",
+      "status": "unchanged",
+      "error": null,
+      "notes": [
+        "domain_policy=Shared Lingnan site currently returns 502 intermittently; keep retries serialized.",
+        "normalized_url=https://www.lingnankn.edu.hk/"
+      ]
+    },
+    {
+      "school_id": "9ab4783f-ddd3-43d8-a6c9-186bd2565b07",
+      "name_tc": "嶺南幼稚園（小西灣）二校",
+      "name_en": "LINGNAN NO.2 KINDERGARTEN (SIU SAI WAN)",
+      "website": "http://www.lingnankn.edu.hk",
+      "crawl_url": "https://www.lingnankn.edu.hk/",
+      "status": "unchanged",
+      "error": null,
+      "notes": [
+        "domain_policy=Shared Lingnan site currently returns 502 intermittently; keep retries serialized.",
+        "normalized_url=https://www.lingnankn.edu.hk/"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "timestamp": "2026-04-19T00:24:09.553Z",
+  "stats": {
+    "total": 3,
+    "ok": 0,
+    "unchanged": 0,
+    "content_insufficient": 0,
+    "robots_blocked": 0,
+    "unreachable": 1,
+    "spa_detected": 0,
+    "pdf_only": 0,
+    "no_website": 0,
+    "dry_run": 2,
+    "error": 0
+  },
+  "details": [
+    {
+      "school_id": "c5e22fed-bdeb-4d28-9a44-b505e542fa31",
+      "name_tc": "啓思幼兒園（匯景）",
+      "name_en": "CREATIVE DAY NURSERY (SCENEWAY)",
+      "website": "http://www.creative.edu.hk",
+      "crawl_url": "https://creative.edu.hk/",
+      "status": "unreachable",
+      "error": null,
+      "notes": [
+        "normalized_url=https://creative.edu.hk/",
+        "base page unreachable"
+      ]
+    },
+    {
+      "school_id": "d73a2039-a804-4322-980c-e5b57db25875",
+      "name_tc": "新九龍婦女會慈雲山幼兒園",
+      "name_en": "NEW KLN WOMEN ASSN TSZ WAN SHAN NURSERY",
+      "website": "http://www.newklnwa.edu.hk",
+      "crawl_url": "https://www.newklnwa.edu.hk/",
+      "status": "dry_run",
+      "error": null,
+      "notes": [
+        "domain_policy=HTTP origin is dead; force HTTPS and retry serially for the shared host.",
+        "normalized_url=https://www.newklnwa.edu.hk/"
+      ]
+    },
+    {
+      "school_id": "e19e233e-39e4-4461-83c1-32895749a6f1",
+      "name_tc": "香港基督教服務處大坑東幼兒學校",
+      "name_en": "HKCS TAI HANG TUNG NURSERY SCHOOL",
+      "website": "http://hkcschild.edu.hk/thtns/",
+      "crawl_url": "https://hkcschild.edu.hk/thtns/",
+      "status": "dry_run",
+      "error": null,
+      "notes": [
+        "domain_policy=Path-based shared site works over HTTPS; preserve path during normalization.",
+        "normalized_url=https://hkcschild.edu.hk/thtns/",
+        "Playwright fallback used for hkcschild.edu.hk",
+        "no dynamic links found, using SUB_PATHS fallback"
+      ]
+    }
+  ]
+}

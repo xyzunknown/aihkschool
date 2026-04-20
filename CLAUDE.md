@@ -10,6 +10,55 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **V1 scope:** Kindergartens only (N/K1/K2/K3). Solo developer project.
 
+## 數據護城河與反爬保護（Cross-Cutting — Must Enforce Everywhere）
+
+**核心原則**：我方的護城河是「多源爬取 + AI 結構化 + 持續更新」的口碑/enrichment 數據。任何功能設計、API、前端渲染都必須思考「這個出口會不會被對手一鍋端爬走」。
+
+### 絕不做
+
+- ❌ 不要暴露 `school_enrichments.reputation_*` 原始欄位的 bulk API（例如 `/api/enrichments/all`、`?limit=10000`）
+- ❌ 不要在 HTML 裡放可以直接 `grep` 抓乾淨的 `JSON.stringify(fullEnrichment)`（Next.js `__NEXT_DATA__` 已夠危險，至少要拆分到組件按需渲染）
+- ❌ 不要在 `sitemap.xml` 或 RSS 裡直接輸出聚合好的 pros_tags / cons_tags / quote_highlights
+- ❌ 不要提供「下載為 CSV/JSON」按鈕（用戶要的是決策，不是導出）
+- ❌ 不要把 `social_posts_raw` 對公開讀（已設 service_role only — 保持）
+
+### 必做
+
+**API 層**
+- 所有返回 enrichment 的 API 必須：
+  - 強制分頁 `limit ≤ 20, max 50`，無匿名「給我全部」路徑
+  - 登入用戶才返回完整 `quote_highlights`；匿名只返回 summary + tag 計數
+  - Rate limit：匿名 IP 60 req/min、登入 120 req/min（用 `@upstash/ratelimit` 或 Vercel Edge Middleware）
+  - User-Agent 白名單過濾：已知 AI 爬蟲 UA（GPTBot、ClaudeBot、PerplexityBot、CCBot、Google-Extended、Bytespider、anthropic-ai 等）→ 403
+
+**前端層**
+- `reputation_summary` 直接 SSR 輸出沒問題（本來就是給人看的摘要）
+- `quote_highlights` 客戶端按需 fetch，不要 SSR 全部 inline
+- 關鍵長文本（summary、interview_style）可選用「首次可見後才渲染尾段」漸進式策略
+- 詳情頁要有 `robots` meta：`noarchive, nosnippet, max-snippet:160` — 阻止搜尋引擎緩存全文
+- `robots.txt` 明確 `Disallow: /api/` + 對 GPTBot/ClaudeBot/CCBot/anthropic-ai 全站 `Disallow: /`
+
+**數據庫層**
+- `social_posts_raw` — service_role only，永不開放 anon/authenticated（已做）
+- `school_enrichments` RLS：anon 只能 SELECT 聚合欄位（`reputation_summary`, 計數），不能直接 SELECT `raw_extracted` / `quote_highlights` 明細 — 用 view 或 column-level GRANT 實現
+- 設 `pg_stat_statements` 或 Supabase log alert：單 IP >1000 rows/min 觸發告警
+
+**監控**
+- Vercel Analytics + 自建 `access_log` 表記錄可疑模式（同一 IP 連續 paginate 到底、User-Agent 為空、refer 為 null）
+- 每週人工 review top-20 consumers，可疑的直接 ban IP
+
+### 已記錄 TODO（未實現，下輪接）
+
+1. `src/app/robots.txt` 加 AI 爬蟲 disallow
+2. `src/middleware.ts` 加 UA 黑名單 + rate limit
+3. `/api/schools/[id]` 登入 vs 匿名返回不同 payload
+4. Supabase migration：`school_enrichments` 列 GRANT 分級
+5. Layout 裡 detail 頁加 `<meta name="robots" content="noarchive, nosnippet, max-snippet:160" />`
+
+**每次新增功能、新 API、新 export 路徑都要過這個 checklist。** 如果一個功能邏輯上等價於「把數據全部給出去」，無論多方便都要拒絕或限流。
+
+---
+
 ## Tech Stack (Locked — Do Not Change)
 
 - **Framework:** Next.js 14 (App Router), Server Components by default
@@ -445,6 +494,31 @@ Shows school events (open days, interviews, briefings, deadlines, trials, talks)
 | Constants | SCREAMING_SNAKE_CASE | `MAX_FAVORITES`, `REMINDER_DAYS` |
 | DB columns | snake_case | `school_id`, `created_at` |
 | CSS | Tailwind utility only | No custom class names |
+
+## Production Database Seed 操作
+
+当 seed 数据有更新（新增学校、修正字段等），需要推送到生产 Supabase：
+
+```bash
+# 一键执行（自动跑所有 migrations + seeds + 验证）
+./scripts/seed-production.sh
+
+# 或带连接字符串（免交互输入）
+DATABASE_URL='postgresql://postgres.ordaiibaaqkdsiqparqe:密码@aws-1-ap-northeast-1.pooler.supabase.com:5432/postgres' ./scripts/seed-production.sh
+```
+
+**连接字符串获取**：Supabase Dashboard → Project Settings → Database → Connection string → 选 **Session pooler** mode → 复制 URI。
+
+**执行顺序**（脚本已自动处理）：
+1. `supabase/migrations/` — 按文件名顺序，添加新列/表（幂等，可重复跑）
+2. `supabase/seed/001_schools.sql` — 873 所 EDB 非牟利学校 + 学位数据
+3. `supabase/seed/002_private_international_schools.sql` — 私立/国际学校补充
+4. `supabase/seed/003_school_logos.sql` — logo URL 映射
+5. `supabase/seed/004_private_international_profile_enrichment.sql` — 私立/国际学校详细资料
+6. `supabase/seed/005_edb_fee_enrichment.sql` — EDB 学费数据
+7. `supabase/seed/006_private_international_vacancy_enrichment.sql` — 私立/国际学位数据
+
+**注意**：`psql` 命令需要已安装。如未安装：`brew install libpq && brew link --force libpq`。连接字符串中密码含特殊字符时必须用**单引号**包裹。
 
 ## Environment Variables
 

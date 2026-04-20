@@ -1,0 +1,178 @@
+{
+  "timestamp": "2026-04-19T13:56:03.425Z",
+  "stats": {
+    "total": 10,
+    "ok": 0,
+    "unchanged": 10,
+    "content_insufficient": 0,
+    "robots_blocked": 0,
+    "unreachable": 0,
+    "spa_detected": 0,
+    "pdf_only": 0,
+    "no_website": 0,
+    "dry_run": 0,
+    "error": 0
+  },
+  "details": [
+    {
+      "school_id": "c5e22fed-bdeb-4d28-9a44-b505e542fa31",
+      "name_tc": "啓思幼兒園（匯景）",
+      "name_en": "CREATIVE DAY NURSERY (SCENEWAY)",
+      "website": "https://creative.edu.hk/",
+      "crawl_url": "https://creative.edu.hk/",
+      "status": "unchanged",
+      "error": null,
+      "notes": [
+        "host_adapter=creative_wp_rest",
+        "creative_target_slugs=skg,2627admissions,admissions,contact,home",
+        "creative_pages=4",
+        "normalized_origin=https://creative.edu.hk",
+        "original_website=https://creative.edu.hk/"
+      ]
+    },
+    {
+      "school_id": "313ac7d4-8310-4315-9244-f4b6ef44f193",
+      "name_tc": "啓思幼稚園",
+      "name_en": "CREATIVE KINDERGARTEN",
+      "website": "https://creative.edu.hk/",
+      "crawl_url": "https://creative.edu.hk/",
+      "status": "unchanged",
+      "error": null,
+      "notes": [
+        "host_adapter=creative_wp_rest",
+        "creative_target_slugs=ck,2627admissions,admissions,contact,home",
+        "creative_pages=4",
+        "normalized_origin=https://creative.edu.hk",
+        "original_website=https://creative.edu.hk/"
+      ]
+    },
+    {
+      "school_id": "bb3aebf5-b6fb-4687-a3c5-e521c5fc170e",
+      "name_tc": "啓思幼稚園（匯景花園）（本地課程）",
+      "name_en": "CREATIVE KINDERGARTEN (SCENEWAY GARDEN)",
+      "website": "https://creative.edu.hk/",
+      "crawl_url": "https://creative.edu.hk/",
+      "status": "unchanged",
+      "error": null,
+      "notes": [
+        "host_adapter=creative_wp_rest",
+        "creative_target_slugs=skg,2627admissions,admissions,contact,home",
+        "creative_pages=4",
+        "normalized_origin=https://creative.edu.hk",
+        "original_website=https://creative.edu.hk/"
+      ]
+    },
+    {
+      "school_id": "69fbdf35-abbf-4b6e-85e4-3fa12597b033",
+      "name_tc": "啓思幼稚園（屯門分校）",
+      "name_en": "CREATIVE KINDERGARTEN (TUEN MUN BRANCH)",
+      "website": "https://creative.edu.hk/",
+      "crawl_url": "https://creative.edu.hk/",
+      "status": "unchanged",
+      "error": null,
+      "notes": [
+        "host_adapter=creative_wp_rest",
+        "creative_target_slugs=tm,2627admissions,admissions,contact,home",
+        "creative_pages=4",
+        "normalized_origin=https://creative.edu.hk",
+        "original_website=https://creative.edu.hk/"
+      ]
+    },
+    {
+      "school_id": "5f0582e4-d76e-4825-8f07-34577990584d",
+      "name_tc": "啓思幼稚園（帝堡城）",
+      "name_en": "CREATIVE KINDERGARTEN (CASTELLO)",
+      "website": "https://creative.edu.hk/",
+      "crawl_url": "https://creative.edu.hk/",
+      "status": "unchanged",
+      "error": null,
+      "notes": [
+        "host_adapter=creative_wp_rest",
+        "creative_target_slugs=cast,2627admissions,admissions,contact,home",
+        "creative_pages=4",
+        "normalized_origin=https://creative.edu.hk",
+        "original_website=https://creative.edu.hk/"
+      ]
+    },
+    {
+      "school_id": "0cdbf74b-0f89-4ae1-8779-f1a30d063dcc",
+      "name_tc": "啓思幼稚園（愛琴）",
+      "name_en": "CREATIVE KINDERGARTEN (AEGEAN COAST)",
+      "website": "https://creative.edu.hk/",
+      "crawl_url": "https://creative.edu.hk/",
+      "status": "unchanged",
+      "error": null,
+      "notes": [
+        "host_adapter=creative_wp_rest",
+        "creative_target_slugs=ac,2627admissions,admissions,contact,home",
+        "creative_pages=4",
+        "normalized_origin=https://creative.edu.hk",
+        "original_website=https://creative.edu.hk/"
+      ]
+    },
+    {
+      "school_id": "264ed43d-496f-4f14-9f6b-a38ca1da1c05",
+      "name_tc": "啓思幼稚園（杏花邨）",
+      "name_en": "CREATIVE KINDERGARTEN (HENG FA CHUEN)",
+      "website": "https://creative.edu.hk/",
+      "crawl_url": "https://creative.edu.hk/",
+      "status": "unchanged",
+      "error": null,
+      "notes": [
+        "host_adapter=creative_wp_rest",
+        "creative_target_slugs=hf,2627admissions,admissions,contact,home",
+        "creative_pages=4",
+        "normalized_origin=https://creative.edu.hk",
+        "original_website=https://creative.edu.hk/"
+      ]
+    },
+    {
+      "school_id": "535902d0-9837-4e01-8d39-2849cd8e4c91",
+      "name_tc": "啓思幼稚園（深灣軒）",
+      "name_en": "CREATIVE KINDERGARTEN (SHAM WAN TOWERS)",
+      "website": "https://creative.edu.hk/",
+      "crawl_url": "https://creative.edu.hk/",
+      "status": "unchanged",
+      "error": null,
+      "notes": [
+        "host_adapter=creative_wp_rest",
+        "creative_target_slugs=swt,2627admissions,admissions,contact,home",
+        "creative_pages=4",
+        "normalized_origin=https://creative.edu.hk",
+        "original_website=https://creative.edu.hk/"
+      ]
+    },
+    {
+      "school_id": "564d6fa7-b81f-47c6-9f9d-c1d4a26b14f4",
+      "name_tc": "啓思幼稚園（青衣）",
+      "name_en": "CREATIVE KINDERGARTEN (TSING YI)",
+      "website": "https://creative.edu.hk/",
+      "crawl_url": "https://creative.edu.hk/",
+      "status": "unchanged",
+      "error": null,
+      "notes": [
+        "host_adapter=creative_wp_rest",
+        "creative_target_slugs=ty,2627admissions,admissions,contact,home",
+        "creative_pages=4",
+        "normalized_origin=https://creative.edu.hk",
+        "original_website=https://creative.edu.hk/"
+      ]
+    },
+    {
+      "school_id": "e32f1273-e8a1-43f8-949b-a868222c74a0",
+      "name_tc": "啓思幼稚園（馬灣）",
+      "name_en": "CREATIVE KINDERGARTEN (MA WAN)",
+      "website": "https://creative.edu.hk/",
+      "crawl_url": "https://creative.edu.hk/",
+      "status": "unchanged",
+      "error": null,
+      "notes": [
+        "host_adapter=creative_wp_rest",
+        "creative_target_slugs=mw,2627admissions,admissions,contact,home",
+        "creative_pages=4",
+        "normalized_origin=https://creative.edu.hk",
+        "original_website=https://creative.edu.hk/"
+      ]
+    }
+  ]
+}

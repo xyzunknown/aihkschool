@@ -1,0 +1,2808 @@
+09:28:59 ❌ School code 113956 not found
+09:29:13 Starting Round 1 scraping...
+09:29:13   Targets: 1 schools
+09:29:13   Max posts/school: 50
+09:29:13   Comments: No
+09:29:14   Loaded saved cookies
+09:29:34   ⚠️ Login check failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/", waiting until "load"
+
+09:29:34   ⚠️  Manual login required!
+09:29:34   A browser window will open. Please log in to Xiaohongshu.
+09:29:34   After logging in, press Enter in this terminal to continue...
+09:34:22   ✅ Cookies saved!
+09:34:23   [1/1] 明愛凌月仙幼稚園 (322270)
+09:37:40     ✅ 0 posts, 0 comments
+09:37:40 
+✅ Round 1 complete!
+09:37:40   Schools processed: 1
+09:37:40   Total posts: 0
+09:37:40   Failed schools: 0
+09:38:06 Starting Round 1 scraping...
+09:38:06   Targets: 1 schools
+09:38:06   Max posts/school: 50
+09:38:06   Comments: No
+09:38:07   Loaded saved cookies
+09:38:07   Cookies are fresh (0.1h old), skipping login check
+09:38:07   [1/1] 明愛凌月仙幼稚園 (322270)
+09:41:32     ✅ 0 posts, 0 comments
+09:41:32 
+✅ Round 1 complete!
+09:41:32   Schools processed: 1
+09:41:32   Total posts: 0
+09:41:32   Failed schools: 0
+09:41:46 Starting Round 1 scraping...
+09:41:46   Targets: 1 schools
+09:41:46   Max posts/school: 50
+09:41:46   Comments: No
+09:41:47   Loaded saved cookies
+09:41:47   Cookies are fresh (0.1h old), skipping login check
+09:41:47   [1/1] 維多利亞（寶翠園）幼稚園 (542164)
+09:44:58     ✅ 0 posts, 0 comments
+09:44:58 
+✅ Round 1 complete!
+09:44:58   Schools processed: 1
+09:44:58   Total posts: 0
+09:44:58   Failed schools: 0
+09:53:49 Starting Round 1 scraping...
+09:53:49   Targets: 1 schools
+09:53:49   Max posts/school: 50
+09:53:49   Comments: No
+09:53:50   Loaded saved cookies
+09:54:04   ⚠️ No notes found but no login wall — proceeding cautiously
+09:54:04   [1/1] 維多利亞（寶翠園）幼稚園 (542164)
+09:54:05     ⚠️ Search page load failed: Page.goto: net::ERR_ABORTED at https://www.xiaohongshu.com/search_result?keyword=%E7%B6%AD%E5%A4%9A%E5%88%A9%E4%BA%9E%EF%BC%88%E5%AF%B6%E7%BF%A0%E5%9C%92%EF%BC%89%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E7%B6%AD%E5%A4%9A%E5%88%A9%E4%BA%9E%EF%BC%88%E5%AF%B6%E7%BF%A0%E5%9C%92%EF%BC%89%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+09:57:27     ✅ 0 posts, 0 comments
+09:57:27 
+✅ Round 1 complete!
+09:57:27   Schools processed: 1
+09:57:27   Total posts: 0
+09:57:27   Failed schools: 0
+09:57:57 Starting Round 1 scraping...
+09:57:57   Targets: 1 schools
+09:57:57   Max posts/school: 50
+09:57:57   Comments: No
+09:57:58   Loaded saved cookies
+09:58:09   ❌ No notes found on search page — session invalid
+09:58:09   ⚠️  Manual login required!
+09:58:09   A browser window will open. Please log in to Xiaohongshu.
+09:58:09   After logging in, press Enter in this terminal to continue...
+09:59:03   ✅ Cookies saved!
+09:59:13   ❌ No notes found on search page — session invalid
+09:59:13   ❌ Login failed — please try again
+10:02:38 Starting Round 1 scraping...
+10:02:38   Targets: 1 schools
+10:02:38   Max posts/school: 50
+10:02:38   Comments: No
+10:02:39   Loaded saved cookies
+10:02:48   ✅ Session valid (46 notes visible)
+10:02:48   [1/1] 維多利亞（寶翠園）幼稚園 (542164)
+10:08:18     ✅ 50 posts, 0 comments
+10:08:18 
+✅ Round 1 complete!
+10:08:18   Schools processed: 1
+10:08:18   Total posts: 50
+10:08:18   Failed schools: 0
+10:09:07   Resuming: 1 schools already done
+10:09:07 Starting Round 1 scraping...
+10:09:07   Targets: 873 schools
+10:09:07   Max posts/school: 50
+10:09:07   Comments: No
+10:09:08   Loaded saved cookies
+10:09:17   ✅ Session valid (46 notes visible)
+10:09:17   [1/873] 迦南幼稚園（中環堅道） (619841)
+10:57:57   Resuming: 3 schools already done
+10:57:57 Starting Round 1 scraping...
+10:57:57   Targets: 873 schools
+10:57:57   Max posts/school: 50
+10:57:57   Comments: No
+10:57:58   Loaded saved cookies
+10:58:07   ✅ Session valid (46 notes visible)
+10:58:07   Switching to headless mode for scraping...
+10:58:08   Loaded saved cookies
+10:58:09   [3/873] 明愛堅尼地城幼兒學校 (565954)
+11:02:00   Resuming: 3 schools already done
+11:02:00 Starting Round 1 scraping...
+11:02:00   Targets: 873 schools
+11:02:00   Max posts/school: 50
+11:02:00   Comments: No
+11:02:01   Loaded saved cookies
+11:02:10   ✅ Session valid (46 notes visible)
+11:02:10   [3/873] 明愛堅尼地城幼兒學校 (565954)
+11:07:27     ✅ 50 posts, 0 comments
+11:07:27   [4/873] 潮陽幼稚園 (564648)
+11:12:43     ✅ 50 posts, 0 comments
+11:12:43   [5/873] 基督教香港信義會基恩幼兒學校 (564850)
+11:18:35     ✅ 50 posts, 0 comments
+11:18:35   [6/873] 香港保護兒童會譚雅士幼兒學校 (565253)
+11:24:07     ✅ 50 posts, 0 comments
+11:24:07   [7/873] 香港基督教女青年會戴翰芬幼兒學校 (564435)
+11:30:08     ✅ 50 posts, 0 comments
+11:30:08   [8/873] 香港真光幼稚園（堅道） (536911)
+11:35:30     ✅ 50 posts, 0 comments
+11:35:30   [9/873] 救恩學校 (512273)
+11:41:39     ✅ 50 posts, 0 comments
+11:41:39   [10/873] 禮賢會學校 (513423)
+11:47:30     ✅ 50 posts, 0 comments
+11:47:30   📊 Progress: 11 done, 500 posts total
+11:47:30   [11/873] 嘉諾撒聖心幼稚園 (325970)
+11:53:06     ✅ 50 posts, 0 comments
+11:53:06   [12/873] 聖雅各福群會寶翠園幼稚園 (564354)
+11:58:33     ✅ 50 posts, 0 comments
+11:58:33   [13/873] 聖安多尼中英文小學暨幼稚園 (213632)
+12:04:23     ✅ 50 posts, 0 comments
+12:04:23   [14/873] 聖嘉勒小學 (210021)
+12:10:39     ✅ 50 posts, 0 comments
+12:10:39   [15/873] 聖馬太堂幼稚園 (319813)
+12:16:07     ✅ 50 posts, 0 comments
+12:16:07   [16/873] 聖保羅堂幼稚園 (131466)
+12:21:55     ✅ 50 posts, 0 comments
+12:21:55   [17/873] 聖士提反堂小學暨幼稚園 (131440)
+12:29:29     ✅ 50 posts, 0 comments
+12:29:29   [18/873] 聖士提反女子中學附屬幼稚園 (132896)
+12:35:57     ✅ 50 posts, 0 comments
+12:35:57   [19/873] 太陽島英文幼稚園（西營盤分校） (552739)
+12:41:28     ✅ 50 posts, 0 comments
+12:41:28   [20/873] 偉思幼稚園 (214248)
+12:47:03     ✅ 50 posts, 0 comments
+12:47:03   📊 Progress: 21 done, 1000 posts total
+12:47:03   💤 Batch cooldown (5s)...
+12:47:08   [21/873] 盈思幼稚園 (590673)
+12:52:58     ✅ 50 posts, 0 comments
+12:52:58   [22/873] 香港西區婦女福利會幼稚園 (563692)
+12:58:34     ✅ 50 posts, 0 comments
+12:58:34   [23/873] 仁濟醫院方江輝幼稚園 (565440)
+13:04:15     ✅ 50 posts, 0 comments
+13:04:15   [24/873] 仁濟醫院郭子樑幼稚園 (563439)
+13:10:01     ✅ 50 posts, 0 comments
+13:10:01   [25/873] 香港小童群益會樂緻幼稚園（灣仔） (563447)
+13:16:09     ✅ 50 posts, 0 comments
+13:16:09   [26/873] 中華基督教會灣仔堂幼稚園 (133280)
+13:23:02     ✅ 50 posts, 0 comments
+13:23:02   [27/873] 香港靈糧堂幼稚園 (133744)
+13:28:54     ✅ 50 posts, 0 comments
+13:28:54   [28/873] 卡莎迪曼幼稚園 (323853)
+13:35:02     ✅ 50 posts, 0 comments
+13:35:02   [29/873] 穆斯林幼稚園 (518247)
+13:41:10     ✅ 50 posts, 0 comments
+13:41:10   [30/873] 愛群道浸信會呂郭碧鳳幼稚園 (324922)
+13:47:49     ✅ 50 posts, 0 comments
+13:47:49   📊 Progress: 31 done, 1500 posts total
+13:47:49   [31/873] 保良局朱李月華幼稚園 (563641)
+13:54:37     ✅ 50 posts, 0 comments
+13:54:37   [32/873] 保良局莊啓程幼稚園 (323896)
+14:01:21     ✅ 50 posts, 0 comments
+14:01:21   [33/873] 寶血幼稚園 (133019)
+14:08:37     ✅ 50 posts, 0 comments
+14:08:37   [34/873] 聖雅各福群會銅鑼灣幼稚園 (564346)
+14:15:33     ✅ 50 posts, 0 comments
+14:15:33   [35/873] 聖雅各福群會麥潔蓮幼稚園 (564338)
+14:21:55     ✅ 50 posts, 0 comments
+14:21:55   [36/873] 聖公會聖基道幼兒園（灣仔） (569712)
+14:29:06     ✅ 50 posts, 0 comments
+14:29:06   [37/873] 天主教聖瑪加利大幼稚園 (325368)
+14:34:32     ✅ 50 posts, 0 comments
+14:34:32   [38/873] 東華三院李賢義伉儷幼兒園 (614920)
+14:40:29     ✅ 50 posts, 0 comments
+14:40:29   [39/873] 浸信會培理學校 (311910)
+14:46:18     ✅ 50 posts, 0 comments
+14:46:18   [40/873] 寶寶幼兒學校 (566101)
+14:51:54     ✅ 50 posts, 0 comments
+14:51:54   📊 Progress: 41 done, 2000 posts total
+14:51:54   💤 Batch cooldown (10s)...
+14:52:04   [41/873] 宣道會上書房中英文幼稚園 (216135)
+14:58:39     ✅ 50 posts, 0 comments
+14:58:39   [42/873] 迦南幼稚園（小西灣） (325996)
+14:58:42     🔒 Login wall detected during search — session expired!
+14:58:47     🔒 Login wall detected during search — session expired!
+14:58:52     🔒 Login wall detected during search — session expired!
+14:58:57     🔒 Login wall detected during search — session expired!
+14:59:03     🔒 Login wall detected during search — session expired!
+14:59:08     🔒 Login wall detected during search — session expired!
+14:59:13     🔒 Login wall detected during search — session expired!
+14:59:17     🔒 Login wall detected during search — session expired!
+14:59:22     🔒 Login wall detected during search — session expired!
+14:59:27     🔒 Login wall detected during search — session expired!
+14:59:31     🔒 Login wall detected during search — session expired!
+14:59:36     🔒 Login wall detected during search — session expired!
+14:59:38     ✅ 0 posts, 0 comments
+14:59:38   [43/873] 明愛香港太平洋獅子會幼兒學校 (566039)
+14:59:41     🔒 Login wall detected during search — session expired!
+14:59:47     🔒 Login wall detected during search — session expired!
+14:59:51     🔒 Login wall detected during search — session expired!
+14:59:56     🔒 Login wall detected during search — session expired!
+15:00:01     🔒 Login wall detected during search — session expired!
+15:00:07     🔒 Login wall detected during search — session expired!
+15:00:11     🔒 Login wall detected during search — session expired!
+15:00:17     🔒 Login wall detected during search — session expired!
+15:00:21     🔒 Login wall detected during search — session expired!
+15:00:26     🔒 Login wall detected during search — session expired!
+15:00:31     🔒 Login wall detected during search — session expired!
+15:00:45     ✅ 0 posts, 0 comments
+15:00:45   [44/873] 中華基督教會柴灣堂幼兒園 (566152)
+15:00:48     🔒 Login wall detected during search — session expired!
+15:00:53     🔒 Login wall detected during search — session expired!
+15:00:58     🔒 Login wall detected during search — session expired!
+15:01:03     🔒 Login wall detected during search — session expired!
+15:01:08     🔒 Login wall detected during search — session expired!
+15:01:13     🔒 Login wall detected during search — session expired!
+15:01:17     🔒 Login wall detected during search — session expired!
+15:01:22     🔒 Login wall detected during search — session expired!
+15:01:26     🔒 Login wall detected during search — session expired!
+15:01:31     🔒 Login wall detected during search — session expired!
+15:01:36     🔒 Login wall detected during search — session expired!
+15:01:41     🔒 Login wall detected during search — session expired!
+15:01:49   Session expired — login wall detected
+15:01:49   🔒 Session expired! Re-authenticating...
+15:01:50   Loaded saved cookies
+15:01:58   Session expired — login wall detected
+15:01:58   ⚠️  Manual login required!
+15:01:58   A browser window should be open. Please log in to Xiaohongshu.
+15:01:58   Monitoring for login success automatically...
+
+15:02:12   ⏳ Still need login... (8s elapsed)
+15:02:26   ⏳ Still need login... (16s elapsed)
+15:02:40   ⏳ Still need login... (24s elapsed)
+15:02:54   ⏳ Still need login... (32s elapsed)
+15:03:08   ⏳ Still need login... (40s elapsed)
+15:03:22   ⏳ Still need login... (48s elapsed)
+15:03:35   ⏳ Still need login... (56s elapsed)
+15:03:50   ⏳ Still need login... (64s elapsed)
+15:04:04   ⏳ Still need login... (72s elapsed)
+15:04:18   ⏳ Still need login... (80s elapsed)
+15:04:31   ⏳ Still need login... (88s elapsed)
+15:04:46   ⏳ Still need login... (96s elapsed)
+15:05:00   ⏳ Still need login... (104s elapsed)
+15:05:13   ⏳ Still need login... (112s elapsed)
+15:05:27   ⏳ Still need login... (120s elapsed)
+15:05:41   ⏳ Still need login... (128s elapsed)
+15:05:55   ⏳ Still need login... (136s elapsed)
+15:06:09   ⏳ Still need login... (144s elapsed)
+15:06:23   ⏳ Still need login... (152s elapsed)
+15:06:38   ⏳ Still need login... (160s elapsed)
+15:06:51   ⏳ Still need login... (168s elapsed)
+15:07:06   ⏳ No notes yet... (176s)
+15:07:19   ⏳ Still need login... (184s elapsed)
+15:07:33   ⏳ Still need login... (192s elapsed)
+15:07:47   ⏳ Still need login... (200s elapsed)
+15:08:01   ⏳ Still need login... (208s elapsed)
+15:08:15   ⏳ Still need login... (216s elapsed)
+15:08:29   ⏳ Still need login... (224s elapsed)
+15:08:42   ⏳ Still need login... (232s elapsed)
+15:08:56   ⏳ Still need login... (240s elapsed)
+15:09:10   ⏳ Still need login... (248s elapsed)
+15:09:24   ⏳ Still need login... (256s elapsed)
+15:09:38   ⏳ Still need login... (264s elapsed)
+15:09:52   ⏳ Still need login... (272s elapsed)
+15:10:06   ⏳ Still need login... (280s elapsed)
+15:10:20   ⏳ Still need login... (288s elapsed)
+15:10:34   ⏳ Still need login... (296s elapsed)
+15:10:48   ⏳ Still need login... (304s elapsed)
+15:10:50     ❌ Error: Login timeout — no login detected after 5 minutes
+15:10:50 Traceback (most recent call last):
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 863, in main
+    pw, browser, context, page = ensure_login(headless=args.headless)
+                                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 230, in ensure_login
+    login_manually(context, page)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 175, in login_manually
+    raise RuntimeError("Login timeout — no login detected after 5 minutes")
+RuntimeError: Login timeout — no login detected after 5 minutes
+
+15:10:50   [45/873] 啓思幼稚園﹝杏花邨﹞ (215830)
+15:10:50     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:10:51     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:10:53     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:10:54     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:10:55     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:10:57     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:10:59     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:00     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:02     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:04     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:06     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:07     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:08   ⚠️ Login check error: Event loop is closed! Is Playwright already stopped?
+15:11:08   🔒 Session expired! Re-authenticating...
+15:11:08     ❌ Error: It looks like you are using Playwright Sync API inside the asyncio loop.
+Please use the Async API instead.
+15:11:08 Traceback (most recent call last):
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 863, in main
+    pw, browser, context, page = ensure_login(headless=args.headless)
+                                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 217, in ensure_login
+    pw, browser, context, page = create_browser(headless=False)
+                                 ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 79, in create_browser
+    pw = sync_playwright().start()
+  File "/Users/xyz/Documents/新学校选择/.venv/lib/python3.14/site-packages/playwright/sync_api/_context_manager.py", line 84, in start
+    return self.__enter__()
+           ~~~~~~~~~~~~~~^^
+  File "/Users/xyz/Documents/新学校选择/.venv/lib/python3.14/site-packages/playwright/sync_api/_context_manager.py", line 47, in __enter__
+                raise Error(
+    ...<2 lines>...
+                )
+playwright._impl._errors.Error: It looks like you are using Playwright Sync API inside the asyncio loop.
+Please use the Async API instead.
+
+15:11:08   [46/873] 柴灣浸信會學前教育中心呂明才幼稚園 (325597)
+15:11:08     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:09     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:11     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:12     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:13     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:15     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:16     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:18     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:19     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:21     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:22     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:24     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:26   ⚠️ Login check error: Event loop is closed! Is Playwright already stopped?
+15:11:26   🔒 Session expired! Re-authenticating...
+15:11:26     ❌ Error: It looks like you are using Playwright Sync API inside the asyncio loop.
+Please use the Async API instead.
+15:11:26 Traceback (most recent call last):
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 863, in main
+    pw, browser, context, page = ensure_login(headless=args.headless)
+                                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 217, in ensure_login
+    pw, browser, context, page = create_browser(headless=False)
+                                 ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 79, in create_browser
+    pw = sync_playwright().start()
+  File "/Users/xyz/Documents/新学校选择/.venv/lib/python3.14/site-packages/playwright/sync_api/_context_manager.py", line 84, in start
+    return self.__enter__()
+           ~~~~~~~~~~~~~~^^
+  File "/Users/xyz/Documents/新学校选择/.venv/lib/python3.14/site-packages/playwright/sync_api/_context_manager.py", line 47, in __enter__
+                raise Error(
+    ...<2 lines>...
+                )
+playwright._impl._errors.Error: It looks like you are using Playwright Sync API inside the asyncio loop.
+Please use the Async API instead.
+
+15:11:26   [47/873] 明我幼稚園 (324230)
+15:11:26     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:27     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:29     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:31     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:32     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:34     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:36     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:38     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:39     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:41     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:43     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:44     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:46   ⚠️ Login check error: Event loop is closed! Is Playwright already stopped?
+15:11:46   🔒 Session expired! Re-authenticating...
+15:11:46     ❌ Error: It looks like you are using Playwright Sync API inside the asyncio loop.
+Please use the Async API instead.
+15:11:46 Traceback (most recent call last):
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 863, in main
+    pw, browser, context, page = ensure_login(headless=args.headless)
+                                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 217, in ensure_login
+    pw, browser, context, page = create_browser(headless=False)
+                                 ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 79, in create_browser
+    pw = sync_playwright().start()
+  File "/Users/xyz/Documents/新学校选择/.venv/lib/python3.14/site-packages/playwright/sync_api/_context_manager.py", line 84, in start
+    return self.__enter__()
+           ~~~~~~~~~~~~~~^^
+  File "/Users/xyz/Documents/新学校选择/.venv/lib/python3.14/site-packages/playwright/sync_api/_context_manager.py", line 47, in __enter__
+                raise Error(
+    ...<2 lines>...
+                )
+playwright._impl._errors.Error: It looks like you are using Playwright Sync API inside the asyncio loop.
+Please use the Async API instead.
+
+15:11:46   [48/873] 明我幼稚園 (324230)
+15:11:46     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:47     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:48     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:50     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:51     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:53     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:55     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:56     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:58     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:11:59     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:01     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:02     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:04   ⚠️ Login check error: Event loop is closed! Is Playwright already stopped?
+15:12:04   🔒 Session expired! Re-authenticating...
+15:12:04     ❌ Error: It looks like you are using Playwright Sync API inside the asyncio loop.
+Please use the Async API instead.
+15:12:04 Traceback (most recent call last):
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 863, in main
+    pw, browser, context, page = ensure_login(headless=args.headless)
+                                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 217, in ensure_login
+    pw, browser, context, page = create_browser(headless=False)
+                                 ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 79, in create_browser
+    pw = sync_playwright().start()
+  File "/Users/xyz/Documents/新学校选择/.venv/lib/python3.14/site-packages/playwright/sync_api/_context_manager.py", line 84, in start
+    return self.__enter__()
+           ~~~~~~~~~~~~~~^^
+  File "/Users/xyz/Documents/新学校选择/.venv/lib/python3.14/site-packages/playwright/sync_api/_context_manager.py", line 47, in __enter__
+                raise Error(
+    ...<2 lines>...
+                )
+playwright._impl._errors.Error: It looks like you are using Playwright Sync API inside the asyncio loop.
+Please use the Async API instead.
+
+15:12:04   [49/873] 基督教香港信義會興華幼兒學校 (564800)
+15:12:04     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:05     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:07     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:08     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:09     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:11     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:12     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:14     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:15     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:17     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:19     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:20     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:21   ⚠️ Login check error: Event loop is closed! Is Playwright already stopped?
+15:12:21   🔒 Session expired! Re-authenticating...
+15:12:21     ❌ Error: It looks like you are using Playwright Sync API inside the asyncio loop.
+Please use the Async API instead.
+15:12:21 Traceback (most recent call last):
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 863, in main
+    pw, browser, context, page = ensure_login(headless=args.headless)
+                                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 217, in ensure_login
+    pw, browser, context, page = create_browser(headless=False)
+                                 ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 79, in create_browser
+    pw = sync_playwright().start()
+  File "/Users/xyz/Documents/新学校选择/.venv/lib/python3.14/site-packages/playwright/sync_api/_context_manager.py", line 84, in start
+    return self.__enter__()
+           ~~~~~~~~~~~~~~^^
+  File "/Users/xyz/Documents/新学校选择/.venv/lib/python3.14/site-packages/playwright/sync_api/_context_manager.py", line 47, in __enter__
+                raise Error(
+    ...<2 lines>...
+                )
+playwright._impl._errors.Error: It looks like you are using Playwright Sync API inside the asyncio loop.
+Please use the Async API instead.
+
+15:12:21   [50/873] 基督教香港信義會興民幼兒學校 (564583)
+15:12:21     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:23     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:25     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:27     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:28     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:30     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:31     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:33     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:35     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:36     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:37     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:39     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:40   ⚠️ Login check error: Event loop is closed! Is Playwright already stopped?
+15:12:40   🔒 Session expired! Re-authenticating...
+15:12:40     ❌ Error: It looks like you are using Playwright Sync API inside the asyncio loop.
+Please use the Async API instead.
+15:12:40 Traceback (most recent call last):
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 863, in main
+    pw, browser, context, page = ensure_login(headless=args.headless)
+                                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 217, in ensure_login
+    pw, browser, context, page = create_browser(headless=False)
+                                 ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 79, in create_browser
+    pw = sync_playwright().start()
+  File "/Users/xyz/Documents/新学校选择/.venv/lib/python3.14/site-packages/playwright/sync_api/_context_manager.py", line 84, in start
+    return self.__enter__()
+           ~~~~~~~~~~~~~~^^
+  File "/Users/xyz/Documents/新学校选择/.venv/lib/python3.14/site-packages/playwright/sync_api/_context_manager.py", line 47, in __enter__
+                raise Error(
+    ...<2 lines>...
+                )
+playwright._impl._errors.Error: It looks like you are using Playwright Sync API inside the asyncio loop.
+Please use the Async API instead.
+
+15:12:40   📊 Progress: 44 done, 2050 posts total
+15:12:40   [51/873] 勵志會陳鄭潔雲幼稚園 (325619)
+15:12:40     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:41     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:43     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:44     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:46     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:47     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:48     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:50     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:52     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:53     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:55     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:56     ⚠️ Search page load failed: Event loop is closed! Is Playwright already stopped?
+15:12:57   ⚠️ Login check error: Event loop is closed! Is Playwright already stopped?
+15:12:57   🔒 Session expired! Re-authenticating...
+15:12:57     ❌ Error: It looks like you are using Playwright Sync API inside the asyncio loop.
+Please use the Async API instead.
+15:12:57 Traceback (most recent call last):
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 863, in main
+    pw, browser, context, page = ensure_login(headless=args.headless)
+                                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 217, in ensure_login
+    pw, browser, context, page = create_browser(headless=False)
+                                 ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 79, in create_browser
+    pw = sync_playwright().start()
+  File "/Users/xyz/Documents/新学校选择/.venv/lib/python3.14/site-packages/playwright/sync_api/_context_manager.py", line 84, in start
+    return self.__enter__()
+           ~~~~~~~~~~~~~~^^
+  File "/Users/xyz/Documents/新学校选择/.venv/lib/python3.14/site-packages/playwright/sync_api/_context_manager.py", line 47, in __enter__
+                raise Error(
+    ...<2 lines>...
+                )
+playwright._impl._errors.Error: It looks like you are using Playwright Sync API inside the asyncio loop.
+Please use the Async API instead.
+
+15:12:57   ❌❌ 10 consecutive zero-post schools — attempting re-login before giving up...
+15:12:57   ❌ Re-login failed. Stopping scraper.
+15:12:57 
+✅ Round 1 complete!
+15:12:57   Schools processed: 44
+15:12:57   Total posts: 2050
+15:12:57   Failed schools: 7
+15:48:04   Resuming: 44 schools already done
+15:48:04 Starting Round 1 scraping...
+15:48:04   Targets: 873 schools
+15:48:04   Max posts/school: 50
+15:48:04   Comments: No
+15:48:04   Loaded saved cookies
+15:48:13   Session expired — login wall detected
+15:48:13   ⚠️  Manual login required!
+15:48:13   A browser window should be open. Please log in to Xiaohongshu.
+15:48:13   Monitoring for login success automatically...
+
+15:48:26   ⏳ Still need login... (8s elapsed)
+15:48:40   ⏳ Still need login... (16s elapsed)
+15:48:54   ⏳ Still need login... (24s elapsed)
+15:49:08   ⏳ Still need login... (32s elapsed)
+15:49:22   ⏳ Still need login... (40s elapsed)
+15:49:36   ⏳ Still need login... (48s elapsed)
+15:49:50   ⏳ Still need login... (56s elapsed)
+15:50:04   ⏳ Still need login... (64s elapsed)
+15:50:18   ⏳ Still need login... (72s elapsed)
+15:50:27   ⏳ Check error (Error), retrying... (80s)
+15:50:40   ⏳ Still need login... (88s elapsed)
+15:50:54   ⏳ Still need login... (96s elapsed)
+15:51:08   ⏳ Still need login... (104s elapsed)
+15:51:22   ⏳ Still need login... (112s elapsed)
+15:51:36   ⏳ Still need login... (120s elapsed)
+15:51:50   ⏳ Still need login... (128s elapsed)
+15:52:04   ⏳ Still need login... (136s elapsed)
+15:52:18   ⏳ Still need login... (144s elapsed)
+15:52:31   ⏳ Still need login... (152s elapsed)
+15:52:46   ⏳ Still need login... (160s elapsed)
+15:53:00   ⏳ Still need login... (168s elapsed)
+15:53:14   ⏳ Still need login... (176s elapsed)
+15:53:28   ⏳ Still need login... (184s elapsed)
+15:53:42   ⏳ Still need login... (192s elapsed)
+15:53:55   ⏳ Still need login... (200s elapsed)
+15:54:10   ⏳ Still need login... (208s elapsed)
+15:54:24   ⏳ Still need login... (216s elapsed)
+15:54:38   ⏳ Still need login... (224s elapsed)
+15:54:51   ⏳ Still need login... (232s elapsed)
+15:55:05   ⏳ Still need login... (240s elapsed)
+15:55:19   ⏳ Still need login... (248s elapsed)
+15:55:33   ⏳ Still need login... (256s elapsed)
+15:55:48   ⏳ Still need login... (264s elapsed)
+15:56:02   ⏳ Still need login... (272s elapsed)
+15:56:16   ⏳ Still need login... (280s elapsed)
+15:56:30   ⏳ Still need login... (288s elapsed)
+15:56:44   ⏳ Still need login... (296s elapsed)
+15:56:58   ⏳ Still need login... (304s elapsed)
+16:15:07   Resuming: 44 schools already done
+16:15:07 Starting Round 1 scraping...
+16:15:07   Targets: 873 schools
+16:15:07   Max posts/school: 50
+16:15:07   Comments: No
+16:15:18   Session expired — login wall detected
+16:15:18   ⚠️  Manual login required!
+16:15:18   A browser window should be open. Please log in to Xiaohongshu.
+16:15:18   Monitoring for login success automatically...
+
+16:15:31   ⏳ Still need login... (8s elapsed)
+16:15:45   ⏳ Still need login... (16s elapsed)
+16:15:59   ⏳ Still need login... (24s elapsed)
+16:16:13   ⏳ Still need login... (32s elapsed)
+16:16:27   ⏳ Still need login... (40s elapsed)
+16:16:41   ⏳ Still need login... (48s elapsed)
+16:16:55   ⏳ Still need login... (56s elapsed)
+16:17:09   ⏳ Still need login... (64s elapsed)
+16:17:23   ⏳ Still need login... (72s elapsed)
+16:17:37   ⏳ Still need login... (80s elapsed)
+16:17:46   ⏳ Check error (TargetClosedError), retrying... (88s)
+16:17:54   ⏳ Check error (TargetClosedError), retrying... (96s)
+16:18:02   ⏳ Check error (TargetClosedError), retrying... (104s)
+16:18:10   ⏳ Check error (TargetClosedError), retrying... (112s)
+16:18:18   ⏳ Check error (TargetClosedError), retrying... (120s)
+16:18:26   ⏳ Check error (TargetClosedError), retrying... (128s)
+16:18:34   ⏳ Check error (TargetClosedError), retrying... (136s)
+16:18:42   ⏳ Check error (TargetClosedError), retrying... (144s)
+16:18:50   ⏳ Check error (TargetClosedError), retrying... (152s)
+08:32:31 ❌ School code 530891 not found
+08:32:56 Starting Round 1 scraping (慢爬模式 v2)...
+08:32:56   Targets: 1 schools (of 1 total)
+08:32:56   Max posts/school: 20
+08:32:56   Max keywords/school: 4
+08:32:56   Max posts/keyword: 15
+08:32:56   Request delay: 6.0-12.0s
+08:32:56   School cooldown: 10.0-25.0s
+08:32:56   Batch: every 10 schools, rest 600s (10min)
+08:32:56   Random long pause: 8% chance
+08:32:56   Session refresh: every 30 schools
+08:32:56   Comments: No
+08:32:56 
+08:32:58   Browser fingerprint: 1536x864, UA=...Chrome/125.0.0.0 Safari/537.36
+08:32:58   Loaded saved cookies
+08:33:10   ❌ No notes found on search page — session invalid
+08:33:10   ⚠️  Manual login required!
+08:33:10   A browser window should be open. Please log in to Xiaohongshu.
+08:33:10   The login page will stay open — checking in a background tab.
+
+08:33:11   (First check in 15s — take your time scanning the QR code)
+08:33:34   ⏳ Background tab check error (Error)... (15s)
+08:33:51   ⏳ Session cookie OK but no notes yet... (25s)
+08:34:08   ✅ Login detected! (42 notes visible)
+08:34:08   ✅ Cookies saved!
+08:34:15   ✅ Session valid (46 notes visible)
+08:34:15   🌡️ Warming up session (browsing naturally for 15-25s)...
+08:34:33   🌡️ Warmup complete
+08:34:33   [1/1] 中華基督教會柴灣堂幼兒園 (566152)
+08:34:47     ⚠️ 安全重定向! 暂停 69s...
+08:36:11     ⚠️ 安全重定向! 暂停 88s...
+08:37:53   Resuming: 44 schools already done
+08:37:53 Starting Round 1 scraping (慢爬模式 v2)...
+08:37:53   Targets: 829 schools (of 873 total)
+08:37:53   Max posts/school: 20
+08:37:53   Max keywords/school: 4
+08:37:53   Max posts/keyword: 15
+08:37:53   Request delay: 6.0-12.0s
+08:37:53   School cooldown: 10.0-25.0s
+08:37:53   Batch: every 10 schools, rest 600s (10min)
+08:37:53   Random long pause: 8% chance
+08:37:53   Session refresh: every 30 schools
+08:37:53   Comments: No
+08:37:53 
+08:37:53     ⚠️ 安全重定向! 暂停 102s...
+08:37:54   Browser fingerprint: 1440x900, UA=...Chrome/124.0.0.0 Safari/537.36
+08:37:54   Loaded saved cookies
+08:38:03   ✅ Session valid (42 notes visible)
+08:38:05   Switching to headless mode for scraping...
+08:38:06   Browser fingerprint: 1920x1080, UA=...Chrome/125.0.0.0 Safari/537.36
+08:38:06   Loaded saved cookies
+08:38:07   🌡️ Warming up session (browsing naturally for 15-25s)...
+08:38:26   🌡️ Warmup complete
+08:38:26   [44/873] 中華基督教會柴灣堂幼兒園 (566152)
+08:38:41     ⚠️ 安全重定向! 暂停 106s...
+08:39:58     ⚠️ 安全重定向! 暂停 63s...
+08:40:33     ☕ 随机长停顿 74s (detail fetch 前)
+08:41:18     ⚠️ 安全重定向! 暂停 109s...
+08:41:52     ⚠️ 安全重定向! 暂停 70s...
+08:43:20     ⚠️ 安全重定向! 暂停 109s...
+08:43:25     ⚠️ 安全重定向! 暂停 72s...
+08:44:53     ⚠️ 安全重定向! 暂停 107s...
+08:45:29     ⚠️ 安全重定向! 暂停 105s...
+08:46:56     ⚠️ 安全重定向! 暂停 96s...
+08:47:31     ⚠️ 安全重定向! 暂停 98s...
+08:48:51     ⚠️ 安全重定向! 暂停 60s...
+08:49:26     ⚠️ 安全重定向! 暂停 90s...
+08:51:37   Resuming: 44 schools already done
+08:51:37 Starting Round 1 scraping (慢爬模式 v2)...
+08:51:37   Targets: 829 schools (of 873 total)
+08:51:37   Max posts/school: 20
+08:51:37   Max keywords/school: 4
+08:51:37   Max posts/keyword: 15
+08:51:37   Request delay: 6.0-12.0s
+08:51:37   School cooldown: 10.0-25.0s
+08:51:37   Batch: every 10 schools, rest 600s (10min)
+08:51:37   Random long pause: 8% chance
+08:51:37   Session refresh: every 30 schools
+08:51:37   Comments: No
+08:51:37 
+08:51:38   Browser fingerprint: 1280x800, UA=...Chrome/125.0.0.0 Safari/537.36
+08:51:38   Loaded saved cookies
+08:51:47   ✅ Session valid (34 notes visible)
+08:51:48   Switching to headless mode for scraping...
+08:51:49   Browser fingerprint: 1536x864, UA=....0 Safari/537.36 Edg/125.0.0.0
+08:51:49   Loaded saved cookies
+08:51:50   🌡️ Warming up session (browsing naturally for 15-25s)...
+08:52:06   🌡️ Warmup complete
+08:52:06   [44/873] 中華基督教會柴灣堂幼兒園 (566152)
+08:52:21     ⚠️ 安全重定向! 暂停 85s...
+08:53:45       - 笔记无法浏览，跳过
+08:54:07     ⚠️ 安全重定向! 暂停 62s...
+08:55:09       - 笔记无法浏览，跳过
+08:55:27     ⚠️ 安全重定向! 暂停 83s...
+08:56:50       - 笔记无法浏览，跳过
+08:57:14     ⚠️ 安全重定向! 暂停 115s...
+08:59:09       - 笔记无法浏览，跳过
+09:00:15   Resuming: 44 schools already done
+09:00:15 Starting Round 1 scraping (慢爬模式 v2)...
+09:00:15   Targets: 829 schools (of 873 total)
+09:00:15   Max posts/school: 20
+09:00:15   Max keywords/school: 4
+09:00:15   Max posts/keyword: 15
+09:00:15   Request delay: 6.0-12.0s
+09:00:15   School cooldown: 10.0-25.0s
+09:00:15   Batch: every 10 schools, rest 600s (10min)
+09:00:15   Random long pause: 8% chance
+09:00:15   Session refresh: every 30 schools
+09:00:15   Comments: No
+09:00:15 
+09:00:17   Browser fingerprint: 1920x1080, UA=...Chrome/125.0.0.0 Safari/537.36
+09:00:17   Loaded saved cookies
+09:00:37   ⚠️ Login check error: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+09:00:37   ⚠️  Manual login required!
+09:00:37   A browser window should be open. Please log in to Xiaohongshu.
+09:00:37   The login page will stay open — checking in a background tab.
+
+09:00:39   (First check in 15s — take your time scanning the QR code)
+09:01:02   ⏳ Background tab check error (Error)... (15s)
+09:01:19   ⏳ Session cookie OK but no notes yet... (25s)
+09:01:35   ⏳ Background tab check error (Error)... (35s)
+09:01:53   ⏳ Session cookie OK but no notes yet... (45s)
+09:02:10   ⏳ Session cookie OK but no notes yet... (55s)
+09:02:26   ⏳ Session cookie OK but no notes yet... (65s)
+09:02:42   ⏳ Session cookie OK but no notes yet... (75s)
+09:02:59   ⏳ Session cookie OK but no notes yet... (85s)
+09:03:15   ⏳ Session cookie OK but no notes yet... (95s)
+09:03:32   ⏳ Session cookie OK but no notes yet... (105s)
+09:03:48   ⏳ Session cookie OK but no notes yet... (115s)
+09:04:05   ⏳ Session cookie OK but no notes yet... (125s)
+09:04:22   ⏳ Session cookie OK but no notes yet... (135s)
+09:05:16   Resuming: 44 schools already done
+09:05:16 Starting Round 1 scraping (慢爬模式 v2)...
+09:05:16   Targets: 829 schools (of 873 total)
+09:05:16   Max posts/school: 20
+09:05:16   Max keywords/school: 4
+09:05:16   Max posts/keyword: 15
+09:05:16   Request delay: 6.0-12.0s
+09:05:16   School cooldown: 10.0-25.0s
+09:05:16   Batch: every 10 schools, rest 600s (10min)
+09:05:16   Random long pause: 8% chance
+09:05:16   Session refresh: every 30 schools
+09:05:16   Comments: No
+09:05:16 
+09:05:17   Browser fingerprint: 1366x768, UA=...Chrome/124.0.0.0 Safari/537.36
+09:05:17   Loaded saved cookies
+09:05:30   ❌ No notes found on search page — session invalid
+09:05:30   ⚠️  Manual login required!
+09:05:30   A browser window should be open. Please log in to Xiaohongshu.
+09:05:30   The login page will stay open — checking in a background tab.
+
+09:05:32   (First check in 15s — take your time scanning the QR code)
+09:05:53   ✅ Login detected! (homepage loaded OK)
+09:05:53   ✅ Cookies saved!
+09:06:00   ❌ No notes found on search page — session invalid
+09:06:00   ❌ Login failed — please try again
+09:07:46   Resuming: 44 schools already done
+09:07:46 Starting Round 1 scraping (慢爬模式 v2)...
+09:07:46   Targets: 829 schools (of 873 total)
+09:07:46   Max posts/school: 20
+09:07:46   Max keywords/school: 4
+09:07:46   Max posts/keyword: 15
+09:07:46   Request delay: 6.0-12.0s
+09:07:46   School cooldown: 10.0-25.0s
+09:07:46   Batch: every 10 schools, rest 600s (10min)
+09:07:46   Random long pause: 8% chance
+09:07:46   Session refresh: every 30 schools
+09:07:46   Comments: No
+09:07:46 
+09:07:48   Browser fingerprint: 1440x900, UA=...Chrome/125.0.0.0 Safari/537.36
+09:07:48   Loaded saved cookies
+09:07:57   ✅ Session valid (75 feed items on homepage)
+09:07:57   🌡️ Warming up session (browsing naturally for 15-25s)...
+09:08:11   🌡️ Warmup complete
+09:08:11   [44/873] 中華基督教會柴灣堂幼兒園 (566152)
+09:09:56   Resuming: 44 schools already done
+09:09:56 Starting Round 1 scraping (慢爬模式 v2)...
+09:09:56   Targets: 829 schools (of 873 total)
+09:09:56   Max posts/school: 20
+09:09:56   Max keywords/school: 4
+09:09:56   Max posts/keyword: 15
+09:09:56   Request delay: 6.0-12.0s
+09:09:56   School cooldown: 10.0-25.0s
+09:09:56   Batch: every 10 schools, rest 600s (10min)
+09:09:56   Random long pause: 8% chance
+09:09:56   Session refresh: every 30 schools
+09:09:56   Comments: No
+09:09:56 
+09:09:57   Browser fingerprint: 1536x864, UA=...Chrome/125.0.0.0 Safari/537.36
+09:09:57   Loaded saved cookies
+09:10:06   ✅ Session valid (75 feed items on homepage)
+09:10:06   🌡️ Warming up session (browsing naturally for 15-25s)...
+09:10:24   🌡️ Warmup complete
+09:10:24   [44/873] 中華基督教會柴灣堂幼兒園 (566152)
+09:10:24       🔍 搜索: 中華基督教會柴灣堂幼兒園 面試 (sort=general)
+12:02:36 Starting Round 1 scraping (慢爬模式 v2)...
+12:02:36   Targets: 1 schools (of 1 total)
+12:02:36   Max posts/school: 20
+12:02:36   Max keywords/school: 4
+12:02:36   Max posts/keyword: 15
+12:02:36   Request delay: 6.0-12.0s
+12:02:36   School cooldown: 10.0-25.0s
+12:02:36   Batch: every 10 schools, rest 600s (10min)
+12:02:36   Random long pause: 8% chance
+12:02:36   Session refresh: every 30 schools
+12:02:36   Comments: No
+12:02:36 
+12:02:38   Browser fingerprint: 1440x900, UA=...Chrome/123.0.0.0 Safari/537.36
+12:02:38   Loaded saved cookies
+12:02:58   ⚠️ Login check error: Page.goto: Timeout 15000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/", waiting until "domcontentloaded"
+
+12:02:58   ✅ Session valid (cookie fallback after timeout)
+12:03:21   Switching to headless mode for scraping...
+12:03:24   Browser fingerprint: 1920x1080, UA=...Chrome/125.0.0.0 Safari/537.36
+12:03:24   Loaded saved cookies
+12:03:24   🌡️ Warming up session (browsing naturally for 15-25s)...
+12:03:39   ⚠️ Warmup error (non-fatal): Page.goto: Timeout 15000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/", waiting until "domcontentloaded"
+
+12:03:39   [1/1] 迦南幼稚園（中環堅道） (619841)
+12:03:39       🔍 搜索: 迦南幼稚園（中環堅道） 面試 (sort=general)
+12:03:59       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E8%BF%A6%E5%8D%97%E5%B9%BC%E7%A8%9A%E5%9C%92%EF%BC%88%E4%B8%AD%E7%92%B0%E5%A0%85%E9%81%93%EF%BC%89%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+12:04:25       🔍 搜索: 迦南幼稚園（中環堅道） (sort=general)
+12:04:45       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E8%BF%A6%E5%8D%97%E5%B9%BC%E7%A8%9A%E5%9C%92%EF%BC%88%E4%B8%AD%E7%92%B0%E5%A0%85%E9%81%93%EF%BC%89&source=web_search_result_notes", waiting until "domcontentloaded"
+
+12:05:05       🔍 搜索: 迦南幼稚園 面試 (sort=general)
+12:05:25       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E8%BF%A6%E5%8D%97%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+12:05:49       🔍 搜索: 迦南幼稚園 (sort=general)
+12:06:09       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E8%BF%A6%E5%8D%97%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+12:06:32       🔍 搜索: 迦南幼稚園（中環堅道） 面試 (sort=popularity_descending)
+12:06:52       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E8%BF%A6%E5%8D%97%E5%B9%BC%E7%A8%9A%E5%9C%92%EF%BC%88%E4%B8%AD%E7%92%B0%E5%A0%85%E9%81%93%EF%BC%89%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+12:07:17       🔍 搜索: 迦南幼稚園（中環堅道） (sort=popularity_descending)
+12:07:37       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E8%BF%A6%E5%8D%97%E5%B9%BC%E7%A8%9A%E5%9C%92%EF%BC%88%E4%B8%AD%E7%92%B0%E5%A0%85%E9%81%93%EF%BC%89&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+12:07:57       🔍 搜索: 迦南幼稚園 面試 (sort=popularity_descending)
+12:08:17       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E8%BF%A6%E5%8D%97%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+12:08:47       🔍 搜索: 迦南幼稚園 (sort=popularity_descending)
+12:09:13       - 搜索无结果或被拦截
+12:09:23     ✅ 0 posts, 0 comments
+12:09:23     💤 School cooldown 15s...
+12:09:39 
+✅ Round 1 complete!
+12:09:39   Schools processed: 1
+12:09:39   Total posts: 0
+12:09:39   Failed schools: 0
+13:04:18 Starting Round 1 scraping (慢爬模式 v2)...
+13:04:18   Targets: 1 schools (of 1 total)
+13:04:18   Max posts/school: 20
+13:04:18   Max keywords/school: 4
+13:04:18   Max posts/keyword: 15
+13:04:18   Request delay: 6.0-12.0s
+13:04:18   School cooldown: 10.0-25.0s
+13:04:18   Batch: every 10 schools, rest 600s (10min)
+13:04:18   Random long pause: 8% chance
+13:04:18   Session refresh: every 30 schools
+13:04:18   Comments: No
+13:04:18 
+13:04:19   Browser fingerprint: 1366x768, UA=...Chrome/125.0.0.0 Safari/537.36
+13:04:19   Loaded saved cookies
+13:04:32   ✅ Session valid (57 feed items on homepage)
+13:04:32   🌡️ Warming up session (browsing naturally for 15-25s)...
+13:04:51   🌡️ Warmup complete
+13:04:51   [1/1] 迦南幼稚園（中環堅道） (619841)
+13:04:51       🔍 搜索: 迦南幼稚園（中環堅道） 面試 (sort=general)
+13:05:06       - 搜索无结果或被拦截
+13:05:20       🔍 搜索: 迦南幼稚園（中環堅道） (sort=general)
+13:05:26       搜索到 15 个帖子链接
+13:05:26       📄 抓取帖子: ...62fd0000000009014a12
+13:05:30     ⚠️ 安全重定向! 暂停 75s...
+13:06:53       📄 抓取帖子: ...071a000000001d006e0b
+13:07:07       📄 抓取帖子: ...25bc000000001d025308
+13:07:25       📄 抓取帖子: ...e9d90000000007004a77
+13:07:40       📄 抓取帖子: ...b9c5000000001a035066
+13:07:58       📄 抓取帖子: ...16130000000021032e4d
+13:08:16       📄 抓取帖子: ...1af30000000029029c58
+13:08:33       📄 抓取帖子: ...666f0000000007033897
+13:08:47       📄 抓取帖子: ...e3d40000000007015f0e
+13:08:59       📄 抓取帖子: ...e31e000000001d0379b4
+13:09:14       📄 抓取帖子: ...7fc800000000070375a2
+13:09:30       📄 抓取帖子: ...24c5000000000300c188
+13:10:05       📄 抓取帖子: ...828300000000190256eb
+13:10:21       📄 抓取帖子: ...7e0c000000001b022565
+13:10:38       📄 抓取帖子: ...5cfb0000000007034fbf
+13:11:09       🔍 搜索: 迦南幼稚園 面試 (sort=general)
+13:11:26       - 搜索无结果或被拦截
+13:11:44       🔍 搜索: 迦南幼稚園 (sort=general)
+13:11:57       - 搜索无结果或被拦截
+13:12:06       🔍 搜索: 迦南幼稚園（中環堅道） 面試 (sort=popularity_descending)
+13:12:18       - 搜索无结果或被拦截
+13:12:30       🔍 搜索: 迦南幼稚園（中環堅道） (sort=popularity_descending)
+13:12:44       搜索到 9 个帖子链接
+13:12:44       📄 抓取帖子: ...24c5000000000300c188
+13:12:51     ❌ Error: Page.evaluate: TypeError: Cannot read properties of null (reading 'innerText')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:21)
+    at UtilityScript.evaluate (<anonymous>:297:18)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+13:12:51 Traceback (most recent call last):
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 1229, in main
+    result = scrape_school(
+        page, target, max_posts, group_schools, fetch_comments,
+        round_num=args.round,
+    )
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 961, in scrape_school
+    detail = fetch_post_detail(page, sr["url"])
+  File "/Users/xyz/Documents/新学校选择/newhkschoolplace/scripts/xhs/scrape_posts.py", line 759, in fetch_post_detail
+    body_text = page.evaluate("() => document.body.innerText")
+  File "/Users/xyz/Documents/新学校选择/.venv/lib/python3.14/site-packages/playwright/sync_api/_generated.py", line 8566, in evaluate
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.evaluate(expression=expression, arg=mapping.to_impl(arg))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/xyz/Documents/新学校选择/.venv/lib/python3.14/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/Users/xyz/Documents/新学校选择/.venv/lib/python3.14/site-packages/playwright/_impl/_page.py", line 464, in evaluate
+    return await self._main_frame.evaluate(expression, arg)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/xyz/Documents/新学校选择/.venv/lib/python3.14/site-packages/playwright/_impl/_frame.py", line 320, in evaluate
+    await self._channel.send(
+    ...<6 lines>...
+    )
+  File "/Users/xyz/Documents/新学校选择/.venv/lib/python3.14/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/Users/xyz/Documents/新学校选择/.venv/lib/python3.14/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: Page.evaluate: TypeError: Cannot read properties of null (reading 'innerText')
+    at eval (eval at evaluate (:290:30), <anonymous>:1:21)
+    at UtilityScript.evaluate (<anonymous>:297:18)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+
+13:12:51     💤 School cooldown 11s...
+13:13:02 
+✅ Round 1 complete!
+13:13:02   Schools processed: 0
+13:13:02   Total posts: 0
+13:13:02   Failed schools: 1
+13:13:36 Starting Round 1 scraping (慢爬模式 v2)...
+13:13:36   Targets: 1 schools (of 1 total)
+13:13:36   Max posts/school: 20
+13:13:36   Max keywords/school: 4
+13:13:36   Max posts/keyword: 15
+13:13:36   Request delay: 6.0-12.0s
+13:13:36   School cooldown: 10.0-25.0s
+13:13:36   Batch: every 10 schools, rest 600s (10min)
+13:13:36   Random long pause: 8% chance
+13:13:36   Session refresh: every 30 schools
+13:13:36   Comments: No
+13:13:36 
+13:13:36   Browser fingerprint: 1366x768, UA=...Chrome/124.0.0.0 Safari/537.36
+13:13:36   Loaded saved cookies
+13:13:52   ⚠️ Login check error: Page.goto: Timeout 15000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/", waiting until "domcontentloaded"
+
+13:13:52   ✅ Session valid (cookie fallback after timeout)
+13:13:52   🌡️ Warming up session (browsing naturally for 15-25s)...
+13:14:07   ⚠️ Warmup error (non-fatal): Page.goto: Timeout 15000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/", waiting until "domcontentloaded"
+
+13:14:07   [1/1] 迦南幼稚園（中環堅道） (619841)
+13:14:07       🔍 搜索: 迦南幼稚園（中環堅道） 面試 (sort=general)
+13:14:27       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E8%BF%A6%E5%8D%97%E5%B9%BC%E7%A8%9A%E5%9C%92%EF%BC%88%E4%B8%AD%E7%92%B0%E5%A0%85%E9%81%93%EF%BC%89%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+13:14:49       🔍 搜索: 迦南幼稚園（中環堅道） (sort=general)
+13:15:11       - 搜索无结果或被拦截
+13:15:31       🔍 搜索: 迦南幼稚園 面試 (sort=general)
+13:15:39       搜索到 15 个帖子链接
+13:15:39       📄 抓取帖子: ...7031000000001e00d37f
+13:15:53       📄 抓取帖子: ...24c5000000000300c188
+13:16:07       📄 抓取帖子: ...6e6d0000000007009d51
+13:16:23     ☕ 随机长停顿 46s (detail fetch 前)
+13:17:10       📄 抓取帖子: ...a12d000000001a036c30
+13:17:24       📄 抓取帖子: ...d63f000000001b02e6cc
+13:17:41       📄 抓取帖子: ...62fd0000000009014a12
+13:17:57       📄 抓取帖子: ...b3570000000023007432
+13:18:18     ☕ 随机长停顿 41s (detail fetch 前)
+13:18:59       📄 抓取帖子: ...50d7000000001a02f45c
+13:19:15       📄 抓取帖子: ...5bb2000000000402071c
+13:19:36       📄 抓取帖子: ...828300000000190256eb
+13:19:52     ☕ 随机长停顿 60s (detail fetch 前)
+13:20:51       📄 抓取帖子: ...f02b000000001203e5ea
+13:21:07       📄 抓取帖子: ...e31e000000001d0379b4
+13:21:27       📄 抓取帖子: ...7446000000001b02908a
+13:21:41       📄 抓取帖子: ...f3da000000001f00ac67
+13:21:51     ⚠️ 安全重定向! 暂停 116s...
+13:24:02       📄 抓取帖子: ...eb810000000021031cd5
+13:24:38       🔍 搜索: 迦南幼稚園 (sort=general)
+13:24:57       - 搜索无结果或被拦截
+13:25:10       🔍 搜索: 迦南幼稚園（中環堅道） 面試 (sort=popularity_descending)
+13:25:25       搜索到 8 个帖子链接
+13:25:25       📄 抓取帖子: ...666f0000000007033897
+13:25:32     ⚠️ 安全重定向! 暂停 103s...
+13:27:23       📄 抓取帖子: ...2423000000001e00562a
+13:27:42       📄 抓取帖子: ...83130000000013008736
+13:27:55       📄 抓取帖子: ...d0fa0000000005031a97
+13:28:10       📄 抓取帖子: ...afea000000000700ff05
+13:29:00   Resuming: 43 schools already done
+13:29:00 Starting Round 1 scraping (慢爬模式 v2)...
+13:29:00   Targets: 830 schools (of 873 total)
+13:29:00   Max posts/school: 20
+13:29:00   Max keywords/school: 4
+13:29:00   Max posts/keyword: 15
+13:29:00   Request delay: 6.0-12.0s
+13:29:00   School cooldown: 10.0-25.0s
+13:29:00   Batch: every 10 schools, rest 600s (10min)
+13:29:00   Random long pause: 8% chance
+13:29:00   Session refresh: every 30 schools
+13:29:00   Comments: No
+13:29:00 
+13:29:01   Browser fingerprint: 1280x800, UA=....0 Safari/537.36 Edg/125.0.0.0
+13:29:01   Loaded saved cookies
+13:29:13   ✅ Session valid (57 feed items on homepage)
+13:29:13   Switching to headless mode for scraping...
+13:29:13   Browser fingerprint: 1536x864, UA=...Chrome/124.0.0.0 Safari/537.36
+13:29:13   Loaded saved cookies
+13:29:14   🌡️ Warming up session (browsing naturally for 15-25s)...
+13:29:35   🌡️ Warmup complete
+13:29:35   [1/873] 迦南幼稚園（中環堅道） (619841)
+13:29:35       🔍 搜索: 迦南幼稚園（中環堅道） 面試 (sort=general)
+13:29:50       搜索到 15 个帖子链接
+13:29:50       📄 抓取帖子: ...f02b000000001203e5ea
+13:30:08       📄 抓取帖子: ...2423000000001e00562a
+13:30:21       📄 抓取帖子: ...666f0000000007033897
+13:30:36       📄 抓取帖子: ...828300000000190256eb
+13:30:57       📄 抓取帖子: ...10db000000003c016a7a
+13:31:13       📄 抓取帖子: ...62fd0000000009014a12
+13:31:27       📄 抓取帖子: ...e31e000000001d0379b4
+13:31:44       📄 抓取帖子: ...50d7000000001a02f45c
+13:31:59       📄 抓取帖子: ...83130000000013008736
+13:32:12       📄 抓取帖子: ...24c5000000000300c188
+13:32:31       📄 抓取帖子: ...7446000000001b02908a
+13:32:48       📄 抓取帖子: ...afea000000000700ff05
+13:33:03       📄 抓取帖子: ...25bc000000001d025308
+13:33:23       📄 抓取帖子: ...d63f000000001b02e6cc
+13:33:38       📄 抓取帖子: ...d0fa0000000005031a97
+13:34:13       🔍 搜索: 迦南幼稚園（中環堅道） (sort=general)
+13:34:27       - 搜索无结果或被拦截
+13:34:35       🔍 搜索: 迦南幼稚園 面試 (sort=general)
+13:34:49       - 搜索无结果或被拦截
+13:35:03       🔍 搜索: 迦南幼稚園 (sort=general)
+13:35:23       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E8%BF%A6%E5%8D%97%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+13:35:49       🔍 搜索: 迦南幼稚園（中環堅道） 面試 (sort=popularity_descending)
+13:36:10       搜索到 8 个帖子链接
+13:36:10       📄 抓取帖子: ...85730000000003038452
+13:36:16     ⚠️ 安全重定向! 暂停 81s...
+13:37:47       📄 抓取帖子: ...b3570000000023007432
+13:38:01     ⚠️ 安全重定向! 暂停 93s...
+13:39:42       📄 抓取帖子: ...7fc800000000070375a2
+13:40:12       📄 抓取帖子: ...7031000000001e00d37f
+13:40:42       📄 抓取帖子: ...78f50000000005013beb
+13:41:08     ☕ 随机长停顿 73s (detail fetch 前)
+13:42:21       📄 抓取帖子: ...b4db000000003c01c35a
+13:42:49       📄 抓取帖子: ...d5cf000000002803c03f
+13:43:23       📄 抓取帖子: ...81f4000000003c01f844
+13:44:07       🔍 搜索: 迦南幼稚園（中環堅道） (sort=popularity_descending)
+13:44:27       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E8%BF%A6%E5%8D%97%E5%B9%BC%E7%A8%9A%E5%9C%92%EF%BC%88%E4%B8%AD%E7%92%B0%E5%A0%85%E9%81%93%EF%BC%89&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+13:44:56       🔍 搜索: 迦南幼稚園 面試 (sort=popularity_descending)
+13:45:16       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E8%BF%A6%E5%8D%97%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+13:45:41       🔍 搜索: 迦南幼稚園 (sort=popularity_descending)
+13:46:01       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E8%BF%A6%E5%8D%97%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+13:46:22     ✅ 17 posts, 0 comments
+13:46:22     💤 School cooldown 20s...
+13:46:42   [44/873] 中華基督教會柴灣堂幼兒園 (566152)
+13:46:42       🔍 搜索: 中華基督教會柴灣堂幼兒園 面試 (sort=general)
+13:47:02       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E4%B8%AD%E8%8F%AF%E5%9F%BA%E7%9D%A3%E6%95%99%E6%9C%83%E6%9F%B4%E7%81%A3%E5%A0%82%E5%B9%BC%E5%85%92%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+13:47:25       🔍 搜索: 中華基督教會柴灣堂幼兒園 (sort=general)
+13:47:45       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E4%B8%AD%E8%8F%AF%E5%9F%BA%E7%9D%A3%E6%95%99%E6%9C%83%E6%9F%B4%E7%81%A3%E5%A0%82%E5%B9%BC%E5%85%92%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+13:48:05       🔍 搜索: 中華基督教會柴灣堂 幼稚園 面試 (sort=general)
+13:48:25       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E4%B8%AD%E8%8F%AF%E5%9F%BA%E7%9D%A3%E6%95%99%E6%9C%83%E6%9F%B4%E7%81%A3%E5%A0%82%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+13:48:44       🔍 搜索: 中華基督教會柴灣堂 幼稚園 (sort=general)
+13:49:04       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E4%B8%AD%E8%8F%AF%E5%9F%BA%E7%9D%A3%E6%95%99%E6%9C%83%E6%9F%B4%E7%81%A3%E5%A0%82%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+13:49:29       🔍 搜索: 中華基督教會柴灣堂幼兒園 面試 (sort=popularity_descending)
+13:49:49       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E4%B8%AD%E8%8F%AF%E5%9F%BA%E7%9D%A3%E6%95%99%E6%9C%83%E6%9F%B4%E7%81%A3%E5%A0%82%E5%B9%BC%E5%85%92%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+13:50:09       🔍 搜索: 中華基督教會柴灣堂幼兒園 (sort=popularity_descending)
+13:50:29       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E4%B8%AD%E8%8F%AF%E5%9F%BA%E7%9D%A3%E6%95%99%E6%9C%83%E6%9F%B4%E7%81%A3%E5%A0%82%E5%B9%BC%E5%85%92%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+13:50:46       🔍 搜索: 中華基督教會柴灣堂 幼稚園 面試 (sort=popularity_descending)
+13:51:06       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E4%B8%AD%E8%8F%AF%E5%9F%BA%E7%9D%A3%E6%95%99%E6%9C%83%E6%9F%B4%E7%81%A3%E5%A0%82%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+13:51:26       🔍 搜索: 中華基督教會柴灣堂 幼稚園 (sort=popularity_descending)
+13:51:46       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E4%B8%AD%E8%8F%AF%E5%9F%BA%E7%9D%A3%E6%95%99%E6%9C%83%E6%9F%B4%E7%81%A3%E5%A0%82%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+13:52:11     ✅ 0 posts, 0 comments
+13:52:11     💤 School cooldown 10s...
+13:52:22   [45/873] 啓思幼稚園﹝杏花邨﹞ (215830)
+13:52:22       🔍 搜索: 啓思幼稚園﹝杏花邨﹞ 面試 (sort=general)
+13:52:42       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%95%93%E6%80%9D%E5%B9%BC%E7%A8%9A%E5%9C%92%EF%B9%9D%E6%9D%8F%E8%8A%B1%E9%82%A8%EF%B9%9E%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+13:53:06       🔍 搜索: 啓思幼稚園﹝杏花邨﹞ (sort=general)
+13:53:26       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%95%93%E6%80%9D%E5%B9%BC%E7%A8%9A%E5%9C%92%EF%B9%9D%E6%9D%8F%E8%8A%B1%E9%82%A8%EF%B9%9E&source=web_search_result_notes", waiting until "domcontentloaded"
+
+13:53:48       🔍 搜索: 啓思幼稚園 面試 (sort=general)
+13:54:08       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%95%93%E6%80%9D%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+13:54:30       🔍 搜索: 啓思幼稚園 (sort=general)
+13:54:50       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%95%93%E6%80%9D%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+13:55:15       🔍 搜索: 啓思幼稚園﹝杏花邨﹞ 面試 (sort=popularity_descending)
+13:55:21       搜索到 15 个帖子链接
+13:55:21       📄 抓取帖子: ...e1a000000000250070d4
+13:55:26     ⚠️ 安全重定向! 暂停 81s...
+14:00:51       - 笔记无法浏览，跳过
+14:01:02       📄 抓取帖子: ...4e7600000000050129ba
+14:01:12       📄 抓取帖子: ...d5cf000000002803c03f
+14:01:34       📄 抓取帖子: ...16130000000021032e4d
+14:01:49       📄 抓取帖子: ...7dd9000000002200826c
+14:02:08       📄 抓取帖子: ...144c000000002a00038b
+14:02:31       📄 抓取帖子: ...9448000000003c015fb0
+14:02:53       📄 抓取帖子: ...c20d000000001d034036
+14:02:59     ⚠️ 安全重定向! 暂停 104s...
+14:04:43       - 笔记无法浏览，跳过
+14:04:59       📄 抓取帖子: ...d4f200000000260346f5
+14:05:13       📄 抓取帖子: ...0a1c0000000004013556
+14:05:27     ☕ 随机长停顿 44s (detail fetch 前)
+14:06:12       📄 抓取帖子: ...0ef6000000000301b2b2
+14:06:18     ⚠️ 安全重定向! 暂停 107s...
+14:08:06       - 笔记无法浏览，跳过
+14:08:21       📄 抓取帖子: ...9e75000000001a01ec1a
+14:08:37       📄 抓取帖子: ...425d0000000007022b0f
+14:08:54       📄 抓取帖子: ...2309000000002d032b35
+14:09:16       📄 抓取帖子: ...ff97000000001a034897
+14:09:41       🔍 搜索: 啓思幼稚園﹝杏花邨﹞ (sort=popularity_descending)
+14:09:47       搜索到 12 个帖子链接
+14:09:47       📄 抓取帖子: ...e1a000000000250070d4
+14:10:03       📄 抓取帖子: ...4e7600000000050129ba
+14:10:23       📄 抓取帖子: ...2cc3000000001a022c55
+14:10:30     ⚠️ 安全重定向! 暂停 80s...
+14:11:50       - 笔记无法浏览，跳过
+14:12:02       📄 抓取帖子: ...3c5d0000000012031aa1
+14:12:09     ⚠️ 安全重定向! 暂停 108s...
+14:13:57       - 笔记无法浏览，跳过
+14:14:14       📄 抓取帖子: ...e3d40000000007015f0e
+14:14:21     ⚠️ 安全重定向! 暂停 70s...
+14:15:30       - 笔记无法浏览，跳过
+14:15:42       📄 抓取帖子: ...b91a000000000603b318
+14:15:48     ⚠️ 安全重定向! 暂停 88s...
+14:17:16       - 笔记无法浏览，跳过
+14:17:31       📄 抓取帖子: ...c20d000000001d034036
+14:17:46       📄 抓取帖子: ...c1240000000007001190
+14:18:01       📄 抓取帖子: ...7e0c000000001b022565
+14:18:20       📄 抓取帖子: ...676a000000001c0316da
+14:18:36       📄 抓取帖子: ...06bb000000002001b453
+14:18:57       📄 抓取帖子: ...fe27000000002501f07b
+14:19:26       🔍 搜索: 啓思幼稚園 面試 (sort=popularity_descending)
+14:19:32       搜索到 4 个帖子链接
+14:19:32       📄 抓取帖子: ...e3d40000000007015f0e
+14:19:37     ⚠️ 安全重定向! 暂停 72s...
+14:20:49       - 笔记无法浏览，跳过
+14:21:12       📄 抓取帖子: ...cf15000000000303457e
+14:21:39     ✅ 20 posts, 0 comments
+14:21:39     💤 School cooldown 16s...
+14:21:55   [46/873] 柴灣浸信會學前教育中心呂明才幼稚園 (325597)
+14:21:55       🔍 搜索: 柴灣浸信會學前教育中心呂明才幼稚園 面試 (sort=general)
+14:22:02       搜索到 15 个帖子链接
+14:22:02       📄 抓取帖子: ...e56c000000003c0142ed
+14:22:06     ⚠️ 安全重定向! 暂停 99s...
+14:23:45       - 笔记无法浏览，跳过
+14:23:58       📄 抓取帖子: ...2a10000000002a034aa6
+14:24:26       📄 抓取帖子: ...fe060000000005013ffd
+14:24:53       📄 抓取帖子: ...005a000000001b013837
+14:25:04     ⚠️ 安全重定向! 暂停 101s...
+14:27:00       📄 抓取帖子: ...e3d40000000007015f0e
+14:27:28       📄 抓取帖子: ...85e4000000000903b939
+14:27:37     ⚠️ 安全重定向! 暂停 78s...
+14:29:08       📄 抓取帖子: ...36c10000000003020add
+14:29:18     ⚠️ 安全重定向! 暂停 109s...
+14:31:07       - 笔记无法浏览，跳过
+14:31:19       📄 抓取帖子: ...429b000000000f039deb
+14:31:57       📄 抓取帖子: ...66a3000000002202c2f6
+14:32:10     ⚠️ 安全重定向! 暂停 106s...
+14:33:57       - 笔记无法浏览，跳过
+14:34:17       📄 抓取帖子: ...4cc1000000000303b1ab
+14:34:30     ⚠️ 安全重定向! 暂停 79s...
+14:35:50       - 笔记无法浏览，跳过
+14:36:10       📄 抓取帖子: ...48660000000021008c3f
+14:36:23     ⚠️ 安全重定向! 暂停 104s...
+14:38:14       📄 抓取帖子: ...74ca000000001e001d5b
+14:38:38       📄 抓取帖子: ...33bd000000000503147a
+14:39:07       📄 抓取帖子: ...84a3000000002101a6de
+14:39:45       📄 抓取帖子: ...04eb000000001d0227c7
+14:40:25       🔍 搜索: 柴灣浸信會學前教育中心呂明才幼稚園 (sort=general)
+14:40:28       ⚠️ Search page load failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.xiaohongshu.com/search_result?keyword=%E6%9F%B4%E7%81%A3%E6%B5%B8%E4%BF%A1%E6%9C%83%E5%AD%B8%E5%89%8D%E6%95%99%E8%82%B2%E4%B8%AD%E5%BF%83%E5%91%82%E6%98%8E%E6%89%8D%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%9F%B4%E7%81%A3%E6%B5%B8%E4%BF%A1%E6%9C%83%E5%AD%B8%E5%89%8D%E6%95%99%E8%82%B2%E4%B8%AD%E5%BF%83%E5%91%82%E6%98%8E%E6%89%8D%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+14:40:54       🔍 搜索: 柴灣浸信會學前教育中心呂明才 幼稚園 面試 (sort=general)
+14:41:14       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%9F%B4%E7%81%A3%E6%B5%B8%E4%BF%A1%E6%9C%83%E5%AD%B8%E5%89%8D%E6%95%99%E8%82%B2%E4%B8%AD%E5%BF%83%E5%91%82%E6%98%8E%E6%89%8D%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+14:41:33       🔍 搜索: 柴灣浸信會學前教育中心呂明才 幼稚園 (sort=general)
+14:41:53       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%9F%B4%E7%81%A3%E6%B5%B8%E4%BF%A1%E6%9C%83%E5%AD%B8%E5%89%8D%E6%95%99%E8%82%B2%E4%B8%AD%E5%BF%83%E5%91%82%E6%98%8E%E6%89%8D%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+14:42:19       🔍 搜索: 柴灣浸信會學前教育中心呂明才幼稚園 面試 (sort=popularity_descending)
+14:42:22       ⚠️ Search page load failed: Page.goto: net::ERR_TIMED_OUT at https://www.xiaohongshu.com/search_result?keyword=%E6%9F%B4%E7%81%A3%E6%B5%B8%E4%BF%A1%E6%9C%83%E5%AD%B8%E5%89%8D%E6%95%99%E8%82%B2%E4%B8%AD%E5%BF%83%E5%91%82%E6%98%8E%E6%89%8D%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%9F%B4%E7%81%A3%E6%B5%B8%E4%BF%A1%E6%9C%83%E5%AD%B8%E5%89%8D%E6%95%99%E8%82%B2%E4%B8%AD%E5%BF%83%E5%91%82%E6%98%8E%E6%89%8D%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+14:42:35       🔍 搜索: 柴灣浸信會學前教育中心呂明才幼稚園 (sort=popularity_descending)
+14:42:42       搜索到 15 个帖子链接
+14:42:42       📄 抓取帖子: ...8c75000000000100aa4e
+14:42:47     ⚠️ 安全重定向! 暂停 106s...
+14:44:33       - 笔记无法浏览，跳过
+14:44:44       📄 抓取帖子: ...e56c000000003c0142ed
+14:44:58       📄 抓取帖子: ...89b50000000023003866
+14:45:11       📄 抓取帖子: ...7871000000000600442b
+14:45:26       📄 抓取帖子: ...3fa3000000000100a803
+14:45:40       📄 抓取帖子: ...525b0000000001002e14
+14:45:56     ☕ 随机长停顿 48s (detail fetch 前)
+14:46:43       📄 抓取帖子: ...66a3000000002202c2f6
+14:47:00       📄 抓取帖子: ...aa26000000000b012aad
+14:47:22       📄 抓取帖子: ...429b000000000f039deb
+14:47:29     ⚠️ 安全重定向! 暂停 116s...
+14:49:25       - 笔记无法浏览，跳过
+14:49:38       📄 抓取帖子: ...7345000000001b02cdc5
+14:49:47     ⚠️ 安全重定向! 暂停 73s...
+14:51:00       - 笔记无法浏览，跳过
+14:51:15       📄 抓取帖子: ...2aa1000000003c01b40f
+14:51:36       📄 抓取帖子: ...74ca000000001e001d5b
+14:51:53       📄 抓取帖子: ...e6b90000000002029454
+14:52:14       📄 抓取帖子: ...c76a000000001a00f437
+14:52:20     ⚠️ 安全重定向! 暂停 111s...
+14:54:11       - 笔记无法浏览，跳过
+14:54:32       📄 抓取帖子: ...0c62000000002001a1dc
+14:55:10       🔍 搜索: 柴灣浸信會學前教育中心呂明才 幼稚園 面試 (sort=popularity_descending)
+14:55:25       搜索到 8 个帖子链接
+14:55:25       📄 抓取帖子: ...fe060000000005013ffd
+14:55:31     ⚠️ 安全重定向! 暂停 95s...
+14:57:06       - 笔记无法浏览，跳过
+14:57:25       📄 抓取帖子: ...e3d40000000007015f0e
+14:57:41       📄 抓取帖子: ...429b000000000f039deb
+14:57:57       📄 抓取帖子: ...251a000000002602c4db
+14:58:21       📄 抓取帖子: ...4cc1000000000303b1ab
+14:58:26     ⚠️ 安全重定向! 暂停 85s...
+14:59:51       - 笔记无法浏览，跳过
+15:00:08       📄 抓取帖子: ...04eb000000001d0227c7
+15:00:15     ⚠️ 安全重定向! 暂停 91s...
+15:01:46       - 笔记无法浏览，跳过
+15:02:03       📄 抓取帖子: ...84a3000000002101a6de
+15:02:12     ⚠️ 安全重定向! 暂停 107s...
+15:03:59       - 笔记无法浏览，跳过
+15:04:15       📄 抓取帖子: ...126d000000000303e74f
+15:04:21     ⚠️ 安全重定向! 暂停 104s...
+15:23:39       - 笔记无法浏览，跳过
+15:43:05       🔍 搜索: 柴灣浸信會學前教育中心呂明才 幼稚園 (sort=popularity_descending)
+15:43:27       - 搜索无结果或被拦截
+15:43:41     ✅ 18 posts, 0 comments
+15:43:41     💤 School cooldown 16s...
+15:43:57   [47/873] 明我幼稚園 (324230)
+15:43:57       🔍 搜索: 明我幼稚園 面試 (sort=general)
+15:44:14       - 搜索无结果或被拦截
+15:44:27       🔍 搜索: 明我幼稚園 (sort=general)
+15:44:55       - 搜索无结果或被拦截
+15:45:09       🔍 搜索: 明我 幼稚園 面試 (sort=general)
+15:45:31       - 搜索无结果或被拦截
+15:45:47       🔍 搜索: 明我 幼稚園 (sort=general)
+15:46:18       - 搜索无结果或被拦截
+15:46:34       🔍 搜索: 明我幼稚園 面試 (sort=popularity_descending)
+15:46:40       搜索到 15 个帖子链接
+15:46:40       📄 抓取帖子: ...5e90000000002202d864
+15:46:44     ⚠️ 安全重定向! 暂停 112s...
+15:48:36       - 笔记无法浏览，跳过
+15:48:49       📄 抓取帖子: ...fd52000000001e031571
+15:48:55     ⚠️ 安全重定向! 暂停 71s...
+15:50:05       - 笔记无法浏览，跳过
+15:50:14       📄 抓取帖子: ...2a75000000003c016e68
+15:50:18     ⚠️ 安全重定向! 暂停 65s...
+15:51:22       - 笔记无法浏览，跳过
+15:51:37       📄 抓取帖子: ...2bc6000000000a03220f
+15:51:43     ⚠️ 安全重定向! 暂停 114s...
+15:53:36       - 笔记无法浏览，跳过
+15:53:50       📄 抓取帖子: ...b07300000000070397c7
+15:53:57     ⚠️ 安全重定向! 暂停 61s...
+15:54:58       - 笔记无法浏览，跳过
+15:55:10       📄 抓取帖子: ...e7ea000000001203c691
+15:55:21     ⚠️ 安全重定向! 暂停 61s...
+15:56:22       - 笔记无法浏览，跳过
+15:56:36       📄 抓取帖子: ...fbd8000000002100a4fa
+15:56:58       📄 抓取帖子: ...d0c5000000002202e602
+15:57:04     ⚠️ 安全重定向! 暂停 84s...
+15:58:39       📄 抓取帖子: ...126d000000000303e74f
+15:59:00       📄 抓取帖子: ...4cc1000000000303b1ab
+15:59:29       📄 抓取帖子: ...c7df000000000303a8cc
+15:59:53       📄 抓取帖子: ...8513000000001a034636
+16:00:21       📄 抓取帖子: ...2b4a000000001d02fd8d
+16:00:50       📄 抓取帖子: ...7345000000001b02cdc5
+16:01:25     ☕ 随机长停顿 87s (detail fetch 前)
+16:02:52       📄 抓取帖子: ...c923000000003c01f2a8
+16:03:28       🔍 搜索: 明我幼稚園 (sort=popularity_descending)
+16:03:48       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%98%8E%E6%88%91%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+16:04:11       🔍 搜索: 明我 幼稚園 面試 (sort=popularity_descending)
+16:04:37       - 搜索无结果或被拦截
+16:04:45       🔍 搜索: 明我 幼稚園 (sort=popularity_descending)
+16:05:04       - 搜索无结果或被拦截
+16:05:17     ✅ 4 posts, 0 comments
+16:05:17     💤 School cooldown 14s...
+16:05:31   [48/873] 明我幼稚園 (324230)
+16:05:31       🔍 搜索: 明我幼稚園 面試 (sort=general)
+16:05:52       - 搜索无结果或被拦截
+16:06:09       🔍 搜索: 明我幼稚園 (sort=general)
+16:06:25       - 搜索无结果或被拦截
+16:06:38       🔍 搜索: 明我 幼稚園 面試 (sort=general)
+16:06:53       - 搜索无结果或被拦截
+16:07:05       🔍 搜索: 明我 幼稚園 (sort=general)
+16:07:18       - 搜索无结果或被拦截
+16:07:28       🔍 搜索: 明我幼稚園 面試 (sort=popularity_descending)
+16:07:42       搜索到 15 个帖子链接
+16:07:42       📄 抓取帖子: ...5e90000000002202d864
+16:07:48     ⚠️ 安全重定向! 暂停 102s...
+16:09:43       📄 抓取帖子: ...fd52000000001e031571
+16:09:58       📄 抓取帖子: ...2a75000000003c016e68
+16:10:17       📄 抓取帖子: ...9573000000000a0319c3
+16:10:42       📄 抓取帖子: ...b07300000000070397c7
+16:10:58       📄 抓取帖子: ...e7ea000000001203c691
+16:11:16       📄 抓取帖子: ...2bc6000000000a03220f
+16:11:28       📄 抓取帖子: ...a95c000000000b022e18
+16:11:51       📄 抓取帖子: ...4cc1000000000303b1ab
+16:12:09       📄 抓取帖子: ...c7df000000000303a8cc
+16:12:26       📄 抓取帖子: ...8513000000001a034636
+16:12:40       📄 抓取帖子: ...2b4a000000001d02fd8d
+16:12:57       📄 抓取帖子: ...7345000000001b02cdc5
+16:13:14       📄 抓取帖子: ...02bb000000001c02104f
+16:13:28     ☕ 随机长停顿 76s (detail fetch 前)
+16:14:44       📄 抓取帖子: ...16bf000000001d0380c6
+16:15:16       🔍 搜索: 明我幼稚園 (sort=popularity_descending)
+16:15:37       - 搜索无结果或被拦截
+16:15:51       🔍 搜索: 明我 幼稚園 面試 (sort=popularity_descending)
+16:16:08       搜索到 9 个帖子链接
+16:16:08       📄 抓取帖子: ...24660000000003029333
+16:16:12     ⚠️ 安全重定向! 暂停 90s...
+16:17:54       📄 抓取帖子: ...a95c000000000b022e18
+16:18:12       📄 抓取帖子: ...5cea0000000021013de3
+16:18:21     ⚠️ 安全重定向! 暂停 103s...
+16:20:19       📄 抓取帖子: ...769c000000001a030b38
+16:20:46       📄 抓取帖子: ...004e000000000700bad0
+16:21:17       📄 抓取帖子: ...7ffc000000002102e219
+16:21:45       📄 抓取帖子: ...57c9000000000102a8f3
+16:22:11       📄 抓取帖子: ...09a6000000002102ec07
+16:22:38       📄 抓取帖子: ...3384000000000a0297f2
+16:23:10       🔍 搜索: 明我 幼稚園 (sort=popularity_descending)
+16:23:30       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%98%8E%E6%88%91%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+16:23:54     ✅ 17 posts, 0 comments
+16:23:54     💤 School cooldown 17s...
+16:24:11     ☕ 随机长停顿 39s (between schools)
+16:24:51   [49/873] 基督教香港信義會興華幼兒學校 (564800)
+16:24:51       🔍 搜索: 基督教香港信義會興華幼兒學校 面試 (sort=general)
+16:24:58       ⚠️ Search page load failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.xiaohongshu.com/search_result?keyword=%E5%9F%BA%E7%9D%A3%E6%95%99%E9%A6%99%E6%B8%AF%E4%BF%A1%E7%BE%A9%E6%9C%83%E8%88%88%E8%8F%AF%E5%B9%BC%E5%85%92%E5%AD%B8%E6%A0%A1%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%9F%BA%E7%9D%A3%E6%95%99%E9%A6%99%E6%B8%AF%E4%BF%A1%E7%BE%A9%E6%9C%83%E8%88%88%E8%8F%AF%E5%B9%BC%E5%85%92%E5%AD%B8%E6%A0%A1%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+16:25:19       🔍 搜索: 基督教香港信義會興華幼兒學校 (sort=general)
+16:25:39       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%9F%BA%E7%9D%A3%E6%95%99%E9%A6%99%E6%B8%AF%E4%BF%A1%E7%BE%A9%E6%9C%83%E8%88%88%E8%8F%AF%E5%B9%BC%E5%85%92%E5%AD%B8%E6%A0%A1&source=web_search_result_notes", waiting until "domcontentloaded"
+
+16:26:05       🔍 搜索: 基督教香港信義會興華 幼稚園 面試 (sort=general)
+16:26:25       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%9F%BA%E7%9D%A3%E6%95%99%E9%A6%99%E6%B8%AF%E4%BF%A1%E7%BE%A9%E6%9C%83%E8%88%88%E8%8F%AF%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+16:26:46       🔍 搜索: 基督教香港信義會興華 幼稚園 (sort=general)
+16:26:59       ⚠️ Search page load failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.xiaohongshu.com/search_result?keyword=%E5%9F%BA%E7%9D%A3%E6%95%99%E9%A6%99%E6%B8%AF%E4%BF%A1%E7%BE%A9%E6%9C%83%E8%88%88%E8%8F%AF%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%9F%BA%E7%9D%A3%E6%95%99%E9%A6%99%E6%B8%AF%E4%BF%A1%E7%BE%A9%E6%9C%83%E8%88%88%E8%8F%AF%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+16:27:21       🔍 搜索: 基督教香港信義會興華幼兒學校 面試 (sort=popularity_descending)
+16:27:41       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%9F%BA%E7%9D%A3%E6%95%99%E9%A6%99%E6%B8%AF%E4%BF%A1%E7%BE%A9%E6%9C%83%E8%88%88%E8%8F%AF%E5%B9%BC%E5%85%92%E5%AD%B8%E6%A0%A1%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+16:28:05       🔍 搜索: 基督教香港信義會興華幼兒學校 (sort=popularity_descending)
+16:28:25       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%9F%BA%E7%9D%A3%E6%95%99%E9%A6%99%E6%B8%AF%E4%BF%A1%E7%BE%A9%E6%9C%83%E8%88%88%E8%8F%AF%E5%B9%BC%E5%85%92%E5%AD%B8%E6%A0%A1&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+16:28:50       🔍 搜索: 基督教香港信義會興華 幼稚園 面試 (sort=popularity_descending)
+16:29:00       ⚠️ Search page load failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.xiaohongshu.com/search_result?keyword=%E5%9F%BA%E7%9D%A3%E6%95%99%E9%A6%99%E6%B8%AF%E4%BF%A1%E7%BE%A9%E6%9C%83%E8%88%88%E8%8F%AF%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%9F%BA%E7%9D%A3%E6%95%99%E9%A6%99%E6%B8%AF%E4%BF%A1%E7%BE%A9%E6%9C%83%E8%88%88%E8%8F%AF%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+16:29:19       🔍 搜索: 基督教香港信義會興華 幼稚園 (sort=popularity_descending)
+16:29:39       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%9F%BA%E7%9D%A3%E6%95%99%E9%A6%99%E6%B8%AF%E4%BF%A1%E7%BE%A9%E6%9C%83%E8%88%88%E8%8F%AF%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+16:30:01     ✅ 0 posts, 0 comments
+16:30:01     💤 School cooldown 24s...
+16:30:25   📊 Progress: 50/873 (5.7%), 2076 posts total, 0 failed
+16:30:25   💤 Batch cooldown 603s (10.1min)...
+16:40:28   [50/873] 基督教香港信義會興民幼兒學校 (564583)
+16:40:28       🔍 搜索: 基督教香港信義會興民幼兒學校 面試 (sort=general)
+16:40:48       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%9F%BA%E7%9D%A3%E6%95%99%E9%A6%99%E6%B8%AF%E4%BF%A1%E7%BE%A9%E6%9C%83%E8%88%88%E6%B0%91%E5%B9%BC%E5%85%92%E5%AD%B8%E6%A0%A1%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+16:41:16       🔍 搜索: 基督教香港信義會興民幼兒學校 (sort=general)
+16:41:28       ⚠️ Search page load failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.xiaohongshu.com/search_result?keyword=%E5%9F%BA%E7%9D%A3%E6%95%99%E9%A6%99%E6%B8%AF%E4%BF%A1%E7%BE%A9%E6%9C%83%E8%88%88%E6%B0%91%E5%B9%BC%E5%85%92%E5%AD%B8%E6%A0%A1&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%9F%BA%E7%9D%A3%E6%95%99%E9%A6%99%E6%B8%AF%E4%BF%A1%E7%BE%A9%E6%9C%83%E8%88%88%E6%B0%91%E5%B9%BC%E5%85%92%E5%AD%B8%E6%A0%A1&source=web_search_result_notes", waiting until "domcontentloaded"
+
+16:41:46       🔍 搜索: 基督教香港信義會興民 幼稚園 面試 (sort=general)
+16:42:06       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%9F%BA%E7%9D%A3%E6%95%99%E9%A6%99%E6%B8%AF%E4%BF%A1%E7%BE%A9%E6%9C%83%E8%88%88%E6%B0%91%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+16:42:35       🔍 搜索: 基督教香港信義會興民 幼稚園 (sort=general)
+16:42:55       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%9F%BA%E7%9D%A3%E6%95%99%E9%A6%99%E6%B8%AF%E4%BF%A1%E7%BE%A9%E6%9C%83%E8%88%88%E6%B0%91%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+16:58:09       🔍 搜索: 基督教香港信義會興民幼兒學校 面試 (sort=popularity_descending)
+16:58:27       ⚠️ Search page load failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.xiaohongshu.com/search_result?keyword=%E5%9F%BA%E7%9D%A3%E6%95%99%E9%A6%99%E6%B8%AF%E4%BF%A1%E7%BE%A9%E6%9C%83%E8%88%88%E6%B0%91%E5%B9%BC%E5%85%92%E5%AD%B8%E6%A0%A1%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%9F%BA%E7%9D%A3%E6%95%99%E9%A6%99%E6%B8%AF%E4%BF%A1%E7%BE%A9%E6%9C%83%E8%88%88%E6%B0%91%E5%B9%BC%E5%85%92%E5%AD%B8%E6%A0%A1%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+16:58:55       🔍 搜索: 基督教香港信義會興民幼兒學校 (sort=popularity_descending)
+16:59:15       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%9F%BA%E7%9D%A3%E6%95%99%E9%A6%99%E6%B8%AF%E4%BF%A1%E7%BE%A9%E6%9C%83%E8%88%88%E6%B0%91%E5%B9%BC%E5%85%92%E5%AD%B8%E6%A0%A1&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+16:59:38       🔍 搜索: 基督教香港信義會興民 幼稚園 面試 (sort=popularity_descending)
+16:59:58       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%9F%BA%E7%9D%A3%E6%95%99%E9%A6%99%E6%B8%AF%E4%BF%A1%E7%BE%A9%E6%9C%83%E8%88%88%E6%B0%91%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+17:00:22       🔍 搜索: 基督教香港信義會興民 幼稚園 (sort=popularity_descending)
+17:00:29       ⚠️ Search page load failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.xiaohongshu.com/search_result?keyword=%E5%9F%BA%E7%9D%A3%E6%95%99%E9%A6%99%E6%B8%AF%E4%BF%A1%E7%BE%A9%E6%9C%83%E8%88%88%E6%B0%91%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%9F%BA%E7%9D%A3%E6%95%99%E9%A6%99%E6%B8%AF%E4%BF%A1%E7%BE%A9%E6%9C%83%E8%88%88%E6%B0%91%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+17:00:47     ✅ 0 posts, 0 comments
+17:00:47     💤 School cooldown 20s...
+17:16:05   [51/873] 勵志會陳鄭潔雲幼稚園 (325619)
+17:16:05       🔍 搜索: 勵志會陳鄭潔雲幼稚園 面試 (sort=general)
+17:16:25       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%8B%B5%E5%BF%97%E6%9C%83%E9%99%B3%E9%84%AD%E6%BD%94%E9%9B%B2%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+17:16:44       🔍 搜索: 勵志會陳鄭潔雲幼稚園 (sort=general)
+17:17:04       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%8B%B5%E5%BF%97%E6%9C%83%E9%99%B3%E9%84%AD%E6%BD%94%E9%9B%B2%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+17:33:22       🔍 搜索: 勵志會陳鄭潔雲 幼稚園 面試 (sort=general)
+17:33:25       ⚠️ Search page load failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.xiaohongshu.com/search_result?keyword=%E5%8B%B5%E5%BF%97%E6%9C%83%E9%99%B3%E9%84%AD%E6%BD%94%E9%9B%B2%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%8B%B5%E5%BF%97%E6%9C%83%E9%99%B3%E9%84%AD%E6%BD%94%E9%9B%B2%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+17:33:46       🔍 搜索: 勵志會陳鄭潔雲 幼稚園 (sort=general)
+17:34:06       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%8B%B5%E5%BF%97%E6%9C%83%E9%99%B3%E9%84%AD%E6%BD%94%E9%9B%B2%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+17:34:28       🔍 搜索: 勵志會陳鄭潔雲幼稚園 面試 (sort=popularity_descending)
+17:34:48       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%8B%B5%E5%BF%97%E6%9C%83%E9%99%B3%E9%84%AD%E6%BD%94%E9%9B%B2%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+17:35:06       🔍 搜索: 勵志會陳鄭潔雲幼稚園 (sort=popularity_descending)
+17:35:26       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%8B%B5%E5%BF%97%E6%9C%83%E9%99%B3%E9%84%AD%E6%BD%94%E9%9B%B2%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+17:35:40       🔍 搜索: 勵志會陳鄭潔雲 幼稚園 面試 (sort=popularity_descending)
+17:36:00       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%8B%B5%E5%BF%97%E6%9C%83%E9%99%B3%E9%84%AD%E6%BD%94%E9%9B%B2%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+17:36:26       🔍 搜索: 勵志會陳鄭潔雲 幼稚園 (sort=popularity_descending)
+17:36:27       ⚠️ Search page load failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.xiaohongshu.com/search_result?keyword=%E5%8B%B5%E5%BF%97%E6%9C%83%E9%99%B3%E9%84%AD%E6%BD%94%E9%9B%B2%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%8B%B5%E5%BF%97%E6%9C%83%E9%99%B3%E9%84%AD%E6%BD%94%E9%9B%B2%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+17:37:11   ⚠️ Login check error: Page.goto: Timeout 15000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/", waiting until "domcontentloaded"
+
+17:37:11   ✅ Session valid (cookie fallback after timeout)
+17:37:11     ✅ 0 posts, 0 comments
+17:37:11     💤 School cooldown 24s...
+17:37:35   [52/873] 怡寶中英文幼稚園 (215872)
+17:37:35       🔍 搜索: 怡寶中英文幼稚園 面試 (sort=general)
+17:37:55       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%80%A1%E5%AF%B6%E4%B8%AD%E8%8B%B1%E6%96%87%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+17:38:19       🔍 搜索: 怡寶中英文幼稚園 (sort=general)
+17:38:29       ⚠️ Search page load failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.xiaohongshu.com/search_result?keyword=%E6%80%A1%E5%AF%B6%E4%B8%AD%E8%8B%B1%E6%96%87%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%80%A1%E5%AF%B6%E4%B8%AD%E8%8B%B1%E6%96%87%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+17:38:49       🔍 搜索: 怡寶 幼稚園 面試 (sort=general)
+17:39:09       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%80%A1%E5%AF%B6%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+17:39:33       🔍 搜索: 怡寶 幼稚園 (sort=general)
+17:39:53       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%80%A1%E5%AF%B6%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+17:40:13       🔍 搜索: 怡寶中英文幼稚園 面試 (sort=popularity_descending)
+17:40:30       ⚠️ Search page load failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.xiaohongshu.com/search_result?keyword=%E6%80%A1%E5%AF%B6%E4%B8%AD%E8%8B%B1%E6%96%87%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%80%A1%E5%AF%B6%E4%B8%AD%E8%8B%B1%E6%96%87%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+17:40:54       🔍 搜索: 怡寶中英文幼稚園 (sort=popularity_descending)
+17:41:14       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%80%A1%E5%AF%B6%E4%B8%AD%E8%8B%B1%E6%96%87%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+17:57:06       🔍 搜索: 怡寶 幼稚園 面試 (sort=popularity_descending)
+17:57:26       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%80%A1%E5%AF%B6%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+17:57:49       🔍 搜索: 怡寶 幼稚園 (sort=popularity_descending)
+17:57:57       ⚠️ Search page load failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.xiaohongshu.com/search_result?keyword=%E6%80%A1%E5%AF%B6%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%80%A1%E5%AF%B6%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+18:14:12   ⚠️ Login check error: Page.goto: Timeout 15000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/", waiting until "domcontentloaded"
+
+18:14:12   ✅ Session valid (cookie fallback after timeout)
+18:14:12     ✅ 0 posts, 0 comments
+18:14:12     💤 School cooldown 16s...
+18:14:28     ☕ 随机长停顿 39s (between schools)
+18:31:48   [53/873] 循道衛理聯合教會愛華村堂幼稚園 (325899)
+18:31:48       🔍 搜索: 循道衛理聯合教會愛華村堂幼稚園 面試 (sort=general)
+18:31:59       ⚠️ Search page load failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.xiaohongshu.com/search_result?keyword=%E5%BE%AA%E9%81%93%E8%A1%9B%E7%90%86%E8%81%AF%E5%90%88%E6%95%99%E6%9C%83%E6%84%9B%E8%8F%AF%E6%9D%91%E5%A0%82%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%BE%AA%E9%81%93%E8%A1%9B%E7%90%86%E8%81%AF%E5%90%88%E6%95%99%E6%9C%83%E6%84%9B%E8%8F%AF%E6%9D%91%E5%A0%82%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+18:32:21       🔍 搜索: 循道衛理聯合教會愛華村堂幼稚園 (sort=general)
+18:32:41       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%BE%AA%E9%81%93%E8%A1%9B%E7%90%86%E8%81%AF%E5%90%88%E6%95%99%E6%9C%83%E6%84%9B%E8%8F%AF%E6%9D%91%E5%A0%82%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+18:42:59       🔍 搜索: 循道衛理聯合教會愛華村堂 幼稚園 面試 (sort=general)
+18:43:19       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%BE%AA%E9%81%93%E8%A1%9B%E7%90%86%E8%81%AF%E5%90%88%E6%95%99%E6%9C%83%E6%84%9B%E8%8F%AF%E6%9D%91%E5%A0%82%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+18:43:42       🔍 搜索: 循道衛理聯合教會愛華村堂 幼稚園 (sort=general)
+18:43:56       ⚠️ Search page load failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.xiaohongshu.com/search_result?keyword=%E5%BE%AA%E9%81%93%E8%A1%9B%E7%90%86%E8%81%AF%E5%90%88%E6%95%99%E6%9C%83%E6%84%9B%E8%8F%AF%E6%9D%91%E5%A0%82%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%BE%AA%E9%81%93%E8%A1%9B%E7%90%86%E8%81%AF%E5%90%88%E6%95%99%E6%9C%83%E6%84%9B%E8%8F%AF%E6%9D%91%E5%A0%82%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+18:44:23       🔍 搜索: 循道衛理聯合教會愛華村堂幼稚園 面試 (sort=popularity_descending)
+18:44:43       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%BE%AA%E9%81%93%E8%A1%9B%E7%90%86%E8%81%AF%E5%90%88%E6%95%99%E6%9C%83%E6%84%9B%E8%8F%AF%E6%9D%91%E5%A0%82%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+18:45:10       🔍 搜索: 循道衛理聯合教會愛華村堂幼稚園 (sort=popularity_descending)
+18:45:30       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%BE%AA%E9%81%93%E8%A1%9B%E7%90%86%E8%81%AF%E5%90%88%E6%95%99%E6%9C%83%E6%84%9B%E8%8F%AF%E6%9D%91%E5%A0%82%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+18:45:56       🔍 搜索: 循道衛理聯合教會愛華村堂 幼稚園 面試 (sort=popularity_descending)
+18:45:57       ⚠️ Search page load failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.xiaohongshu.com/search_result?keyword=%E5%BE%AA%E9%81%93%E8%A1%9B%E7%90%86%E8%81%AF%E5%90%88%E6%95%99%E6%9C%83%E6%84%9B%E8%8F%AF%E6%9D%91%E5%A0%82%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%BE%AA%E9%81%93%E8%A1%9B%E7%90%86%E8%81%AF%E5%90%88%E6%95%99%E6%9C%83%E6%84%9B%E8%8F%AF%E6%9D%91%E5%A0%82%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+18:46:22       🔍 搜索: 循道衛理聯合教會愛華村堂 幼稚園 (sort=popularity_descending)
+18:46:42       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%BE%AA%E9%81%93%E8%A1%9B%E7%90%86%E8%81%AF%E5%90%88%E6%95%99%E6%9C%83%E6%84%9B%E8%8F%AF%E6%9D%91%E5%A0%82%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+18:47:23   ⚠️ Login check error: Page.goto: Timeout 15000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/", waiting until "domcontentloaded"
+
+18:47:23   ✅ Session valid (cookie fallback after timeout)
+18:47:23     ✅ 0 posts, 0 comments
+18:47:23     💤 School cooldown 14s...
+18:47:38   [54/873] 懷恩浸信會幼稚園 (323969)
+18:47:38       🔍 搜索: 懷恩浸信會幼稚園 面試 (sort=general)
+18:47:58       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%87%B7%E6%81%A9%E6%B5%B8%E4%BF%A1%E6%9C%83%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+19:03:12       🔍 搜索: 懷恩浸信會幼稚園 (sort=general)
+19:03:32       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%87%B7%E6%81%A9%E6%B5%B8%E4%BF%A1%E6%9C%83%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+19:03:44       🔍 搜索: 懷恩浸信會 幼稚園 面試 (sort=general)
+19:04:04       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%87%B7%E6%81%A9%E6%B5%B8%E4%BF%A1%E6%9C%83%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+19:04:25       🔍 搜索: 懷恩浸信會 幼稚園 (sort=general)
+19:04:33       ⚠️ Search page load failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.xiaohongshu.com/search_result?keyword=%E6%87%B7%E6%81%A9%E6%B5%B8%E4%BF%A1%E6%9C%83%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%87%B7%E6%81%A9%E6%B5%B8%E4%BF%A1%E6%9C%83%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+19:20:26       🔍 搜索: 懷恩浸信會幼稚園 面試 (sort=popularity_descending)
+19:20:39       ⚠️ Search page load failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.xiaohongshu.com/search_result?keyword=%E6%87%B7%E6%81%A9%E6%B5%B8%E4%BF%A1%E6%9C%83%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%87%B7%E6%81%A9%E6%B5%B8%E4%BF%A1%E6%9C%83%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+19:21:04       🔍 搜索: 懷恩浸信會幼稚園 (sort=popularity_descending)
+19:21:24       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%87%B7%E6%81%A9%E6%B5%B8%E4%BF%A1%E6%9C%83%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+19:21:53       🔍 搜索: 懷恩浸信會 幼稚園 面試 (sort=popularity_descending)
+19:22:13       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%87%B7%E6%81%A9%E6%B5%B8%E4%BF%A1%E6%9C%83%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+19:22:38       🔍 搜索: 懷恩浸信會 幼稚園 (sort=popularity_descending)
+19:22:40       ⚠️ Search page load failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.xiaohongshu.com/search_result?keyword=%E6%87%B7%E6%81%A9%E6%B5%B8%E4%BF%A1%E6%9C%83%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%87%B7%E6%81%A9%E6%B5%B8%E4%BF%A1%E6%9C%83%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+19:23:24   ⚠️ Login check error: Page.goto: Timeout 15000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/", waiting until "domcontentloaded"
+
+19:23:24   ✅ Session valid (cookie fallback after timeout)
+19:23:24     ✅ 0 posts, 0 comments
+19:23:24     💤 School cooldown 21s...
+19:23:44   [55/873] 路德會杏花邨幼兒園 (565830)
+19:23:44       🔍 搜索: 路德會杏花邨幼兒園 面試 (sort=general)
+19:24:04       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E8%B7%AF%E5%BE%B7%E6%9C%83%E6%9D%8F%E8%8A%B1%E9%82%A8%E5%B9%BC%E5%85%92%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+19:24:29       🔍 搜索: 路德會杏花邨幼兒園 (sort=general)
+19:24:41       ⚠️ Search page load failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.xiaohongshu.com/search_result?keyword=%E8%B7%AF%E5%BE%B7%E6%9C%83%E6%9D%8F%E8%8A%B1%E9%82%A8%E5%B9%BC%E5%85%92%E5%9C%92&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E8%B7%AF%E5%BE%B7%E6%9C%83%E6%9D%8F%E8%8A%B1%E9%82%A8%E5%B9%BC%E5%85%92%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+19:25:10       🔍 搜索: 路德會杏花邨 幼稚園 面試 (sort=general)
+19:25:30       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E8%B7%AF%E5%BE%B7%E6%9C%83%E6%9D%8F%E8%8A%B1%E9%82%A8%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+19:25:56       🔍 搜索: 路德會杏花邨 幼稚園 (sort=general)
+19:26:16       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E8%B7%AF%E5%BE%B7%E6%9C%83%E6%9D%8F%E8%8A%B1%E9%82%A8%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+19:26:37       🔍 搜索: 路德會杏花邨幼兒園 面試 (sort=popularity_descending)
+19:26:57       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E8%B7%AF%E5%BE%B7%E6%9C%83%E6%9D%8F%E8%8A%B1%E9%82%A8%E5%B9%BC%E5%85%92%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+19:27:25       🔍 搜索: 路德會杏花邨幼兒園 (sort=popularity_descending)
+19:27:25       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E8%B7%AF%E5%BE%B7%E6%9C%83%E6%9D%8F%E8%8A%B1%E9%82%A8%E5%B9%BC%E5%85%92%E5%9C%92&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E8%B7%AF%E5%BE%B7%E6%9C%83%E6%9D%8F%E8%8A%B1%E9%82%A8%E5%B9%BC%E5%85%92%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+19:27:36       🔍 搜索: 路德會杏花邨 幼稚園 面試 (sort=popularity_descending)
+19:27:36       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E8%B7%AF%E5%BE%B7%E6%9C%83%E6%9D%8F%E8%8A%B1%E9%82%A8%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E8%B7%AF%E5%BE%B7%E6%9C%83%E6%9D%8F%E8%8A%B1%E9%82%A8%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+19:27:52       🔍 搜索: 路德會杏花邨 幼稚園 (sort=popularity_descending)
+19:27:52       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E8%B7%AF%E5%BE%B7%E6%9C%83%E6%9D%8F%E8%8A%B1%E9%82%A8%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E8%B7%AF%E5%BE%B7%E6%9C%83%E6%9D%8F%E8%8A%B1%E9%82%A8%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+19:28:06   ⚠️ Login check error: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/
+Call log:
+  - navigating to "https://www.xiaohongshu.com/", waiting until "domcontentloaded"
+
+19:28:06   ✅ Session valid (cookie fallback after timeout)
+19:28:06     ✅ 0 posts, 0 comments
+19:28:06     💤 School cooldown 18s...
+19:28:24   [56/873] 港九街坊婦女會丁毓珠幼稚園 (563897)
+19:28:24       🔍 搜索: 港九街坊婦女會丁毓珠幼稚園 面試 (sort=general)
+19:28:24       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E4%B8%81%E6%AF%93%E7%8F%A0%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E4%B8%81%E6%AF%93%E7%8F%A0%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+19:28:39       🔍 搜索: 港九街坊婦女會丁毓珠幼稚園 (sort=general)
+19:28:40       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E4%B8%81%E6%AF%93%E7%8F%A0%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E4%B8%81%E6%AF%93%E7%8F%A0%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+19:28:56       🔍 搜索: 港九街坊婦女會丁毓珠 幼稚園 面試 (sort=general)
+19:28:56       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E4%B8%81%E6%AF%93%E7%8F%A0%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E4%B8%81%E6%AF%93%E7%8F%A0%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+19:29:10       🔍 搜索: 港九街坊婦女會丁毓珠 幼稚園 (sort=general)
+19:29:10       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E4%B8%81%E6%AF%93%E7%8F%A0%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E4%B8%81%E6%AF%93%E7%8F%A0%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+19:29:25       🔍 搜索: 港九街坊婦女會丁毓珠幼稚園 面試 (sort=popularity_descending)
+19:29:25       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E4%B8%81%E6%AF%93%E7%8F%A0%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E4%B8%81%E6%AF%93%E7%8F%A0%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+19:29:45       🔍 搜索: 港九街坊婦女會丁毓珠幼稚園 (sort=popularity_descending)
+19:29:45       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E4%B8%81%E6%AF%93%E7%8F%A0%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E4%B8%81%E6%AF%93%E7%8F%A0%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+19:29:54       🔍 搜索: 港九街坊婦女會丁毓珠 幼稚園 面試 (sort=popularity_descending)
+19:29:54       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E4%B8%81%E6%AF%93%E7%8F%A0%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E4%B8%81%E6%AF%93%E7%8F%A0%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+19:30:09       🔍 搜索: 港九街坊婦女會丁毓珠 幼稚園 (sort=popularity_descending)
+19:30:09       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E4%B8%81%E6%AF%93%E7%8F%A0%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E4%B8%81%E6%AF%93%E7%8F%A0%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+19:30:21   ⚠️ Login check error: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/
+Call log:
+  - navigating to "https://www.xiaohongshu.com/", waiting until "domcontentloaded"
+
+19:30:21   ✅ Session valid (cookie fallback after timeout)
+19:30:21     ✅ 0 posts, 0 comments
+19:30:21   ❌❌ 8 consecutive zero-post schools — attempting re-login before giving up...
+19:30:21   🔄 Refreshing session (reusing Playwright instance)...
+19:30:22   Loaded saved cookies
+19:30:22   ⚠️ Login check error: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/
+Call log:
+  - navigating to "https://www.xiaohongshu.com/", waiting until "domcontentloaded"
+
+19:30:22   ✅ Session valid (cookie fallback after timeout)
+19:30:22   ✅ Session refreshed — cookies still valid
+19:30:22   Loaded saved cookies
+19:30:23   Switched to headless mode for scraping
+19:30:23   🌡️ Warming up session (browsing naturally for 15-25s)...
+19:30:23   ⚠️ Warmup error (non-fatal): Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/
+Call log:
+  - navigating to "https://www.xiaohongshu.com/", waiting until "domcontentloaded"
+
+19:30:23   ✅ Re-login successful, continuing...
+19:30:23     💤 School cooldown 24s...
+19:30:47   [57/873] 港九街坊婦女會環翠幼稚園 (563889)
+19:30:47       🔍 搜索: 港九街坊婦女會環翠幼稚園 面試 (sort=general)
+19:30:47       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E7%92%B0%E7%BF%A0%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E7%92%B0%E7%BF%A0%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+19:30:54       🔍 搜索: 港九街坊婦女會環翠幼稚園 (sort=general)
+19:30:54       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E7%92%B0%E7%BF%A0%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E7%92%B0%E7%BF%A0%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+19:31:11       🔍 搜索: 港九街坊婦女會環翠 幼稚園 面試 (sort=general)
+19:31:12       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E7%92%B0%E7%BF%A0%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E7%92%B0%E7%BF%A0%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+19:31:27       🔍 搜索: 港九街坊婦女會環翠 幼稚園 (sort=general)
+19:31:27       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E7%92%B0%E7%BF%A0%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E7%92%B0%E7%BF%A0%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+19:31:39       🔍 搜索: 港九街坊婦女會環翠幼稚園 面試 (sort=popularity_descending)
+19:31:39       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E7%92%B0%E7%BF%A0%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E7%92%B0%E7%BF%A0%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+19:31:54       🔍 搜索: 港九街坊婦女會環翠幼稚園 (sort=popularity_descending)
+19:31:54       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E7%92%B0%E7%BF%A0%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E7%92%B0%E7%BF%A0%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+19:32:11       🔍 搜索: 港九街坊婦女會環翠 幼稚園 面試 (sort=popularity_descending)
+19:32:11       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E7%92%B0%E7%BF%A0%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E7%92%B0%E7%BF%A0%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+19:32:26       🔍 搜索: 港九街坊婦女會環翠 幼稚園 (sort=popularity_descending)
+19:32:27       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E7%92%B0%E7%BF%A0%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E6%B8%AF%E4%B9%9D%E8%A1%97%E5%9D%8A%E5%A9%A6%E5%A5%B3%E6%9C%83%E7%92%B0%E7%BF%A0%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+19:32:40     ✅ 0 posts, 0 comments
+19:32:40     💤 School cooldown 14s...
+19:32:54   [58/873] 香港青年協會青樂幼稚園 (563331)
+19:32:54       🔍 搜索: 香港青年協會青樂幼稚園 面試 (sort=general)
+19:32:54       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E9%A6%99%E6%B8%AF%E9%9D%92%E5%B9%B4%E5%8D%94%E6%9C%83%E9%9D%92%E6%A8%82%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E9%A6%99%E6%B8%AF%E9%9D%92%E5%B9%B4%E5%8D%94%E6%9C%83%E9%9D%92%E6%A8%82%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+19:33:04       🔍 搜索: 香港青年協會青樂幼稚園 (sort=general)
+19:33:04       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E9%A6%99%E6%B8%AF%E9%9D%92%E5%B9%B4%E5%8D%94%E6%9C%83%E9%9D%92%E6%A8%82%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E9%A6%99%E6%B8%AF%E9%9D%92%E5%B9%B4%E5%8D%94%E6%9C%83%E9%9D%92%E6%A8%82%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+19:33:24       🔍 搜索: 香港青年協會青樂 幼稚園 面試 (sort=general)
+19:33:24       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E9%A6%99%E6%B8%AF%E9%9D%92%E5%B9%B4%E5%8D%94%E6%9C%83%E9%9D%92%E6%A8%82%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E9%A6%99%E6%B8%AF%E9%9D%92%E5%B9%B4%E5%8D%94%E6%9C%83%E9%9D%92%E6%A8%82%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+19:33:45       🔍 搜索: 香港青年協會青樂 幼稚園 (sort=general)
+19:33:45       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E9%A6%99%E6%B8%AF%E9%9D%92%E5%B9%B4%E5%8D%94%E6%9C%83%E9%9D%92%E6%A8%82%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E9%A6%99%E6%B8%AF%E9%9D%92%E5%B9%B4%E5%8D%94%E6%9C%83%E9%9D%92%E6%A8%82%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+19:34:04       🔍 搜索: 香港青年協會青樂幼稚園 面試 (sort=popularity_descending)
+19:34:04       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E9%A6%99%E6%B8%AF%E9%9D%92%E5%B9%B4%E5%8D%94%E6%9C%83%E9%9D%92%E6%A8%82%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E9%A6%99%E6%B8%AF%E9%9D%92%E5%B9%B4%E5%8D%94%E6%9C%83%E9%9D%92%E6%A8%82%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+19:34:17       🔍 搜索: 香港青年協會青樂幼稚園 (sort=popularity_descending)
+19:34:17       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E9%A6%99%E6%B8%AF%E9%9D%92%E5%B9%B4%E5%8D%94%E6%9C%83%E9%9D%92%E6%A8%82%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E9%A6%99%E6%B8%AF%E9%9D%92%E5%B9%B4%E5%8D%94%E6%9C%83%E9%9D%92%E6%A8%82%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+19:34:29       🔍 搜索: 香港青年協會青樂 幼稚園 面試 (sort=popularity_descending)
+19:34:29       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E9%A6%99%E6%B8%AF%E9%9D%92%E5%B9%B4%E5%8D%94%E6%9C%83%E9%9D%92%E6%A8%82%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E9%A6%99%E6%B8%AF%E9%9D%92%E5%B9%B4%E5%8D%94%E6%9C%83%E9%9D%92%E6%A8%82%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+19:34:40       🔍 搜索: 香港青年協會青樂 幼稚園 (sort=popularity_descending)
+19:34:40       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E9%A6%99%E6%B8%AF%E9%9D%92%E5%B9%B4%E5%8D%94%E6%9C%83%E9%9D%92%E6%A8%82%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E9%A6%99%E6%B8%AF%E9%9D%92%E5%B9%B4%E5%8D%94%E6%9C%83%E9%9D%92%E6%A8%82%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+19:34:51     ✅ 0 posts, 0 comments
+19:34:51     💤 School cooldown 16s...
+19:35:07   [59/873] 合一堂陳伯宏紀念幼稚園 (325163)
+19:35:07       🔍 搜索: 合一堂陳伯宏紀念幼稚園 面試 (sort=general)
+19:35:07       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E5%90%88%E4%B8%80%E5%A0%82%E9%99%B3%E4%BC%AF%E5%AE%8F%E7%B4%80%E5%BF%B5%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%90%88%E4%B8%80%E5%A0%82%E9%99%B3%E4%BC%AF%E5%AE%8F%E7%B4%80%E5%BF%B5%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+19:35:23       🔍 搜索: 合一堂陳伯宏紀念幼稚園 (sort=general)
+19:35:23       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E5%90%88%E4%B8%80%E5%A0%82%E9%99%B3%E4%BC%AF%E5%AE%8F%E7%B4%80%E5%BF%B5%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%90%88%E4%B8%80%E5%A0%82%E9%99%B3%E4%BC%AF%E5%AE%8F%E7%B4%80%E5%BF%B5%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+19:35:30       🔍 搜索: 合一堂陳伯宏紀念 幼稚園 面試 (sort=general)
+19:35:30       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E5%90%88%E4%B8%80%E5%A0%82%E9%99%B3%E4%BC%AF%E5%AE%8F%E7%B4%80%E5%BF%B5%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%90%88%E4%B8%80%E5%A0%82%E9%99%B3%E4%BC%AF%E5%AE%8F%E7%B4%80%E5%BF%B5%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+19:35:40       🔍 搜索: 合一堂陳伯宏紀念 幼稚園 (sort=general)
+19:35:40       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E5%90%88%E4%B8%80%E5%A0%82%E9%99%B3%E4%BC%AF%E5%AE%8F%E7%B4%80%E5%BF%B5%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%90%88%E4%B8%80%E5%A0%82%E9%99%B3%E4%BC%AF%E5%AE%8F%E7%B4%80%E5%BF%B5%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+19:35:53       🔍 搜索: 合一堂陳伯宏紀念幼稚園 面試 (sort=popularity_descending)
+19:35:53       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E5%90%88%E4%B8%80%E5%A0%82%E9%99%B3%E4%BC%AF%E5%AE%8F%E7%B4%80%E5%BF%B5%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%90%88%E4%B8%80%E5%A0%82%E9%99%B3%E4%BC%AF%E5%AE%8F%E7%B4%80%E5%BF%B5%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+19:36:07       🔍 搜索: 合一堂陳伯宏紀念幼稚園 (sort=popularity_descending)
+19:36:07       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E5%90%88%E4%B8%80%E5%A0%82%E9%99%B3%E4%BC%AF%E5%AE%8F%E7%B4%80%E5%BF%B5%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%90%88%E4%B8%80%E5%A0%82%E9%99%B3%E4%BC%AF%E5%AE%8F%E7%B4%80%E5%BF%B5%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+19:36:23       🔍 搜索: 合一堂陳伯宏紀念 幼稚園 面試 (sort=popularity_descending)
+19:36:23       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E5%90%88%E4%B8%80%E5%A0%82%E9%99%B3%E4%BC%AF%E5%AE%8F%E7%B4%80%E5%BF%B5%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%90%88%E4%B8%80%E5%A0%82%E9%99%B3%E4%BC%AF%E5%AE%8F%E7%B4%80%E5%BF%B5%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+19:36:39       🔍 搜索: 合一堂陳伯宏紀念 幼稚園 (sort=popularity_descending)
+19:36:39       ⚠️ Search page load failed: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/search_result?keyword=%E5%90%88%E4%B8%80%E5%A0%82%E9%99%B3%E4%BC%AF%E5%AE%8F%E7%B4%80%E5%BF%B5%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%90%88%E4%B8%80%E5%A0%82%E9%99%B3%E4%BC%AF%E5%AE%8F%E7%B4%80%E5%BF%B5%20%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+19:36:53   ⚠️ Login check error: Page.goto: net::ERR_INTERNET_DISCONNECTED at https://www.xiaohongshu.com/
+Call log:
+  - navigating to "https://www.xiaohongshu.com/", waiting until "domcontentloaded"
+
+19:36:53   ✅ Session valid (cookie fallback after timeout)
+19:36:53     ✅ 0 posts, 0 comments
+19:36:53     💤 School cooldown 23s...
+19:37:16   📊 Progress: 60/873 (6.9%), 2076 posts total, 0 failed
+19:37:16   💤 Batch cooldown 608s (10.1min)...
+19:47:24   [60/873] 基督教康山中英文幼稚園 (215848)
+19:47:24       🔍 搜索: 基督教康山中英文幼稚園 面試 (sort=general)
+19:47:28       搜索到 15 个帖子链接
+19:47:28       📄 抓取帖子: ...ba80000000000900f6a2
+19:47:33     ⚠️ 安全重定向! 暂停 101s...
+19:49:14       - 笔记无法浏览，跳过
+19:49:25       📄 抓取帖子: ...55d0000000002a03627e
+19:49:29     ⚠️ 安全重定向! 暂停 110s...
+19:51:19       - 笔记无法浏览，跳过
+19:51:35     ☕ 随机长停顿 80s (detail fetch 前)
+19:52:54       📄 抓取帖子: ...a04700000000100270e9
+19:52:59     ⚠️ 安全重定向! 暂停 102s...
+19:54:41       - 笔记无法浏览，跳过
+19:54:49       📄 抓取帖子: ...6b0e000000001b022ad2
+19:54:54     ⚠️ 安全重定向! 暂停 110s...
+19:56:44       - 笔记无法浏览，跳过
+19:56:58       📄 抓取帖子: ...03de0000000024009ad3
+19:57:03     ⚠️ 安全重定向! 暂停 73s...
+19:58:16       - 笔记无法浏览，跳过
+19:58:38       📄 抓取帖子: ...84a3000000002101a6de
+19:58:42     ⚠️ 安全重定向! 暂停 77s...
+19:59:59       - 笔记无法浏览，跳过
+20:00:21       📄 抓取帖子: ...d1280000000017039f6b
+20:00:36       📄 抓取帖子: ...49030000000005010a7f
+20:00:55     ☕ 随机长停顿 80s (detail fetch 前)
+20:02:15       📄 抓取帖子: ...7c3b000000000d03ea84
+20:02:28       📄 抓取帖子: ...3dcc000000002500c47b
+20:02:48       📄 抓取帖子: ...3784000000001d03ad19
+20:03:06       📄 抓取帖子: ...4fb7000000000202c3c6
+20:03:18     ☕ 随机长停顿 58s (detail fetch 前)
+20:04:17       📄 抓取帖子: ...f4a6000000000800c96f
+20:04:47       📄 抓取帖子: ...cee3000000000b0159ea
+20:05:08       📄 抓取帖子: ...9a56000000000203b69b
+20:05:37       🔍 搜索: 基督教康山中英文幼稚園 (sort=general)
+20:05:52       - 搜索无结果或被拦截
+20:06:03       🔍 搜索: 基督教康山 幼稚園 面試 (sort=general)
+20:06:10       搜索到 15 个帖子链接
+20:06:10       📄 抓取帖子: ...ef0d000000001b0370c9
+20:06:16     ⚠️ 安全重定向! 暂停 110s...
+20:08:18       📄 抓取帖子: ...56e60000000025014b16
+20:08:38       📄 抓取帖子: ...897a000000001b023680
+20:08:54       📄 抓取帖子: ...a67e000000001c034640
+20:09:08       📄 抓取帖子: ...c9b9000000000e007186
+20:09:27       📄 抓取帖子: ...7f12000000000a03f3bc
+20:09:44       📄 抓取帖子: ...992e000000000700a693
+20:09:57       📄 抓取帖子: ...3ff6000000001f01f1b4
+20:10:29       📄 抓取帖子: ...37fd000000001b0202af
+20:10:48       📄 抓取帖子: ...da980000000015012499
+20:11:05       📄 抓取帖子: ...1311000000000303928c
+20:11:24       📄 抓取帖子: ...a9880000000028009e7a
+20:11:32     ⚠️ 安全重定向! 暂停 101s...
+20:13:26       📄 抓取帖子: ...a4720000000022027113
+20:14:03     ✅ 20 posts, 0 comments
+20:14:03     💤 School cooldown 10s...
+20:14:13   [61/873] 嶺南幼稚園（小西灣） (589144)
+20:14:13       🔍 搜索: 嶺南幼稚園（小西灣） 面試 (sort=general)
+20:14:33       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%B6%BA%E5%8D%97%E5%B9%BC%E7%A8%9A%E5%9C%92%EF%BC%88%E5%B0%8F%E8%A5%BF%E7%81%A3%EF%BC%89%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+20:14:58       - 搜索无结果或被拦截
+20:15:07       🔍 搜索: 嶺南幼稚園（小西灣） (sort=general)
+20:15:27       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%B6%BA%E5%8D%97%E5%B9%BC%E7%A8%9A%E5%9C%92%EF%BC%88%E5%B0%8F%E8%A5%BF%E7%81%A3%EF%BC%89&source=web_search_result_notes", waiting until "domcontentloaded"
+
+20:16:08       🔍 搜索: 嶺南幼稚園 面試 (sort=general)
+20:16:25       - 搜索无结果或被拦截
+20:16:44       🔍 搜索: 嶺南幼稚園 (sort=general)
+20:17:04       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%B6%BA%E5%8D%97%E5%B9%BC%E7%A8%9A%E5%9C%92&source=web_search_result_notes", waiting until "domcontentloaded"
+
+20:17:22       搜索到 15 个帖子链接
+20:17:22       📄 抓取帖子: ...c298000000001c0053f9
+20:17:29     ⚠️ 安全重定向! 暂停 85s...
+20:19:08     ☕ 随机长停顿 76s (detail fetch 前)
+20:20:24       📄 抓取帖子: ...7dcf0000000007030099
+20:20:38       📄 抓取帖子: ...fac0000000001b010d82
+20:21:07       📄 抓取帖子: ...17ca0000000007009992
+20:21:11     ⚠️ 安全重定向! 暂停 101s...
+20:23:07       📄 抓取帖子: ...65bd000000000302d9ca
+20:23:25       📄 抓取帖子: ...8585000000002103a16a
+20:23:42       📄 抓取帖子: ...5fc8000000001e03579d
+20:23:58       📄 抓取帖子: ...87e6000000000d039d74
+20:24:18       📄 抓取帖子: ...fe25000000001e031a52
+20:24:36       📄 抓取帖子: ...f668000000002200ceec
+20:24:55       📄 抓取帖子: ...ddec00000000270116cc
+20:25:10       📄 抓取帖子: ...fa40000000001c03e3d6
+20:25:24     ☕ 随机长停顿 67s (detail fetch 前)
+20:26:30       📄 抓取帖子: ...1d7c000000001c004327
+20:26:49       📄 抓取帖子: ...0f37000000001300965b
+20:27:03       📄 抓取帖子: ...c7000000000007030f1e
+20:27:29       🔍 搜索: 嶺南幼稚園（小西灣） 面試 (sort=popularity_descending)
+20:27:45       - 搜索无结果或被拦截
+20:28:04       🔍 搜索: 嶺南幼稚園（小西灣） (sort=popularity_descending)
+20:28:13       搜索到 9 个帖子链接
+20:28:13       📄 抓取帖子: ...b25e000000000302ec13
+20:28:19     ⚠️ 安全重定向! 暂停 92s...
+20:30:03       📄 抓取帖子: ...9b06000000001e03a618
+20:30:22       📄 抓取帖子: ...3c6b000000001d00be96
+20:30:35       📄 抓取帖子: ...4930000000000400464a
+20:30:49       📄 抓取帖子: ...2e4e0000000005004ea9
+20:31:03       📄 抓取帖子: ...528100000000220218d0
+20:31:32     ✅ 20 posts, 0 comments
+20:31:32     💤 School cooldown 14s...
+20:31:45   [62/873] 嶺南幼稚園（小西灣）二校 (610534)
+20:31:45       🔍 搜索: 嶺南幼稚園（小西灣）二校 面試 (sort=general)
+20:31:59       - 搜索无结果或被拦截
+20:32:19       🔍 搜索: 嶺南幼稚園（小西灣）二校 (sort=general)
+20:32:19       ⚠️ Search page load failed: Page.goto: net::ERR_CONNECTION_CLOSED at https://www.xiaohongshu.com/search_result?keyword=%E5%B6%BA%E5%8D%97%E5%B9%BC%E7%A8%9A%E5%9C%92%EF%BC%88%E5%B0%8F%E8%A5%BF%E7%81%A3%EF%BC%89%E4%BA%8C%E6%A0%A1&source=web_search_result_notes
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E5%B6%BA%E5%8D%97%E5%B9%BC%E7%A8%9A%E5%9C%92%EF%BC%88%E5%B0%8F%E8%A5%BF%E7%81%A3%EF%BC%89%E4%BA%8C%E6%A0%A1&source=web_search_result_notes", waiting until "domcontentloaded"
+
+20:32:42       🔍 搜索: 嶺南幼稚園 面試 (sort=general)
+20:33:02       搜索到 15 个帖子链接
+20:33:02       📄 抓取帖子: ...e2de00000000040034a0
+20:33:08     ⚠️ 安全重定向! 暂停 90s...
+20:34:50       📄 抓取帖子: ...55d0000000002a03627e
+20:35:08       📄 抓取帖子: ...a04700000000100270e9
+20:35:21     ☕ 随机长停顿 30s (detail fetch 前)
+20:35:51       📄 抓取帖子: ...77ee000000000503016f
+20:36:12       📄 抓取帖子: ...20f2000000001e02a337
+20:36:25       📄 抓取帖子: ...d843000000001a00e08a
+20:36:42       📄 抓取帖子: ...169e000000001a026fc3
+20:36:56       📄 抓取帖子: ...9dae00000000220213a1
+20:37:16       📄 抓取帖子: ...bbd3000000001b0302ce
+20:37:32       📄 抓取帖子: ...7e0a0000000010013871
+20:37:47     ☕ 随机长停顿 39s (detail fetch 前)
+20:38:26       📄 抓取帖子: ...8eb5000000000301c19e
+20:38:42       📄 抓取帖子: ...d88b000000001202fb1e
+20:39:02       📄 抓取帖子: ...3819000000001e025a12
+20:39:19       📄 抓取帖子: ...769c000000001a030b38
+20:39:37       📄 抓取帖子: ...8777000000001b013277
+20:40:11       🔍 搜索: 嶺南幼稚園 (sort=general)
+20:40:29       搜索到 8 个帖子链接
+20:40:29       📄 抓取帖子: ...a4a5000000001a031a93
+20:40:34     ⚠️ 安全重定向! 暂停 119s...
+20:42:46       📄 抓取帖子: ...fac0000000001b010d82
+20:43:23       📄 抓取帖子: ...7999000000001d0190c0
+20:43:48       📄 抓取帖子: ...e555000000000d00faae
+20:44:03       📄 抓取帖子: ...ccfe0000000007030ac3
+20:44:20       📄 抓取帖子: ...bae5000000000700ee6f
+20:44:36       📄 抓取帖子: ...fe760000000007000242
+20:45:03     ✅ 20 posts, 0 comments
+20:45:03     💤 School cooldown 23s...
+20:45:26   [63/873] 新翠培元幼稚園 (325589)
+20:45:26       🔍 搜索: 新翠培元幼稚園 面試 (sort=general)
+20:45:43       - 搜索无结果或被拦截
+20:45:57       🔍 搜索: 新翠培元幼稚園 (sort=general)
+20:46:08       搜索到 15 个帖子链接
+20:46:08       📄 抓取帖子: ...386b000000002002b8c4
+20:46:14     ⚠️ 安全重定向! 暂停 80s...
+20:47:45       📄 抓取帖子: ...3b850000000020018907
+20:47:59       📄 抓取帖子: ...87c9000000002100225a
+20:48:14       📄 抓取帖子: ...063b0000000025017dc8
+20:48:28       📄 抓取帖子: ...76fb0000000021019601
+20:48:47       📄 抓取帖子: ...dd9e0000000021007b63
+20:49:19       📄 抓取帖子: ...3e0f0000000022032a5c
+20:49:43       📄 抓取帖子: ...9f7d000000002100cde7
+20:49:56       📄 抓取帖子: ...2a530000000021007607
+20:50:17       📄 抓取帖子: ...1424000000000202a7d8
+20:50:36       📄 抓取帖子: ...b9f7000000001d039e02
+20:50:52       📄 抓取帖子: ...87a8000000001d007380
+20:51:09       📄 抓取帖子: ...edf00000000003028326
+20:51:28     ☕ 随机长停顿 88s (detail fetch 前)
+20:52:56       📄 抓取帖子: ...c6060000000007032184
+20:53:16       📄 抓取帖子: ...274b000000002003a1a9
+20:53:42       🔍 搜索: 新翠培元 幼稚園 面試 (sort=general)
+20:53:58       搜索到 10 个帖子链接
+20:53:58       📄 抓取帖子: ...c56a000000000402a4ab
+20:54:02     ⚠️ 安全重定向! 暂停 90s...
+20:55:42       📄 抓取帖子: ...45030000000007034821
+20:56:11       📄 抓取帖子: ...ba80000000000900f6a2
+20:56:41       📄 抓取帖子: ...84a3000000002101a6de
+20:56:56       📄 抓取帖子: ...8b5900000000110038a3
+20:57:13       📄 抓取帖子: ...3be000000000120010fb
+20:57:28       📄 抓取帖子: ...8b95000000001d029ddd
+20:57:44       📄 抓取帖子: ...4bd5000000002a0024a7
+20:58:12     ✅ 20 posts, 0 comments
+20:58:12     💤 School cooldown 21s...
+20:58:33   [64/873] 北角衞理堂幼稚園 (314684)
+20:58:33       🔍 搜索: 北角衞理堂幼稚園 面試 (sort=general)
+20:58:52       搜索到 15 个帖子链接
+20:58:52     ☕ 随机长停顿 82s (detail fetch 前)
+21:00:14       📄 抓取帖子: ...cd4f0000000004017298
+21:00:19     ⚠️ 安全重定向! 暂停 67s...
+21:01:35       📄 抓取帖子: ...01f70000000004022008
+21:02:03       📄 抓取帖子: ...96dd000000000700e1cd
+21:02:27       📄 抓取帖子: ...93a8000000001e0318ef
+21:02:57       📄 抓取帖子: ...1232000000001e008c65
+21:03:17       📄 抓取帖子: ...4cb4000000001901859e
+21:03:31       📄 抓取帖子: ...04d6000000001e03cadf
+21:03:51       📄 抓取帖子: ...5bc1000000000102977c
+21:04:08       📄 抓取帖子: ...c8cb000000002d0016a2
+21:04:24       📄 抓取帖子: ...7ba0000000000b00f5e0
+21:04:40       📄 抓取帖子: ...9bd2000000003c01d32c
+21:04:52       📄 抓取帖子: ...eec500000000070350d5
+21:05:10       📄 抓取帖子: ...f4a6000000000800c96f
+21:05:27       📄 抓取帖子: ...a43b0000000013010db3
+21:05:45       📄 抓取帖子: ...d89f000000001e037e4e
+21:06:20       🔍 搜索: 北角衞理堂幼稚園 (sort=general)
+21:06:38       搜索到 10 个帖子链接
+21:06:38       📄 抓取帖子: ...3426000000000d039ad6
+21:06:44     ⚠️ 安全重定向! 暂停 111s...
+21:08:44       📄 抓取帖子: ...01f70000000004022008
+21:09:10       📄 抓取帖子: ...869c00000000050026c2
+21:09:38       📄 抓取帖子: ...96dd000000000700e1cd
+21:09:50       📄 抓取帖子: ...d7ed000000002800b5b3
+21:10:07       📄 抓取帖子: ...86ea000000002500d805
+21:10:21       📄 抓取帖子: ...dd68000000001d03f025
+21:10:34       📄 抓取帖子: ...248e000000002a035a9a
+21:11:08     ✅ 20 posts, 0 comments
+21:11:08     💤 School cooldown 14s...
+21:11:22   [65/873] 保良局慧妍雅集幼稚園 (567345)
+21:11:22       🔍 搜索: 保良局慧妍雅集幼稚園 面試 (sort=general)
+21:11:37       - 搜索无结果或被拦截
+21:11:52       🔍 搜索: 保良局慧妍雅集幼稚園 (sort=general)
+21:12:00       搜索到 15 个帖子链接
+21:12:00       📄 抓取帖子: ...f18f000000002901c77c
+21:12:14     ☕ 随机长停顿 76s (detail fetch 前)
+21:13:31       📄 抓取帖子: ...3fd80000000027013b4b
+21:13:48       📄 抓取帖子: ...226a000000000b008581
+21:14:03       📄 抓取帖子: ...8e4c0000000007036514
+21:14:20       📄 抓取帖子: ...ebd400000000250301d2
+21:14:37       📄 抓取帖子: ...e54f0000000029031a9b
+21:14:51       📄 抓取帖子: ...5d32000000001e015546
+21:15:06       📄 抓取帖子: ...c76a000000001a00f437
+21:15:20       📄 抓取帖子: ...7c8e000000002a037144
+21:15:35     ☕ 随机长停顿 64s (detail fetch 前)
+21:16:38       📄 抓取帖子: ...7cce000000001d028a8f
+21:16:49       📄 抓取帖子: ...ff230000000029026bce
+21:17:03       📄 抓取帖子: ...2a80000000001703002d
+21:17:16       📄 抓取帖子: ...5401000000002102cecb
+21:17:36       📄 抓取帖子: ...2c23000000002100f9e9
+21:17:56       📄 抓取帖子: ...f2e6000000002c02bb84
+21:18:16       🔍 搜索: 保良局慧妍雅集 幼稚園 面試 (sort=general)
+21:18:32       - 搜索无结果或被拦截
+21:18:47       🔍 搜索: 保良局慧妍雅集 幼稚園 (sort=general)
+21:19:01       - 搜索无结果或被拦截
+21:19:13       🔍 搜索: 保良局慧妍雅集幼稚園 面試 (sort=popularity_descending)
+21:19:29       搜索到 8 个帖子链接
+21:19:29       📄 抓取帖子: ...a4a6000000001e00da16
+21:19:34     ⚠️ 安全重定向! 暂停 60s...
+21:20:44       📄 抓取帖子: ...38710000000004018230
+21:20:57       📄 抓取帖子: ...8fb7000000002203b244
+21:21:10       📄 抓取帖子: ...8701000000001b01f6c7
+21:21:23     ☕ 随机长停顿 42s (detail fetch 前)
+21:22:05       📄 抓取帖子: ...b4aa0000000007039f94
+21:22:41     ✅ 20 posts, 0 comments
+21:22:41     💤 School cooldown 14s...
+21:22:56   [66/873] 高主教書院幼稚園部 (215538)
+21:22:56       🔍 搜索: 高主教書院幼稚園部 面試 (sort=general)
+21:23:12       - 搜索无结果或被拦截
+21:23:19       🔍 搜索: 高主教書院幼稚園部 (sort=general)
+21:23:39       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E9%AB%98%E4%B8%BB%E6%95%99%E6%9B%B8%E9%99%A2%E5%B9%BC%E7%A8%9A%E5%9C%92%E9%83%A8&source=web_search_result_notes", waiting until "domcontentloaded"
+
+21:24:01       - 搜索无结果或被拦截
+21:24:16       🔍 搜索: Raimondi 幼稚園 面試 (sort=general)
+21:24:30       - 搜索无结果或被拦截
+21:24:44       🔍 搜索: Raimondi 幼稚園 (sort=general)
+21:24:58       - 搜索无结果或被拦截
+21:25:15       🔍 搜索: 高主教書院幼稚園部 面試 (sort=popularity_descending)
+21:25:27       - 搜索无结果或被拦截
+21:25:46       🔍 搜索: 高主教書院幼稚園部 (sort=popularity_descending)
+21:25:59       - 搜索无结果或被拦截
+21:26:10       🔍 搜索: Raimondi 幼稚園 面試 (sort=popularity_descending)
+21:26:25       搜索到 15 个帖子链接
+21:26:25       📄 抓取帖子: ...e374000000002302d2de
+21:26:45       📄 抓取帖子: ...e1ce000000002102d6ea
+21:27:07       📄 抓取帖子: ...bb00000000001800530d
+21:27:22       📄 抓取帖子: ...3c1b000000000d038992
+21:27:38       📄 抓取帖子: ...55f8000000002301012b
+21:27:54       📄 抓取帖子: ...543c0000000022038c38
+21:28:10     ☕ 随机长停顿 30s (detail fetch 前)
+21:28:41       📄 抓取帖子: ...6861000000000303e37f
+21:28:46     ⚠️ 安全重定向! 暂停 69s...
+21:29:55       - 笔记无法浏览，跳过
+21:30:12       📄 抓取帖子: ...b190000000001b01d092
+21:30:17     ⚠️ 安全重定向! 暂停 105s...
+21:32:02       - 笔记无法浏览，跳过
+21:32:23       📄 抓取帖子: ...381e0000000027011808
+21:32:29     ⚠️ 安全重定向! 暂停 76s...
+21:33:46       - 笔记无法浏览，跳过
+21:34:09       📄 抓取帖子: ...0979000000001e00d3db
+21:34:13     ⚠️ 安全重定向! 暂停 80s...
+21:35:33       - 笔记无法浏览，跳过
+21:35:45       📄 抓取帖子: ...bbbb000000000703707a
+21:35:50     ⚠️ 安全重定向! 暂停 75s...
+21:37:05       - 笔记无法浏览，跳过
+21:37:19       📄 抓取帖子: ...7331000000001600dcd2
+21:37:23     ⚠️ 安全重定向! 暂停 79s...
+21:38:43       - 笔记无法浏览，跳过
+21:38:56       📄 抓取帖子: ...2e260000000009014cf5
+21:39:03     ⚠️ 安全重定向! 暂停 81s...
+21:40:24       - 笔记无法浏览，跳过
+21:40:43     ☕ 随机长停顿 69s (detail fetch 前)
+21:41:52       📄 抓取帖子: ...7031000000001e00d37f
+21:41:56     ⚠️ 安全重定向! 暂停 108s...
+21:43:44       - 笔记无法浏览，跳过
+21:43:54       📄 抓取帖子: ...1487000000000602b200
+21:44:01     ⚠️ 安全重定向! 暂停 67s...
+21:45:08       - 笔记无法浏览，跳过
+21:45:33       🔍 搜索: Raimondi 幼稚園 (sort=popularity_descending)
+21:45:39       搜索到 15 个帖子链接
+21:45:39       📄 抓取帖子: ...715e000000001a023fb3
+21:45:44     ⚠️ 安全重定向! 暂停 83s...
+21:47:08       - 笔记无法浏览，跳过
+21:47:24       📄 抓取帖子: ...2fbb000000000303d6bd
+21:47:30     ⚠️ 安全重定向! 暂停 119s...
+21:49:28       - 笔记无法浏览，跳过
+21:49:45       📄 抓取帖子: ...f94300000000290268d2
+21:49:49     ⚠️ 安全重定向! 暂停 78s...
+21:51:08       - 笔记无法浏览，跳过
+21:51:20       📄 抓取帖子: ...ab15000000001b027ac8
+21:51:24     ⚠️ 安全重定向! 暂停 77s...
+21:52:41       - 笔记无法浏览，跳过
+21:53:04       📄 抓取帖子: ...cb44000000001c03d75c
+21:53:11     ⚠️ 安全重定向! 暂停 107s...
+21:54:58       - 笔记无法浏览，跳过
+21:55:15     ☕ 随机长停顿 81s (detail fetch 前)
+21:56:35       📄 抓取帖子: ...aabf000000000c01b932
+21:56:42     ⚠️ 安全重定向! 暂停 86s...
+21:58:08       - 笔记无法浏览，跳过
+21:58:23       📄 抓取帖子: ...6083000000001e017c27
+21:58:30     ⚠️ 安全重定向! 暂停 61s...
+21:59:30       - 笔记无法浏览，跳过
+21:59:44       📄 抓取帖子: ...c9c4000000001e035704
+21:59:50     ⚠️ 安全重定向! 暂停 75s...
+22:01:05       - 笔记无法浏览，跳过
+22:01:16       📄 抓取帖子: ...b1650000000022002cad
+22:01:21     ⚠️ 安全重定向! 暂停 80s...
+22:02:41       - 笔记无法浏览，跳过
+22:02:56       📄 抓取帖子: ...1440000000000b02d61f
+22:03:01     ⚠️ 安全重定向! 暂停 68s...
+22:04:09       - 笔记无法浏览，跳过
+22:04:19       📄 抓取帖子: ...47670000000022035935
+22:04:25     ⚠️ 安全重定向! 暂停 106s...
+22:06:11       - 笔记无法浏览，跳过
+22:06:20       📄 抓取帖子: ...57880000000012023e8b
+22:06:24     ⚠️ 安全重定向! 暂停 69s...
+22:07:33       - 笔记无法浏览，跳过
+22:07:53       📄 抓取帖子: ...403b000000000d036e38
+22:07:59     ⚠️ 安全重定向! 暂停 76s...
+22:09:15       - 笔记无法浏览，跳过
+22:09:32     ☕ 随机长停顿 74s (detail fetch 前)
+22:10:46       📄 抓取帖子: ...88200000000022037e37
+22:10:51     ⚠️ 安全重定向! 暂停 115s...
+22:12:46       - 笔记无法浏览，跳过
+22:13:02       📄 抓取帖子: ...f06c000000001c0238d6
+22:13:08     ⚠️ 安全重定向! 暂停 106s...
+22:14:54       - 笔记无法浏览，跳过
+22:15:28     ✅ 6 posts, 0 comments
+22:15:28     💤 School cooldown 16s...
+22:15:43   [67/873] 救世軍北角幼兒學校 (563161)
+22:15:43       🔍 搜索: 救世軍北角幼兒學校 面試 (sort=general)
+22:15:54       搜索到 15 个帖子链接
+22:15:54       📄 抓取帖子: ...98520000000004018160
+22:15:59     ⚠️ 安全重定向! 暂停 91s...
+22:17:29       - 笔记无法浏览，跳过
+22:17:49       📄 抓取帖子: ...24b6000000001b02cc59
+22:17:54     ⚠️ 安全重定向! 暂停 68s...
+22:19:03       - 笔记无法浏览，跳过
+22:19:19       📄 抓取帖子: ...60df000000002202d1d0
+22:19:23     ⚠️ 安全重定向! 暂停 108s...
+22:21:11       - 笔记无法浏览，跳过
+22:21:25       📄 抓取帖子: ...eb9a000000001d027a2f
+22:21:30     ⚠️ 安全重定向! 暂停 64s...
+22:22:34       - 笔记无法浏览，跳过
+22:22:52       📄 抓取帖子: ...92df000000002800806e
+22:22:58     ⚠️ 安全重定向! 暂停 101s...
+22:24:39       - 笔记无法浏览，跳过
+22:24:53       📄 抓取帖子: ...e07f000000000202999d
+22:24:58     ⚠️ 安全重定向! 暂停 97s...
+22:26:35       - 笔记无法浏览，跳过
+22:26:55       📄 抓取帖子: ...80e2000000002203309c
+22:27:00     ⚠️ 安全重定向! 暂停 70s...
+22:28:10       - 笔记无法浏览，跳过
+22:28:30       📄 抓取帖子: ...8010000000001a02f654
+22:28:35     ⚠️ 安全重定向! 暂停 105s...
+22:30:20       - 笔记无法浏览，跳过
+22:30:37       📄 抓取帖子: ...92ca000000002800957d
+22:30:42     ⚠️ 安全重定向! 暂停 109s...
+22:32:31       - 笔记无法浏览，跳过
+22:32:44       📄 抓取帖子: ...a04400000000220346e5
+22:32:48     ⚠️ 安全重定向! 暂停 84s...
+22:34:12       - 笔记无法浏览，跳过
+22:34:24       📄 抓取帖子: ...5e68000000001a02e2e3
+22:34:31     ⚠️ 安全重定向! 暂停 86s...
+22:35:57       - 笔记无法浏览，跳过
+22:36:08       📄 抓取帖子: ...84050000000003038812
+22:36:11     ⚠️ 安全重定向! 暂停 66s...
+22:37:18       - 笔记无法浏览，跳过
+22:37:35       📄 抓取帖子: ...ed44000000001e02091f
+22:37:42     ⚠️ 安全重定向! 暂停 67s...
+22:38:48       - 笔记无法浏览，跳过
+22:39:05       📄 抓取帖子: ...d6c6000000001e03a0ee
+22:39:08     ⚠️ 安全重定向! 暂停 115s...
+22:41:03       - 笔记无法浏览，跳过
+22:41:17       📄 抓取帖子: ...80fd000000000f030fa3
+22:41:21     ⚠️ 安全重定向! 暂停 87s...
+22:42:48       - 笔记无法浏览，跳过
+22:43:22       🔍 搜索: 救世軍北角幼兒學校 (sort=general)
+22:43:33       搜索到 15 个帖子链接
+22:43:33     ☕ 随机长停顿 60s (detail fetch 前)
+22:44:33       📄 抓取帖子: ...60df000000002202d1d0
+22:44:38     ⚠️ 安全重定向! 暂停 120s...
+22:46:38       - 笔记无法浏览，跳过
+22:46:50       📄 抓取帖子: ...d475000000000a02ca95
+22:46:57     ⚠️ 安全重定向! 暂停 83s...
+22:48:20       - 笔记无法浏览，跳过
+22:48:30       📄 抓取帖子: ...eb0f000000001e026438
+22:48:35     ⚠️ 安全重定向! 暂停 116s...
+22:50:31       - 笔记无法浏览，跳过
+22:50:54       📄 抓取帖子: ...eb9a000000001d027a2f
+22:50:57     ⚠️ 安全重定向! 暂停 111s...
+22:52:48       - 笔记无法浏览，跳过
+22:53:00       📄 抓取帖子: ...24b6000000001b02cc59
+22:53:18       📄 抓取帖子: ...ed44000000001e02091f
+22:53:36       📄 抓取帖子: ...42ed000000001c000c62
+22:53:53       📄 抓取帖子: ...f94300000000290268d2
+22:54:10       📄 抓取帖子: ...3b940000000029038d28
+22:54:14     ⚠️ 安全重定向! 暂停 86s...
+22:55:40       - 笔记无法浏览，跳过
+22:55:51       📄 抓取帖子: ...dbce000000001300c4e6
+22:55:57     ⚠️ 安全重定向! 暂停 108s...
+22:57:45       - 笔记无法浏览，跳过
+22:57:54       📄 抓取帖子: ...5047000000001a032ef6
+22:58:00     ⚠️ 安全重定向! 暂停 106s...
+22:59:46       - 笔记无法浏览，跳过
+23:00:03       📄 抓取帖子: ...98520000000004018160
+23:00:10     ⚠️ 安全重定向! 暂停 65s...
+23:01:28       📄 抓取帖子: ...46a30000000013011d20
+23:01:40       📄 抓取帖子: ...11070000000019014613
+23:01:53       📄 抓取帖子: ...f842000000002103998e
+23:02:26       🔍 搜索: 救世軍北角 幼稚園 面試 (sort=general)
+23:02:54       - 搜索无结果或被拦截
+23:03:02       🔍 搜索: 救世軍北角 幼稚園 (sort=general)
+23:03:15       - 搜索无结果或被拦截
+23:03:33       🔍 搜索: 救世軍北角幼兒學校 面試 (sort=popularity_descending)
+23:03:44       搜索到 15 个帖子链接
+23:03:44       📄 抓取帖子: ...60df000000002202d1d0
+23:03:48     ⚠️ 安全重定向! 暂停 72s...
+23:05:11       📄 抓取帖子: ...eb9a000000001d027a2f
+23:05:34       📄 抓取帖子: ...92df000000002800806e
+23:05:52       📄 抓取帖子: ...80e2000000002203309c
+23:06:04       📄 抓取帖子: ...e07f000000000202999d
+23:06:23       📄 抓取帖子: ...8010000000001a02f654
+23:06:41       📄 抓取帖子: ...92ca000000002800957d
+23:06:53       📄 抓取帖子: ...84050000000003038812
+23:07:12       📄 抓取帖子: ...dbce000000001300c4e6
+23:07:33       📄 抓取帖子: ...bce9000000001e02e476
+23:07:47       📄 抓取帖子: ...36e8000000000d009aea
+23:08:01       📄 抓取帖子: ...0d00000000002202711c
+23:08:32     ✅ 20 posts, 0 comments
+23:08:32     💤 School cooldown 19s...
+23:08:51   [68/873] 筲箕灣街坊福利會張錦添紀念幼稚園 (516910)
+23:08:51       🔍 搜索: 筲箕灣街坊福利會張錦添紀念幼稚園 面試 (sort=general)
+23:09:07       - 搜索无结果或被拦截
+23:09:19       🔍 搜索: 筲箕灣街坊福利會張錦添紀念幼稚園 (sort=general)
+23:09:33       - 搜索无结果或被拦截
+23:09:47       🔍 搜索: 筲箕灣街坊福利會張錦添紀念 幼稚園 面試 (sort=general)
+23:09:56       搜索到 15 个帖子链接
+23:09:56       📄 抓取帖子: ...c2990000000023015974
+23:10:01     ⚠️ 安全重定向! 暂停 79s...
+23:11:30       📄 抓取帖子: ...bd09000000002400c944
+23:11:45       📄 抓取帖子: ...95b500000000220299f0
+23:12:02       📄 抓取帖子: ...1115000000002003ae81
+23:12:08     ⚠️ 安全重定向! 暂停 88s...
+23:13:36       - 笔记无法浏览，跳过
+23:13:54       📄 抓取帖子: ...ecad000000001a035089
+23:14:11       📄 抓取帖子: ...f175000000001c030c6d
+23:14:29       📄 抓取帖子: ...9ac0000000001c034dc0
+23:14:35     ⚠️ 安全重定向! 暂停 92s...
+23:16:08       - 笔记无法浏览，跳过
+23:16:24       📄 抓取帖子: ...eb640000000004001b87
+23:16:44       📄 抓取帖子: ...9a38000000000503af98
+23:17:01       📄 抓取帖子: ...89c5000000001d0065fd
+23:17:17       📄 抓取帖子: ...86b40000000005002016
+23:17:35       📄 抓取帖子: ...ce2300000000040173b4
+23:17:53       📄 抓取帖子: ...8277000000001b01ebb9
+23:18:08       📄 抓取帖子: ...de9f0000000004020027
+23:18:29       📄 抓取帖子: ...d199000000002800af0c
+23:19:03       🔍 搜索: 筲箕灣街坊福利會張錦添紀念 幼稚園 (sort=general)
+23:19:24       - 搜索无结果或被拦截
+23:19:38       🔍 搜索: 筲箕灣街坊福利會張錦添紀念幼稚園 面試 (sort=popularity_descending)
+23:19:51       - 搜索无结果或被拦截
+23:20:03       🔍 搜索: 筲箕灣街坊福利會張錦添紀念幼稚園 (sort=popularity_descending)
+23:20:15       搜索到 10 个帖子链接
+23:20:15       📄 抓取帖子: ...8c75000000000100aa4e
+23:20:23     ⚠️ 安全重定向! 暂停 105s...
+23:22:18       📄 抓取帖子: ...890d000000001a032e83
+23:22:27     ⚠️ 安全重定向! 暂停 77s...
+23:23:44       - 笔记无法浏览，跳过
+23:23:58       📄 抓取帖子: ...7b85000000001d01d503
+23:24:02     ⚠️ 安全重定向! 暂停 102s...
+23:25:44       - 笔记无法浏览，跳过
+23:26:03       📄 抓取帖子: ...637a000000001e02fdab
+23:26:20       📄 抓取帖子: ...2c72000000002100d67d
+23:26:40       📄 抓取帖子: ...1115000000002003ae81
+23:26:57       📄 抓取帖子: ...9a6e000000001c00ae3a
+23:27:15       📄 抓取帖子: ...8071000000000e03f5d1
+23:27:34       📄 抓取帖子: ...828e00000000140188b4
+23:28:10     ✅ 20 posts, 0 comments
+23:28:10     💤 School cooldown 22s...
+23:28:32   [69/873] 筲箕灣崇真幼兒學校 (566420)
+23:28:32       🔍 搜索: 筲箕灣崇真幼兒學校 面試 (sort=general)
+23:28:46       搜索到 15 个帖子链接
+23:28:46       📄 抓取帖子: ...24c8000000000d034a92
+23:29:03       📄 抓取帖子: ...e00d0000000017036ccc
+23:29:15       📄 抓取帖子: ...7842000000001d01f7bd
+23:29:29       📄 抓取帖子: ...30f800000000070322de
+23:29:35     ⚠️ 安全重定向! 暂停 113s...
+23:31:42       📄 抓取帖子: ...7182000000003c015b4b
+23:32:03       📄 抓取帖子: ...ff54000000001f01ba1d
+23:32:23       📄 抓取帖子: ...819d00000000070263b6
+23:32:45       📄 抓取帖子: ...e783000000000e023fba
+23:33:01       📄 抓取帖子: ...28e5000000001e020ad6
+23:33:06     ⚠️ 安全重定向! 暂停 68s...
+23:34:24       📄 抓取帖子: ...bada00000000080065f2
+23:34:43       📄 抓取帖子: ...93e6000000001e009663
+23:35:01       📄 抓取帖子: ...b2f8000000001b01f7e7
+23:35:17       📄 抓取帖子: ...64b1000000000d038d09
+23:35:32       📄 抓取帖子: ...4d23000000001e010a33
+23:35:50       📄 抓取帖子: ...79ab000000000301025e
+23:36:25       🔍 搜索: 筲箕灣崇真幼兒學校 (sort=general)
+23:36:42       - 搜索无结果或被拦截
+23:36:59       🔍 搜索: 筲箕灣崇真 幼稚園 面試 (sort=general)
+23:37:10       搜索到 8 个帖子链接
+23:37:10       📄 抓取帖子: ...702c000000000d034243
+23:37:30       📄 抓取帖子: ...cec500000000070080eb
+23:37:43       📄 抓取帖子: ...26e90000000007008be9
+23:37:59       📄 抓取帖子: ...e8310000000028009002
+23:38:19       📄 抓取帖子: ...0619000000000302d21d
+23:38:52     ✅ 20 posts, 0 comments
+23:38:52     💤 School cooldown 22s...
+23:39:14   📊 Progress: 70/873 (8.0%), 2262 posts total, 0 failed
+23:39:14   💤 Batch cooldown 617s (10.3min)...
+23:46:10   Resuming: 69 schools already done
+23:46:10 Starting Round 1 scraping (慢爬模式 v2)...
+23:46:10   Targets: 803 schools (of 873 total)
+23:46:10   Max posts/school: 20
+23:46:10   Max keywords/school: 4
+23:46:10   Max posts/keyword: 15
+23:46:10   Request delay: 6.0-12.0s
+23:46:10   School cooldown: 10.0-25.0s
+23:46:10   Batch: every 10 schools, rest 600s (10min)
+23:46:10   Random long pause: 8% chance
+23:46:10   Session refresh: every 30 schools
+23:46:10   Comments: No
+23:46:10 
+23:46:11   Browser fingerprint: 1920x1080, UA=...Chrome/124.0.0.0 Safari/537.36
+23:46:11   Loaded saved cookies
+23:46:26   ✅ Session valid (87 feed items on homepage)
+23:46:26   Switching to headless mode for scraping...
+23:46:28   Browser fingerprint: 1920x1080, UA=...Chrome/125.0.0.0 Safari/537.36
+23:46:28   Loaded saved cookies
+23:46:29   🌡️ Warming up session (browsing naturally for 15-25s)...
+23:46:53   🌡️ Warmup complete
+23:46:53   [70/873] 欣苗幼稚園 (542199)
+23:46:53       🔍 搜索: 欣苗幼稚園 面試 (sort=general)
+23:47:08       - 搜索无结果或被拦截
+23:47:19       🔍 搜索: 欣苗幼稚園 (sort=general)
+23:47:26       ⚠️ 搜索页风控: captcha_page
+23:47:26     ⚠️ 安全重定向! 暂停 62s...
+23:48:36       - 搜索无结果或被拦截
+23:48:49       🔍 搜索: 欣苗 幼稚園 面試 (sort=general)
+23:49:05       - 搜索无结果或被拦截
+23:49:20       🔍 搜索: 欣苗 幼稚園 (sort=general)
+23:49:34       - 搜索无结果或被拦截
+23:49:44       🔍 搜索: 欣苗幼稚園 面試 (sort=popularity_descending)
+23:49:52       ⚠️ 搜索页风控: captcha_page
+23:49:52     ⚠️ 安全重定向! 暂停 85s...
+23:51:25       - 搜索无结果或被拦截
+23:51:42       🔍 搜索: 欣苗幼稚園 (sort=popularity_descending)
+23:51:50       ⚠️ 搜索页风控: captcha_page
+23:51:50     ⚠️ 安全重定向! 暂停 64s...
+23:53:03       - 搜索无结果或被拦截
+23:53:22       🔍 搜索: 欣苗 幼稚園 面試 (sort=popularity_descending)
+23:53:38       - 搜索无结果或被拦截
+23:53:51       🔍 搜索: 欣苗 幼稚園 (sort=popularity_descending)
+23:53:58       ⚠️ 搜索页风控: captcha_page
+23:53:58     ⚠️ 安全重定向! 暂停 83s...
+23:55:29       - 搜索无结果或被拦截
+23:55:45     ✅ 0 posts, 0 comments
+23:55:45     💤 School cooldown 13s...
+23:55:58   📊 Progress: 70/873 (8.0%), 2262 posts total, 0 failed
+23:55:58   💤 Batch cooldown 614s (10.2min)...
+00:06:12   [71/873] 聖安娜中英文幼稚園 (215740)
+00:06:12       🔍 搜索: 聖安娜中英文幼稚園 面試 (sort=general)
+00:06:30       - 搜索无结果或被拦截
+00:06:42       🔍 搜索: 聖安娜中英文幼稚園 (sort=general)
+00:06:56       - 搜索无结果或被拦截
+00:07:06       🔍 搜索: 聖安娜 幼稚園 面試 (sort=general)
+00:07:13       ⚠️ 搜索页风控: captcha_page
+00:07:13     ⚠️ 安全重定向! 暂停 87s...
+00:08:48       - 搜索无结果或被拦截
+00:09:03       🔍 搜索: 聖安娜 幼稚園 (sort=general)
+00:09:19       - 搜索无结果或被拦截
+00:09:30       🔍 搜索: 聖安娜中英文幼稚園 面試 (sort=popularity_descending)
+00:09:37       ⚠️ 搜索页风控: captcha_page
+00:09:37     ⚠️ 安全重定向! 暂停 70s...
+00:10:55       - 搜索无结果或被拦截
+00:11:10       🔍 搜索: 聖安娜中英文幼稚園 (sort=popularity_descending)
+00:11:24       - 搜索无结果或被拦截
+00:11:42       🔍 搜索: 聖安娜 幼稚園 面試 (sort=popularity_descending)
+00:11:51       ⚠️ 搜索页风控: captcha_page
+00:11:51     ⚠️ 安全重定向! 暂停 107s...
+00:13:46       - 搜索无结果或被拦截
+00:13:58       🔍 搜索: 聖安娜 幼稚園 (sort=popularity_descending)
+00:14:17       - 搜索无结果或被拦截
+00:14:32     ✅ 0 posts, 0 comments
+00:14:32     💤 School cooldown 20s...
+00:14:52   [72/873] 聖道明中英文幼稚園 (325457)
+00:14:52       🔍 搜索: 聖道明中英文幼稚園 面試 (sort=general)
+00:14:59       ⚠️ 搜索页风控: captcha_page
+00:14:59     ⚠️ 安全重定向! 暂停 81s...
+00:16:28       - 搜索无结果或被拦截
+00:16:50       🔍 搜索: 聖道明中英文幼稚園 (sort=general)
+00:17:00       ⚠️ 搜索页风控: captcha_page
+00:17:00     ⚠️ 安全重定向! 暂停 96s...
+00:18:44       - 搜索无结果或被拦截
+00:19:01       🔍 搜索: 聖道明 幼稚園 面試 (sort=general)
+00:19:16       - 搜索无结果或被拦截
+00:19:27       🔍 搜索: 聖道明 幼稚園 (sort=general)
+00:19:33       ⚠️ 搜索页风控: captcha_page
+00:19:33     ⚠️ 安全重定向! 暂停 114s...
+00:21:35       - 搜索无结果或被拦截
+00:21:49       🔍 搜索: 聖道明中英文幼稚園 面試 (sort=popularity_descending)
+00:22:06       - 搜索无结果或被拦截
+00:22:21       🔍 搜索: 聖道明中英文幼稚園 (sort=popularity_descending)
+00:22:35       - 搜索无结果或被拦截
+00:22:50       🔍 搜索: 聖道明 幼稚園 面試 (sort=popularity_descending)
+00:23:04       - 搜索无结果或被拦截
+00:23:15       🔍 搜索: 聖道明 幼稚園 (sort=popularity_descending)
+00:23:22       ⚠️ 搜索页风控: captcha_page
+00:23:22     ⚠️ 安全重定向! 暂停 105s...
+00:25:14       - 搜索无结果或被拦截
+00:25:35   ✅ Session valid (87 feed items on homepage)
+00:25:35     ✅ 0 posts, 0 comments
+00:25:35     💤 School cooldown 17s...
+00:25:52   [73/873] 路德會聖雅各幼稚園 (536040)
+00:25:52       🔍 搜索: 路德會聖雅各幼稚園 面試 (sort=general)
+00:26:07       - 搜索无结果或被拦截
+00:26:20       🔍 搜索: 路德會聖雅各幼稚園 (sort=general)
+00:26:27       ⚠️ 搜索页风控: captcha_page
+00:26:27     ⚠️ 安全重定向! 暂停 76s...
+00:27:51       - 搜索无结果或被拦截
+00:28:01       🔍 搜索: 路德會聖雅各 幼稚園 面試 (sort=general)
+00:28:18       - 搜索无结果或被拦截
+00:28:31       🔍 搜索: 路德會聖雅各 幼稚園 (sort=general)
+00:28:45       - 搜索无结果或被拦截
+00:28:52       🔍 搜索: 路德會聖雅各幼稚園 面試 (sort=popularity_descending)
+00:29:06       - 搜索无结果或被拦截
+00:29:13       🔍 搜索: 路德會聖雅各幼稚園 (sort=popularity_descending)
+00:29:26       - 搜索无结果或被拦截
+00:29:39       🔍 搜索: 路德會聖雅各 幼稚園 面試 (sort=popularity_descending)
+00:29:45       ⚠️ 搜索页风控: captcha_page
+00:29:45     ⚠️ 安全重定向! 暂停 108s...
+00:31:42       - 搜索无结果或被拦截
+00:31:56       🔍 搜索: 路德會聖雅各 幼稚園 (sort=popularity_descending)
+00:32:12       - 搜索无结果或被拦截
+00:32:36   ✅ Session valid (87 feed items on homepage)
+00:32:36     ✅ 0 posts, 0 comments
+00:32:36     💤 School cooldown 13s...
+00:32:49   [74/873] 北角聖彼得堂幼稚園 (315435)
+00:32:49       🔍 搜索: 北角聖彼得堂幼稚園 面試 (sort=general)
+00:32:56       ⚠️ 搜索页风控: captcha_page
+00:32:56     ⚠️ 安全重定向! 暂停 84s...
+00:34:28       - 搜索无结果或被拦截
+00:34:39       🔍 搜索: 北角聖彼得堂幼稚園 (sort=general)
+00:34:49       ⚠️ 搜索页风控: captcha_page
+00:34:49     ⚠️ 安全重定向! 暂停 95s...
+00:36:32       - 搜索无结果或被拦截
+00:36:43       🔍 搜索: 北角聖彼得堂 幼稚園 面試 (sort=general)
+00:36:52       ⚠️ 搜索页风控: captcha_page
+00:36:52     ⚠️ 安全重定向! 暂停 108s...
+00:38:48       - 搜索无结果或被拦截
+00:38:58       🔍 搜索: 北角聖彼得堂 幼稚園 (sort=general)
+00:39:15       - 搜索无结果或被拦截
+00:39:35       🔍 搜索: 北角聖彼得堂幼稚園 面試 (sort=popularity_descending)
+00:39:41       ⚠️ 搜索页风控: captcha_page
+00:39:41     ⚠️ 安全重定向! 暂停 117s...
+00:41:45       - 搜索无结果或被拦截
+00:41:58       🔍 搜索: 北角聖彼得堂幼稚園 (sort=popularity_descending)
+00:42:16       - 搜索无结果或被拦截
+00:42:37       🔍 搜索: 北角聖彼得堂 幼稚園 面試 (sort=popularity_descending)
+00:42:50       - 搜索无结果或被拦截
+00:43:01       🔍 搜索: 北角聖彼得堂 幼稚園 (sort=popularity_descending)
+00:43:07       ⚠️ 搜索页风控: captcha_page
+00:43:07     ⚠️ 安全重定向! 暂停 117s...
+00:45:12       - 搜索无结果或被拦截
+00:45:35   ✅ Session valid (87 feed items on homepage)
+00:45:35     ✅ 0 posts, 0 comments
+00:45:35     💤 School cooldown 11s...
+00:45:46   [75/873] 天主教海星幼稚園 (324094)
+00:45:46       🔍 搜索: 天主教海星幼稚園 面試 (sort=general)
+00:46:01       - 搜索无结果或被拦截
+00:46:10       🔍 搜索: 天主教海星幼稚園 (sort=general)
+00:46:23       - 搜索无结果或被拦截
+00:46:33       🔍 搜索: 天主教海星 幼稚園 面試 (sort=general)
+00:46:40       ⚠️ 搜索页风控: captcha_page
+00:46:40     ⚠️ 安全重定向! 暂停 66s...
+00:47:54       - 搜索无结果或被拦截
+00:48:05       🔍 搜索: 天主教海星 幼稚園 (sort=general)
+00:48:23       - 搜索无结果或被拦截
+00:48:33       🔍 搜索: 天主教海星幼稚園 面試 (sort=popularity_descending)
+00:48:47       - 搜索无结果或被拦截
+00:49:00       🔍 搜索: 天主教海星幼稚園 (sort=popularity_descending)
+00:49:06       ⚠️ 搜索页风控: captcha_page
+00:49:06     ⚠️ 安全重定向! 暂停 105s...
+00:50:58       - 搜索无结果或被拦截
+00:51:09       🔍 搜索: 天主教海星 幼稚園 面試 (sort=popularity_descending)
+00:51:24       - 搜索无结果或被拦截
+00:51:41       🔍 搜索: 天主教海星 幼稚園 (sort=popularity_descending)
+00:51:54       - 搜索无结果或被拦截
+00:52:12   ✅ Session valid (87 feed items on homepage)
+00:52:12     ✅ 0 posts, 0 comments
+00:52:12     💤 School cooldown 14s...
+00:52:25   [76/873] 香港中國婦女會幼稚園 (564745)
+00:52:25       🔍 搜索: 香港中國婦女會幼稚園 面試 (sort=general)
+00:52:31       ⚠️ 搜索页风控: captcha_page
+00:52:31     ⚠️ 安全重定向! 暂停 109s...
+00:54:29       - 搜索无结果或被拦截
+00:54:38       🔍 搜索: 香港中國婦女會幼稚園 (sort=general)
+00:54:48       ⚠️ 搜索页风控: captcha_page
+00:54:48     ⚠️ 安全重定向! 暂停 93s...
+00:56:28       - 搜索无结果或被拦截
+00:56:44       🔍 搜索: 香港中國婦女會 幼稚園 面試 (sort=general)
+00:56:57       - 搜索无结果或被拦截
+00:57:17       🔍 搜索: 香港中國婦女會 幼稚園 (sort=general)
+00:57:30       - 搜索无结果或被拦截
+00:57:41       🔍 搜索: 香港中國婦女會幼稚園 面試 (sort=popularity_descending)
+00:57:55       - 搜索无结果或被拦截
+00:58:08       🔍 搜索: 香港中國婦女會幼稚園 (sort=popularity_descending)
+00:58:14       ⚠️ 搜索页风控: captcha_page
+00:58:14     ⚠️ 安全重定向! 暂停 81s...
+00:59:44       - 搜索无结果或被拦截
+01:00:00       🔍 搜索: 香港中國婦女會 幼稚園 面試 (sort=popularity_descending)
+01:00:20       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E9%A6%99%E6%B8%AF%E4%B8%AD%E5%9C%8B%E5%A9%A6%E5%A5%B3%E6%9C%83%20%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes&sort=popularity_descending", waiting until "domcontentloaded"
+
+01:01:07       🔍 搜索: 香港中國婦女會 幼稚園 (sort=popularity_descending)
+01:01:23       - 搜索无结果或被拦截
+01:01:42   ✅ Session valid (87 feed items on homepage)
+01:01:42     ✅ 0 posts, 0 comments
+01:01:42     💤 School cooldown 16s...
+01:01:58   [77/873] 東華三院捷和鄭氏幼兒園 (564095)
+01:01:58       🔍 搜索: 東華三院捷和鄭氏幼兒園 面試 (sort=general)
+01:02:11       - 搜索无结果或被拦截
+01:02:26       🔍 搜索: 東華三院捷和鄭氏幼兒園 (sort=general)
+01:02:32       ⚠️ 搜索页风控: captcha_page
+01:02:32     ⚠️ 安全重定向! 暂停 77s...
+01:03:57       - 搜索无结果或被拦截
+01:04:12       🔍 搜索: 東華三院捷和鄭氏 幼稚園 面試 (sort=general)
+01:04:25       - 搜索无结果或被拦截
+01:04:44       🔍 搜索: 東華三院捷和鄭氏 幼稚園 (sort=general)
+01:04:50       ⚠️ 搜索页风控: captcha_page
+01:04:50     ⚠️ 安全重定向! 暂停 93s...
+01:06:31       - 搜索无结果或被拦截
+01:06:50       🔍 搜索: 東華三院捷和鄭氏幼兒園 面試 (sort=popularity_descending)
+01:07:07       - 搜索无结果或被拦截
+01:07:19       🔍 搜索: 東華三院捷和鄭氏幼兒園 (sort=popularity_descending)
+01:07:24       ⚠️ 搜索页风控: captcha_page
+01:07:24     ⚠️ 安全重定向! 暂停 69s...
+01:08:41       - 搜索无结果或被拦截
+01:08:50       🔍 搜索: 東華三院捷和鄭氏 幼稚園 面試 (sort=popularity_descending)
+01:08:58       ⚠️ 搜索页风控: captcha_page
+01:08:58     ⚠️ 安全重定向! 暂停 78s...
+01:10:24       - 搜索无结果或被拦截
+01:10:40       🔍 搜索: 東華三院捷和鄭氏 幼稚園 (sort=popularity_descending)
+01:10:53       - 搜索无结果或被拦截
+01:11:17   ✅ Session valid (87 feed items on homepage)
+01:11:17     ✅ 0 posts, 0 comments
+01:11:17   ❌❌ 8 consecutive zero-post schools — attempting re-login before giving up...
+01:11:17   🔄 Refreshing session (reusing Playwright instance)...
+01:11:18   Loaded saved cookies
+01:11:29   ✅ Session valid (87 feed items on homepage)
+01:11:29   ✅ Session refreshed — cookies still valid
+01:11:30   Loaded saved cookies
+01:11:30   Switched to headless mode for scraping
+01:11:30   🌡️ Warming up session (browsing naturally for 15-25s)...
+01:11:49   🌡️ Warmup complete
+01:11:49   ✅ Re-login successful, continuing...
+01:11:49     💤 School cooldown 12s...
+01:12:01   [78/873] 東華三院方樹泉幼兒園 (564133)
+01:12:01       🔍 搜索: 東華三院方樹泉幼兒園 面試 (sort=general)
+01:12:19       - 搜索无结果或被拦截
+01:12:37       🔍 搜索: 東華三院方樹泉幼兒園 (sort=general)
+01:12:44       ⚠️ 搜索页风控: captcha_page
+01:12:44     ⚠️ 安全重定向! 暂停 96s...
+08:32:54 Starting Round 1 scraping (慢爬模式 v2)...
+08:32:54   Targets: 1 schools (of 1 total)
+08:32:54   Max posts/school: 20
+08:32:54   Max keywords/school: 4
+08:32:54   Max posts/keyword: 15
+08:32:54   Request delay: 6.0-12.0s
+08:32:54   School cooldown: 10.0-25.0s
+08:32:54   Batch: every 10 schools, rest 600s (10min)
+08:32:54   Random long pause: 8% chance
+08:32:54   Session refresh: every 30 schools
+08:32:54   Comments: No
+08:32:54 
+08:32:56   Browser fingerprint: 1280x800, UA=...Chrome/124.0.0.0 Safari/537.36
+08:32:56   Loaded saved cookies
+08:33:06   ✅ Session valid (108 feed items on homepage)
+08:33:06   🌡️ Warming up session (browsing naturally for 15-25s)...
+08:33:20   🌡️ Warmup complete
+08:33:20   [1/1] 聖士提反堂小學暨幼稚園 (131440)
+08:33:20       🔍 搜索: 聖士提反堂小學暨幼稚園 面試 (sort=general)
+08:33:37       - 搜索无结果或被拦截
+08:33:50       🔍 搜索: 聖士提反堂小學暨幼稚園 (sort=general)
+08:33:56       ⚠️ 搜索页风控: captcha_page
+08:33:56     ⚠️ 安全重定向! 暂停 112s...

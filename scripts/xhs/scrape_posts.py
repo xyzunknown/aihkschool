@@ -38,13 +38,25 @@ if _project_root not in sys.path:
     sys.path.insert(0, _project_root)
 
 from scripts.xhs import config
+from scripts.xhs.site import (
+    build_home_url,
+    build_search_url,
+    choose_origin,
+    has_session_cookie,
+    is_explore_url,
+    is_search_url,
+    normalize_search_url,
+    normalize_url,
+)
 from scripts.xhs.utils import (
     load_json,
     save_json,
     load_progress,
     save_progress,
     random_delay,
+    maybe_long_pause,
     classify_kg_post,
+    looks_like_ui_shell_text,
     match_post_to_school,
     split_name_and_branch,
 )
@@ -73,7 +85,7 @@ def setup_logging(round_num: int) -> None:
 
 
 def create_browser(headless: bool = True):
-    """Create Playwright browser with saved cookies."""
+    """Create Playwright browser with saved cookies, randomized fingerprint."""
     from playwright.sync_api import sync_playwright
 
     pw = sync_playwright().start()
@@ -86,12 +98,14 @@ def create_browser(headless: bool = True):
             "--no-default-browser-check",
         ],
     )
+
+    ua = random.choice(config.USER_AGENTS)
+    vp = random.choice(config.VIEWPORT_OPTIONS)
+    log.info(f"  Browser fingerprint: {vp['width']}x{vp['height']}, UA=...{ua[-30:]}")
+
     context = browser.new_context(
-        user_agent=(
-            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
-        ),
-        viewport={"width": 1440, "height": 900},
+        user_agent=ua,
+        viewport=vp,
         locale="zh-TW",
     )
 
@@ -103,9 +117,25 @@ def create_browser(headless: bool = True):
             log.info("  Loaded saved cookies")
 
     page = context.new_page()
-    # Stealth: override navigator.webdriver
+    # Stealth: override navigator.webdriver + more
     page.add_init_script("""
         Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+        // Override chrome.runtime to look like real Chrome
+        window.chrome = { runtime: {} };
+        // Override permissions query
+        const originalQuery = window.navigator.permissions.query;
+        window.navigator.permissions.query = (parameters) =>
+            parameters.name === 'notifications'
+                ? Promise.resolve({ state: Notification.permission })
+                : originalQuery(parameters);
+        // Override plugins to look real
+        Object.defineProperty(navigator, 'plugins', {
+            get: () => [1, 2, 3, 4, 5],
+        });
+        // Override languages
+        Object.defineProperty(navigator, 'languages', {
+            get: () => ['zh-TW', 'zh', 'en-US', 'en'],
+        });
     """)
     return pw, browser, context, page
 
@@ -116,95 +146,162 @@ def save_cookies(context) -> None:
     save_json(cookies, config.COOKIES_PATH)
 
 
+def session_origin(page, fallback: str | None = None) -> str:
+    """Resolve the active site origin from the current page."""
+    return choose_origin(getattr(page, "url", None), fallback)
+
+
+def page_has_logged_in_content(page) -> bool:
+    """Detect whether the current page already shows real feed/detail content."""
+    try:
+        return bool(page.evaluate("""() => {
+            const selectors = [
+                'section.note-item',
+                '[data-note-id]',
+                'a[href*="/explore/"]',
+                '[class*="feed"]',
+                '[class*="note-item"]',
+                '#detail-title',
+                '#detail-desc',
+                '.note-content'
+            ];
+            return selectors.some((selector) => document.querySelector(selector));
+        }"""))
+    except Exception:
+        return False
+
+
 def login_manually(context, page) -> None:
     """Open XHS for manual login, then save cookies.
     
     Uses polling to detect login success instead of waiting for user input,
     so it works in non-interactive terminals (e.g. background processes).
+    
+    Detection stays on the same page so the script does not open extra tabs/windows.
     """
     log.info("  ⚠️  Manual login required!")
     log.info("  A browser window should be open. Please log in to Xiaohongshu.")
-    log.info("  Monitoring for login success automatically...\n")
+    log.info("  The login page will stay open — checking in the same page.\n")
 
     try:
-        page.goto("https://www.xiaohongshu.com/", timeout=15000, wait_until="commit")
+        page.goto(build_home_url(), timeout=15000, wait_until="commit")
     except Exception:
         pass
 
-    # Poll for login success
-    max_wait = 300  # 5 minutes
-    elapsed = 0
-    check_interval = 8
+    # Give user time before first check
+    initial_wait = 15
+    log.info(f"  (First check in {initial_wait}s — take your time scanning the QR code)")
+    time.sleep(initial_wait)
+
+    max_wait = 300  # 5 minutes total
+    elapsed = initial_wait
+    check_interval = 10
+    # Track how many times we've seen the session cookie — if we see it
+    # consistently, trust it even if the background-tab verification fails.
+    cookie_seen_count = 0
 
     while elapsed < max_wait:
-        time.sleep(check_interval)
-        elapsed += check_interval
-
         try:
-            page.goto(
-                "https://www.xiaohongshu.com/search_result?keyword=幼稚園&source=web_search_result_notes",
-                timeout=15000,
-                wait_until="domcontentloaded",
-            )
-            time.sleep(4)
+            # Step 1: Quick cookie check (no navigation, no page disruption)
+            cookies = context.cookies()
+            has_session = has_session_cookie(cookies)
 
-            body = page.evaluate("() => document.body.innerText.substring(0, 1000)")
-            if "登录后查看" in body or "登錄後查看" in body:
-                log.info(f"  ⏳ Still need login... ({elapsed}s elapsed)")
+            if has_session:
+                cookie_seen_count += 1
+
+                # After seeing the cookie 3+ times (30s), trust it directly
+                # — the background-tab search verification is unreliable
+                if cookie_seen_count >= 3:
+                    log.info(f"  ✅ Login detected! (web_session cookie present for {cookie_seen_count} checks)")
+                    save_cookies(context)
+                    log.info("  ✅ Cookies saved!")
+                    return
+
+                # First 1-2 sightings: verify on the current page without opening a new tab.
                 try:
-                    page.goto("https://www.xiaohongshu.com/", timeout=10000, wait_until="domcontentloaded")
-                except Exception:
-                    pass
-                continue
-
-            note_count = page.evaluate("""() => {
-                return document.querySelectorAll('section.note-item, a[href*="/explore/"], [data-note-id]').length;
-            }""")
-
-            if note_count > 0:
-                log.info(f"  ✅ Login detected! ({note_count} notes visible)")
-                save_cookies(context)
-                log.info("  ✅ Cookies saved!")
-                return
-
-            log.info(f"  ⏳ No notes yet... ({elapsed}s)")
+                    page.goto(
+                        build_home_url(page.url),
+                        timeout=10000,
+                        wait_until="domcontentloaded",
+                    )
+                    time.sleep(3)
+                    body = page.evaluate("() => document.body.innerText.substring(0, 800)")
+                    # If we don't see a login wall on homepage, we're good
+                    if (
+                        "登录后查看" not in body
+                        and "登錄後查看" not in body
+                        and ("登录" not in body or page_has_logged_in_content(page))
+                    ):
+                        log.info(f"  ✅ Login detected! (homepage loaded OK)")
+                        save_cookies(context)
+                        log.info("  ✅ Cookies saved!")
+                        return
+                    log.info(f"  ⏳ Session cookie OK, homepage still has login prompt... ({elapsed}s)")
+                except Exception as e:
+                    log.info(f"  ⏳ Session cookie OK, homepage check failed ({e.__class__.__name__})... ({elapsed}s)")
+            else:
+                cookie_seen_count = 0
+                log.info(f"  ⏳ Waiting for login... ({elapsed}s, no session cookie)")
 
         except Exception as e:
-            log.info(f"  ⏳ Check error ({e.__class__.__name__}), retrying... ({elapsed}s)")
+            error_name = e.__class__.__name__
+            if "TargetClosedError" in error_name or "closed" in str(e).lower():
+                log.info(f"  ❌ Browser/page was closed during login polling ({error_name}). Aborting login.")
+                raise RuntimeError(f"Browser closed during login: {e}")
+            log.info(f"  ⏳ Check error ({error_name}), retrying... ({elapsed}s)")
+
+        time.sleep(check_interval)
+        elapsed += check_interval
 
     raise RuntimeError("Login timeout — no login detected after 5 minutes")
 
 
 def check_login(page) -> bool:
-    """Check if we're logged in by visiting a search page and seeing if results load."""
+    """Check if we're logged in. Uses homepage first (more reliable), falls back to search page."""
+    # Strategy 1: Check homepage — less likely to be blocked
     try:
         page.goto(
-            "https://www.xiaohongshu.com/search_result?keyword=幼稚園&source=web_search_result_notes",
-            timeout=20000,
+            build_home_url(page.url),
+            timeout=15000,
             wait_until="domcontentloaded",
         )
-        # Wait longer for JS rendering
-        time.sleep(6)
-        body = page.evaluate("() => document.body.innerText")
-        # If we see the login wall, session is expired
+        time.sleep(4)
+        body = page.evaluate("() => document.body.innerText.substring(0, 2000)")
+
+        # Login wall check
         if "登录后查看" in body or "登錄後查看" in body:
-            log.info("  Session expired — login wall detected")
+            log.info("  Session expired — login wall detected on homepage")
             return False
         if "login" in page.url.lower():
             return False
-        # Check if note items loaded — try multiple selectors
-        note_count = page.evaluate("""() => {
-            const notes = document.querySelectorAll('section.note-item, a[href*="/explore/"], [data-note-id]');
-            return notes.length;
-        }""")
-        if note_count > 0:
-            log.info(f"  ✅ Session valid ({note_count} notes visible)")
+
+        # Check for feed content (any note cards on homepage = logged in)
+        if page_has_logged_in_content(page):
+            log.info("  ✅ Session valid (content visible on homepage)")
             return True
-        # No notes found — session is likely invalid
-        log.info(f"  ❌ No notes found on search page — session invalid")
+
+        # Homepage loaded without login wall but no feed items — 
+        # could be slow JS rendering. Check cookies as fallback.
+        cookies = page.context.cookies()
+        has_session = has_session_cookie(cookies)
+        if has_session:
+            log.info("  ✅ Session valid (web_session cookie present, homepage loaded)")
+            return True
+
+        log.info("  ❌ No feed items and no session cookie on homepage")
         return False
+
     except Exception as e:
         log.info(f"  ⚠️ Login check error: {e}")
+        # If page load timed out, check cookies as last resort
+        try:
+            cookies = page.context.cookies()
+            has_session = has_session_cookie(cookies)
+            if has_session:
+                log.info("  ✅ Session valid (cookie fallback after timeout)")
+                return True
+        except Exception:
+            pass
         return False
 
 
@@ -212,6 +309,9 @@ def ensure_login(headless: bool) -> tuple:
     """
     Ensure we have a valid session. Always does login check in non-headless mode.
     Returns (pw, browser, context, page) ready for scraping.
+    
+    NOTE: This should only be called ONCE at startup (or when no pw instance exists).
+    For mid-scrape re-login, use refresh_session() instead to avoid asyncio conflicts.
     """
     # Step 1: Try with existing cookies in non-headless mode for login check
     pw, browser, context, page = create_browser(headless=False)
@@ -245,6 +345,90 @@ def ensure_login(headless: bool) -> tuple:
         log.info("  Switching to headless mode for scraping...")
         pw, browser, context, page = create_browser(headless=True)
 
+    return pw, browser, context, page
+
+
+def refresh_session(pw, browser, headless: bool) -> tuple:
+    """
+    Re-authenticate mid-scrape by reusing the existing Playwright instance.
+    
+    This avoids the "Playwright Sync API inside the asyncio loop" error
+    that happens when calling sync_playwright().start() a second time.
+    
+    Strategy:
+    1. Close old browser (but keep pw alive)
+    2. Launch a new NON-headless browser on the same pw instance for login
+    3. Check cookies / do manual login
+    4. If headless requested, close that browser and launch headless one
+    
+    Returns (pw, browser, context, page).
+    """
+    log.info("  🔄 Refreshing session (reusing Playwright instance)...")
+    
+    # Close old browser — but NOT pw
+    try:
+        browser.close()
+    except Exception:
+        pass
+    
+    ua = random.choice(config.USER_AGENTS)
+    vp = random.choice(config.VIEWPORT_OPTIONS)
+
+    def _make_context(br):
+        ctx = br.new_context(viewport=vp, user_agent=ua)
+        if config.COOKIES_PATH.exists():
+            cookies = load_json(config.COOKIES_PATH)
+            if cookies:
+                ctx.add_cookies(cookies)
+                log.info("  Loaded saved cookies")
+        return ctx
+
+    def _make_page(ctx):
+        p = ctx.new_page()
+        p.add_init_script("""
+            Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+            window.chrome = { runtime: {} };
+        """)
+        return p
+
+    def _launch(hl):
+        return pw.chromium.launch(
+            channel="chrome", headless=hl,
+            args=["--disable-blink-features=AutomationControlled"],
+        )
+    
+    # Launch new non-headless browser for login check
+    browser = _launch(False)
+    context = _make_context(browser)
+    page = _make_page(context)
+    
+    if check_login(page):
+        save_cookies(context)
+        log.info("  ✅ Session refreshed — cookies still valid")
+        if headless:
+            browser.close()
+            browser = _launch(True)
+            context = _make_context(browser)
+            page = _make_page(context)
+            log.info("  Switched to headless mode for scraping")
+        return pw, browser, context, page
+    
+    # Need manual login
+    log.info("  🔒 Cookies invalid, need manual re-login...")
+    login_manually(context, page)
+    
+    if not check_login(page):
+        raise RuntimeError("Re-login failed")
+    
+    save_cookies(context)
+    
+    if headless:
+        browser.close()
+        browser = _launch(True)
+        context = _make_context(browser)
+        page = _make_page(context)
+        log.info("  Switched to headless mode for scraping")
+    
     return pw, browser, context, page
 
 
@@ -299,50 +483,202 @@ def parse_xhs_date(text: str) -> str | None:
     return None
 
 
+# ─── 真人行为模拟工具 ─────────────────────────────────────────────────
+
+def human_scroll(page, distance: int | None = None) -> None:
+    """
+    Simulate realistic human scrolling: variable speed, occasional pause,
+    sometimes scroll back up a bit.
+    """
+    if distance is None:
+        distance = random.randint(300, 700)
+
+    # 80% normal scroll, 15% slow scroll, 5% scroll up then down
+    roll = random.random()
+    if roll < 0.05:
+        # Scroll up a bit then down (like re-reading something)
+        page.evaluate(f"window.scrollBy(0, -{random.randint(100, 200)})")
+        time.sleep(0.3 + random.random() * 0.5)
+        page.evaluate(f"window.scrollBy(0, {distance + random.randint(100, 200)})")
+    elif roll < 0.20:
+        # Slow multi-step scroll
+        for _ in range(random.randint(2, 4)):
+            step = distance // random.randint(2, 4)
+            page.evaluate(f"window.scrollBy(0, {step})")
+            time.sleep(0.2 + random.random() * 0.4)
+    else:
+        # Normal scroll
+        page.evaluate(f"window.scrollBy(0, {distance})")
+
+    # Post-scroll pause (reading time)
+    time.sleep(0.8 + random.random() * 2.0)
+
+
+def human_mouse_move(page) -> None:
+    """Simulate random mouse movement to look like a real user."""
+    try:
+        x = random.randint(200, 1200)
+        y = random.randint(200, 700)
+        page.mouse.move(x, y, steps=random.randint(5, 15))
+        time.sleep(0.1 + random.random() * 0.3)
+    except Exception:
+        pass  # Non-critical, don't fail on this
+
+
+def warmup_session(page) -> None:
+    """
+    'Warm up' the session by browsing XHS naturally before scraping.
+    Visit homepage, scroll a bit, click explore — like a real user opening the app.
+    """
+    log.info("  🌡️ Warming up session (browsing naturally for 15-25s)...")
+    try:
+        page.goto(build_home_url(page.url), timeout=15000, wait_until="domcontentloaded")
+        time.sleep(3 + random.random() * 3)
+
+        # Scroll the feed a few times
+        for _ in range(random.randint(2, 4)):
+            human_scroll(page, random.randint(300, 600))
+            human_mouse_move(page)
+
+        # Maybe click on the explore tab
+        if random.random() < 0.3:
+            try:
+                page.goto(build_home_url(page.url), timeout=10000, wait_until="domcontentloaded")
+                time.sleep(2 + random.random() * 2)
+                human_scroll(page, random.randint(200, 400))
+            except Exception:
+                pass
+
+        time.sleep(1 + random.random() * 2)
+        log.info("  🌡️ Warmup complete")
+    except Exception as e:
+        log.info(f"  ⚠️ Warmup error (non-fatal): {e}")
+
+
+def detect_risk_control(page) -> str | None:
+    """
+    Check if XHS has triggered any risk control measures.
+    Returns a description of the detected risk, or None if all clear.
+    """
+    try:
+        url = page.url.lower()
+        body = page.evaluate("() => document.body.innerText.substring(0, 2000)")
+
+        # Captcha / verification
+        if "captcha" in url or "verify" in url:
+            return "captcha_page"
+        if "验证" in body or "驗證" in body or "滑动" in body:
+            return "captcha_challenge"
+
+        # Account restrictions
+        if "账号异常" in body or "帳號異常" in body:
+            return "account_abnormal"
+        if "操作频繁" in body or "操作頻繁" in body:
+            return "rate_limited"
+        if "访问受限" in body or "訪問受限" in body:
+            return "access_restricted"
+
+        # 404 / security redirect
+        if "/404/" in url or "sec_" in url:
+            return "security_redirect"
+
+        # Login wall
+        if "登录后查看" in body or "登錄後查看" in body:
+            return "login_wall"
+
+    except Exception:
+        pass
+    return None
+
+
+def handle_risk_control(risk: str, page, context) -> bool:
+    """
+    Handle a detected risk control event.
+    Returns True if we should continue (after recovery), False to abort this action.
+    """
+    if risk == "login_wall":
+        log.info("    🔒 登录墙 — session 过期")
+        return False  # Caller should trigger re-login
+
+    if risk == "rate_limited":
+        pause = 120 + random.random() * 180  # 2-5 minutes
+        log.info(f"    ⚠️ 频率限制! 暂停 {pause:.0f}s...")
+        time.sleep(pause)
+        return True
+
+    if risk == "captcha_challenge":
+        log.info("    ⚠️ 验证码! 暂停 60s 等待手动处理...")
+        time.sleep(60)
+        return True
+
+    if risk in ("account_abnormal", "access_restricted"):
+        pause = 300 + random.random() * 300  # 5-10 minutes
+        log.info(f"    🚨 账号异常/访问受限! 长时间暂停 {pause:.0f}s...")
+        time.sleep(pause)
+        return True
+
+    if risk in ("security_redirect", "captcha_page"):
+        pause = 60 + random.random() * 60
+        log.info(f"    ⚠️ 安全重定向! 暂停 {pause:.0f}s...")
+        time.sleep(pause)
+        return True
+
+    return True
+
+
 def search_posts(
     page,
     keyword: str,
-    max_posts: int = 50,
+    max_posts: int = 15,
     sort: str = "general",
 ) -> list[dict]:
     """
     Search XHS for a keyword and collect post summaries.
     Returns list of {post_id, url, title, snippet}.
     """
-    encoded_kw = keyword.replace(" ", "%20")
-    sort_param = ""
-    if sort == "popularity_descending":
-        sort_param = "&sort=popularity_descending"
-    elif sort == "time_descending":
-        sort_param = "&sort=time_descending"
+    current_origin = session_origin(page)
+    url = build_search_url(keyword, sort=sort, current_url=page.url, fallback=current_origin)
 
-    url = (
-        f"https://www.xiaohongshu.com/search_result?"
-        f"keyword={encoded_kw}&source=web_search_result_notes{sort_param}"
-    )
+    log.info(f"      🔍 搜索: {keyword} (sort={sort})")
 
     try:
         page.goto(url, timeout=20000, wait_until="domcontentloaded")
-        time.sleep(2 + random.random())
+        # Variable wait to look human (2-5s)
+        time.sleep(2 + random.random() * 3)
+        human_mouse_move(page)
     except Exception as e:
-        log.info(f"    ⚠️ Search page load failed: {e}")
+        log.info(f"      ⚠️ Search page load failed: {e}")
         # Try once more with a fresh navigation
         try:
-            page.goto("https://www.xiaohongshu.com/", timeout=10000, wait_until="domcontentloaded")
-            time.sleep(2)
+            page.goto(build_home_url(page.url, current_origin), timeout=10000, wait_until="domcontentloaded")
+            time.sleep(3 + random.random() * 2)
             page.goto(url, timeout=20000, wait_until="domcontentloaded")
-            time.sleep(2 + random.random())
+            time.sleep(2 + random.random() * 3)
         except Exception:
             return []
 
-    # Check for login wall mid-scrape
+    # Check for "note unavailable" or blank content on search page
     try:
-        body_text = page.evaluate("() => document.body.innerText.substring(0, 500)")
-        if "登录后查看" in body_text or "登錄後查看" in body_text:
-            log.info("    🔒 Login wall detected during search — session expired!")
-            return []  # Caller should handle re-login
+        body_text = page.evaluate("() => document.body.innerText.substring(0, 1000)")
+        if "当前笔记暂时无法浏览" in body_text:
+            log.info(f"      - 搜索页无法浏览，跳过")
+            return []
+        if not is_search_url(page.url):
+            redirected_url = normalize_search_url(url, page.url)
+            if redirected_url != url:
+                log.info("      ℹ️ 搜索页被重定向，按当前站点重试一次")
+                page.goto(redirected_url, timeout=20000, wait_until="domcontentloaded")
+                time.sleep(2 + random.random() * 3)
     except Exception:
         pass
+
+    # Risk control check
+    risk = detect_risk_control(page)
+    if risk:
+        log.info(f"      ⚠️ 搜索页风控: {risk}")
+        handle_risk_control(risk, page, None)
+        if risk == "login_wall":
+            return []  # Caller handles re-login
 
     # Wait for note items
     try:
@@ -352,13 +688,14 @@ def search_posts(
         )
     except Exception:
         # No results or blocked
+        log.info(f"      - 搜索无结果或被拦截")
         return []
 
     posts: list[dict] = []
     last_count = 0
     scroll_attempts = 0
 
-    while len(posts) < max_posts and scroll_attempts < 15:
+    while len(posts) < max_posts and scroll_attempts < config.MAX_SCROLL_ATTEMPTS:
         # Extract posts from current viewport
         items = page.evaluate("""() => {
             const results = [];
@@ -373,13 +710,13 @@ def search_posts(
             for (const sel of selectors) {
                 document.querySelectorAll(sel).forEach(el => {
                     const href = el.getAttribute('href') || '';
-                    const match = href.match(/explore\\/([a-f0-9]+)/);
+                    const match = href.match(/\\/explore\\/([^/?#]+)/);
                     if (match && !links.has(match[1])) {
                         links.add(match[1]);
                         const title = el.querySelector('.title, h3, [class*="title"]');
                         results.push({
                             post_id: match[1],
-                            url: 'https://www.xiaohongshu.com' + href,
+                            url: new URL(href, window.location.origin).toString(),
                             title: title ? title.innerText.trim() : '',
                         });
                     }
@@ -396,9 +733,9 @@ def search_posts(
         if len(posts) >= max_posts:
             break
 
-        # Scroll down
-        page.evaluate("window.scrollBy(0, 800)")
-        time.sleep(1.0 + random.random() * 1.5)
+        # Human-like scrolling
+        human_scroll(page)
+        human_mouse_move(page)
 
         if len(posts) == last_count:
             scroll_attempts += 1
@@ -406,15 +743,38 @@ def search_posts(
             scroll_attempts = 0
             last_count = len(posts)
 
+    log.info(f"      搜索到 {len(posts[:max_posts])} 个帖子链接")
     return posts[:max_posts]
 
 
 def fetch_post_detail(page, post_url: str) -> dict | None:
     """Navigate to a post and extract full content + metadata."""
+    log.info(f"      📄 抓取帖子: ...{post_url[-20:]}")
+    post_url = normalize_url(post_url, page.url)
     try:
         page.goto(post_url, timeout=15000, wait_until="domcontentloaded")
-        time.sleep(1.5 + random.random())
+        # Variable reading time: 2-5s (like actually reading the post)
+        time.sleep(2.0 + random.random() * 3.0)
+        human_mouse_move(page)
     except Exception:
+        return None
+
+    # Risk control check
+    risk = detect_risk_control(page)
+    if risk:
+        recovered = handle_risk_control(risk, page, None)
+        if risk == "login_wall":
+            return None
+        if not recovered:
+            return None
+
+    # Check for "note unavailable" page
+    body_text = page.evaluate("() => document.body ? document.body.innerText : ''")
+    if "当前笔记暂时无法浏览" in body_text:
+        log.info("      - 笔记无法浏览，跳过")
+        return None
+    if not is_explore_url(page.url):
+        log.info("      - 未进入帖子详情页，跳过")
         return None
 
     try:
@@ -425,6 +785,9 @@ def fetch_post_detail(page, post_url: str) -> dict | None:
     except Exception:
         pass  # Continue even if selector not found
 
+    # Scroll down a bit to simulate reading
+    human_scroll(page, random.randint(200, 400))
+
     detail = page.evaluate("""() => {
         // Title
         const titleEl = document.querySelector(
@@ -433,10 +796,19 @@ def fetch_post_detail(page, post_url: str) -> dict | None:
         const title = titleEl ? titleEl.innerText.trim() : '';
 
         // Content
-        const contentEl = document.querySelector(
-            '#detail-desc, .note-content, [class*="desc"], [class*="content"]'
-        );
-        const content = contentEl ? contentEl.innerText.trim() : '';
+        let content = '';
+        try {
+            const contentEl = document.querySelector(
+                '#detail-desc, .note-content, div[class*="note-content"], [class*="desc"], [class*="content"]'
+            );
+            content = contentEl ? contentEl.innerText.trim() : '';
+        } catch (e) {
+            // ignore if content cannot be found
+        }
+
+        const metaTitle = document.querySelector('meta[property="og:title"], meta[name="og:title"]')?.content?.trim() || '';
+        const metaDescription = document.querySelector('meta[property="og:description"], meta[name="description"]')?.content?.trim() || '';
+        const pageTitle = document.title ? document.title.trim() : '';
 
         // Date
         const dateEl = document.querySelector(
@@ -477,10 +849,31 @@ def fetch_post_detail(page, post_url: str) -> dict | None:
             'span[class*="comment"]',
         ]);
 
-        return { title, content, dateText, likes, collects, comments };
+        return { title, content, metaTitle, metaDescription, pageTitle, dateText, likes, collects, comments };
     }""")
 
-    if not detail or (not detail.get("title") and not detail.get("content")):
+    if not detail:
+        return None
+
+    title = (detail.get("title") or "").strip()
+    content = (detail.get("content") or "").strip()
+    meta_title = (detail.get("metaTitle") or "").strip()
+    meta_description = (detail.get("metaDescription") or "").strip()
+    page_title = (detail.get("pageTitle") or "").strip()
+
+    if not title:
+        title = meta_title or page_title
+
+    # Fall back to meta description when DOM content is just shell text.
+    if not content or looks_like_ui_shell_text(content):
+        content = meta_description or content
+
+    if (
+        not title and not content
+    ) or looks_like_ui_shell_text(content) or "当前笔记暂时无法浏览" in title:
+        return None
+
+    if len(content.strip()) < 20 and len(title.strip()) < 6:
         return None
 
     publish_date = parse_xhs_date(detail.get("dateText", ""))
@@ -490,8 +883,9 @@ def fetch_post_detail(page, post_url: str) -> dict | None:
         return None
 
     return {
-        "title": detail.get("title", ""),
-        "content": detail.get("content", ""),
+        "resolved_url": page.url,
+        "title": title,
+        "content": content,
         "publish_date": publish_date,
         "likes": detail.get("likes", 0),
         "collects": detail.get("collects", 0),
@@ -501,6 +895,7 @@ def fetch_post_detail(page, post_url: str) -> dict | None:
 
 def scrape_comments(page, post_url: str, max_comments: int = 30) -> list[dict]:
     """Scrape comments from a post page (for Round 2 hot posts)."""
+    post_url = normalize_url(post_url, page.url)
     try:
         page.goto(post_url, timeout=15000, wait_until="domcontentloaded")
         time.sleep(2)
@@ -561,6 +956,7 @@ def scrape_school(
     max_posts: int,
     group_schools: list[dict] | None,
     fetch_comments: bool = False,
+    round_num: int = 1,
 ) -> dict:
     """
     Scrape all posts for a single school.
@@ -569,11 +965,15 @@ def scrape_school(
     school_code = school_entry["school_code"]
     name_tc = school_entry["name_tc"]
 
+    # Round-specific delay config
+    delay_min = config.ROUND1_MIN_DELAY if round_num == 1 else config.ROUND2_MIN_DELAY
+    delay_max = config.ROUND1_MAX_DELAY if round_num == 1 else config.ROUND2_MAX_DELAY
+
     all_posts: list[dict] = []
     local_ids: set[str] = set()
 
     # Search with different queries and sort modes
-    queries_to_try = school_entry["search_queries"][:6]  # Max 6 queries
+    queries_to_try = school_entry["search_queries"][:config.MAX_KEYWORDS_PER_SCHOOL]
     sort_modes = ["general", "popularity_descending"]
 
     for sort_mode in sort_modes:
@@ -585,8 +985,9 @@ def scrape_school(
                 break
 
             remaining = max_posts - len(all_posts)
+            posts_per_kw = min(remaining + 3, config.MAX_POSTS_PER_KEYWORD)
             search_results = search_posts(
-                page, query, max_posts=min(remaining + 5, 30), sort=sort_mode
+                page, query, max_posts=posts_per_kw, sort=sort_mode
             )
 
             for sr in search_results:
@@ -596,10 +997,14 @@ def scrape_school(
                 if len(all_posts) >= max_posts:
                     break
 
+                # Random long pause before fetching detail
+                maybe_long_pause("(detail fetch 前)")
+
                 # Fetch full detail
                 detail = fetch_post_detail(page, sr["url"])
                 if not detail:
-                    random_delay(0.5, 1.0)
+                    # Backoff on failure
+                    random_delay(config.DETAIL_FAIL_BACKOFF_MIN, config.DETAIL_FAIL_BACKOFF_MAX)
                     continue
 
                 # KG classification
@@ -619,10 +1024,12 @@ def scrape_school(
                     school_entry,
                     group_schools,
                 )
+                if match["match_confidence"] not in ("high", "medium"):
+                    continue
 
                 post_record = {
                     "post_id": pid,
-                    "url": sr["url"],
+                    "url": detail.get("resolved_url") or sr["url"],
                     "title": detail.get("title", "") or sr.get("title", ""),
                     "content": detail.get("content", ""),
                     "author": "",
@@ -642,9 +1049,11 @@ def scrape_school(
                 local_ids.add(pid)
                 seen_post_ids.add(pid)
 
-                random_delay()
+                # Per-post delay (round-specific)
+                random_delay(delay_min, delay_max)
 
-            random_delay(1.0, 2.0)
+            # Between keywords: slightly longer pause
+            random_delay(delay_min * 1.5, delay_max * 1.5)
 
     # Round 2: fetch comments for hot posts
     comments_data: dict[str, list] = {}
@@ -782,6 +1191,8 @@ def main() -> None:
 
     max_posts = config.ROUND2_MAX_POSTS if args.round == 2 else config.ROUND1_MAX_POSTS
     fetch_comments = args.round == 2
+    batch_delay = config.ROUND2_BATCH_DELAY if args.round == 2 else config.ROUND1_BATCH_DELAY
+    batch_size = config.BATCH_SIZE
 
     # Resume support
     progress = load_progress()
@@ -802,17 +1213,34 @@ def main() -> None:
     config.RAW_POSTS_DIR.mkdir(parents=True, exist_ok=True)
     config.RAW_COMMENTS_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Launch browser — always verify login with visible window, then optionally go headless
-    log.info(f"Starting Round {args.round} scraping...")
-    log.info(f"  Targets: {len(targets)} schools")
-    log.info(f"  Max posts/school: {max_posts}")
-    log.info(f"  Comments: {'Yes' if fetch_comments else 'No'}")
+    # ─── Print run parameters ────────────────────────────────────────
+    remaining_targets = [t for t in targets if t["school_code"] not in completed]
+    r = args.round
+    delay_lo = config.ROUND1_MIN_DELAY if r == 1 else config.ROUND2_MIN_DELAY
+    delay_hi = config.ROUND1_MAX_DELAY if r == 1 else config.ROUND2_MAX_DELAY
 
+    log.info(f"Starting Round {r} scraping (慢爬模式 v2)...")
+    log.info(f"  Targets: {len(remaining_targets)} schools (of {len(targets)} total)")
+    log.info(f"  Max posts/school: {max_posts}")
+    log.info(f"  Max keywords/school: {config.MAX_KEYWORDS_PER_SCHOOL}")
+    log.info(f"  Max posts/keyword: {config.MAX_POSTS_PER_KEYWORD}")
+    log.info(f"  Request delay: {delay_lo}-{delay_hi}s")
+    log.info(f"  School cooldown: {config.SCHOOL_COOLDOWN_MIN}-{config.SCHOOL_COOLDOWN_MAX}s")
+    log.info(f"  Batch: every {batch_size} schools, rest {batch_delay}s ({batch_delay/60:.0f}min)")
+    log.info(f"  Random long pause: {config.RANDOM_LONG_PAUSE_PROBABILITY*100:.0f}% chance")
+    log.info(f"  Session refresh: every {config.SESSION_REFRESH_EVERY} schools")
+    log.info(f"  Comments: {'Yes' if fetch_comments else 'No'}")
+    log.info("")
+
+    # Launch browser
     pw, browser, context, page = ensure_login(headless=args.headless)
 
+    # Warm up session to look like a real user opening the app
+    warmup_session(page)
+
     consecutive_failures = 0
-    MAX_CONSECUTIVE_FAILURES = 10  # If 10 in a row fail, something is wrong
-    login_wall_detected = False
+    MAX_CONSECUTIVE_FAILURES = 8
+    schools_since_refresh = 0
 
     try:
 
@@ -826,44 +1254,39 @@ def main() -> None:
             log.info(f"  [{i+1}/{len(targets)}] {name} ({code})")
 
             try:
-                # Ensure page is still alive, recreate if needed
+                # Ensure page is still alive
                 try:
-                    page.url  # Simple check
+                    page.url
                 except Exception:
                     log.info("    🔄 Recreating page...")
                     try:
                         page = context.new_page()
                         page.add_init_script("""
                             Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+                            window.chrome = { runtime: {} };
                         """)
                     except Exception as be:
                         log.info(f"    ❌ Browser context dead, restarting: {be}")
-                        try:
-                            browser.close()
-                            pw.stop()
-                        except Exception:
-                            pass
-                        pw, browser, context, page = ensure_login(headless=args.headless)
+                        pw, browser, context, page = refresh_session(pw, browser, headless=args.headless)
+                        warmup_session(page)
 
                 group_schools = groups.get(target.get("group_name", ""))
                 result = scrape_school(
-                    page, target, max_posts, group_schools, fetch_comments
+                    page, target, max_posts, group_schools, fetch_comments,
+                    round_num=args.round,
                 )
 
                 # Check if we got zero posts — might be login wall
                 if result["total_posts"] == 0 and consecutive_failures >= 2:
-                    # Verify session is still valid
                     if not check_login(page):
                         log.info("  🔒 Session expired! Re-authenticating...")
-                        try:
-                            browser.close()
-                            pw.stop()
-                        except Exception:
-                            pass
-                        pw, browser, context, page = ensure_login(headless=args.headless)
+                        pw, browser, context, page = refresh_session(pw, browser, headless=args.headless)
+                        warmup_session(page)
+                        schools_since_refresh = 0
                         # Retry this school
                         result = scrape_school(
-                            page, target, max_posts, group_schools, fetch_comments
+                            page, target, max_posts, group_schools, fetch_comments,
+                            round_num=args.round,
                         )
 
                 # Save raw posts
@@ -873,7 +1296,8 @@ def main() -> None:
                 comment_count = sum(len(v) for v in result.get("comments", {}).values())
                 log.info(f"    ✅ {post_count} posts, {comment_count} comments")
 
-                progress["completed_schools"].append(code)
+                if code not in progress["completed_schools"]:
+                    progress["completed_schools"].append(code)
                 progress["total_posts_fetched"] += post_count
                 progress["last_school_index"] = i
 
@@ -888,17 +1312,28 @@ def main() -> None:
                 progress["failed_schools"][code] = str(e)
                 consecutive_failures += 1
 
+            # ─── Session refresh (proactive, not just on failure) ─────
+            schools_since_refresh += 1
+            if schools_since_refresh >= config.SESSION_REFRESH_EVERY:
+                log.info(f"  🔄 Proactive session refresh ({schools_since_refresh} schools done)...")
+                try:
+                    save_cookies(context)
+                    pw, browser, context, page = refresh_session(pw, browser, headless=args.headless)
+                    warmup_session(page)
+                    schools_since_refresh = 0
+                    log.info("  ✅ Session refreshed proactively")
+                except Exception as e:
+                    log.info(f"  ⚠️ Proactive refresh failed ({e}), continuing with current session")
+
+            # ─── Consecutive failure handling ─────────────────────────
             if consecutive_failures >= MAX_CONSECUTIVE_FAILURES:
                 log.info(f"  ❌❌ {MAX_CONSECUTIVE_FAILURES} consecutive zero-post schools — "
                          "attempting re-login before giving up...")
                 try:
-                    browser.close()
-                    pw.stop()
-                except Exception:
-                    pass
-                try:
-                    pw, browser, context, page = ensure_login(headless=args.headless)
+                    pw, browser, context, page = refresh_session(pw, browser, headless=args.headless)
+                    warmup_session(page)
                     consecutive_failures = 0
+                    schools_since_refresh = 0
                     log.info("  ✅ Re-login successful, continuing...")
                 except Exception:
                     log.info("  ❌ Re-login failed. Stopping scraper.")
@@ -907,21 +1342,36 @@ def main() -> None:
             # Save progress after every school
             save_progress(progress)
 
-            # Summary every 10 schools
-            if (i + 1) % 10 == 0:
-                log.info(f"  📊 Progress: {len(progress['completed_schools'])} done, "
-                         f"{progress['total_posts_fetched']} posts total")
+            # ─── Between-school cooldown ─────────────────────────────
+            cooldown = config.SCHOOL_COOLDOWN_MIN + random.random() * (
+                config.SCHOOL_COOLDOWN_MAX - config.SCHOOL_COOLDOWN_MIN
+            )
+            log.info(f"    💤 School cooldown {cooldown:.0f}s...")
+            time.sleep(cooldown)
 
-            # Batch delay every 20 schools
-            if (i + 1) % 20 == 0:
-                delay = config.BATCH_DELAY + random.random() * 5
-                log.info(f"  💤 Batch cooldown ({delay:.0f}s)...")
-                time.sleep(delay)
+            # Random long pause
+            maybe_long_pause("(between schools)")
+
+            # ─── Summary & batch delay ───────────────────────────────
+            completed_count = len(set(progress["completed_schools"]))
+            if completed_count % 10 == 0 and completed_count > 0:
+                elapsed_pct = completed_count / len(targets) * 100
+                log.info(f"  📊 Progress: {completed_count}/{len(targets)} ({elapsed_pct:.1f}%), "
+                         f"{progress['total_posts_fetched']} posts total, "
+                         f"{len(progress['failed_schools'])} failed")
+
+            if completed_count % batch_size == 0 and completed_count > 0:
+                jitter = random.random() * 60  # ±1 minute jitter
+                actual_delay = batch_delay + jitter
+                log.info(f"  💤 Batch cooldown {actual_delay:.0f}s ({actual_delay/60:.1f}min)...")
+                time.sleep(actual_delay)
+                # Refresh cookies during batch break
+                save_cookies(context)
 
         # Final save
         save_progress(progress)
         log.info(f"\n✅ Round {args.round} complete!")
-        log.info(f"  Schools processed: {len(progress['completed_schools'])}")
+        log.info(f"  Schools processed: {len(set(progress['completed_schools']))}")
         log.info(f"  Total posts: {progress['total_posts_fetched']}")
         log.info(f"  Failed schools: {len(progress['failed_schools'])}")
 

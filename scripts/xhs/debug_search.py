@@ -4,6 +4,8 @@ from playwright.sync_api import sync_playwright
 import json
 import time
 
+from scripts.xhs.site import build_search_url, has_session_cookie, is_search_url
+
 def test_search(headless: bool):
     mode = "headless" if headless else "visible"
     print(f"\n{'='*50}")
@@ -34,10 +36,7 @@ def test_search(headless: bool):
     )
 
     kw = "維多利亞幼稚園 面試"
-    url = (
-        f"https://www.xiaohongshu.com/search_result"
-        f"?keyword={kw}&source=web_search_result_notes"
-    )
+    url = build_search_url(kw)
     print(f"URL: {url}")
     page.goto(url, timeout=30000, wait_until="domcontentloaded")
     time.sleep(8)
@@ -57,6 +56,8 @@ def test_search(headless: bool):
     has_captcha = "验证" in body_text or "驗證" in body_text
     print(f"\nLogin prompt in text: {has_login}")
     print(f"Captcha in text: {has_captcha}")
+    print(f"Detected search page: {is_search_url(current_url)}")
+    print(f"Session cookie present: {has_session_cookie(context.cookies())}")
     
     # Count elements
     counts = page.evaluate("""() => {

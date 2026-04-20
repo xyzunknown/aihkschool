@@ -1,0 +1,221 @@
+import { createServiceClient } from "@/lib/supabase/server";
+
+// ============================================================
+// Types
+// ============================================================
+
+export type ProgrammeCategory =
+  | "swimming"
+  | "music"
+  | "dance"
+  | "art"
+  | "sport"
+  | "parent_child"
+  | "other";
+
+export type EnrolmentStatus = "pre_open" | "open" | "closed" | "full";
+
+export interface Programme {
+  id: string;
+  lcsd_programme_id: string;
+  name_zh: string | null;
+  name_en: string | null;
+  category: ProgrammeCategory | null;
+  age_min: number | null;
+  age_max: number | null;
+  venue: string | null;
+  district: string | null;
+  fee_hkd: number | null;
+  sessions_count: number | null;
+  start_date: string | null;
+  end_date: string | null;
+  enrolment_open_at: string | null;
+  enrolment_close_at: string | null;
+  raw_url: string | null;
+  is_active: boolean;
+  last_scraped_at: string | null;
+  created_at: string;
+}
+
+export interface ProgrammeWithStatus extends Programme {
+  lcsd_programme_status: {
+    seats_available: number | null;
+    is_full: boolean;
+    enrolment_status: EnrolmentStatus;
+    last_checked_at: string | null;
+  } | null;
+}
+
+type ProgrammeStatusRow = {
+  seats_available: number | null;
+  is_full: boolean;
+  enrolment_status: EnrolmentStatus;
+  last_checked_at: string | null;
+};
+
+type ProgrammeRow = Programme & {
+  lcsd_programme_status: ProgrammeStatusRow | ProgrammeStatusRow[] | null;
+};
+
+export interface FetchProgrammesParams {
+  category?: ProgrammeCategory;
+  district?: string;
+  search?: string;
+  ageMin?: number;
+  ageMax?: number;
+  page?: number;
+  limit?: number;
+}
+
+export interface FetchProgrammesResult {
+  data: ProgrammeWithStatus[];
+  count: number;
+  page: number;
+  limit: number;
+}
+
+// ============================================================
+// Selects
+// ============================================================
+
+const LIST_SELECT = `id, lcsd_programme_id, name_zh, name_en, category,
+  age_min, age_max, venue, district, fee_hkd, sessions_count,
+  start_date, end_date, enrolment_open_at, enrolment_close_at,
+  raw_url, is_active, last_scraped_at, created_at,
+  lcsd_programme_status (seats_available, is_full, enrolment_status, last_checked_at)`;
+
+// ============================================================
+// Queries
+// ============================================================
+
+export async function fetchProgrammes(
+  params: FetchProgrammesParams = {},
+): Promise<FetchProgrammesResult> {
+  const supabase = await createServiceClient();
+  const {
+    category,
+    district,
+    search,
+    ageMin,
+    ageMax,
+    page = 1,
+    limit = 20,
+  } = params;
+
+  const safeLimit = Math.min(Math.max(limit, 1), 100);
+  const offset = (page - 1) * safeLimit;
+
+  let query = supabase
+    .from("lcsd_programmes")
+    .select(LIST_SELECT, { count: "exact" })
+    .eq("is_active", true);
+
+  if (category) {
+    query = query.eq("category", category);
+  }
+  if (district) {
+    query = query.eq("district", district);
+  }
+  if (typeof ageMin === "number" && Number.isFinite(ageMin)) {
+    query = query.gte("age_max", ageMin);
+  }
+  if (typeof ageMax === "number" && Number.isFinite(ageMax)) {
+    query = query.lte("age_max", ageMax);
+  }
+  if (search && search.trim()) {
+    const safe = search.trim().replace(/[,()]/g, "");
+    query = query.or(`name_zh.ilike.%${safe}%,name_en.ilike.%${safe}%,venue.ilike.%${safe}%`);
+  }
+
+  query = query
+    .order("enrolment_open_at", { ascending: true, nullsFirst: false })
+    .range(offset, offset + safeLimit - 1);
+
+  const { data, error, count } = await query;
+
+  if (error) {
+    throw new Error(`Failed to fetch programmes: ${error.message}`);
+  }
+
+  const mapped = ((data ?? []) as ProgrammeRow[]).map((row) => ({
+    ...row,
+    lcsd_programme_status: Array.isArray(row.lcsd_programme_status)
+      ? row.lcsd_programme_status[0] ?? null
+      : row.lcsd_programme_status ?? null,
+  })) as ProgrammeWithStatus[];
+
+  return {
+    data: mapped,
+    count: count ?? 0,
+    page,
+    limit: safeLimit,
+  };
+}
+
+export async function fetchProgrammeById(id: string): Promise<ProgrammeWithStatus | null> {
+  const supabase = await createServiceClient();
+
+  const { data, error } = await supabase
+    .from("lcsd_programmes")
+    .select(LIST_SELECT)
+    .eq("id", id)
+    .eq("is_active", true)
+    .single();
+
+  if (error || !data) return null;
+  const row = data as ProgrammeRow;
+  return {
+    ...row,
+    lcsd_programme_status: Array.isArray(row.lcsd_programme_status)
+      ? row.lcsd_programme_status[0] ?? null
+      : row.lcsd_programme_status ?? null,
+  } as ProgrammeWithStatus;
+}
+
+export async function fetchUpcomingProgrammes(limit = 6): Promise<ProgrammeWithStatus[]> {
+  const supabase = await createServiceClient();
+
+  const now = new Date().toISOString();
+
+  const { data, error } = await supabase
+    .from("lcsd_programmes")
+    .select(LIST_SELECT)
+    .eq("is_active", true)
+    .gte("enrolment_open_at", now)
+    .order("enrolment_open_at", { ascending: true })
+    .limit(limit);
+
+  if (error) return [];
+  return ((data ?? []) as ProgrammeRow[]).map((row) => ({
+    ...row,
+    lcsd_programme_status: Array.isArray(row.lcsd_programme_status)
+      ? row.lcsd_programme_status[0] ?? null
+      : row.lcsd_programme_status ?? null,
+  })) as ProgrammeWithStatus[];
+}
+
+/**
+ * 更新課程實時狀態（C 路徑用）
+ */
+export async function upsertProgrammeStatus(
+  programmeId: string,
+  status: {
+    seats_available: number | null;
+    is_full: boolean;
+    enrolment_status: EnrolmentStatus;
+  },
+) {
+  const supabase = await createServiceClient();
+
+  const { error } = await supabase
+    .from("lcsd_programme_status")
+    .upsert({
+      programme_id: programmeId,
+      ...status,
+      last_checked_at: new Date().toISOString(),
+    });
+
+  if (error) {
+    throw new Error(`Failed to upsert programme status: ${error.message}`);
+  }
+}

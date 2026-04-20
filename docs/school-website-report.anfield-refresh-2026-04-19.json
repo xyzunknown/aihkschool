@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-04-19T12:20:42.182Z",
+  "stats": {
+    "total": 1,
+    "ok": 1,
+    "unchanged": 0,
+    "content_insufficient": 0,
+    "robots_blocked": 0,
+    "unreachable": 0,
+    "spa_detected": 0,
+    "pdf_only": 0,
+    "no_website": 0,
+    "dry_run": 0,
+    "error": 0
+  },
+  "details": [
+    {
+      "school_id": "ca7477a2-203a-46a3-bb4e-4180e8e37eb4",
+      "name_tc": "安菲爾國際幼稚園",
+      "name_en": "ANFIELD INTERNATIONAL KINDERGARTEN",
+      "website": "https://anfield.edu.hk/",
+      "crawl_url": "https://anfield.edu.hk/",
+      "status": "ok",
+      "error": null,
+      "notes": []
+    }
+  ]
+}

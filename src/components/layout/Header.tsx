@@ -8,6 +8,7 @@ import { useAuth } from "@/components/layout/AuthProvider";
 const NAV_ITEMS = [
   { href: "/kg", label: "搵學校" },
   { href: "/activities", label: "課外活動" },
+  { href: "/programmes", label: "課程提醒" },
   { href: "/timeline", label: "時間線" },
   { href: "/news", label: "資訊" },
   { href: "/account", label: "我的收藏" },
@@ -34,11 +35,13 @@ export function Header() {
                 ? pathname.startsWith("/kg")
                 : item.href === "/activities"
                   ? pathname.startsWith("/activities")
-                  : item.href === "/timeline"
-                    ? pathname.startsWith("/timeline")
-                    : item.href === "/news"
-                      ? pathname.startsWith("/news")
-                      : pathname === item.href;
+                  : item.href === "/programmes"
+                    ? pathname.startsWith("/programmes")
+                    : item.href === "/timeline"
+                      ? pathname.startsWith("/timeline")
+                      : item.href === "/news"
+                        ? pathname.startsWith("/news")
+                        : pathname === item.href;
             return (
               <Link
                 key={item.href}
@@ -120,11 +123,13 @@ export function Header() {
                 ? pathname.startsWith("/kg")
                 : item.href === "/activities"
                   ? pathname.startsWith("/activities")
-                  : item.href === "/timeline"
-                    ? pathname.startsWith("/timeline")
-                    : item.href === "/news"
-                      ? pathname.startsWith("/news")
-                      : pathname === item.href;
+                  : item.href === "/programmes"
+                    ? pathname.startsWith("/programmes")
+                    : item.href === "/timeline"
+                      ? pathname.startsWith("/timeline")
+                      : item.href === "/news"
+                        ? pathname.startsWith("/news")
+                        : pathname === item.href;
             return (
               <Link
                 key={item.href}

@@ -1,0 +1,86 @@
+{
+  "timestamp": "2026-04-19T16:33:40.069Z",
+  "stats": {
+    "total": 4,
+    "ok": 1,
+    "unchanged": 3,
+    "content_insufficient": 0,
+    "robots_blocked": 0,
+    "unreachable": 0,
+    "spa_detected": 0,
+    "pdf_only": 0,
+    "no_website": 0,
+    "dry_run": 0,
+    "error": 0
+  },
+  "details": [
+    {
+      "school_id": "49d4456b-d43d-42d2-abd0-5b13453b5782",
+      "name_tc": "多多國際幼稚園（九龍塘）",
+      "name_en": "TUTOR TIME INTERNATIONAL KINDERGARTEN (KOWLOON TONG)",
+      "website": "https://www.tutortime.com.hk/",
+      "crawl_url": "https://www.tutortime.com.hk/",
+      "status": "unchanged",
+      "error": null,
+      "notes": [
+        "domain_policy=Tutor Time returns 403 to direct fetch and needs a browser fallback.",
+        "Playwright fallback used for www.tutortime.com.hk",
+        "www.tutortime.com.hk: Playwright fallback used for www.tutortime.com.hk",
+        "www.tutortime.com.hk: Playwright fallback used for www.tutortime.com.hk",
+        "www.tutortime.com.hk: Playwright fallback used for www.tutortime.com.hk",
+        "www.tutortime.com.hk: Playwright fallback used for www.tutortime.com.hk"
+      ]
+    },
+    {
+      "school_id": "fdb77e27-8966-4646-b6e3-1a17a9aa66d6",
+      "name_tc": "多多國際幼稚園（半山）",
+      "name_en": "TUTOR TIME INTERNATIONAL KINDERGARTEN (MID LEVELS)",
+      "website": "https://www.tutortime.com.hk/",
+      "crawl_url": "https://www.tutortime.com.hk/",
+      "status": "unchanged",
+      "error": null,
+      "notes": [
+        "domain_policy=Tutor Time returns 403 to direct fetch and needs a browser fallback.",
+        "Playwright fallback used for www.tutortime.com.hk",
+        "www.tutortime.com.hk: Playwright fallback used for www.tutortime.com.hk",
+        "www.tutortime.com.hk: Playwright fallback used for www.tutortime.com.hk",
+        "www.tutortime.com.hk: Playwright fallback used for www.tutortime.com.hk",
+        "www.tutortime.com.hk: Playwright fallback used for www.tutortime.com.hk"
+      ]
+    },
+    {
+      "school_id": "56ac35b0-f8df-4dbb-9cd2-de10e611d7d3",
+      "name_tc": "多多國際幼稚園（形點）",
+      "name_en": "TUTOR TIME INTERNATIONAL KINDERGARTEN (YOHO)",
+      "website": "https://www.tutortime.com.hk/",
+      "crawl_url": "https://www.tutortime.com.hk/",
+      "status": "unchanged",
+      "error": null,
+      "notes": [
+        "domain_policy=Tutor Time returns 403 to direct fetch and needs a browser fallback.",
+        "Playwright fallback used for www.tutortime.com.hk",
+        "www.tutortime.com.hk: Playwright fallback used for www.tutortime.com.hk",
+        "www.tutortime.com.hk: Playwright fallback used for www.tutortime.com.hk",
+        "www.tutortime.com.hk: Playwright fallback used for www.tutortime.com.hk",
+        "www.tutortime.com.hk: Playwright fallback used for www.tutortime.com.hk"
+      ]
+    },
+    {
+      "school_id": "e626f3ed-930b-41ef-9b93-33e7bde5ea51",
+      "name_tc": "多多寶馬山國際幼稚園",
+      "name_en": "TUTOR TIME BRAEMAR HILL INTERNATIONAL KINDERGARTEN",
+      "website": "https://www.tutortime.com.hk/en/home",
+      "crawl_url": "https://www.tutortime.com.hk/en/home",
+      "status": "ok",
+      "error": null,
+      "notes": [
+        "domain_policy=Tutor Time returns 403 to direct fetch and needs a browser fallback.",
+        "Playwright fallback used for www.tutortime.com.hk",
+        "www.tutortime.com.hk: Playwright fallback used for www.tutortime.com.hk",
+        "www.tutortime.com.hk: Playwright fallback used for www.tutortime.com.hk",
+        "www.tutortime.com.hk: Playwright fallback used for www.tutortime.com.hk",
+        "www.tutortime.com.hk: Playwright fallback used for www.tutortime.com.hk"
+      ]
+    }
+  ]
+}

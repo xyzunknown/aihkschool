@@ -1,0 +1,63 @@
+name: Extract Reputation
+
+on:
+  schedule:
+    # Weekly Monday 06:00 UTC = 14:00 HKT (after xhs daily + weekend social ingest)
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Max schools to aggregate (0 = all)"
+        required: false
+        default: "0"
+      min_posts:
+        description: "Minimum posts per school to trigger aggregation"
+        required: false
+        default: "3"
+      school_id:
+        description: "Limit to one school UUID (optional)"
+        required: false
+        default: ""
+      dry_run:
+        description: "Dry-run (log AI output, no DB writes)"
+        required: false
+        default: "false"
+
+jobs:
+  extract-reputation:
+    name: Aggregate social posts into school_enrichments
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install deps
+        run: npm install --no-save @supabase/supabase-js
+
+      - name: Run reputation extractor
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          ARGS=""
+          LIMIT="${{ github.event.inputs.limit || '0' }}"
+          MIN_POSTS="${{ github.event.inputs.min_posts || '3' }}"
+          SCHOOL_ID="${{ github.event.inputs.school_id }}"
+          if [ "$LIMIT" != "0" ]; then ARGS="$ARGS --limit $LIMIT"; fi
+          if [ -n "$MIN_POSTS" ]; then ARGS="$ARGS --min-posts $MIN_POSTS"; fi
+          if [ -n "$SCHOOL_ID" ]; then ARGS="$ARGS --school-id $SCHOOL_ID"; fi
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          node scripts/crawlers/extract-reputation.mjs $ARGS
+
+      - name: Summary
+        if: always()
+        run: echo "Reputation extraction complete."
