@@ -1,0 +1,51 @@
+name: Crawl BK Milk
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Max articles (0 = default)"
+        required: false
+        default: "0"
+      dry_run:
+        description: "Log only, no DB writes"
+        required: false
+        default: "false"
+  schedule:
+    - cron: "0 5 1,15 * *"
+
+permissions:
+  contents: read
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install deps
+        run: npm install --no-save @supabase/supabase-js cheerio robots-parser
+
+      - name: Crawl BK Milk
+        run: |
+          ARGS=""
+          LIMIT="${{ github.event.inputs.limit || '0' }}"
+          if [ "$LIMIT" != "0" ]; then ARGS="$ARGS --limit $LIMIT"; fi
+          if [ "${{ github.event.inputs.dry_run || 'false' }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          node scripts/crawlers/bkmilk.mjs $ARGS
+
+      - name: Summary
+        if: always()
+        run: echo "BK Milk crawl complete."

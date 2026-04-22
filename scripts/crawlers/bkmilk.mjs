@@ -58,11 +58,26 @@ const BASE_URL = "https://bkmilk.com.hk";
 // ─── Rate limiter ─────────────────────────────────────────────────────────
 
 let lastRequestTime = 0;
+let requestQueue = Promise.resolve();
 
-async function rateLimitedFetch(url) {
-  const wait = Math.max(0, 333 - (Date.now() - lastRequestTime)); // ~3 req/sec
+async function acquireRequestSlot() {
+  let release = () => {};
+  const next = new Promise((resolve) => {
+    release = resolve;
+  });
+  const previous = requestQueue;
+  requestQueue = next;
+
+  await previous;
+
+  const wait = Math.max(0, 3000 - (Date.now() - lastRequestTime));
   if (wait > 0) await new Promise((r) => setTimeout(r, wait));
   lastRequestTime = Date.now();
+  release();
+}
+
+async function rateLimitedFetch(url) {
+  await acquireRequestSlot();
 
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), FETCH_TIMEOUT);

@@ -12,7 +12,7 @@
  *   4. Upsert into social_posts_raw (raw_text is preview only)
  *
  * Usage:
- *   node scripts/crawlers/babykingdom-preview.mjs [--dry-run] [--limit N] [--pages N]
+ *   node scripts/crawlers/babykingdom-preview.mjs [--dry-run] [--limit N] [--pages N] [--concurrency N]
  *
  * Env vars (non-dry-run):
  *   NEXT_PUBLIC_SUPABASE_URL
@@ -47,12 +47,14 @@ const { values: args } = parseArgs({
     "dry-run": { type: "boolean", default: false },
     limit: { type: "string", default: "100" },
     pages: { type: "string", default: "5" },
+    concurrency: { type: "string", default: "2" },
   },
 });
 
 const DRY_RUN = args["dry-run"];
 const LIMIT = parseInt(args.limit, 10) || 100;
 const PAGES = parseInt(args.pages, 10) || 5;
+const CONCURRENCY = Math.max(1, parseInt(args.concurrency, 10) || 2);
 
 const UA = "HKSchoolPlaceBot/1.0 (+https://aihkschool.vercel.app)";
 const FETCH_TIMEOUT = 10000;
@@ -68,11 +70,26 @@ const FORUM_PATHS = [
 // ─── Rate limiter ─────────────────────────────────────────────────────────
 
 let lastRequestTime = 0;
+let requestQueue = Promise.resolve();
 
-async function rateLimitedFetch(url) {
-  const wait = Math.max(0, 500 - (Date.now() - lastRequestTime)); // 2 req/sec max
+async function acquireRequestSlot() {
+  let release = () => {};
+  const next = new Promise((resolve) => {
+    release = resolve;
+  });
+  const previous = requestQueue;
+  requestQueue = next;
+
+  await previous;
+
+  const wait = Math.max(0, 3000 - (Date.now() - lastRequestTime));
   if (wait > 0) await new Promise((r) => setTimeout(r, wait));
   lastRequestTime = Date.now();
+  release();
+}
+
+async function rateLimitedFetch(url) {
+  await acquireRequestSlot();
 
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), FETCH_TIMEOUT);
@@ -237,6 +254,25 @@ function hashAuthor(platform, author) {
     .slice(0, 16);
 }
 
+async function mapWithConcurrency(items, worker, concurrency) {
+  const results = new Array(items.length);
+  let currentIndex = 0;
+
+  async function runWorker() {
+    while (currentIndex < items.length) {
+      const index = currentIndex;
+      currentIndex += 1;
+      results[index] = await worker(items[index], index);
+    }
+  }
+
+  await Promise.all(
+    Array.from({ length: Math.min(concurrency, items.length) }, () => runWorker()),
+  );
+
+  return results;
+}
+
 // ─── DB ───────────────────────────────────────────────────────────────────
 
 function getSupabase() {
@@ -251,7 +287,9 @@ function getSupabase() {
 // ─── Main ─────────────────────────────────────────────────────────────────
 
 async function main() {
-  console.log(`[babykingdom] starting — dry-run=${DRY_RUN} limit=${LIMIT} pages=${PAGES}`);
+  console.log(
+    `[babykingdom] starting — dry-run=${DRY_RUN} limit=${LIMIT} pages=${PAGES} concurrency=${CONCURRENCY}`,
+  );
 
   // Step 1: Collect thread links from listing pages
   const allThreads = [];
@@ -298,39 +336,41 @@ async function main() {
     console.log(`[babykingdom] loaded ${schools.length} schools, ${aliases.length} aliases`);
   }
 
-  const postsToInsert = [];
+  const matchedThreads = uniqueThreads
+    .map((thread) => ({
+      thread,
+      titleMatches: matchSchools(thread.title, schools, aliases),
+    }))
+    .filter(({ titleMatches }) => titleMatches.length > 0)
+    .slice(0, LIMIT);
 
-  for (const thread of uniqueThreads) {
-    if (postsToInsert.length >= LIMIT) break;
+  const postsToInsert = (await mapWithConcurrency(
+    matchedThreads,
+    async ({ thread, titleMatches }) => {
+      console.log(`[babykingdom] fetching preview: ${thread.title.slice(0, 40)}...`);
+      const preview = await fetchThreadPreview(thread.url);
+      const externalId = createHash("sha256").update(thread.url).digest("hex").slice(0, 24);
 
-    // Quick match on title first (cheap, no network)
-    const titleMatches = matchSchools(thread.title, schools, aliases);
-    if (titleMatches.length === 0) continue;
-
-    // Fetch preview for matched threads only
-    console.log(`[babykingdom] fetching preview: ${thread.title.slice(0, 40)}...`);
-    const preview = await fetchThreadPreview(thread.url);
-
-    const externalId = createHash("sha256").update(thread.url).digest("hex").slice(0, 24);
-
-    postsToInsert.push({
-      platform: "babykingdom",
-      external_id: externalId,
-      url: thread.url,
-      author_hash: null,
-      posted_at: preview?.posted_at || null,
-      raw_text: sanitizePII(`${thread.title}\n\n${preview?.preview || ""}`),
-      raw_metadata: {
-        title: thread.title,
-        is_preview: true,
-        preview_length: preview?.preview?.length || 0,
-      },
-      school_matches: titleMatches,
-      sentiment: null,
-      topics: [],
-      fetched_at: new Date().toISOString(),
-    });
-  }
+      return {
+        platform: "babykingdom",
+        external_id: externalId,
+        url: thread.url,
+        author_hash: null,
+        posted_at: preview?.posted_at || null,
+        raw_text: sanitizePII(`${thread.title}\n\n${preview?.preview || ""}`),
+        raw_metadata: {
+          title: thread.title,
+          is_preview: true,
+          preview_length: preview?.preview?.length || 0,
+        },
+        school_matches: titleMatches,
+        sentiment: null,
+        topics: [],
+        fetched_at: new Date().toISOString(),
+      };
+    },
+    CONCURRENCY,
+  )).filter(Boolean);
 
   console.log(`[babykingdom] matched ${postsToInsert.length} threads to schools`);
 
