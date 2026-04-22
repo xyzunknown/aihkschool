@@ -6,8 +6,8 @@
  * This complies with the platform TOS — preview only, no full content scraping.
  *
  * Pipeline:
- *   1. Fetch Baby-Kingdom forum listing pages for kindergarten-related threads
- *   2. Extract thread title + 200-char preview + link
+ *   1. Read Baby-Kingdom public thread sitemaps (robots-allowed)
+ *   2. Fetch recent thread pages and extract title + 200-char preview
  *   3. matchSchoolFromText on title → only insert if matched
  *   4. Upsert into social_posts_raw (raw_text is preview only)
  *
@@ -60,12 +60,8 @@ const UA = "HKSchoolPlaceBot/1.0 (+https://aihkschool.vercel.app)";
 const FETCH_TIMEOUT = 10000;
 const BASE_URL = "https://www.baby-kingdom.com";
 const MAX_PREVIEW = 200;
-
-// Kindergarten-related forum IDs / paths
-const FORUM_PATHS = [
-  "/forum/forum-175-1.html", // 幼校討論
-  "/forum/forum-6-1.html",   // 幼稚園及幼兒園一覽
-];
+const THREAD_SITEMAP_INDEX = `${BASE_URL}/sitemap_forum_threads.xml`;
+const MAX_SITEMAP_CANDIDATES = 150;
 
 // ─── Rate limiter ─────────────────────────────────────────────────────────
 
@@ -145,44 +141,65 @@ function sanitizePII(text) {
     .replace(/[\w.]+@[\w.]+\.\w+/g, "[email]");
 }
 
-// ─── Parse forum listing ─────────────────────────────────────────────────
-
-function parseForumListing(html) {
-  const $ = cheerio.load(html);
-  const threads = [];
-
-  // Baby-Kingdom uses Discuz-style forum markup
-  $("a.s.xst, a[onclick], th a[href*='thread-']").each((_, el) => {
-    const $el = $(el);
-    const title = $el.text().trim();
-    const href = $el.attr("href") || "";
-
-    if (!title || title.length < 5) return;
-
-    let fullUrl = href;
-    if (href.startsWith("/")) {
-      fullUrl = `${BASE_URL}${href}`;
-    } else if (!href.startsWith("http")) {
-      fullUrl = `${BASE_URL}/${href}`;
-    }
-
-    if (!fullUrl.includes("thread-") && !fullUrl.includes("viewthread")) return;
-
-    threads.push({ title, url: fullUrl });
-  });
-
-  return threads;
+function parseXmlLocs(xml) {
+  const $ = cheerio.load(xml, { xmlMode: true });
+  return $("loc")
+    .map((_, el) => $(el).text().trim())
+    .get()
+    .filter(Boolean);
 }
 
-// ─── Fetch thread preview ─────────────────────────────────────────────────
+async function fetchThreadUrlsFromSitemaps(maxSitemaps) {
+  if (!(await isAllowed(THREAD_SITEMAP_INDEX))) {
+    throw new Error(`robots disallowed sitemap index: ${THREAD_SITEMAP_INDEX}`);
+  }
 
-async function fetchThreadPreview(threadUrl) {
+  const indexXml = await rateLimitedFetch(THREAD_SITEMAP_INDEX);
+  if (!indexXml) {
+    throw new Error("failed to fetch Baby Kingdom thread sitemap index");
+  }
+
+  const sitemapUrls = parseXmlLocs(indexXml)
+    .filter((url) => url.includes("sitemap_forum_threads_"))
+    .slice(0, maxSitemaps);
+
+  const threadUrls = [];
+  for (const sitemapUrl of sitemapUrls) {
+    if (!(await isAllowed(sitemapUrl))) {
+      console.log(`[babykingdom] robots disallowed sitemap: ${sitemapUrl}`);
+      continue;
+    }
+
+    console.log(`[babykingdom] fetching sitemap: ${sitemapUrl}`);
+    const sitemapXml = await rateLimitedFetch(sitemapUrl);
+    if (!sitemapXml) continue;
+
+    const urls = parseXmlLocs(sitemapXml)
+      .filter((url) => url.includes("forum.php?mod=viewthread"))
+      .map((url) => url.replace(/&amp;/g, "&"));
+
+    threadUrls.push(...urls);
+
+    if (threadUrls.length >= MAX_SITEMAP_CANDIDATES) break;
+  }
+
+  return Array.from(new Set(threadUrls)).slice(0, MAX_SITEMAP_CANDIDATES);
+}
+
+async function fetchThreadData(threadUrl) {
   if (!(await isAllowed(threadUrl))) return null;
   const html = await rateLimitedFetch(threadUrl);
   if (!html) return null;
 
   const $ = cheerio.load(html);
   $("script, style, noscript, nav, footer, .ad").remove();
+
+  const title = (
+    $("#thread_subject, h1#thread_subject, h1.ph").first().text().trim() ||
+    $("title").text().trim().replace(/\s+-\s+[^-]+?\s+-\s+Baby Kingdom.*$/u, "")
+  ).replace(/\s+/g, " ");
+
+  if (!title || title.length < 5) return null;
 
   // Get first post content (preview only — 200 chars)
   const firstPost = $(".t_f, .postcontent, .message, td.t_f").first().text()
@@ -194,6 +211,7 @@ async function fetchThreadPreview(threadUrl) {
   const dateStr = $("em[id^='authorposton'], .authi em, .postinfo .date").first().text().trim();
 
   return {
+    title,
     preview: sanitizePII(preview),
     posted_at: dateStr || null,
   };
@@ -288,41 +306,8 @@ function getSupabase() {
 
 async function main() {
   console.log(
-    `[babykingdom] starting — dry-run=${DRY_RUN} limit=${LIMIT} pages=${PAGES} concurrency=${CONCURRENCY}`,
+    `[babykingdom] starting — dry-run=${DRY_RUN} limit=${LIMIT} sitemaps=${PAGES} concurrency=${CONCURRENCY}`,
   );
-
-  // Step 1: Collect thread links from listing pages
-  const allThreads = [];
-
-  for (const forumPath of FORUM_PATHS) {
-    for (let page = 1; page <= PAGES; page++) {
-      const pageUrl = forumPath.replace("-1.html", `-${page}.html`);
-      const fullUrl = `${BASE_URL}${pageUrl}`;
-
-      if (!(await isAllowed(fullUrl))) {
-        console.log(`[babykingdom] robots disallowed: ${fullUrl}`);
-        continue;
-      }
-
-      console.log(`[babykingdom] fetching listing: ${fullUrl}`);
-      const html = await rateLimitedFetch(fullUrl);
-      if (!html) continue;
-
-      const threads = parseForumListing(html);
-      allThreads.push(...threads);
-      console.log(`[babykingdom]   found ${threads.length} threads`);
-
-      if (allThreads.length >= LIMIT * 2) break; // enough candidates
-    }
-    if (allThreads.length >= LIMIT * 2) break;
-  }
-
-  // Deduplicate by URL
-  const uniqueThreads = Array.from(
-    new Map(allThreads.map((t) => [t.url, t])).values()
-  ).slice(0, LIMIT * 2);
-
-  console.log(`[babykingdom] unique threads: ${uniqueThreads.length}`);
 
   // Step 2: Match to schools
   let supabase = null;
@@ -336,41 +321,40 @@ async function main() {
     console.log(`[babykingdom] loaded ${schools.length} schools, ${aliases.length} aliases`);
   }
 
-  const matchedThreads = uniqueThreads
-    .map((thread) => ({
-      thread,
-      titleMatches: matchSchools(thread.title, schools, aliases),
-    }))
-    .filter(({ titleMatches }) => titleMatches.length > 0)
-    .slice(0, LIMIT);
+  const threadUrls = await fetchThreadUrlsFromSitemaps(PAGES);
+  console.log(`[babykingdom] sitemap thread candidates: ${threadUrls.length}`);
 
-  const postsToInsert = (await mapWithConcurrency(
-    matchedThreads,
-    async ({ thread, titleMatches }) => {
-      console.log(`[babykingdom] fetching preview: ${thread.title.slice(0, 40)}...`);
-      const preview = await fetchThreadPreview(thread.url);
-      const externalId = createHash("sha256").update(thread.url).digest("hex").slice(0, 24);
+  const postsToInsert = [];
+  for (const threadUrl of threadUrls) {
+    if (postsToInsert.length >= LIMIT) break;
 
-      return {
-        platform: "babykingdom",
-        external_id: externalId,
-        url: thread.url,
-        author_hash: null,
-        posted_at: preview?.posted_at || null,
-        raw_text: sanitizePII(`${thread.title}\n\n${preview?.preview || ""}`),
-        raw_metadata: {
-          title: thread.title,
-          is_preview: true,
-          preview_length: preview?.preview?.length || 0,
-        },
-        school_matches: titleMatches,
-        sentiment: null,
-        topics: [],
-        fetched_at: new Date().toISOString(),
-      };
-    },
-    CONCURRENCY,
-  )).filter(Boolean);
+    const threadData = await fetchThreadData(threadUrl);
+    if (!threadData?.title) continue;
+
+    const titleMatches = matchSchools(threadData.title, schools, aliases);
+    if (titleMatches.length === 0) continue;
+
+    console.log(`[babykingdom] matched thread: ${threadData.title.slice(0, 60)}...`);
+    const externalId = createHash("sha256").update(threadUrl).digest("hex").slice(0, 24);
+
+    postsToInsert.push({
+      platform: "babykingdom",
+      external_id: externalId,
+      url: threadUrl,
+      author_hash: null,
+      posted_at: threadData.posted_at || null,
+      raw_text: sanitizePII(`${threadData.title}\n\n${threadData.preview || ""}`),
+      raw_metadata: {
+        title: threadData.title,
+        is_preview: true,
+        preview_length: threadData.preview?.length || 0,
+      },
+      school_matches: titleMatches,
+      sentiment: null,
+      topics: [],
+      fetched_at: new Date().toISOString(),
+    });
+  }
 
   console.log(`[babykingdom] matched ${postsToInsert.length} threads to schools`);
 

@@ -11,8 +11,10 @@ on:
         description: "Log only, no DB writes"
         required: false
         default: "false"
-  schedule:
-    - cron: "0 5 1,15 * *"
+  # Auto-schedule paused 2026-04-22: source domain currently resolves to parked content.
+  # Keep manual dispatch for future re-check after source recovers.
+  # schedule:
+  #   - cron: "0 5 1,15 * *"
 
 permissions:
   contents: read
@@ -37,6 +39,11 @@ jobs:
 
       - name: Install deps
         run: npm install --no-save @supabase/supabase-js cheerio robots-parser
+
+      - name: Abort while source is parked
+        run: |
+          echo "BK Milk source currently resolves to parked content; crawl is paused until source recovers." >&2
+          exit 1
 
       - name: Crawl BK Milk
         run: |

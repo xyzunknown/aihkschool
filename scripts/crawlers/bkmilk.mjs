@@ -55,6 +55,12 @@ const FETCH_TIMEOUT = 10000;
 const MAX_RAW_TEXT = 1500;
 const BASE_URL = "https://bkmilk.com.hk";
 
+function isParkedResponse(html) {
+  if (!html) return false;
+  const lower = html.toLowerCase();
+  return lower.includes("parklogic") || lower.includes("router.parklogic.com") || lower.includes("redirecting...");
+}
+
 // ─── Rate limiter ─────────────────────────────────────────────────────────
 
 let lastRequestTime = 0;
@@ -292,10 +298,18 @@ function getSupabase() {
 async function main() {
   console.log(`[bkmilk] starting — dry-run=${DRY_RUN} limit=${LIMIT}`);
 
+  const homepageHtml = await rateLimitedFetch(`${BASE_URL}/`);
+  if (!homepageHtml || isParkedResponse(homepageHtml)) {
+    throw new Error("BK Milk source homepage is unavailable or parked; crawl paused.");
+  }
+
   // Step 1: Try RSS
   let articles = [];
   console.log(`[bkmilk] trying RSS feed...`);
   const rssXml = await rateLimitedFetch(`${BASE_URL}/feed/`);
+  if (isParkedResponse(rssXml)) {
+    throw new Error("BK Milk source appears parked/unavailable; crawl paused.");
+  }
   if (rssXml && rssXml.includes("<rss") || rssXml?.includes("<channel")) {
     articles = parseRSS(rssXml);
     console.log(`[bkmilk] RSS: parsed ${articles.length} articles`);
