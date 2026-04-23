@@ -26,8 +26,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const name = programme.name_zh || programme.name_en || "課程";
   return {
-    title: `${name} | SmartPLAY 課程提醒`,
-    description: `${name} — ${programme.venue || ""}，${formatProgrammeFee(programme.fee_hkd).label}`,
+    title: `${name} | SmartPLAY 開報前追蹤`,
+    description: `${name} — ${programme.venue || ""}，${formatProgrammeFee(programme.fee_hkd).label}，可加入開報前追蹤。`,
   };
 }
 

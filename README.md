@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## HKSchoolPlace
 
-## Getting Started
-
-First, run the development server:
+### 常用命令
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 首页 Banner 开关
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+首页 Banner 默认关闭，不渲染轮播，也不会留下占位。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+如需重新开启，在环境变量里加入：
 
-## Learn More
+```bash
+HOMEPAGE_BANNER_ENABLED=true
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Supabase 类型生成
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+项目现在把 Supabase 类型拆成两层：
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `src/types/database.generated.ts`：由 CLI 生成，允许覆盖
+- `src/types/database.ts`：稳定导出层，供应用代码引用
 
-## Deploy on Vercel
+首次使用前，准备以下环境：
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+NEXT_PUBLIC_SUPABASE_URL=...
+SUPABASE_ACCESS_TOKEN=...
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+然后执行：
+
+```bash
+npm run supabase:types
+```
+
+只校验生成文件是否过期：
+
+```bash
+npm run supabase:types:check
+```
+
+如果本机还没登录 Supabase CLI，也可以先运行：
+
+```bash
+npx supabase login
+```
+
+### OAuth Redirect URL 配置
+
+Google / OAuth 登录在本地开发和 Vercel Preview 都依赖 Supabase Auth 的 URL Configuration。
+
+请在 Supabase Dashboard -> Authentication -> URL Configuration 中确认：
+
+```text
+Site URL: https://aihkschool.vercel.app
+Redirect URLs:
+- http://localhost:3000/**
+- https://*-xyzunknowns-projects.vercel.app/**
+- https://aihkschool.vercel.app/**
+```
+
+项目里的登录回跳地址会优先使用 `NEXT_PUBLIC_SITE_URL`，其次使用 `NEXT_PUBLIC_VERCEL_URL`，最后回退到当前页面 origin。

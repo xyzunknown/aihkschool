@@ -8,7 +8,7 @@ import { useAuth } from "@/components/layout/AuthProvider";
 const NAV_ITEMS = [
   { href: "/kg", label: "搵學校" },
   { href: "/activities", label: "課外活動" },
-  { href: "/programmes", label: "課程提醒" },
+  { href: "/programmes", label: "開報前追蹤" },
   { href: "/timeline", label: "時間線" },
   { href: "/news", label: "資訊" },
   { href: "/account", label: "我的收藏" },

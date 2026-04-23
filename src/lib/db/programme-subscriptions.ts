@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { createServiceClient } from "@/lib/supabase/server";
+import type { TablesInsert } from "@/types/database";
 
 // ============================================================
 // Types
@@ -79,7 +80,7 @@ export async function fetchUserSubscriptions(
 export async function insertSubscription(
   userId: string,
   programmeId: string,
-  notifyBeforeMinutes: number = 60,
+  notifyBeforeMinutes: number = 1440,
 ) {
   const supabase = await createClient();
 
@@ -153,32 +154,32 @@ export async function createProgrammeReminders(
   subscriptionId: string,
   _programmeId: string,
   enrolmentOpenAt: string,
+  notifyBeforeMinutes: number = 1440,
 ) {
   const supabase = await createServiceClient();
 
   const openDate = new Date(enrolmentOpenAt);
 
-  // day_before: 開放前一天
-  const dayBefore = new Date(openDate);
-  dayBefore.setDate(dayBefore.getDate() - 1);
-  dayBefore.setHours(9, 0, 0, 0); // 上午 9 點發送
+  const scheduledAt = new Date(openDate);
+  scheduledAt.setMinutes(scheduledAt.getMinutes() - notifyBeforeMinutes);
 
-  const reminders = [
+  const reminders: TablesInsert<"programme_reminders">[] = [
     {
       subscription_id: subscriptionId,
       reminder_type: "day_before",
-      scheduled_at: dayBefore.toISOString(),
+      scheduled_at: scheduledAt.toISOString(),
       status: "pending",
     },
   ];
 
   const { error } = await supabase
     .from("programme_reminders")
-    .upsert(reminders, { onConflict: "subscription_id,reminder_type", ignoreDuplicates: true });
+    .upsert(reminders, {
+      onConflict: "subscription_id,reminder_type,scheduled_at",
+      ignoreDuplicates: true,
+    });
 
-  // upsert 可能不支持 composite unique，改用 insert ignore
   if (error) {
-    // 逐條插入，忽略衝突
     for (const reminder of reminders) {
       try {
         await supabase

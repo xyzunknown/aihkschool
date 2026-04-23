@@ -1,8 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
 import { fetchSchools } from "@/lib/db/schools";
+import type { SessionFilter } from "@/lib/db/schools";
 import type { District, SchoolType } from "@/types/database";
 
 export const dynamic = "force-dynamic";
+
+const SESSION_FILTERS: SessionFilter[] = [
+  "am",
+  "pm",
+  "whole_day",
+  "am_pm",
+  "am_whole_day",
+  "pm_whole_day",
+  "am_pm_whole_day",
+  "half_day",
+];
 
 export async function GET(request: NextRequest) {
   try {
@@ -11,7 +23,10 @@ export async function GET(request: NextRequest) {
     const districts = searchParams.getAll("district") as District[];
     const type = searchParams.get("type") as SchoolType | null;
     const language = searchParams.get("language");
-    const session = searchParams.get("session");
+    const sessionParam = searchParams.get("session");
+    const session = sessionParam && SESSION_FILTERS.includes(sessionParam as SessionFilter)
+      ? (sessionParam as SessionFilter)
+      : undefined;
     const hasNursery = searchParams.get("hasNursery");
     const vacancyStatuses = searchParams.getAll("vacancy");
     const search = searchParams.get("search");
@@ -22,7 +37,7 @@ export async function GET(request: NextRequest) {
       districts: districts.length > 0 ? districts : undefined,
       type: type ?? undefined,
       language: language ?? undefined,
-      session: session ?? undefined,
+      session,
       hasNursery: hasNursery === "true" ? true : undefined,
       vacancyStatuses: vacancyStatuses.length > 0 ? vacancyStatuses : undefined,
       search: search ?? undefined,

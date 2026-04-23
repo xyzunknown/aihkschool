@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
 import {
+  createProgrammeReminders,
   fetchUserSubscriptions,
   insertSubscription,
   deleteSubscription,
@@ -11,7 +12,7 @@ export const dynamic = "force-dynamic";
 
 const subscribeSchema = z.object({
   programme_id: z.string().uuid(),
-  notify_before_open_minutes: z.number().int().min(10).max(1440).default(60),
+  notify_before_open_minutes: z.number().int().min(10).max(1440).default(1440),
 });
 
 /**
@@ -42,7 +43,7 @@ export async function GET() {
 }
 
 /**
- * POST: 訂閱課程提醒
+ * POST: 建立開報前追蹤
  */
 export async function POST(request: NextRequest) {
   try {
@@ -79,19 +80,38 @@ export async function POST(request: NextRequest) {
       notify_before_open_minutes,
     );
 
+    const { data: programme, error: programmeError } = await supabase
+      .from("lcsd_programmes")
+      .select("enrolment_open_at")
+      .eq("id", programme_id)
+      .maybeSingle();
+
+    if (programmeError) {
+      throw new Error(`Failed to load programme schedule: ${programmeError.message}`);
+    }
+
+    if (programme?.enrolment_open_at) {
+      await createProgrammeReminders(
+        result.id,
+        programme_id,
+        programme.enrolment_open_at,
+        notify_before_open_minutes,
+      );
+    }
+
     return NextResponse.json({ data: result }, { status: 201 });
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : String(err);
 
     if (message === "MAX_SUBSCRIPTIONS_REACHED") {
       return NextResponse.json(
-        { error: { code: "MAX_SUBSCRIPTIONS_REACHED", message: "已達訂閱上限（20 個）" } },
+        { error: { code: "MAX_SUBSCRIPTIONS_REACHED", message: "已達追蹤上限（20 個）" } },
         { status: 400 },
       );
     }
     if (message === "ALREADY_SUBSCRIBED") {
       return NextResponse.json(
-        { error: { code: "ALREADY_SUBSCRIBED", message: "已訂閱此課程" } },
+        { error: { code: "ALREADY_SUBSCRIBED", message: "已追蹤此課程" } },
         { status: 409 },
       );
     }
@@ -105,7 +125,7 @@ export async function POST(request: NextRequest) {
 }
 
 /**
- * DELETE: 取消訂閱
+ * DELETE: 取消開報前追蹤
  */
 export async function DELETE(request: NextRequest) {
   try {

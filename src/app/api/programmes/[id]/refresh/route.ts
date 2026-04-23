@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createServiceClient } from "@/lib/supabase/server";
 import { createClient } from "@/lib/supabase/server";
 import { upsertProgrammeStatus, type EnrolmentStatus } from "@/lib/db/programmes";
+import type { Database } from "@/types/database";
 
 export const dynamic = "force-dynamic";
 
@@ -45,16 +46,18 @@ export async function POST(
       .from("lcsd_programme_status")
       .select("*")
       .eq("programme_id", id)
-      .single();
+      .maybeSingle();
 
-    if (existingStatus?.last_checked_at) {
-      const lastChecked = new Date(existingStatus.last_checked_at);
+    const cachedStatus = existingStatus as Database["public"]["Tables"]["lcsd_programme_status"]["Row"] | null;
+
+    if (cachedStatus?.last_checked_at) {
+      const lastChecked = new Date(cachedStatus.last_checked_at);
       const fiveMinutesAgo = new Date();
       fiveMinutesAgo.setMinutes(fiveMinutesAgo.getMinutes() - 5);
 
       if (lastChecked > fiveMinutesAgo) {
         return NextResponse.json({
-          data: existingStatus,
+          data: cachedStatus,
           cached: true,
         });
       }
@@ -65,9 +68,14 @@ export async function POST(
       .from("lcsd_programmes")
       .select("raw_url, enrolment_open_at, enrolment_close_at")
       .eq("id", id)
-      .single();
+      .maybeSingle();
 
-    if (!programme) {
+    const currentProgramme = programme as Pick<
+      Database["public"]["Tables"]["lcsd_programmes"]["Row"],
+      "raw_url" | "enrolment_open_at" | "enrolment_close_at"
+    > | null;
+
+    if (!currentProgramme) {
       return NextResponse.json(
         { error: { code: "NOT_FOUND", message: "Programme not found" } },
         { status: 404 },
@@ -78,15 +86,15 @@ export async function POST(
     const now = new Date();
     let enrolmentStatus: EnrolmentStatus = "pre_open";
 
-    if (programme.enrolment_open_at) {
-      const openAt = new Date(programme.enrolment_open_at);
+    if (currentProgramme.enrolment_open_at) {
+      const openAt = new Date(currentProgramme.enrolment_open_at);
       if (now >= openAt) {
         enrolmentStatus = "open";
       }
     }
 
-    if (programme.enrolment_close_at) {
-      const closeAt = new Date(programme.enrolment_close_at);
+    if (currentProgramme.enrolment_close_at) {
+      const closeAt = new Date(currentProgramme.enrolment_close_at);
       if (now >= closeAt) {
         enrolmentStatus = "closed";
       }
@@ -104,10 +112,10 @@ export async function POST(
       .from("lcsd_programme_status")
       .select("*")
       .eq("programme_id", id)
-      .single();
+      .maybeSingle();
 
     return NextResponse.json({
-      data: updatedStatus,
+      data: updatedStatus as Database["public"]["Tables"]["lcsd_programme_status"]["Row"] | null,
       cached: false,
     });
   } catch (err: unknown) {

@@ -87,6 +87,8 @@ export function normalizeVacancyStatus(status: VacancyStatus): NormalizedVacancy
     case "check_school":
       return "no_information";
   }
+
+  return "no_information";
 }
 
 export const INTERVIEW_TYPE_LABELS: Record<string, string> = {

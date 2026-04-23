@@ -1,5 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createServiceClient } from "@/lib/supabase/server";
+import {
+  completeCronRunLog,
+  createCronRunLog,
+  emitSmartPlayThresholdAlert,
+  isSmartPlayEnabled,
+} from "@/lib/smartplay/runtime";
+import type { Database, District, ProgrammeCategory } from "@/types/database";
+
+const JOB_NAME = "smartplay_lcsd_sync";
 
 /**
  * 每日 LCSD 課程 meta 同步 cron
@@ -17,17 +26,35 @@ export async function POST(request: NextRequest) {
 }
 
 async function handleSync(request: NextRequest) {
-  try {
-    // 驗證 cron secret
-    const authHeader = request.headers.get("authorization");
-    if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
-      return NextResponse.json(
-        { error: { code: "FORBIDDEN", message: "Invalid cron secret" } },
-        { status: 403 },
-      );
-    }
+  const authHeader = request.headers.get("authorization");
+  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+    return NextResponse.json(
+      { error: { code: "FORBIDDEN", message: "Invalid cron secret" } },
+      { status: 403 },
+    );
+  }
 
-    const supabase = await createServiceClient();
+  const supabase = await createServiceClient();
+  const runId = await createCronRunLog(supabase, JOB_NAME, {
+    method: request.method,
+  });
+
+  try {
+    const gate = await isSmartPlayEnabled(supabase);
+    if (!gate.enabled) {
+      await completeCronRunLog(supabase, runId, {
+        status: "skipped",
+        metadata: {
+          disabled_by: gate.source,
+        },
+      });
+
+      return NextResponse.json({
+        success: true,
+        skipped: true,
+        disabled_by: gate.source,
+      });
+    }
 
     // 讀取爬蟲產出的 JSON（由 Python 爬蟲寫入）
     // 在 Vercel 環境中，這些數據會通過 API 上傳或直接從爬蟲寫入 DB
@@ -56,6 +83,15 @@ async function handleSync(request: NextRequest) {
     }
 
     if (programmes.length === 0) {
+      await completeCronRunLog(supabase, runId, {
+        status: "success",
+        processed_count: 0,
+        sent_count: 0,
+        failed_count: 0,
+        reminders_created: 0,
+        status_updated: 0,
+      });
+
       return NextResponse.json({
         success: true,
         message: "No programmes to sync",
@@ -74,65 +110,46 @@ async function handleSync(request: NextRequest) {
           .from("lcsd_programmes")
           .select("id, enrolment_open_at")
           .eq("lcsd_programme_id", prog.lcsd_programme_id)
-          .single();
+          .maybeSingle();
 
-        if (existing) {
-          // 更新現有記錄
-          const updates: Record<string, unknown> = {
-            name_zh: prog.name_zh,
-            name_en: prog.name_en,
-            category: prog.category,
-            age_min: prog.age_min,
-            age_max: prog.age_max,
-            venue: prog.venue,
-            district: prog.district,
-            fee_hkd: prog.fee_hkd,
-            sessions_count: prog.sessions_count,
-            start_date: prog.start_date,
-            end_date: prog.end_date,
-            raw_url: prog.raw_url,
-            is_active: true,
-            last_scraped_at: new Date().toISOString(),
-          };
+        const existingProgramme = existing as {
+          id: string;
+          enrolment_open_at: string | null;
+        } | null;
 
+        const programmePayload: Database["public"]["Tables"]["lcsd_programmes"]["Insert"] = {
+          lcsd_programme_id: prog.lcsd_programme_id,
+          name_zh: prog.name_zh,
+          name_en: prog.name_en,
+          category: prog.category,
+          age_min: prog.age_min,
+          age_max: prog.age_max,
+          venue: prog.venue,
+          district: prog.district,
+          fee_hkd: prog.fee_hkd,
+          sessions_count: prog.sessions_count,
+          start_date: prog.start_date,
+          end_date: prog.end_date,
+          enrolment_open_at: prog.enrolment_open_at ?? existingProgramme?.enrolment_open_at ?? null,
+          enrolment_close_at: prog.enrolment_close_at ?? null,
+          raw_url: prog.raw_url,
+          is_active: true,
+          last_scraped_at: new Date().toISOString(),
+        };
+
+        if (existingProgramme) {
           // 檢測開放日期變動 → 標記需要通知
           if (
             prog.enrolment_open_at &&
-            prog.enrolment_open_at !== existing.enrolment_open_at
+            prog.enrolment_open_at !== existingProgramme.enrolment_open_at
           ) {
-            updates.enrolment_open_at = prog.enrolment_open_at;
-            needsNotify.push(existing.id);
+            needsNotify.push(existingProgramme.id);
           }
-          if (prog.enrolment_close_at) {
-            updates.enrolment_close_at = prog.enrolment_close_at;
-          }
-
-          await supabase
-            .from("lcsd_programmes")
-            .update(updates)
-            .eq("id", existing.id);
-        } else {
-          // 插入新記錄
-          await supabase.from("lcsd_programmes").insert({
-            lcsd_programme_id: prog.lcsd_programme_id,
-            name_zh: prog.name_zh,
-            name_en: prog.name_en,
-            category: prog.category,
-            age_min: prog.age_min,
-            age_max: prog.age_max,
-            venue: prog.venue,
-            district: prog.district,
-            fee_hkd: prog.fee_hkd,
-            sessions_count: prog.sessions_count,
-            start_date: prog.start_date,
-            end_date: prog.end_date,
-            enrolment_open_at: prog.enrolment_open_at,
-            enrolment_close_at: prog.enrolment_close_at,
-            raw_url: prog.raw_url,
-            is_active: true,
-            last_scraped_at: new Date().toISOString(),
-          });
         }
+
+        await supabase
+          .from("lcsd_programmes")
+          .upsert(programmePayload as never, { onConflict: "lcsd_programme_id" });
 
         upsertedCount++;
       } catch (err) {
@@ -150,7 +167,7 @@ async function handleSync(request: NextRequest) {
 
       await supabase
         .from("lcsd_programmes")
-        .update({ is_active: false })
+        .update({ is_active: false } as never)
         .lt("last_scraped_at", sevenDaysAgo.toISOString())
         .eq("is_active", true);
     }
@@ -162,6 +179,21 @@ async function handleSync(request: NextRequest) {
       );
     }
 
+    await completeCronRunLog(supabase, runId, {
+      status: errorCount > 0 ? "failed" : "success",
+      processed_count: programmes.length,
+      failed_count: errorCount,
+      metadata: {
+        upserted: upsertedCount,
+        needs_notify: needsNotify.length,
+      },
+    });
+
+    emitSmartPlayThresholdAlert(JOB_NAME, errorCount, {
+      total_input: programmes.length,
+      upserted: upsertedCount,
+    });
+
     return NextResponse.json({
       success: true,
       upserted: upsertedCount,
@@ -170,7 +202,16 @@ async function handleSync(request: NextRequest) {
       total_input: programmes.length,
     });
   } catch (err) {
+    const message = err instanceof Error ? err.message : "Cron job failed";
     console.error("Cron /api/cron/lcsd-programmes error:", err);
+
+    await completeCronRunLog(supabase, runId, {
+      status: "failed",
+      error_message: message,
+    });
+
+    emitSmartPlayThresholdAlert(JOB_NAME, 1, { error: message });
+
     return NextResponse.json(
       { error: { code: "INTERNAL_ERROR", message: "Cron job failed" } },
       { status: 500 },
@@ -184,11 +225,11 @@ interface LcsdProgrammeInput {
   lcsd_programme_id: string;
   name_zh?: string;
   name_en?: string;
-  category?: string;
+  category?: ProgrammeCategory;
   age_min?: number;
   age_max?: number;
   venue?: string;
-  district?: string;
+  district?: District;
   fee_hkd?: number;
   sessions_count?: number;
   start_date?: string;

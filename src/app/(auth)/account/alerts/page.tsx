@@ -11,6 +11,15 @@ import {
   formatEnrolmentTime,
 } from "@/lib/programmes/labels";
 
+async function getErrorMessage(response: Response, fallback: string) {
+  try {
+    const json = await response.json();
+    return json?.error?.message || fallback;
+  } catch {
+    return fallback;
+  }
+}
+
 interface SubscriptionItem {
   id: string;
   programme_id: string;
@@ -51,10 +60,13 @@ export default function AlertsPage() {
   const fetchSubscriptions = async () => {
     try {
       const res = await fetch("/api/programme-subscriptions");
+      if (!res.ok) {
+        throw new Error(await getErrorMessage(res, "載入追蹤失敗"));
+      }
       const json = await res.json();
       if (json.data) setSubscriptions(json.data);
-    } catch {
-      showToast({ message: "載入訂閱失敗" });
+    } catch (error: unknown) {
+      showToast({ message: error instanceof Error ? error.message : "載入追蹤失敗" });
     } finally {
       setLoadingSubs(false);
     }
@@ -64,13 +76,16 @@ export default function AlertsPage() {
     if (!unsubTarget) return;
     setSubscriptions((prev) => prev.filter((s) => s.programme_id !== unsubTarget));
     try {
-      await fetch(`/api/programme-subscriptions?programme_id=${unsubTarget}`, {
+      const res = await fetch(`/api/programme-subscriptions?programme_id=${unsubTarget}`, {
         method: "DELETE",
       });
-      showToast({ message: "已取消訂閱" });
-    } catch {
+      if (!res.ok) {
+        throw new Error(await getErrorMessage(res, "取消追蹤失敗"));
+      }
+      showToast({ message: "已取消追蹤" });
+    } catch (error: unknown) {
       fetchSubscriptions();
-      showToast({ message: "取消訂閱失敗" });
+      showToast({ message: error instanceof Error ? error.message : "取消追蹤失敗" });
     }
   };
 
@@ -87,9 +102,9 @@ export default function AlertsPage() {
   return (
     <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
       <div className="max-w-2xl mx-auto">
-        <h1 className="text-2xl font-bold text-slate-950 mb-2">課程提醒</h1>
+        <h1 className="text-2xl font-bold text-slate-950 mb-2">開報前追蹤</h1>
         <p className="text-sm text-slate-500 mb-6">
-          你訂閱嘅 SmartPLAY 課程，系統會在報名開放前發送郵件提醒。
+          你已追蹤嘅 SmartPLAY 課程，系統會在報名開放前發送郵件提醒。
         </p>
 
         {loadingSubs ? (
@@ -97,13 +112,13 @@ export default function AlertsPage() {
         ) : subscriptions.length === 0 ? (
           <div className="bg-white rounded-2xl border border-slate-200 p-8 text-center">
             <p className="text-base text-slate-600 mb-6">
-              未有訂閱課程，去睇下有咩啱？
+              你仲未追蹤任何課程，去睇下有咩啱？
             </p>
             <button
               onClick={() => router.push("/programmes")}
               className="bg-slate-950 text-white rounded-xl px-5 py-2.5 text-sm font-medium hover:bg-slate-800 transition-colors"
             >
-              瀏覽課程
+              開始追蹤
             </button>
           </div>
         ) : (
@@ -158,9 +173,9 @@ export default function AlertsPage() {
           isOpen={unsubTarget !== null}
           onClose={() => setUnsubTarget(null)}
           onConfirm={handleUnsubscribe}
-          title="取消訂閱"
-          message="確定取消訂閱？你將不再收到此課程嘅報名提醒。"
-          confirmLabel="取消訂閱"
+          title="取消追蹤"
+          message="確定取消追蹤？你將不再收到此課程嘅開報前提醒。"
+          confirmLabel="取消追蹤"
           cancelLabel="保留"
           variant="danger"
         />

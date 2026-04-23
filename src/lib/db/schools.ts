@@ -5,13 +5,15 @@ import {
   getAdmissionSummary,
   shouldShowAdmissionSummary,
 } from "@/lib/schools/admissions";
-import type { School, District, SchoolType, VacancyStatus } from "@/types/database";
+import type { School, District, SchoolType, SessionType, VacancyStatus } from "@/types/database";
+
+export type SessionFilter = SessionType | "half_day";
 
 export interface FetchSchoolsParams {
   districts?: District[];
   type?: SchoolType;
   language?: string;
-  session?: string;
+  session?: SessionFilter;
   hasNursery?: boolean;
   hasVacancy?: boolean;
   vacancyStatuses?: string[];

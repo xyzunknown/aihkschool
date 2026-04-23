@@ -1,4 +1,5 @@
 import { createServiceClient } from "@/lib/supabase/server";
+import type { District } from "@/types/database";
 
 // ============================================================
 // Types
@@ -24,7 +25,7 @@ export interface Programme {
   age_min: number | null;
   age_max: number | null;
   venue: string | null;
-  district: string | null;
+  district: District | null;
   fee_hkd: number | null;
   sessions_count: number | null;
   start_date: string | null;
@@ -59,7 +60,7 @@ type ProgrammeRow = Programme & {
 
 export interface FetchProgrammesParams {
   category?: ProgrammeCategory;
-  district?: string;
+  district?: District;
   search?: string;
   ageMin?: number;
   ageMax?: number;

@@ -4,6 +4,15 @@ import { useAuth } from "@/components/layout/AuthProvider";
 import { useToast } from "@/components/ui/Toast";
 import { useState, useEffect, useCallback } from "react";
 
+async function getErrorMessage(response: Response, fallback: string) {
+  try {
+    const json = await response.json();
+    return json?.error?.message || fallback;
+  } catch {
+    return fallback;
+  }
+}
+
 interface SubscribeButtonProps {
   programmeId: string;
   size?: "sm" | "md";
@@ -52,10 +61,14 @@ export function SubscribeButton({ programmeId, size = "md" }: SubscribeButtonPro
           `/api/programme-subscriptions?programme_id=${programmeId}`,
           { method: "DELETE" },
         );
-        if (res.ok) {
-          setIsSubscribed(false);
-          showToast({ message: "已取消訂閱" });
+        if (!res.ok) {
+          showToast({
+            message: await getErrorMessage(res, "取消追蹤失敗"),
+          });
+          return;
         }
+        setIsSubscribed(false);
+        showToast({ message: "已取消追蹤" });
       } else {
         const res = await fetch("/api/programme-subscriptions", {
           method: "POST",
@@ -64,10 +77,10 @@ export function SubscribeButton({ programmeId, size = "md" }: SubscribeButtonPro
         });
         if (res.ok) {
           setIsSubscribed(true);
-          showToast({ message: "已訂閱提醒，報名開放前會通知你" });
+          showToast({ message: "已加入開報前追蹤，報名前會通知你" });
         } else {
           const json = await res.json();
-          showToast({ message: json.error?.message || "訂閱失敗" });
+          showToast({ message: json.error?.message || "加入追蹤失敗" });
         }
       }
     } catch {
@@ -105,7 +118,7 @@ export function SubscribeButton({ programmeId, size = "md" }: SubscribeButtonPro
           <path d="M13.73 21a2 2 0 0 1-3.46 0" />
         </svg>
       )}
-      {isSubscribed ? "已訂閱" : "訂閱提醒"}
+      {isSubscribed ? "已追蹤" : "追蹤開報"}
     </button>
   );
 }
