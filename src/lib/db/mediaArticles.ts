@@ -113,7 +113,7 @@ export async function fetchRelatedMediaArticles(
       .from("media_articles" as never)
       .select("*")
       .eq("school_match_status", "matched")
-      .contains("school_matches", [{ school_id: schoolId }])
+      .contains("school_matches", JSON.stringify([{ school_id: schoolId }]))
       .order("published_at", { ascending: false, nullsFirst: false })
       .limit(limit);
 
