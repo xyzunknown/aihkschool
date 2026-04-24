@@ -1,151 +1,93 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-import type {
-  ActivityCategory,
-  ActivityDistrict,
-} from "@/lib/db/activities";
+import type { ActivityCategory, ActivityDistrict } from "@/lib/db/activities";
 import {
   CATEGORY_LABELS,
-  CATEGORY_ORDER,
   DISTRICT_LABELS,
-  DISTRICT_ORDER,
 } from "@/lib/activities/labels";
 
 interface ActivityFilterBarProps {
   category: ActivityCategory | null;
   district: ActivityDistrict | null;
   free: boolean;
-  onChangeCategory: (cat: ActivityCategory | null) => void;
-  onChangeDistrict: (d: ActivityDistrict | null) => void;
-  onToggleFree: (v: boolean) => void;
+  search: string;
+  onChangeCategory: (v: ActivityCategory | null) => void;
+  onChangeDistrict: (v: ActivityDistrict | null) => void;
+  onChangeFree: (v: boolean) => void;
+  onChangeSearch: (v: string) => void;
   onReset: () => void;
 }
-
-const pillBase =
-  "flex-shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-colors";
-const pillActive = "bg-slate-950 text-white";
-const pillInactive =
-  "bg-white text-slate-700 border border-slate-200 hover:bg-slate-50";
 
 export function ActivityFilterBar({
   category,
   district,
   free,
+  search,
   onChangeCategory,
   onChangeDistrict,
-  onToggleFree,
+  onChangeFree,
+  onChangeSearch,
   onReset,
 }: ActivityFilterBarProps) {
-  const [districtOpen, setDistrictOpen] = useState(false);
-  const districtRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (!districtOpen) return;
-    const handler = (e: MouseEvent) => {
-      if (
-        districtRef.current &&
-        !districtRef.current.contains(e.target as Node)
-      ) {
-        setDistrictOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, [districtOpen]);
-
-  const hasAnyFilter = category !== null || district !== null || free;
+  const hasFilter = !!category || !!district || free || !!search;
 
   return (
     <div className="space-y-3">
       {/* 類別 pills */}
-      <div className="flex gap-2 overflow-x-auto hide-scrollbar">
-        <button
-          onClick={() => onChangeCategory(null)}
-          className={`${pillBase} ${category === null ? pillActive : pillInactive}`}
-        >
-          全部
-        </button>
-        {CATEGORY_ORDER.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => onChangeCategory(cat === category ? null : cat)}
-            className={`${pillBase} ${cat === category ? pillActive : pillInactive}`}
-          >
-            {CATEGORY_LABELS[cat]}
-          </button>
-        ))}
+      <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-hide">
+        {Object.entries(CATEGORY_LABELS).map(([key, label]) => {
+          const isActive = category === key;
+          return (
+            <button
+              key={key}
+              onClick={() => onChangeCategory(isActive ? null : (key as ActivityCategory))}
+              className={`flex-shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                isActive
+                  ? "bg-slate-900 text-white"
+                  : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+              }`}
+            >
+              {label}
+            </button>
+          );
+        })}
       </div>
 
-      {/* 次要篩選：地區 + 免費 */}
-      <div className="flex flex-wrap items-center gap-2">
-        {/* 地區 dropdown */}
-        <div className="relative" ref={districtRef}>
-          <button
-            onClick={() => setDistrictOpen((v) => !v)}
-            className={`${pillBase} ${district !== null ? pillActive : pillInactive} flex items-center gap-1`}
-          >
-            {district !== null ? DISTRICT_LABELS[district] : "全港"}
-            <svg
-              width="12"
-              height="12"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
-          </button>
-          {districtOpen && (
-              <div className="absolute left-0 top-full z-20 mt-2 max-h-72 w-56 overflow-auto rounded-2xl border border-slate-200 bg-white p-2 shadow-lg">
-                <button
-                  onClick={() => {
-                    onChangeDistrict(null);
-                    setDistrictOpen(false);
-                  }}
-                  className={`w-full rounded-lg px-3 py-2 text-left text-sm transition-colors ${
-                    district === null
-                      ? "bg-slate-100 font-medium text-slate-950"
-                      : "text-slate-700 hover:bg-slate-50"
-                  }`}
-                >
-                  全港
-                </button>
-                {DISTRICT_ORDER.map((d) => (
-                  <button
-                    key={d}
-                    onClick={() => {
-                      onChangeDistrict(d);
-                      setDistrictOpen(false);
-                    }}
-                    className={`w-full rounded-lg px-3 py-2 text-left text-sm transition-colors ${
-                      d === district
-                        ? "bg-slate-100 font-medium text-slate-950"
-                        : "text-slate-700 hover:bg-slate-50"
-                    }`}
-                  >
-                    {DISTRICT_LABELS[d]}
-                  </button>
-                ))}
-              </div>
-          )}
-        </div>
-
-        {/* 免費 toggle */}
-        <button
-          onClick={() => onToggleFree(!free)}
-          className={`${pillBase} ${free ? "bg-emerald-600 text-white" : pillInactive}`}
+      {/* 地區 + 免費 + 搜索 + 清除 */}
+      <div className="flex flex-wrap items-center gap-3">
+        <select
+          value={district ?? ""}
+          onChange={(e) => onChangeDistrict((e.target.value || null) as ActivityDistrict | null)}
+          className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-200"
         >
-          只看免費
-        </button>
+          <option value="">全部地區</option>
+          {Object.entries(DISTRICT_LABELS).map(([key, label]) => (
+            <option key={key} value={key}>
+              {label}
+            </option>
+          ))}
+        </select>
 
-        {hasAnyFilter && (
+        <label className="inline-flex cursor-pointer items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 transition-colors hover:bg-slate-50">
+          <input
+            type="checkbox"
+            checked={free}
+            onChange={(e) => onChangeFree(e.target.checked)}
+            className="h-4 w-4 rounded border-slate-300 text-slate-900 focus:ring-slate-200"
+          />
+          只顯示免費
+        </label>
+
+        <input
+          type="text"
+          value={search}
+          onChange={(e) => onChangeSearch(e.target.value)}
+          placeholder="搜尋活動名稱或機構"
+          className="min-w-[200px] rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 outline-none placeholder:text-slate-400 focus:border-slate-400 focus:ring-1 focus:ring-slate-200"
+        />
+
+        {hasFilter && (
           <button
             onClick={onReset}
-            className="ml-auto text-sm text-slate-500 hover:text-slate-950"
+            className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm text-slate-500 transition-colors hover:bg-slate-50"
           >
             清除篩選
           </button>

@@ -8,10 +8,10 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "課外活動 | HKSchoolPlace",
   description:
-    "搜羅香港幼稚園階段小朋友適合嘅課外活動、興趣班、免費社區活動。康文署、社福機構等渠道一次過睇。",
+    "香港幼稚園階段課外活動搜尋 — 音樂、運動、美術、舞蹈、科學、語言等興趣班。按地區、類別、費用篩選，幫小朋友搵到合適活動。",
   openGraph: {
     title: "課外活動 | HKSchoolPlace",
-    description: "搜羅香港幼稚園階段小朋友適合嘅課外活動、興趣班、免費社區活動。",
+    description: "香港幼稚園階段課外活動搜尋，按地區類別篩選。",
   },
 };
 
@@ -23,7 +23,7 @@ export default function ActivitiesPage() {
           課外活動
         </h1>
         <p className="mt-1 text-sm text-slate-500">
-          幼稚園階段小朋友嘅興趣班同社區活動 · 多數免費或低價
+          香港幼稚園階段興趣班、社區活動搜尋 · 音樂、運動、美術、舞蹈、科學、語言
         </p>
       </div>
 
@@ -37,6 +37,7 @@ export default function ActivitiesPage() {
 function ActivitiesListSkeleton() {
   return (
     <div>
+      <div className="mb-6 h-10 animate-pulse rounded-full bg-slate-100" />
       <div className="mb-6 h-10 animate-pulse rounded-full bg-slate-100" />
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {Array.from({ length: 6 }).map((_, i) => (

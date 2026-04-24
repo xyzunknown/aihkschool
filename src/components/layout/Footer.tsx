@@ -23,6 +23,12 @@ export function Footer() {
               <Link href="/kg" className="block text-sm text-slate-500 hover:text-slate-700 transition-colors">
                 搵學校
               </Link>
+              <Link href="/activities" className="block text-sm text-slate-500 hover:text-slate-700 transition-colors">
+                課外活動
+              </Link>
+              <Link href="/programmes" className="block text-sm text-slate-500 hover:text-slate-700 transition-colors">
+                開報前追蹤
+              </Link>
               <Link href="/news" className="block text-sm text-slate-500 hover:text-slate-700 transition-colors">
                 消息動態
               </Link>

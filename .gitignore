@@ -48,3 +48,21 @@ data/xhs/cookies.json
 data/xhs/raw_posts/
 data/xhs/raw_comments/
 data/xhs/progress.json
+
+# Crawler temp / probe files
+scripts/crawlers/.tmp-*
+
+# Supabase local temp
+supabase/.temp/
+
+# Large generated data files (seed SQL is the source of truth)
+data/*.json
+
+# Crawler reports / smoke test outputs
+docs/*crawl-report*
+docs/*miss-list*
+docs/*school-probe*
+docs/*status.md
+docs/*smoke.json
+docs/*report*.json
+docs/unresolved-*.json

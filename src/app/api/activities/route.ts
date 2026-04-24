@@ -8,42 +8,22 @@ import {
 
 export const dynamic = "force-dynamic";
 
+const CATEGORY_VALUES = [
+  "music", "sports", "art", "dance",
+  "stem", "language", "drama", "other",
+] as const;
+
+const DISTRICT_VALUES = [
+  "central_and_western", "eastern", "southern", "wan_chai",
+  "kowloon_city", "kwun_tong", "sham_shui_po", "wong_tai_sin", "yau_tsim_mong",
+  "islands", "kwai_tsing", "north", "sai_kung", "sha_tin",
+  "tai_po", "tsuen_wan", "tuen_mun", "yuen_long",
+] as const;
+
 const querySchema = z.object({
-  category: z
-    .enum([
-      "music",
-      "sports",
-      "art",
-      "dance",
-      "stem",
-      "language",
-      "drama",
-      "other",
-    ])
-    .optional(),
-  district: z
-    .enum([
-      "central_and_western",
-      "eastern",
-      "southern",
-      "wan_chai",
-      "kowloon_city",
-      "kwun_tong",
-      "sham_shui_po",
-      "wong_tai_sin",
-      "yau_tsim_mong",
-      "islands",
-      "kwai_tsing",
-      "north",
-      "sai_kung",
-      "sha_tin",
-      "tai_po",
-      "tsuen_wan",
-      "tuen_mun",
-      "yuen_long",
-    ])
-    .optional(),
-  free: z.enum(["true", "false"]).optional(),
+  category: z.enum(CATEGORY_VALUES).optional(),
+  district: z.enum(DISTRICT_VALUES).optional(),
+  free: z.enum(["true", "false"]).optional().transform((v) => v === "true"),
   age: z.coerce.number().int().min(0).max(12).optional(),
   search: z.string().max(100).optional(),
   page: z.coerce.number().int().min(1).default(1),
@@ -73,7 +53,7 @@ export async function GET(request: NextRequest) {
     const result = await fetchActivities({
       category: category as ActivityCategory | undefined,
       district: district as ActivityDistrict | undefined,
-      free: free === "true" ? true : undefined,
+      free,
       age,
       search,
       page,
@@ -85,9 +65,7 @@ export async function GET(request: NextRequest) {
     const message = err instanceof Error ? err.message : String(err);
     console.error("GET /api/activities error:", message, err);
     return NextResponse.json(
-      {
-        error: { code: "INTERNAL_ERROR", message: "Failed to fetch activities" },
-      },
+      { error: { code: "INTERNAL_ERROR", message: "Failed to fetch activities" } },
       { status: 500 },
     );
   }
