@@ -43,10 +43,12 @@ from scripts.xhs.site import (
     build_search_url,
     choose_origin,
     has_session_cookie,
+    has_session_cookie_for_domain,
     is_explore_url,
     is_search_url,
     normalize_search_url,
     normalize_url,
+    preferred_origin_from_cookies,
 )
 from scripts.xhs.utils import (
     load_json,
@@ -148,7 +150,16 @@ def save_cookies(context) -> None:
 
 def session_origin(page, fallback: str | None = None) -> str:
     """Resolve the active site origin from the current page."""
-    return choose_origin(getattr(page, "url", None), fallback)
+    current_url = getattr(page, "url", None)
+    if current_url:
+        current = choose_origin(current_url, fallback)
+        if current_url.startswith(current):
+            return current
+    try:
+        cookies = page.context.cookies()
+        return preferred_origin_from_cookies(cookies)
+    except Exception:
+        return choose_origin(current_url, fallback)
 
 
 def page_has_logged_in_content(page) -> bool:
@@ -171,6 +182,38 @@ def page_has_logged_in_content(page) -> bool:
         return False
 
 
+def prime_cross_domain_session(page, context) -> None:
+    """Visit both supported domains once so cookies/session can settle on each."""
+    for target in ("https://www.xiaohongshu.com/", "https://www.rednote.com/explore"):
+        try:
+            page.goto(target, timeout=15000, wait_until="domcontentloaded")
+            time.sleep(2)
+        except Exception:
+            continue
+    save_cookies(context)
+
+
+def session_valid_for_current_origin(page) -> bool:
+    """Check whether the current site's search page is usable with the current cookies."""
+    current = page.url
+    search_url = build_search_url("幼稚園", current_url=current)
+    try:
+        page.goto(search_url, timeout=15000, wait_until="domcontentloaded")
+        time.sleep(3)
+        body = page.evaluate("() => document.body.innerText.substring(0, 1200)")
+        if "登录后查看" in body or "登錄後查看" in body:
+            return False
+        if page_has_logged_in_content(page):
+            return True
+        cookies = page.context.cookies()
+        host = current.split("//", 1)[-1].split("/", 1)[0]
+        return has_session_cookie_for_domain(cookies, host)
+    except Exception:
+        cookies = page.context.cookies()
+        host = current.split("//", 1)[-1].split("/", 1)[0]
+        return has_session_cookie_for_domain(cookies, host)
+
+
 def login_manually(context, page) -> None:
     """Open XHS for manual login, then save cookies.
     
@@ -182,6 +225,11 @@ def login_manually(context, page) -> None:
     log.info("  ⚠️  Manual login required!")
     log.info("  A browser window should be open. Please log in to Xiaohongshu.")
     log.info("  The login page will stay open — checking in the same page.\n")
+
+    try:
+        context.clear_cookies()
+    except Exception:
+        pass
 
     try:
         page.goto(build_home_url(), timeout=15000, wait_until="commit")
@@ -212,33 +260,13 @@ def login_manually(context, page) -> None:
                 # After seeing the cookie 3+ times (30s), trust it directly
                 # — the background-tab search verification is unreliable
                 if cookie_seen_count >= 3:
+                    prime_cross_domain_session(page, context)
                     log.info(f"  ✅ Login detected! (web_session cookie present for {cookie_seen_count} checks)")
                     save_cookies(context)
                     log.info("  ✅ Cookies saved!")
                     return
 
-                # First 1-2 sightings: verify on the current page without opening a new tab.
-                try:
-                    page.goto(
-                        build_home_url(page.url),
-                        timeout=10000,
-                        wait_until="domcontentloaded",
-                    )
-                    time.sleep(3)
-                    body = page.evaluate("() => document.body.innerText.substring(0, 800)")
-                    # If we don't see a login wall on homepage, we're good
-                    if (
-                        "登录后查看" not in body
-                        and "登錄後查看" not in body
-                        and ("登录" not in body or page_has_logged_in_content(page))
-                    ):
-                        log.info(f"  ✅ Login detected! (homepage loaded OK)")
-                        save_cookies(context)
-                        log.info("  ✅ Cookies saved!")
-                        return
-                    log.info(f"  ⏳ Session cookie OK, homepage still has login prompt... ({elapsed}s)")
-                except Exception as e:
-                    log.info(f"  ⏳ Session cookie OK, homepage check failed ({e.__class__.__name__})... ({elapsed}s)")
+                log.info(f"  ⏳ Login signal detected, confirming... ({elapsed}s)")
             else:
                 cookie_seen_count = 0
                 log.info(f"  ⏳ Waiting for login... ({elapsed}s, no session cookie)")
@@ -275,9 +303,9 @@ def check_login(page) -> bool:
         if "login" in page.url.lower():
             return False
 
-        # Check for feed content (any note cards on homepage = logged in)
-        if page_has_logged_in_content(page):
-            log.info("  ✅ Session valid (content visible on homepage)")
+        # Check whether the current origin can actually load search results.
+        if session_valid_for_current_origin(page):
+            log.info("  ✅ Session valid (current site can load search content)")
             return True
 
         # Homepage loaded without login wall but no feed items — 
@@ -525,6 +553,82 @@ def human_mouse_move(page) -> None:
         pass  # Non-critical, don't fail on this
 
 
+def wait_for_network_settle(page, timeout_ms: int = 15000) -> None:
+    """Best-effort wait for slow pages; ignore timeout because XHS often streams forever."""
+    try:
+        page.wait_for_load_state("networkidle", timeout=timeout_ms)
+    except Exception:
+        pass
+
+
+def count_visible_result_items(page) -> int:
+    """Count result cards/links currently available on the page."""
+    try:
+        return int(page.evaluate("""() => {
+            const selectors = [
+                'section.note-item',
+                '[data-note-id]',
+                'a[href*="/explore/"]',
+            ];
+            const seen = new Set();
+            let count = 0;
+            for (const sel of selectors) {
+                document.querySelectorAll(sel).forEach((el) => {
+                    const key = el.getAttribute('href') || el.getAttribute('data-note-id') || el.innerText || Math.random().toString();
+                    if (!seen.has(key)) {
+                        seen.add(key);
+                        count += 1;
+                    }
+                });
+            }
+            return count;
+        }"""))
+    except Exception:
+        return 0
+
+
+def wait_for_search_results(page) -> str:
+    """
+    Wait for the search page to either show results, a clear login wall,
+    a clear security redirect, or timeout.
+    """
+    deadline = time.time() + config.SEARCH_RESULTS_WAIT_TIMEOUT
+    while time.time() < deadline:
+        risk = detect_risk_control(page)
+        if risk in ("login_wall", "security_redirect", "captcha_page"):
+            return risk
+        if count_visible_result_items(page) > 0:
+            return "results"
+        time.sleep(config.SEARCH_RESULTS_POLL_INTERVAL)
+    return "timeout"
+
+
+def wait_for_detail_content(page) -> str:
+    """
+    Wait for detail page content to show up before deciding it failed.
+    """
+    deadline = time.time() + config.DETAIL_CONTENT_WAIT_TIMEOUT
+    while time.time() < deadline:
+        risk = detect_risk_control(page)
+        if risk in ("login_wall", "security_redirect", "captcha_page"):
+            return risk
+        if not is_explore_url(page.url):
+            time.sleep(config.DETAIL_CONTENT_POLL_INTERVAL)
+            continue
+        try:
+            has_content = bool(page.evaluate("""() => {
+                return !!document.querySelector(
+                    '#detail-desc, .note-content, div[class*="note-content"], [class*="desc"], [class*="content"], #detail-title, [class*="note-title"]'
+                );
+            }"""))
+        except Exception:
+            has_content = False
+        if has_content:
+            return "content"
+        time.sleep(config.DETAIL_CONTENT_POLL_INTERVAL)
+    return "timeout"
+
+
 def warmup_session(page) -> None:
     """
     'Warm up' the session by browsing XHS naturally before scraping.
@@ -643,17 +747,19 @@ def search_posts(
 
     try:
         page.goto(url, timeout=20000, wait_until="domcontentloaded")
-        # Variable wait to look human (2-5s)
-        time.sleep(2 + random.random() * 3)
+        wait_for_network_settle(page, timeout_ms=18000)
+        time.sleep(config.SEARCH_PAGE_SETTLE_MIN + random.random() * (config.SEARCH_PAGE_SETTLE_MAX - config.SEARCH_PAGE_SETTLE_MIN))
         human_mouse_move(page)
     except Exception as e:
         log.info(f"      ⚠️ Search page load failed: {e}")
         # Try once more with a fresh navigation
         try:
             page.goto(build_home_url(page.url, current_origin), timeout=10000, wait_until="domcontentloaded")
-            time.sleep(3 + random.random() * 2)
+            wait_for_network_settle(page, timeout_ms=12000)
+            time.sleep(3 + random.random() * 3)
             page.goto(url, timeout=20000, wait_until="domcontentloaded")
-            time.sleep(2 + random.random() * 3)
+            wait_for_network_settle(page, timeout_ms=18000)
+            time.sleep(config.SEARCH_PAGE_SETTLE_MIN + random.random() * (config.SEARCH_PAGE_SETTLE_MAX - config.SEARCH_PAGE_SETTLE_MIN))
         except Exception:
             return []
 
@@ -668,27 +774,20 @@ def search_posts(
             if redirected_url != url:
                 log.info("      ℹ️ 搜索页被重定向，按当前站点重试一次")
                 page.goto(redirected_url, timeout=20000, wait_until="domcontentloaded")
-                time.sleep(2 + random.random() * 3)
+                wait_for_network_settle(page, timeout_ms=18000)
+                time.sleep(config.SEARCH_PAGE_SETTLE_MIN + random.random() * (config.SEARCH_PAGE_SETTLE_MAX - config.SEARCH_PAGE_SETTLE_MIN))
     except Exception:
         pass
 
-    # Risk control check
-    risk = detect_risk_control(page)
-    if risk:
-        log.info(f"      ⚠️ 搜索页风控: {risk}")
-        handle_risk_control(risk, page, None)
-        if risk == "login_wall":
-            return []  # Caller handles re-login
-
-    # Wait for note items
-    try:
-        page.wait_for_selector(
-            'section.note-item, [data-note-id], a[href*="/explore/"]',
-            timeout=8000,
-        )
-    except Exception:
-        # No results or blocked
-        log.info(f"      - 搜索无结果或被拦截")
+    wait_status = wait_for_search_results(page)
+    if wait_status != "results":
+        if wait_status in ("login_wall", "security_redirect", "captcha_page"):
+            log.info(f"      ⚠️ 搜索页风控: {wait_status}")
+            handle_risk_control(wait_status, page, None)
+            if wait_status == "login_wall":
+                return []
+        else:
+            log.info("      - 搜索结果加载超时，先按无结果处理")
         return []
 
     posts: list[dict] = []
@@ -750,25 +849,42 @@ def search_posts(
 def fetch_post_detail(page, post_url: str) -> dict | None:
     """Navigate to a post and extract full content + metadata."""
     log.info(f"      📄 抓取帖子: ...{post_url[-20:]}")
+    cooldown = config.DETAIL_NAVIGATION_COOLDOWN_MIN + random.random() * (
+        config.DETAIL_NAVIGATION_COOLDOWN_MAX - config.DETAIL_NAVIGATION_COOLDOWN_MIN
+    )
+    log.info(f"      🕒 详情页前缓冲 {cooldown:.0f}s...")
+    time.sleep(cooldown)
     post_url = normalize_url(post_url, page.url)
-    try:
-        page.goto(post_url, timeout=15000, wait_until="domcontentloaded")
-        # Variable reading time: 2-5s (like actually reading the post)
-        time.sleep(2.0 + random.random() * 3.0)
-        human_mouse_move(page)
-    except Exception:
+    for attempt in range(2):
+        try:
+            page.goto(post_url, timeout=25000, wait_until="domcontentloaded")
+            wait_for_network_settle(page, timeout_ms=20000)
+            time.sleep(config.DETAIL_PAGE_SETTLE_MIN + random.random() * (config.DETAIL_PAGE_SETTLE_MAX - config.DETAIL_PAGE_SETTLE_MIN))
+            human_mouse_move(page)
+        except Exception:
+            return None
+
+        wait_status = wait_for_detail_content(page)
+        if wait_status == "content":
+            break
+        if wait_status in ("login_wall", "captcha_page"):
+            recovered = handle_risk_control(wait_status, page, None)
+            if wait_status == "login_wall" or not recovered:
+                return None
+        elif wait_status == "security_redirect":
+            if attempt == 0:
+                pause = config.SECURITY_REDIRECT_RETRY_WAIT_MIN + random.random() * (
+                    config.SECURITY_REDIRECT_RETRY_WAIT_MAX - config.SECURITY_REDIRECT_RETRY_WAIT_MIN
+                )
+                log.info(f"      ⚠️ 详情页安全重定向，慢等 {pause:.0f}s 后放弃本条，避免连续撞详情...")
+                time.sleep(pause)
+            return None
+        else:
+            log.info("      - 详情页加载超时，跳过")
+            return None
+    else:
         return None
 
-    # Risk control check
-    risk = detect_risk_control(page)
-    if risk:
-        recovered = handle_risk_control(risk, page, None)
-        if risk == "login_wall":
-            return None
-        if not recovered:
-            return None
-
-    # Check for "note unavailable" page
     body_text = page.evaluate("() => document.body ? document.body.innerText : ''")
     if "当前笔记暂时无法浏览" in body_text:
         log.info("      - 笔记无法浏览，跳过")
@@ -776,14 +892,6 @@ def fetch_post_detail(page, post_url: str) -> dict | None:
     if not is_explore_url(page.url):
         log.info("      - 未进入帖子详情页，跳过")
         return None
-
-    try:
-        page.wait_for_selector(
-            '#detail-desc, .note-content, [class*="content"]',
-            timeout=8000,
-        )
-    except Exception:
-        pass  # Continue even if selector not found
 
     # Scroll down a bit to simulate reading
     human_scroll(page, random.randint(200, 400))
@@ -989,8 +1097,9 @@ def scrape_school(
             search_results = search_posts(
                 page, query, max_posts=posts_per_kw, sort=sort_mode
             )
+            detail_budget = min(len(search_results), config.POST_DETAIL_LIMIT_PER_QUERY)
 
-            for sr in search_results:
+            for sr in search_results[:detail_budget]:
                 pid = sr["post_id"]
                 if pid in seen_post_ids or pid in local_ids:
                     continue

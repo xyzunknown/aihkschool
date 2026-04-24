@@ -2806,3 +2806,170 @@ Call log:
 08:33:50       🔍 搜索: 聖士提反堂小學暨幼稚園 (sort=general)
 08:33:56       ⚠️ 搜索页风控: captcha_page
 08:33:56     ⚠️ 安全重定向! 暂停 112s...
+12:33:44 Starting Round 1 scraping (慢爬模式 v2)...
+12:33:44   Targets: 1 schools (of 1 total)
+12:33:44   Max posts/school: 20
+12:33:44   Max keywords/school: 4
+12:33:44   Max posts/keyword: 15
+12:33:44   Request delay: 6.0-12.0s
+12:33:44   School cooldown: 10.0-25.0s
+12:33:44   Batch: every 10 schools, rest 600s (10min)
+12:33:44   Random long pause: 8% chance
+12:33:44   Session refresh: every 30 schools
+12:33:44   Comments: No
+12:33:44 
+12:33:47   Browser fingerprint: 1366x768, UA=...Chrome/124.0.0.0 Safari/537.36
+12:33:47   Loaded saved cookies
+12:34:09   ✅ Session valid (web_session cookie present, homepage loaded)
+12:34:09   🌡️ Warming up session (browsing naturally for 15-25s)...
+12:34:31   🌡️ Warmup complete
+12:34:31   [1/1] 迦南幼稚園（中環堅道） (619841)
+12:34:31       🔍 搜索: 迦南幼稚園（中環堅道） 面試 (sort=general)
+12:34:43       - 搜索无结果或被拦截
+12:34:58       🔍 搜索: 迦南幼稚園（中環堅道） (sort=general)
+12:34:58       ⚠️ Search page load failed: Page.goto: Target page, context or browser has been closed
+12:35:16       🔍 搜索: 迦南幼稚園 面試 (sort=general)
+12:35:16       ⚠️ Search page load failed: Page.goto: Target page, context or browser has been closed
+12:35:35       🔍 搜索: 迦南幼稚園 (sort=general)
+12:35:35       ⚠️ Search page load failed: Page.goto: Target page, context or browser has been closed
+12:35:46       🔍 搜索: 迦南幼稚園（中環堅道） 面試 (sort=popularity_descending)
+12:35:46       ⚠️ Search page load failed: Page.goto: Target page, context or browser has been closed
+12:36:02       🔍 搜索: 迦南幼稚園（中環堅道） (sort=popularity_descending)
+12:36:02       ⚠️ Search page load failed: Page.goto: Target page, context or browser has been closed
+12:36:15       🔍 搜索: 迦南幼稚園 面試 (sort=popularity_descending)
+12:36:15       ⚠️ Search page load failed: Page.goto: Target page, context or browser has been closed
+12:36:24       🔍 搜索: 迦南幼稚園 (sort=popularity_descending)
+12:36:24       ⚠️ Search page load failed: Page.goto: Target page, context or browser has been closed
+12:36:30 Starting Round 1 scraping (慢爬模式 v2)...
+12:36:30   Targets: 1 schools (of 1 total)
+12:36:30   Max posts/school: 20
+12:36:30   Max keywords/school: 4
+12:36:30   Max posts/keyword: 15
+12:36:30   Request delay: 6.0-12.0s
+12:36:30   School cooldown: 10.0-25.0s
+12:36:30   Batch: every 10 schools, rest 600s (10min)
+12:36:30   Random long pause: 8% chance
+12:36:30   Session refresh: every 30 schools
+12:36:30   Comments: No
+12:36:30 
+12:36:33   Browser fingerprint: 1280x800, UA=...Chrome/125.0.0.0 Safari/537.36
+12:36:33   Loaded saved cookies
+12:36:34     ✅ 0 posts, 0 comments
+12:36:34     💤 School cooldown 20s...
+12:36:47   ✅ Session valid (current site can load search content)
+12:36:47   🌡️ Warming up session (browsing naturally for 15-25s)...
+12:36:54 
+✅ Round 1 complete!
+12:36:54   Schools processed: 1
+12:36:54   Total posts: 0
+12:36:54   Failed schools: 0
+12:36:57   🌡️ Warmup complete
+12:36:57   [1/1] 迦南幼稚園（中環堅道） (619841)
+12:36:57       🔍 搜索: 迦南幼稚園（中環堅道） 面試 (sort=general)
+12:37:03       搜索到 15 个帖子链接
+12:37:03       📄 抓取帖子: ...f02b000000001203e5ea
+12:37:09     ⚠️ 安全重定向! 暂停 86s...
+12:45:03 Starting Round 1 scraping (慢爬模式 v2)...
+12:45:03   Targets: 1 schools (of 1 total)
+12:45:03   Max posts/school: 20
+12:45:03   Max keywords/school: 4
+12:45:03   Max posts/keyword: 15
+12:45:03   Request delay: 6.0-12.0s
+12:45:03   School cooldown: 10.0-25.0s
+12:45:03   Batch: every 10 schools, rest 600s (10min)
+12:45:03   Random long pause: 8% chance
+12:45:03   Session refresh: every 30 schools
+12:45:03   Comments: No
+12:45:03 
+12:45:19   Browser fingerprint: 1280x800, UA=...Chrome/124.0.0.0 Safari/537.36
+12:45:19   Loaded saved cookies
+12:45:40   ✅ Session valid (current site can load search content)
+12:45:40   🌡️ Warming up session (browsing naturally for 15-25s)...
+12:45:52   🌡️ Warmup complete
+12:45:52   [1/1] 迦南幼稚園（中環堅道） (619841)
+12:45:52       🔍 搜索: 迦南幼稚園（中環堅道） 面試 (sort=general)
+12:46:04       搜索到 15 个帖子链接
+12:46:04       📄 抓取帖子: ...f02b000000001203e5ea
+12:46:19     ⚠️ 安全重定向! 暂停 81s...
+12:47:55     ⚠️ 安全重定向! 暂停 82s...
+12:49:38       📄 抓取帖子: ...2423000000001e00562a
+12:49:49     ⚠️ 安全重定向! 暂停 78s...
+12:51:26       📄 抓取帖子: ...666f0000000007033897
+12:51:58       📄 抓取帖子: ...24c5000000000300c188
+12:52:16       ⚠️ 详情页安全重定向，慢等 23s 后只重试一次...
+12:52:53     ⚠️ 安全重定向! 暂停 70s...
+12:54:20       📄 抓取帖子: ...62fd0000000009014a12
+12:54:39     ⚠️ 安全重定向! 暂停 114s...
+12:56:45     ⚠️ 安全重定向! 暂停 75s...
+12:58:18       📄 抓取帖子: ...828300000000190256eb
+12:58:38       📄 抓取帖子: ...e31e000000001d0379b4
+12:58:51       📄 抓取帖子: ...d9be000000000302362e
+12:59:14       📄 抓取帖子: ...25bc000000001d025308
+12:59:34       📄 抓取帖子: ...afea000000000700ff05
+12:59:50       📄 抓取帖子: ...83130000000013008736
+13:00:07       📄 抓取帖子: ...e735000000001d0376bb
+13:00:22       📄 抓取帖子: ...a35400000000070379f4
+13:00:32       📄 抓取帖子: ...d63f000000001b02e6cc
+13:00:45       📄 抓取帖子: ...7031000000001e00d37f
+13:01:09       🔍 搜索: 迦南幼稚園（中環堅道） (sort=general)
+13:01:09       ⚠️ Search page load failed: Page.goto: Target page, context or browser has been closed
+13:01:23       🔍 搜索: 迦南幼稚園 面試 (sort=general)
+13:01:23       ⚠️ Search page load failed: Page.goto: Target page, context or browser has been closed
+13:01:41       🔍 搜索: 迦南幼稚園 (sort=general)
+13:01:41       ⚠️ Search page load failed: Page.goto: Target page, context or browser has been closed
+13:01:54       🔍 搜索: 迦南幼稚園（中環堅道） 面試 (sort=popularity_descending)
+13:01:54       ⚠️ Search page load failed: Page.goto: Target page, context or browser has been closed
+13:02:06       🔍 搜索: 迦南幼稚園（中環堅道） (sort=popularity_descending)
+13:02:06       ⚠️ Search page load failed: Page.goto: Target page, context or browser has been closed
+13:02:17       🔍 搜索: 迦南幼稚園 面試 (sort=popularity_descending)
+13:02:17       ⚠️ Search page load failed: Page.goto: Target page, context or browser has been closed
+13:02:30       🔍 搜索: 迦南幼稚園 (sort=popularity_descending)
+13:02:30       ⚠️ Search page load failed: Page.goto: Target page, context or browser has been closed
+13:02:39     ✅ 0 posts, 0 comments
+13:02:39     💤 School cooldown 11s...
+13:02:50 
+✅ Round 1 complete!
+13:02:50   Schools processed: 1
+13:02:50   Total posts: 0
+13:02:50   Failed schools: 0
+04:35:56 Starting Round 1 scraping (慢爬模式 v2)...
+04:35:56   Targets: 1 schools (of 1 total)
+04:35:56   Max posts/school: 20
+04:35:56   Max keywords/school: 4
+04:35:56   Max posts/keyword: 15
+04:35:56   Request delay: 6.0-12.0s
+04:35:56   School cooldown: 10.0-25.0s
+04:35:56   Batch: every 10 schools, rest 600s (10min)
+04:35:56   Random long pause: 8% chance
+04:35:56   Session refresh: every 30 schools
+04:35:56   Comments: No
+04:35:56 
+04:36:24   Browser fingerprint: 1536x864, UA=...Chrome/125.0.0.0 Safari/537.36
+04:36:24   Loaded saved cookies
+04:36:42   ⚠️ Login check error: Page.goto: Timeout 15000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/", waiting until "domcontentloaded"
+
+04:36:42   ✅ Session valid (cookie fallback after timeout)
+04:36:42   🌡️ Warming up session (browsing naturally for 15-25s)...
+04:36:57   ⚠️ Warmup error (non-fatal): Page.goto: Timeout 15000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/", waiting until "domcontentloaded"
+
+04:36:57   [1/1] 迦南幼稚園（中環堅道） (619841)
+04:36:57       🔍 搜索: 迦南幼稚園（中環堅道） 面試 (sort=general)
+04:37:17       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E8%BF%A6%E5%8D%97%E5%B9%BC%E7%A8%9A%E5%9C%92%EF%BC%88%E4%B8%AD%E7%92%B0%E5%A0%85%E9%81%93%EF%BC%89%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+04:37:41       🔍 搜索: 迦南幼稚園（中環堅道） (sort=general)
+04:38:01       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://www.xiaohongshu.com/search_result?keyword=%E8%BF%A6%E5%8D%97%E5%B9%BC%E7%A8%9A%E5%9C%92%EF%BC%88%E4%B8%AD%E7%92%B0%E5%A0%85%E9%81%93%EF%BC%89&source=web_search_result_notes", waiting until "domcontentloaded"
+
+04:38:33       🔍 搜索: 迦南幼稚園 面試 (sort=general)
+04:38:53       ⚠️ Search page load failed: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "http://www.xiaohongshu.com/search_result?keyword=%E8%BF%A6%E5%8D%97%E5%B9%BC%E7%A8%9A%E5%9C%92%20%E9%9D%A2%E8%A9%A6&source=web_search_result_notes", waiting until "domcontentloaded"
+
+04:39:15       🔍 搜索: 迦南幼稚園 (sort=general)

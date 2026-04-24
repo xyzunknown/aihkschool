@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { DISTRICT_LABELS, SCHOOL_TYPE_LABELS } from "@/lib/utils";
+import { DISTRICT_LABELS, SCHOOL_TYPE_LABELS, SCHOOLAND_GROUP_OPTIONS, SCHOOLAND_SIZE_LABELS } from "@/lib/utils";
 import type { District, SchoolType } from "@/types/database";
 
 interface FilterBarProps {
@@ -10,6 +10,10 @@ interface FilterBarProps {
   vacancyFilter: string[];
   sessionFilter: string | null;
   hasNurseryFilter: boolean;
+  schoolandFreeSchemeFilter: boolean;
+  schoolandNurseryServiceFilter: boolean;
+  schoolandGroupFilter: string | null;
+  schoolandSizeFilter: string | null;
   onToggleDistrict: (district: District) => void;
   onUpdateFilter: (key: string, value: string | null) => void;
   onToggleVacancy: (status: string) => void;
@@ -21,13 +25,24 @@ export function FilterBar({
   vacancyFilter,
   sessionFilter,
   hasNurseryFilter,
+  schoolandFreeSchemeFilter,
+  schoolandNurseryServiceFilter,
+  schoolandGroupFilter,
+  schoolandSizeFilter,
   onToggleDistrict,
   onUpdateFilter,
   onToggleVacancy,
 }: FilterBarProps) {
   const [showDistrictFilter, setShowDistrictFilter] = useState(false);
   const [showMoreFilters, setShowMoreFilters] = useState(
-    !!(sessionFilter || hasNurseryFilter)
+    !!(
+      sessionFilter ||
+      hasNurseryFilter ||
+      schoolandFreeSchemeFilter ||
+      schoolandNurseryServiceFilter ||
+      schoolandGroupFilter ||
+      schoolandSizeFilter
+    )
   );
 
   const pillBase = "px-3 py-1.5 rounded-full text-xs font-medium transition-colors";
@@ -48,12 +63,19 @@ export function FilterBar({
 
   const sessionOptions = [
     { key: "all", label: "全部" },
-    { key: "half_day", label: "半日班" },
-    { key: "whole_day", label: "全日班" },
+    { key: "am", label: "上午" },
+    { key: "pm", label: "下午" },
+    { key: "whole_day", label: "全日" },
+    { key: "half_day", label: "混合/半日" },
   ];
 
   const moreFilterCount =
-    (sessionFilter ? 1 : 0) + (hasNurseryFilter ? 1 : 0);
+    (sessionFilter ? 1 : 0) +
+    (hasNurseryFilter ? 1 : 0) +
+    (schoolandFreeSchemeFilter ? 1 : 0) +
+    (schoolandNurseryServiceFilter ? 1 : 0) +
+    (schoolandGroupFilter ? 1 : 0) +
+    (schoolandSizeFilter ? 1 : 0);
 
   return (
     <>
@@ -183,6 +205,65 @@ export function FilterBar({
               >
                 設有N班
               </button>
+            </div>
+
+            {/* Schooland structured filters */}
+            <div>
+              <h4 className="text-xs font-semibold text-slate-700 mb-2">免費計劃</h4>
+              <button
+                onClick={() =>
+                  onUpdateFilter("schoolandFreeScheme", schoolandFreeSchemeFilter ? null : "true")
+                }
+                className={`${pillBase} ${schoolandFreeSchemeFilter ? pillActive : pillInactive}`}
+              >
+                參加
+              </button>
+            </div>
+
+            <div>
+              <h4 className="text-xs font-semibold text-slate-700 mb-2">幼兒服務</h4>
+              <button
+                onClick={() =>
+                  onUpdateFilter("schoolandNurseryService", schoolandNurseryServiceFilter ? null : "yes")
+                }
+                className={`${pillBase} ${schoolandNurseryServiceFilter ? pillActive : pillInactive}`}
+              >
+                有
+              </button>
+            </div>
+
+            <div>
+              <h4 className="text-xs font-semibold text-slate-700 mb-2">集團</h4>
+              <div className="flex flex-wrap gap-2">
+                {SCHOOLAND_GROUP_OPTIONS.slice(0, 12).map((group) => (
+                  <button
+                    key={group}
+                    onClick={() =>
+                      onUpdateFilter("schoolandGroup", schoolandGroupFilter === group ? null : group)
+                    }
+                    className={`${pillBase} ${schoolandGroupFilter === group ? pillActive : pillInactive}`}
+                  >
+                    {group}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h4 className="text-xs font-semibold text-slate-700 mb-2">規模</h4>
+              <div className="flex flex-wrap gap-2">
+                {Object.entries(SCHOOLAND_SIZE_LABELS).map(([key, label]) => (
+                  <button
+                    key={key}
+                    onClick={() =>
+                      onUpdateFilter("schoolandSize", schoolandSizeFilter === key ? null : key)
+                    }
+                    className={`${pillBase} ${schoolandSizeFilter === key ? pillActive : pillInactive}`}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         )}

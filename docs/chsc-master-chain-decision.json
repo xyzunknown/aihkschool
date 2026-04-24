@@ -1,0 +1,363 @@
+{
+  "generated_at": "2026-04-24T01:30:41.973Z",
+  "sample_size": 50,
+  "checked_questions": [
+    "Does CHSC provide stable fields missing from the current KGP / EDB master chain?",
+    "Can CHSC identity map stably to existing school_code records?"
+  ],
+  "conclusion": "chsc_not_enter_master_chain",
+  "conclusion_sentence": "CHSC does not enter the separate master chain because the kindergarten CHSC surface is the KGP/EDB profile already represented by data/KGP_2025_tc.csv; no independent stable identifier or clearly missing stable field is available in the repository.",
+  "future_rule": "If a separate stable CHSC dataset is added later, it may enter only as official_supplement and must not replace KGP / EDB identity fields.",
+  "sample": [
+    {
+      "school_code": "131440",
+      "name_tc": "聖士提反堂小學暨幼稚園",
+      "district": "中西區",
+      "website": "http://www.ssck.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=131440"
+    },
+    {
+      "school_code": "131466",
+      "name_tc": "聖保羅堂幼稚園",
+      "district": "中西區",
+      "website": "http://www.stpaulchurchkg.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=131466"
+    },
+    {
+      "school_code": "132896",
+      "name_tc": "聖士提反女子中學附屬幼稚園",
+      "district": "中西區",
+      "website": "http://www.ssgckg.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=132896"
+    },
+    {
+      "school_code": "210021",
+      "name_tc": "聖嘉勒小學",
+      "district": "中西區",
+      "website": "http://kg.scps.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=210021"
+    },
+    {
+      "school_code": "213632",
+      "name_tc": "聖安多尼中英文小學暨幼稚園",
+      "district": "中西區",
+      "website": "https://stanthonyskg.edu.hk/",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=213632"
+    },
+    {
+      "school_code": "214248",
+      "name_tc": "偉思幼稚園",
+      "district": "中西區",
+      "website": "http://www.wisely.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=214248"
+    },
+    {
+      "school_code": "215724",
+      "name_tc": "SMALL WORLD CHRISTIAN KINDERGARTEN",
+      "district": "中西區",
+      "website": "http://www.smallworld.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=215724"
+    },
+    {
+      "school_code": "216186",
+      "name_tc": "CARMEL SCHOOL",
+      "district": "中西區",
+      "website": "http://www.carmel.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=216186"
+    },
+    {
+      "school_code": "319813",
+      "name_tc": "聖馬太堂幼稚園",
+      "district": "中西區",
+      "website": "https://stmattkg.edu.hk/",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=319813"
+    },
+    {
+      "school_code": "322270",
+      "name_tc": "明愛凌月仙幼稚園",
+      "district": "中西區",
+      "website": "http://lyskg.caritas.org.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=322270"
+    },
+    {
+      "school_code": "325970",
+      "name_tc": "嘉諾撒聖心幼稚園",
+      "district": "中西區",
+      "website": "http://www.shck.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325970"
+    },
+    {
+      "school_code": "512273",
+      "name_tc": "救恩學校",
+      "district": "中西區",
+      "website": "http://www.kauyan.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=512273"
+    },
+    {
+      "school_code": "513423",
+      "name_tc": "禮賢會學校",
+      "district": "中西區",
+      "website": "http://www.rhenish.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=513423"
+    },
+    {
+      "school_code": "536911",
+      "name_tc": "香港真光幼稚園（堅道）",
+      "district": "中西區",
+      "website": "http://www.truelightk-c.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=536911"
+    },
+    {
+      "school_code": "542164",
+      "name_tc": "維多利亞（寶翠園）幼稚園",
+      "district": "中西區",
+      "website": "http://www.victoria.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=542164"
+    },
+    {
+      "school_code": "545589",
+      "name_tc": "HIGHGATE HOUSE SCHOOL - THE PEAK",
+      "district": "中西區",
+      "website": "http://www.highgatehouse.edu.hk/",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=545589"
+    },
+    {
+      "school_code": "548430",
+      "name_tc": "蒙特梭利國際學校",
+      "district": "中西區",
+      "website": "https://www.ims.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=548430"
+    },
+    {
+      "school_code": "552739",
+      "name_tc": "太陽島英文幼稚園（西營盤分校）(舊校名稱:太陽島英文幼稚園（卑路乍街分校）)",
+      "district": "中西區",
+      "website": "http://www.sunisland.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=552739"
+    },
+    {
+      "school_code": "563439",
+      "name_tc": "仁濟醫院郭子樑幼稚園",
+      "district": "中西區",
+      "website": "http://www.ychkclkg.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563439"
+    },
+    {
+      "school_code": "563692",
+      "name_tc": "香港西區婦女福利會幼稚園",
+      "district": "中西區",
+      "website": "https://www.wwcwdkindergarten.org.hk/",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563692"
+    },
+    {
+      "school_code": "564354",
+      "name_tc": "聖雅各福群會寶翠園幼稚園",
+      "district": "中西區",
+      "website": "http://www.sjsbelcher.org",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564354"
+    },
+    {
+      "school_code": "564435",
+      "name_tc": "香港基督教女青年會戴翰芬幼兒學校",
+      "district": "中西區",
+      "website": "http://nsthf.ywca.org.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564435"
+    },
+    {
+      "school_code": "564648",
+      "name_tc": "潮陽幼稚園",
+      "district": "中西區",
+      "website": "http://www.cyk.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564648"
+    },
+    {
+      "school_code": "564850",
+      "name_tc": "基督教香港信義會基恩幼兒學校",
+      "district": "中西區",
+      "website": "http://agns.elchk.org.hk/",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564850"
+    },
+    {
+      "school_code": "565253",
+      "name_tc": "香港保護兒童會譚雅士幼兒學校",
+      "district": "中西區",
+      "website": "https://ns.hkspc.org/tt/",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565253"
+    },
+    {
+      "school_code": "565440",
+      "name_tc": "仁濟醫院方江輝幼稚園",
+      "district": "中西區",
+      "website": "http://www.ychfkf.org.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565440"
+    },
+    {
+      "school_code": "565954",
+      "name_tc": "明愛堅尼地城幼兒學校",
+      "district": "中西區",
+      "website": "http://ktns.caritas.org.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565954"
+    },
+    {
+      "school_code": "566080",
+      "name_tc": "CITY KIDS PRESCHOOL AND PLAYGROUP",
+      "district": "中西區",
+      "website": "http://www.citykidshk.org",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566080"
+    },
+    {
+      "school_code": "566284",
+      "name_tc": "偉思幼兒園",
+      "district": "中西區",
+      "website": "http://www.wisely.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566284"
+    },
+    {
+      "school_code": "588032",
+      "name_tc": "香港國際蒙特梭利學校（中環）",
+      "district": "中西區",
+      "website": "http://www.dms.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=588032"
+    },
+    {
+      "school_code": "590673",
+      "name_tc": "盈思幼稚園",
+      "district": "中西區",
+      "website": "http://www.witty.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=590673"
+    },
+    {
+      "school_code": "593133",
+      "name_tc": "多多國際幼稚園（半山）",
+      "district": "中西區",
+      "website": "http://www.tutortime.com.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=593133"
+    },
+    {
+      "school_code": "594725",
+      "name_tc": "GUIDEPOST MONTESSORI INTERNATIONAL PRE-SCHOOL (MID-LEVELS)",
+      "district": "中西區",
+      "website": "https://guidepost.hk/locations/mid-levels",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=594725"
+    },
+    {
+      "school_code": "600601",
+      "name_tc": "弘立幼稚園",
+      "district": "中西區",
+      "website": "http://www.isf.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=600601"
+    },
+    {
+      "school_code": "601420",
+      "name_tc": "YORK INTERNATIONAL PRE-SCHOOL (HONG KONG)",
+      "district": "中西區",
+      "website": "http://www.york.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=601420"
+    },
+    {
+      "school_code": "603643",
+      "name_tc": "奧恩國際幼稚園",
+      "district": "中西區",
+      "website": "https://www.mightyoaks.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=603643"
+    },
+    {
+      "school_code": "603724",
+      "name_tc": "香港民生幼稚園（西區）",
+      "district": "中西區",
+      "website": "http://www.mansangkg.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=603724"
+    },
+    {
+      "school_code": "605026",
+      "name_tc": "楓薈幼稚園",
+      "district": "中西區",
+      "website": "http://www.fairchild.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=605026"
+    },
+    {
+      "school_code": "607215",
+      "name_tc": "WILDERNESS INTERNATIONAL KINDERGARTEN",
+      "district": "中西區",
+      "website": "http://www.wilderness.asia",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=607215"
+    },
+    {
+      "school_code": "608319",
+      "name_tc": "香島華德福學校",
+      "district": "中西區",
+      "website": "https://iws.edu.hk/",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=608319"
+    },
+    {
+      "school_code": "611484",
+      "name_tc": "GUIDEPOST MONTESSORI INTERNATIONAL KINDERGARTEN (KENNEDY TOWN)",
+      "district": "中西區",
+      "website": "https://guidepost.hk/locations/kennedy-town",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=611484"
+    },
+    {
+      "school_code": "613037",
+      "name_tc": "香港墨爾文國際幼稚園（港島西）",
+      "district": "中西區",
+      "website": "https://www.malvernpreschool.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=613037"
+    },
+    {
+      "school_code": "614904",
+      "name_tc": "LES PETITS LASCARS FRENCH INTERNATIONAL PRESCHOOL",
+      "district": "中西區",
+      "website": "https://hkkidsacademy.edu.hk/les-petits-lascars",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=614904"
+    },
+    {
+      "school_code": "619841",
+      "name_tc": "迦南幼稚園（中環堅道）",
+      "district": "中西區",
+      "website": "http://www.cannan.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=619841"
+    },
+    {
+      "school_code": "620998",
+      "name_tc": "英藝幼稚園（西環）",
+      "district": "中西區",
+      "website": "https://zenithkindergarten.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=620998"
+    },
+    {
+      "school_code": "132730",
+      "name_tc": "蘇浙小學校",
+      "district": "東區",
+      "website": "http://www.kcs.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=132730"
+    },
+    {
+      "school_code": "214949",
+      "name_tc": "LYC'EE FRANCAIS INTERNATIONAL (FRENCH INTERNATIONAL SCHOOL)",
+      "district": "東區",
+      "website": "http://www.fis.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=214949"
+    },
+    {
+      "school_code": "215538",
+      "name_tc": "高主教書院幼稚園部",
+      "district": "東區",
+      "website": "http://www.rckg.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=215538"
+    },
+    {
+      "school_code": "215589",
+      "name_tc": "漢基國際學校",
+      "district": "東區",
+      "website": "https://www.cis.edu.hk/",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=215589"
+    },
+    {
+      "school_code": "215635",
+      "name_tc": "HAMILTON HILL INTERNATIONAL KINDERGARTEN (ISLAND EAST)",
+      "district": "東區",
+      "website": "https://www.hhik.edu.hk",
+      "chsc_profile_surface": "https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=215635"
+    }
+  ]
+}

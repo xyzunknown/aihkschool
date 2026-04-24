@@ -70,6 +70,9 @@ export interface NewsItem {
   href: string;
   /** true = opens external link; false = has local /news/[id] page */
   is_external: boolean;
+  /** Optional media topic label for parent-facing news */
+  content_type?: "open_day" | "admission" | "interview" | "policy" | "feature" | "school_event";
+  content_type_label?: string;
 }
 
 export interface FeaturedSchool {

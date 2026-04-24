@@ -14,6 +14,15 @@ import { useCompare } from "@/lib/hooks/useCompare";
 import { CompareBar } from "@/components/compare/CompareBar";
 import type { District, SchoolType, VacancyStatus } from "@/types/database";
 
+async function getErrorMessage(response: Response, fallback: string) {
+  try {
+    const json = await response.json();
+    return json?.error?.message || fallback;
+  } catch {
+    return fallback;
+  }
+}
+
 const PAGE_SIZE = 18;
 
 interface SchoolData {
@@ -32,6 +41,14 @@ interface SchoolData {
   admission_summary: string;
   show_admission_summary: boolean;
   language_primary: string | null;
+  schooland_operator_name: string | null;
+  schooland_group_tag: string | null;
+  schooland_free_scheme: boolean | null;
+  schooland_nursery_service: string | null;
+  schooland_size_label: string | null;
+  schooland_session_label: string | null;
+  schooland_url: string | null;
+  schooland_source_fields: Record<string, string> | null;
   fee_monthly_hkd: number | null;
   latitude: number | null;
   longitude: number | null;
@@ -83,6 +100,10 @@ export default function KGListClient() {
       vacancyFilter: params.getAll("vacancy"),
       sessionFilter: params.get("session") as string | null,
       hasNurseryFilter: params.get("hasNursery") === "true",
+      schoolandFreeSchemeFilter: params.get("schoolandFreeScheme") === "true",
+      schoolandNurseryServiceFilter: params.get("schoolandNurseryService") === "yes",
+      schoolandGroupFilter: params.get("schoolandGroup"),
+      schoolandSizeFilter: params.get("schoolandSize"),
       sortBy: params.get("sort") ?? "default",
       searchQuery: params.get("search") ?? "",
       page: parseInt(params.get("page") ?? "1", 10),
@@ -95,6 +116,10 @@ export default function KGListClient() {
     vacancyFilter,
     sessionFilter,
     hasNurseryFilter,
+    schoolandFreeSchemeFilter,
+    schoolandNurseryServiceFilter,
+    schoolandGroupFilter,
+    schoolandSizeFilter,
     sortBy,
     searchQuery,
     page,
@@ -110,6 +135,10 @@ export default function KGListClient() {
       vacancyFilter.forEach((v) => params.append("vacancy", v));
       if (sessionFilter) params.set("session", sessionFilter);
       if (hasNurseryFilter) params.set("hasNursery", "true");
+      if (schoolandFreeSchemeFilter) params.set("schoolandFreeScheme", "true");
+      if (schoolandNurseryServiceFilter) params.set("schoolandNurseryService", "yes");
+      if (schoolandGroupFilter) params.set("schoolandGroup", schoolandGroupFilter);
+      if (schoolandSizeFilter) params.set("schoolandSize", schoolandSizeFilter);
       if (searchQuery) params.set("search", searchQuery);
       params.set("page", String(page));
       params.set("limit", String(PAGE_SIZE));
@@ -129,7 +158,19 @@ export default function KGListClient() {
     } finally {
       setLoading(false);
     }
-  }, [selectedDistricts, selectedType, vacancyFilter, sessionFilter, hasNurseryFilter, searchQuery, page]);
+  }, [
+    selectedDistricts,
+    selectedType,
+    vacancyFilter,
+    sessionFilter,
+    hasNurseryFilter,
+    schoolandFreeSchemeFilter,
+    schoolandNurseryServiceFilter,
+    schoolandGroupFilter,
+    schoolandSizeFilter,
+    searchQuery,
+    page,
+  ]);
 
   useEffect(() => { fetchData(); }, [fetchData]);
 
@@ -155,10 +196,15 @@ export default function KGListClient() {
       // Optimistic remove
       setFavoriteIds((prev) => { const next = new Set(prev); next.delete(schoolId); return next; });
       fetch(`/api/favorites/${schoolId}`, { method: "DELETE" })
-        .then(() => showToast({ message: "已取消收藏" }))
-        .catch(() => {
+        .then(async (res) => {
+          if (!res.ok) {
+            throw new Error(await getErrorMessage(res, "取消收藏失敗"));
+          }
+          showToast({ message: "已取消收藏" });
+        })
+        .catch((error: unknown) => {
           setFavoriteIds((prev) => new Set(prev).add(schoolId));
-          showToast({ message: "取消收藏失敗" });
+          showToast({ message: error instanceof Error ? error.message : "取消收藏失敗" });
         });
       return;
     }
@@ -172,10 +218,10 @@ export default function KGListClient() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ school_id: schoolId }),
         });
-        const json = await res.json();
-        if (json.error) {
+        if (!res.ok) {
+          const message = await getErrorMessage(res, "收藏失敗，請稍後再試");
           setFavoriteIds((prev) => { const next = new Set(prev); next.delete(schoolId); return next; });
-          showToast({ message: json.error.message });
+          showToast({ message });
         } else {
           showToast({ message: "已加入收藏" });
         }
@@ -259,6 +305,10 @@ export default function KGListClient() {
         vacancyFilter={vacancyFilter}
         sessionFilter={sessionFilter}
         hasNurseryFilter={hasNurseryFilter}
+        schoolandFreeSchemeFilter={schoolandFreeSchemeFilter}
+        schoolandNurseryServiceFilter={schoolandNurseryServiceFilter}
+        schoolandGroupFilter={schoolandGroupFilter}
+        schoolandSizeFilter={schoolandSizeFilter}
         onToggleDistrict={toggleDistrict}
         onUpdateFilter={updateFilter}
         onToggleVacancy={toggleVacancy}
@@ -342,6 +392,11 @@ export default function KGListClient() {
                   district={school.district}
                   schoolType={school.school_type}
                   sessionType={school.session_type}
+                  schoolandGroupTag={school.schooland_group_tag}
+                  schoolandFreeScheme={school.schooland_free_scheme}
+                  schoolandNurseryService={school.schooland_nursery_service}
+                  schoolandSizeLabel={school.schooland_size_label}
+                  schoolandSessionLabel={school.schooland_session_label}
                   gradesOffered={school.grades_offered}
                   admissionSummary={school.admission_summary}
                   showAdmissionSummary={school.show_admission_summary}

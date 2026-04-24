@@ -7,6 +7,7 @@ import { VacancySection } from "@/components/schools/VacancySection";
 import { BasicInfoSection } from "@/components/schools/BasicInfoSection";
 import { FeesSection } from "@/components/schools/FeesSection";
 import { AdmissionsSection } from "@/components/schools/AdmissionsSection";
+import { OfficialLinksSection } from "@/components/schools/OfficialLinksSection";
 import { DetailBottomCTA } from "@/components/schools/DetailBottomCTA";
 import { ReminderSheet } from "@/components/schools/ReminderSheet";
 import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
@@ -17,6 +18,15 @@ import type { School, Vacancy, DataSource } from "@/types/database";
 import type { SchoolEnrichment } from "@/lib/db/schools";
 import { useCompare } from "@/lib/hooks/useCompare";
 import Link from "next/link";
+
+async function getErrorMessage(response: Response, fallback: string) {
+  try {
+    const json = await response.json();
+    return json?.error?.message || fallback;
+  } catch {
+    return fallback;
+  }
+}
 
 interface Props {
   school: School;
@@ -77,11 +87,10 @@ export function SchoolDetailClient({ school, vacancy, enrichment }: Props) {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ school_id: school.id }),
         });
-        const json = await res.json();
-
-        if (json.error) {
+        if (!res.ok) {
+          const message = await getErrorMessage(res, "收藏失敗，請稍後再試");
           setIsFavorited(false);
-          showToast({ message: json.error.message });
+          showToast({ message });
         } else {
           showToast({
             message: "已收藏，要開啟截止提醒嗎？",
@@ -99,17 +108,20 @@ export function SchoolDetailClient({ school, vacancy, enrichment }: Props) {
   const handleUnfavorite = async () => {
     setIsFavorited(false);
     try {
-      await fetch(`/api/favorites/${school.id}`, { method: "DELETE" });
+      const res = await fetch(`/api/favorites/${school.id}`, { method: "DELETE" });
+      if (!res.ok) {
+        throw new Error(await getErrorMessage(res, "已取消收藏失敗"));
+      }
       showToast({ message: "已取消收藏" });
-    } catch {
+    } catch (error: unknown) {
       setIsFavorited(true);
-      showToast({ message: "已取消收藏失敗" });
+      showToast({ message: error instanceof Error ? error.message : "已取消收藏失敗" });
     }
   };
 
   const handleReminderConfirm = async (selectedDays: number[]) => {
     try {
-      await fetch(`/api/favorites/${school.id}/reminder`, {
+      const res = await fetch(`/api/favorites/${school.id}/reminder`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -117,9 +129,12 @@ export function SchoolDetailClient({ school, vacancy, enrichment }: Props) {
           reminder_days_before: selectedDays,
         }),
       });
+      if (!res.ok) {
+        throw new Error(await getErrorMessage(res, "設定提醒失敗"));
+      }
       showToast({ message: "提醒已開啟" });
-    } catch {
-      showToast({ message: "設定提醒失敗" });
+    } catch (error: unknown) {
+      showToast({ message: error instanceof Error ? error.message : "設定提醒失敗" });
     }
   };
 
@@ -167,6 +182,7 @@ export function SchoolDetailClient({ school, vacancy, enrichment }: Props) {
 
       <VacancySection vacancy={vacancy} isStale={stale} deadlineStatus={dlStatus} schoolWebsite={school.website} />
       <BasicInfoSection school={school} />
+      <OfficialLinksSection school={school} />
       <FeesSection school={school} />
       <AdmissionsSection school={school} enrichment={enrichment ?? null} />
 

@@ -11,6 +11,9 @@ import {
   hasNurseryClass,
   isVacancyStale,
   SCHOOL_TYPE_LABELS,
+  SCHOOLAND_NURSERY_SERVICE_LABELS,
+  SCHOOLAND_SESSION_LABELS,
+  SCHOOLAND_SIZE_LABELS,
 } from "@/lib/utils";
 import type { VacancyStatus } from "@/types/database";
 
@@ -23,6 +26,11 @@ interface SchoolCardProps {
   district: string;
   schoolType?: string;
   sessionType?: string | null;
+  schoolandGroupTag?: string | null;
+  schoolandFreeScheme?: boolean | null;
+  schoolandNurseryService?: string | null;
+  schoolandSizeLabel?: string | null;
+  schoolandSessionLabel?: string | null;
   gradesOffered?: string[] | null;
   admissionSummary?: string | null;
   showAdmissionSummary?: boolean;
@@ -54,6 +62,11 @@ export function SchoolCard({
   district,
   schoolType,
   sessionType,
+  schoolandGroupTag,
+  schoolandFreeScheme,
+  schoolandNurseryService,
+  schoolandSizeLabel,
+  schoolandSessionLabel,
   gradesOffered,
   admissionSummary,
   showAdmissionSummary = false,
@@ -76,6 +89,15 @@ export function SchoolCard({
   // Derive tags
   const sessionTags = getSessionTags(sessionType ?? null);
   const showNursery = hasNurseryClass(gradesOffered ?? null);
+  const supplementTags = [
+    schoolandGroupTag,
+    schoolandFreeScheme ? "免費計劃" : null,
+    schoolandNurseryService === "yes"
+      ? `幼兒服務${SCHOOLAND_NURSERY_SERVICE_LABELS[schoolandNurseryService]}`
+      : null,
+    schoolandSizeLabel ? SCHOOLAND_SIZE_LABELS[schoolandSizeLabel] : null,
+    schoolandSessionLabel ? SCHOOLAND_SESSION_LABELS[schoolandSessionLabel] : null,
+  ].filter(Boolean) as string[];
   const schoolTypeTag = schoolType
     ? {
         label: SCHOOL_TYPE_LABELS[schoolType] ?? schoolType,
@@ -172,7 +194,7 @@ export function SchoolCard({
       </div>
 
       {/* Row 3: Tags */}
-      {(sessionTags.length > 0 || showNursery || schoolTypeTag) && (
+      {(sessionTags.length > 0 || showNursery || schoolTypeTag || supplementTags.length > 0) && (
         <div className="flex flex-wrap gap-2 mb-4">
           {sessionTags.map((tag) => (
             <span key={tag} className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700">
@@ -189,6 +211,11 @@ export function SchoolCard({
               {schoolTypeTag.label}
             </span>
           )}
+          {supplementTags.slice(0, 3).map((tag) => (
+            <span key={tag} className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-600">
+              {tag}
+            </span>
+          ))}
         </div>
       )}
 

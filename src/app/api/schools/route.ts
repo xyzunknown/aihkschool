@@ -16,6 +16,8 @@ const SESSION_FILTERS: SessionFilter[] = [
   "half_day",
 ];
 
+const SCHOOLAND_SIZE_FILTERS = ["small", "medium", "large"] as const;
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -28,6 +30,13 @@ export async function GET(request: NextRequest) {
       ? (sessionParam as SessionFilter)
       : undefined;
     const hasNursery = searchParams.get("hasNursery");
+    const schoolandFreeScheme = searchParams.get("schoolandFreeScheme");
+    const schoolandNurseryService = searchParams.get("schoolandNurseryService");
+    const schoolandGroup = searchParams.get("schoolandGroup");
+    const schoolandSizeParam = searchParams.get("schoolandSize");
+    const schoolandSize = schoolandSizeParam && SCHOOLAND_SIZE_FILTERS.includes(schoolandSizeParam as (typeof SCHOOLAND_SIZE_FILTERS)[number])
+      ? schoolandSizeParam as (typeof SCHOOLAND_SIZE_FILTERS)[number]
+      : undefined;
     const vacancyStatuses = searchParams.getAll("vacancy");
     const search = searchParams.get("search");
     const page = parseInt(searchParams.get("page") ?? "1", 10);
@@ -39,6 +48,10 @@ export async function GET(request: NextRequest) {
       language: language ?? undefined,
       session,
       hasNursery: hasNursery === "true" ? true : undefined,
+      schoolandFreeScheme: schoolandFreeScheme === "true" ? true : undefined,
+      schoolandNurseryService: schoolandNurseryService === "yes" ? "yes" : undefined,
+      schoolandGroup: schoolandGroup ?? undefined,
+      schoolandSize,
       vacancyStatuses: vacancyStatuses.length > 0 ? vacancyStatuses : undefined,
       search: search ?? undefined,
       page: isNaN(page) ? 1 : page,

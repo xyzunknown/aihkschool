@@ -7,6 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "crawl:schooland:kg": "node scripts/crawlers/schooland-kg.mjs",
+    "crawl:media": "node scripts/crawlers/media-articles.mjs",
+    "build:schooland:enrichment": "node scripts/build_schooland_profile_enrichment.mjs",
     "supabase:types": "node scripts/generate-supabase-types.mjs",
     "supabase:types:check": "node scripts/generate-supabase-types.mjs --check"
   },

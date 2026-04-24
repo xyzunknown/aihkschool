@@ -21,8 +21,18 @@ if _project_root not in sys.path:
 import random
 
 from scripts.xhs import config
-from scripts.xhs.site import build_home_url, build_search_url, has_session_cookie
-from scripts.xhs.utils import load_json, save_json
+from scripts.xhs.site import build_home_url, has_session_cookie, has_session_cookie_for_domain
+from scripts.xhs.utils import save_json
+
+
+def prime_cross_domain_session(page, context) -> None:
+    """Visit both domains once after login so both sides can set cookies."""
+    for target in ("https://www.xiaohongshu.com/", "https://www.rednote.com/explore"):
+        try:
+            page.goto(target, timeout=15000, wait_until="domcontentloaded")
+            time.sleep(2)
+        except Exception:
+            continue
 
 
 def main():
@@ -52,17 +62,13 @@ def main():
         locale="zh-TW",
     )
 
-    # Load existing cookies (might help skip some steps)
-    if config.COOKIES_PATH.exists():
-        cookies = load_json(config.COOKIES_PATH)
-        if cookies:
-            context.add_cookies(cookies)
-            print("   Loaded existing cookies (may be expired)")
-
     page = context.new_page()
     page.add_init_script("""
         Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
     """)
+
+    # Start clean so stale cookies do not keep bouncing us away from the QR page.
+    context.clear_cookies()
 
     # Navigate to XHS homepage for login
     try:
@@ -85,6 +91,7 @@ def main():
     print(f"   (First check in {initial_wait}s — take your time scanning the QR code)")
     time.sleep(initial_wait)
     elapsed += initial_wait
+    cookie_seen_count = 0
 
     while elapsed < max_wait:
         try:
@@ -93,42 +100,23 @@ def main():
             has_session = has_session_cookie(cookies)
 
             if has_session:
-                try:
-                    page.goto(
-                        build_search_url("幼稚園", current_url=page.url),
-                        timeout=15000,
-                        wait_until="domcontentloaded",
-                    )
-                    time.sleep(5)
-
-                    body = page.evaluate("() => document.body.innerText.substring(0, 1000)")
-
-                    if "登录后查看" not in body and "登錄後查看" not in body:
-                        # Check for actual notes
-                        note_count = page.evaluate("""() => {
-                            return document.querySelectorAll(
-                                'section.note-item, a[href*="/explore/"], [data-note-id]'
-                            ).length;
-                        }""")
-
-                        if note_count > 0:
-                            print(f"\n   ✅ Login successful! ({note_count} notes visible)")
-                            cookies = context.cookies()
-                            save_json(cookies, config.COOKIES_PATH)
-                            print(f"   ✅ Cookies saved to {config.COOKIES_PATH}")
-                            print("   You can now close this window and run the scraper.")
-                            time.sleep(2)
-                            browser.close()
-                            pw.stop()
-                            return True
-
-                        print(f"   ⏳ Session cookie found but no notes yet... ({elapsed}s)")
-                    else:
-                        print(f"   ⏳ Session cookie found but login wall still showing... ({elapsed}s)")
-
-                except Exception as e:
-                    print(f"   ⏳ Same-page check error ({e.__class__.__name__})... ({elapsed}s)")
+                cookie_seen_count += 1
+                if cookie_seen_count >= 3:
+                    prime_cross_domain_session(page, context)
+                    cookies = context.cookies()
+                    xhs_ok = has_session_cookie_for_domain(cookies, "xiaohongshu.com")
+                    red_ok = has_session_cookie_for_domain(cookies, "rednote.com")
+                    print(f"\n   ✅ Login successful! (xhs={xhs_ok}, rednote={red_ok})")
+                    save_json(cookies, config.COOKIES_PATH)
+                    print(f"   ✅ Cookies saved to {config.COOKIES_PATH}")
+                    print("   You can now close this window and run the scraper.")
+                    time.sleep(2)
+                    browser.close()
+                    pw.stop()
+                    return True
+                print(f"   ⏳ Login signal detected, confirming... ({elapsed}s)")
             else:
+                cookie_seen_count = 0
                 print(f"   ⏳ Waiting for login... ({elapsed}s elapsed, no session cookie yet)")
 
         except Exception as e:

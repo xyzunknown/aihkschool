@@ -1,9 +1,11 @@
 name: Crawl Social Posts
 
 on:
-  schedule:
-    # Daily 03:00 UTC = 11:00 HKT
-    - cron: "0 3 * * *"
+  # Auto-schedule disabled 2026-04-22: XHS account preparation in progress.
+  # User will re-enable cron after swapping account + running environment.
+  # To re-enable: uncomment schedule block below.
+  # schedule:
+  #   - cron: "0 3 * * 1"  # Weekly Monday 03:00 UTC (targeted mode, not daily scrape)
   workflow_dispatch:
     inputs:
       limit:

@@ -32,13 +32,21 @@ export function Footer() {
             </nav>
           </div>
 
-          {/* Support — greyed-out links (coming soon) */}
           <div>
             <h4 className="text-xs font-medium text-slate-950 uppercase tracking-wide mb-3">支援服務</h4>
             <nav className="space-y-2">
-              <span className="block text-sm text-slate-400 cursor-not-allowed">聯絡我們</span>
-              <span className="block text-sm text-slate-400 cursor-not-allowed">服務條款</span>
-              <span className="block text-sm text-slate-400 cursor-not-allowed">私隱政策</span>
+              <Link href="/contact" className="block text-sm text-slate-500 hover:text-slate-700 transition-colors">
+                聯絡我們
+              </Link>
+              <Link href="/terms" className="block text-sm text-slate-500 hover:text-slate-700 transition-colors">
+                服務條款
+              </Link>
+              <Link href="/privacy" className="block text-sm text-slate-500 hover:text-slate-700 transition-colors">
+                私隱政策
+              </Link>
+              <Link href="/disclaimer" className="block text-sm text-slate-500 hover:text-slate-700 transition-colors">
+                免責聲明
+              </Link>
             </nav>
           </div>
         </div>

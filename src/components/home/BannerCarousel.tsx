@@ -25,6 +25,10 @@ export function BannerCarousel({ banners }: BannerCarouselProps) {
     return () => clearInterval(timer);
   }, [count, isPaused, goToNext]);
 
+  if (count === 0) {
+    return null;
+  }
+
   return (
     <div
       className="relative aspect-[4/3] md:aspect-[16/7] rounded-2xl overflow-hidden bg-slate-200"

@@ -15,8 +15,10 @@ on:
         description: "Preview fetch concurrency"
         required: false
         default: "2"
-  schedule:
-    - cron: "0 4 1 * *"
+  # Auto-schedule disabled 2026-04-22: wrong-domain direction superseded by edu-kingdom.com.
+  # Keep manual dispatch only for forensic re-checks.
+  # schedule:
+  #   - cron: "0 4 1 * *"
 
 permissions:
   contents: read
@@ -44,6 +46,11 @@ jobs:
 
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
+
+      - name: Abort while direction is superseded
+        run: |
+          echo "baby-kingdom.com direction is superseded by edu-kingdom.com; do not run this workflow in production." >&2
+          exit 1
 
       - name: Crawl Baby Kingdom
         run: |

@@ -12,6 +12,7 @@ const ROOT = path.resolve(__dirname, "..");
 const EDB_JSON_PATH = path.join(ROOT, "data", "edb_fee_enrichment.json");
 const PRIVATE_JSON_PATH = path.join(ROOT, "data", "private_international_profile_enrichment.json");
 const PRIVATE_VACANCY_JSON_PATH = path.join(ROOT, "data", "private_international_vacancy_enrichment.json");
+const SCHOOLAND_JSON_PATH = path.join(ROOT, "data", "schooland_profile_enrichment.json");
 
 const DRY_RUN = process.argv.includes("--dry-run");
 
@@ -69,6 +70,23 @@ function pickPayload(source, allowedColumns) {
 
 async function applyDataset({ supabase, rows, allowedColumns, label }) {
   let updated = 0;
+  const secondaryOnly = label === "Schooland";
+  const protectedColumns = new Set([
+    "name_tc",
+    "name_en",
+    "website",
+    "fee_monthly_hkd",
+    "fee_annual_hkd",
+    "application_fee_hkd",
+    "registration_fee_hkd",
+    "fee_notes",
+    "other_fees_note",
+    "application_status",
+    "application_details",
+    "application_url",
+    "open_day_details",
+    "open_day_url",
+  ]);
 
   for (const row of rows) {
     if (!row.school_code) continue;
@@ -91,6 +109,29 @@ async function applyDataset({ supabase, rows, allowedColumns, label }) {
         application_url: row.application_url,
         open_day_details: row.open_day_details,
         open_day_url: row.open_day_url,
+        schooland_operator_name: row.schooland_operator_name,
+        schooland_group_tag: row.schooland_group_tag,
+        schooland_free_scheme: row.schooland_free_scheme,
+        schooland_nursery_service: row.schooland_nursery_service,
+        schooland_size_label: row.schooland_size_label,
+        schooland_session_label: row.schooland_session_label,
+        schooland_url: row.schooland_url,
+        schooland_source_url: row.schooland_url,
+        schooland_source_updated_at: row.source === "schooland.hk/kg" ? new Date().toISOString() : undefined,
+        schooland_source_fields:
+          row.source === "schooland.hk/kg"
+            ? {
+                ...(row.schooland_operator_name ? { schooland_operator_name: row.source } : {}),
+                ...(row.schooland_group_tag ? { schooland_group_tag: row.source } : {}),
+                ...(row.schooland_free_scheme !== null && row.schooland_free_scheme !== undefined
+                  ? { schooland_free_scheme: row.source }
+                  : {}),
+                ...(row.schooland_nursery_service ? { schooland_nursery_service: row.source } : {}),
+                ...(row.schooland_size_label ? { schooland_size_label: row.source } : {}),
+                ...(row.schooland_session_label ? { schooland_session_label: row.source } : {}),
+                ...(row.schooland_url ? { schooland_url: row.source } : {}),
+              }
+            : undefined,
         last_profile_scraped_at: new Date().toISOString(),
       },
       allowedColumns
@@ -98,6 +139,43 @@ async function applyDataset({ supabase, rows, allowedColumns, label }) {
 
     if (Object.keys(payload).length === 0) {
       continue;
+    }
+
+    if (secondaryOnly) {
+      const protectedSelect = Array.from(protectedColumns)
+        .filter((column) => allowedColumns.has(column))
+        .join(", ");
+
+      if (protectedSelect) {
+        const { data: existing, error: selectError } = await supabase
+          .from("schools")
+          .select(protectedSelect)
+          .eq("school_code", row.school_code)
+          .maybeSingle();
+
+        if (selectError) {
+          throw new Error(`${label} select failed for ${row.school_code}: ${selectError.message}`);
+        }
+
+        const secondaryFlags = {};
+        for (const column of protectedColumns) {
+          if (!(column in payload)) continue;
+          const existingValue = existing?.[column];
+          const hasOfficialValue =
+            existingValue !== null &&
+            existingValue !== undefined &&
+            existingValue !== "";
+          if (hasOfficialValue) {
+            delete payload[column];
+          } else {
+            secondaryFlags[column] = "schooland.hk/kg";
+          }
+        }
+
+        if (allowedColumns.has("schooland_secondary_flags")) {
+          payload.schooland_secondary_flags = secondaryFlags;
+        }
+      }
     }
 
     const { error } = await supabase
@@ -206,10 +284,12 @@ async function main() {
   const edbRows = readJson(EDB_JSON_PATH);
   const privateRows = readJson(PRIVATE_JSON_PATH);
   const privateVacancyRows = readJson(PRIVATE_VACANCY_JSON_PATH);
+  const schoolandRows = fs.existsSync(SCHOOLAND_JSON_PATH) ? readJson(SCHOOLAND_JSON_PATH) : [];
 
   console.log(`EDB rows: ${edbRows.length}`);
   console.log(`Private/international rows: ${privateRows.length}`);
   console.log(`Private/international vacancy rows: ${privateVacancyRows.length}`);
+  console.log(`Schooland rows: ${schoolandRows.length}`);
 
   if (DRY_RUN) {
     console.log("Dry run only. No database updates performed.");
@@ -239,6 +319,17 @@ async function main() {
     "application_url",
     "open_day_details",
     "open_day_url",
+    "schooland_operator_name",
+    "schooland_group_tag",
+    "schooland_free_scheme",
+    "schooland_nursery_service",
+    "schooland_size_label",
+    "schooland_session_label",
+    "schooland_url",
+    "schooland_source_url",
+    "schooland_source_updated_at",
+    "schooland_source_fields",
+    "schooland_secondary_flags",
     "last_profile_scraped_at",
   ]);
 
@@ -258,6 +349,13 @@ async function main() {
     label: "Private/international",
   });
 
+  const schoolandUpdated = await applyDataset({
+    supabase,
+    rows: schoolandRows,
+    allowedColumns,
+    label: "Schooland",
+  });
+
   const privateVacancyUpdated = await applyVacancyDataset({
     supabase,
     rows: privateVacancyRows,
@@ -266,6 +364,7 @@ async function main() {
 
   console.log(`Updated from EDB dataset: ${edbUpdated}`);
   console.log(`Updated from private/international dataset: ${privateUpdated}`);
+  console.log(`Updated from Schooland dataset: ${schoolandUpdated}`);
   console.log(`Updated from private/international vacancy dataset: ${privateVacancyUpdated}`);
 }
 

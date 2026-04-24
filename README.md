@@ -50,6 +50,25 @@ npm run supabase:types:check
 npx supabase login
 ```
 
+### Supabase Migration 说明
+
+当前生产项目已经存在远端 schema，但远端 migration history 还没有和本地 `supabase/migrations` 完全对齐。
+
+这意味着：
+
+- 不要直接运行 `npx supabase db push`
+- 否则 CLI 可能会从 `001_create_tables.sql` 开始重放，并在远端已存在的表上失败
+
+这次 favorites 权限修复对应的 migration 是 `supabase/migrations/024_grant_favorites_table_access.sql`。
+
+如果远端历史仍未整理，而你只需要应用这条修复，请在 Supabase Dashboard -> SQL Editor 手动执行：
+
+```sql
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.favorites TO authenticated;
+```
+
+等远端 migration history 补齐后，再恢复正常的 CLI migration 流程。
+
 ### OAuth Redirect URL 配置
 
 Google / OAuth 登录在本地开发和 Vercel Preview 都依赖 Supabase Auth 的 URL Configuration。

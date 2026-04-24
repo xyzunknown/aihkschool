@@ -58,10 +58,12 @@ const CONCURRENCY = Math.max(1, parseInt(args.concurrency, 10) || 2);
 
 const UA = "HKSchoolPlaceBot/1.0 (+https://aihkschool.vercel.app)";
 const FETCH_TIMEOUT = 10000;
-const BASE_URL = "https://www.baby-kingdom.com";
+const BASE_URL = "https://www.edu-kingdom.com";
 const MAX_PREVIEW = 200;
-const THREAD_SITEMAP_INDEX = `${BASE_URL}/sitemap_forum_threads.xml`;
-const MAX_SITEMAP_CANDIDATES = 150;
+const CHANNEL_URL = `${BASE_URL}/channel/%E5%B9%BC%E5%85%92%E6%95%99%E8%82%B2`;
+const TARGET_FORUM_IDS = new Set(["6", "368"]);
+const MAX_FORUM_CANDIDATES = 150;
+const MAX_THREADS_PER_FORUM_PAGE = 40;
 
 // ─── Rate limiter ─────────────────────────────────────────────────────────
 
@@ -149,41 +151,66 @@ function parseXmlLocs(xml) {
     .filter(Boolean);
 }
 
-async function fetchThreadUrlsFromSitemaps(maxSitemaps) {
-  if (!(await isAllowed(THREAD_SITEMAP_INDEX))) {
-    throw new Error(`robots disallowed sitemap index: ${THREAD_SITEMAP_INDEX}`);
+function parseForumUrlsFromChannel(html) {
+  const $ = cheerio.load(html);
+  const forumUrls = $("a[href*='forum.php?mod=forumdisplay']")
+    .map((_, el) => $(el).attr("href"))
+    .get()
+    .filter(Boolean)
+    .map((url) => new URL(url.replace(/&amp;/g, "&"), `${BASE_URL}/`).toString());
+
+  const unique = [];
+  for (const forumUrl of forumUrls) {
+    const fid = new URL(forumUrl).searchParams.get("fid");
+    if (!fid || !TARGET_FORUM_IDS.has(fid)) continue;
+    if (!unique.includes(forumUrl)) unique.push(forumUrl);
   }
 
-  const indexXml = await rateLimitedFetch(THREAD_SITEMAP_INDEX);
-  if (!indexXml) {
-    throw new Error("failed to fetch Baby Kingdom thread sitemap index");
+  return unique;
+}
+
+async function fetchThreadUrlsFromForums(maxPages) {
+  if (!(await isAllowed(CHANNEL_URL))) {
+    throw new Error(`robots disallowed channel page: ${CHANNEL_URL}`);
   }
 
-  const sitemapUrls = parseXmlLocs(indexXml)
-    .filter((url) => url.includes("sitemap_forum_threads_"))
-    .slice(0, maxSitemaps);
+  const channelHtml = await rateLimitedFetch(CHANNEL_URL);
+  if (!channelHtml) {
+    throw new Error("failed to fetch Edu-Kingdom channel page");
+  }
+
+  const forumUrls = parseForumUrlsFromChannel(channelHtml);
+  if (forumUrls.length === 0) {
+    throw new Error("failed to find Edu-Kingdom forumdisplay URLs from channel page");
+  }
 
   const threadUrls = [];
-  for (const sitemapUrl of sitemapUrls) {
-    if (!(await isAllowed(sitemapUrl))) {
-      console.log(`[babykingdom] robots disallowed sitemap: ${sitemapUrl}`);
-      continue;
+
+  for (const forumUrl of forumUrls) {
+    for (let page = 1; page <= maxPages; page += 1) {
+      const pagedUrl = page === 1 ? forumUrl : `${forumUrl}&page=${page}`;
+      if (!(await isAllowed(pagedUrl))) {
+        console.log(`[babykingdom] robots disallowed forum page: ${pagedUrl}`);
+        continue;
+      }
+
+      console.log(`[babykingdom] fetching forum page: ${pagedUrl}`);
+      const forumHtml = await rateLimitedFetch(pagedUrl);
+      if (!forumHtml) continue;
+
+      const $ = cheerio.load(forumHtml);
+      const urls = $("a.xst, a[href*='forum.php?mod=viewthread']")
+        .map((_, el) => $(el).attr("href"))
+        .get()
+        .filter((url) => url && url.includes("mod=viewthread") && !url.includes("tid=0"))
+        .map((url) => new URL(url.replace(/&amp;/g, "&"), `${BASE_URL}/`).toString())
+        .slice(0, MAX_THREADS_PER_FORUM_PAGE);
+
+      threadUrls.push(...urls);
     }
-
-    console.log(`[babykingdom] fetching sitemap: ${sitemapUrl}`);
-    const sitemapXml = await rateLimitedFetch(sitemapUrl);
-    if (!sitemapXml) continue;
-
-    const urls = parseXmlLocs(sitemapXml)
-      .filter((url) => url.includes("forum.php?mod=viewthread"))
-      .map((url) => url.replace(/&amp;/g, "&"));
-
-    threadUrls.push(...urls);
-
-    if (threadUrls.length >= MAX_SITEMAP_CANDIDATES) break;
   }
 
-  return Array.from(new Set(threadUrls)).slice(0, MAX_SITEMAP_CANDIDATES);
+  return Array.from(new Set(threadUrls)).slice(0, MAX_FORUM_CANDIDATES);
 }
 
 async function fetchThreadData(threadUrl) {
@@ -196,7 +223,7 @@ async function fetchThreadData(threadUrl) {
 
   const title = (
     $("#thread_subject, h1#thread_subject, h1.ph").first().text().trim() ||
-    $("title").text().trim().replace(/\s+-\s+[^-]+?\s+-\s+Baby Kingdom.*$/u, "")
+    $("title").text().trim().replace(/\s+-\s+[^-]+?\s+[－-]\s+教育王國.*$/u, "")
   ).replace(/\s+/g, " ");
 
   if (!title || title.length < 5) return null;
@@ -264,6 +291,22 @@ function matchSchools(text, schools, aliases) {
   return results;
 }
 
+function mergeMatches(...groups) {
+  const rank = { high: 3, medium: 2, low: 1 };
+  const merged = new Map();
+
+  for (const group of groups) {
+    for (const match of group) {
+      const existing = merged.get(match.school_id);
+      if (!existing || rank[match.confidence] > rank[existing.confidence]) {
+        merged.set(match.school_id, match);
+      }
+    }
+  }
+
+  return Array.from(merged.values());
+}
+
 function hashAuthor(platform, author) {
   if (!author) return null;
   return createHash("sha256")
@@ -306,7 +349,7 @@ function getSupabase() {
 
 async function main() {
   console.log(
-    `[babykingdom] starting — dry-run=${DRY_RUN} limit=${LIMIT} sitemaps=${PAGES} concurrency=${CONCURRENCY}`,
+    `[babykingdom] starting — dry-run=${DRY_RUN} limit=${LIMIT} pages=${PAGES} concurrency=${CONCURRENCY}`,
   );
 
   // Step 2: Match to schools
@@ -321,8 +364,8 @@ async function main() {
     console.log(`[babykingdom] loaded ${schools.length} schools, ${aliases.length} aliases`);
   }
 
-  const threadUrls = await fetchThreadUrlsFromSitemaps(PAGES);
-  console.log(`[babykingdom] sitemap thread candidates: ${threadUrls.length}`);
+  const threadUrls = await fetchThreadUrlsFromForums(PAGES);
+  console.log(`[babykingdom] forum thread candidates: ${threadUrls.length}`);
 
   const postsToInsert = [];
   for (const threadUrl of threadUrls) {
@@ -332,7 +375,11 @@ async function main() {
     if (!threadData?.title) continue;
 
     const titleMatches = matchSchools(threadData.title, schools, aliases);
-    if (titleMatches.length === 0) continue;
+    const previewMatches = threadData.preview
+      ? matchSchools(`${threadData.title}\n${threadData.preview}`, schools, aliases)
+      : [];
+    const schoolMatches = mergeMatches(titleMatches, previewMatches);
+    if (schoolMatches.length === 0) continue;
 
     console.log(`[babykingdom] matched thread: ${threadData.title.slice(0, 60)}...`);
     const externalId = createHash("sha256").update(threadUrl).digest("hex").slice(0, 24);
@@ -348,8 +395,10 @@ async function main() {
         title: threadData.title,
         is_preview: true,
         preview_length: threadData.preview?.length || 0,
+        title_match_count: titleMatches.length,
+        preview_match_count: previewMatches.length,
       },
-      school_matches: titleMatches,
+      school_matches: schoolMatches,
       sentiment: null,
       topics: [],
       fetched_at: new Date().toISOString(),

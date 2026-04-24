@@ -1,7 +1,14 @@
-# AI 面试陪练（Interview Coach）— 开发规划 v1.0
+# AI 面试陪练（Interview Coach）— 开发规划 v1.1
 
+> **⚠️ 上线冻结（Hold）**：本功能暂不进入开发排期，待平台自然流量与用户留存达到可观规模后再启动。当前阶段优先聚焦核心择校工具（学校搜索、学额追踪、家长口碑）的用户增长与数据护城河建设。本文档仅作技术储备，禁止在未获明确授权前创建任何相关代码文件或数据库迁移。
+>
 > 本文件是给开发 Agent 的实施规划。读完此文档应能开始编码，不需要回读上下文。
 > 关联项目：HKSchoolPlace（Next.js 14 + Supabase + Vercel）。请遵守 `CLAUDE.md` 中的所有项目规约。
+
+## Changelog
+
+- **v1.1**（2026-04-19）：引入 per-persona 语音栈路由（OpenAI 英语 / 豆包粤语），粤语正式进 V1；Free tier 改为 1 次 + 邀请解锁最多 3 次；锁定 5 间首批名校名单；Phase 0 改为 OpenAI/豆包 双栈并行 POC。
+- **v1.0**（2026-04-18）：初版。单栈 OpenAI Realtime + Claude Sonnet 4.6 评分 + 分阶段交付。
 
 ---
 
@@ -24,22 +31,36 @@
 
 | 层 | 选型 | 备注 |
 |---|---|---|
-| 实时语音对话 | **OpenAI Realtime API**（model: `gpt-realtime`） | 客户端 WebRTC 直连 |
-| 客户端连接方式 | WebRTC + DataChannel（不用 WebSocket） | 延迟更低 |
-| 凭证机制 | OpenAI Ephemeral Token（60s 有效） | 不暴露主 API key |
+| 实时语音对话（英语主导 persona） | **OpenAI Realtime API**（model: `gpt-realtime`） | DBS / Marymount / SPCC 等 |
+| 实时语音对话（粤语主导 persona） | **豆包 Realtime**（火山引擎） | La Salle / Munsang 等传统名校 |
+| 客户端连接方式 | WebRTC + DataChannel（不用 WebSocket） | 延迟更低，两栈一致 |
+| 凭证机制 | Ephemeral Token（OpenAI 60s / 豆包按其文档） | 不暴露主 API key |
 | 评分 LLM | **Claude Sonnet 4.6**（model id: `claude-sonnet-4-6`） | Anthropic SDK |
 | Persona 自动生成 | Claude Sonnet 4.6 | 离线批处理脚本 |
-| Voice TTS | OpenAI Realtime 内建（shimmer / coral / onyx） | 粤语 beta 可考虑 ElevenLabs fallback |
+| Voice TTS | OpenAI Realtime 内建 / 豆包粤语拟人 voice | 不再使用 ElevenLabs fallback |
 | 前端 | Next.js 14 App Router + Tailwind | 项目既有栈 |
 | 数据库 | Supabase Postgres + RLS | 项目既有栈 |
 | 客户端音频 | `getUserMedia` + WebRTC native | 不需要额外 SDK |
+
+### 2.1 Per-persona stack 路由规则
+
+- `persona.language_primary == 'en'` **AND** `language_primary_pct >= 70` → **OpenAI Realtime**
+- `persona.language_primary == 'zh-yue'` **AND** `language_primary_pct >= 70` → **豆包 Realtime**
+- 混合（任一语言占比 < 70%）→ 取主语言对应 stack，在 system prompt 中明示 code-switch 容忍度
+- 路由在 persona 生成时固化到 `stack_provider` 字段（见 §4.2 / §6.1），运行时直接读取，不做动态判定
+
+**明确拒绝 sandwich 架构**（OpenAI 推理 → 豆包 TTS，或反向）：双向转译 + 跨服务编排的端到端延迟 > 2s，破坏儿童对话流畅度。宁可接受单栈的各自短板，也不引入三段式 pipeline。
 
 **环境变量新增**：
 ```
 OPENAI_API_KEY=sk-...
 OPENAI_REALTIME_MODEL=gpt-realtime
+DOUBAO_REALTIME_APP_ID=
+DOUBAO_REALTIME_TOKEN=
+DOUBAO_REALTIME_MODEL=
 ANTHROPIC_API_KEY=sk-ant-...
-INTERVIEW_COACH_FREE_TIER_MONTHLY_LIMIT=3
+INTERVIEW_COACH_FREE_TIER_MONTHLY_LIMIT=1
+INTERVIEW_COACH_FREE_TIER_MAX_WITH_REFERRALS=3
 ```
 
 ---
@@ -131,6 +152,10 @@ create table school_interview_personas (
   values_to_probe text[],  -- ['family_values', 'religion', 'service_orientation', 'english_fluency']
   taboo_topics text[],
   
+  -- Stack 路由（见 §2.1）
+  stack_provider text not null default 'openai_realtime'
+    check (stack_provider in ('openai_realtime', 'doubao_realtime')),
+
   -- 元数据
   applies_to_scenarios text[],  -- ['k1_admission', 'p1_admission', 'parent_interview']
   generated_from_reputation_at timestamptz,
@@ -233,10 +258,11 @@ create table interview_practice_scores (
 create table interview_practice_quotas (
   user_id uuid primary key references auth.users(id),
   plan text default 'free',  -- 'free' | 'standard' | 'pro'
-  monthly_limit int default 3,
+  monthly_limit int default 1,                    -- free 默认 1，邀请可加
+  referral_unlocks_this_period int default 0,    -- 本周期邀请解锁的额度数，封顶 2 → 总上限 3
   current_period_start date,
   current_period_used int default 0,
-  
+
   updated_at timestamptz default now()
 );
 
@@ -323,7 +349,31 @@ export async function POST(req: NextRequest) {
   // 4. 构建 system prompt
   const systemPrompt = buildSystemPrompt({ persona: persona.data, child: child.data, scenario });
 
-  // 5. 调 OpenAI 创建 Realtime session
+  // 5. 按 persona.stack_provider 路由到对应 Realtime 服务
+  //    == 'openai_realtime' → 走下面的 OpenAI flow（已实现）
+  //    == 'doubao_realtime' → 走 createDoubaoSession(persona, systemPrompt)
+  //         ↳ 调火山引擎 Realtime 鉴权 endpoint，返回 { client_token, ws_url }
+  //         ↳ 客户端走 DoubaoRealtimeSession 实现（见 §5.2 抽象接口）
+  //         ↳ 具体 endpoint / 鉴权格式 / function calling 支持见 Phase 0 POC 报告后回填
+  if (persona.data.stack_provider === 'doubao_realtime') {
+    const doubaoSession = await createDoubaoSession({ persona: persona.data, systemPrompt });
+    await supabase.from('interview_practice_sessions')
+      .update({
+        openai_session_id: doubaoSession.id,  // 复用该列存 provider session id
+        status: 'active',
+        started_at: new Date().toISOString(),
+      })
+      .eq('id', session.id);
+    return NextResponse.json({
+      session_id: session.id,
+      provider: 'doubao_realtime',
+      client_secret: doubaoSession.client_token,
+      ws_url: doubaoSession.ws_url,
+      expires_at: doubaoSession.expires_at,
+    });
+  }
+
+  // 5a. OpenAI Realtime flow
   const oaiResp = await fetch('https://api.openai.com/v1/realtime/sessions', {
     method: 'POST',
     headers: {
@@ -378,11 +428,14 @@ export async function POST(req: NextRequest) {
 
   return NextResponse.json({
     session_id: session.id,
+    provider: 'openai_realtime',
     client_secret: oaiSession.client_secret.value,
     expires_at: oaiSession.client_secret.expires_at,
   });
 }
 ```
+
+**客户端 `RealtimeSession` 抽象**：把 §5.2 的 `RealtimeSession` 升级为接口，具体实现两个类 `OpenAIRealtimeSession` / `DoubaoRealtimeSession`，对外暴露相同方法（`connect()` / `on(event, cb)` / `end()`）。前端按后端返回的 `provider` 字段实例化对应类。
 
 ### 5.2 客户端 WebRTC 连接
 
@@ -516,6 +569,13 @@ for school in schools_with_reputation_data:
 """
     
     persona = claude.json_extract(prompt)
+
+    # Stack 路由决策：锁死在 persona 记录上，运行时不再判定
+    if persona.language_primary == 'zh-yue' and persona.language_primary_pct >= 70:
+        persona.stack_provider = 'doubao_realtime'
+    else:
+        persona.stack_provider = 'openai_realtime'
+
     upsert_persona(school.id, persona)
 ```
 
@@ -690,8 +750,15 @@ type SessionState =
 ## 9. 配额与计费
 
 ### 9.1 Free Tier
-- 3 次/月
-- 每次 hard cap 5 分钟（Standard 是 10 分钟）
+- **默认 1 次/月**（首次免费体验）
+- **邀请解锁**：每邀请 1 位新用户成功注册（邮箱验证通过）+ 1 次，本周期最多累积到 **3 次**（即 referral_unlocks_this_period ≤ 2）
+- 每次 hard cap 5 分钟（Standard / Pro 是 10 分钟）
+
+**邀请闭环（V1 最小实现）**
+- `/practice` 页有「邀请好友 +1 次」按钮 → 生成带 `?ref=<code>` 的分享链接（ref code = user.id 的短哈希）
+- 新用户注册流读 `ref` query param → 写入 `users.referred_by`
+- 邮箱验证成功后触发 quota 更新：邀请人 `referral_unlocks_this_period += 1`（若未达上限）
+- 反作弊见 §13（待定：同邮箱域名 / 同 IP 限制）
 
 ### 9.2 Standard $138/月
 - 30 次/月
@@ -726,17 +793,46 @@ type SessionState =
 
 ## 11. 分阶段交付
 
-### Phase 0：技术验证（1 周）
-- 不接 UI，只跑 OpenAI Realtime API quickstart
-- 用一个 hardcoded persona 在 localhost 跑通 5 分钟英文对话
-- 确认：连接稳定性、延迟、粤语 voice 质量、transcript 拿得到、function call 触发正确
-- **交付**：一份测试报告 `docs/openai-realtime-poc.md`，决定 voice 用哪几个 + 粤语是否上 V1
+### Phase 0：双栈并行 POC（1 周）
+
+不接 UI，两条 track 并行跑，验证 per-persona 路由假设。
+
+**Track A — OpenAI Realtime POC**
+- 用 DBS persona（英语为主，hardcoded）
+- localhost 跑 5 分钟英文模拟面试
+- 验 function call（`end_interview` / `flag_concerning_moment`）
+
+**Track B — 豆包 Realtime POC**
+- 用 La Salle persona（粤语为主，hardcoded）
+- localhost 跑 5 分钟粤语模拟面试
+- 重点验：function call 是否原生支持（否则需要服务端轮询 transcript 关键词 fallback），打断行为，粤语拟人度
+
+**对比矩阵（acceptance criteria）**
+
+| 指标 | OpenAI 目标 | 豆包目标 |
+|---|---|---|
+| 连接成功率（10 次） | ≥ 99% | ≥ 95% |
+| 端到端延迟（user 说完 → AI 出声） | ≤ 1.5s | ≤ 2.0s |
+| 英语拟人度（5 人盲听，5 分制） | ≥ 4.0 | n/a |
+| 粤语拟人度（5 人盲听，5 分制） | n/a | ≥ 4.0 |
+| function calling 支持 | 必须原生 | 必须原生；若不支持 → 定义 fallback 方案 |
+| 打断处理 | 原生 server_vad 验收 | 验证豆包 VAD 行为 |
+| 单 session 成本（5 min） | 实测记录 | 实测记录 |
+
+**交付**：对比报告 `docs/realtime-poc.md`，锁定每种 persona 的 stack 归属 + 豆包 function calling fallback 方案（如需要）。
 
 ### Phase 1：MVP（4 周）
-- DB schema 全部建好
-- 5-10 间手动 curate 的 persona（直接写 SQL，不用脚本生成）
+- DB schema 全部建好（含 `stack_provider` 列、`referral_unlocks_this_period` 列）
+- **5 间手动 curate persona（V1 launch 名单，直接写 SQL，不用脚本生成）**：
+  1. 拔萃男书院附属小学 (DBS Primary Division) — 男校 / 英语为主 / stack = `openai_realtime`
+  2. 喇沙小学 (La Salle Primary School) — 男校 / 粤英混合偏粤 / stack = `doubao_realtime`
+  3. 玛利曼小学 (Marymount Primary School) — 女校 / 英语为主 / stack = `openai_realtime`
+  4. 圣保罗男女中学附属小学 (SPCC Primary) — 男女校 / 英语为主 / stack = `openai_realtime`
+  5. 民生书院小学 (Munsang College Primary) — 男女校 / 粤语为主 / stack = `doubao_realtime`
+  → 覆盖「男 / 女 / 男女」× 「英 / 粤」× 「直资 / 资助」组合，足以验证 per-persona 路由与评分在两种 stack 上的一致性
 - 端到端 flow 跑通：setup → live → end → 评分 → result
 - 单一 scenario：`p1_admission`
+- 邀请解锁闭环跑通（1 → 3 额度逻辑）
 - **不接** Stripe，所有用户免费
 - 邀 10-15 位家长内测
 - **交付**：能用 staging 环境给家长试用，收集反馈
@@ -789,14 +885,16 @@ type SessionState =
 
 > 开发 AI 不要自行决定，列在这里让产品 owner 决策后再开始相关工作。
 
-1. **Free tier 限制**：3 次/月 vs 1 次/周 vs 5 分钟试用  → ?
+1. ~~**Free tier 限制**：3 次/月 vs 1 次/周 vs 5 分钟试用~~ → **已解决 v1.1**：1 次免费 + 邀请解锁（每邀请 +1，封顶 3）
 2. **危机内容处理**：transcript 中如果出现孩子自伤/虐待相关词，给家长看吗？怎么 sanitize？是否上报机制？→ ?
-3. **粤语是否进 V1**：取决于 POC 实测质量。如果不行 → V1 only 中英 → ?
-4. **首批 5-10 间学校选哪些**：建议挑你 reputation 数据最丰富 + 用户最关注的。需要列名单 → ?
+3. ~~**粤语是否进 V1**~~ → **已解决 v1.1**：YES，走豆包 Realtime
+4. ~~**首批 5-10 间学校选哪些**~~ → **已解决 v1.1**：DBS / La Salle / Marymount / SPCC / Munsang 五间（见 §11 Phase 1）
 5. **儿童语音同意**：需不需要明示父母同意 flow（即使不录音）？建议加 → ?
-6. **Pricing 锁定**：$138 / $268 是否最终价位？取决于 OpenAI 实际用量 → ?
+6. **Pricing 锁定**：$138 / $268 是否最终价位？取决于 OpenAI / 豆包 实际用量 → ?
 7. **入口位置**：`/practice` 顶级 nav 还是埋在 `/account` 下？建议顶级 → ?
 8. **Result 页面是否分享**：家长可截图分享给伴侣 / 老师？需要去 PII 化？→ ?
+9. **（v1.1 新增）豆包 Realtime function calling 是否原生支持**：Phase 0 Track B 验证；若不支持，确认服务端轮询 transcript 关键词触发 `end_interview` / `flag_concerning_moment` 的 fallback 方案 → ?
+10. **（v1.1 新增）邀请解锁反作弊**：是否限同一邮箱域名？同一注册 IP 只记一次？是否对一次性邮箱（mailinator 等）blocklist？→ ?
 
 ---
 

@@ -21,6 +21,23 @@ const AuthContext = createContext<AuthContextType>({
   requireAuth: () => {},
 });
 
+function getAuthCallbackUrl() {
+  let baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    process.env.NEXT_PUBLIC_VERCEL_URL ??
+    window.location.origin;
+
+  if (!baseUrl.startsWith("http")) {
+    baseUrl = `https://${baseUrl}`;
+  }
+
+  if (!baseUrl.endsWith("/")) {
+    baseUrl = `${baseUrl}/`;
+  }
+
+  return new URL("auth/callback", baseUrl).toString();
+}
+
 export function useAuth() {
   return useContext(AuthContext);
 }
@@ -97,12 +114,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signIn = useCallback(async () => {
-    await supabase.auth.signInWithOAuth({
+    const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${window.location.origin}/auth/callback`,
+        redirectTo: getAuthCallbackUrl(),
       },
     });
+
+    if (!error) {
+      return;
+    }
+
+    const params = new URLSearchParams();
+    params.set("error", error.message.toLowerCase().includes("origin not allowed") ? "auth_origin" : "auth");
+    window.location.assign(`/?${params.toString()}`);
   }, [supabase]);
 
   const signOut = useCallback(async () => {

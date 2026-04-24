@@ -115,6 +115,52 @@ export const SESSION_TYPE_LABELS: Record<string, string> = {
   am_pm_whole_day: "上午、下午及全日班",
 };
 
+export const SCHOOLAND_SESSION_LABELS: Record<string, string> = {
+  am: "上午",
+  pm: "下午",
+  whole_day: "全日",
+  mixed: "混合",
+};
+
+export const SCHOOLAND_NURSERY_SERVICE_LABELS: Record<string, string> = {
+  yes: "有",
+  no: "無",
+  unknown: "不明",
+};
+
+export const SCHOOLAND_SIZE_LABELS: Record<string, string> = {
+  small: "小型",
+  medium: "中型",
+  large: "大型",
+};
+
+export const SCHOOLAND_GROUP_OPTIONS = [
+  "維多利亞",
+  "迦南",
+  "明慧",
+  "啟思",
+  "學之園",
+  "約克",
+  "德寶",
+  "英藝",
+  "Tutor Time",
+  "Guidepost",
+  "蒙特梭利",
+  "保良局",
+  "東華三院",
+  "明愛",
+  "仁濟醫院",
+  "救世軍",
+  "香港保護兒童會",
+  "香港基督教服務處",
+  "香港基督教女青年會",
+  "香港聖公會",
+  "靈糧堂",
+  "真光",
+  "崇真",
+  "民生",
+] as const;
+
 export const LANGUAGE_OPTIONS: Record<string, string> = {
   chinese: "中文",
   english: "英文",

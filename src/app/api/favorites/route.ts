@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
-import { fetchUserFavorites, insertFavorite } from "@/lib/db/favorites";
+import { fetchUserFavorites, fetchUserFavoritesWithSchools, insertFavorite } from "@/lib/db/favorites";
+import { ensurePublicUser } from "@/lib/db/users";
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
     // Auth check first
     const supabase = await createClient();
@@ -15,13 +16,17 @@ export async function GET() {
       );
     }
 
-    const data = await fetchUserFavorites(user.id);
+    const includeSchools = request.nextUrl.searchParams.get("include") === "schools";
+    const data = includeSchools
+      ? await fetchUserFavoritesWithSchools(user.id)
+      : await fetchUserFavorites(user.id);
 
     return NextResponse.json({ data });
   } catch (err) {
+    const message = err instanceof Error ? err.message : "Unknown error";
     console.error("GET /api/favorites error:", err);
     return NextResponse.json(
-      { error: { code: "INTERNAL_ERROR", message: "Failed to fetch favorites" } },
+      { error: { code: "INTERNAL_ERROR", message: message === "Unknown error" ? "Failed to fetch favorites" : message } },
       { status: 500 }
     );
   }
@@ -49,7 +54,33 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const result = await insertFavorite(user.id, school_id);
+    let result;
+
+    try {
+      result = await insertFavorite(user.id, school_id);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "Unknown error";
+
+      if (message !== "MISSING_USER_PROFILE") {
+        throw err;
+      }
+
+      const ensured = await ensurePublicUser(user);
+      if (!ensured) {
+        return NextResponse.json(
+          {
+            error: {
+              code: "AUTH_PROFILE_MISSING",
+              message: "登入已成功，但帳戶資料未完成初始化。請聯絡管理員補上 SUPABASE_SERVICE_ROLE_KEY，或稍後再試。",
+            },
+          },
+          { status: 503 }
+        );
+      }
+
+      result = await insertFavorite(user.id, school_id);
+    }
+
     void result;
 
     return NextResponse.json({ success: true }, { status: 201 });
@@ -68,10 +99,16 @@ export async function POST(request: NextRequest) {
         { status: 409 }
       );
     }
+    if (message === "MISSING_USER_PROFILE") {
+      return NextResponse.json(
+        { error: { code: "AUTH_PROFILE_MISSING", message: "登入帳戶資料缺失，請重新登入後再試。" } },
+        { status: 503 }
+      );
+    }
 
     console.error("POST /api/favorites error:", err);
     return NextResponse.json(
-      { error: { code: "INTERNAL_ERROR", message: "Failed to favorite" } },
+      { error: { code: "INTERNAL_ERROR", message: message === "Unknown error" ? "Failed to favorite" : message } },
       { status: 500 }
     );
   }

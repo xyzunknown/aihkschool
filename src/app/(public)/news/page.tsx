@@ -11,10 +11,23 @@ const CATEGORIES = [
   { key: "school", label: "學校信息" },
 ] as const;
 
+const MEDIA_TYPES = [
+  { key: "all", label: "全部類型" },
+  { key: "open_day", label: "開放日" },
+  { key: "admission", label: "招生" },
+  { key: "interview", label: "面試" },
+  { key: "policy", label: "升學政策" },
+  { key: "feature", label: "專題整理" },
+  { key: "school_event", label: "學校事件" },
+] as const;
+
 const SOURCE_STYLES: Record<string, string> = {
   edb: "bg-emerald-50 text-emerald-700",
   govhk: "bg-sky-50 text-sky-700",
   hk01: "bg-amber-50 text-amber-700",
+  ohpama: "bg-rose-50 text-rose-700",
+  sundaykiss: "bg-violet-50 text-violet-700",
+  parentingheadline: "bg-cyan-50 text-cyan-700",
 };
 
 function sourceStyle(source: string): string {
@@ -22,10 +35,12 @@ function sourceStyle(source: string): string {
 }
 
 type CategoryKey = (typeof CATEGORIES)[number]["key"];
+type MediaTypeKey = (typeof MEDIA_TYPES)[number]["key"];
 
 export default function NewsPage() {
   const [items, setItems] = useState<NewsItem[]>([]);
   const [activeCategory, setActiveCategory] = useState<CategoryKey>("all");
+  const [activeMediaType, setActiveMediaType] = useState<MediaTypeKey>("all");
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchNews = useCallback(async () => {
@@ -48,9 +63,13 @@ export default function NewsPage() {
   }, [fetchNews]);
 
   const filtered =
-    activeCategory === "all"
-      ? items
-      : items.filter((item) => item.source_category === activeCategory);
+    items.filter((item) => {
+      const categoryMatched = activeCategory === "all" || item.source_category === activeCategory;
+      const mediaTypeMatched =
+        activeMediaType === "all" ||
+        (item.source_category === "media" && item.content_type === activeMediaType);
+      return categoryMatched && mediaTypeMatched;
+    });
 
   return (
     <div className="mx-auto max-w-6xl px-5 py-8 md:px-8 md:py-12">
@@ -72,7 +91,10 @@ export default function NewsPage() {
         {CATEGORIES.map((cat) => (
           <button
             key={cat.key}
-            onClick={() => setActiveCategory(cat.key)}
+            onClick={() => {
+              setActiveCategory(cat.key);
+              if (cat.key !== "media") setActiveMediaType("all");
+            }}
             className={`flex-shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-colors ${
               activeCategory === cat.key
                 ? "bg-slate-950 text-white"
@@ -83,6 +105,27 @@ export default function NewsPage() {
           </button>
         ))}
       </div>
+
+      {(activeCategory === "all" || activeCategory === "media") && (
+        <div className="mb-6 flex gap-2 overflow-x-auto hide-scrollbar">
+          {MEDIA_TYPES.map((type) => (
+            <button
+              key={type.key}
+              onClick={() => {
+                setActiveMediaType(type.key);
+                if (type.key !== "all") setActiveCategory("media");
+              }}
+              className={`flex-shrink-0 rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
+                activeMediaType === type.key
+                  ? "bg-blue-600 text-white"
+                  : "bg-blue-50 text-blue-700 hover:bg-blue-100"
+              }`}
+            >
+              {type.label}
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* News list */}
       {isLoading ? (
@@ -121,6 +164,11 @@ export default function NewsPage() {
                     >
                       {item.source_label}
                     </span>
+                    {item.content_type_label && (
+                      <span className="mt-0.5 inline-flex flex-shrink-0 items-center rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-600">
+                        {item.content_type_label}
+                      </span>
+                    )}
                     <div className="min-w-0 flex-1">
                       <h3 className="text-base font-semibold leading-snug text-slate-900 line-clamp-2">
                         {item.title}

@@ -5,13 +5,26 @@ import { Footer } from "@/components/layout/Footer";
 import { AuthProvider } from "@/components/layout/AuthProvider";
 import { ToastProvider } from "@/components/ui/Toast";
 
+function getMetadataBase() {
+  let baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    process.env.NEXT_PUBLIC_VERCEL_URL ??
+    "https://aihkschool.vercel.app";
+
+  if (!baseUrl.startsWith("http")) {
+    baseUrl = `https://${baseUrl}`;
+  }
+
+  return new URL(baseUrl);
+}
+
 export const metadata: Metadata = {
   title: {
     default: "HKSchoolPlace — 香港幼稚園搜尋平台",
     template: "%s | HKSchoolPlace",
   },
   description: "幫助香港家長搵到合適嘅幼稚園，追蹤申請截止日期，分享面試心得。",
-  metadataBase: new URL("https://aihkschool.vercel.app"),
+  metadataBase: getMetadataBase(),
   openGraph: {
     title: "HKSchoolPlace — 香港幼稚園搜尋平台",
     description: "一站式查看全港幼稚園學額空缺、截止日期同家長面試心得。",

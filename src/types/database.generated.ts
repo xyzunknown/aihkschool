@@ -718,8 +718,14 @@ export type Database = {
           latitude: number | null
           logo_url: string | null
           longitude: number | null
+          master_data_notes: string | null
           name_en: string | null
           name_tc: string
+          fee_certificate_url: string | null
+          fee_certificate_updated_at: string | null
+          official_notice_url: string | null
+          official_notice_updated_at: string | null
+          official_profile_url: string | null
           open_day_details: string | null
           open_day_url: string | null
           other_fees_note: string | null
@@ -727,7 +733,20 @@ export type Database = {
           registration_fee_hkd: number | null
           school_code: string | null
           school_type: string
+          schooland_free_scheme: boolean | null
+          schooland_group_tag: string | null
+          schooland_nursery_service: string | null
+          schooland_operator_name: string | null
+          schooland_secondary_flags: Json
+          schooland_session_label: string | null
+          schooland_size_label: string | null
+          schooland_source_fields: Json
+          schooland_source_updated_at: string | null
+          schooland_source_url: string | null
+          schooland_url: string | null
           session_type: string | null
+          inspection_report_url: string | null
+          inspection_report_updated_at: string | null
           updated_at: string
           website: string | null
         }
@@ -758,8 +777,14 @@ export type Database = {
           latitude?: number | null
           logo_url?: string | null
           longitude?: number | null
+          master_data_notes?: string | null
           name_en?: string | null
           name_tc: string
+          fee_certificate_url?: string | null
+          fee_certificate_updated_at?: string | null
+          official_notice_url?: string | null
+          official_notice_updated_at?: string | null
+          official_profile_url?: string | null
           open_day_details?: string | null
           open_day_url?: string | null
           other_fees_note?: string | null
@@ -767,7 +792,20 @@ export type Database = {
           registration_fee_hkd?: number | null
           school_code?: string | null
           school_type: string
+          schooland_free_scheme?: boolean | null
+          schooland_group_tag?: string | null
+          schooland_nursery_service?: string | null
+          schooland_operator_name?: string | null
+          schooland_secondary_flags?: Json
+          schooland_session_label?: string | null
+          schooland_size_label?: string | null
+          schooland_source_fields?: Json
+          schooland_source_updated_at?: string | null
+          schooland_source_url?: string | null
+          schooland_url?: string | null
           session_type?: string | null
+          inspection_report_url?: string | null
+          inspection_report_updated_at?: string | null
           updated_at?: string
           website?: string | null
         }
@@ -798,8 +836,14 @@ export type Database = {
           latitude?: number | null
           logo_url?: string | null
           longitude?: number | null
+          master_data_notes?: string | null
           name_en?: string | null
           name_tc?: string
+          fee_certificate_url?: string | null
+          fee_certificate_updated_at?: string | null
+          official_notice_url?: string | null
+          official_notice_updated_at?: string | null
+          official_profile_url?: string | null
           open_day_details?: string | null
           open_day_url?: string | null
           other_fees_note?: string | null
@@ -807,7 +851,20 @@ export type Database = {
           registration_fee_hkd?: number | null
           school_code?: string | null
           school_type?: string
+          schooland_free_scheme?: boolean | null
+          schooland_group_tag?: string | null
+          schooland_nursery_service?: string | null
+          schooland_operator_name?: string | null
+          schooland_secondary_flags?: Json
+          schooland_session_label?: string | null
+          schooland_size_label?: string | null
+          schooland_source_fields?: Json
+          schooland_source_updated_at?: string | null
+          schooland_source_url?: string | null
+          schooland_url?: string | null
           session_type?: string | null
+          inspection_report_url?: string | null
+          inspection_report_updated_at?: string | null
           updated_at?: string
           website?: string | null
         }

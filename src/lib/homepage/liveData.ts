@@ -4,7 +4,12 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { createClient } from "@/lib/supabase/server";
 import {
-  BANNERS,
+  MEDIA_CONTENT_TYPE_LABELS,
+  MEDIA_SOURCE_LABELS,
+  fetchMediaArticles,
+  type MediaArticle,
+} from "@/lib/db/mediaArticles";
+import {
   FEATURED_SCHOOLS,
   NEWS_ITEMS,
   SCHOOL_EVENTS,
@@ -44,6 +49,20 @@ type SchoolListRow = {
   k3?: string | null;
   edb_date?: string | null;
 };
+
+const HOMEPAGE_BANNER_ENABLED_VALUES = new Set([
+  "1",
+  "true",
+  "on",
+  "yes",
+  "enabled",
+]);
+
+function isHomepageBannerEnabled() {
+  const raw = process.env.HOMEPAGE_BANNER_ENABLED?.trim().toLowerCase();
+  if (!raw) return false;
+  return HOMEPAGE_BANNER_ENABLED_VALUES.has(raw);
+}
 
 const BANNER_IMAGES = [
   {
@@ -256,6 +275,24 @@ function isExternalSource(source: string): boolean {
   return source !== "edb" && source !== "govhk";
 }
 
+function mediaArticleToNewsItem(article: MediaArticle): NewsItem {
+  const publishedAt = article.published_at || new Date().toISOString();
+  return {
+    id: `media-${article.source}-${article.external_id}`,
+    source: article.source,
+    source_category: "media",
+    source_label: MEDIA_SOURCE_LABELS[article.source],
+    title: cleanText(article.title),
+    summary: shorten(article.summary || article.body_excerpt || article.title, 72),
+    date: formatMonthDay(publishedAt),
+    published_at: publishedAt,
+    href: article.url,
+    is_external: true,
+    content_type: article.content_type,
+    content_type_label: MEDIA_CONTENT_TYPE_LABELS[article.content_type],
+  };
+}
+
 /* ─── News fetchers ─── */
 
 async function getEdbNewsItems(): Promise<NewsItem[]> {
@@ -325,12 +362,14 @@ async function getHk01NewsItems(): Promise<NewsItem[]> {
 }
 
 async function getLiveNewsItems(): Promise<NewsItem[]> {
-  const [edbItems, hk01Items] = await Promise.all([
+  const [edbItems, hk01Items, mediaArticles] = await Promise.all([
     getEdbNewsItems(),
     getHk01NewsItems(),
+    fetchMediaArticles(24),
   ]);
 
-  const liveItems = sortNewsByPublishedAt([...edbItems, ...hk01Items]);
+  const mediaItems = mediaArticles.map(mediaArticleToNewsItem);
+  const liveItems = sortNewsByPublishedAt([...edbItems, ...hk01Items, ...mediaItems]);
 
   // If live fetch succeeded, merge with recent fallback (deduped)
   if (liveItems.length > 0) {
@@ -350,12 +389,14 @@ async function getLiveNewsItems(): Promise<NewsItem[]> {
 
 /** Fetch all news (for /news page). No slice limit. */
 export async function getAllNewsItems(): Promise<NewsItem[]> {
-  const [edbItems, hk01Items] = await Promise.all([
+  const [edbItems, hk01Items, mediaArticles] = await Promise.all([
     getEdbNewsItems(),
     getHk01NewsItems(),
+    fetchMediaArticles(100),
   ]);
 
-  const liveItems = sortNewsByPublishedAt([...edbItems, ...hk01Items]);
+  const mediaItems = mediaArticles.map(mediaArticleToNewsItem);
+  const liveItems = sortNewsByPublishedAt([...edbItems, ...hk01Items, ...mediaItems]);
 
   if (liveItems.length > 0) {
     const recentFallback = sortNewsByPublishedAt(
@@ -831,13 +872,17 @@ function scoreBannerCandidate(
 }
 
 async function getHomepageBanners(): Promise<HomeBanner[]> {
+  if (!isHomepageBannerEnabled()) {
+    return [];
+  }
+
   const [profiles, schoolList] = await Promise.all([
     mergedEnrichmentRows(),
     readSchoolList(),
   ]);
 
   if (profiles.length === 0 || schoolList.length === 0) {
-    return BANNERS;
+    return [];
   }
 
   const schoolMap = new Map(schoolList.map((row) => [row.code, row]));
@@ -864,7 +909,7 @@ async function getHomepageBanners(): Promise<HomeBanner[]> {
     .slice(0, BANNER_IMAGES.length);
 
   if (candidates.length === 0) {
-    return BANNERS;
+    return [];
   }
 
   return candidates.map(({ profile, school }, index) => {

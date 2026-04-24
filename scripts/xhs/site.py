@@ -49,6 +49,21 @@ def choose_origin(current_url: str | None = None, fallback: str | None = None) -
     return DEFAULT_ORIGIN
 
 
+def preferred_origin_from_cookies(cookies: list[dict]) -> str:
+    """Pick the most suitable site origin from saved cookies."""
+    if has_session_cookie_for_domain(cookies, "xiaohongshu.com"):
+        return "https://www.xiaohongshu.com"
+    if has_session_cookie_for_domain(cookies, "rednote.com"):
+        return "https://www.rednote.com"
+    for cookie in cookies:
+        domain = (cookie.get("domain") or "").lstrip(".").lower()
+        if domain.endswith("xiaohongshu.com"):
+            return "https://www.xiaohongshu.com"
+        if domain.endswith("rednote.com"):
+            return "https://www.rednote.com"
+    return DEFAULT_ORIGIN
+
+
 def build_home_url(current_url: str | None = None, fallback: str | None = None) -> str:
     origin = choose_origin(current_url, fallback)
     if origin.endswith("rednote.com"):
@@ -150,5 +165,18 @@ def is_session_cookie(cookie: dict) -> bool:
 def has_session_cookie(cookies: list[dict]) -> bool:
     return any(
         is_session_cookie(cookie) and cookie.get("name") == "web_session"
+        for cookie in cookies
+    )
+
+
+def has_session_cookie_for_domain(cookies: list[dict], domain: str) -> bool:
+    target = domain.lstrip(".").lower()
+    return any(
+        is_session_cookie(cookie)
+        and cookie.get("name") == "web_session"
+        and (
+            (cookie.get("domain") or "").lstrip(".").lower() == target
+            or (cookie.get("domain") or "").lstrip(".").lower().endswith(f".{target}")
+        )
         for cookie in cookies
     )

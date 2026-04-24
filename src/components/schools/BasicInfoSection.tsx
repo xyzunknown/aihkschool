@@ -1,5 +1,13 @@
 import { GlassCard } from "@/components/ui/GlassCard";
-import { SCHOOL_TYPE_LABELS, formatDateCN, SESSION_TYPE_LABELS, LANGUAGE_OPTIONS } from "@/lib/utils";
+import {
+  SCHOOL_TYPE_LABELS,
+  formatDateCN,
+  SESSION_TYPE_LABELS,
+  LANGUAGE_OPTIONS,
+  SCHOOLAND_NURSERY_SERVICE_LABELS,
+  SCHOOLAND_SESSION_LABELS,
+  SCHOOLAND_SIZE_LABELS,
+} from "@/lib/utils";
 import type { School } from "@/types/database";
 
 interface BasicInfoSectionProps {
@@ -14,6 +22,42 @@ export function BasicInfoSection({ school }: BasicInfoSectionProps) {
   const mapEmbedSrc = mapQuery
     ? `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=16&output=embed`
     : null;
+  const schoolandFields = [
+    { label: "辦學團體", value: school.schooland_operator_name },
+    { label: "集團標籤", value: school.schooland_group_tag },
+    {
+      label: "免費計劃",
+      value: school.schooland_free_scheme === null || school.schooland_free_scheme === undefined
+        ? null
+        : school.schooland_free_scheme ? "是" : "否",
+    },
+    {
+      label: "幼兒服務",
+      value: school.schooland_nursery_service
+        ? SCHOOLAND_NURSERY_SERVICE_LABELS[school.schooland_nursery_service] ?? school.schooland_nursery_service
+        : null,
+    },
+    {
+      label: "規模",
+      value: school.schooland_size_label
+        ? SCHOOLAND_SIZE_LABELS[school.schooland_size_label] ?? school.schooland_size_label
+        : null,
+    },
+    {
+      label: "上課時間",
+      value: school.schooland_session_label
+        ? SCHOOLAND_SESSION_LABELS[school.schooland_session_label] ?? school.schooland_session_label
+        : null,
+    },
+    {
+      label: "Schooland",
+      value: school.schooland_url ? (
+        <a href={school.schooland_url} target="_blank" rel="noopener noreferrer" className="text-slate-950 hover:underline">
+          查看來源頁
+        </a>
+      ) : null,
+    },
+  ].filter((field) => field.value !== null && field.value !== undefined && field.value !== "");
 
   const fields = [
     {
@@ -81,6 +125,27 @@ export function BasicInfoSection({ school }: BasicInfoSectionProps) {
             </div>
           ))}
         </div>
+
+        {schoolandFields.length > 0 && (
+          <div className="mt-5 border-t border-slate-100 pt-5">
+            <div className="mb-3 flex items-center justify-between gap-3">
+              <h3 className="text-sm font-semibold text-slate-800">Schooland 補充資料</h3>
+              <span className="rounded bg-slate-100 px-2 py-1 text-xs font-medium text-slate-500">
+                來源：Schooland
+              </span>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {schoolandFields.map((field) => (
+                <div key={field.label} className="flex flex-col">
+                  <span className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">
+                    {field.label}
+                  </span>
+                  <div className="text-sm text-slate-900">{field.value}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Stats pills — reserved for future data fields (師生比例, 校舍面積) */}
 

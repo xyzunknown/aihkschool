@@ -8,6 +8,7 @@ import {
 import type { School, District, SchoolType, SessionType, VacancyStatus } from "@/types/database";
 
 export type SessionFilter = SessionType | "half_day";
+export type SchoolandSessionFilter = "am" | "pm" | "whole_day" | "mixed";
 
 export interface FetchSchoolsParams {
   districts?: District[];
@@ -15,6 +16,10 @@ export interface FetchSchoolsParams {
   language?: string;
   session?: SessionFilter;
   hasNursery?: boolean;
+  schoolandFreeScheme?: boolean;
+  schoolandNurseryService?: "yes";
+  schoolandGroup?: string;
+  schoolandSize?: "small" | "medium" | "large";
   hasVacancy?: boolean;
   vacancyStatuses?: string[];
   search?: string;
@@ -24,6 +29,8 @@ export interface FetchSchoolsParams {
 
 const FULL_LIST_SELECT = `id, school_code, name_tc, name_en, district, phone, website, logo_url,
   school_type, kep_participant, session_type, language_primary, has_nursery,
+  schooland_operator_name, schooland_group_tag, schooland_free_scheme, schooland_nursery_service,
+  schooland_size_label, schooland_session_label, schooland_url, schooland_source_fields,
   latitude, longitude,
   fee_monthly_hkd, application_status, application_details, application_url,
   grades_offered, data_source, last_verified_at,
@@ -39,6 +46,9 @@ const LEGACY_LIST_SELECT = `id, school_code, name_tc, name_en, district, phone, 
 const NEW_COLUMN_NAMES = [
   "has_nursery", "latitude", "longitude",
   "application_status", "application_details", "application_url",
+  "schooland_operator_name", "schooland_group_tag", "schooland_free_scheme",
+  "schooland_nursery_service", "schooland_size_label", "schooland_session_label",
+  "schooland_url", "schooland_source_fields",
 ];
 
 function buildSchoolListQuery(
@@ -49,6 +59,7 @@ function buildSchoolListQuery(
 ) {
   const {
     districts, type, language, session, hasNursery,
+    schoolandFreeScheme, schoolandNurseryService, schoolandGroup, schoolandSize,
     search,
   } = params;
 
@@ -68,16 +79,32 @@ function buildSchoolListQuery(
   }
   if (session) {
     if (session === "half_day") {
-      query = query.or("session_type.eq.am,session_type.eq.pm,session_type.eq.am_pm,session_type.eq.am_whole_day,session_type.eq.pm_whole_day,session_type.eq.am_pm_whole_day");
+      query = isLegacy
+        ? query.or("session_type.eq.am,session_type.eq.pm,session_type.eq.am_pm,session_type.eq.am_whole_day,session_type.eq.pm_whole_day,session_type.eq.am_pm_whole_day")
+        : query.or("session_type.eq.am,session_type.eq.pm,session_type.eq.am_pm,session_type.eq.am_whole_day,session_type.eq.pm_whole_day,session_type.eq.am_pm_whole_day,schooland_session_label.eq.am,schooland_session_label.eq.pm,schooland_session_label.eq.mixed");
     } else if (session === "whole_day") {
-      query = query.or("session_type.eq.whole_day,session_type.eq.am_whole_day,session_type.eq.pm_whole_day,session_type.eq.am_pm_whole_day");
+      query = isLegacy
+        ? query.or("session_type.eq.whole_day,session_type.eq.am_whole_day,session_type.eq.pm_whole_day,session_type.eq.am_pm_whole_day")
+        : query.or("session_type.eq.whole_day,session_type.eq.am_whole_day,session_type.eq.pm_whole_day,session_type.eq.am_pm_whole_day,schooland_session_label.eq.whole_day,schooland_session_label.eq.mixed");
     } else {
-      query = query.eq("session_type", session);
+      query = isLegacy ? query.eq("session_type", session) : query.or(`session_type.eq.${session},schooland_session_label.eq.${session}`);
     }
   }
   // Skip has_nursery filter in legacy mode (column doesn't exist)
   if (hasNursery && !isLegacy) {
-    query = query.eq("has_nursery", true);
+    query = query.or("has_nursery.eq.true,schooland_nursery_service.eq.yes");
+  }
+  if (schoolandFreeScheme && !isLegacy) {
+    query = query.or("kep_participant.eq.true,schooland_free_scheme.eq.true");
+  }
+  if (schoolandNurseryService && !isLegacy) {
+    query = query.eq("schooland_nursery_service", schoolandNurseryService);
+  }
+  if (schoolandGroup && !isLegacy) {
+    query = query.eq("schooland_group_tag", schoolandGroup);
+  }
+  if (schoolandSize && !isLegacy) {
+    query = query.eq("schooland_size_label", schoolandSize);
   }
   if (search && search.trim()) {
     query = query.or(`name_tc.ilike.%${search.trim()}%,name_en.ilike.%${search.trim()}%`);
@@ -132,6 +159,14 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
       application_status: null,
       application_details: null,
       application_url: null,
+      schooland_operator_name: null,
+      schooland_group_tag: null,
+      schooland_free_scheme: null,
+      schooland_nursery_service: null,
+      schooland_size_label: null,
+      schooland_session_label: null,
+      schooland_url: null,
+      schooland_source_fields: {},
     } : {}),
     vacancies: (school.vacancies ?? []).filter(
       (v: { is_current: boolean }) => v.is_current
@@ -240,8 +275,14 @@ export async function fetchSchoolById(id: string) {
 
   const fullSelect = `id, school_code, name_tc, name_en, district, address_tc, address_en,
      phone, fax, email, website, logo_url, school_type, kep_participant, session_type,
+     schooland_operator_name, schooland_group_tag, schooland_free_scheme, schooland_nursery_service,
+     schooland_size_label, schooland_session_label, schooland_url, schooland_source_url,
+     schooland_source_updated_at, schooland_source_fields, schooland_secondary_flags,
      language_primary, language_secondary, fee_monthly_hkd, fee_annual_hkd,
      application_fee_hkd, registration_fee_hkd, other_fees_note, fee_notes,
+     official_profile_url, fee_certificate_url, fee_certificate_updated_at,
+     official_notice_url, official_notice_updated_at,
+     inspection_report_url, inspection_report_updated_at, master_data_notes,
      application_status, application_details, application_url, open_day_details, open_day_url,
      grades_offered, data_source, last_verified_at, last_profile_scraped_at, is_active, created_at, updated_at`;
 
@@ -269,12 +310,28 @@ export async function fetchSchoolById(id: string) {
     error.message.includes("registration_fee_hkd") ||
     error.message.includes("other_fees_note") ||
     error.message.includes("fee_notes") ||
+    error.message.includes("official_profile_url") ||
+    error.message.includes("fee_certificate_url") ||
+    error.message.includes("official_notice_url") ||
+    error.message.includes("inspection_report_url") ||
+    error.message.includes("master_data_notes") ||
     error.message.includes("application_status") ||
     error.message.includes("application_details") ||
     error.message.includes("application_url") ||
     error.message.includes("open_day_details") ||
     error.message.includes("open_day_url") ||
-    error.message.includes("last_profile_scraped_at");
+    error.message.includes("last_profile_scraped_at") ||
+    error.message.includes("schooland_operator_name") ||
+    error.message.includes("schooland_group_tag") ||
+    error.message.includes("schooland_free_scheme") ||
+    error.message.includes("schooland_nursery_service") ||
+    error.message.includes("schooland_size_label") ||
+    error.message.includes("schooland_session_label") ||
+    error.message.includes("schooland_url") ||
+    error.message.includes("schooland_source_url") ||
+    error.message.includes("schooland_source_updated_at") ||
+    error.message.includes("schooland_source_fields") ||
+    error.message.includes("schooland_secondary_flags");
 
   if (!shouldFallback) {
     return null;
@@ -298,11 +355,30 @@ export async function fetchSchoolById(id: string) {
     registration_fee_hkd: null,
     other_fees_note: null,
     fee_notes: null,
+    official_profile_url: null,
+    fee_certificate_url: null,
+    fee_certificate_updated_at: null,
+    official_notice_url: null,
+    official_notice_updated_at: null,
+    inspection_report_url: null,
+    inspection_report_updated_at: null,
+    master_data_notes: null,
     application_status: null,
     application_details: null,
     application_url: null,
     open_day_details: null,
     open_day_url: null,
+    schooland_operator_name: null,
+    schooland_group_tag: null,
+    schooland_free_scheme: null,
+    schooland_nursery_service: null,
+    schooland_size_label: null,
+    schooland_session_label: null,
+    schooland_url: null,
+    schooland_source_url: null,
+    schooland_source_updated_at: null,
+    schooland_source_fields: {},
+    schooland_secondary_flags: {},
     last_profile_scraped_at: null,
   } as School;
 }

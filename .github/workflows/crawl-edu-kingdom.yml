@@ -1,0 +1,74 @@
+name: Crawl edu-kingdom
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "full"
+        required: false
+        default: "full"
+      limit:
+        description: "Max sitemap threads to process (0 = default scope)"
+        required: false
+        default: "0"
+      only_top_100:
+        description: "Restrict to top 100 latest threads"
+        required: false
+        default: "false"
+      dry_run:
+        description: "Log only, no DB writes"
+        required: false
+        default: "false"
+  schedule:
+    - cron: "0 4 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install deps
+        run: npm install --no-save @supabase/supabase-js cheerio robots-parser
+
+      - name: Determine mode from cron
+        id: cron-mode
+        run: |
+          if [ "${{ github.event.schedule }}" = "0 4 * * 1" ]; then
+            echo "mode=full" >> $GITHUB_OUTPUT
+            echo "scope=--only-top-100" >> $GITHUB_OUTPUT
+          else
+            echo "mode=full" >> $GITHUB_OUTPUT
+            if [ "${{ github.event.inputs.only_top_100 || 'false' }}" = "true" ]; then
+              echo "scope=--only-top-100" >> $GITHUB_OUTPUT
+            else
+              echo "scope=" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+      - name: Crawl edu-kingdom
+        run: |
+          ARGS="--mode=${{ steps.cron-mode.outputs.mode }} ${{ steps.cron-mode.outputs.scope }}"
+          LIMIT="${{ github.event.inputs.limit || '0' }}"
+          if [ "$LIMIT" != "0" ]; then ARGS="$ARGS --limit $LIMIT"; fi
+          if [ "${{ github.event.inputs.dry_run || 'false' }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          node scripts/crawlers/edu-kingdom.mjs $ARGS
+
+      - name: Summary
+        if: always()
+        run: echo "edu-kingdom crawl complete."

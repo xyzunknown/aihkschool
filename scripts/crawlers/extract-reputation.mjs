@@ -212,11 +212,18 @@ function analyzePostsStage1(posts) {
   };
 }
 
-// ─── Stage 2: Optional Haiku summary ──────────────────────────────────────
+// ─── Stage 2: Optional Claude summary ─────────────────────────────────────
 
-async function generateSummaryWithHaiku(schoolName, stage1Result) {
+// Claude API: ANTHROPIC_BASE_URL overrides endpoint (for aipaibox / new-api proxies).
+// Auth: ANTHROPIC_AUTH_TOKEN (Bearer, proxy style) or ANTHROPIC_API_KEY (x-api-key, direct Anthropic).
+// Model: ANTHROPIC_MODEL overrides default (claude-opus-4-7 for best reasoning).
+async function generateSummaryWithClaude(schoolName, stage1Result) {
+  const authToken = process.env.ANTHROPIC_AUTH_TOKEN;
   const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) return null;
+  if (!authToken && !apiKey) return null;
+
+  const baseUrl = (process.env.ANTHROPIC_BASE_URL || "https://api.anthropic.com").replace(/\/+$/, "");
+  const model = process.env.ANTHROPIC_MODEL || "claude-opus-4-7";
 
   const inputText = `學校：${schoolName}
 帖文數：${stage1Result._postCount}
@@ -226,16 +233,22 @@ async function generateSummaryWithHaiku(schoolName, stage1Result) {
 面試風格：${stage1Result.interview_style || "未知"}
 代表引文：${stage1Result.quote_highlights.map((q) => q.text).join("；") || "無"}`;
 
+  const headers = {
+    "anthropic-version": "2023-06-01",
+    "content-type": "application/json",
+  };
+  if (authToken) {
+    headers["Authorization"] = `Bearer ${authToken}`;
+  } else {
+    headers["x-api-key"] = apiKey;
+  }
+
   try {
-    const resp = await fetch("https://api.anthropic.com/v1/messages", {
+    const resp = await fetch(`${baseUrl}/v1/messages`, {
       method: "POST",
-      headers: {
-        "x-api-key": apiKey,
-        "anthropic-version": "2023-06-01",
-        "content-type": "application/json",
-      },
+      headers,
       body: JSON.stringify({
-        model: "claude-haiku-4-5",
+        model,
         max_tokens: 300,
         system: "你是幼稚園口碑摘要助手。根據提供的統計數據，寫出 50-150 字的繁體中文口碑摘要。中立客觀，不做商業包裝，不用 emoji。直接輸出摘要文字，不要加標題或前綴。",
         messages: [{ role: "user", content: inputText }],
@@ -243,7 +256,7 @@ async function generateSummaryWithHaiku(schoolName, stage1Result) {
     });
 
     if (!resp.ok) {
-      console.warn(`[reputation] Haiku API ${resp.status}, skipping summary`);
+      console.warn(`[reputation] Claude API ${resp.status} (model=${model}), skipping summary`);
       return null;
     }
 
@@ -254,7 +267,7 @@ async function generateSummaryWithHaiku(schoolName, stage1Result) {
     }
     return null;
   } catch (err) {
-    console.warn(`[reputation] Haiku error: ${err.message}`);
+    console.warn(`[reputation] Claude error (model=${model}): ${err.message}`);
     return null;
   }
 }
@@ -382,12 +395,12 @@ async function processSchool(supabase, entry) {
     // Stage 1: Pure JS aggregation
     const stage1 = analyzePostsStage1(posts);
 
-    // Stage 2: Optional Haiku summary
+    // Stage 2: Optional Claude summary (aipaibox proxy supported)
     let reputationSummary = null;
-    if (!SKIP_SUMMARY && process.env.ANTHROPIC_API_KEY) {
-      reputationSummary = await generateSummaryWithHaiku(schoolMeta.name_tc, stage1);
+    if (!SKIP_SUMMARY && (process.env.ANTHROPIC_AUTH_TOKEN || process.env.ANTHROPIC_API_KEY)) {
+      reputationSummary = await generateSummaryWithClaude(schoolMeta.name_tc, stage1);
       if (reputationSummary) {
-        console.log(`[reputation]   Haiku summary generated (${reputationSummary.length} chars)`);
+        console.log(`[reputation]   Claude summary generated (${reputationSummary.length} chars)`);
       }
     }
 
