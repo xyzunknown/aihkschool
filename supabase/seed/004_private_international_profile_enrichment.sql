@@ -1,7 +1,7 @@
 -- Private / international school profile enrichment from official school websites
 UPDATE schools SET
   name_tc = COALESCE('維多利亞（寶翠園）幼稚園', name_tc),
-  logo_url = '/logos/542164.png',
+  logo_url = '/logos/542164.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -11,13 +11,13 @@ UPDATE schools SET
   application_status = 'year_round',
   application_details = 'AY2026/27 Admissions Seminar Replay Online Soon!',
   application_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1',
-  open_day_details = 'K3 Visit City Gallery (MK)',
-  open_day_url = 'https://www.victoria.edu.hk/news/2025-2026-k3-visit-city-gallery-%e9%ab%98%e7%8f%ad%e5%8f%83%e8%a7%80%e5%b1%95%e5%9f%8e%e9%a4%a8-mk/',
+  open_day_details = 'Missed the event or want to revisit the highlights?',
+  open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '542164';
 UPDATE schools SET
   name_tc = COALESCE(NULL, name_tc),
-  logo_url = '/logos/545589.png',
+  logo_url = '/logos/545589.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -81,7 +81,7 @@ UPDATE schools SET
 WHERE school_code = '590673';
 UPDATE schools SET
   name_tc = COALESCE('多多國際幼稚園（半山）', name_tc),
-  logo_url = '/logos/593133.png',
+  logo_url = '/logos/593133.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -97,7 +97,7 @@ UPDATE schools SET
 WHERE school_code = '593133';
 UPDATE schools SET
   name_tc = COALESCE(NULL, name_tc),
-  logo_url = '/logos/594725.png',
+  logo_url = '/logos/594725.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -129,7 +129,7 @@ UPDATE schools SET
 WHERE school_code = '601420';
 UPDATE schools SET
   name_tc = COALESCE('奧恩國際幼稚園', name_tc),
-  logo_url = '/logos/603643.png',
+  logo_url = '/logos/603643.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -137,7 +137,7 @@ UPDATE schools SET
   fee_notes = 'Pay the HK$40 application fee / Acceptance: Confirm your child’s place with a HK$970 non-refundable fee / Fees (2024–2025):',
   other_fees_note = 'PN: HK$7,100 per instalment (11 instalments) / K1–K3: HK$7,000 per instalment (10 instalments)',
   application_status = 'year_round',
-  application_details = 'own About Programmes Curriculum Admission Scholarship Contact Us Resources for Parents Events Where Lifelong Learning Meets Character Educat',
+  application_details = 'own About Programmes Curriculum Admission Scholarship Contact Us Resources for Parents Events Summer Camp 2026 Where Lifelong Learning Mee',
   application_url = 'https://www.mightyoaks.edu.hk/admission',
   open_day_details = 'Join us for our special 10th Anniversary Open Day — explore our campus and meet our award‑winning team.',
   open_day_url = NULL,
@@ -161,7 +161,7 @@ UPDATE schools SET
 WHERE school_code = '603724';
 UPDATE schools SET
   name_tc = COALESCE('楓薈幼稚園', name_tc),
-  logo_url = '/logos/605026.png',
+  logo_url = '/logos/605026.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -177,7 +177,7 @@ UPDATE schools SET
 WHERE school_code = '605026';
 UPDATE schools SET
   name_tc = COALESCE(NULL, name_tc),
-  logo_url = '/logos/607215.png',
+  logo_url = '/logos/607215.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -193,7 +193,7 @@ UPDATE schools SET
 WHERE school_code = '607215';
 UPDATE schools SET
   name_tc = COALESCE('香島華德福學校', name_tc),
-  logo_url = '/logos/608319.png',
+  logo_url = '/logos/608319.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -209,7 +209,7 @@ UPDATE schools SET
 WHERE school_code = '608319';
 UPDATE schools SET
   name_tc = COALESCE(NULL, name_tc),
-  logo_url = '/logos/611484.png',
+  logo_url = '/logos/611484.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -225,7 +225,7 @@ UPDATE schools SET
 WHERE school_code = '611484';
 UPDATE schools SET
   name_tc = COALESCE('香港墨爾文國際幼稚園（港島西）', name_tc),
-  logo_url = '/logos/613037.png',
+  logo_url = '/logos/613037.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = 8000,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -241,7 +241,7 @@ UPDATE schools SET
 WHERE school_code = '613037';
 UPDATE schools SET
   name_tc = COALESCE(NULL, name_tc),
-  logo_url = '/logos/614904.png',
+  logo_url = '/logos/614904.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -273,7 +273,7 @@ UPDATE schools SET
 WHERE school_code = '215635';
 UPDATE schools SET
   name_tc = COALESCE('奧伊斯嘉日本語幼稚園', name_tc),
-  logo_url = '/logos/215694.png',
+  logo_url = '/logos/215694.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -292,20 +292,20 @@ UPDATE schools SET
   logo_url = '/logos/215767.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
-  application_fee_hkd = COALESCE(NULL, application_fee_hkd),
+  application_fee_hkd = COALESCE(40, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = NULL,
+  fee_notes = 'Application fee ($40), non-refundable',
   other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
-  open_day_details = NULL,
-  open_day_url = NULL,
+  application_status = 'website',
+  application_details = 'CEMENT 2020-22 Primary Connection ADMISSIONS How To Apply FAQ ',
+  application_url = 'https://www.magartedu.com/en/how-to-apply/',
+  open_day_details = 'Book a School Tour / Trial',
+  open_day_url = 'https://www.magartedu.com/en/tour-trial/',
   last_profile_scraped_at = now()
 WHERE school_code = '215767';
 UPDATE schools SET
   name_tc = COALESCE('明慧幼稚園', name_tc),
-  logo_url = '/logos/321087.png',
+  logo_url = '/logos/321087.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -337,7 +337,7 @@ UPDATE schools SET
 WHERE school_code = '324965';
 UPDATE schools SET
   name_tc = COALESCE('維多利亞幼稚園', name_tc),
-  logo_url = '/logos/325481.png',
+  logo_url = '/logos/325481.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -347,13 +347,13 @@ UPDATE schools SET
   application_status = 'year_round',
   application_details = 'AY2026/27 Admissions Seminar Replay Online Soon!',
   application_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1',
-  open_day_details = 'K3 Visit City Gallery (MK)',
-  open_day_url = 'https://www.victoria.edu.hk/news/2025-2026-k3-visit-city-gallery-%e9%ab%98%e7%8f%ad%e5%8f%83%e8%a7%80%e5%b1%95%e5%9f%8e%e9%a4%a8-mk/',
+  open_day_details = 'Missed the event or want to revisit the highlights?',
+  open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '325481';
 UPDATE schools SET
   name_tc = COALESCE('維多利亞（海峰園）幼兒園', name_tc),
-  logo_url = '/logos/566934.png',
+  logo_url = '/logos/566934.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -363,13 +363,13 @@ UPDATE schools SET
   application_status = 'year_round',
   application_details = 'AY2026/27 Admissions Seminar Replay Online Soon!',
   application_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1',
-  open_day_details = 'K3 Visit City Gallery (MK)',
-  open_day_url = 'https://www.victoria.edu.hk/news/2025-2026-k3-visit-city-gallery-%e9%ab%98%e7%8f%ad%e5%8f%83%e8%a7%80%e5%b1%95%e5%9f%8e%e9%a4%a8-mk/',
+  open_day_details = 'Missed the event or want to revisit the highlights?',
+  open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '566934';
 UPDATE schools SET
   name_tc = COALESCE('銅鑼灣維多利亞（海峰園）幼兒園', name_tc),
-  logo_url = '/logos/566942.png',
+  logo_url = '/logos/566942.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -379,13 +379,13 @@ UPDATE schools SET
   application_status = 'year_round',
   application_details = 'AY2026/27 Admissions Seminar Replay Online Soon!',
   application_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1',
-  open_day_details = 'K3 Visit City Gallery (MK)',
-  open_day_url = 'https://www.victoria.edu.hk/news/2025-2026-k3-visit-city-gallery-%e9%ab%98%e7%8f%ad%e5%8f%83%e8%a7%80%e5%b1%95%e5%9f%8e%e9%a4%a8-mk/',
+  open_day_details = 'Missed the event or want to revisit the highlights?',
+  open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '566942';
 UPDATE schools SET
   name_tc = COALESCE('明慧國際幼稚園', name_tc),
-  logo_url = '/logos/566977.png',
+  logo_url = '/logos/566977.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -401,7 +401,7 @@ UPDATE schools SET
 WHERE school_code = '566977';
 UPDATE schools SET
   name_tc = COALESCE('明慧國際幼稚園（北角分校）', name_tc),
-  logo_url = '/logos/567329.png',
+  logo_url = '/logos/567329.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -417,7 +417,7 @@ UPDATE schools SET
 WHERE school_code = '567329';
 UPDATE schools SET
   name_tc = COALESCE('康怡維多利亞幼稚園', name_tc),
-  logo_url = '/logos/569828.png',
+  logo_url = '/logos/569828.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -427,13 +427,13 @@ UPDATE schools SET
   application_status = 'year_round',
   application_details = 'AY2026/27 Admissions Seminar Replay Online Soon!',
   application_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1',
-  open_day_details = 'K3 Visit City Gallery (MK)',
-  open_day_url = 'https://www.victoria.edu.hk/news/2025-2026-k3-visit-city-gallery-%e9%ab%98%e7%8f%ad%e5%8f%83%e8%a7%80%e5%b1%95%e5%9f%8e%e9%a4%a8-mk/',
+  open_day_details = 'Missed the event or want to revisit the highlights?',
+  open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '569828';
 UPDATE schools SET
   name_tc = COALESCE('多多寶馬山國際幼稚園', name_tc),
-  logo_url = '/logos/575852.png',
+  logo_url = '/logos/575852.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -449,7 +449,7 @@ UPDATE schools SET
 WHERE school_code = '575852';
 UPDATE schools SET
   name_tc = COALESCE('幼稚園課程 Summer Camp現已推出！', name_tc),
-  logo_url = '/logos/602329.png',
+  logo_url = '/logos/602329.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -465,7 +465,7 @@ UPDATE schools SET
 WHERE school_code = '602329';
 UPDATE schools SET
   name_tc = COALESCE('雅惠國際幼稚園（鯉景灣）', name_tc),
-  logo_url = '/logos/604585.png',
+  logo_url = '/logos/604585.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -481,23 +481,23 @@ UPDATE schools SET
 WHERE school_code = '604585';
 UPDATE schools SET
   name_tc = COALESCE('港島蒙特梭利國際幼稚園', name_tc),
-  logo_url = '/logos/607223.png',
+  logo_url = '/logos/607223.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = 'From Christmas classics to our very own Montessori-inspired Christmas carol, everyone left the hall feeling filled… / Non-refundable $40 application fee (paid by credit card when completing the online form).',
-  other_fees_note = NULL,
+  fee_notes = 'From Christmas classics to our very own Montessori-inspired Christmas carol, everyone left the hall feeling filled… / Non-refundable $40 application fee (paid by credit card when completing the online form). / Receive a $500 cash rebate for every new friend you successfully refer to this year’s summer camp.',
+  other_fees_note = '• Refund Policy: All summer camp tuition fees are non-refundable once paid. / • Eligibility: Only tuition-paying participants of this year’s Summer Camp are eligible for the referral cash rebate.',
   application_status = 'open',
-  application_details = 'Apply for 2025-26 school year',
+  application_details = 'Apply for 2026-27 school year',
   application_url = 'https://icms.edu.hk/admissions-2/',
-  open_day_details = 'DIA EMPLOYMENT WEATHER POLICY School Tour PROGRAMS CASA PRE-CASA MONTESSORI ENRICHMENT PLAYGROUPS ADMISSIONS CONTACT FAQ HOME ABOUT ABOUT',
+  open_day_details = 'DIA EMPLOYMENT WEATHER POLICY School Tour PROGRAMS CASA PRE-CASA Summer Camp MONTESSORI ENRICHMENT PLAYGROUPS ADMISSIONS CONTACT FAQ HOME',
   open_day_url = 'https://forms.gle/iELRv7FPBqRVqgga7',
   last_profile_scraped_at = now()
 WHERE school_code = '607223';
 UPDATE schools SET
   name_tc = COALESCE(NULL, name_tc),
-  logo_url = '/logos/609285.png',
+  logo_url = '/logos/609285.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -518,18 +518,18 @@ UPDATE schools SET
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = NULL,
-  other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
+  fee_notes = 'Inquiry or Feedback / Learning Habitat Kindergarten & Bilingual Nursery | Fees / Tuition Fee',
+  other_fees_note = 'Uniform Fee / Miscellaneous Fee',
+  application_status = 'website',
+  application_details = '2026/27 PN Application - Announcement of Result',
+  application_url = 'http://www.learninghabitat.org/en/p1-placement-results',
   open_day_details = NULL,
   open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '613681';
 UPDATE schools SET
   name_tc = COALESCE('樂沛兒幼稚園 - 柴灣', name_tc),
-  logo_url = '/logos/622699.png',
+  logo_url = '/logos/622699.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -545,7 +545,7 @@ UPDATE schools SET
 WHERE school_code = '622699';
 UPDATE schools SET
   name_tc = COALESCE('弘志幼稚園', name_tc),
-  logo_url = '/logos/519871.png',
+  logo_url = '/logos/519871.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -561,7 +561,7 @@ UPDATE schools SET
 WHERE school_code = '519871';
 UPDATE schools SET
   name_tc = COALESCE('弘志幼稚園（東涌）', name_tc),
-  logo_url = '/logos/578193.png',
+  logo_url = '/logos/578193.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -593,7 +593,7 @@ UPDATE schools SET
 WHERE school_code = '584606';
 UPDATE schools SET
   name_tc = COALESCE('小大嶼山蒙特梭利幼稚園', name_tc),
-  logo_url = '/logos/587877.png',
+  logo_url = '/logos/587877.svg',
   fee_monthly_hkd = 3300,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(30, application_fee_hkd),
@@ -609,7 +609,7 @@ UPDATE schools SET
 WHERE school_code = '587877';
 UPDATE schools SET
   name_tc = COALESCE(NULL, name_tc),
-  logo_url = '/logos/590029.png',
+  logo_url = '/logos/590029.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -641,7 +641,7 @@ UPDATE schools SET
 WHERE school_code = '600814';
 UPDATE schools SET
   name_tc = COALESCE(NULL, name_tc),
-  logo_url = '/logos/609625.png',
+  logo_url = '/logos/609625.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -657,7 +657,7 @@ UPDATE schools SET
 WHERE school_code = '609625';
 UPDATE schools SET
   name_tc = COALESCE('聖若望英文書院', name_tc),
-  logo_url = '/logos/212466.png',
+  logo_url = '/logos/212466.svg',
   fee_monthly_hkd = 6300,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -753,7 +753,7 @@ UPDATE schools SET
 WHERE school_code = '322822';
 UPDATE schools SET
   name_tc = COALESCE('京斯敦國際幼稚園', name_tc),
-  logo_url = '/logos/519863.png',
+  logo_url = '/logos/519863.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(500, application_fee_hkd),
@@ -792,16 +792,16 @@ UPDATE schools SET
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
   fee_notes = NULL,
   other_fees_note = NULL,
-  application_status = 'open',
-  application_details = 'Current campus enrolment links are published under the main Anfield site after the legacy /lv/ path was retired.',
-  application_url = 'https://anfield.edu.hk/',
-  open_day_details = 'Open Day 2026 registration is published on the Anfield news page.',
-  open_day_url = 'https://anfield.edu.hk/newsevent/open-day-2025-17-jan-2026/',
+  application_status = NULL,
+  application_details = NULL,
+  application_url = NULL,
+  open_day_details = NULL,
+  open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '535818';
 UPDATE schools SET
   name_tc = COALESCE('劍鳴幼稚園', name_tc),
-  logo_url = '/logos/537713.png',
+  logo_url = '/logos/537713.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -817,7 +817,7 @@ UPDATE schools SET
 WHERE school_code = '537713';
 UPDATE schools SET
   name_tc = COALESCE('多多國際幼稚園（九龍塘）', name_tc),
-  logo_url = '/logos/542504.png',
+  logo_url = '/logos/542504.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -833,7 +833,7 @@ UPDATE schools SET
 WHERE school_code = '542504';
 UPDATE schools SET
   name_tc = COALESCE('啓思小學附屬幼稚園', name_tc),
-  logo_url = '/logos/544744.png',
+  logo_url = '/logos/544744.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -849,7 +849,7 @@ UPDATE schools SET
 WHERE school_code = '544744';
 UPDATE schools SET
   name_tc = COALESCE('維多利亞（何文田）國際幼兒園', name_tc),
-  logo_url = '/logos/566900.png',
+  logo_url = '/logos/566900.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -859,8 +859,8 @@ UPDATE schools SET
   application_status = 'year_round',
   application_details = 'AY2026/27 Admissions Seminar Replay Online Soon!',
   application_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1',
-  open_day_details = 'K3 Visit City Gallery (MK)',
-  open_day_url = 'https://www.victoria.edu.hk/news/2025-2026-k3-visit-city-gallery-%e9%ab%98%e7%8f%ad%e5%8f%83%e8%a7%80%e5%b1%95%e5%9f%8e%e9%a4%a8-mk/',
+  open_day_details = 'Missed the event or want to revisit the highlights?',
+  open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '566900';
 UPDATE schools SET
@@ -897,7 +897,7 @@ UPDATE schools SET
 WHERE school_code = '581852';
 UPDATE schools SET
   name_tc = COALESCE('文娜雅拔幼稚園', name_tc),
-  logo_url = '/logos/584517.png',
+  logo_url = '/logos/584517.svg',
   fee_monthly_hkd = 6688,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -929,7 +929,7 @@ UPDATE schools SET
 WHERE school_code = '586625';
 UPDATE schools SET
   name_tc = COALESCE('すべての子どもは、神様からいただいた、自ら成長する種を持っています。 こひつじ幼稚園はそれぞれの花を咲かせるお手伝いをします。', name_tc),
-  logo_url = '/logos/593630.png',
+  logo_url = '/logos/593630.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -945,7 +945,7 @@ UPDATE schools SET
 WHERE school_code = '593630';
 UPDATE schools SET
   name_tc = COALESCE('伽利利國際幼稚園', name_tc),
-  logo_url = '/logos/597031.png',
+  logo_url = '/logos/597031.svg',
   fee_monthly_hkd = 200,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -961,7 +961,7 @@ UPDATE schools SET
 WHERE school_code = '597031';
 UPDATE schools SET
   name_tc = COALESCE('聖姬莉國際幼稚園', name_tc),
-  logo_url = '/logos/597538.png',
+  logo_url = '/logos/597538.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -993,7 +993,7 @@ UPDATE schools SET
 WHERE school_code = '599182';
 UPDATE schools SET
   name_tc = COALESCE('樂沛兒幼稚園', name_tc),
-  logo_url = '/logos/599263.png',
+  logo_url = '/logos/599263.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -1046,11 +1046,11 @@ UPDATE schools SET
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = NULL,
-  other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
+  fee_notes = 'Inquiry or Feedback / Learning Habitat Kindergarten & Bilingual Nursery | Fees / Tuition Fee',
+  other_fees_note = 'Uniform Fee / Miscellaneous Fee',
+  application_status = 'website',
+  application_details = '2026/27 PN Application - Announcement of Result',
+  application_url = 'http://www.learninghabitat.org/en/p1-placement-results',
   open_day_details = NULL,
   open_day_url = NULL,
   last_profile_scraped_at = now()
@@ -1060,20 +1060,20 @@ UPDATE schools SET
   logo_url = '/logos/610623.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
-  application_fee_hkd = COALESCE(NULL, application_fee_hkd),
+  application_fee_hkd = COALESCE(40, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = NULL,
+  fee_notes = 'Application fee ($40), non-refundable',
   other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
-  open_day_details = NULL,
-  open_day_url = NULL,
+  application_status = 'website',
+  application_details = 'CEMENT 2020-22 Primary Connection ADMISSIONS How To Apply FAQ ',
+  application_url = 'https://www.magartedu.com/en/how-to-apply/',
+  open_day_details = 'Book a School Tour / Trial',
+  open_day_url = 'https://www.magartedu.com/en/tour-trial/',
   last_profile_scraped_at = now()
 WHERE school_code = '610623';
 UPDATE schools SET
   name_tc = COALESCE('茵晴幼稚園', name_tc),
-  logo_url = '/logos/617741.png',
+  logo_url = '/logos/617741.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1089,7 +1089,7 @@ UPDATE schools SET
 WHERE school_code = '617741';
 UPDATE schools SET
   name_tc = COALESCE('維多利亞（何文田）國際幼稚園', name_tc),
-  logo_url = '/logos/618039.png',
+  logo_url = '/logos/618039.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -1099,13 +1099,13 @@ UPDATE schools SET
   application_status = 'year_round',
   application_details = 'AY2026/27 Admissions Seminar Replay Online Soon!',
   application_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1',
-  open_day_details = 'K3 Visit City Gallery (MK)',
-  open_day_url = 'https://www.victoria.edu.hk/news/2025-2026-k3-visit-city-gallery-%e9%ab%98%e7%8f%ad%e5%8f%83%e8%a7%80%e5%b1%95%e5%9f%8e%e9%a4%a8-mk/',
+  open_day_details = 'Missed the event or want to revisit the highlights?',
+  open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '618039';
 UPDATE schools SET
   name_tc = COALESCE('康傑中英文幼稚園（青衣）', name_tc),
-  logo_url = '/logos/231614.png',
+  logo_url = '/logos/231614.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1126,18 +1126,18 @@ UPDATE schools SET
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = NULL,
-  other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
+  fee_notes = 'Inquiry or Feedback / Learning Habitat Kindergarten & Bilingual Nursery | Fees / Tuition Fee',
+  other_fees_note = 'Uniform Fee / Miscellaneous Fee',
+  application_status = 'website',
+  application_details = '2026/27 PN Application - Announcement of Result',
+  application_url = 'http://www.learninghabitat.org/en/p1-placement-results',
   open_day_details = NULL,
   open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '534200';
 UPDATE schools SET
   name_tc = COALESCE('康傑中英文幼稚園（青衣南）', name_tc),
-  logo_url = '/logos/609919.png',
+  logo_url = '/logos/609919.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1153,23 +1153,23 @@ UPDATE schools SET
 WHERE school_code = '609919';
 UPDATE schools SET
   name_tc = COALESCE('奧基英文幼稚園', name_tc),
-  logo_url = '/logos/622982.png',
-  fee_monthly_hkd = 5000,
+  logo_url = '/logos/622982.svg',
+  fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = 'School Fee / Preschool $5,000 per month 11 installments / Kindergarten $5,100 per month 11 installments',
-  other_fees_note = 'Four $2.20 stamped envelopes / HK$40 Application Fee *(non-refundable) in cash or cheque payable to “Oasis English Kindergarten & Preschool Limited”.',
-  application_status = 'open',
-  application_details = 'Gallery Gallery Parent Portal Admission Primary School Allocation Contact Us Home About Us Our School Calendar Bus Service Programs Gallery',
-  application_url = 'https://oasiskindergarten.com/admission/',
-  open_day_details = NULL,
-  open_day_url = NULL,
+  fee_notes = 'TUITION & APPLICATION / School Fees / Four $2.20 stamped envelopes',
+  other_fees_note = 'HK$40 Application Fee / It really feels like a family here."',
+  application_status = 'website',
+  application_details = 'Enrolment Application Form →',
+  application_url = 'https://drive.google.com/file/d/1CWquM9RbRC82Hxj54Aac6ugdYeuNZNhI/view?usp=drive_link',
+  open_day_details = 'Open days & parent workshops',
+  open_day_url = 'https://oasiskindergarten.com/#about',
   last_profile_scraped_at = now()
 WHERE school_code = '622982';
 UPDATE schools SET
   name_tc = COALESCE('朗思國際幼稚園', name_tc),
-  logo_url = '/logos/216267.png',
+  logo_url = '/logos/216267.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -1185,7 +1185,7 @@ UPDATE schools SET
 WHERE school_code = '216267';
 UPDATE schools SET
   name_tc = COALESCE('楓葉小熊加拿大國際幼稚園（油塘）', name_tc),
-  logo_url = '/logos/593788.png',
+  logo_url = '/logos/593788.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1201,7 +1201,7 @@ UPDATE schools SET
 WHERE school_code = '593788';
 UPDATE schools SET
   name_tc = COALESCE('德福英文幼稚園', name_tc),
-  logo_url = '/logos/601985.png',
+  logo_url = '/logos/601985.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1217,7 +1217,7 @@ UPDATE schools SET
 WHERE school_code = '601985';
 UPDATE schools SET
   name_tc = COALESCE('哈羅小獅幼稚園', name_tc),
-  logo_url = '/logos/627275.png',
+  logo_url = '/logos/627275.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1236,15 +1236,15 @@ UPDATE schools SET
   logo_url = '/logos/566241.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
-  application_fee_hkd = COALESCE(NULL, application_fee_hkd),
+  application_fee_hkd = COALESCE(40, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = NULL,
+  fee_notes = 'Application fee ($40), non-refundable',
   other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
-  open_day_details = NULL,
-  open_day_url = NULL,
+  application_status = 'website',
+  application_details = 'CEMENT 2020-22 Primary Connection ADMISSIONS How To Apply FAQ ',
+  application_url = 'https://www.magartedu.com/en/how-to-apply/',
+  open_day_details = 'Book a School Tour / Trial',
+  open_day_url = 'https://www.magartedu.com/en/tour-trial/',
   last_profile_scraped_at = now()
 WHERE school_code = '566241';
 UPDATE schools SET
@@ -1265,7 +1265,7 @@ UPDATE schools SET
 WHERE school_code = '582417';
 UPDATE schools SET
   name_tc = COALESCE('麥克萊國際幼稚園', name_tc),
-  logo_url = '/logos/601250.png',
+  logo_url = '/logos/601250.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1281,7 +1281,7 @@ UPDATE schools SET
 WHERE school_code = '601250';
 UPDATE schools SET
   name_tc = COALESCE('綠茵英文（國際）幼稚園（將軍澳）', name_tc),
-  logo_url = '/logos/523984.png',
+  logo_url = '/logos/523984.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1297,7 +1297,7 @@ UPDATE schools SET
 WHERE school_code = '523984';
 UPDATE schools SET
   name_tc = COALESCE('德寶英文幼稚園（將軍澳）', name_tc),
-  logo_url = '/logos/530131.png',
+  logo_url = '/logos/530131.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1313,7 +1313,7 @@ UPDATE schools SET
 WHERE school_code = '530131';
 UPDATE schools SET
   name_tc = COALESCE('小蜜蜂幼稚園', name_tc),
-  logo_url = '/logos/532355.png',
+  logo_url = '/logos/532355.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1329,7 +1329,7 @@ UPDATE schools SET
 WHERE school_code = '532355';
 UPDATE schools SET
   name_tc = COALESCE('翠茵小宇宙幼稚園', name_tc),
-  logo_url = '/logos/537527.png',
+  logo_url = '/logos/537527.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1377,7 +1377,7 @@ UPDATE schools SET
 WHERE school_code = '567116';
 UPDATE schools SET
   name_tc = COALESCE(NULL, name_tc),
-  logo_url = '/logos/575755.png',
+  logo_url = '/logos/575755.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1393,7 +1393,7 @@ UPDATE schools SET
 WHERE school_code = '575755';
 UPDATE schools SET
   name_tc = COALESCE(NULL, name_tc),
-  logo_url = '/logos/578630.png',
+  logo_url = '/logos/578630.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1409,7 +1409,7 @@ UPDATE schools SET
 WHERE school_code = '578630';
 UPDATE schools SET
   name_tc = COALESCE('博士山（香港）國際幼稚園 - 將軍澳', name_tc),
-  logo_url = '/logos/581836.png',
+  logo_url = '/logos/581836.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -1420,12 +1420,12 @@ UPDATE schools SET
   application_details = 'Admissions Open for 2026/27',
   application_url = 'https://boxhill.edu.hk/admission/',
   open_day_details = 'Open Day – Under The Sea – Apr & May 2026',
-  open_day_url = 'https://boxhill.edu.hk/school-tour-info-session-jan-2026/',
+  open_day_url = 'https://bit.ly/od26utswb',
   last_profile_scraped_at = now()
 WHERE school_code = '581836';
 UPDATE schools SET
   name_tc = COALESCE(NULL, name_tc),
-  logo_url = '/logos/583774.png',
+  logo_url = '/logos/583774.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1441,7 +1441,7 @@ UPDATE schools SET
 WHERE school_code = '583774';
 UPDATE schools SET
   name_tc = COALESCE('綠茵英文（國際）幼稚園（日出康城）', name_tc),
-  logo_url = '/logos/604372.png',
+  logo_url = '/logos/604372.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1478,18 +1478,18 @@ UPDATE schools SET
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = NULL,
-  other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
+  fee_notes = 'Inquiry or Feedback / Learning Habitat Kindergarten & Bilingual Nursery | Fees / Tuition Fee',
+  other_fees_note = 'Uniform Fee / Miscellaneous Fee',
+  application_status = 'website',
+  application_details = '2026/27 PN Application - Announcement of Result',
+  application_url = 'http://www.learninghabitat.org/en/p1-placement-results',
   open_day_details = NULL,
   open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '612391';
 UPDATE schools SET
   name_tc = COALESCE('樂必津法國幼稚園', name_tc),
-  logo_url = '/logos/613088.png',
+  logo_url = '/logos/613088.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1505,7 +1505,7 @@ UPDATE schools SET
 WHERE school_code = '613088';
 UPDATE schools SET
   name_tc = COALESCE('楓葉小熊加拿大國際幼稚園', name_tc),
-  logo_url = '/logos/613665.png',
+  logo_url = '/logos/613665.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1537,7 +1537,7 @@ UPDATE schools SET
 WHERE school_code = '615366';
 UPDATE schools SET
   name_tc = COALESCE('楓葉小熊加拿大國際幼稚園（康城）', name_tc),
-  logo_url = '/logos/616311.png',
+  logo_url = '/logos/616311.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1553,7 +1553,7 @@ UPDATE schools SET
 WHERE school_code = '616311';
 UPDATE schools SET
   name_tc = COALESCE('栢基幼稚園（康城）', name_tc),
-  logo_url = '/logos/616443.png',
+  logo_url = '/logos/616443.svg',
   fee_monthly_hkd = 7600,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -1569,7 +1569,7 @@ UPDATE schools SET
 WHERE school_code = '616443';
 UPDATE schools SET
   name_tc = COALESCE('雅士圖國際幼稚園', name_tc),
-  logo_url = '/logos/604470.png',
+  logo_url = '/logos/604470.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -1601,7 +1601,7 @@ UPDATE schools SET
 WHERE school_code = '604615';
 UPDATE schools SET
   name_tc = COALESCE('漢迪國際幼稚園', name_tc),
-  logo_url = '/logos/607703.png',
+  logo_url = '/logos/607703.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1617,7 +1617,7 @@ UPDATE schools SET
 WHERE school_code = '607703';
 UPDATE schools SET
   name_tc = COALESCE('朗思國際幼稚園（南昌）', name_tc),
-  logo_url = '/logos/612782.png',
+  logo_url = '/logos/612782.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -1638,28 +1638,28 @@ UPDATE schools SET
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = NULL,
-  other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
+  fee_notes = 'Inquiry or Feedback / Learning Habitat Kindergarten & Bilingual Nursery | Fees / Tuition Fee',
+  other_fees_note = 'Uniform Fee / Miscellaneous Fee',
+  application_status = 'website',
+  application_details = '2026/27 PN Application - Announcement of Result',
+  application_url = 'http://www.learninghabitat.org/en/p1-placement-results',
   open_day_details = NULL,
   open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '615250';
 UPDATE schools SET
   name_tc = COALESCE('嘉德麗中英文幼稚園', name_tc),
-  logo_url = '/logos/231266.png',
+  logo_url = '/logos/231266.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = 'Catiline School Fees Remission Program / Catiline School Fees Remission Program - 嘉德麗中英文幼稚園 | 嘉德麗國際幼兒園 (沙田) / ​Catiline School Fees Remission Program',
-  other_fees_note = 'In 2014, as part of our Silver Anniversary Commemoration, in pursuit of the objective of considering student enrollments on a “need blind” basis (consistent with the concept “Education without Differentiation” first advo / Normally this scheme is offered as part of the enrollment process at the beginning of a school year, but in April 2020, due to financial hardships suffered by many parents due to the pandemic, we launched an “Emergency S',
-  application_status = 'open',
-  application_details = 'Primary One Admissions',
-  application_url = 'http://www.catiline.edu.hk/primarynbsponenbspadmissions.html',
-  open_day_details = ' 嘉德麗幼稚園親子體驗日 © COPYRIGHT Catiline Educational Organisation 2021. ALL R',
+  fee_notes = NULL,
+  other_fees_note = NULL,
+  application_status = NULL,
+  application_details = NULL,
+  application_url = NULL,
+  open_day_details = NULL,
   open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '231266';
@@ -1681,7 +1681,7 @@ UPDATE schools SET
 WHERE school_code = '231517';
 UPDATE schools SET
   name_tc = COALESCE('康傑中英文幼稚園（馬鞍山）', name_tc),
-  logo_url = '/logos/231657.png',
+  logo_url = '/logos/231657.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1697,14 +1697,14 @@ UPDATE schools SET
 WHERE school_code = '231657';
 UPDATE schools SET
   name_tc = COALESCE('樂基幼兒學校（駿景園）', name_tc),
-  logo_url = '/logos/522953.png',
+  logo_url = '/logos/522953.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
   fee_notes = NULL,
   other_fees_note = NULL,
-  application_status = 'closed',
+  application_status = 'website',
   application_details = ' School Activities Admissions Contact Us Notice & Reply Slip Message Photo Albu',
   application_url = 'http://www.hkpreschool.edu.hk/index.php/section/page/3142',
   open_day_details = NULL,
@@ -1713,7 +1713,7 @@ UPDATE schools SET
 WHERE school_code = '522953';
 UPDATE schools SET
   name_tc = COALESCE('朗思國際幼稚園（馬鞍山）', name_tc),
-  logo_url = '/logos/533360.png',
+  logo_url = '/logos/533360.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -1729,7 +1729,7 @@ UPDATE schools SET
 WHERE school_code = '533360';
 UPDATE schools SET
   name_tc = COALESCE('博士山（香港）國際幼稚園', name_tc),
-  logo_url = '/logos/559415.png',
+  logo_url = '/logos/559415.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -1740,12 +1740,12 @@ UPDATE schools SET
   application_details = 'Admissions Open for 2026/27',
   application_url = 'https://boxhill.edu.hk/admission/',
   open_day_details = 'Open Day – Under The Sea – Apr & May 2026',
-  open_day_url = 'https://boxhill.edu.hk/school-tour-info-session-jan-2026/',
+  open_day_url = 'https://bit.ly/od26utswb',
   last_profile_scraped_at = now()
 WHERE school_code = '559415';
 UPDATE schools SET
   name_tc = COALESCE('康傑幼稚園〈馬鞍山〉', name_tc),
-  logo_url = '/logos/565113.png',
+  logo_url = '/logos/565113.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1761,7 +1761,7 @@ UPDATE schools SET
 WHERE school_code = '565113';
 UPDATE schools SET
   name_tc = COALESCE('博士山（香港）國際幼稚園 - 火炭', name_tc),
-  logo_url = '/logos/581739.png',
+  logo_url = '/logos/581739.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -1772,7 +1772,7 @@ UPDATE schools SET
   application_details = 'Admissions Open for 2026/27',
   application_url = 'https://boxhill.edu.hk/admission/',
   open_day_details = 'Open Day – Under The Sea – Apr & May 2026',
-  open_day_url = 'https://boxhill.edu.hk/school-tour-info-session-jan-2026/',
+  open_day_url = 'https://bit.ly/od26utswb',
   last_profile_scraped_at = now()
 WHERE school_code = '581739';
 UPDATE schools SET
@@ -1793,7 +1793,7 @@ UPDATE schools SET
 WHERE school_code = '591777';
 UPDATE schools SET
   name_tc = COALESCE('童樂天國際幼稚園', name_tc),
-  logo_url = '/logos/598054.png',
+  logo_url = '/logos/598054.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1814,18 +1814,18 @@ UPDATE schools SET
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = NULL,
-  other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
+  fee_notes = 'Inquiry or Feedback / Learning Habitat Kindergarten & Bilingual Nursery | Fees / Tuition Fee',
+  other_fees_note = 'Uniform Fee / Miscellaneous Fee',
+  application_status = 'website',
+  application_details = '2026/27 PN Application - Announcement of Result',
+  application_url = 'http://www.learninghabitat.org/en/p1-placement-results',
   open_day_details = NULL,
   open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '604291';
 UPDATE schools SET
   name_tc = COALESCE('培僑國際幼稚園', name_tc),
-  logo_url = '/logos/613916.png',
+  logo_url = '/logos/613916.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1841,7 +1841,7 @@ UPDATE schools SET
 WHERE school_code = '613916';
 UPDATE schools SET
   name_tc = COALESCE('德萃幼稚園（馬鞍山）', name_tc),
-  logo_url = '/logos/616290.png',
+  logo_url = '/logos/616290.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1857,7 +1857,7 @@ UPDATE schools SET
 WHERE school_code = '616290';
 UPDATE schools SET
   name_tc = COALESCE('培僑國際幼稚園（碧濤花園）', name_tc),
-  logo_url = '/logos/622389.png',
+  logo_url = '/logos/622389.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1873,7 +1873,7 @@ UPDATE schools SET
 WHERE school_code = '622389';
 UPDATE schools SET
   name_tc = COALESCE('栢基國際幼稚園', name_tc),
-  logo_url = '/logos/215937.png',
+  logo_url = '/logos/215937.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1889,7 +1889,7 @@ UPDATE schools SET
 WHERE school_code = '215937';
 UPDATE schools SET
   name_tc = COALESCE('維多利亞（海怡）國際幼稚園', name_tc),
-  logo_url = '/logos/216194.png',
+  logo_url = '/logos/216194.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -1899,8 +1899,8 @@ UPDATE schools SET
   application_status = 'year_round',
   application_details = 'AY2026/27 Admissions Seminar Replay Online Soon!',
   application_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1',
-  open_day_details = 'K3 Visit City Gallery (MK)',
-  open_day_url = 'https://www.victoria.edu.hk/news/2025-2026-k3-visit-city-gallery-%e9%ab%98%e7%8f%ad%e5%8f%83%e8%a7%80%e5%b1%95%e5%9f%8e%e9%a4%a8-mk/',
+  open_day_details = 'Missed the event or want to revisit the highlights?',
+  open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '216194';
 UPDATE schools SET
@@ -1921,7 +1921,7 @@ UPDATE schools SET
 WHERE school_code = '325961';
 UPDATE schools SET
   name_tc = COALESCE(NULL, name_tc),
-  logo_url = '/logos/565466.png',
+  logo_url = '/logos/565466.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1937,14 +1937,14 @@ UPDATE schools SET
 WHERE school_code = '565466';
 UPDATE schools SET
   name_tc = COALESCE(NULL, name_tc),
-  logo_url = '/logos/578053.png',
+  logo_url = '/logos/578053.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
   registration_fee_hkd = COALESCE(970, registration_fee_hkd),
   fee_notes = 'Application Fee of HK$40 / We will review applications once all required documents and fees have been received. / Fee Policy',
   other_fees_note = 'Application Fee: $40 (Mulberry House International Kindergarten’s application fee is a non-refundable, non-transferable and non-deferrable administration fee for admissions. / The collection of this fee does not constitute any assurance that a school place or an interview will be offered.)',
-  application_status = 'open',
+  application_status = 'year_round',
   application_details = 'Online Application Form',
   application_url = 'https://mulberryhousekg.com/',
   open_day_details = 'Fill out a quick form to visit us or to get more information.',
@@ -1953,7 +1953,7 @@ UPDATE schools SET
 WHERE school_code = '578053';
 UPDATE schools SET
   name_tc = COALESCE(NULL, name_tc),
-  logo_url = '/logos/598089.png',
+  logo_url = '/logos/598089.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -1969,7 +1969,7 @@ UPDATE schools SET
 WHERE school_code = '598089';
 UPDATE schools SET
   name_tc = COALESCE(NULL, name_tc),
-  logo_url = '/logos/602256.png',
+  logo_url = '/logos/602256.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -2033,14 +2033,14 @@ UPDATE schools SET
 WHERE school_code = '567027';
 UPDATE schools SET
   name_tc = COALESCE('懋柏禮國際幼稚園', name_tc),
-  logo_url = '/logos/601721.png',
+  logo_url = '/logos/601721.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
   registration_fee_hkd = COALESCE(970, registration_fee_hkd),
   fee_notes = 'Application Fee of HK$40 / We will review applications once all required documents and fees have been received. / Fee Policy',
   other_fees_note = 'Application Fee: $40 (Mulberry House International Kindergarten’s application fee is a non-refundable, non-transferable and non-deferrable administration fee for admissions. / The collection of this fee does not constitute any assurance that a school place or an interview will be offered.)',
-  application_status = 'open',
+  application_status = 'year_round',
   application_details = 'Online Application Form',
   application_url = 'https://mulberryhousekg.com/',
   open_day_details = 'Fill out a quick form to visit us or to get more information.',
@@ -2049,7 +2049,7 @@ UPDATE schools SET
 WHERE school_code = '601721';
 UPDATE schools SET
   name_tc = COALESCE('綠楊幼稚園', name_tc),
-  logo_url = '/logos/157716.png',
+  logo_url = '/logos/157716.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -2097,7 +2097,7 @@ UPDATE schools SET
 WHERE school_code = '583340';
 UPDATE schools SET
   name_tc = COALESCE('思博幼稚園', name_tc),
-  logo_url = '/logos/590860.png',
+  logo_url = '/logos/590860.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -2129,7 +2129,7 @@ UPDATE schools SET
 WHERE school_code = '597716';
 UPDATE schools SET
   name_tc = COALESCE('維多利亞（海之戀）國際幼稚園', name_tc),
-  logo_url = '/logos/619850.png',
+  logo_url = '/logos/619850.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -2139,13 +2139,13 @@ UPDATE schools SET
   application_status = 'year_round',
   application_details = 'AY2026/27 Admissions Seminar Replay Online Soon!',
   application_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1',
-  open_day_details = 'K3 Visit City Gallery (MK)',
-  open_day_url = 'https://www.victoria.edu.hk/news/2025-2026-k3-visit-city-gallery-%e9%ab%98%e7%8f%ad%e5%8f%83%e8%a7%80%e5%b1%95%e5%9f%8e%e9%a4%a8-mk/',
+  open_day_details = 'Missed the event or want to revisit the highlights?',
+  open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '619850';
 UPDATE schools SET
   name_tc = COALESCE('加州天地幼稚園', name_tc),
-  logo_url = '/logos/572764.png',
+  logo_url = '/logos/572764.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -2161,7 +2161,7 @@ UPDATE schools SET
 WHERE school_code = '572764';
 UPDATE schools SET
   name_tc = COALESCE('晶晶國際幼稚園', name_tc),
-  logo_url = '/logos/587524.png',
+  logo_url = '/logos/587524.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -2225,7 +2225,7 @@ UPDATE schools SET
 WHERE school_code = '616990';
 UPDATE schools SET
   name_tc = COALESCE('帝京香港幼稚園', name_tc),
-  logo_url = '/logos/325848.png',
+  logo_url = '/logos/325848.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -2241,7 +2241,7 @@ UPDATE schools SET
 WHERE school_code = '325848';
 UPDATE schools SET
   name_tc = COALESCE(NULL, name_tc),
-  logo_url = '/logos/564958.png',
+  logo_url = '/logos/564958.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -2257,7 +2257,7 @@ UPDATE schools SET
 WHERE school_code = '564958';
 UPDATE schools SET
   name_tc = COALESCE('寶山幼兒園', name_tc),
-  logo_url = '/logos/565938.png',
+  logo_url = '/logos/565938.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -2273,39 +2273,39 @@ UPDATE schools SET
 WHERE school_code = '565938';
 UPDATE schools SET
   name_tc = COALESCE('港島兒童蒙特梭利幼稚園', name_tc),
-  logo_url = '/logos/581119.png',
+  logo_url = '/logos/581119.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = 'From Christmas classics to our very own Montessori-inspired Christmas carol, everyone left the hall feeling filled… / Non-refundable $40 application fee (paid by credit card when completing the online form).',
-  other_fees_note = NULL,
+  fee_notes = 'From Christmas classics to our very own Montessori-inspired Christmas carol, everyone left the hall feeling filled… / Non-refundable $40 application fee (paid by credit card when completing the online form). / Receive a $500 cash rebate for every new friend you successfully refer to this year’s summer camp.',
+  other_fees_note = '• Refund Policy: All summer camp tuition fees are non-refundable once paid. / • Eligibility: Only tuition-paying participants of this year’s Summer Camp are eligible for the referral cash rebate.',
   application_status = 'open',
-  application_details = 'Apply for 2025-26 school year',
+  application_details = 'Apply for 2026-27 school year',
   application_url = 'https://icms.edu.hk/admissions-2/',
-  open_day_details = 'DIA EMPLOYMENT WEATHER POLICY School Tour PROGRAMS CASA PRE-CASA MONTESSORI ENRICHMENT PLAYGROUPS ADMISSIONS CONTACT FAQ HOME ABOUT ABOUT',
+  open_day_details = 'DIA EMPLOYMENT WEATHER POLICY School Tour PROGRAMS CASA PRE-CASA Summer Camp MONTESSORI ENRICHMENT PLAYGROUPS ADMISSIONS CONTACT FAQ HOME',
   open_day_url = 'https://forms.gle/iELRv7FPBqRVqgga7',
   last_profile_scraped_at = now()
 WHERE school_code = '581119';
 UPDATE schools SET
   name_tc = COALESCE('樂䔄幼稚園', name_tc),
-  logo_url = '/logos/593770.png',
+  logo_url = '/logos/593770.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = 'Admission Fee: HKD$40 Cash',
+  fee_notes = NULL,
   other_fees_note = NULL,
-  application_status = 'website',
-  application_details = 'M - 6Years Old eClass Admissions Pods Learning School Pods Learning School Pods Learning School Language Art Performin',
-  application_url = 'http://www.pods.com.hk/pages/admissions',
-  open_day_details = 'Though our students may move on to new chapters, we warmly welcome them back to revisit the memories, friendships, and joyful moments that shaped their early years.',
+  application_status = NULL,
+  application_details = NULL,
+  application_url = NULL,
+  open_day_details = NULL,
   open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '593770';
 UPDATE schools SET
   name_tc = COALESCE('善行國際幼稚園', name_tc),
-  logo_url = '/logos/600334.png',
+  logo_url = '/logos/600334.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -2321,7 +2321,7 @@ UPDATE schools SET
 WHERE school_code = '600334';
 UPDATE schools SET
   name_tc = COALESCE('道爾頓幼稚園', name_tc),
-  logo_url = '/logos/607592.png',
+  logo_url = '/logos/607592.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -2337,7 +2337,7 @@ UPDATE schools SET
 WHERE school_code = '607592';
 UPDATE schools SET
   name_tc = COALESCE('港青基信國際幼稚園', name_tc),
-  logo_url = '/logos/216178.png',
+  logo_url = '/logos/216178.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -2358,18 +2358,18 @@ UPDATE schools SET
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = NULL,
-  other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
+  fee_notes = 'Inquiry or Feedback / Learning Habitat Kindergarten & Bilingual Nursery | Fees / Tuition Fee',
+  other_fees_note = 'Uniform Fee / Miscellaneous Fee',
+  application_status = 'website',
+  application_details = '2026/27 PN Application - Announcement of Result',
+  application_url = 'http://www.learninghabitat.org/en/p1-placement-results',
   open_day_details = NULL,
   open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '561207';
 UPDATE schools SET
   name_tc = COALESCE('滙豐幼兒學校', name_tc),
-  logo_url = '/logos/566748.png',
+  logo_url = '/logos/566748.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -2385,7 +2385,7 @@ UPDATE schools SET
 WHERE school_code = '566748';
 UPDATE schools SET
   name_tc = COALESCE('栢基國際幼稚園（九龍）', name_tc),
-  logo_url = '/logos/571490.png',
+  logo_url = '/logos/571490.svg',
   fee_monthly_hkd = 9000,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -2401,7 +2401,7 @@ UPDATE schools SET
 WHERE school_code = '571490';
 UPDATE schools SET
   name_tc = COALESCE('維多利亞（君匯港）幼稚園', name_tc),
-  logo_url = '/logos/574708.png',
+  logo_url = '/logos/574708.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -2411,13 +2411,13 @@ UPDATE schools SET
   application_status = 'year_round',
   application_details = 'AY2026/27 Admissions Seminar Replay Online Soon!',
   application_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1',
-  open_day_details = 'K3 Visit City Gallery (MK)',
-  open_day_url = 'https://www.victoria.edu.hk/news/2025-2026-k3-visit-city-gallery-%e9%ab%98%e7%8f%ad%e5%8f%83%e8%a7%80%e5%b1%95%e5%9f%8e%e9%a4%a8-mk/',
+  open_day_details = 'Missed the event or want to revisit the highlights?',
+  open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '574708';
 UPDATE schools SET
   name_tc = COALESCE('明慧國際幼稚園（太子分校）', name_tc),
-  logo_url = '/logos/583421.png',
+  logo_url = '/logos/583421.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),
@@ -2465,7 +2465,7 @@ UPDATE schools SET
 WHERE school_code = '601403';
 UPDATE schools SET
   name_tc = COALESCE('香港墨爾文國際幼稚園', name_tc),
-  logo_url = '/logos/606979.png',
+  logo_url = '/logos/606979.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = 8000,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -2486,18 +2486,18 @@ UPDATE schools SET
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
   registration_fee_hkd = COALESCE(NULL, registration_fee_hkd),
-  fee_notes = NULL,
-  other_fees_note = NULL,
-  application_status = NULL,
-  application_details = NULL,
-  application_url = NULL,
+  fee_notes = 'Inquiry or Feedback / Learning Habitat Kindergarten & Bilingual Nursery | Fees / Tuition Fee',
+  other_fees_note = 'Uniform Fee / Miscellaneous Fee',
+  application_status = 'website',
+  application_details = '2026/27 PN Application - Announcement of Result',
+  application_url = 'http://www.learninghabitat.org/en/p1-placement-results',
   open_day_details = NULL,
   open_day_url = NULL,
   last_profile_scraped_at = now()
 WHERE school_code = '617474';
 UPDATE schools SET
   name_tc = COALESCE('萊恩幼稚園（元朗）', name_tc),
-  logo_url = '/logos/151696.png',
+  logo_url = '/logos/151696.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -2513,7 +2513,7 @@ UPDATE schools SET
 WHERE school_code = '151696';
 UPDATE schools SET
   name_tc = COALESCE('萊恩英文幼稚園', name_tc),
-  logo_url = '/logos/517828.png',
+  logo_url = '/logos/517828.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -2529,7 +2529,7 @@ UPDATE schools SET
 WHERE school_code = '517828';
 UPDATE schools SET
   name_tc = COALESCE('德怡國際幼稚園（元朗）', name_tc),
-  logo_url = '/logos/602000.png',
+  logo_url = '/logos/602000.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -2561,7 +2561,7 @@ UPDATE schools SET
 WHERE school_code = '605441';
 UPDATE schools SET
   name_tc = COALESCE('多多國際幼稚園（形點）', name_tc),
-  logo_url = '/logos/605794.png',
+  logo_url = '/logos/605794.svg',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
@@ -2593,7 +2593,7 @@ UPDATE schools SET
 WHERE school_code = '612189';
 UPDATE schools SET
   name_tc = COALESCE('艾蒙特國際幼稚園', name_tc),
-  logo_url = '/logos/615633.png',
+  logo_url = '/logos/615633.svg',
   fee_monthly_hkd = 7000,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(40, application_fee_hkd),

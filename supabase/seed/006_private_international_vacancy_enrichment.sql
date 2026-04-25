@@ -35,11 +35,11 @@ SET
   k1_vacancy = 'no_information',
   k2_vacancy = 'no_information',
   k3_vacancy = 'no_information',
-  edb_source_url = 'https://www.wisely.edu.hk/'
+  edb_source_url = 'http://www.wisely.edu.hk/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '566284' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'not_offered', 'no_information', 'no_information', 'no_information', 'https://www.wisely.edu.hk/', true
+SELECT id, '2026/27', 'not_offered', 'no_information', 'no_information', 'no_information', 'http://www.wisely.edu.hk/', true
 FROM schools
 WHERE school_code = '566284' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -271,15 +271,15 @@ WHERE school_code = '215694' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'no_information',
-  k1_vacancy = 'no_information',
-  k2_vacancy = 'no_information',
-  k3_vacancy = 'no_information',
-  edb_source_url = 'https://www.magartedu.com/'
+  n_vacancy = 'check_school',
+  k1_vacancy = 'check_school',
+  k2_vacancy = 'check_school',
+  k3_vacancy = 'check_school',
+  edb_source_url = 'https://www.magartedu.com/en/how-to-apply/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '215767' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'https://www.magartedu.com/', true
+SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'https://www.magartedu.com/en/how-to-apply/', true
 FROM schools
 WHERE school_code = '215767' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -481,15 +481,15 @@ WHERE school_code = '609285' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'no_information',
-  k1_vacancy = 'no_information',
-  k2_vacancy = 'no_information',
-  k3_vacancy = 'no_information',
-  edb_source_url = 'http://www.learninghabitat.org/'
+  n_vacancy = 'check_school',
+  k1_vacancy = 'check_school',
+  k2_vacancy = 'check_school',
+  k3_vacancy = 'check_school',
+  edb_source_url = 'http://www.learninghabitat.org/en/p1-placement-results'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '613681' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'http://www.learninghabitat.org/', true
+SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'http://www.learninghabitat.org/en/p1-placement-results', true
 FROM schools
 WHERE school_code = '613681' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -650,11 +650,11 @@ SET
   k1_vacancy = 'no_information',
   k2_vacancy = 'no_information',
   k3_vacancy = 'no_information',
-  edb_source_url = 'https://www.stcatherines.edu.hk/'
+  edb_source_url = 'http://www.stcatherines.edu.hk/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '215120' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'https://www.stcatherines.edu.hk/', true
+SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'http://www.stcatherines.edu.hk/', true
 FROM schools
 WHERE school_code = '215120' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -740,11 +740,11 @@ SET
   k1_vacancy = 'no_information',
   k2_vacancy = 'no_information',
   k3_vacancy = 'no_information',
-  edb_source_url = 'https://anfield.edu.hk/'
+  edb_source_url = 'https://anfield.edu.hk/lv/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '535818' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'https://anfield.edu.hk/', true
+SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'https://anfield.edu.hk/lv/', true
 FROM schools
 WHERE school_code = '535818' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -860,11 +860,11 @@ SET
   k1_vacancy = 'no_information',
   k2_vacancy = 'no_information',
   k3_vacancy = 'no_information',
-  edb_source_url = 'https://www.stcatherines.edu.hk/'
+  edb_source_url = 'http://www.stcatherines.edu.hk/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '586625' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'not_offered', 'no_information', 'no_information', 'no_information', 'https://www.stcatherines.edu.hk/', true
+SELECT id, '2026/27', 'not_offered', 'no_information', 'no_information', 'no_information', 'http://www.stcatherines.edu.hk/', true
 FROM schools
 WHERE school_code = '586625' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -976,30 +976,30 @@ WHERE school_code = '604445' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'no_information',
-  k1_vacancy = 'no_information',
-  k2_vacancy = 'no_information',
-  k3_vacancy = 'no_information',
-  edb_source_url = 'http://www.learninghabitat.org/'
+  n_vacancy = 'check_school',
+  k1_vacancy = 'check_school',
+  k2_vacancy = 'check_school',
+  k3_vacancy = 'check_school',
+  edb_source_url = 'http://www.learninghabitat.org/en/p1-placement-results'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '609528' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'http://www.learninghabitat.org/', true
+SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'http://www.learninghabitat.org/en/p1-placement-results', true
 FROM schools
 WHERE school_code = '609528' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'no_information',
-  k1_vacancy = 'no_information',
-  k2_vacancy = 'no_information',
-  k3_vacancy = 'no_information',
-  edb_source_url = 'https://www.magartedu.com/'
+  n_vacancy = 'check_school',
+  k1_vacancy = 'check_school',
+  k2_vacancy = 'check_school',
+  k3_vacancy = 'check_school',
+  edb_source_url = 'https://www.magartedu.com/en/how-to-apply/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '610623' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'https://www.magartedu.com/', true
+SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'https://www.magartedu.com/en/how-to-apply/', true
 FROM schools
 WHERE school_code = '610623' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -1051,15 +1051,15 @@ WHERE school_code = '231614' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'no_information',
-  k1_vacancy = 'no_information',
-  k2_vacancy = 'no_information',
-  k3_vacancy = 'no_information',
-  edb_source_url = 'http://www.learninghabitat.org/'
+  n_vacancy = 'check_school',
+  k1_vacancy = 'check_school',
+  k2_vacancy = 'check_school',
+  k3_vacancy = 'check_school',
+  edb_source_url = 'http://www.learninghabitat.org/en/p1-placement-results'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '534200' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'http://www.learninghabitat.org/', true
+SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'http://www.learninghabitat.org/en/p1-placement-results', true
 FROM schools
 WHERE school_code = '534200' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -1085,11 +1085,11 @@ SET
   k1_vacancy = 'check_school',
   k2_vacancy = 'check_school',
   k3_vacancy = 'check_school',
-  edb_source_url = 'https://oasiskindergarten.com/admission/'
+  edb_source_url = 'https://drive.google.com/file/d/1CWquM9RbRC82Hxj54Aac6ugdYeuNZNhI/view?usp=drive_link'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '622982' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'https://oasiskindergarten.com/admission/', true
+SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'https://drive.google.com/file/d/1CWquM9RbRC82Hxj54Aac6ugdYeuNZNhI/view?usp=drive_link', true
 FROM schools
 WHERE school_code = '622982' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -1156,15 +1156,15 @@ WHERE school_code = '627275' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'no_information',
-  k1_vacancy = 'no_information',
-  k2_vacancy = 'no_information',
-  k3_vacancy = 'no_information',
-  edb_source_url = 'https://www.magartedu.com/'
+  n_vacancy = 'check_school',
+  k1_vacancy = 'check_school',
+  k2_vacancy = 'check_school',
+  k3_vacancy = 'check_school',
+  edb_source_url = 'https://www.magartedu.com/en/how-to-apply/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '566241' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'https://www.magartedu.com/', true
+SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'https://www.magartedu.com/en/how-to-apply/', true
 FROM schools
 WHERE school_code = '566241' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -1381,15 +1381,15 @@ WHERE school_code = '609749' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'no_information',
-  k1_vacancy = 'no_information',
-  k2_vacancy = 'no_information',
-  k3_vacancy = 'no_information',
-  edb_source_url = 'http://www.learninghabitat.org/'
+  n_vacancy = 'check_school',
+  k1_vacancy = 'check_school',
+  k2_vacancy = 'check_school',
+  k3_vacancy = 'check_school',
+  edb_source_url = 'http://www.learninghabitat.org/en/p1-placement-results'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '612391' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'http://www.learninghabitat.org/', true
+SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'http://www.learninghabitat.org/en/p1-placement-results', true
 FROM schools
 WHERE school_code = '612391' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -1430,11 +1430,11 @@ SET
   k1_vacancy = 'no_information',
   k2_vacancy = 'no_information',
   k3_vacancy = 'no_information',
-  edb_source_url = 'https://www.invictus.edu.hk/tko'
+  edb_source_url = 'http://www.invictusschool.hk/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '615366' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'https://www.invictus.edu.hk/tko', true
+SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'http://www.invictusschool.hk/', true
 FROM schools
 WHERE school_code = '615366' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -1531,30 +1531,30 @@ WHERE school_code = '612782' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'no_information',
-  k1_vacancy = 'no_information',
-  k2_vacancy = 'no_information',
-  k3_vacancy = 'no_information',
-  edb_source_url = 'http://www.learninghabitat.org/'
+  n_vacancy = 'check_school',
+  k1_vacancy = 'check_school',
+  k2_vacancy = 'check_school',
+  k3_vacancy = 'check_school',
+  edb_source_url = 'http://www.learninghabitat.org/en/p1-placement-results'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '615250' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'http://www.learninghabitat.org/', true
+SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'http://www.learninghabitat.org/en/p1-placement-results', true
 FROM schools
 WHERE school_code = '615250' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'check_school',
-  k1_vacancy = 'check_school',
-  k2_vacancy = 'check_school',
-  k3_vacancy = 'check_school',
-  edb_source_url = 'http://www.catiline.edu.hk/primarynbsponenbspadmissions.html'
+  n_vacancy = 'no_information',
+  k1_vacancy = 'no_information',
+  k2_vacancy = 'no_information',
+  k3_vacancy = 'no_information',
+  edb_source_url = 'http://www.catiline.edu.hk/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '231266' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'http://www.catiline.edu.hk/primarynbsponenbspadmissions.html', true
+SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'http://www.catiline.edu.hk/', true
 FROM schools
 WHERE school_code = '231266' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -1696,15 +1696,15 @@ WHERE school_code = '598054' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'no_information',
-  k1_vacancy = 'no_information',
-  k2_vacancy = 'no_information',
-  k3_vacancy = 'no_information',
-  edb_source_url = 'http://www.learninghabitat.org/'
+  n_vacancy = 'check_school',
+  k1_vacancy = 'check_school',
+  k2_vacancy = 'check_school',
+  k3_vacancy = 'check_school',
+  edb_source_url = 'http://www.learninghabitat.org/en/p1-placement-results'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '604291' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'http://www.learninghabitat.org/', true
+SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'http://www.learninghabitat.org/en/p1-placement-results', true
 FROM schools
 WHERE school_code = '604291' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -1817,14 +1817,14 @@ WHERE school_code = '565466' AND NOT EXISTS (
 UPDATE vacancies
 SET
   n_vacancy = 'waiting_list',
-  k1_vacancy = 'waiting_list',
-  k2_vacancy = 'waiting_list',
-  k3_vacancy = 'waiting_list',
+  k1_vacancy = 'check_school',
+  k2_vacancy = 'check_school',
+  k3_vacancy = 'check_school',
   edb_source_url = 'https://mulberryhousekg.com/how-to-apply/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '578053' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'waiting_list', 'waiting_list', 'waiting_list', 'waiting_list', 'https://mulberryhousekg.com/how-to-apply/', true
+SELECT id, '2026/27', 'waiting_list', 'check_school', 'check_school', 'check_school', 'https://mulberryhousekg.com/how-to-apply/', true
 FROM schools
 WHERE school_code = '578053' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -1907,14 +1907,14 @@ WHERE school_code = '567027' AND NOT EXISTS (
 UPDATE vacancies
 SET
   n_vacancy = 'waiting_list',
-  k1_vacancy = 'waiting_list',
-  k2_vacancy = 'waiting_list',
-  k3_vacancy = 'waiting_list',
+  k1_vacancy = 'check_school',
+  k2_vacancy = 'check_school',
+  k3_vacancy = 'check_school',
   edb_source_url = 'https://mulberryhousekg.com/how-to-apply/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '601721' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'waiting_list', 'waiting_list', 'waiting_list', 'waiting_list', 'https://mulberryhousekg.com/how-to-apply/', true
+SELECT id, '2026/27', 'waiting_list', 'check_school', 'check_school', 'check_school', 'https://mulberryhousekg.com/how-to-apply/', true
 FROM schools
 WHERE school_code = '601721' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -2146,15 +2146,15 @@ WHERE school_code = '581119' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'check_school',
-  k1_vacancy = 'check_school',
-  k2_vacancy = 'check_school',
-  k3_vacancy = 'check_school',
-  edb_source_url = 'http://www.pods.com.hk/pages/admissions'
+  n_vacancy = 'no_information',
+  k1_vacancy = 'no_information',
+  k2_vacancy = 'no_information',
+  k3_vacancy = 'no_information',
+  edb_source_url = 'http://www.pods.com.hk/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '593770' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'http://www.pods.com.hk/pages/admissions', true
+SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'http://www.pods.com.hk/', true
 FROM schools
 WHERE school_code = '593770' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -2206,15 +2206,15 @@ WHERE school_code = '216178' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'no_information',
-  k1_vacancy = 'no_information',
-  k2_vacancy = 'no_information',
-  k3_vacancy = 'no_information',
-  edb_source_url = 'http://www.learninghabitat.org/'
+  n_vacancy = 'check_school',
+  k1_vacancy = 'check_school',
+  k2_vacancy = 'check_school',
+  k3_vacancy = 'check_school',
+  edb_source_url = 'http://www.learninghabitat.org/en/p1-placement-results'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '561207' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'http://www.learninghabitat.org/', true
+SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'http://www.learninghabitat.org/en/p1-placement-results', true
 FROM schools
 WHERE school_code = '561207' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -2326,15 +2326,15 @@ WHERE school_code = '606979' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'no_information',
-  k1_vacancy = 'no_information',
-  k2_vacancy = 'no_information',
-  k3_vacancy = 'no_information',
-  edb_source_url = 'http://www.learninghabitat.org/'
+  n_vacancy = 'check_school',
+  k1_vacancy = 'check_school',
+  k2_vacancy = 'check_school',
+  k3_vacancy = 'check_school',
+  edb_source_url = 'http://www.learninghabitat.org/en/p1-placement-results'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '617474' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'no_information', 'no_information', 'no_information', 'no_information', 'http://www.learninghabitat.org/', true
+SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'http://www.learninghabitat.org/en/p1-placement-results', true
 FROM schools
 WHERE school_code = '617474' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
