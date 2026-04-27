@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ProgrammesClient } from "./ProgrammesClient";
 import { ProgrammeCardSkeleton } from "@/components/programmes/ProgrammeCard";
 
@@ -17,42 +18,52 @@ export const metadata: Metadata = {
 
 export default function ProgrammesPage() {
   return (
-    <div className="mx-auto max-w-6xl px-5 py-8 md:px-8 md:py-12">
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold tracking-tight text-slate-950">
-          SmartPLAY 開報前追蹤
-        </h1>
-        <p className="mt-1 text-sm text-slate-500">
-          康文署幼兒課程（2-6 歲）· 收藏課程 · 開報前電郵提醒
-        </p>
-        <div className="mt-3 rounded-xl bg-amber-50 border border-amber-100 px-4 py-3">
-          <p className="text-xs text-amber-700">
-            <strong>提示：</strong>加入開報前追蹤後，系統會在報名開放前向你發送提醒郵件。
-            我哋唔會代你報名，收到通知後請自行前往
-            <a
-              href="https://www.smartplay.lcsd.gov.hk"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline hover:text-amber-900"
-            >
-              SmartPLAY
-            </a>
-            官網操作。
-          </p>
+    <>
+      <section className="relative overflow-hidden bg-cream-50 border-b border-cream-200">
+        <span className="leaf-decor leaf-decor-tl pointer-events-none" />
+        <span className="leaf-decor leaf-decor-tr pointer-events-none" />
+        <div className="relative max-w-7xl mx-auto px-5 md:px-8 py-10 md:py-14 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+          <div className="relative z-10">
+            <h1 className="text-3xl md:text-4xl font-bold text-ink-900 leading-tight">
+              SmartPLAY 開報前追蹤
+            </h1>
+            <p className="mt-3 text-sm text-ink-500">
+              課文通識 &gt; 以課程 ｜ 2-6 歲 ｜ 收藏課程，開報前掌握資訊
+            </p>
+            <div className="mt-5 rounded-card bg-sand-50 border border-sand-100 px-4 py-3 max-w-lg">
+              <p className="text-xs text-sand-700 leading-relaxed">
+                <span className="text-base mr-1">🔔</span>
+                <strong>提示：</strong>加入開報前追蹤後，系統會在報名開放前的特定時段就向你提醒，
+                發送相關班位的最新狀況及通知給你的帳戶或 SmartPLAY 訂閱帳戶。
+              </p>
+            </div>
+          </div>
+          <div className="relative h-32 md:h-48 hidden md:flex items-end justify-center">
+            <Image
+              src="/brand/hero/family.png"
+              alt=""
+              width={420}
+              height={420}
+              sizes="320px"
+              className="relative z-10 max-h-full w-auto object-contain opacity-90"
+            />
+          </div>
         </div>
-      </div>
+      </section>
 
-      <Suspense fallback={<ProgrammesListSkeleton />}>
-        <ProgrammesClient />
-      </Suspense>
-    </div>
+      <div className="mx-auto max-w-7xl px-5 md:px-8 py-10">
+        <Suspense fallback={<ProgrammesListSkeleton />}>
+          <ProgrammesClient />
+        </Suspense>
+      </div>
+    </>
   );
 }
 
 function ProgrammesListSkeleton() {
   return (
     <div>
-      <div className="mb-6 h-10 animate-pulse rounded-full bg-slate-100" />
+      <div className="mb-6 h-10 animate-pulse rounded-pill bg-cream-100" />
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {Array.from({ length: 6 }).map((_, i) => (
           <ProgrammeCardSkeleton key={i} />

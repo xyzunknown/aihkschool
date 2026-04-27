@@ -28,32 +28,35 @@ export function TimelineClient({ events }: TimelineClientProps) {
   const futureCount = filteredEvents.filter((e) => !e.is_past).length;
 
   return (
-    <div className="max-w-3xl mx-auto px-5 md:px-8 py-8">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold tracking-tight text-slate-950 mb-2">
-          學校活動時間線
-        </h1>
-        <p className="text-slate-600">
-          未來 90 天內的開放日、面試、簡介會及報名截止日期
-          {futureCount > 0 && (
-            <span className="ml-2 text-sm text-slate-700 font-medium">
-              · {futureCount} 個即將到來
-            </span>
-          )}
-        </p>
+    <>
+      <section className="relative overflow-hidden bg-cream-50 border-b border-cream-200">
+        <span className="leaf-decor leaf-decor-tl pointer-events-none" />
+        <span className="leaf-decor leaf-decor-tr pointer-events-none" />
+        <div className="relative max-w-7xl mx-auto px-5 md:px-8 py-10 md:py-14">
+          <h1 className="text-3xl md:text-4xl font-bold text-ink-900 leading-tight">
+            學校活動時間線
+          </h1>
+          <p className="mt-3 text-sm md:text-base text-ink-700 max-w-xl">
+            未來 90 天內的開放日、面試、簡介會及報名截止日期
+            {futureCount > 0 && (
+              <span className="ml-2 text-forest-700 font-semibold">
+                · {futureCount} 個即將到來
+              </span>
+            )}
+          </p>
+        </div>
+      </section>
+
+      <div className="max-w-3xl mx-auto px-5 md:px-8 py-10">
+        <TimelineFilters
+          selectedEventType={selectedEventType}
+          selectedSchoolType={selectedSchoolType}
+          onEventTypeChange={setSelectedEventType}
+          onSchoolTypeChange={setSelectedSchoolType}
+        />
+
+        <TimelineList events={filteredEvents} />
       </div>
-
-      {/* Filters */}
-      <TimelineFilters
-        selectedEventType={selectedEventType}
-        selectedSchoolType={selectedSchoolType}
-        onEventTypeChange={setSelectedEventType}
-        onSchoolTypeChange={setSelectedSchoolType}
-      />
-
-      {/* Event list */}
-      <TimelineList events={filteredEvents} />
-    </div>
+    </>
   );
 }

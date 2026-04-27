@@ -3,19 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --background: #f8fafc;
-  --foreground: #020617;
+  --background: #FDFBF5;
+  --foreground: #1F2A24;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-family: var(--font-noto-sans-hk), "Noto Sans HK", "PingFang HK", "PingFang TC",
+    "Hiragino Sans CNS", "Microsoft JhengHei", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Smooth page transitions */
 main {
   animation: page-enter 0.3s ease-out;
 }
@@ -32,83 +32,80 @@ main {
 }
 
 @keyframes slide-up {
-  from {
-    transform: translateY(100%);
-  }
-  to {
-    transform: translateY(0);
-  }
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
 }
 
 @keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-.animate-slide-up {
-  animation: slide-up 0.3s ease-out;
-}
+.animate-slide-up { animation: slide-up 0.3s ease-out; }
+.animate-fade-in { animation: fade-in 0.2s ease-out; }
 
-.animate-fade-in {
-  animation: fade-in 0.2s ease-out;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.3);
+  background: rgba(58, 129, 89, 0.25);
   border-radius: 3px;
 }
+::-webkit-scrollbar-thumb:hover { background: rgba(58, 129, 89, 0.45); }
 
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(148, 163, 184, 0.5);
-}
-
-/* Ken Burns animation for banner images */
 @keyframes ken-burns {
   0% { transform: scale(1) translate(0, 0); }
   100% { transform: scale(1.08) translate(-1%, -1%); }
 }
+.animate-ken-burns { animation: ken-burns 20s ease-in-out infinite alternate; }
 
-.animate-ken-burns {
-  animation: ken-burns 20s ease-in-out infinite alternate;
-}
-
-/* Heart fill bounce */
 @keyframes heart-fill {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.25); }
 }
+.animate-heart-fill { animation: heart-fill 0.3s ease-out; }
 
-.animate-heart-fill {
-  animation: heart-fill 0.3s ease-out;
-}
+.hide-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
 
-/* Hide scrollbar for horizontal scroll containers */
-.hide-scrollbar {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-/* Focus ring for accessibility */
 *:focus-visible {
-  outline: 2px solid rgba(15, 23, 42, 0.4);
+  outline: 2px solid rgba(58, 129, 89, 0.5);
   outline-offset: 2px;
   border-radius: 8px;
+}
+
+/* Botanical corner decorations — drop on any positioned wrapper */
+.leaf-decor {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  pointer-events: none;
+  user-select: none;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.leaf-decor-tl { top: 0; left: 0; background-image: url('/brand/decor/leaf-tl.png'); }
+.leaf-decor-tr { top: 0; right: 0; background-image: url('/brand/decor/leaf-tr.png'); }
+.leaf-decor-bl { bottom: 0; left: 0; background-image: url('/brand/decor/leaf-bl.png'); }
+.leaf-decor-br { bottom: 0; right: 0; background-image: url('/brand/decor/leaf-br.png'); }
+
+@media (max-width: 768px) {
+  .leaf-decor { width: 140px; height: 140px; }
+}
+
+/* Section dividers used between month groups, etc. */
+.divider-leafy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #245636;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.divider-leafy::before,
+.divider-leafy::after {
+  content: "";
+  flex: 0 0 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #B6D2BB, transparent);
 }

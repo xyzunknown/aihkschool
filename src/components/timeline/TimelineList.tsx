@@ -48,13 +48,14 @@ export function TimelineList({ events }: TimelineListProps) {
     <div className="space-y-8">
       {grouped.map(([monthKey, monthEvents]) => (
         <section key={monthKey}>
-          {/* Month divider */}
-          <div className="flex items-center gap-3 mb-4">
-            <div className="h-px flex-1 bg-slate-200" />
-            <h3 className="text-sm font-semibold text-slate-500 whitespace-nowrap">
+          <div className="flex items-center gap-3 mb-5">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-leaf-200 to-leaf-200" />
+            <h3 className="text-sm font-semibold text-forest-700 whitespace-nowrap inline-flex items-center gap-2">
+              <span className="text-leaf-200">🌿</span>
               {formatMonthHeader(monthKey)}
+              <span className="text-leaf-200 scale-x-[-1]">🌿</span>
             </h3>
-            <div className="h-px flex-1 bg-slate-200" />
+            <div className="h-px flex-1 bg-gradient-to-l from-transparent via-leaf-200 to-leaf-200" />
           </div>
 
           {/* Events */}

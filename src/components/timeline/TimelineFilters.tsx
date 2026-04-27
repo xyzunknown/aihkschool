@@ -42,8 +42,8 @@ export function TimelineFilters({
             onClick={() => onEventTypeChange(opt.value)}
             className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
               selectedEventType === opt.value
-                ? "bg-slate-900 text-white"
-                : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                ? "bg-forest-600 text-white shadow-soft"
+                : "bg-white border border-cream-200 text-ink-700 hover:bg-leaf-50 hover:border-forest-300"
             }`}
           >
             {opt.label}
@@ -52,7 +52,7 @@ export function TimelineFilters({
       </div>
 
       {/* Divider */}
-      <div className="hidden sm:block w-px bg-slate-200 self-stretch" />
+      <div className="hidden sm:block w-px bg-cream-200 self-stretch" />
 
       {/* School type filter */}
       <div className="flex flex-wrap gap-1.5">
@@ -62,8 +62,8 @@ export function TimelineFilters({
             onClick={() => onSchoolTypeChange(opt.value)}
             className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
               selectedSchoolType === opt.value
-                ? "bg-slate-900 text-white"
-                : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                ? "bg-forest-600 text-white shadow-soft"
+                : "bg-white border border-cream-200 text-ink-700 hover:bg-leaf-50 hover:border-forest-300"
             }`}
           >
             {opt.label}

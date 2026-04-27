@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ActivitiesClient } from "./ActivitiesClient";
 import { ActivityCardSkeleton } from "@/components/activities/ActivityCard";
 
@@ -17,28 +18,46 @@ export const metadata: Metadata = {
 
 export default function ActivitiesPage() {
   return (
-    <div className="mx-auto max-w-6xl px-5 py-8 md:px-8 md:py-12">
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold tracking-tight text-slate-950">
-          課外活動
-        </h1>
-        <p className="mt-1 text-sm text-slate-500">
-          香港幼稚園階段興趣班、社區活動搜尋 · 音樂、運動、美術、舞蹈、科學、語言
-        </p>
-      </div>
+    <>
+      <section className="relative overflow-hidden bg-cream-50 border-b border-cream-200">
+        <span className="leaf-decor leaf-decor-tl pointer-events-none" />
+        <span className="leaf-decor leaf-decor-tr pointer-events-none" />
+        <div className="relative max-w-7xl mx-auto px-5 md:px-8 py-10 md:py-14 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+          <div className="relative z-10">
+            <h1 className="text-3xl md:text-4xl font-bold text-ink-900 leading-tight">
+              課外活動
+            </h1>
+            <p className="mt-3 text-sm md:text-base text-ink-700 leading-relaxed max-w-md">
+              香港幼稚園階段興趣班、社區活動搜尋 · 音樂、運動、美術、舞蹈、科學、語言
+            </p>
+          </div>
+          <div className="relative h-32 md:h-48 hidden md:flex items-end justify-center">
+            <Image
+              src="/brand/hero/family.png"
+              alt=""
+              width={420}
+              height={420}
+              sizes="320px"
+              className="relative z-10 max-h-full w-auto object-contain opacity-90"
+            />
+          </div>
+        </div>
+      </section>
 
-      <Suspense fallback={<ActivitiesListSkeleton />}>
-        <ActivitiesClient />
-      </Suspense>
-    </div>
+      <div className="mx-auto max-w-7xl px-5 md:px-8 py-10">
+        <Suspense fallback={<ActivitiesListSkeleton />}>
+          <ActivitiesClient />
+        </Suspense>
+      </div>
+    </>
   );
 }
 
 function ActivitiesListSkeleton() {
   return (
     <div>
-      <div className="mb-6 h-10 animate-pulse rounded-full bg-slate-100" />
-      <div className="mb-6 h-10 animate-pulse rounded-full bg-slate-100" />
+      <div className="mb-6 h-10 animate-pulse rounded-pill bg-cream-100" />
+      <div className="mb-6 h-10 animate-pulse rounded-pill bg-cream-100" />
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {Array.from({ length: 6 }).map((_, i) => (
           <ActivityCardSkeleton key={i} />

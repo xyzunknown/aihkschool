@@ -32,19 +32,20 @@ export function ActivityFilterBar({
   return (
     <div className="space-y-3">
       {/* 類別 pills */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-hide">
+      <div className="flex items-center gap-2 overflow-x-auto pb-1 hide-scrollbar">
         {Object.entries(CATEGORY_LABELS).map(([key, label]) => {
           const isActive = category === key;
           return (
             <button
               key={key}
               onClick={() => onChangeCategory(isActive ? null : (key as ActivityCategory))}
-              className={`flex-shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+              className={`flex-shrink-0 inline-flex items-center gap-1.5 rounded-pill px-4 h-10 text-sm font-medium transition ${
                 isActive
-                  ? "bg-slate-900 text-white"
-                  : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                  ? "bg-forest-600 text-white shadow-soft"
+                  : "bg-white border border-cream-200 text-ink-700 hover:border-forest-300 hover:bg-leaf-50"
               }`}
             >
+              <span aria-hidden>♪</span>
               {label}
             </button>
           );
@@ -56,7 +57,7 @@ export function ActivityFilterBar({
         <select
           value={district ?? ""}
           onChange={(e) => onChangeDistrict((e.target.value || null) as ActivityDistrict | null)}
-          className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 outline-none focus:border-slate-400 focus:ring-1 focus:ring-slate-200"
+          className="rounded-pill border border-cream-200 bg-white px-4 h-10 text-sm text-ink-700 outline-none focus:border-forest-400"
         >
           <option value="">全部地區</option>
           {Object.entries(DISTRICT_LABELS).map(([key, label]) => (
@@ -66,12 +67,12 @@ export function ActivityFilterBar({
           ))}
         </select>
 
-        <label className="inline-flex cursor-pointer items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 transition-colors hover:bg-slate-50">
+        <label className="inline-flex cursor-pointer items-center gap-2 rounded-pill border border-cream-200 bg-white px-4 h-10 text-sm text-ink-700 transition hover:bg-leaf-50">
           <input
             type="checkbox"
             checked={free}
             onChange={(e) => onChangeFree(e.target.checked)}
-            className="h-4 w-4 rounded border-slate-300 text-slate-900 focus:ring-slate-200"
+            className="h-4 w-4 rounded border-cream-300 text-forest-600 focus:ring-forest-200"
           />
           只顯示免費
         </label>
@@ -81,13 +82,13 @@ export function ActivityFilterBar({
           value={search}
           onChange={(e) => onChangeSearch(e.target.value)}
           placeholder="搜尋活動名稱或機構"
-          className="min-w-[200px] rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 outline-none placeholder:text-slate-400 focus:border-slate-400 focus:ring-1 focus:ring-slate-200"
+          className="min-w-[200px] flex-1 rounded-pill border border-cream-200 bg-white px-4 h-10 text-sm text-ink-700 outline-none placeholder:text-ink-400 focus:border-forest-400"
         />
 
         {hasFilter && (
           <button
             onClick={onReset}
-            className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm text-slate-500 transition-colors hover:bg-slate-50"
+            className="rounded-pill border border-cream-200 bg-white px-4 h-10 text-sm text-ink-500 transition hover:bg-cream-100"
           >
             清除篩選
           </button>

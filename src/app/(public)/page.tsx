@@ -1,9 +1,10 @@
-import { BannerCarousel } from "@/components/home/BannerCarousel";
-import { HeroSearchBar } from "@/components/home/HeroSearchBar";
-import { ParentMustKnow } from "@/components/home/ParentMustKnow";
-import { NewsFeed } from "@/components/home/NewsFeed";
-import { FeaturedSchools } from "@/components/home/FeaturedSchools";
-import { ActivitiesPreview } from "@/components/home/ActivitiesPreview";
+import { Hero } from "@/components/home/Hero";
+import { MegaSearch } from "@/components/home/MegaSearch";
+import { InfoCard4Up } from "@/components/home/InfoCard4Up";
+import { FeaturedSchoolsRow } from "@/components/home/FeaturedSchoolsRow";
+import { VacancyTicker } from "@/components/home/VacancyTicker";
+import { ArticleGrid } from "@/components/home/ArticleGrid";
+import { StatsBanner } from "@/components/home/StatsBanner";
 import { getHomepageLiveData } from "@/lib/homepage/liveData";
 
 const AUTH_ERROR_COPY: Record<string, string> = {
@@ -18,40 +19,27 @@ export default async function HomePage({
   searchParams?: Promise<{ error?: string }>;
 }) {
   const liveData = await getHomepageLiveData();
-  const hasHomepageBanner = liveData.banners.length > 0;
   const resolvedSearchParams = await searchParams;
   const authError = resolvedSearchParams?.error;
   const authErrorMessage = authError ? AUTH_ERROR_COPY[authError] : null;
 
   return (
-    <div className="max-w-6xl mx-auto px-5 md:px-8">
+    <>
       {authErrorMessage ? (
-        <section className="pt-6">
-          <div className="rounded-2xl border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-950 md:px-5">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 pt-6">
+          <div className="rounded-card border border-sand-200 bg-sand-50 px-4 py-3 text-sm text-sand-700">
             {authErrorMessage}
           </div>
-        </section>
+        </div>
       ) : null}
 
-      {/* Hero: Banner + Search */}
-      <section className="pt-8 pb-10 md:pt-12 md:pb-14">
-        {hasHomepageBanner ? <BannerCarousel banners={liveData.banners} /> : null}
-        <HeroSearchBar />
-      </section>
-
-      {/* 近期家長必知 */}
-      <ParentMustKnow
-        events={liveData.events}
-      />
-
-      {/* 課外活動精選 */}
-      <ActivitiesPreview />
-
-      {/* 消息動態 */}
-      <NewsFeed items={liveData.newsItems} />
-
-      {/* 精選名校 */}
-      <FeaturedSchools schools={liveData.featuredSchools} />
-    </div>
+      <Hero />
+      <MegaSearch />
+      <InfoCard4Up events={liveData.events} />
+      <FeaturedSchoolsRow schools={liveData.featuredSchools} />
+      <VacancyTicker schools={liveData.featuredSchools} />
+      <ArticleGrid items={liveData.newsItems} />
+      <StatsBanner />
+    </>
   );
 }
