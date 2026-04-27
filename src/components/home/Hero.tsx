@@ -3,17 +3,18 @@ import Image from "next/image";
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-cream-50 border-b border-cream-200">
-      <div
-        className="absolute inset-x-0 bottom-0 h-2/3 opacity-40 pointer-events-none"
-        style={{
-          backgroundImage: "url('/brand/decor/skyline-watercolor.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center bottom",
-          backgroundRepeat: "no-repeat",
-        }}
-      />
-      <span className="leaf-decor leaf-decor-tl pointer-events-none" />
-      <span className="leaf-decor leaf-decor-tr pointer-events-none" />
+      {/* Watercolor harbour banner — desktop & mobile srcset */}
+      <picture className="absolute inset-0 pointer-events-none select-none">
+        <source media="(max-width: 768px)" srcSet="/brand/hero/bg-mobile@2x.jpg" />
+        <img
+          src="/brand/hero/bg@2x.jpg"
+          alt=""
+          aria-hidden
+          className="w-full h-full object-cover opacity-90"
+        />
+      </picture>
+      <span className="leaf-decor leaf-decor-tl pointer-events-none z-10" />
+      <span className="leaf-decor leaf-decor-tr pointer-events-none z-10" />
 
       <div className="relative max-w-7xl mx-auto px-5 md:px-8 py-12 md:py-20 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div className="relative z-10">
@@ -28,16 +29,8 @@ export function Hero() {
         </div>
 
         <div className="relative h-64 md:h-[420px] flex items-end justify-center">
-          {/* Faint city watercolor backdrop */}
-          <div
-            className="absolute inset-0 opacity-40"
-            style={{
-              background:
-                "radial-gradient(ellipse at center 70%, #DBE8DD 0%, transparent 60%)",
-            }}
-          />
           <Image
-            src="/brand/hero/family.png"
+            src="/brand/hero/family@2x.png"
             alt="開心嘅家庭一齊閱讀"
             width={520}
             height={520}
