@@ -51,8 +51,11 @@ for await (const file of walk(ROOT)) {
   if (ext === ".jpg" || ext === ".jpeg") {
     await pipeline.jpeg({ quality: JPG_QUALITY, mozjpeg: true }).toFile(tmp);
   } else {
-    // PNG with possible transparency — use palette + compression
-    await pipeline.png({ compressionLevel: 9, palette: true, quality: 85 }).toFile(tmp);
+    // PNG: NEVER use palette:true — it strips alpha channel on RGBA images
+    // and silently bakes the transparent area to a solid colour, leaving
+    // the source PNG looking fine while the on-disk file is broken.
+    // Stick with deflate-only compression so transparency is preserved.
+    await pipeline.png({ compressionLevel: 9, effort: 10 }).toFile(tmp);
   }
 
   const after = (await fs.stat(tmp)).size;
