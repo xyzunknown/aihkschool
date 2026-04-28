@@ -41,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-HK">
-      <body className="antialiased min-h-screen flex flex-col bg-cream-50 text-ink-900 font-sans">
+      <body className="antialiased min-h-screen flex flex-col bg-white text-ink-900 font-sans">
         <AuthProvider>
           <ToastProvider>
             <Header />

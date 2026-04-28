@@ -19,9 +19,15 @@ export function ArticleGrid({ items }: Props) {
   const articles = items.slice(0, 4);
 
   return (
-    <section className="max-w-7xl mx-auto px-5 md:px-8 mt-12">
+    <section className="max-w-[1200px] mx-auto px-5 md:px-8 mt-12">
       <div className="flex items-center justify-between mb-5">
-        <h2 className="text-2xl font-bold text-ink-900">家長資訊與攻略</h2>
+        <h2 className="text-2xl font-semibold text-ink-900 flex items-center gap-2">
+          <span className="inline-block w-1 h-5 bg-brand-700 rounded-full" />
+          家長熱門主題
+        </h2>
+        <Link href="/news" className="text-sm text-brand-700 hover:underline font-medium">
+          查看全部攻略 →
+        </Link>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {articles.length === 0 &&
@@ -38,11 +44,6 @@ export function ArticleGrid({ items }: Props) {
             photo={ARTICLE_PHOTOS[i % 4]}
           />
         ))}
-      </div>
-      <div className="mt-6 text-center">
-        <Link href="/news" className="text-sm text-forest-600 hover:underline font-medium">
-          查看全部攻略 →
-        </Link>
       </div>
     </section>
   );

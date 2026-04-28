@@ -2,19 +2,42 @@ import Image from "next/image";
 import Link from "next/link";
 import type { FeaturedSchool } from "@/types/homepage";
 
-const HIGHLIGHT_TAGS = ["熱門", "新上架", "推薦", "高評分"] as const;
-const TAG_COLORS: Record<(typeof HIGHLIGHT_TAGS)[number], string> = {
-  熱門: "bg-rust-500 text-white",
-  新上架: "bg-forest-600 text-white",
-  推薦: "bg-sand-200 text-sand-700",
-  高評分: "bg-leaf-100 text-forest-700",
-};
-
 const SCHOOL_PHOTOS = [
   "/brand/schools/sample-1.jpg",
   "/brand/schools/sample-2.jpg",
   "/brand/schools/sample-3.jpg",
   "/brand/schools/sample-4.jpg",
+];
+
+const STATUS_STYLE: Record<string, string> = {
+  available: "bg-status-available-bg text-status-available-fg",
+  limited: "bg-status-limited-bg text-status-limited-fg",
+  full: "bg-status-full-bg text-status-full-fg",
+  pending: "bg-status-pending-bg text-status-pending-fg",
+};
+
+function vacancyKey(status?: string) {
+  if (!status) return "pending";
+  const s = status.toLowerCase();
+  if (s.includes("has") || status.includes("有位")) return "available";
+  if (s.includes("limit") || status.includes("少量") || status.includes("緊張")) return "limited";
+  if (s.includes("no_vacancy") || s.includes("full") || status.includes("已滿") || status.includes("滿")) return "full";
+  return "pending";
+}
+function vacancyLabel(key: string) {
+  return { available: "有位", limited: "少量", full: "額滿", pending: "待更新" }[key] ?? "—";
+}
+
+const SAMPLE_RATINGS = [
+  { rating: 4.7, count: 128 },
+  { rating: 4.6, count: 96 },
+  { rating: 4.5, count: 74 },
+];
+
+const SAMPLE_TAGS_FOR_SLOT = [
+  ["非牟利", "英文"],
+  ["非牟利", "英文"],
+  ["直資", "中英雙語"],
 ];
 
 interface Props {
@@ -23,22 +46,30 @@ interface Props {
 
 export function FeaturedSchoolsRow({ schools }: Props) {
   if (schools.length === 0) return null;
-  const items = schools.slice(0, 8);
+  const items = schools.slice(0, 3);
 
   return (
-    <section className="max-w-7xl mx-auto px-5 md:px-8 mt-12">
+    <section className="max-w-[1200px] mx-auto px-5 md:px-8 mt-12">
       <div className="flex items-center justify-between mb-5">
-        <h2 className="text-2xl font-bold text-ink-900">為你推薦的幼稚園</h2>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        {items.slice(0, 4).map((s, i) => (
-          <SchoolCard key={s.id} school={s} highlightTag={HIGHLIGHT_TAGS[i % 4]} photo={SCHOOL_PHOTOS[i % 4]} />
-        ))}
-      </div>
-      <div className="mt-6 text-center">
-        <Link href="/kg" className="text-sm text-forest-600 hover:underline font-medium">
+        <h2 className="text-2xl font-semibold text-ink-900 flex items-center gap-2">
+          <span className="inline-block w-1 h-5 bg-brand-700 rounded-full" />
+          推薦幼稚園
+        </h2>
+        <Link href="/kg" className="text-sm text-brand-700 hover:underline font-medium">
           查看全部學校 →
         </Link>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {items.map((s, i) => (
+          <SchoolCard
+            key={s.id}
+            school={s}
+            photo={SCHOOL_PHOTOS[i % 4]}
+            rating={SAMPLE_RATINGS[i % 3]}
+            extraTags={SAMPLE_TAGS_FOR_SLOT[i % 3]}
+            updatedHoursAgo={i + 1}
+          />
+        ))}
       </div>
     </section>
   );
@@ -46,35 +77,34 @@ export function FeaturedSchoolsRow({ schools }: Props) {
 
 function SchoolCard({
   school,
-  highlightTag,
   photo,
+  rating,
+  extraTags,
+  updatedHoursAgo,
 }: {
   school: FeaturedSchool;
-  highlightTag: (typeof HIGHLIGHT_TAGS)[number];
   photo: string;
+  rating: { rating: number; count: number };
+  extraTags: string[];
+  updatedHoursAgo: number;
 }) {
-  const sessionTags = school.sessionTags.slice(0, 2);
   const v = school.vacancyStatus;
-
   return (
     <Link
       href={school.href}
-      className="group bg-white rounded-card border border-cream-200 overflow-hidden shadow-soft hover:shadow-card transition flex flex-col"
+      className="group bg-white rounded-card border border-surface-border overflow-hidden shadow-soft hover:shadow-card transition flex flex-col"
     >
-      <div className="relative h-40 bg-cream-100 overflow-hidden">
+      <div className="relative aspect-[16/9] bg-surface-soft overflow-hidden">
         <Image
           src={photo}
           alt=""
           fill
-          sizes="(max-width: 768px) 100vw, 320px"
+          sizes="(max-width: 768px) 100vw, 360px"
           className="object-cover group-hover:scale-105 transition duration-500"
         />
-        <span className={`absolute top-3 left-3 z-10 px-2.5 py-1 rounded-md text-[10px] font-bold ${TAG_COLORS[highlightTag]} shadow-soft`}>
-          {highlightTag}
-        </span>
         <button
           aria-label="收藏"
-          className="absolute top-3 right-3 z-10 w-7 h-7 rounded-full bg-white/90 flex items-center justify-center text-ink-500 hover:text-rust-500"
+          className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/95 flex items-center justify-center text-ink-500 hover:text-[#B4473B] shadow-soft"
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
@@ -82,65 +112,40 @@ function SchoolCard({
         </button>
       </div>
       <div className="p-4 flex flex-col flex-1">
-        <h3 className="text-base font-semibold text-ink-900 line-clamp-1 group-hover:text-forest-700 transition">
+        <h3 className="text-base font-semibold text-ink-900 line-clamp-1 group-hover:text-brand-700 transition">
           {school.name_tc}
         </h3>
-        <div className="flex items-center gap-2 text-xs text-ink-500 mt-1">
-          <span className="inline-flex items-center gap-1">
-            <span>📍</span>
-            <span>{school.district}</span>
-          </span>
-          <span className="inline-flex items-center gap-1 text-forest-600">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="20 6 9 17 4 12" />
-            </svg>
-            <span>已核實</span>
-          </span>
+        <div className="flex items-center gap-1.5 mt-1.5 text-xs">
+          <span className="text-ink-500 inline-flex items-center gap-0.5">📍 {school.district}</span>
+          {extraTags.map((t) => (
+            <span key={t} className="px-1.5 py-0.5 rounded bg-surface-soft text-ink-700 text-[11px]">
+              {t}
+            </span>
+          ))}
         </div>
-        {sessionTags.length > 0 && (
-          <div className="flex flex-wrap gap-1.5 mt-2">
-            {sessionTags.map((t) => (
-              <span key={t} className="px-2 py-0.5 rounded-md bg-leaf-50 text-forest-700 text-[10px] font-medium">
-                {t}
-              </span>
-            ))}
-          </div>
-        )}
-        <div className="grid grid-cols-3 gap-1.5 mt-3 text-center">
+        <div className="grid grid-cols-3 gap-1.5 mt-3">
           {(["k1", "k2", "k3"] as const).map((g) => {
-            const status = v?.[g];
-            const display = vacancyDisplay(status);
+            const key = vacancyKey(v?.[g]);
             return (
-              <div key={g} className="py-1.5 rounded-lg" style={{ backgroundColor: display.bg }}>
-                <p className="text-[10px] text-ink-500 font-medium">{g.toUpperCase()}</p>
-                <p className="text-xs font-semibold mt-0.5" style={{ color: display.color }}>
-                  {display.label}
-                </p>
+              <div
+                key={g}
+                className={`py-1.5 rounded-lg text-center ${STATUS_STYLE[key]}`}
+              >
+                <p className="text-[10px] font-medium opacity-90">{g.toUpperCase()}</p>
+                <p className="text-xs font-bold mt-0.5">{vacancyLabel(key)}</p>
               </div>
             );
           })}
         </div>
-        <div className="flex items-center justify-between mt-3 pt-3 border-t border-cream-200 text-[11px] text-ink-500">
-          <span>♡ 校車</span>
-          <span>更新於 3 日前</span>
+        <div className="flex items-center justify-between mt-3 pt-3 border-t border-surface-border text-[11px] text-ink-500">
+          <span>更新：{updatedHoursAgo} 小時前</span>
+          <span className="inline-flex items-center gap-1 text-ink-700">
+            <span className="text-status-limited-fg">★</span>
+            <span className="font-semibold">{rating.rating}</span>
+            <span className="text-ink-500">({rating.count})</span>
+          </span>
         </div>
       </div>
     </Link>
   );
-}
-
-function vacancyDisplay(status?: string) {
-  if (!status) return { label: "—", bg: "#F4ECD8", color: "#6B766F" };
-  const s = status.toLowerCase();
-  if (s.includes("has") || status.includes("有位") || status.includes("足") || s === "vacancy")
-    return { label: "有位", bg: "#E8F0E3", color: "#245636" };
-  if (s.includes("limit") || status.includes("少量") || status.includes("緊張"))
-    return { label: "少量", bg: "#FCEFD0", color: "#8E5F1E" };
-  if (s.includes("no_vacancy") || s.includes("full") || status.includes("已滿") || status.includes("滿"))
-    return { label: "已滿", bg: "#FCE2DA", color: "#A84620" };
-  if (s.includes("not_offered") || s.includes("closed"))
-    return { label: "未開", bg: "#F4ECD8", color: "#6B766F" };
-  if (s.includes("check"))
-    return { label: "查官網", bg: "#F4ECD8", color: "#6B766F" };
-  return { label: "—", bg: "#F4ECD8", color: "#6B766F" };
 }

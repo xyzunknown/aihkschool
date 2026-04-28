@@ -24,13 +24,8 @@ const SUPPORT_LINKS = [
 
 export function Footer() {
   return (
-    <footer className="relative mt-0 bg-cream-100 border-t border-cream-200 overflow-hidden">
-      <span
-        className="leaf-decor leaf-decor-tl opacity-20 pointer-events-none"
-        style={{ width: 160, height: 160 }}
-      />
-
-      <div className="relative max-w-7xl mx-auto px-5 md:px-8 py-10 md:py-12 grid grid-cols-1 md:grid-cols-12 gap-8">
+    <footer className="relative mt-12 bg-white border-t border-surface-border">
+      <div className="relative max-w-[1200px] mx-auto px-5 md:px-8 py-10 grid grid-cols-1 md:grid-cols-12 gap-8">
         <div className="md:col-span-4">
           <div className="flex items-center gap-2.5 mb-3">
             <Image
@@ -58,7 +53,7 @@ export function Footer() {
             ].map((s) => (
               <span
                 key={s.name}
-                className="w-8 h-8 rounded-full bg-cream-200 flex items-center justify-center text-forest-600 hover:bg-forest-100 transition cursor-pointer"
+                className="w-8 h-8 rounded-full bg-surface-soft flex items-center justify-center text-brand-700 hover:bg-brand-50 transition cursor-pointer"
                 aria-label={s.name}
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
@@ -106,7 +101,7 @@ export function Footer() {
             <input
               type="email"
               placeholder="輸入您的電郵地址"
-              className="flex-1 px-4 h-10 rounded-pill bg-white border border-cream-300 text-sm outline-none focus:border-forest-400"
+              className="flex-1 px-4 h-10 rounded-pill bg-white border border-surface-border text-sm outline-none focus:border-brand-500"
             />
             <button
               type="submit"
@@ -128,7 +123,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-5 md:px-8 pb-6 pt-2 border-t border-cream-200/60 text-center">
+      <div className="relative max-w-[1200px] mx-auto px-5 md:px-8 pb-5 pt-3 border-t border-surface-border text-center">
         <p className="text-xs text-ink-500">© 2026 HKSchoolPlace. All rights reserved.</p>
       </div>
     </footer>

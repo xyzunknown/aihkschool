@@ -9,9 +9,10 @@ import { useAuth } from "@/components/layout/AuthProvider";
 const NAV_ITEMS = [
   { href: "/kg", label: "找幼稚園", match: ["/kg"] },
   { href: "/timeline", label: "開放日", match: ["/timeline"] },
-  { href: "/news", label: "評價總覽", match: ["/news"] },
+  { href: "/news", label: "評價優勢", match: ["/news"] },
   { href: "/activities", label: "課外活動", match: ["/activities", "/programmes"] },
-  { href: "/account", label: "收藏", match: ["/account"] },
+  { href: "/news?tab=parent", label: "家長攻略", match: ["/news?tab=parent"] },
+  { href: "/account", label: "收藏夾", match: ["/account"] },
 ] as const;
 
 function isActiveItem(pathname: string, item: (typeof NAV_ITEMS)[number]) {
@@ -25,13 +26,8 @@ export function Header() {
   const [searchValue, setSearchValue] = useState("");
 
   return (
-    <header className="sticky top-0 z-40 bg-cream-50/95 backdrop-blur border-b border-cream-200">
-      {/* Subtle leaf decoration in top-left */}
-      <div className="absolute top-0 left-0 w-32 h-16 opacity-60 pointer-events-none hidden md:block">
-        <div className="leaf-decor leaf-decor-tl" style={{ width: "120px", height: "80px" }} />
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-5 md:px-8 h-16 flex items-center gap-4">
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-surface-border">
+      <div className="relative max-w-[1200px] mx-auto px-5 md:px-8 h-[72px] flex items-center gap-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <Image

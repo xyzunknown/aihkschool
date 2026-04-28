@@ -1,8 +1,8 @@
 import { Hero } from "@/components/home/Hero";
+import { QuickActions } from "@/components/home/QuickActions";
 import { MegaSearch } from "@/components/home/MegaSearch";
-import { InfoCard4Up } from "@/components/home/InfoCard4Up";
+import { ProgressBoard } from "@/components/home/ProgressBoard";
 import { FeaturedSchoolsRow } from "@/components/home/FeaturedSchoolsRow";
-import { VacancyTicker } from "@/components/home/VacancyTicker";
 import { ArticleGrid } from "@/components/home/ArticleGrid";
 import { StatsBanner } from "@/components/home/StatsBanner";
 import { getHomepageLiveData } from "@/lib/homepage/liveData";
@@ -26,18 +26,18 @@ export default async function HomePage({
   return (
     <>
       {authErrorMessage ? (
-        <div className="max-w-7xl mx-auto px-5 md:px-8 pt-6">
-          <div className="rounded-card border border-sand-200 bg-sand-50 px-4 py-3 text-sm text-sand-700">
+        <div className="max-w-[1200px] mx-auto px-5 md:px-8 pt-6">
+          <div className="rounded-card border border-status-limited-bg bg-status-limited-bg/40 px-4 py-3 text-sm text-status-limited-fg">
             {authErrorMessage}
           </div>
         </div>
       ) : null}
 
       <Hero />
+      <QuickActions />
       <MegaSearch />
-      <InfoCard4Up events={liveData.events} />
+      <ProgressBoard events={liveData.events} schools={liveData.featuredSchools} />
       <FeaturedSchoolsRow schools={liveData.featuredSchools} />
-      <VacancyTicker schools={liveData.featuredSchools} />
       <ArticleGrid items={liveData.newsItems} />
       <StatsBanner />
     </>
