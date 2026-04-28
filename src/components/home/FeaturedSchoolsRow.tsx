@@ -85,9 +85,17 @@ function SchoolCard({
         <h3 className="text-base font-semibold text-ink-900 line-clamp-1 group-hover:text-forest-700 transition">
           {school.name_tc}
         </h3>
-        <div className="flex items-center gap-1 text-xs text-ink-500 mt-1">
-          <span>📍</span>
-          <span>{school.district}</span>
+        <div className="flex items-center gap-2 text-xs text-ink-500 mt-1">
+          <span className="inline-flex items-center gap-1">
+            <span>📍</span>
+            <span>{school.district}</span>
+          </span>
+          <span className="inline-flex items-center gap-1 text-forest-600">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            <span>已核實</span>
+          </span>
         </div>
         {sessionTags.length > 0 && (
           <div className="flex flex-wrap gap-1.5 mt-2">
@@ -114,7 +122,7 @@ function SchoolCard({
         </div>
         <div className="flex items-center justify-between mt-3 pt-3 border-t border-cream-200 text-[11px] text-ink-500">
           <span>♡ 校車</span>
-          <span>📋 面試</span>
+          <span>更新於 3 日前</span>
         </div>
       </div>
     </Link>

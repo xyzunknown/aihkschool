@@ -29,12 +29,20 @@ export function InfoCard4Up({ events }: Props) {
     .slice(0, 3);
 
   return (
-    <section className="max-w-7xl mx-auto px-5 md:px-8 mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+    <section className="max-w-7xl mx-auto px-5 md:px-8 mt-12">
+      <div className="mb-6">
+        <h2 className="text-2xl font-bold text-ink-900">幫你掌握申請進度</h2>
+        <p className="mt-1 text-sm text-ink-700">
+          開放日、報名截止、學位空缺與個人提醒清單，一站搞掂。
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
       {/* 熱門地區 */}
       <Card>
         <CardHeader title="熱門地區">
           <Link href="/kg" className="text-xs text-forest-600 hover:underline">
-            查看全部地區 →
+            全部 →
           </Link>
         </CardHeader>
         <div className="flex flex-wrap gap-2 mt-2 flex-1">
@@ -65,7 +73,11 @@ export function InfoCard4Up({ events }: Props) {
         </CardHeader>
         <ul className="mt-2 space-y-3 flex-1">
           {openDays.length === 0 && (
-            <li className="text-sm text-ink-500">本週暫無開放日</li>
+            <li className="text-sm text-ink-700 leading-relaxed">
+              本週暫無開放日。
+              <br />
+              <span className="text-xs text-ink-500">收藏心儀學校，新開放日會自動通知你。</span>
+            </li>
           )}
           {openDays.map((e) => (
             <li key={e.id} className="border-b border-cream-200 pb-2 last:border-0">
@@ -80,10 +92,10 @@ export function InfoCard4Up({ events }: Props) {
           ))}
         </ul>
         <Link
-          href="/timeline"
+          href={openDays.length === 0 ? "/kg" : "/timeline"}
           className="mt-4 block text-center px-4 h-9 rounded-pill bg-forest-600 text-white text-sm font-medium hover:bg-forest-700 transition leading-9"
         >
-          查看全部開放日
+          {openDays.length === 0 ? "去搜尋學校" : "查看全部開放日"}
         </Link>
       </Card>
 
@@ -96,7 +108,11 @@ export function InfoCard4Up({ events }: Props) {
         </CardHeader>
         <ul className="mt-2 space-y-3 flex-1">
           {deadlines.length === 0 && (
-            <li className="text-sm text-ink-500">暫無即將截止事項</li>
+            <li className="text-sm text-ink-700 leading-relaxed">
+              暫無即將截止事項。
+              <br />
+              <span className="text-xs text-ink-500">收藏學校後，我們會自動追蹤報名日期。</span>
+            </li>
           )}
           {deadlines.map((e) => (
             <li key={e.id} className="border-b border-cream-200 pb-2 last:border-0">
@@ -113,29 +129,29 @@ export function InfoCard4Up({ events }: Props) {
           ))}
         </ul>
         <Link
-          href="/timeline"
+          href={deadlines.length === 0 ? "/kg" : "/timeline"}
           className="mt-4 block text-center px-4 h-9 rounded-pill border border-rust-500 text-rust-600 text-sm font-medium hover:bg-rust-500/10 transition leading-9"
         >
-          查看所有截止事項
+          {deadlines.length === 0 ? "去找幼稚園" : "查看所有截止事項"}
         </Link>
       </Card>
 
-      {/* 提醒中心 */}
+      {/* 提醒中心 — Application Assistant */}
       <Card className="bg-gradient-to-br from-leaf-50 to-cream-100">
-        <CardHeader title="提醒中心" />
+        <CardHeader title="申請助手" />
         <div className="flex-1 flex flex-col items-center text-center mt-2">
           <Image
             src="/brand/mascot/miumiu-reminder1024×1024.png"
-            alt="提醒中心"
+            alt="申請助手"
             width={120}
             height={120}
-            className="w-24 h-24 object-contain"
+            className="w-20 h-20 object-contain"
           />
-          <p className="text-base font-semibold text-ink-900 mt-2">建立個人提醒清單</p>
-          <p className="text-xs text-ink-700 mt-1">
-            建立心儀學校、截止日期提醒，
+          <p className="text-base font-semibold text-ink-900 mt-2">建立孩子的申請時間線</p>
+          <p className="text-xs text-ink-700 mt-1 leading-relaxed">
+            收藏學校後，自動追蹤開放日、
             <br />
-            申請進度一目瞭然，不錯過重要事項。
+            報名截止與學位空缺更新。
           </p>
         </div>
         <Link
@@ -145,6 +161,7 @@ export function InfoCard4Up({ events }: Props) {
           立即建立
         </Link>
       </Card>
+      </div>
     </section>
   );
 }

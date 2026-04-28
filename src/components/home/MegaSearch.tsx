@@ -26,12 +26,14 @@ const DISTRICT_OPTIONS = [
 ];
 
 const HOT_TAGS = [
-  { label: "有校車接送", q: "校車" },
+  { label: "有 K1 空缺", q: "k1-vacancy" },
+  { label: "本月開放日", q: "open-this-month" },
   { label: "雙語課程", q: "雙語" },
   { label: "蒙特梭利", q: "蒙特梭利" },
-  { label: "中西區", q: "中西區" },
-  { label: "入學面試", q: "面試" },
+  { label: "近港鐵", q: "港鐵" },
 ];
+
+const HOT_DISTRICTS = ["中西區", "灣仔區", "九龍城", "沙田區", "元朗區", "屯門區", "北區"];
 
 export function MegaSearch() {
   const router = useRouter();
@@ -60,8 +62,8 @@ export function MegaSearch() {
         onSubmit={submit}
         className="bg-white rounded-card shadow-card border border-cream-200 p-5 md:p-6"
       >
-        <div className="flex items-center gap-2 mb-4 px-4 h-12 rounded-pill bg-cream-50 border border-cream-200 focus-within:border-forest-400">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-ink-500">
+        <div className="flex items-center gap-2 mb-5 px-5 h-14 md:h-16 rounded-pill bg-cream-50 border-2 border-cream-200 focus-within:border-forest-400 focus-within:shadow-glow transition">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-forest-500">
             <circle cx="11" cy="11" r="7" />
             <line x1="16.5" y1="16.5" x2="22" y2="22" />
           </svg>
@@ -69,18 +71,18 @@ export function MegaSearch() {
             type="search"
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            placeholder="找尋學校名稱、地區或特色..."
-            className="flex-1 bg-transparent outline-none text-sm text-ink-900 placeholder:text-ink-400"
+            placeholder="搜尋學校名稱、地區"
+            className="flex-1 bg-transparent outline-none text-base text-ink-900 placeholder:text-ink-400"
           />
           <button
             type="submit"
-            className="px-5 h-9 rounded-pill bg-forest-600 text-white text-sm font-medium hover:bg-forest-700 transition flex items-center gap-1.5"
+            className="px-6 md:px-8 h-11 md:h-12 rounded-pill bg-forest-600 text-white text-sm md:text-base font-semibold hover:bg-forest-700 transition flex items-center gap-2 shrink-0"
           >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
               <circle cx="11" cy="11" r="7" />
               <line x1="16.5" y1="16.5" x2="22" y2="22" />
             </svg>
-            搜尋
+            搜尋幼稚園
           </button>
         </div>
 
@@ -143,18 +145,33 @@ export function MegaSearch() {
           />
         </div>
 
-        <div className="mt-4 flex flex-wrap items-center gap-2">
-          <span className="text-sm text-ink-500">熱門搜尋：</span>
-          {HOT_TAGS.map((t) => (
-            <button
-              key={t.label}
-              type="button"
-              onClick={() => router.push(`/kg?q=${encodeURIComponent(t.q)}`)}
-              className="px-3 h-7 rounded-pill bg-cream-50 border border-cream-200 text-xs text-ink-700 hover:bg-leaf-50 hover:border-forest-200 transition"
-            >
-              ◇ {t.label}
-            </button>
-          ))}
+        <div className="mt-4 space-y-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs text-ink-500 shrink-0">快捷任務：</span>
+            {HOT_TAGS.map((t) => (
+              <button
+                key={t.label}
+                type="button"
+                onClick={() => router.push(`/kg?q=${encodeURIComponent(t.q)}`)}
+                className="px-3 h-7 rounded-pill bg-leaf-50 border border-leaf-100 text-xs text-forest-700 font-medium hover:bg-forest-100 hover:border-forest-200 transition"
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs text-ink-500 shrink-0">熱門地區：</span>
+            {HOT_DISTRICTS.map((d) => (
+              <button
+                key={d}
+                type="button"
+                onClick={() => router.push(`/kg?district=${encodeURIComponent(d)}`)}
+                className="px-3 h-7 rounded-pill bg-white border border-cream-200 text-xs text-ink-800 hover:border-forest-300 hover:bg-cream-50 transition"
+              >
+                {d}
+              </button>
+            ))}
+          </div>
         </div>
       </form>
     </section>
@@ -176,13 +193,13 @@ function Select({
 }) {
   return (
     <label className="flex flex-col gap-1">
-      <span className="text-[11px] text-ink-500 font-medium">{label}</span>
-      <div className="flex items-center gap-1.5 px-3 h-10 rounded-xl bg-cream-50 border border-cream-200 hover:border-forest-300 transition">
-        <span className="text-sm shrink-0" aria-hidden>{icon}</span>
+      <span className="text-[10px] text-ink-500 font-medium">{label}</span>
+      <div className="flex items-center gap-1.5 px-2.5 h-9 rounded-lg bg-white border border-cream-200 hover:border-forest-300 transition">
+        <span className="text-xs shrink-0 opacity-70" aria-hidden>{icon}</span>
         <select
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="flex-1 bg-transparent outline-none text-sm text-ink-900 cursor-pointer"
+          className="flex-1 bg-transparent outline-none text-xs text-ink-700 cursor-pointer"
         >
           {options.map((o) => (
             <option key={o.value} value={o.value}>

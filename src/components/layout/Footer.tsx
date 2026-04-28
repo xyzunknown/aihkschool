@@ -24,11 +24,13 @@ const SUPPORT_LINKS = [
 
 export function Footer() {
   return (
-    <footer className="relative mt-16 bg-cream-100 border-t border-cream-200 overflow-hidden">
-      <span className="leaf-decor leaf-decor-tl opacity-50" />
-      <span className="leaf-decor leaf-decor-br opacity-50" />
+    <footer className="relative mt-0 bg-cream-100 border-t border-cream-200 overflow-hidden">
+      <span
+        className="leaf-decor leaf-decor-tl opacity-20 pointer-events-none"
+        style={{ width: 160, height: 160 }}
+      />
 
-      <div className="relative max-w-7xl mx-auto px-5 md:px-8 py-12 grid grid-cols-1 md:grid-cols-12 gap-8">
+      <div className="relative max-w-7xl mx-auto px-5 md:px-8 py-10 md:py-12 grid grid-cols-1 md:grid-cols-12 gap-8">
         <div className="md:col-span-4">
           <div className="flex items-center gap-2.5 mb-3">
             <Image
@@ -40,7 +42,7 @@ export function Footer() {
             />
             <div className="leading-tight">
               <p className="text-base font-bold text-forest-700">HKSchoolPlace</p>
-              <p className="text-[11px] text-ink-500">全港幼稚園搜尋平台</p>
+              <p className="text-[11px] text-ink-700">全港幼稚園搜尋平台</p>
             </div>
           </div>
           <p className="text-sm text-ink-700 leading-relaxed">
@@ -74,7 +76,7 @@ export function Footer() {
               <Link
                 key={l.label}
                 href={l.href}
-                className="block text-sm text-ink-700 hover:text-forest-600 transition"
+                className="block text-sm text-ink-800 hover:text-forest-600 transition"
               >
                 {l.label}
               </Link>
@@ -89,7 +91,7 @@ export function Footer() {
               <Link
                 key={i}
                 href={l.href}
-                className="block text-sm text-ink-700 hover:text-forest-600 transition"
+                className="block text-sm text-ink-800 hover:text-forest-600 transition"
               >
                 {l.label}
               </Link>
@@ -117,7 +119,7 @@ export function Footer() {
             <h4 className="text-sm font-semibold text-ink-900">支援服務</h4>
             <div className="flex flex-wrap gap-x-4 gap-y-1">
               {SUPPORT_LINKS.map((l, i) => (
-                <Link key={i} href={l.href} className="text-xs text-ink-700 hover:text-forest-600">
+                <Link key={i} href={l.href} className="text-xs text-ink-800 hover:text-forest-600">
                   {l.label}
                 </Link>
               ))}
