@@ -8,10 +8,10 @@ interface Props {
 }
 
 const STATUS_STYLE: Record<string, string> = {
-  available: "bg-status-available-bg text-status-available-fg",
-  limited: "bg-status-limited-bg text-status-limited-fg",
-  full: "bg-status-full-bg text-status-full-fg",
-  pending: "bg-status-pending-bg text-status-pending-fg",
+  available: "bg-status-available-bg text-status-available-fg ring-1 ring-status-available-fg/12 shadow-[0_6px_18px_rgba(46,125,50,0.14)]",
+  limited: "bg-status-limited-bg text-status-limited-fg ring-1 ring-status-limited-fg/12 shadow-[0_6px_18px_rgba(180,120,0,0.12)]",
+  full: "bg-status-full-bg text-status-full-fg ring-1 ring-status-full-fg/12 shadow-[0_6px_18px_rgba(177,61,38,0.12)]",
+  pending: "bg-status-pending-bg text-status-pending-fg ring-1 ring-status-pending-fg/12 shadow-[0_6px_18px_rgba(107,114,128,0.12)]",
 };
 
 function vacancyKey(status?: string) {
@@ -41,13 +41,13 @@ export function ProgressBoard({ events, schools }: Props) {
 
   const vacancyItems = schools.slice(0, 5).map((s, i) => ({
     school: s,
-    statusKey: vacancyKey(s.vacancyStatus?.k1) === "available" ? "available" : (i === 1 ? "limited" : "available"),
+    statusKey: vacancyKey(s.vacancyStatus?.k1),
     grades: i % 2 === 0 ? "K1 - K3" : "K1 - K2",
     updatedHoursAgo: i + 1,
   }));
 
   return (
-    <section className="max-w-[1200px] mx-auto px-5 md:px-8 mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <section className="max-w-[1200px] mx-auto px-5 md:px-8 mt-9 md:mt-10 grid grid-cols-1 lg:grid-cols-2 gap-7 lg:gap-8">
       {/* Left column — application progress board */}
       <div>
         <SectionHeader title="申請進度看板" href="/timeline" />
@@ -86,13 +86,13 @@ export function ProgressBoard({ events, schools }: Props) {
       {/* Right column — vacancy ticker list */}
       <div>
         <SectionHeader title="學位空缺速遞" href="/kg?has_vacancy=1" />
-        <div className="bg-white rounded-card border border-surface-border shadow-soft overflow-hidden">
+        <div className="bg-white rounded-card border border-surface-border shadow-[0_8px_24px_rgba(30,82,56,0.06)] overflow-hidden">
           <ul className="divide-y divide-surface-border">
             {vacancyItems.map((v) => (
               <li key={v.school.id}>
                 <Link
                   href={v.school.href}
-                  className="flex items-center gap-3 px-4 py-3 hover:bg-surface-soft transition"
+                  className="flex items-center gap-3 px-4 py-3.5 min-h-[78px] hover:bg-surface-soft transition"
                 >
                   <div className="shrink-0 w-12 h-12 rounded-lg bg-surface-soft flex items-center justify-center overflow-hidden">
                     <Image
@@ -112,7 +112,7 @@ export function ProgressBoard({ events, schools }: Props) {
                     </p>
                   </div>
                   <div className="shrink-0 flex flex-col items-end gap-1">
-                    <span className={`px-2.5 py-0.5 rounded-md text-[11px] font-bold ${STATUS_STYLE[v.statusKey]}`}>
+                    <span className={`px-2.5 py-1 rounded-md text-[11px] font-bold ${STATUS_STYLE[v.statusKey]}`}>
                       {vacancyLabel(v.statusKey)}
                     </span>
                     <span className="text-[10px] text-ink-500">更新：{v.updatedHoursAgo} 小時前</span>
@@ -135,7 +135,7 @@ export function ProgressBoard({ events, schools }: Props) {
 
 function SectionHeader({ title, href }: { title: string; href: string }) {
   return (
-    <div className="flex items-center justify-between mb-4">
+    <div className="flex items-center justify-between mb-5">
       <h2 className="text-xl md:text-2xl font-semibold text-ink-900 flex items-center gap-2">
         <span className="inline-block w-1 h-5 bg-brand-700 rounded-full" />
         {title}
@@ -168,7 +168,7 @@ function TaskCard({
 }) {
   const badgeStyle = tone === "warn" ? "bg-status-limited-bg text-status-limited-fg" : "bg-brand-50 text-brand-700";
   return (
-    <div className="bg-white rounded-card border border-surface-border shadow-soft p-5 flex items-center gap-4 hover:shadow-card transition">
+    <div className="bg-white rounded-card border border-surface-border shadow-[0_8px_24px_rgba(30,82,56,0.06)] p-5 min-h-[138px] flex items-center gap-3 hover:shadow-[0_12px_30px_rgba(30,82,56,0.1)] transition">
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-1">
           <h3 className="text-base font-semibold text-ink-900">{title}</h3>
@@ -185,7 +185,7 @@ function TaskCard({
         alt=""
         width={88}
         height={88}
-        className="w-20 h-20 object-contain shrink-0"
+        className="w-[72px] h-[72px] object-contain shrink-0"
       />
     </div>
   );

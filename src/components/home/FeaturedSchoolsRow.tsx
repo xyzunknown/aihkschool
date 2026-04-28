@@ -10,10 +10,10 @@ const SCHOOL_PHOTOS = [
 ];
 
 const STATUS_STYLE: Record<string, string> = {
-  available: "bg-status-available-bg text-status-available-fg",
-  limited: "bg-status-limited-bg text-status-limited-fg",
-  full: "bg-status-full-bg text-status-full-fg",
-  pending: "bg-status-pending-bg text-status-pending-fg",
+  available: "bg-status-available-bg text-status-available-fg ring-1 ring-status-available-fg/12",
+  limited: "bg-status-limited-bg text-status-limited-fg ring-1 ring-status-limited-fg/12",
+  full: "bg-status-full-bg text-status-full-fg ring-1 ring-status-full-fg/12",
+  pending: "bg-status-pending-bg text-status-pending-fg ring-1 ring-status-pending-fg/12",
 };
 
 function vacancyKey(status?: string) {
@@ -92,7 +92,7 @@ function SchoolCard({
   return (
     <Link
       href={school.href}
-      className="group bg-white rounded-card border border-surface-border overflow-hidden shadow-soft hover:shadow-card transition flex flex-col"
+      className="group bg-white rounded-[20px] border border-surface-border overflow-hidden shadow-[0_8px_24px_rgba(30,82,56,0.06)] hover:shadow-[0_14px_32px_rgba(30,82,56,0.1)] transition-all duration-200 flex flex-col"
     >
       <div className="relative aspect-[16/9] bg-surface-soft overflow-hidden">
         <Image
@@ -100,11 +100,11 @@ function SchoolCard({
           alt=""
           fill
           sizes="(max-width: 768px) 100vw, 360px"
-          className="object-cover group-hover:scale-105 transition duration-500"
+          className="object-cover group-hover:scale-[1.04] transition duration-500"
         />
         <button
           aria-label="收藏"
-          className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/95 flex items-center justify-center text-ink-500 hover:text-[#B4473B] shadow-soft"
+          className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full border border-white/80 bg-white/95 flex items-center justify-center text-ink-500 hover:text-[#B4473B] shadow-[0_8px_18px_rgba(30,82,56,0.12)]"
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
@@ -118,7 +118,7 @@ function SchoolCard({
         <div className="flex items-center gap-1.5 mt-1.5 text-xs">
           <span className="text-ink-500 inline-flex items-center gap-0.5">📍 {school.district}</span>
           {extraTags.map((t) => (
-            <span key={t} className="px-1.5 py-0.5 rounded bg-surface-soft text-ink-700 text-[11px]">
+            <span key={t} className="px-1.5 py-0.5 rounded-md bg-surface-soft text-ink-700 text-[11px]">
               {t}
             </span>
           ))}

@@ -46,9 +46,9 @@ const STATS = [
 export function StatsBanner() {
   return (
     <section className="max-w-[1200px] mx-auto px-5 md:px-8 mt-12">
-      <div className="bg-white rounded-card border border-surface-border shadow-soft px-5 md:px-8 py-6 grid grid-cols-2 md:grid-cols-4 gap-5">
+      <div className="bg-white rounded-[20px] border border-surface-border shadow-[0_8px_24px_rgba(30,82,56,0.06)] px-5 md:px-8 py-6 grid grid-cols-2 md:grid-cols-4 gap-5">
         {STATS.map((s) => (
-          <div key={s.label} className="flex items-center gap-3 md:gap-4">
+          <div key={s.label} className="flex items-center gap-3 md:gap-4 rounded-2xl px-1 py-1 transition-colors hover:bg-surface-soft/70">
             <span className="shrink-0 w-10 h-10 rounded-full bg-brand-50 text-brand-700 flex items-center justify-center">
               {s.icon}
             </span>

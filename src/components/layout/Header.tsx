@@ -29,18 +29,18 @@ export function Header() {
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-surface-border">
       <div className="relative max-w-[1200px] mx-auto px-5 md:px-8 h-[72px] flex items-center gap-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 shrink-0">
+        <Link href="/" className="flex items-center gap-2.5 shrink-0">
           <Image
             src="/brand/Web Logo/Logo.png"
             alt="HKSchoolPlace"
-            width={36}
-            height={36}
-            className="rounded-lg"
+            width={42}
+            height={42}
+            className="w-[42px] h-auto rounded-xl"
             priority
           />
           <div className="hidden sm:flex flex-col leading-none">
-            <span className="text-base font-bold text-forest-700 tracking-tight">HKSchoolPlace</span>
-            <span className="text-[10px] text-ink-500 mt-0.5">全港幼稚園搜尋平台</span>
+            <span className="text-[17px] font-bold text-forest-700 tracking-tight">HKSchoolPlace</span>
+            <span className="text-[11px] text-ink-600 mt-1">全港幼稚園搜尋平台</span>
           </div>
         </Link>
 

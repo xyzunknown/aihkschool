@@ -69,7 +69,7 @@ function ArticleCard({
   return (
     <Link
       {...linkProps}
-      className="group bg-white rounded-card border border-cream-200 overflow-hidden shadow-soft hover:shadow-card transition flex flex-col"
+      className="group bg-white rounded-[20px] border border-surface-border overflow-hidden shadow-[0_8px_24px_rgba(30,82,56,0.06)] hover:shadow-[0_14px_32px_rgba(30,82,56,0.1)] transition-all duration-200 flex flex-col"
     >
       <div className="relative h-36 bg-cream-100 overflow-hidden">
         <Image
@@ -77,7 +77,7 @@ function ArticleCard({
           alt=""
           fill
           sizes="(max-width: 768px) 100vw, 320px"
-          className="object-cover group-hover:scale-105 transition duration-500"
+          className="object-cover group-hover:scale-[1.04] transition duration-500"
         />
       </div>
       <div className="p-4 flex flex-col flex-1">
@@ -95,7 +95,7 @@ function ArticleCard({
 
 function PlaceholderArticle({ tag, photo }: { tag: string; photo: string }) {
   return (
-    <div className="bg-white rounded-card border border-cream-200 overflow-hidden shadow-soft flex flex-col opacity-90">
+    <div className="bg-white rounded-[20px] border border-surface-border overflow-hidden shadow-[0_8px_24px_rgba(30,82,56,0.06)] flex flex-col opacity-90">
       <div className="relative h-36 bg-cream-100 overflow-hidden">
         <Image src={photo} alt="" fill sizes="320px" className="object-cover" />
       </div>
