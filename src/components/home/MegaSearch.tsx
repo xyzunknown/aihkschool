@@ -65,7 +65,7 @@ export function MegaSearch() {
   }
 
   return (
-    <section className="max-w-[1200px] mx-auto px-5 md:px-8 mt-4 md:mt-5">
+    <section className="max-w-[1200px] mx-auto px-5 md:px-8 mt-1 md:mt-2">
       <form
         onSubmit={submit}
         className="bg-white rounded-card border border-surface-border shadow-[0_12px_32px_rgba(30,82,56,0.07)] p-5 md:p-6"

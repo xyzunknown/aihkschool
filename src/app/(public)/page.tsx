@@ -1,5 +1,4 @@
 import { Hero } from "@/components/home/Hero";
-import { QuickActions } from "@/components/home/QuickActions";
 import { MegaSearch } from "@/components/home/MegaSearch";
 import { ProgressBoard } from "@/components/home/ProgressBoard";
 import { FeaturedSchoolsRow } from "@/components/home/FeaturedSchoolsRow";
@@ -34,7 +33,6 @@ export default async function HomePage({
       ) : null}
 
       <Hero />
-      <QuickActions />
       <MegaSearch />
       <ProgressBoard events={liveData.events} schools={liveData.featuredSchools} />
       <FeaturedSchoolsRow schools={liveData.featuredSchools} />
