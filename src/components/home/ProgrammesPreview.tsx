@@ -19,7 +19,7 @@ export async function ProgrammesPreview() {
         <div>
           <h2 className="text-xl md:text-2xl font-semibold text-ink-900 flex items-center gap-2">
             <span className="inline-block w-1 h-5 bg-brand-700 rounded-full" />
-            康體通開報提醒
+            康體通開報倒數
           </h2>
           <p className="mt-1.5 text-sm text-ink-500">
             追蹤 SmartPLAY 課程開報時間，提早提醒家長準備報名
