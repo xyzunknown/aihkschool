@@ -10,7 +10,8 @@ const NAV_ITEMS = [
   { href: "/kg", label: "找幼稚園", match: ["/kg"] },
   { href: "/timeline", label: "開放日", match: ["/timeline"] },
   { href: "/news", label: "評價優勢", match: ["/news"] },
-  { href: "/activities", label: "課外活動", match: ["/activities", "/programmes"] },
+  { href: "/activities", label: "課外活動", match: ["/activities"] },
+  { href: "/programmes", label: "康體通", match: ["/programmes"] },
   { href: "/news?tab=parent", label: "家長攻略", match: ["/news?tab=parent"] },
   { href: "/account", label: "收藏夾", match: ["/account"] },
 ] as const;
