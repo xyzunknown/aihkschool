@@ -10,7 +10,6 @@ interface SchoolAvatarProps {
   logoUrl?: string | null;
   schoolCode?: string | null;
   size?: "md" | "lg";
-  shape?: "circle" | "rounded";
 }
 
 /**
@@ -34,7 +33,6 @@ export function SchoolAvatar({
   logoUrl,
   schoolCode,
   size = "md",
-  shape = "circle",
 }: SchoolAvatarProps) {
   const candidates = resolveLogoCandidates(logoUrl, schoolCode);
   const [logoIndex, setLogoIndex] = useState(0);
@@ -45,10 +43,9 @@ export function SchoolAvatar({
 
   const sizeClass = size === "lg" ? "w-16 h-16" : "w-12 h-12";
   const textSize = size === "lg" ? "text-xl" : "text-lg";
-  const shapeClass = shape === "rounded" ? "rounded-[16px]" : "rounded-full";
 
   return (
-    <div className={`${sizeClass} ${shapeClass} shrink-0 overflow-hidden border border-slate-200 bg-white`}>
+    <div className={`${sizeClass} shrink-0 rounded-full border border-slate-200 bg-white overflow-hidden`}>
       {showLogo && resolved ? (
         <div className="relative h-full w-full bg-white">
           <Image

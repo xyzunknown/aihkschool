@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState, useCallback, useMemo } from "react";
-import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { SchoolCard } from "@/components/schools/SchoolCard";
 import { SchoolCardSkeleton } from "@/components/ui/Skeleton";
 import { Button } from "@/components/ui/Button";
+import { SearchBar } from "@/components/schools/SearchBar";
 import { FilterBar } from "@/components/schools/FilterBar";
 import { useAuth } from "@/components/layout/AuthProvider";
 import { useToast } from "@/components/ui/Toast";
@@ -80,7 +80,6 @@ export default function KGListClient() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [favoriteIds, setFavoriteIds] = useState<Set<string>>(new Set());
-  const [heroSearch, setHeroSearch] = useState("");
   const { latitude: userLat, longitude: userLng, requestLocation, loading: geoLoading } = useGeolocation();
   const {
     compareItems,
@@ -125,10 +124,6 @@ export default function KGListClient() {
     searchQuery,
     page,
   } = filters;
-
-  useEffect(() => {
-    setHeroSearch(searchQuery);
-  }, [searchQuery]);
 
   const fetchData = useCallback(async () => {
     setLoading(true);
@@ -257,11 +252,6 @@ export default function KGListClient() {
     router.push(`/kg?${params.toString()}`);
   };
 
-  const handleHeroSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    handleSearch(heroSearch.trim());
-  };
-
   const handleSortChange = (value: string) => {
     const params = new URLSearchParams(searchParams.toString());
     if (value === "default") { params.delete("sort"); } else { params.set("sort", value); }
@@ -303,107 +293,51 @@ export default function KGListClient() {
   const totalPages = Math.ceil(count / PAGE_SIZE);
 
   return (
-    <div className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(229,238,214,0.55),transparent_360px),radial-gradient(circle_at_bottom_right,rgba(248,231,190,0.45),transparent_420px),#fffdf8]">
-      <div className="pointer-events-none fixed left-0 top-[180px] hidden h-[360px] w-[180px] opacity-35 xl:block leaf-decor leaf-decor-tl" />
-      <div className="pointer-events-none fixed bottom-[48px] right-0 hidden h-[360px] w-[180px] opacity-35 xl:block leaf-decor leaf-decor-br" />
+    <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
+      <h1 className="text-2xl font-bold tracking-tight text-slate-950 mb-2">策劃香港卓越教育藍圖</h1>
+      <p className="text-slate-600 mb-8">權威性的教育機構指南，即時更新學位空缺狀態及報名資訊。</p>
 
-      <div className="mx-auto max-w-[1180px] px-5 pb-16 pt-8 md:px-8">
-        <section
-          className="relative overflow-hidden rounded-[32px] border border-[rgba(32,85,59,0.08)] shadow-[0_24px_60px_rgba(31,80,55,0.10)]"
-          style={{
-            backgroundImage: "linear-gradient(90deg, rgba(255,248,231,.96) 0%, rgba(255,248,231,.72) 46%, rgba(255,248,231,.2) 100%), url('/brand/hero/hero-banner@2x.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center right",
-          }}
-        >
-          <span className="leaf-decor leaf-decor-tl opacity-70" />
-          <div className="relative grid min-h-[280px] grid-cols-1 items-center gap-8 px-6 py-10 md:grid-cols-[minmax(0,1.15fr)_minmax(260px,0.85fr)] md:px-10 lg:px-16 lg:py-12">
-            <div className="relative z-10 max-w-[640px]">
-              <h1 className="text-[34px] font-bold leading-[1.18] text-[#173d2c] md:text-[42px]">
-                策劃香港卓越教育藍圖
-              </h1>
-              <p className="mt-3 max-w-[560px] text-[15px] leading-7 text-[#5f7167] md:text-[17px]">
-                根據您的教育機構指南，即時更新學位空缺狀態及報名資訊。
-              </p>
+      <SearchBar initialQuery={searchQuery} onSearch={handleSearch} />
 
-              <form
-                onSubmit={handleHeroSearchSubmit}
-                className="mt-7 flex h-14 w-full max-w-[620px] items-center rounded-full border border-[rgba(32,85,59,0.1)] bg-white pl-5 pr-2 shadow-[0_12px_32px_rgba(31,122,77,0.08)]"
-              >
-                <svg className="h-5 w-5 flex-shrink-0 text-[#b0b7b0]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                  <circle cx="11" cy="11" r="7" />
-                  <line x1="16.5" y1="16.5" x2="21" y2="21" />
-                </svg>
-                <input
-                  type="text"
-                  value={heroSearch}
-                  onChange={(event) => setHeroSearch(event.target.value)}
-                  placeholder="搜尋學校名稱、地區或特色..."
-                  className="h-full flex-1 bg-transparent px-4 text-[15px] text-[#284536] outline-none placeholder:text-[#b1b7af]"
-                />
-                <button
-                  type="submit"
-                  className="h-[42px] rounded-full bg-[#1f7a4d] px-6 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(31,122,77,0.22)] transition hover:bg-[#19653f]"
-                >
-                  搜尋
-                </button>
-              </form>
-            </div>
+      <FilterBar
+        selectedDistricts={selectedDistricts}
+        selectedType={selectedType}
+        vacancyFilter={vacancyFilter}
+        sessionFilter={sessionFilter}
+        hasNurseryFilter={hasNurseryFilter}
+        schoolandFreeSchemeFilter={schoolandFreeSchemeFilter}
+        schoolandNurseryServiceFilter={schoolandNurseryServiceFilter}
+        schoolandGroupFilter={schoolandGroupFilter}
+        schoolandSizeFilter={schoolandSizeFilter}
+        onToggleDistrict={toggleDistrict}
+        onUpdateFilter={updateFilter}
+        onToggleVacancy={toggleVacancy}
+      />
 
-            <div className="hidden items-end justify-end md:flex">
-              <div className="relative h-[220px] w-full max-w-[430px]">
-                <Image
-                  src="/brand/hero/family.png"
-                  alt="家庭閱讀插畫"
-                  fill
-                  sizes="430px"
-                  className="absolute bottom-0 right-0 object-contain drop-shadow-[0_24px_30px_rgba(71,96,71,0.14)]"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <div className="-mt-4 md:-mt-6">
-          <FilterBar
-            selectedDistricts={selectedDistricts}
-            selectedType={selectedType}
-            vacancyFilter={vacancyFilter}
-            sessionFilter={sessionFilter}
-            hasNurseryFilter={hasNurseryFilter}
-            schoolandFreeSchemeFilter={schoolandFreeSchemeFilter}
-            schoolandNurseryServiceFilter={schoolandNurseryServiceFilter}
-            schoolandGroupFilter={schoolandGroupFilter}
-            schoolandSizeFilter={schoolandSizeFilter}
-            onToggleDistrict={toggleDistrict}
-            onUpdateFilter={updateFilter}
-            onToggleVacancy={toggleVacancy}
-          />
-        </div>
-
-        {loading ? (
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+      {loading ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[1, 2, 3, 4, 5, 6].map((i) => <SchoolCardSkeleton key={i} />)}
         </div>
       ) : error ? (
-        <div className="py-16 text-center">
+        <div className="text-center py-16">
           <p className="text-base text-slate-500">{error}</p>
           <Button variant="secondary" className="mt-4" onClick={fetchData}>重試</Button>
         </div>
       ) : schools.length === 0 ? (
-        <div className="py-16 text-center">
-          <p className="mb-2 text-xl font-semibold text-slate-950">沒有搵到學校</p>
+        <div className="text-center py-16">
+          <p className="text-xl font-semibold text-slate-950 mb-2">沒有搵到學校</p>
           <p className="text-base text-slate-500">試下調整篩選條件</p>
         </div>
       ) : (
         <>
-          <div className="mb-5 mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-[18px] font-semibold text-[#294735]">共 {count} 所學校</p>
-            <div className="flex flex-wrap items-center gap-3">
+          <div className="flex items-center justify-between mb-4">
+            <p className="text-sm text-slate-500">共 {count} 所學校</p>
+            <div className="flex items-center gap-3">
+              {/* Sort dropdown */}
               <select
                 value={sortBy}
                 onChange={(e) => handleSortChange(e.target.value)}
-                className="h-10 rounded-full border border-[#e3eadf] bg-white px-4 text-sm text-[#506457] shadow-[0_8px_20px_rgba(31,80,55,0.04)] outline-none"
+                className="text-xs border border-slate-200 rounded-lg px-2 py-1.5 bg-white text-slate-600 focus:outline-none focus:ring-1 focus:ring-slate-300"
               >
                 <option value="default">預設排序</option>
               </select>
@@ -411,7 +345,7 @@ export default function KGListClient() {
                 <button
                   onClick={requestLocation}
                   disabled={geoLoading}
-                  className="flex h-10 items-center gap-2 rounded-full border border-[#e3eadf] bg-white px-4 text-sm text-[#6d7e72] transition hover:bg-[#f5f8f2] hover:text-[#405445]"
+                  className="flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-700 transition-colors"
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="10" />
@@ -424,15 +358,14 @@ export default function KGListClient() {
                 </button>
               )}
               {userLat && (
-                <span className="inline-flex h-10 items-center gap-1.5 rounded-full bg-[#edf8f0] px-4 text-sm text-emerald-700">
+                <span className="text-xs text-emerald-600 flex items-center gap-1">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2l-3.5-3.5L4.1 14.1 9 19 20.4 7.6 19 6.2z"/></svg>
                   已定位
                 </span>
               )}
             </div>
           </div>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {displaySchools.map((school) => {
               const currentVacancy = school.vacancies?.[0];
               const vacancy = currentVacancy ? {
@@ -486,26 +419,14 @@ export default function KGListClient() {
           </div>
 
           {totalPages > 1 && (
-            <div className="mt-10 flex items-center justify-center gap-3">
-              <button
-                type="button"
-                disabled={page <= 1}
-                onClick={() => goToPage(page - 1)}
-                className="h-[38px] rounded-full border border-[#e2eadf] bg-white px-4 text-sm text-[#3f5548] transition hover:bg-[#f4f8f1] disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                上一頁
-              </button>
-              <span className="flex items-center px-3 text-sm text-[#819084]">
+            <div className="flex justify-center gap-2 mt-8">
+              <Button variant="secondary" size="sm" disabled={page <= 1}
+                onClick={() => goToPage(page - 1)}>上一頁</Button>
+              <span className="flex items-center text-sm text-slate-400 px-3">
                 {page} / {totalPages}
               </span>
-              <button
-                type="button"
-                disabled={page >= totalPages}
-                onClick={() => goToPage(page + 1)}
-                className="h-[38px] rounded-full border border-[#e2eadf] bg-white px-4 text-sm text-[#3f5548] transition hover:bg-[#f4f8f1] disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                下一頁
-              </button>
+              <Button variant="secondary" size="sm" disabled={page >= totalPages}
+                onClick={() => goToPage(page + 1)}>下一頁</Button>
             </div>
           )}
         </>
@@ -518,7 +439,6 @@ export default function KGListClient() {
         onRemove={removeFromCompare}
         onClear={clearCompare}
       />
-      </div>
     </div>
   );
 }
