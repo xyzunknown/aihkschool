@@ -23,7 +23,6 @@ export function Header() {
   const pathname = usePathname();
   const { user, signIn } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [searchValue, setSearchValue] = useState("");
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-surface-border">
@@ -73,26 +72,8 @@ export function Header() {
           })}
         </nav>
 
-        {/* Right cluster: search input + auth buttons */}
+        {/* Right cluster: auth buttons */}
         <div className="flex items-center gap-2 ml-auto">
-          <form
-            action="/kg"
-            className="hidden md:flex items-center gap-2 px-3 h-9 rounded-pill bg-white border border-cream-300 focus-within:border-forest-400 focus-within:shadow-glow transition"
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-ink-500">
-              <circle cx="11" cy="11" r="7" />
-              <line x1="16.5" y1="16.5" x2="22" y2="22" />
-            </svg>
-            <input
-              type="search"
-              name="q"
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
-              placeholder="搜尋學校..."
-              className="bg-transparent outline-none text-sm w-40 text-ink-900 placeholder:text-ink-400"
-            />
-          </form>
-
           {user ? (
             <Link
               href="/account"

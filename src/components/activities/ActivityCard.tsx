@@ -20,17 +20,17 @@ export function ActivityCard({ activity }: ActivityCardProps) {
   const districtLabel = activity.district ? DISTRICT_LABELS[activity.district] : null;
 
   return (
-    <div className="flex h-full flex-col rounded-card border border-cream-200 bg-white p-5 shadow-soft transition-shadow hover:shadow-card">
+    <div className="flex h-full flex-col rounded-[20px] border border-surface-border bg-white p-5 shadow-[0_8px_24px_rgba(30,82,56,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(30,82,56,0.1)]">
       <div className="mb-3 flex items-center justify-between">
-        <span className="inline-flex items-center rounded-pill bg-leaf-50 px-2.5 py-1 text-[11px] font-semibold text-forest-700">
+        <span className="inline-flex items-center rounded-pill bg-leaf-50 px-2.5 py-1 text-[11px] font-semibold text-forest-700 ring-1 ring-forest-700/10">
           {CATEGORY_LABELS[activity.category]}
         </span>
         {fee.isFree ? (
-          <span className="inline-flex items-center rounded-pill bg-leaf-100 px-2.5 py-1 text-[11px] font-bold text-forest-700">
+          <span className="inline-flex items-center rounded-pill bg-leaf-100 px-2.5 py-1 text-[11px] font-bold text-forest-700 ring-1 ring-forest-700/10">
             免費
           </span>
         ) : fee.shortLabel !== "費用待定" ? (
-          <span className="inline-flex items-center rounded-pill bg-sand-50 px-2.5 py-1 text-[11px] font-semibold text-sand-700">
+          <span className="inline-flex items-center rounded-pill bg-sand-50 px-2.5 py-1 text-[11px] font-semibold text-sand-700 ring-1 ring-sand-700/10">
             {fee.shortLabel}
           </span>
         ) : null}
@@ -47,8 +47,8 @@ export function ActivityCard({ activity }: ActivityCardProps) {
         </p>
       )}
 
-      <div className="mb-3 flex items-center gap-2">
-        <span className="text-sm text-ink-700">{dateRange}</span>
+      <div className="mb-3 flex items-center gap-2 flex-wrap">
+        <span className="text-sm font-medium text-ink-700">{dateRange}</span>
         {expired && (
           <span className="inline-flex items-center rounded-pill bg-cream-200 px-2 py-0.5 text-[11px] font-medium text-ink-500">
             已結束
@@ -56,7 +56,7 @@ export function ActivityCard({ activity }: ActivityCardProps) {
         )}
       </div>
 
-      <div className="mt-auto space-y-1.5 text-sm text-ink-700">
+      <div className="mt-auto space-y-2 text-sm text-ink-700">
         {activity.schedule && (
           <Row icon="time">{activity.schedule}</Row>
         )}
@@ -72,7 +72,7 @@ export function ActivityCard({ activity }: ActivityCardProps) {
           href={activity.contact_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-4 inline-flex items-center justify-center gap-1.5 rounded-pill bg-forest-600 px-4 h-10 text-sm font-medium text-white transition hover:bg-forest-700"
+          className="mt-4 inline-flex h-10 w-full items-center justify-center gap-1.5 rounded-pill bg-forest-600 px-4 text-sm font-medium text-white transition hover:bg-forest-700 shadow-[0_10px_24px_rgba(30,82,56,0.12)]"
         >
           查看詳情 / 報名
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -88,7 +88,7 @@ export function ActivityCard({ activity }: ActivityCardProps) {
 
 function Row({ icon, children }: { icon: "time" | "pin" | "user" | "phone"; children: React.ReactNode }) {
   return (
-    <div className="flex items-center gap-1.5">
+    <div className="flex items-center gap-1.5 text-[13px] leading-5">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 text-forest-500">
         {icon === "time" && (
           <>
@@ -119,6 +119,6 @@ function Row({ icon, children }: { icon: "time" | "pin" | "user" | "phone"; chil
 
 export function ActivityCardSkeleton() {
   return (
-    <div className="h-64 animate-pulse rounded-card border border-cream-200 bg-cream-100" />
+    <div className="h-64 animate-pulse rounded-[20px] border border-surface-border bg-cream-100" />
   );
 }

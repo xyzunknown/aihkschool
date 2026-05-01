@@ -1,6 +1,7 @@
 import { Hero } from "@/components/home/Hero";
 import { MegaSearch } from "@/components/home/MegaSearch";
 import { ProgressBoard } from "@/components/home/ProgressBoard";
+import { ActivitiesPreview } from "@/components/home/ActivitiesPreview";
 import { FeaturedSchoolsRow } from "@/components/home/FeaturedSchoolsRow";
 import { ArticleGrid } from "@/components/home/ArticleGrid";
 import { StatsBanner } from "@/components/home/StatsBanner";
@@ -35,6 +36,9 @@ export default async function HomePage({
       <Hero />
       <MegaSearch />
       <ProgressBoard events={liveData.events} schools={liveData.featuredSchools} />
+      <div className="max-w-[1200px] mx-auto px-5 md:px-8 mt-10">
+        <ActivitiesPreview />
+      </div>
       <FeaturedSchoolsRow schools={liveData.featuredSchools} />
       <ArticleGrid items={liveData.newsItems} />
       <StatsBanner />
