@@ -151,26 +151,69 @@ EXTRACTION_SYSTEM_PROMPT = """你是一个香港幼稚园信息提取助手。�
 - 只返回 JSON 数组，不要其他文字"""
 
 
-def create_client():
-    """Create Anthropic client."""
-    import anthropic
+def _read_env_var(name: str) -> str | None:
+    val = os.environ.get(name)
+    if val:
+        return val.strip()
+    env_path = config.ROOT / ".env.local"
+    if env_path.exists():
+        for line in env_path.read_text().splitlines():
+            if line.startswith(f"{name}="):
+                return line.split("=", 1)[1].strip().strip('"').strip("'")
+    return None
 
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
-        # Try .env.local
-        env_path = config.ROOT / ".env.local"
-        if env_path.exists():
-            for line in env_path.read_text().splitlines():
-                if line.startswith("ANTHROPIC_API_KEY="):
-                    api_key = line.split("=", 1)[1].strip().strip('"').strip("'")
-                    break
 
-    if not api_key:
-        raise ValueError(
-            "ANTHROPIC_API_KEY not found. Set it as env var or in .env.local"
+class _ClaudeClient:
+    """Minimal Claude client using raw HTTP, supports both:
+       - aipaibox / proxy (ANTHROPIC_AUTH_TOKEN, Bearer auth)
+       - direct Anthropic (ANTHROPIC_API_KEY, x-api-key)
+       Mirrors the pattern in scripts/crawlers/extract-reputation.mjs.
+    """
+    def __init__(self):
+        import requests
+        self._requests = requests
+        self.auth_token = _read_env_var("ANTHROPIC_AUTH_TOKEN")
+        self.api_key = _read_env_var("ANTHROPIC_API_KEY")
+        if not self.auth_token and not self.api_key:
+            raise ValueError(
+                "ANTHROPIC_AUTH_TOKEN (Bearer, aipaibox) or ANTHROPIC_API_KEY (direct) "
+                "must be set in env or .env.local"
+            )
+        base = _read_env_var("ANTHROPIC_BASE_URL") or "https://api.anthropic.com"
+        self.base_url = base.rstrip("/")
+
+    def messages_create(self, *, model: str, max_tokens: int, system: str,
+                        messages: list[dict], timeout: int = 120):
+        headers = {
+            "anthropic-version": "2023-06-01",
+            "content-type": "application/json",
+        }
+        if self.auth_token:
+            headers["Authorization"] = f"Bearer {self.auth_token}"
+        else:
+            headers["x-api-key"] = self.api_key
+        payload = {
+            "model": model,
+            "max_tokens": max_tokens,
+            "system": system,
+            "messages": messages,
+        }
+        resp = self._requests.post(
+            f"{self.base_url}/v1/messages",
+            headers=headers,
+            json=payload,
+            timeout=timeout,
         )
+        if resp.status_code >= 400:
+            raise RuntimeError(
+                f"Claude API {resp.status_code}: {resp.text[:500]}"
+            )
+        return resp.json()
 
-    return anthropic.Anthropic(api_key=api_key)
+
+def create_client():
+    """Create Claude client (aipaibox proxy or direct Anthropic)."""
+    return _ClaudeClient()
 
 
 def build_batch_input(
@@ -221,13 +264,15 @@ def extract_batch(
     user_msg = build_batch_input(posts, comments_map, school_info)
 
     try:
-        response = client.messages.create(
-            model=config.CLAUDE_MODEL,
+        model = os.environ.get("ANTHROPIC_MODEL") or config.CLAUDE_MODEL
+        response = client.messages_create(
+            model=model,
             max_tokens=4000,
             system=EXTRACTION_SYSTEM_PROMPT,
             messages=[{"role": "user", "content": user_msg}],
         )
-        text = response.content[0].text.strip()
+        # response is the parsed JSON dict from /v1/messages
+        text = response["content"][0]["text"].strip()
 
         # Try to parse JSON — handle markdown code blocks
         if text.startswith("```"):
