@@ -415,44 +415,142 @@ export async function getAllNewsItems(): Promise<NewsItem[]> {
 
 /* ─── Event helpers ─── */
 
-function extractDateLabel(text: string): string | null {
-  const lowered = text.toLowerCase();
-  const englishDate =
-    lowered.match(/\b(\d{1,2})\s*(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\s*(20\d{2})?/i) ||
-    lowered.match(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\s*(\d{1,2})(?:,?\s*(20\d{2}))?/i);
+const MONTH_KEYS = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
 
-  if (englishDate) {
-    const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
-    const first = englishDate[1]?.toLowerCase();
-    const second = englishDate[2]?.toLowerCase();
-    const monthKey = months.includes(first) ? first : second;
-    const day = months.includes(first) ? Number(englishDate[2]) : Number(englishDate[1]);
-    const month = months.indexOf(monthKey) + 1;
+function pad(n: number): string {
+  return String(n).padStart(2, "0");
+}
 
-    if (month > 0 && day > 0) {
-      return `${month}月${day}日`;
-    }
+function buildIso(year: number, month: number, day: number): string | null {
+  if (month < 1 || month > 12 || day < 1 || day > 31) return null;
+  return `${year}-${pad(month)}-${pad(day)}`;
+}
+
+/**
+ * Resolve a year-less month/day into a full ISO date.
+ * If the date with the current year is more than 30 days in the past,
+ * try the next year (covers e.g. "14 Mar" seen in late April).
+ */
+function resolveYearAware(month: number, day: number, explicitYear: number | null): string | null {
+  if (explicitYear) return buildIso(explicitYear, month, day);
+
+  const now = new Date();
+  const currentYear = now.getFullYear();
+  const candidate = buildIso(currentYear, month, day);
+  if (!candidate) return null;
+  const candidateDate = parseDate(candidate);
+  if (!candidateDate) return null;
+
+  const diffDays = (candidateDate.getTime() - now.getTime()) / (24 * 60 * 60 * 1000);
+  if (diffDays < -MAX_EVENT_PAST_DAYS) {
+    return buildIso(currentYear + 1, month, day);
+  }
+  return candidate;
+}
+
+/**
+ * Extract an ISO date from free-form open-day text.
+ * Supports:
+ *   - Chinese:   `M月D日` (year optional)
+ *   - English:   `14 Mar 2026`, `Mar 14, 2026`, `14th March`, `March 2026`
+ *   - Numeric:   `YYYY-MM-DD`, `D/M/YYYY`, `M/D/YYYY` (heuristic: prefer D/M when first segment > 12)
+ *   - Ranges:    `Apr & May 2026`, `14-15 Mar 2026` → first valid date in range
+ *   - Seasons:   `2026春季` (Spring) / `夏季` (Summer) / `秋季` (Autumn) / `冬季` (Winter) → mid-month of season
+ * Year resolution: if no year present and the inferred date is >7 days past,
+ * roll forward to next year.
+ */
+function extractIsoDate(text: string): string | null {
+  if (!text) return null;
+  const cleaned = text.replace(/\s+/g, " ").trim();
+  const lowered = cleaned.toLowerCase();
+
+  // 1. ISO YYYY-MM-DD
+  const iso = cleaned.match(/(20\d{2})-(\d{1,2})-(\d{1,2})/);
+  if (iso) {
+    const built = buildIso(Number(iso[1]), Number(iso[2]), Number(iso[3]));
+    if (built) return built;
   }
 
-  const chineseDate = text.match(/(\d{1,2})\s*月\s*(\d{1,2})\s*日/);
-  if (chineseDate) {
-    return `${chineseDate[1]}月${chineseDate[2]}日`;
+  // 2. Chinese: optional 4-digit year + M月D日
+  const cn = cleaned.match(/(?:(20\d{2})\s*年\s*)?(\d{1,2})\s*月\s*(\d{1,2})\s*日/);
+  if (cn) {
+    return resolveYearAware(Number(cn[2]), Number(cn[3]), cn[1] ? Number(cn[1]) : null);
+  }
+
+  // 3. English month range: "Apr & May 2026" → first future month, day 1.
+  //    Run BEFORE single-month patterns so "Apr & May 2026" doesn't get mis-parsed as "Apr 20" day-of-year.
+  const monthRange = lowered.match(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\s*(?:&|and|to|-|–|—|\/)\s*(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*(?:\s*,?\s*(20\d{2}))?/i);
+  if (monthRange) {
+    const m1 = MONTH_KEYS.indexOf(monthRange[1].toLowerCase()) + 1;
+    const m2 = MONTH_KEYS.indexOf(monthRange[2].toLowerCase()) + 1;
+    const year = monthRange[3] ? Number(monthRange[3]) : null;
+    const candidate1 = resolveYearAware(m1, 1, year);
+    const candidate2 = resolveYearAware(m2, 1, year);
+    const now = new Date();
+    const c1 = candidate1 ? parseDate(candidate1) : null;
+    if (c1 && (c1.getTime() - now.getTime()) / 86400000 >= -MAX_EVENT_PAST_DAYS) return candidate1;
+    return candidate2 ?? candidate1;
+  }
+
+  // 4. English with day + month (run BEFORE month-only so "14 Mar 2026" keeps the day).
+  //    `(?!\d)` after day prevents matching "20" out of "2026" when no real day is present.
+  const enDayFirst = lowered.match(/\b(\d{1,2})(?:st|nd|rd|th)?(?!\d)\s+(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*(?:\s*(?:to|-|–|—)\s*\d{1,2}(?:st|nd|rd|th)?)?(?:\s*,?\s*(20\d{2}))?/i);
+  if (enDayFirst) {
+    const day = Number(enDayFirst[1]);
+    const month = MONTH_KEYS.indexOf(enDayFirst[2].toLowerCase()) + 1;
+    const year = enDayFirst[3] ? Number(enDayFirst[3]) : null;
+    return resolveYearAware(month, day, year);
+  }
+
+  const enMonthFirst = lowered.match(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\s+(\d{1,2})(?:st|nd|rd|th)?(?!\d)(?:\s*,?\s*(20\d{2}))?/i);
+  if (enMonthFirst) {
+    const month = MONTH_KEYS.indexOf(enMonthFirst[1].toLowerCase()) + 1;
+    const day = Number(enMonthFirst[2]);
+    const year = enMonthFirst[3] ? Number(enMonthFirst[3]) : null;
+    return resolveYearAware(month, day, year);
+  }
+
+  // 5. English month-only with year: "April 2026", "Sep 2026" → day 1.
+  const monthOnly = lowered.match(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\s+(20\d{2})\b/i);
+  if (monthOnly) {
+    const month = MONTH_KEYS.indexOf(monthOnly[1].toLowerCase()) + 1;
+    return buildIso(Number(monthOnly[2]), month, 1);
+  }
+
+  // 5. Numeric D/M/YYYY (HK style — day first when first segment > 12)
+  const numeric = cleaned.match(/\b(\d{1,2})\/(\d{1,2})\/(20\d{2})\b/);
+  if (numeric) {
+    const a = Number(numeric[1]);
+    const b = Number(numeric[2]);
+    const y = Number(numeric[3]);
+    if (a > 12) return buildIso(y, b, a);  // must be D/M
+    if (b > 12) return buildIso(y, a, b);  // must be M/D
+    return buildIso(y, b, a);              // default HK: D/M/Y
+  }
+
+  // 6. Seasons (Chinese): 2026春季/夏季/秋季/冬季 → middle of representative month
+  const season = cleaned.match(/(20\d{2})?\s*(春季|夏季|秋季|冬季|春|夏|秋|冬)/);
+  if (season) {
+    const seasonMonth: Record<string, number> = {
+      春: 3, 春季: 3,
+      夏: 6, 夏季: 6,
+      秋: 9, 秋季: 9,
+      冬: 12, 冬季: 12,
+    };
+    const m = seasonMonth[season[2]];
+    const year = season[1] ? Number(season[1]) : null;
+    if (m) return resolveYearAware(m, 15, year);
   }
 
   return null;
 }
 
-function extractIsoDate(text: string): string | null {
-  const dateLabel = extractDateLabel(text);
-  if (!dateLabel) return null;
-
-  const match = dateLabel.match(/(\d{1,2})月(\d{1,2})日/);
+function extractDateLabel(text: string): string | null {
+  const iso = extractIsoDate(text);
+  if (!iso) return null;
+  const match = iso.match(/^(\d{4})-(\d{2})-(\d{2})$/);
   if (!match) return null;
-
-  const year = new Date().getFullYear();
-  const month = match[1].padStart(2, "0");
-  const day = match[2].padStart(2, "0");
-  return `${year}-${month}-${day}`;
+  return `${Number(match[2])}月${Number(match[3])}日`;
 }
 
 function toSchoolName(row: EnrichmentRow): string {
