@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/components/layout/AuthProvider";
 
 const NAV_ITEMS = [
@@ -22,12 +22,35 @@ function isActiveItem(pathname: string, item: (typeof NAV_ITEMS)[number]) {
 
 export function Header() {
   const pathname = usePathname();
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const { user, signIn } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [headerSearch, setHeaderSearch] = useState(searchParams.get("search") ?? "");
+  const showHeaderSearch = pathname.startsWith("/kg");
+
+  useEffect(() => {
+    setHeaderSearch(searchParams.get("search") ?? "");
+  }, [searchParams]);
+
+  const handleHeaderSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const params = new URLSearchParams(searchParams.toString());
+    const trimmed = headerSearch.trim();
+
+    if (trimmed) {
+      params.set("search", trimmed);
+    } else {
+      params.delete("search");
+    }
+
+    params.set("page", "1");
+    router.push(`/kg?${params.toString()}`);
+  };
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-surface-border">
-      <div className="relative max-w-[1200px] mx-auto px-5 md:px-8 h-[72px] flex items-center gap-4">
+    <header className="sticky top-0 z-40 border-b border-[rgba(32,85,59,0.08)] bg-[#fffef9]/95 backdrop-blur">
+      <div className="relative mx-auto flex h-[72px] max-w-[1200px] items-center gap-4 px-5 md:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 shrink-0">
           <Image
@@ -45,14 +68,14 @@ export function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-7 flex-1 justify-center">
+        <nav className="hidden lg:flex flex-1 items-center justify-center gap-6 xl:gap-7">
           {NAV_ITEMS.map((item) => {
             const active = isActiveItem(pathname, item);
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative text-sm py-5 transition-colors ${
+                className={`relative py-5 text-sm transition-colors ${
                   active ? "text-forest-700 font-semibold" : "text-ink-700 hover:text-forest-600"
                 }`}
               >
@@ -74,7 +97,36 @@ export function Header() {
         </nav>
 
         {/* Right cluster: auth buttons */}
-        <div className="flex items-center gap-2 ml-auto">
+        <div className="ml-auto flex items-center gap-2">
+          {showHeaderSearch && (
+            <form
+              onSubmit={handleHeaderSearchSubmit}
+              className="hidden items-center gap-2 rounded-full border border-[#eadfca] bg-[#fffdf8] pl-4 pr-2 shadow-[0_8px_22px_rgba(31,122,77,0.05)] lg:flex"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="text-[#98a69b]">
+                <circle cx="11" cy="11" r="7" />
+                <line x1="16.5" y1="16.5" x2="21" y2="21" />
+              </svg>
+              <input
+                type="text"
+                value={headerSearch}
+                onChange={(event) => setHeaderSearch(event.target.value)}
+                placeholder="搜尋學校..."
+                className="h-[38px] w-[210px] bg-transparent text-sm text-ink-700 outline-none placeholder:text-[#b2b8b1]"
+              />
+              <button
+                type="submit"
+                className="flex h-8 w-8 items-center justify-center rounded-full bg-forest-600 text-white transition hover:bg-forest-700"
+                aria-label="搜尋學校"
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="11" cy="11" r="7" />
+                  <line x1="16.5" y1="16.5" x2="21" y2="21" />
+                </svg>
+              </button>
+            </form>
+          )}
+
           {user ? (
             <Link
               href="/account"
@@ -125,6 +177,21 @@ export function Header() {
       {/* Mobile menu */}
       {menuOpen && (
         <nav className="lg:hidden border-t border-cream-200 bg-cream-50 px-5 py-3">
+          {showHeaderSearch && (
+            <form onSubmit={handleHeaderSearchSubmit} className="mb-3 flex items-center gap-2 rounded-full border border-[#eadfca] bg-white px-4 py-1.5">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="text-[#98a69b]">
+                <circle cx="11" cy="11" r="7" />
+                <line x1="16.5" y1="16.5" x2="21" y2="21" />
+              </svg>
+              <input
+                type="text"
+                value={headerSearch}
+                onChange={(event) => setHeaderSearch(event.target.value)}
+                placeholder="搜尋學校..."
+                className="h-9 flex-1 bg-transparent text-sm text-ink-700 outline-none"
+              />
+            </form>
+          )}
           {NAV_ITEMS.map((item) => {
             const active = isActiveItem(pathname, item);
             return (

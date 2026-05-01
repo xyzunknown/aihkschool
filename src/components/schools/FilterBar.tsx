@@ -45,9 +45,10 @@ export function FilterBar({
     )
   );
 
-  const pillBase = "px-3 py-1.5 rounded-full text-xs font-medium transition-colors";
-  const pillActive = "bg-slate-950 text-white";
-  const pillInactive = "bg-white text-slate-600 border border-slate-200";
+  const chipBase = "inline-flex h-9 items-center justify-center rounded-full border px-4 text-sm font-medium transition-all duration-200";
+  const chipActive = "border-[#1f7a4d] bg-[#1f7a4d] text-white shadow-[0_10px_22px_rgba(31,122,77,0.18)]";
+  const chipInactive = "border-[#e5eadf] bg-white text-[#4b5f52] hover:border-[#bfd1c3] hover:bg-[#f7fbf6]";
+  const sectionLabel = "mb-2 text-[12px] font-semibold tracking-[0.02em] text-[#617467]";
 
   const vacancyOptions = [
     { key: "has_vacancy", label: "有位" },
@@ -77,101 +78,138 @@ export function FilterBar({
     (schoolandGroupFilter ? 1 : 0) +
     (schoolandSizeFilter ? 1 : 0);
 
+  const activeFilterCount =
+    selectedDistricts.length +
+    vacancyFilter.length +
+    (selectedType ? 1 : 0) +
+    (sessionFilter ? 1 : 0) +
+    (hasNurseryFilter ? 1 : 0) +
+    (schoolandFreeSchemeFilter ? 1 : 0) +
+    (schoolandNurseryServiceFilter ? 1 : 0) +
+    (schoolandGroupFilter ? 1 : 0) +
+    (schoolandSizeFilter ? 1 : 0);
+
+  const clearFilters = () => {
+    onUpdateFilter("type", null);
+    onUpdateFilter("session", null);
+    onUpdateFilter("hasNursery", null);
+    onUpdateFilter("schoolandFreeScheme", null);
+    onUpdateFilter("schoolandNurseryService", null);
+    onUpdateFilter("schoolandGroup", null);
+    onUpdateFilter("schoolandSize", null);
+
+    selectedDistricts.forEach((district) => onToggleDistrict(district));
+    vacancyFilter.forEach((status) => onToggleVacancy(status));
+  };
+
   return (
     <>
-      <div className="space-y-4 mb-6">
-        {/* 地區位置 */}
-        <div>
-          <h4 className="text-xs font-semibold text-slate-700 mb-2">地區位置</h4>
-          <div className="relative">
+      <div className="rounded-[24px] border border-[rgba(32,85,59,0.08)] bg-[rgba(255,255,255,0.92)] px-5 py-5 shadow-[0_16px_40px_rgba(31,80,55,0.08)] md:px-7 md:py-6">
+        <div className="flex flex-wrap items-start gap-x-7 gap-y-5">
+          <div className="min-w-[170px] flex-1">
+            <p className={sectionLabel}>地區位置</p>
+            <div className="relative">
             <button
               onClick={() => setShowDistrictFilter(!showDistrictFilter)}
-              className={`${pillBase} ${selectedDistricts.length > 0 ? pillActive : pillInactive}`}
+              className={`flex h-10 min-w-[148px] items-center justify-between gap-3 rounded-full border px-4 text-sm font-medium transition-all ${selectedDistricts.length > 0 ? chipActive : "border-[#e5eadf] bg-white text-[#4b5f52]"}`}
             >
-              {selectedDistricts.length === 0 ? "選擇地區" : `已選 ${selectedDistricts.length}`}
+              <span className="inline-flex items-center gap-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1118 0Z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                {selectedDistricts.length === 0 ? "選擇地區" : selectedDistricts.length === 1 ? DISTRICT_LABELS[selectedDistricts[0]] : `已選 ${selectedDistricts.length} 區`}
+              </span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
             </button>
             {showDistrictFilter && (
-              <div className="absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-lg border border-slate-200 p-4 z-30 w-64 max-h-64 overflow-y-auto">
+              <div className="absolute left-0 top-full z-30 mt-3 max-h-72 w-72 overflow-y-auto rounded-[24px] border border-[rgba(32,85,59,0.08)] bg-white p-4 shadow-[0_22px_44px_rgba(31,80,55,0.14)]">
                 {Object.entries(DISTRICT_LABELS).map(([key, label]) => (
-                  <label key={key} className="flex items-center gap-2 py-1.5 cursor-pointer">
+                  <label key={key} className="flex cursor-pointer items-center gap-2 rounded-xl px-2 py-2 hover:bg-[#f6faf5]">
                     <input
                       type="checkbox"
                       checked={selectedDistricts.includes(key as District)}
                       onChange={() => onToggleDistrict(key as District)}
-                      className="rounded"
+                      className="rounded border-[#d9e5d8] text-[#1f7a4d] focus:ring-[#1f7a4d]"
                     />
-                    <span className="text-sm text-slate-700">{label}</span>
+                    <span className="text-sm text-[#425448]">{label}</span>
                   </label>
                 ))}
               </div>
             )}
           </div>
-        </div>
+          </div>
 
-        {/* 學位狀態 */}
-        <div>
-          <h4 className="text-xs font-semibold text-slate-700 mb-2">學位狀態</h4>
-          <div className="flex flex-wrap gap-2">
+          <div className="min-w-[280px] flex-[1.2]">
+            <p className={sectionLabel}>學位狀態</p>
+            <div className="flex flex-wrap gap-2">
             {vacancyOptions.map(({ key, label }) => (
               <button
                 key={key}
                 onClick={() => onToggleVacancy(key)}
-                className={`${pillBase} ${vacancyFilter.includes(key) ? pillActive : pillInactive}`}
+                className={`${chipBase} ${vacancyFilter.includes(key) ? chipActive : chipInactive}`}
               >
                 {label}
               </button>
             ))}
           </div>
-        </div>
+          </div>
 
-        {/* 學校類別 */}
-        <div>
-          <h4 className="text-xs font-semibold text-slate-700 mb-2">學校類別</h4>
-          <div className="flex flex-wrap gap-2">
+          <div className="min-w-[320px] flex-[1.4]">
+            <p className={sectionLabel}>學校類別</p>
+            <div className="flex flex-wrap gap-2">
             {schoolTypeOptions.map(({ key, label }) => (
               <button
                 key={key}
                 onClick={() => onUpdateFilter("type", selectedType === key || (key === "all" && selectedType === null) ? null : key === "all" ? null : key)}
-                className={`${pillBase} ${
+                className={`${chipBase} ${
                   (key === "all" && selectedType === null) || selectedType === key
-                    ? pillActive
-                    : pillInactive
+                    ? chipActive
+                    : chipInactive
                 }`}
               >
                 {label}
               </button>
             ))}
           </div>
+          </div>
+
+          <div className="ml-auto flex flex-wrap items-center gap-2 self-end pb-0.5">
+            <button
+              onClick={() => setShowMoreFilters(!showMoreFilters)}
+              className="inline-flex h-10 items-center gap-2 rounded-full border border-[#e5eadf] bg-white px-4 text-sm font-medium text-[#4b5f52] transition hover:bg-[#f7fbf6]"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <line x1="4" y1="7" x2="20" y2="7" />
+                <line x1="7" y1="12" x2="20" y2="12" />
+                <line x1="10" y1="17" x2="20" y2="17" />
+              </svg>
+              更多篩選
+              {moreFilterCount > 0 && (
+                <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-[#1f7a4d] px-1.5 text-[11px] font-semibold text-white">
+                  {moreFilterCount}
+                </span>
+              )}
+            </button>
+            {activeFilterCount > 0 && (
+              <button
+                onClick={clearFilters}
+                className="inline-flex h-10 items-center rounded-full border border-transparent px-4 text-sm font-medium text-[#7a8b80] transition hover:bg-[#f3f6f0] hover:text-[#405445]"
+              >
+                清除篩選
+              </button>
+            )}
+          </div>
         </div>
 
-        {/* 更多篩選 toggle */}
-        <button
-          onClick={() => setShowMoreFilters(!showMoreFilters)}
-          className="flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-slate-700 transition-colors"
-        >
-          <svg
-            className={`w-3.5 h-3.5 transition-transform ${showMoreFilters ? "rotate-90" : ""}`}
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-          </svg>
-          更多篩選
-          {moreFilterCount > 0 && (
-            <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-slate-950 text-white text-[10px]">
-              {moreFilterCount}
-            </span>
-          )}
-        </button>
-
-        {/* 更多篩選 panel */}
         {showMoreFilters && (
-          <div className="space-y-4 pl-3 border-l-2 border-slate-100">
+          <div className="mt-5 rounded-[20px] border border-[rgba(32,85,59,0.07)] bg-[#fbfdf8] px-4 py-4 md:px-5">
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {/* 上課時段 */}
             <div>
-              <h4 className="text-xs font-semibold text-slate-700 mb-2">上課時段</h4>
+              <h4 className={sectionLabel}>上課時段</h4>
               <div className="flex flex-wrap gap-2">
                 {sessionOptions.map(({ key, label }) => (
                   <button
@@ -182,10 +220,10 @@ export function FilterBar({
                         key === "all" ? null : sessionFilter === key ? null : key
                       )
                     }
-                    className={`${pillBase} ${
+                    className={`${chipBase} ${
                       (key === "all" && !sessionFilter) || sessionFilter === key
-                        ? pillActive
-                        : pillInactive
+                        ? chipActive
+                        : chipInactive
                     }`}
                   >
                     {label}
@@ -196,12 +234,12 @@ export function FilterBar({
 
             {/* 設有N班 */}
             <div>
-              <h4 className="text-xs font-semibold text-slate-700 mb-2">設有N班（2-3歲）</h4>
+              <h4 className={sectionLabel}>設有 N 班（2-3 歲）</h4>
               <button
                 onClick={() =>
                   onUpdateFilter("hasNursery", hasNurseryFilter ? null : "true")
                 }
-                className={`${pillBase} ${hasNurseryFilter ? pillActive : pillInactive}`}
+                className={`${chipBase} ${hasNurseryFilter ? chipActive : chipInactive}`}
               >
                 設有N班
               </button>
@@ -209,39 +247,35 @@ export function FilterBar({
 
             {/* Schooland structured filters */}
             <div>
-              <h4 className="text-xs font-semibold text-slate-700 mb-2">免費計劃</h4>
+              <h4 className={sectionLabel}>免費計劃</h4>
               <button
                 onClick={() =>
                   onUpdateFilter("schoolandFreeScheme", schoolandFreeSchemeFilter ? null : "true")
                 }
-                className={`${pillBase} ${schoolandFreeSchemeFilter ? pillActive : pillInactive}`}
+                className={`${chipBase} ${schoolandFreeSchemeFilter ? chipActive : chipInactive}`}
               >
                 參加
               </button>
             </div>
 
             <div>
-              <h4 className="text-xs font-semibold text-slate-700 mb-2">幼兒服務</h4>
-              <button
-                onClick={() =>
-                  onUpdateFilter("schoolandNurseryService", schoolandNurseryServiceFilter ? null : "yes")
-                }
-                className={`${pillBase} ${schoolandNurseryServiceFilter ? pillActive : pillInactive}`}
-              >
-                有
-              </button>
-            </div>
-
-            <div>
-              <h4 className="text-xs font-semibold text-slate-700 mb-2">集團</h4>
+              <h4 className={sectionLabel}>幼兒服務 / 集團</h4>
               <div className="flex flex-wrap gap-2">
+                <button
+                  onClick={() =>
+                    onUpdateFilter("schoolandNurseryService", schoolandNurseryServiceFilter ? null : "yes")
+                  }
+                  className={`${chipBase} ${schoolandNurseryServiceFilter ? chipActive : chipInactive}`}
+                >
+                  幼兒服務
+                </button>
                 {SCHOOLAND_GROUP_OPTIONS.slice(0, 12).map((group) => (
                   <button
                     key={group}
                     onClick={() =>
                       onUpdateFilter("schoolandGroup", schoolandGroupFilter === group ? null : group)
                     }
-                    className={`${pillBase} ${schoolandGroupFilter === group ? pillActive : pillInactive}`}
+                    className={`${chipBase} ${schoolandGroupFilter === group ? chipActive : chipInactive}`}
                   >
                     {group}
                   </button>
@@ -250,7 +284,7 @@ export function FilterBar({
             </div>
 
             <div>
-              <h4 className="text-xs font-semibold text-slate-700 mb-2">規模</h4>
+              <h4 className={sectionLabel}>規模</h4>
               <div className="flex flex-wrap gap-2">
                 {Object.entries(SCHOOLAND_SIZE_LABELS).map(([key, label]) => (
                   <button
@@ -258,12 +292,13 @@ export function FilterBar({
                     onClick={() =>
                       onUpdateFilter("schoolandSize", schoolandSizeFilter === key ? null : key)
                     }
-                    className={`${pillBase} ${schoolandSizeFilter === key ? pillActive : pillInactive}`}
+                    className={`${chipBase} ${schoolandSizeFilter === key ? chipActive : chipInactive}`}
                   >
                     {label}
                   </button>
                 ))}
               </div>
+            </div>
             </div>
           </div>
         )}
