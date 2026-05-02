@@ -178,11 +178,17 @@ export async function fetchUpcomingProgrammes(limit = 6): Promise<ProgrammeWithS
 
   const now = new Date().toISOString();
 
+  // Audience filter: kindergarten product, surface programmes that fit K1-K3
+  // children (~3-6) or parent-child sessions. LCSD uses age_max=199 as an
+  // "all ages" sentinel, which would otherwise leak adult/senior offerings
+  // (長期病患者乒乓球班、清晨觀鳥 etc) into the homepage card.
   const { data, error } = await supabase
     .from("lcsd_programmes")
     .select(LIST_SELECT)
     .eq("is_active", true)
     .gte("enrolment_open_at", now)
+    .lte("age_min", 6)
+    .or("age_max.lte.12,category.eq.parent_child")
     .order("enrolment_open_at", { ascending: true })
     .limit(limit);
 
