@@ -39,12 +39,22 @@ export function ProgressBoard({ events, schools }: Props) {
     (e) => e.event_type === "deadline" && !e.is_past && new Date(e.date_iso) <= fourteenDaysOut
   ).length;
 
-  const vacancyItems = schools.slice(0, 5).map((s, i) => ({
-    school: s,
-    statusKey: vacancyKey(s.vacancyStatus?.k1),
-    grades: i % 2 === 0 ? "K1 - K3" : "K1 - K2",
-    updatedHoursAgo: i + 1,
-  }));
+  const vacancyItems = schools.slice(0, 5).map((s) => {
+    const offered = (["k1", "k2", "k3"] as const).filter((g) => {
+      const status = s.vacancyStatus?.[g];
+      return status && !status.toLowerCase().includes("not_offered") && status !== "—";
+    });
+    const grades = offered.length
+      ? offered.length === 1
+        ? offered[0].toUpperCase()
+        : `${offered[0].toUpperCase()} - ${offered[offered.length - 1].toUpperCase()}`
+      : null;
+    return {
+      school: s,
+      statusKey: vacancyKey(s.vacancyStatus?.k1),
+      grades,
+    };
+  });
 
   return (
     <section className="max-w-[1200px] mx-auto px-5 md:px-8 mt-9 md:mt-10 grid grid-cols-1 lg:grid-cols-2 gap-7 lg:gap-8">
@@ -54,9 +64,13 @@ export function ProgressBoard({ events, schools }: Props) {
         <div className="space-y-4">
           <TaskCard
             title="本週開放日"
-            badge={`${openDayCount || 8} 場`}
-            desc={`未來 7 日內共有 ${openDayCount || 8} 場開放日`}
-            sub="把握機會，盡早了解學校環境"
+            badge={openDayCount > 0 ? `${openDayCount} 場` : undefined}
+            desc={
+              openDayCount > 0
+                ? `未來 7 日內共有 ${openDayCount} 場開放日`
+                : "暫未收到本週開放日資訊，可訂閱後續更新"
+            }
+            sub={openDayCount > 0 ? "把握機會，盡早了解學校環境" : undefined}
             cta="查看日程"
             href="/timeline?filter=open_day"
             illustration="/brand/timeline/school.png"
@@ -64,9 +78,13 @@ export function ProgressBoard({ events, schools }: Props) {
           />
           <TaskCard
             title="即將截止"
-            badge={`${deadlineCount || 5} 間`}
-            desc={`未來 14 日內 ${deadlineCount || 5} 間學校截止申請`}
-            sub="提早準備，把握心儀學校"
+            badge={deadlineCount > 0 ? `${deadlineCount} 間` : undefined}
+            desc={
+              deadlineCount > 0
+                ? `未來 14 日內 ${deadlineCount} 間學校截止申請`
+                : "暫無 14 日內截止申請的學校"
+            }
+            sub={deadlineCount > 0 ? "提早準備，把握心儀學校" : undefined}
             cta="查看截止列表"
             href="/timeline?filter=deadline"
             illustration="/brand/timeline/calendar.png"
@@ -107,15 +125,18 @@ export function ProgressBoard({ events, schools }: Props) {
                     <p className="text-sm font-semibold text-ink-900 truncate">{v.school.name_tc}</p>
                     <p className="text-xs text-ink-500 mt-0.5 flex items-center gap-2">
                       <span>📍 {v.school.district}</span>
-                      <span className="text-ink-400">·</span>
-                      <span className="text-ink-700">{v.grades}</span>
+                      {v.grades && (
+                        <>
+                          <span className="text-ink-400">·</span>
+                          <span className="text-ink-700">{v.grades}</span>
+                        </>
+                      )}
                     </p>
                   </div>
-                  <div className="shrink-0 flex flex-col items-end gap-1">
+                  <div className="shrink-0">
                     <span className={`px-2.5 py-1 rounded-md text-[11px] font-bold ${STATUS_STYLE[v.statusKey]}`}>
                       {vacancyLabel(v.statusKey)}
                     </span>
-                    <span className="text-[10px] text-ink-500">更新：{v.updatedHoursAgo} 小時前</span>
                   </div>
                 </Link>
               </li>

@@ -33,7 +33,7 @@ export function Hero() {
                 找到適合 BB 的幼稚園
               </h1>
               <p className="mt-4 md:mt-5 text-[15px] md:text-lg text-ink-700 leading-relaxed max-w-[560px]">
-                全港 800+ 間幼稚園・每日更新學位空缺・分享面試題目
+                全港 868 間 EDB 幼稚園・每日更新學位空缺・追蹤報名截止
               </p>
               <div className="mt-6 md:mt-7 flex flex-wrap items-center gap-3 md:gap-4">
                 <Link

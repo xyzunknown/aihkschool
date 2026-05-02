@@ -28,18 +28,6 @@ function vacancyLabel(key: string) {
   return { available: "有位", limited: "少量", full: "額滿", pending: "待更新" }[key] ?? "—";
 }
 
-const SAMPLE_RATINGS = [
-  { rating: 4.7, count: 128 },
-  { rating: 4.6, count: 96 },
-  { rating: 4.5, count: 74 },
-];
-
-const SAMPLE_TAGS_FOR_SLOT = [
-  ["非牟利", "英文"],
-  ["非牟利", "英文"],
-  ["直資", "中英雙語"],
-];
-
 interface Props {
   schools: FeaturedSchool[];
 }
@@ -61,14 +49,7 @@ export function FeaturedSchoolsRow({ schools }: Props) {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {items.map((s, i) => (
-          <SchoolCard
-            key={s.id}
-            school={s}
-            photo={SCHOOL_PHOTOS[i % 4]}
-            rating={SAMPLE_RATINGS[i % 3]}
-            extraTags={SAMPLE_TAGS_FOR_SLOT[i % 3]}
-            updatedHoursAgo={i + 1}
-          />
+          <SchoolCard key={s.id} school={s} photo={SCHOOL_PHOTOS[i % SCHOOL_PHOTOS.length]} />
         ))}
       </div>
     </section>
@@ -78,15 +59,9 @@ export function FeaturedSchoolsRow({ schools }: Props) {
 function SchoolCard({
   school,
   photo,
-  rating,
-  extraTags,
-  updatedHoursAgo,
 }: {
   school: FeaturedSchool;
   photo: string;
-  rating: { rating: number; count: number };
-  extraTags: string[];
-  updatedHoursAgo: number;
 }) {
   const v = school.vacancyStatus;
   return (
@@ -117,7 +92,7 @@ function SchoolCard({
         </h3>
         <div className="flex items-center gap-1.5 mt-1.5 text-xs">
           <span className="text-ink-500 inline-flex items-center gap-0.5">📍 {school.district}</span>
-          {extraTags.map((t) => (
+          {school.sessionTags?.slice(0, 2).map((t) => (
             <span key={t} className="px-1.5 py-0.5 rounded-md bg-surface-soft text-ink-700 text-[11px]">
               {t}
             </span>
@@ -137,13 +112,8 @@ function SchoolCard({
             );
           })}
         </div>
-        <div className="flex items-center justify-between mt-3 pt-3 border-t border-surface-border text-[11px] text-ink-500">
-          <span>更新：{updatedHoursAgo} 小時前</span>
-          <span className="inline-flex items-center gap-1 text-ink-700">
-            <span className="text-status-limited-fg">★</span>
-            <span className="font-semibold">{rating.rating}</span>
-            <span className="text-ink-500">({rating.count})</span>
-          </span>
+        <div className="flex items-center justify-end mt-3 pt-3 border-t border-surface-border text-[11px] text-brand-700 font-medium">
+          查看詳情 →
         </div>
       </div>
     </Link>
