@@ -87,17 +87,54 @@ function sortByPublishedAt(rows: MediaArticle[]) {
   });
 }
 
-export async function fetchMediaArticles(limit = 60): Promise<MediaArticle[]> {
+// Negative keywords to drop articles that are technically tagged as
+// admission/feature/etc but target the wrong audience (university, primary
+// school, sensational news) when surfaced on a kindergarten product.
+const OFF_TOPIC_PATTERNS: RegExp[] = [
+  /jupas|dse|大學|大学|university/i,
+  /中學|中学|高中/,
+  /小一|升小|p\.?[1-6]|primary (one|school)/i,
+  /小學|小学/,
+  /呈分試|呈分|常識科|默書|統一派位|世界排名/,
+  /墮.{0,4}(軌|樓|海|河|車)/,
+  /(虐(童|待)|斃命|遇害|罪案|猥褻|性侵|綁架|墜樓|身亡|罹難|燒(傷|死)|溺斃|車禍)/,
+];
+
+// KG audience signals — only trust these when found in TITLE. Many RSS
+// summaries have boilerplate footers like "Oh!爸媽親子網站" that cause false
+// positives if matched in summary text.
+const KG_TITLE_KEYWORDS =
+  /(幼稚園|幼兒園|幼稚园|幼儿园|kindergarten|nursery|playgroup|n班|\bk[123](?!\d)|入園|插班|學前|親子(?!網站|網))/i;
+
+function isKindergartenRelevant(article: MediaArticle): boolean {
+  const haystack = `${article.title} ${article.summary ?? ""}`;
+  if (OFF_TOPIC_PATTERNS.some((re) => re.test(haystack))) return false;
+  // Either the article matched a school in our (KG-only) DB, or its TITLE
+  // explicitly signals KG content. Summary-only matches are unreliable.
+  return (
+    article.school_match_status === "matched" || KG_TITLE_KEYWORDS.test(article.title)
+  );
+}
+
+export async function fetchMediaArticles(
+  limit = 60,
+  options: { audience?: "kindergarten" | "all" } = {}
+): Promise<MediaArticle[]> {
+  const audience = options.audience ?? "kindergarten";
   try {
     const supabase = await createClient();
+    // Over-fetch when filtering so the audience-relevant slice still meets the limit.
+    const fetchLimit = audience === "kindergarten" ? Math.max(limit * 4, 80) : limit;
     const { data, error } = await supabase
       .from("media_articles" as never)
       .select("*")
       .order("published_at", { ascending: false, nullsFirst: false })
-      .limit(limit);
+      .limit(fetchLimit);
 
     if (error || !data) return [];
-    return (data as UnknownRecord[]).map(normalizeArticle);
+    const articles = (data as UnknownRecord[]).map(normalizeArticle);
+    if (audience === "all") return articles.slice(0, limit);
+    return articles.filter(isKindergartenRelevant).slice(0, limit);
   } catch {
     return [];
   }

@@ -89,11 +89,16 @@ const BANNER_IMAGES = [
 /* ─── Regex filters ─── */
 
 const KG_NEWS_REGEX =
-  /(kindergarten|k1|pre-primary|pre primary|preschool|幼稚園|幼兒班|收生安排|收生|註冊證|註冊|家長簡介會)/i;
+  /(kindergarten|\bk[123](?!\d)|pre-primary|pre primary|preschool|幼稚園|幼兒班|收生安排|收生|註冊證|註冊|家長簡介會)/i;
 const HK01_KG_NEWS_REGEX =
-  /(幼稚園|幼兒|k1|學前|收生|入學|pn|幼教|校舍|停辦|學券|概覽)/i;
+  /(幼稚園|幼兒(?!車)|\bk[123](?!\d)|學前|收生|入學|\bpn\b|幼教|校舍|停辦|學券|概覽)/i;
 const NOISE_REGEX =
-  /(smart parent net|parent-child code|secondary|primary one|senior secondary|principals and teachers|vacant kindergarten premises)/i;
+  /(smart parent net|parent-child code|secondary|primary one|senior secondary|principals and teachers|vacant kindergarten premises|jupas|dse|大學|大学|中學|中学|小一|升小|小六|p\.?[1-6]|呈分試|常識科|默書|呈分|統一派位|世界排名)/i;
+
+// Sensational / accident news that mentions 幼兒/幼稚園 incidentally but is
+// not useful to a parent making school decisions (accidents, crime, deaths).
+const SENSATIONAL_REGEX =
+  /(墮.{0,4}(軌|樓|海|河|車|斃)|跳.{0,3}(軌|樓|車)|虐|斃命|殞命|遇害|罪案|搶劫|猥褻|性侵|綁架|失蹤|墜樓|身亡|罹難|燒傷|燒死|溺斃|車禍|肉身護)/;
 const OPEN_DAY_REGEX =
   /(open day|open house|school tour|campus tour|visit us|校園參觀|開放日|參觀)/i;
 const ADMISSION_REGEX =
@@ -241,7 +246,11 @@ function parseSitemapNewsItems(xml: string) {
 }
 
 function isRelevantNews(title: string): boolean {
-  return KG_NEWS_REGEX.test(title) && !NOISE_REGEX.test(title);
+  return (
+    KG_NEWS_REGEX.test(title) &&
+    !NOISE_REGEX.test(title) &&
+    !SENSATIONAL_REGEX.test(title)
+  );
 }
 
 async function fetchNewsSummary(url: string, fallbackTitle: string): Promise<string> {
@@ -341,7 +350,9 @@ async function getHk01NewsItems(): Promise<NewsItem[]> {
         item.link &&
         item.title &&
         isRecent(item.pubDate) &&
-        HK01_KG_NEWS_REGEX.test(`${item.title} ${item.link}`)
+        HK01_KG_NEWS_REGEX.test(`${item.title} ${item.link}`) &&
+        !NOISE_REGEX.test(`${item.title} ${item.link}`) &&
+        !SENSATIONAL_REGEX.test(`${item.title} ${item.link}`)
     )
     .slice(0, 4);
 
