@@ -1756,7 +1756,7 @@
       "https://oasiskindergarten.com/",
       "https://drive.google.com/file/d/1CWquM9RbRC82Hxj54Aac6ugdYeuNZNhI/view?usp=drive_link",
       "https://drive.google.com/file/d/1WbG21gu5cqQovQVMi1TNdTUWXhmSj3za/view?usp=drivesdk",
-      "https://drive.google.com/file/d/1TeISBmr691Db_rQfpnkcsGRHprg8I2f1/view?usp=drivesdk",
+      "https://drive.google.com/file/d/1yjXbVDHLFqfcw33p1AkpDTmme-Cglj5d/view?usp=drivesdk",
       "https://oasiskindergarten.com/#about",
       "https://oasiskindergarten.com/#events"
     ]
@@ -2505,18 +2505,25 @@
     "website": "http://www.catiline.edu.hk",
     "logo_url": "/logos/231266.svg",
     "logo_source_url": "generated_placeholder",
-    "application_status": null,
-    "application_details": null,
-    "application_url": null,
-    "open_day_details": null,
+    "application_status": "open",
+    "application_details": "Primary One Admissions",
+    "application_url": "http://www.catiline.edu.hk/primarynbsponenbspadmissions.html",
+    "open_day_details": " 嘉德麗幼稚園親子體驗日 © COPYRIGHT Catiline Educational Organisation 2021. ALL R",
     "open_day_url": null,
     "fee_monthly_hkd": null,
     "fee_annual_hkd": null,
     "application_fee_hkd": null,
     "registration_fee_hkd": null,
-    "fee_notes": null,
-    "other_fees_note": null,
-    "scrape_status": "homepage_unreachable"
+    "fee_notes": "Catiline School Fees Remission Program / Catiline School Fees Remission Program - 嘉德麗中英文幼稚園 | 嘉德麗國際幼兒園 (沙田) / ​Catiline School Fees Remission Program",
+    "other_fees_note": "In 2014, as part of our Silver Anniversary Commemoration, in pursuit of the objective of considering student enrollments on a “need blind” basis (consistent with the concept “Education without Differentiation” first advo / Normally this scheme is offered as part of the enrollment process at the beginning of a school year, but in April 2020, due to financial hardships suffered by many parents due to the pandemic, we launched an “Emergency S",
+    "scrape_status": "ok",
+    "scraped_pages": [
+      "http://www.catiline.edu.hk/",
+      "http://www.catiline.edu.hk/primarynbsponenbspadmissions.html",
+      "http://www.catiline.edu.hk/onlineapplication-844287.html",
+      "https://www.catiline.edu.hk/onlineapplication-844287.html",
+      "http://www.catiline.edu.hk/catiline-school-fees-remission-program1.html"
+    ]
   },
   {
     "school_code": "231517",
@@ -3147,7 +3154,10 @@
     "registration_fee_hkd": null,
     "fee_notes": null,
     "other_fees_note": null,
-    "scrape_status": "homepage_unreachable"
+    "scrape_status": "ok",
+    "scraped_pages": [
+      "http://www.funful.hk/"
+    ]
   },
   {
     "school_code": "583340",
@@ -3463,18 +3473,22 @@
     "website": "http://www.pods.com.hk/",
     "logo_url": "/logos/593770.svg",
     "logo_source_url": "generated_placeholder",
-    "application_status": null,
-    "application_details": null,
-    "application_url": null,
-    "open_day_details": null,
+    "application_status": "website",
+    "application_details": "M - 6Years Old eClass Admissions Pods Learning School Pods Learning School Pods Learning School Language Art Performin",
+    "application_url": "http://www.pods.com.hk/pages/admissions",
+    "open_day_details": "Though our students may move on to new chapters, we warmly welcome them back to revisit the memories, friendships, and joyful moments that shaped their early years.",
     "open_day_url": null,
     "fee_monthly_hkd": null,
     "fee_annual_hkd": null,
     "application_fee_hkd": null,
     "registration_fee_hkd": null,
-    "fee_notes": null,
+    "fee_notes": "Admission Fee: HKD$40 Cash",
     "other_fees_note": null,
-    "scrape_status": "homepage_unreachable"
+    "scrape_status": "ok",
+    "scraped_pages": [
+      "http://www.pods.com.hk/",
+      "http://www.pods.com.hk/pages/admissions"
+    ]
   },
   {
     "school_code": "600334",
