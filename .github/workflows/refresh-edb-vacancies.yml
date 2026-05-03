@@ -1,0 +1,34 @@
+name: Refresh EDB vacancies
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 18 * * 1"  # Monday 02:00 HKT
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - run: npm ci
+      - run: npm run refresh:edb:vacancy
+      - name: Commit refreshed CSVs + seeds
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          if [[ -n "$(git status --porcelain data supabase/seed)" ]]; then
+            git add data/K1-K3_vacancy_tc_202627.csv data/schools_merged.json supabase/seed/001_schools.sql supabase/seed/010_official_school_links.sql
+            git commit -m "data: weekly EDB vacancy refresh"
+            git push
+          fi

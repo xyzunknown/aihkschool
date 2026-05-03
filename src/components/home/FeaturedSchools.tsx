@@ -2,6 +2,7 @@ import Link from "next/link";
 import { SchoolAvatar } from "@/components/schools/SchoolAvatar";
 import { VacancyBadge } from "@/components/schools/VacancyBadge";
 import { FEATURED_SCHOOLS } from "@/data/homepage";
+import { isVacancyStale } from "@/lib/utils";
 import type { FeaturedSchool } from "@/types/homepage";
 
 interface FeaturedSchoolsProps {
@@ -83,7 +84,7 @@ export function FeaturedSchools({ schools }: FeaturedSchoolsProps) {
                       key={grade}
                       grade={grade.toUpperCase()}
                       status={school.vacancyStatus![grade] as import("@/types/database").VacancyStatus}
-                      isStale={false}
+                      isStale={isVacancyStale(school.vacancyPublishedDate ?? null)}
                     />
                   ))}
                 </div>

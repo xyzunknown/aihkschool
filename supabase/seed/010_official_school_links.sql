@@ -7,7 +7,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=131440',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Central%20and%20Western_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/131440.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StStephen''sCh_PriSch_KG.pdf',
@@ -22,7 +22,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=131466',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Central%20and%20Western_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/131466.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StPaulsCh.pdf',
@@ -37,7 +37,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=132896',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Central%20and%20Western_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/132896.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StStephenGirls.pdf',
@@ -52,7 +52,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=210021',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Central%20and%20Western_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/210021.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StClare''s_PriSch.pdf',
@@ -67,7 +67,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=213632',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Central%20and%20Western_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/213632.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StAnthonysAC_PriSch_KG.pdf',
@@ -82,7 +82,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=214248',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Central%20and%20Western_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/214248.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Wisely.pdf',
@@ -127,7 +127,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=319813',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Central%20and%20Western_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/319813.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StMatthewsCh.pdf',
@@ -142,7 +142,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=322270',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Central%20and%20Western_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/322270.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Caritas_LingYuetSin.pdf',
@@ -157,7 +157,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325970',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Central%20and%20Western_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325970.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SacredHeart_Canossian.pdf',
@@ -172,7 +172,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=512273',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Central%20and%20Western_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/512273.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/KauYanSch.pdf',
@@ -187,7 +187,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=513423',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Central%20and%20Western_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/513423.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Rhenish_Mission.pdf',
@@ -202,7 +202,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=536911',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Central%20and%20Western_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/536911.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HK_TrueLight_CaineRd.pdf',
@@ -262,7 +262,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=552739',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Central%20and%20Western_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/552739.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SI_BelcherBr.pdf',
@@ -277,7 +277,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563439',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Central%20and%20Western_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563439.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YCH_KwokChiLeung.pdf',
@@ -292,7 +292,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563692',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Central%20and%20Western_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563692.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/WWCWDHK.pdf',
@@ -307,7 +307,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564354',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Central%20and%20Western_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564354.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SJS_Belcher.pdf',
@@ -322,7 +322,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564435',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Central%20and%20Western_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564435.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKYWCA_TaiHonFan.pdf',
@@ -337,7 +337,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564648',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Central%20and%20Western_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564648.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ChiuYang.pdf',
@@ -352,7 +352,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564850',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Central%20and%20Western_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564850.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ELCHK_AmazingGrace.pdf',
@@ -367,7 +367,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565253',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Central%20and%20Western_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565253.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKSPC_ThomasTam.pdf',
@@ -382,7 +382,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565440',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Central%20and%20Western_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565440.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YCH_FongKongFai.pdf',
@@ -397,7 +397,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565954',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Central%20and%20Western_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565954.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Caritas_KennedyTown.pdf',
@@ -457,7 +457,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=590673',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Central%20and%20Western_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/590673.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = NULL,
@@ -652,7 +652,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=619841',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Central%20and%20Western_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/619841.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = NULL,
@@ -712,7 +712,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=215538',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/215538.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'http://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StJude''sCatholic.pdf',
@@ -772,7 +772,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=215740',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/215740.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StAnna.pdf',
@@ -787,7 +787,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=215740',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/215740.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = NULL,
@@ -817,7 +817,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=215830',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/215830.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Creative_HengFaChuen.pdf',
@@ -832,7 +832,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=215848',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/215848.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/KornhillChristian_AC.pdf',
@@ -847,7 +847,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=215872',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/215872.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Epoch_AC.pdf',
@@ -862,7 +862,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=216135',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/216135.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CMA_Scholars.pdf',
@@ -892,7 +892,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=311910',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/311910.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Baptist_PuiLi.pdf',
@@ -907,7 +907,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=314684',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/314684.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/NorthPointMethodist.pdf',
@@ -922,7 +922,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=315435',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/315435.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StPetersCh.pdf',
@@ -937,7 +937,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=316660',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/316660.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Zion_Lutheran.pdf',
@@ -967,7 +967,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=323969',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/323969.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Grace_Baptist.pdf',
@@ -982,7 +982,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=324094',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/324094.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StarOfSeaCatholic.pdf',
@@ -997,7 +997,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=324230',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/324230.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/DominicSavio.pdf',
@@ -1027,7 +1027,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325163',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325163.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HYC_ChanPakWang.pdf',
@@ -1042,7 +1042,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325457',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325457.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StDominic_AC.pdf',
@@ -1072,7 +1072,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325589',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325589.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/NewJadeElementi.pdf',
@@ -1087,7 +1087,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325597',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325597.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CWBCPSELMC_ChaiWan.pdf',
@@ -1102,7 +1102,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325619',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325619.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/E_CCKW.pdf',
@@ -1132,7 +1132,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325899',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325899.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/EpworthVillage_Methodist.pdf',
@@ -1147,7 +1147,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325996',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325996.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Cannan_SSW.pdf',
@@ -1162,7 +1162,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=326011',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/326011.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YiuTung_Baptist.pdf',
@@ -1177,7 +1177,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=516910',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/516910.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SKWKFWCC_Elementi.pdf',
@@ -1192,7 +1192,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=536040',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/536040.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StJames_Lutheran.pdf',
@@ -1207,7 +1207,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=542199',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/542199.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SpringView.pdf',
@@ -1252,7 +1252,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563161',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563161.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_NP.pdf',
@@ -1267,7 +1267,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563331',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563331.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKFYG_ChingLok.pdf',
@@ -1282,7 +1282,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563889',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563889.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKKKFWA_WanTsui.pdf',
@@ -1297,7 +1297,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563897',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563897.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKKKWA_TingYukChee.pdf',
@@ -1312,7 +1312,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564095',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564095.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_ChiapHuaCheng.pdf',
@@ -1327,7 +1327,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564133',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564133.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_FongShuChuen.pdf',
@@ -1342,7 +1342,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564222',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564222.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/WWCEDHK.pdf',
@@ -1357,7 +1357,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564230',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564230.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/WWCEDHK_LaiKwaiTim.pdf',
@@ -1372,7 +1372,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564583',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564583.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LPH_HingMan.pdf',
@@ -1387,7 +1387,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564745',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564745.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKCWC.pdf',
@@ -1402,7 +1402,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564800',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564800.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ELCHK_HingWah.pdf',
@@ -1417,7 +1417,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565830',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565830.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HengFaChuen_Lutheran.pdf',
@@ -1432,7 +1432,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566039',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566039.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Caritas_LionsClubHKPacific.pdf',
@@ -1447,7 +1447,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566101',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566101.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/BoBo.pdf',
@@ -1462,7 +1462,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566152',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566152.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CCC_ChaiWanCh.pdf',
@@ -1477,7 +1477,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566420',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566420.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ShaKiWan_TsungTsin.pdf',
@@ -1552,7 +1552,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=567345',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/567345.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_WaiYin.pdf',
@@ -1597,7 +1597,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=589144',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/589144.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Lingnan_SSW.pdf',
@@ -1672,7 +1672,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=610534',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Hong%20Kong%20East_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/610534.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Lingnan_SSW_2.pdf',
@@ -1717,7 +1717,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=151424',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/151424.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CCC_CheungChauCh_KamKong.pdf',
@@ -1732,7 +1732,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=151564',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/151564.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/OurLadyOfLourdesCatholic.pdf',
@@ -1747,7 +1747,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=152978',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/152978.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CC_SacredHeart.pdf',
@@ -1777,7 +1777,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=155233',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/155233.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CMA_TaiO.pdf',
@@ -1792,7 +1792,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=155705',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/155705.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LickHang.pdf',
@@ -1807,7 +1807,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=155705',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/155705.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LickHang.pdf',
@@ -1822,7 +1822,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=156698',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/156698.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/NamYing.pdf',
@@ -1852,7 +1852,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=517518',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/517518.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Buddhish_CheungMuiKwai.pdf',
@@ -1882,7 +1882,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=520144',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/520144.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ChingChung_HingTung.pdf',
@@ -1897,7 +1897,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=523445',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/523445.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_CheungPoonMeiYee.pdf',
@@ -1912,7 +1912,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=524123',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/524123.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CPC_GreenPasture.pdf',
@@ -1927,7 +1927,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=527211',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/527211.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Train''s_AC.pdf',
@@ -1942,7 +1942,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=542296',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/542296.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TungChung_Baptist.pdf',
@@ -1957,7 +1957,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=543004',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/543004.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TungChungCatholic.pdf',
@@ -1972,7 +1972,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=554251',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/554251.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TCTFHLC_YatTung.pdf',
@@ -1987,7 +1987,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=555576',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/555576.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SI_TungChung.pdf',
@@ -2002,7 +2002,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=556122',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/556122.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SYT_YatTung.pdf',
@@ -2017,7 +2017,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=556220',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/556220.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Buddhist_ChunYue_TungChung.pdf',
@@ -2032,7 +2032,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565717',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565717.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LuiKwanPok_Lutheran.pdf',
@@ -2047,7 +2047,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565741',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565741.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ChanYanMeiLutheran.pdf',
@@ -2062,7 +2062,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566381',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566381.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/NAAC_TungChung.pdf',
@@ -2077,7 +2077,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566926',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566926.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SKH_TungChung.pdf',
@@ -2092,7 +2092,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=575011',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/575011.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/NAAC_TungYan.pdf',
@@ -2212,7 +2212,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=612936',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/612936.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_RY.pdf',
@@ -2227,7 +2227,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=615080',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Islands_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/615080.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKYWCA_HelenLee.pdf',
@@ -2242,7 +2242,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=132870',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/132870.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HeepYunn.pdf',
@@ -2257,7 +2257,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=133779',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/133779.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/FAOG_PriSch_KG.pdf',
@@ -2272,7 +2272,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=133787',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/133787.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/AmoyCollege.pdf',
@@ -2407,7 +2407,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=215678',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/215678.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SI_Eng.pdf',
@@ -2452,7 +2452,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=312479',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/312479.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StRoseLima.pdf',
@@ -2467,7 +2467,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=315907',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/315907.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ChristianYouthCentre.pdf',
@@ -2527,7 +2527,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=323926',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/323926.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'http://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Creative.pdf',
@@ -2542,7 +2542,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=324078',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/324078.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/KlnCityBaptist.pdf',
@@ -2557,7 +2557,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=324477',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/324477.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PooiTo_PriSch.pdf',
@@ -2572,7 +2572,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=324647',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/324647.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StMarkCh_Bradbury.pdf',
@@ -2587,7 +2587,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=324680',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/324680.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/KlnLingLiangCh.pdf',
@@ -2602,7 +2602,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=324930',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/324930.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Kln_Cannan_AC.pdf',
@@ -2617,7 +2617,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325040',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325040.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/MayNga.pdf',
@@ -2647,7 +2647,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325180',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325180.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HolyTrinityCentre.pdf',
@@ -2662,7 +2662,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325600',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325600.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SKH_TsangShiuTim.pdf',
@@ -2677,7 +2677,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325775',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325775.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/MayNga_Br.pdf',
@@ -2692,7 +2692,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325856',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325856.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKSoka.pdf',
@@ -2707,7 +2707,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325988',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325988.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_LiTsuiChungSing.pdf',
@@ -2752,7 +2752,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=523526',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/523526.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SI_Eng_YMT.pdf',
@@ -2782,7 +2782,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=531910',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/531910.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Cannan_KlnTong.pdf',
@@ -2827,7 +2827,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=536024',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/536024.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HMTBaptistCh.pdf',
@@ -2842,7 +2842,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=537349',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/537349.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StMonica''s.pdf',
@@ -2872,7 +2872,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=539104',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/539104.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_TamAuYeungSiuFong.pdf',
@@ -2917,7 +2917,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563064',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563064.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_LokMan.pdf',
@@ -2932,7 +2932,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563579',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563579.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_LoWongPikShan.pdf',
@@ -2947,7 +2947,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563781',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563781.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TTMHK_OnKei.pdf',
@@ -2962,7 +2962,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563803',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563803.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_SheungLok.pdf',
@@ -2977,7 +2977,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563927',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563927.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_TingMauHungHom.pdf',
@@ -2992,7 +2992,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564001',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564001.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/POH_MrsYamWingYin.pdf',
@@ -3007,7 +3007,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564524',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564524.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'http://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Kln_LingLiangCh.pdf',
@@ -3022,7 +3022,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564567',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564567.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LPH_MTW.pdf',
@@ -3037,7 +3037,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564869',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564869.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SSY_HoOi.pdf',
@@ -3052,7 +3052,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565016',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565016.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HMT_Yang_Methodist.pdf',
@@ -3067,7 +3067,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565130',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565130.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Cannan_WaterlooRd.pdf',
@@ -3082,7 +3082,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565229',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565229.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKSPC_MaTauChung.pdf',
@@ -3097,7 +3097,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565288',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565288.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKSPC_SiaWhampoa.pdf',
@@ -3112,7 +3112,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565520',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565520.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YMCAHK_FarmRd.pdf',
@@ -3127,7 +3127,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565687',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565687.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/MayNga_Nur.pdf',
@@ -3142,7 +3142,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565695',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565695.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/MarthaBoss_Lutheran.pdf',
@@ -3187,7 +3187,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566691',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566691.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_ChanLaiWaiLin.pdf',
@@ -3247,7 +3247,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=575518',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/575518.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Cannan_Whampoa.pdf',
@@ -3397,7 +3397,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=599700',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/599700.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YMCAHK_KaiChing.pdf',
@@ -3412,7 +3412,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=600890',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/600890.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Buddist_ChanChartMan.pdf',
@@ -3502,7 +3502,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=610771',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/610771.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/William_Smart_WP.pdf',
@@ -3517,7 +3517,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=610771',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/610771.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = NULL,
@@ -3532,7 +3532,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=616001',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/616001.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKVNS_KCC.pdf',
@@ -3547,7 +3547,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=617741',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kowloon%20City_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/617741.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = NULL,
@@ -3577,7 +3577,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=153087',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/153087.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SKHCTC_Sadick.pdf',
@@ -3592,7 +3592,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=155560',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/155560.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/KwaiChung_BaptistCh.pdf',
@@ -3607,7 +3607,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=156205',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/156205.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LokKing.pdf',
@@ -3622,7 +3622,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=156272',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/156272.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/FuYiu.pdf',
@@ -3637,7 +3637,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=156841',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/156841.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StStephen_Catholic.pdf',
@@ -3652,7 +3652,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157643',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157643.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Greenville_AC.pdf',
@@ -3667,7 +3667,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157678',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157678.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_FuKeung.pdf',
@@ -3682,7 +3682,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157813',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157813.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_TingKaPing.pdf',
@@ -3697,7 +3697,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157856',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157856.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/RockOfAge_Lutheran.pdf',
@@ -3727,7 +3727,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158453',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158453.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_MrsCKL.pdf',
@@ -3742,7 +3742,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158461',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158461.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/IslamicPokOi.pdf',
@@ -3757,7 +3757,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158488',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158488.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_TingMau.pdf',
@@ -3772,7 +3772,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158640',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158640.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWTA_ChungLoi.pdf',
@@ -3787,7 +3787,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=159000',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/159000.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SKHCTC_TY.pdf',
@@ -3802,7 +3802,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=159026',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/159026.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWTA_ChuCheong.pdf',
@@ -3817,7 +3817,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=159093',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/159093.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YOT_PangHungCheung.pdf',
@@ -3832,7 +3832,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=231240',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/231240.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Choice_TY.pdf',
@@ -3847,7 +3847,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=231347',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/231347.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SI_KwaiHing.pdf',
@@ -3877,7 +3877,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=510726',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/510726.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Asbury_Methodist.pdf',
@@ -3892,7 +3892,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=518077',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/518077.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWTA_YauKinFung.pdf',
@@ -3907,7 +3907,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=519103',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/519103.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Tivoli_AC.pdf',
@@ -3922,7 +3922,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=526665',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/526665.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SKHCTC_KC.pdf',
@@ -3937,7 +3937,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=528153',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/528153.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/KwaiShingRenishCh.pdf',
@@ -3952,7 +3952,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=532533',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/532533.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StThomas_Catholic.pdf',
@@ -3997,7 +3997,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=534226',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/534226.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Creative_TsingYi.pdf',
@@ -4012,7 +4012,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=540498',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/540498.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Anani.pdf',
@@ -4027,7 +4027,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=542547',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/542547.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_WongWuLaiMing.pdf',
@@ -4042,7 +4042,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=542768',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/542768.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_MrsTamWahChing.pdf',
@@ -4057,7 +4057,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=546127',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/546127.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PEC_TY.pdf',
@@ -4072,7 +4072,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=549355',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/549355.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWBC_ShekLei.pdf',
@@ -4087,7 +4087,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=559962',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/559962.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CCC_ChuenYuen.pdf',
@@ -4102,7 +4102,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563099',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563099.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_TWH.pdf',
@@ -4117,7 +4117,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563374',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563374.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YCH_JuChingChu.pdf',
@@ -4132,7 +4132,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563382',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563382.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YCH_ZontaClubKln.pdf',
@@ -4147,7 +4147,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563404',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563404.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YCH_TungPakYing.pdf',
@@ -4162,7 +4162,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563994',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563994.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_KwaiShing.pdf',
@@ -4177,7 +4177,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564141',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564141.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_LionsClubThePeakHK.pdf',
@@ -4192,7 +4192,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564630',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564630.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LaiKing_Rhenish.pdf',
@@ -4207,7 +4207,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564680',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564680.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CYMCA_KwaiChung.pdf',
@@ -4222,7 +4222,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564842',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564842.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ELCHK_LingKung.pdf',
@@ -4237,7 +4237,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564893',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564893.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SKH_LadyMaclehoseCtr_SY.pdf',
@@ -4252,7 +4252,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564907',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564907.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SKH_LadyMaclehoseCtr.pdf',
@@ -4267,7 +4267,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565571',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565571.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ELCHK_Grace.pdf',
@@ -4282,7 +4282,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565709',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565709.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/MaritimeSq_Lutheran.pdf',
@@ -4297,7 +4297,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565733',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565733.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CheungChing_Lutheran.pdf',
@@ -4312,7 +4312,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565903',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565903.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/WFB_Manjusri.pdf',
@@ -4327,7 +4327,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566322',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566322.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/NTWJWA_CheungFatEst.pdf',
@@ -4342,7 +4342,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566675',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566675.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_KwaiFong.pdf',
@@ -4357,7 +4357,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=568104',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/568104.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SKH_StChristophers_KwaiChung.pdf',
@@ -4372,7 +4372,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=582530',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/582530.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SinChing.pdf',
@@ -4402,7 +4402,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=612561',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/612561.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HHSSFA_Healthy.pdf',
@@ -4432,7 +4432,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=623474',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/623474.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = NULL,
@@ -4447,7 +4447,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=623598',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwai%20Chung%20and%20Tsing%20Yi_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/623598.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = NULL,
@@ -4462,7 +4462,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=216054',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/216054.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Cannan_LagunaCity.pdf',
@@ -4507,7 +4507,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=319562',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/319562.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StBarnaba''sCh.pdf',
@@ -4522,7 +4522,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=319775',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/319775.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/KTMethodist.pdf',
@@ -4552,7 +4552,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=323055',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/323055.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PS_Kingsland.pdf',
@@ -4567,7 +4567,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=323250',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/323250.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CCC_KeiFaat.pdf',
@@ -4582,7 +4582,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=323497',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/323497.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Buddhist_KamLai.pdf',
@@ -4597,7 +4597,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=324248',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/324248.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/KwunTong_BaptistCh.pdf',
@@ -4612,7 +4612,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=324426',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/324426.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SYT_OnYat.pdf',
@@ -4627,7 +4627,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=324736',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/324736.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TelfordGdn.pdf',
@@ -4642,7 +4642,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=324736',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/324736.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TelfordGdn.pdf',
@@ -4657,7 +4657,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=324809',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/324809.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CCC_KeiWa.pdf',
@@ -4672,7 +4672,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325236',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325236.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Sharon_LutheranCh.pdf',
@@ -4687,7 +4687,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325244',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325244.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CLAKG_RichlandGdn.pdf',
@@ -4702,7 +4702,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325694',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325694.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ChoiHaEst_KitSam.pdf',
@@ -4717,7 +4717,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325708',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325708.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StJames_Catholic.pdf',
@@ -4732,7 +4732,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325732',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325732.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StPhilip_LutheranCh.pdf',
@@ -4747,7 +4747,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325791',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325791.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HongYing.pdf',
@@ -4762,7 +4762,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325864',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325864.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Creative_ScenewayGdn.pdf',
@@ -4777,7 +4777,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325864',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325864.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Creative_ScenewayGdn.pdf',
@@ -4792,7 +4792,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325937',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325937.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SKH_KLC_HolyCarpenter.pdf',
@@ -4807,7 +4807,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=516309',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/516309.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_MrsFongWongKamChuen.pdf',
@@ -4822,7 +4822,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=517127',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/517127.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_WongSeeSum.pdf',
@@ -4837,7 +4837,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=522910',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/522910.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CNEC_Christian.pdf',
@@ -4852,7 +4852,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=523178',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/523178.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CA_SMP_ChenLeeWingTsing.pdf',
@@ -4867,7 +4867,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=523364',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/523364.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_PingTin.pdf',
@@ -4882,7 +4882,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=523895',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/523895.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ChanMungYan_Lutheran.pdf',
@@ -4897,7 +4897,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=524034',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/524034.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LamTin_LingLiang.pdf',
@@ -4912,7 +4912,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=528366',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/528366.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YY_PingTin.pdf',
@@ -4927,7 +4927,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=532169',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/532169.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StAntonius.pdf',
@@ -4942,7 +4942,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=543390',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/543390.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/STFA_LeungKitWah.pdf',
@@ -4957,7 +4957,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=546038',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/546038.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LST_ManNgWingYee.pdf',
@@ -4972,7 +4972,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=548278',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/548278.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LeiYueMun_Methodist.pdf',
@@ -4987,7 +4987,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=550663',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/550663.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PEC_NTK.pdf',
@@ -5002,7 +5002,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=550892',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/550892.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/JJ_ShunLee.pdf',
@@ -5017,7 +5017,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563455',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563455.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/BGCAHK_Cheerland_KlnBay.pdf',
@@ -5032,7 +5032,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563510',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563510.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StVincent_DePaul.pdf',
@@ -5047,7 +5047,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563536',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563536.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_ChanHan.pdf',
@@ -5062,7 +5062,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563609',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563609.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/NKWA_LokWah.pdf',
@@ -5077,7 +5077,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563730',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563730.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_KwunTong.pdf',
@@ -5092,7 +5092,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563749',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563749.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TTMHK_OnYee.pdf',
@@ -5107,7 +5107,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563790',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563790.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_PingShek.pdf',
@@ -5122,7 +5122,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563935',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563935.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_LeeSiuChan.pdf',
@@ -5137,7 +5137,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563951',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563951.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_ChengKwanHowYin.pdf',
@@ -5152,7 +5152,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564036',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564036.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/POH_ChanHsuFongLam.pdf',
@@ -5167,7 +5167,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564389',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564389.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SIHMG_SMP.pdf',
@@ -5182,7 +5182,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564486',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564486.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ShunTin_Rhenish.pdf',
@@ -5197,7 +5197,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564575',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564575.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LPH_KaiYip.pdf',
@@ -5212,7 +5212,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564656',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564656.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CFSC_TakTin.pdf',
@@ -5227,7 +5227,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564664',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564664.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CFSC_Cheerland.pdf',
@@ -5242,7 +5242,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564834',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564834.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ELCHK_LingOn.pdf',
@@ -5257,7 +5257,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565210',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565210.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKSPC_Mr&MrsThomasTam.pdf',
@@ -5272,7 +5272,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565369',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565369.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/GardenEstBaptist.pdf',
@@ -5287,7 +5287,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565415',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565415.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKCS_KwunTong.pdf',
@@ -5302,7 +5302,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565946',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565946.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Buddhist_ChiWai.pdf',
@@ -5317,7 +5317,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565962',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565962.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Caritas_LYM.pdf',
@@ -5332,7 +5332,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566004',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566004.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Caritas_YauTong.pdf',
@@ -5347,7 +5347,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566071',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566071.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Creative_Sceneway.pdf',
@@ -5362,7 +5362,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566160',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566160.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKSAS_PoTat.pdf',
@@ -5377,7 +5377,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566683',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566683.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/POH_SySiokChun.pdf',
@@ -5392,7 +5392,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566950',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566950.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/UC_MedicalService.pdf',
@@ -5407,7 +5407,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=577987',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/577987.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ChrLittleTree.pdf',
@@ -5437,7 +5437,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=594130',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/594130.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKFYG_KKCheng.pdf',
@@ -5452,7 +5452,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=595365',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/595365.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_CCF_YauTong.pdf',
@@ -5467,7 +5467,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=595837',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/595837.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CYC_YauTong.pdf',
@@ -5497,7 +5497,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=604259',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/604259.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_LeeShuFook.pdf',
@@ -5512,7 +5512,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=605530',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/605530.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_LucinaLaamHo.pdf',
@@ -5527,7 +5527,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=605662',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/605662.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKCS_Pario.pdf',
@@ -5542,7 +5542,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=607886',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/607886.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SKH_KLC_HolyCarpenter_Br.pdf',
@@ -5557,7 +5557,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=610291',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/610291.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CFSC_YeohChoyWaiHaan.pdf',
@@ -5572,7 +5572,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=613509',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/613509.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LL_HomeHappy_OT.pdf',
@@ -5587,7 +5587,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=614114',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Kwun%20Tong_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/614114.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CMA_OnTai.pdf',
@@ -5617,7 +5617,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=150843',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/150843.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SheungShuiCh.pdf',
@@ -5632,7 +5632,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=153451',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/153451.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/FL_AOG.pdf',
@@ -5647,7 +5647,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=156191',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/156191.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/KTV_HoTung.pdf',
@@ -5662,7 +5662,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=156230',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/156230.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/FL_BaptistCh_LuiMingChoi.pdf',
@@ -5677,7 +5677,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157252',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157252.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Buddhist_SumTungFook.pdf',
@@ -5692,7 +5692,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157406',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157406.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SS_RenishCh.pdf',
@@ -5707,7 +5707,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157627',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157627.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ELCHK_CheungWah.pdf',
@@ -5722,7 +5722,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157627',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157627.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ELCHK_CheungWah.pdf',
@@ -5737,7 +5737,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157791',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157791.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CCWF_ChoiPo.pdf',
@@ -5752,7 +5752,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158208',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158208.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SS_WaiChow_Br.pdf',
@@ -5767,7 +5767,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158364',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158364.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/FungKai.pdf',
@@ -5782,7 +5782,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158534',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158534.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_TsuiTsinTong.pdf',
@@ -5797,7 +5797,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158593',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158593.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TaiPing.pdf',
@@ -5812,7 +5812,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158720',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158720.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HHCKLA_Buddhist_WaiKwong.pdf',
@@ -5842,7 +5842,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158780',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158780.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_MrsVicwoodKTChong.pdf',
@@ -5857,7 +5857,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=320544',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/320544.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Caritas_StFrancis.pdf',
@@ -5872,7 +5872,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325767',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325767.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_FongShuFookTong.pdf',
@@ -5887,7 +5887,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=516384',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/516384.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_YNBB_QueenHill.pdf',
@@ -5902,7 +5902,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=516627',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/516627.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/KC_BaptistCh_KaFuk.pdf',
@@ -5917,7 +5917,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=519090',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/519090.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CCWF_KingShing.pdf',
@@ -5932,7 +5932,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=519499',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/519499.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/FAGC_GraceLight.pdf',
@@ -5947,7 +5947,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=536415',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/536415.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/DawningViews_Elementi.pdf',
@@ -5962,7 +5962,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=536709',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/536709.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TBC_HYWK.pdf',
@@ -5977,7 +5977,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=537098',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/537098.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HK5S.pdf',
@@ -5992,7 +5992,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=542326',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/542326.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKTA_QueensHill.pdf',
@@ -6007,7 +6007,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563110',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563110.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_TingPing.pdf',
@@ -6022,7 +6022,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563285',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563285.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/KaFuk_Baptist.pdf',
@@ -6037,7 +6037,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563390',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563390.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YCH_WingLung.pdf',
@@ -6052,7 +6052,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563544',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563544.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_HongWongKarGee.pdf',
@@ -6067,7 +6067,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565202',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565202.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKSPC_SantaClaus_FL.pdf',
@@ -6082,7 +6082,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565989',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565989.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Caritas_TKL.pdf',
@@ -6097,7 +6097,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566047',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566047.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Caritas_ZontaClubHK.pdf',
@@ -6127,7 +6127,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566306',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566306.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/NTWJWA_FLChildren.pdf',
@@ -6142,7 +6142,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566330',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566330.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/NTWJWA_SSChildren.pdf',
@@ -6157,7 +6157,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566390',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566390.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/NAAC_FL.pdf',
@@ -6172,7 +6172,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=569569',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/569569.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKEC_Elite.pdf',
@@ -6187,7 +6187,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=575429',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/575429.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CYMCA_SS.pdf',
@@ -6217,7 +6217,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=587141',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/587141.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HHCKLA_Buddhist_WaiKwong_KaFuk.pdf',
@@ -6232,7 +6232,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=587869',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/587869.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/GloriaCreative.pdf',
@@ -6247,7 +6247,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=597295',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/North_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/597295.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/GloriaCreative_SS.pdf',
@@ -6277,7 +6277,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=153036',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/153036.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SK_LokYuk.pdf',
@@ -6292,7 +6292,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158232',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158232.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_YipBunBun.pdf',
@@ -6307,7 +6307,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158470',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158470.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TsuiLamEst_Baptist.pdf',
@@ -6322,7 +6322,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158526',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158526.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TTM_Graceful.pdf',
@@ -6337,7 +6337,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158739',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158739.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/BCHK_RCHK_NW.pdf',
@@ -6352,7 +6352,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158771',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158771.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/JB_Kingsland.pdf',
@@ -6367,7 +6367,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158984',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158984.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_Nickon.pdf',
@@ -6382,7 +6382,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=159204',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/159204.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_FongWongWoonTai.pdf',
@@ -6397,7 +6397,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=159239',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/159239.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_HingYan.pdf',
@@ -6412,7 +6412,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=159255',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/159255.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CMACU_TKO_Alliance.pdf',
@@ -6442,7 +6442,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=231363',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/231363.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Beverly_AC.pdf',
@@ -6472,7 +6472,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=324957',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/324957.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Stewards_PooiYan.pdf',
@@ -6487,7 +6487,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=519634',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/519634.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKCCC_TheLight.pdf',
@@ -6517,7 +6517,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=524026',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/524026.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CMAC_Verbena.pdf',
@@ -6532,7 +6532,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=525731',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/525731.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SI_SaiKung.pdf',
@@ -6547,7 +6547,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=525758',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/525758.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HoChing_SSY.pdf',
@@ -6562,7 +6562,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=528609',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/528609.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CCC_ChiToCh_KeiPok.pdf',
@@ -6607,7 +6607,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=530417',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/530417.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TKO_Methodist.pdf',
@@ -6622,7 +6622,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=530735',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/530735.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/NTWJWA_LeungSingTak_SheungTakEst.pdf',
@@ -6652,7 +6652,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=533351',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/533351.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ELCHK_TKO.pdf',
@@ -6667,7 +6667,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=534153',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/534153.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TTTA_TKO.pdf',
@@ -6712,7 +6712,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=540811',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/540811.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YOT_DYWM.pdf',
@@ -6727,7 +6727,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=542830',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/542830.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/KTBC_ChoiMing.pdf',
@@ -6757,7 +6757,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=554901',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/554901.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LockTao_Christian.pdf',
@@ -6772,7 +6772,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=559385',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/559385.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_LCMHK.pdf',
@@ -6787,7 +6787,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=559768',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/559768.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StAndewsCatholic.pdf',
@@ -6802,7 +6802,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563072',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563072.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_MingTak.pdf',
@@ -6817,7 +6817,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563269',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563269.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKSKH_StSimon_SK.pdf',
@@ -6832,7 +6832,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563340',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563340.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/AEFCHK_EFCC_Verbena.pdf',
@@ -6847,7 +6847,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563480',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563480.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/AEFCHK_EFCC_AGC_AbundantGrace.pdf',
@@ -6862,7 +6862,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563498',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563498.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/MCC_SisAnnies.pdf',
@@ -6877,7 +6877,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563978',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563978.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_ChoiKaiYau.pdf',
@@ -6907,7 +6907,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564818',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564818.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ELCHK_KinMing.pdf',
@@ -6922,7 +6922,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565008',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565008.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKSPC_OceanShores.pdf',
@@ -6937,7 +6937,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565270',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565270.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKSPC_SzeWuShuMin.pdf',
@@ -6952,7 +6952,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565458',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565458.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/BGCAHK_Cheerland_TKO.pdf',
@@ -6967,7 +6967,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565768',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565768.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/KingLamLutheran.pdf',
@@ -6982,7 +6982,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565997',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565997.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Caritas_TsuiLam.pdf',
@@ -6997,7 +6997,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566586',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566586.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PCHK_TKO.pdf',
@@ -7102,7 +7102,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=592080',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/592080.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Bilok_Creative.pdf',
@@ -7252,7 +7252,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=616311',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/616311.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = NULL,
@@ -7282,7 +7282,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=619787',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sai%20Kung_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/619787.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Cannan_TKO.pdf',
@@ -7297,7 +7297,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=132152',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/132152.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CCC_HipWoh.pdf',
@@ -7312,7 +7312,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=133850',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/133850.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YauYatChuen.pdf',
@@ -7342,7 +7342,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=216208',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/216208.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/DeliaEngPriSchKG.pdf',
@@ -7357,7 +7357,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=317403',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/317403.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SSP_BaptistCh.pdf',
@@ -7372,7 +7372,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=319511',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/319511.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ShumOiCh.pdf',
@@ -7387,7 +7387,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=323080',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/323080.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/NMS_Lutheran.pdf',
@@ -7402,7 +7402,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=323357',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/323357.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StThomasCh.pdf',
@@ -7417,7 +7417,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=323683',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/323683.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SuenMei.pdf',
@@ -7447,7 +7447,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=324264',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/324264.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/WesternPacific.pdf',
@@ -7462,7 +7462,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=324787',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/324787.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Buddhist_TsangKorSing.pdf',
@@ -7477,7 +7477,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=324795',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/324795.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CCC_KeiChun.pdf',
@@ -7492,7 +7492,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325252',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325252.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SKH_SSP_KeiOiCh.pdf',
@@ -7507,7 +7507,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325511',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325511.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TackChing.pdf',
@@ -7522,7 +7522,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325635',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325635.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ELCHK_NamCheong.pdf',
@@ -7537,7 +7537,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325830',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325830.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SSP_TakShin.pdf',
@@ -7552,7 +7552,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325953',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325953.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKYWCA_Athena.pdf',
@@ -7567,7 +7567,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=514659',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/514659.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = NULL,
@@ -7582,7 +7582,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=514659',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/514659.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TT_PriSch_KG.pdf',
@@ -7597,7 +7597,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=532550',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/532550.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CheLok.pdf',
@@ -7612,7 +7612,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=532550',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/532550.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CheLok.pdf',
@@ -7627,7 +7627,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=532800',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/532800.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CA_LoueyChoyKwanLok.pdf',
@@ -7642,7 +7642,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=536482',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/536482.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TTM_PakTinGraceful.pdf',
@@ -7657,7 +7657,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=548723',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/548723.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_LauChanSiuPo.pdf',
@@ -7672,7 +7672,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563170',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563170.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_PakTin.pdf',
@@ -7687,7 +7687,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564044',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564044.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PreciousBlood_SSP.pdf',
@@ -7702,7 +7702,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564443',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564443.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKYWCA_ShiuPong.pdf',
@@ -7717,7 +7717,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564478',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564478.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKSPC_CSW.pdf',
@@ -7732,7 +7732,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564516',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564516.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKYWCA_ChiuOiWah.pdf',
@@ -7747,7 +7747,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564729',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564729.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKSKH_KeiOi.pdf',
@@ -7762,7 +7762,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565393',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565393.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKCS_THT.pdf',
@@ -7777,7 +7777,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565407',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565407.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKCS_LeiChengUk.pdf',
@@ -7792,7 +7792,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565563',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565563.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/BOKSS_PuiYan.pdf',
@@ -7807,7 +7807,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566560',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566560.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PCHK_NamCheong.pdf',
@@ -7822,7 +7822,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566705',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566705.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKCS_SKM.pdf',
@@ -7837,7 +7837,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=567051',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/567051.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YOT_PongLokShukYin.pdf',
@@ -7852,7 +7852,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=596116',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/596116.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_SKM.pdf',
@@ -7867,7 +7867,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=596787',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/596787.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'http://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LingLiangCh_SauTak.pdf',
@@ -7882,7 +7882,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=601861',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/601861.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LingLiangCh_SauTak_2.pdf',
@@ -7957,7 +7957,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=613169',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/613169.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TTMHK_OnHong.pdf',
@@ -7987,7 +7987,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=615315',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/615315.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_TamKamKau.pdf',
@@ -8002,7 +8002,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=615641',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/615641.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_SoUk.pdf',
@@ -8017,7 +8017,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=618527',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/618527.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/GuidePost_NC.pdf',
@@ -8032,7 +8032,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=620149',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/620149.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = NULL,
@@ -8047,7 +8047,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=623580',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sham%20Shui%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/623580.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = NULL,
@@ -8062,7 +8062,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=151009',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/151009.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ImmaculateHeartMary.pdf',
@@ -8077,7 +8077,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=151203',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/151203.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ELCHK_ST_Lutheran.pdf',
@@ -8092,7 +8092,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=156493',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/156493.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SKH_HolySpiritCh_WoChe.pdf',
@@ -8107,7 +8107,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=156752',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/156752.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_LiuYanTak.pdf',
@@ -8122,7 +8122,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=156779',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/156779.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_NTT.pdf',
@@ -8137,7 +8137,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=156973',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/156973.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_TinKaPing.pdf',
@@ -8167,7 +8167,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157384',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157384.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_ChanKingHar.pdf',
@@ -8182,7 +8182,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157511',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157511.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_LuiFungFaung.pdf',
@@ -8197,7 +8197,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157597',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157597.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKKKWA_SunFongChung.pdf',
@@ -8212,7 +8212,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157864',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157864.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LST_StephenLeung.pdf',
@@ -8227,7 +8227,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158160',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158160.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/STFA_LLSY_ST.pdf',
@@ -8242,7 +8242,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158240',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158240.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_FungLeungKit.pdf',
@@ -8257,7 +8257,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158259',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158259.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TBC.pdf',
@@ -8272,7 +8272,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158429',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158429.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PEC.pdf',
@@ -8287,7 +8287,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158569',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158569.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/KC_BaptistCh_HayNien.pdf',
@@ -8302,7 +8302,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158704',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158704.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/KL_Baptist_LuiKwokPatFong.pdf',
@@ -8317,7 +8317,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158860',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158860.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TBC_Pictorial.pdf',
@@ -8332,7 +8332,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158887',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158887.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CUHKFAA_ThomasCheung.pdf',
@@ -8347,7 +8347,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=159212',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/159212.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Stewards_PooiChun.pdf',
@@ -8407,7 +8407,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=324884',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/324884.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LST.pdf',
@@ -8422,7 +8422,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=520071',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/520071.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/MOS_LingLiang.pdf',
@@ -8437,7 +8437,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=522678',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/522678.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CLA_KamFungCourt.pdf',
@@ -8467,7 +8467,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=524328',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/524328.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CMA_JoyfulPeace.pdf',
@@ -8482,7 +8482,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=524441',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/524441.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HYC_ShinKaChuen.pdf',
@@ -8512,7 +8512,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=537578',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/537578.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Creative_Castello.pdf',
@@ -8527,7 +8527,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=540579',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/540579.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TT_MissionGrace.pdf',
@@ -8557,7 +8557,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=543861',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/543861.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/AOG_UnionCh.pdf',
@@ -8587,7 +8587,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=562947',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/562947.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_JatMin.pdf',
@@ -8602,7 +8602,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563153',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563153.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_WoChe.pdf',
@@ -8617,7 +8617,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563234',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563234.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKYWCA_LungHang.pdf',
@@ -8632,7 +8632,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563625',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563625.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/NKWA_ShaKok.pdf',
@@ -8647,7 +8647,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563633',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563633.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/NKWA_SunChui.pdf',
@@ -8662,7 +8662,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563838',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563838.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/AL&VSEF_DeliaPei.pdf',
@@ -8677,7 +8677,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563854',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563854.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/FMC_BradburyChunLei.pdf',
@@ -8692,7 +8692,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563862',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563862.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/EmmanuelCh_ST.pdf',
@@ -8707,7 +8707,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563900',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563900.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKKKWA_TingSunHuiChiu.pdf',
@@ -8722,7 +8722,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564109',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564109.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_LionsClubSKln.pdf',
@@ -8737,7 +8737,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564320',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564320.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKKKWA_SunFongChung_SuiWoCourt.pdf',
@@ -8752,7 +8752,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564559',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564559.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LPH_OiLun.pdf',
@@ -8767,7 +8767,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564753',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564753.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TBC_Glory.pdf',
@@ -8782,7 +8782,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564826',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564826.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ELCHK_ChungOn.pdf',
@@ -8797,7 +8797,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564923',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564923.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/BCHK_LeeOn.pdf',
@@ -8827,7 +8827,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565261',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565261.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKSPC_JockeyClubHokSum.pdf',
@@ -8842,7 +8842,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565326',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565326.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_LekYuen.pdf',
@@ -8857,7 +8857,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565431',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565431.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HengOn_Baptist.pdf',
@@ -8872,7 +8872,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565857',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565857.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CMA_ST.pdf',
@@ -8887,7 +8887,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565970',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565970.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Caritas_ST.pdf',
@@ -8902,7 +8902,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566314',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566314.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/NTWJWAL_PokHongEst.pdf',
@@ -8917,7 +8917,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=576743',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/576743.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_CentalineCharityFund.pdf',
@@ -9022,7 +9022,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=605620',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/605620.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_SCO.pdf',
@@ -9037,7 +9037,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=609137',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/609137.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TTMHK_OnChung.pdf',
@@ -9067,7 +9067,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=614106',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/614106.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKCS_Pario_ST.pdf',
@@ -9097,7 +9097,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=618594',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/618594.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YOT_MCTK.pdf',
@@ -9112,7 +9112,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=621986',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Sha%20Tin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/621986.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LL_HomeHappy_HK.pdf',
@@ -9172,7 +9172,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=215899',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Southern_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/215899.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StMonica''s_AC.pdf',
@@ -9247,7 +9247,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=216038',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Southern_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/216038.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StMonicas_WahKwai.pdf',
@@ -9277,7 +9277,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=312134',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Southern_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/312134.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StPetersCatholic.pdf',
@@ -9292,7 +9292,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=313637',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Southern_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/313637.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StTeresa.pdf',
@@ -9307,7 +9307,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=324850',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Southern_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/324850.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HoYan_SSY.pdf',
@@ -9322,7 +9322,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325570',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Southern_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325570.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKHMC_YanOi.pdf',
@@ -9352,7 +9352,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=326003',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Southern_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/326003.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StPeterCh_Stanley.pdf',
@@ -9367,7 +9367,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=523089',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Southern_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/523089.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/AberdeenBaptistCh_PakKwong.pdf',
@@ -9382,7 +9382,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=528161',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Southern_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/528161.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_TinWan.pdf',
@@ -9427,7 +9427,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=560090',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Southern_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/560090.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Creative_ShamWanTowers.pdf',
@@ -9442,7 +9442,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563145',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Southern_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563145.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_WahFu.pdf',
@@ -9457,7 +9457,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563714',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Southern_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563714.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/WWCWDHK_ApLeiChau.pdf',
@@ -9472,7 +9472,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563773',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Southern_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563773.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_MrsVicwoodKTChong_WahKwai.pdf',
@@ -9487,7 +9487,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564184',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Southern_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564184.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_ShiuWongLeeMoonFook.pdf',
@@ -9517,7 +9517,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565644',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Southern_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565644.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TinWan_Methodist.pdf',
@@ -9532,7 +9532,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565750',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Southern_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565750.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LeiTung_Lutheran.pdf',
@@ -9547,7 +9547,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565849',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Southern_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565849.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CMA_SouthHorizons.pdf',
@@ -9562,7 +9562,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565865',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Southern_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565865.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CMA_LeiTung.pdf',
@@ -9637,7 +9637,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=150860',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tai%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/150860.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TP_RhenishCh.pdf',
@@ -9652,7 +9652,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=150860',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tai%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/150860.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TP_RhenishCh.pdf',
@@ -9667,7 +9667,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=151157',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tai%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/151157.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TP_Baptist.pdf',
@@ -9682,7 +9682,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157309',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tai%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157309.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_HungWongKarGee.pdf',
@@ -9697,7 +9697,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157449',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tai%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157449.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_TangBikWan_Mem.pdf',
@@ -9712,7 +9712,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158062',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tai%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158062.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKTAYY_FuShinEst.pdf',
@@ -9727,7 +9727,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158119',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tai%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158119.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SKH_ChOurSaviour.pdf',
@@ -9742,7 +9742,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158577',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tai%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158577.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CMAC_TW.pdf',
@@ -9757,7 +9757,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158585',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tai%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158585.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TaiPo_Catholic.pdf',
@@ -9787,7 +9787,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158895',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tai%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158895.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TaiPo_Methodist.pdf',
@@ -9802,7 +9802,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158909',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tai%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158909.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/FHB_LuiKwokPatFong.pdf',
@@ -9817,7 +9817,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=159166',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tai%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/159166.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TP_Baptist_WanTauTongEst.pdf',
@@ -9862,7 +9862,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=231134',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tai%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/231134.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Mink_AC.pdf',
@@ -9922,7 +9922,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563102',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tai%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563102.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_TaiYuen.pdf',
@@ -9937,7 +9937,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563471',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tai%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563471.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/AEFCHK_PoNga.pdf',
@@ -9952,7 +9952,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563560',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tai%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563560.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_FongLaiMing.pdf',
@@ -9967,7 +9967,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563722',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tai%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563722.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_KwongFuk.pdf',
@@ -9982,7 +9982,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564087',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tai%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564087.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TTMHK_OnYan.pdf',
@@ -9997,7 +9997,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564281',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tai%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564281.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YOT_MrsAugustaCheung.pdf',
@@ -10042,7 +10042,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565237',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tai%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565237.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKSPC_LamWoo.pdf',
@@ -10057,7 +10057,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565806',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tai%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565806.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CMAC_PloverCove.pdf',
@@ -10072,7 +10072,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566578',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tai%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566578.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PCHK_TaiWo.pdf',
@@ -10147,7 +10147,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=621366',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tai%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/621366.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/WWCWDHK_DavidWoo.pdf',
@@ -10162,7 +10162,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=627550',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tai%20Po_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/627550.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = NULL,
@@ -10177,7 +10177,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=152269',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/152269.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ChuenYuenCh.pdf',
@@ -10192,7 +10192,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=152498',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/152498.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/FLE_KamChuen.pdf',
@@ -10207,7 +10207,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=152579',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/152579.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/MoonLok.pdf',
@@ -10222,7 +10222,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=153907',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/153907.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TW_OurLady.pdf',
@@ -10237,7 +10237,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=156612',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/156612.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Allway.pdf',
@@ -10252,7 +10252,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157066',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157066.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKTA_YuenYuen.pdf',
@@ -10282,7 +10282,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158496',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158496.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWBC.pdf',
@@ -10297,7 +10297,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158550',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158550.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_NgKwokWaiMemorial.pdf',
@@ -10312,7 +10312,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=159220',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/159220.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Annunciation_Catholic.pdf',
@@ -10327,7 +10327,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=231533',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/231533.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StMonicas_TsuenWan.pdf',
@@ -10342,7 +10342,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=231584',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/231584.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Blessing_Belvedere.pdf',
@@ -10357,7 +10357,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=231690',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/231690.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ParkviewRhineGdn.pdf',
@@ -10372,7 +10372,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=516376',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/516376.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Cannan_TW.pdf',
@@ -10387,7 +10387,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=526010',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/526010.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Cannan_RivieraGdn.pdf',
@@ -10402,7 +10402,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=552747',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/552747.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Creative_MaWan.pdf',
@@ -10417,7 +10417,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=562890',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/562890.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YCH_ChoiPatTai.pdf',
@@ -10432,7 +10432,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=562963',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/562963.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_LeiMukShue.pdf',
@@ -10447,7 +10447,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563129',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563129.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_TsuenWan.pdf',
@@ -10462,7 +10462,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563293',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563293.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKYWCA_TW.pdf',
@@ -10477,7 +10477,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563676',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563676.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_FongTamYuenLeung.pdf',
@@ -10492,7 +10492,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563757',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563757.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_LMS.pdf',
@@ -10507,7 +10507,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563846',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563846.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ALVSEF_GordonPei.pdf',
@@ -10537,7 +10537,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565296',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565296.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKSPC_ShamTseng.pdf',
@@ -10552,7 +10552,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565628',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565628.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Castar_LMS.pdf',
@@ -10567,7 +10567,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566187',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566187.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StMonica_TW.pdf',
@@ -10582,7 +10582,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566403',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566403.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CCC_FukYau.pdf',
@@ -10597,7 +10597,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566411',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566411.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CCC_FukYauNoII.pdf',
@@ -10612,7 +10612,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=575640',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/575640.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ChristianAdrianna.pdf',
@@ -10657,7 +10657,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=595969',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/595969.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LingLiang_TW.pdf',
@@ -10687,7 +10687,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=598038',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/598038.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ChristianAdrianna_Bayview.pdf',
@@ -10702,7 +10702,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=601497',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tsuen%20Wan_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/601497.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/611TreeOfLife.pdf',
@@ -10732,7 +10732,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=151947',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/151947.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SKH_SPCCP.pdf',
@@ -10762,7 +10762,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=156744',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/156744.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_KoTeckKin_Mem.pdf',
@@ -10777,7 +10777,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=156930',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/156930.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/GuidePost_TM.pdf',
@@ -10792,7 +10792,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157031',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157031.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YOT_NPL.pdf',
@@ -10807,7 +10807,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157074',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157074.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LuiCheungKwong_Lutheran.pdf',
@@ -10822,7 +10822,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157090',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157090.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/STFA_TM_LeungLeeSauYu.pdf',
@@ -10837,7 +10837,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157236',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157236.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CC_WuKing.pdf',
@@ -10852,7 +10852,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157279',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157279.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YOT_AllanYap.pdf',
@@ -10867,7 +10867,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157376',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157376.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_TingKaPing_SiuHong.pdf',
@@ -10882,7 +10882,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157473',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157473.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SKH_StPetersCh_ShanKing.pdf',
@@ -10897,7 +10897,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157490',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157490.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CCC_TuenMun_HFT.pdf',
@@ -10912,7 +10912,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157503',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157503.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Melody_AC.pdf',
@@ -10927,7 +10927,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158054',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158054.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_LeeWongHingCheung.pdf',
@@ -10942,7 +10942,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158380',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158380.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LKWFS_ChuSiuLan.pdf',
@@ -10957,7 +10957,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158623',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158623.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_YickKwaiFong.pdf',
@@ -10972,7 +10972,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158658',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158658.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Guideposts_KinSangEst.pdf',
@@ -10987,7 +10987,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158674',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158674.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/KinSang_Lutheran.pdf',
@@ -11002,7 +11002,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158747',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158747.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TKEB_LuiKwokPatFong.pdf',
@@ -11017,7 +11017,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158836',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158836.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LST_CheungYipMouChing.pdf',
@@ -11032,7 +11032,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158852',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158852.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Creative_TM.pdf',
@@ -11047,7 +11047,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=159131',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/159131.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SKH_StPetersCH_SiuLunCourt.pdf',
@@ -11062,7 +11062,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=231185',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/231185.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Melody_PrimeViewGdn.pdf',
@@ -11077,7 +11077,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=231592',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/231592.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Agnes_Eng.pdf',
@@ -11092,7 +11092,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=536768',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/536768.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Karlam_TM.pdf',
@@ -11107,7 +11107,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=539163',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/539163.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YCH_YimTsuiYukShan.pdf',
@@ -11137,7 +11137,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=539872',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/539872.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_ChoiKoonShum.pdf',
@@ -11152,7 +11152,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=541389',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/541389.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TBC_Empower.pdf',
@@ -11167,7 +11167,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=543616',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/543616.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LST_TangTakLim.pdf',
@@ -11182,7 +11182,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=556246',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/556246.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Creative_AegeanCoast.pdf',
@@ -11197,7 +11197,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=562874',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/562874.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/KinSang_BaptistCh_Bradbury.pdf',
@@ -11212,7 +11212,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=562904',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/562904.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKYWCA_OnTing.pdf',
@@ -11227,7 +11227,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563080',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563080.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_SamShing.pdf',
@@ -11242,7 +11242,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563277',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563277.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SKH_StSimon_LeungKing.pdf',
@@ -11257,7 +11257,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563307',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563307.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SKH_StSimons_TaiHing.pdf',
@@ -11272,7 +11272,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563366',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563366.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YCH_YauOi.pdf',
@@ -11287,7 +11287,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563412',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563412.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YCH_ShanKing.pdf',
@@ -11302,7 +11302,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563595',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563595.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_TinKaPing.pdf',
@@ -11317,7 +11317,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563960',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563960.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_YauOi.pdf',
@@ -11332,7 +11332,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564150',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564150.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_FongTamYuenLeung.pdf',
@@ -11347,7 +11347,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564265',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564265.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YOT_LauWongFat.pdf',
@@ -11362,7 +11362,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564273',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564273.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YOT_TinKaPing.pdf',
@@ -11377,7 +11377,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565059',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565059.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKSPC_ButterflyEst.pdf',
@@ -11392,7 +11392,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565318',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565318.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_ButterflyBay.pdf',
@@ -11407,7 +11407,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565679',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565679.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Melody_MelodyGdn.pdf',
@@ -11422,7 +11422,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565725',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565725.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LeungKing_Lutheran.pdf',
@@ -11437,7 +11437,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565784',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565784.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/FuTai_Lutheran.pdf',
@@ -11452,7 +11452,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565890',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565890.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/WFB_Mantra.pdf',
@@ -11467,7 +11467,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565911',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565911.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/WFB_Avalokitesvara.pdf',
@@ -11482,7 +11482,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566179',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566179.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SKH_SPCCP_TsingWunRd.pdf',
@@ -11497,7 +11497,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566292',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566292.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CCC_TM.pdf',
@@ -11512,7 +11512,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=567892',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/567892.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/JJ_TM.pdf',
@@ -11587,7 +11587,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=599999',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/599999.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LittleNewton_AC.pdf',
@@ -11602,7 +11602,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=609641',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/609641.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Cannon_PrimeViewGdn.pdf',
@@ -11617,7 +11617,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=611093',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Tuen%20Mun_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/611093.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_KatherineMa.pdf',
@@ -11707,7 +11707,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=133019',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wan%20Chai_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/133019.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PreciousBlood.pdf',
@@ -11722,7 +11722,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=133280',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wan%20Chai_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/133280.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CCC_WanChaiCh.pdf',
@@ -11737,7 +11737,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=133744',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wan%20Chai_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/133744.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HK_LingLiangCh.pdf',
@@ -11767,7 +11767,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=323853',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wan%20Chai_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/323853.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/KhalsaDiwan.pdf',
@@ -11782,7 +11782,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=323896',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wan%20Chai_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/323896.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_VicwoodChongKeeTing.pdf',
@@ -11812,7 +11812,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=324922',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wan%20Chai_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/324922.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/OiKwanRd_BaptistCh_LKPF.pdf',
@@ -11827,7 +11827,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325368',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wan%20Chai_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325368.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StMargaretMary_Catholic.pdf',
@@ -11872,7 +11872,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=518247',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wan%20Chai_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/518247.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Muslim_Community.pdf',
@@ -11902,7 +11902,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563447',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wan%20Chai_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563447.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/BGCAHK_WC.pdf',
@@ -11917,7 +11917,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563641',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wan%20Chai_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563641.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_ChuLeeYuetWah.pdf',
@@ -11932,7 +11932,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564338',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wan%20Chai_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564338.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SJS_KathleenMcDouall.pdf',
@@ -11947,7 +11947,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564346',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wan%20Chai_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564346.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SJS_CausewayBay.pdf',
@@ -12007,7 +12007,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=569712',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wan%20Chai_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/569712.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SKH_StChristopher''s_WC.pdf',
@@ -12112,7 +12112,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=614920',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wan%20Chai_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/614920.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_LeeYinYee.pdf',
@@ -12127,7 +12127,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=216259',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/216259.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ShunSang_AC.pdf',
@@ -12142,7 +12142,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=316504',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/316504.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/A-One.pdf',
@@ -12157,7 +12157,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=321192',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/321192.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Redemption_Lutheran.pdf',
@@ -12172,7 +12172,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=323268',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/323268.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CEC_LokFu.pdf',
@@ -12187,7 +12187,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=324833',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/324833.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/KamLam_Catholic.pdf',
@@ -12202,7 +12202,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325090',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325090.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKMLC_ShekOn.pdf',
@@ -12217,7 +12217,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325317',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325317.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LST_KuLeeKwokSin.pdf',
@@ -12232,7 +12232,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325414',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325414.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_LaiTangYuenKaw.pdf',
@@ -12247,7 +12247,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325546',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325546.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SKH_KLCh_OrPuiCheung.pdf',
@@ -12262,7 +12262,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325643',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325643.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SSY_HoTak.pdf',
@@ -12277,7 +12277,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325678',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325678.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Buddhist_FooHong.pdf',
@@ -12292,7 +12292,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325716',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325716.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKT_YY_TungTauEst.pdf',
@@ -12307,7 +12307,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325821',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325821.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_KamHing.pdf',
@@ -12322,7 +12322,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325880',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325880.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/GraceMethodistCh.pdf',
@@ -12337,7 +12337,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325929',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325929.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LokFu_RhenishCh.pdf',
@@ -12352,7 +12352,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=523429',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/523429.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SSY_HoLap.pdf',
@@ -12367,7 +12367,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=523933',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/523933.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Sharon_Lutheran_TszOi.pdf',
@@ -12382,7 +12382,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=528625',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/528625.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/OurLadys.pdf',
@@ -12397,7 +12397,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=530379',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/530379.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'http://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/DH_LingLiang.pdf',
@@ -12412,7 +12412,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=538132',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/538132.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Gracefield_EKnChr.pdf',
@@ -12427,7 +12427,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=542601',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/542601.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TszChingEst_BodhiSiksa.pdf',
@@ -12442,7 +12442,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=549169',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/549169.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ECF_BlessCreativity.pdf',
@@ -12472,7 +12472,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563463',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563463.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/BGCAHK_WTS.pdf',
@@ -12487,7 +12487,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563552',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563552.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_FongShiuYee.pdf',
@@ -12502,7 +12502,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563617',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563617.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/NKWA_TWS.pdf',
@@ -12517,7 +12517,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563811',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563811.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_WongSiuChing.pdf',
@@ -12532,7 +12532,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563919',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563919.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_TseWongPuiKuen.pdf',
@@ -12547,7 +12547,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563943',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563943.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_FongTamYuenLeung_TWS.pdf',
@@ -12562,7 +12562,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564060',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564060.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TTMHK_OnKeung.pdf',
@@ -12577,7 +12577,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564176',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564176.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_KwanFong.pdf',
@@ -12592,7 +12592,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564290',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564290.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/5DBWA.pdf',
@@ -12607,7 +12607,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564303',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564303.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/FDBWA_CheungChukShan.pdf',
@@ -12622,7 +12622,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564370',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564370.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SIHM_WTS.pdf',
@@ -12637,7 +12637,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564397',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564397.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LF_Rhenish.pdf',
@@ -12652,7 +12652,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564400',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564400.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SPK_Rhenish.pdf',
@@ -12667,7 +12667,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564451',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564451.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKYWCA_ChoiWan.pdf',
@@ -12682,7 +12682,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565504',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565504.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKYWCA_FaithHope.pdf',
@@ -12697,7 +12697,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565873',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565873.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CMA_FuShan.pdf',
@@ -12742,7 +12742,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=595144',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Wong%20Tai%20Sin_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/595144.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/JonathanInnovative.pdf',
@@ -12757,7 +12757,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=133582',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/133582.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TakSun.pdf',
@@ -12772,7 +12772,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=216070',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/216070.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Semple.pdf',
@@ -12802,7 +12802,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=325198',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/325198.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_ChanKwanTung.pdf',
@@ -12817,7 +12817,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=516929',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/516929.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/MK_Agnes_Eng.pdf',
@@ -12832,7 +12832,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=531898',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/531898.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Cannan_CharmingGdn.pdf',
@@ -12847,7 +12847,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=533858',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/533858.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/DominicSavio_OlympicBr.pdf',
@@ -12862,7 +12862,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=547069',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/547069.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CCC_MKCh_Jeannette.pdf',
@@ -12877,7 +12877,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=555436',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/555436.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SI_MetroHarbour.pdf',
@@ -12892,7 +12892,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=558346',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/558346.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LittleBuds.pdf',
@@ -12922,7 +12922,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=562939',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/562939.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_HoiFu.pdf',
@@ -12937,7 +12937,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=562955',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/562955.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_LCK.pdf',
@@ -12952,7 +12952,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563323',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563323.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKFYG_ChingLok_YMT.pdf',
@@ -12967,7 +12967,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563820',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563820.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_TaiKokTsui.pdf',
@@ -12982,7 +12982,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564249',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564249.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YOT_ChanChengYukYee.pdf',
@@ -12997,7 +12997,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564931',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564931.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKSPC_HKBF.pdf',
@@ -13012,7 +13012,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565024',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565024.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YMT_YangMemorial_Methodist.pdf',
@@ -13027,7 +13027,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565067',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565067.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKSPC_BOC.pdf',
@@ -13042,7 +13042,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565091',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565091.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKSPC_Park''Nshop.pdf',
@@ -13057,7 +13057,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565300',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565300.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKSPC_PortlandSt.pdf',
@@ -13072,7 +13072,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565423',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565423.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKCS_Central.pdf',
@@ -13087,7 +13087,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565474',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565474.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ProsperousGdn_Baptist.pdf',
@@ -13102,7 +13102,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566535',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566535.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_CatherineBooth.pdf',
@@ -13132,7 +13132,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566969',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566969.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HHS_HealthyKids.pdf',
@@ -13237,7 +13237,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=616281',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/616281.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Clement.pdf',
@@ -13267,7 +13267,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=622869',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/622869.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = NULL,
@@ -13282,7 +13282,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=624195',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yau%20Tsim%20and%20Mong%20Kok_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'https://applications.edb.gov.hk/schoolsearch/schoolfee/624195.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/IBEL.pdf',
@@ -13297,7 +13297,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=151629',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/151629.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YLCh_CCC_Ltd_ChanKwong.pdf',
@@ -13327,7 +13327,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=154601',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/154601.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SKH_StJoseph''sCh.pdf',
@@ -13342,7 +13342,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=155624',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/155624.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YuenLong_LutheranLife.pdf',
@@ -13357,7 +13357,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=156795',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/156795.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StMatthiasCh_ChiuChun.pdf',
@@ -13372,7 +13372,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=156949',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/156949.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CMA_FairviewPark.pdf',
@@ -13387,7 +13387,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=156981',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/156981.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Regent''s_Br.pdf',
@@ -13402,7 +13402,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=157732',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/157732.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Pristine.pdf',
@@ -13417,7 +13417,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158313',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158313.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/NTAGC_WaiYan.pdf',
@@ -13432,7 +13432,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158321',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158321.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YuenKong.pdf',
@@ -13447,7 +13447,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158410',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158410.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/LPE_SingYan.pdf',
@@ -13462,7 +13462,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158500',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158500.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YLC_CCC_LongPingEst_ChanKwong.pdf',
@@ -13477,7 +13477,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=158976',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/158976.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_WongChuWaiFun.pdf',
@@ -13492,7 +13492,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=159018',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/159018.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YLMA.pdf',
@@ -13507,7 +13507,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=159034',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/159034.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_ChanSengYee.pdf',
@@ -13522,7 +13522,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=159042',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/159042.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CA_ChenLeeWT.pdf',
@@ -13537,7 +13537,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=159050',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/159050.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SSY_HoShui.pdf',
@@ -13552,7 +13552,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=159140',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/159140.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YLPMSAA_LauLeungSheung.pdf',
@@ -13567,7 +13567,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=159158',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/159158.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YL_SamYuk.pdf',
@@ -13582,7 +13582,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=159190',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/159190.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Guideposts_3rdBr_TinShuiEst.pdf',
@@ -13597,7 +13597,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=231010',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/231010.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SI_YuenLong.pdf',
@@ -13612,7 +13612,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=231886',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/231886.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Karlam_AC.pdf',
@@ -13642,7 +13642,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=519812',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/519812.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/JJ_AC_HungShuiKiu.pdf',
@@ -13672,7 +13672,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=524360',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/524360.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Jade.pdf',
@@ -13687,7 +13687,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=532835',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/532835.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/MCC_LittleAngel_TingShing.pdf',
@@ -13702,7 +13702,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=534790',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/534790.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Castar.pdf',
@@ -13717,7 +13717,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=537594',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/537594.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Academy_TSW.pdf',
@@ -13732,7 +13732,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=537950',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/537950.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Talent.pdf',
@@ -13747,7 +13747,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=540560',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/540560.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TYTA_TSW.pdf',
@@ -13762,7 +13762,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=541222',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/541222.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Gigamind.pdf',
@@ -13777,7 +13777,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=541230',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/541230.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/ChineseYMCA.pdf',
@@ -13792,7 +13792,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=541427',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/541427.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Buddhist_ChiKwong.pdf',
@@ -13807,7 +13807,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=542687',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/542687.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Sagarmatha.pdf',
@@ -13822,7 +13822,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=543012',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/543012.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StJeromesCatholic.pdf',
@@ -13837,7 +13837,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=543489',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/543489.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TinShuiWai_Alliance.pdf',
@@ -13852,7 +13852,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=543918',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/543918.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YCH_MingTak.pdf',
@@ -13867,7 +13867,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=544167',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/544167.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TPBaptist_TinChakEst.pdf',
@@ -13882,7 +13882,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=545333',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/545333.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YY_TinYatEst.pdf',
@@ -13897,7 +13897,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=549304',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/549304.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YLTKDA_HungTingKa.pdf',
@@ -13912,7 +13912,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=554383',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/554383.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Agnes_GrandeurTerrace.pdf',
@@ -13927,7 +13927,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=560740',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/560740.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CUHKFAA_ChanChunHa.pdf',
@@ -13942,7 +13942,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=562866',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/562866.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SA_KamTin.pdf',
@@ -13957,7 +13957,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563226',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563226.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CO_Aetna.pdf',
@@ -13972,7 +13972,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=563420',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/563420.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YCH_NinaLam.pdf',
@@ -13987,7 +13987,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564010',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564010.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/POH_MrsChuKwokKing.pdf',
@@ -14002,7 +14002,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564028',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564028.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/POH_ChanPoonPuiChing.pdf',
@@ -14017,7 +14017,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564125',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564125.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/TWGH_ZontaClubOfKln.pdf',
@@ -14032,7 +14032,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564257',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564257.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YOT_TinYiu.pdf',
@@ -14047,7 +14047,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564508',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564508.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YL_Rhenish.pdf',
@@ -14062,7 +14062,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564702',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564702.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/SKH_HaSuiWan.pdf',
@@ -14077,7 +14077,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564710',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564710.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/StMatthiasCh.pdf',
@@ -14092,7 +14092,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=564982',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/564982.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_YL.pdf',
@@ -14107,7 +14107,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565377',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565377.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/HKCS_TinHeng.pdf',
@@ -14122,7 +14122,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=565814',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/565814.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CMA_TinChung.pdf',
@@ -14137,7 +14137,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566012',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566012.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/FAGC_TinChak.pdf',
@@ -14152,7 +14152,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566250',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566250.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YLCh_CCC_ChowSungChuOi.pdf',
@@ -14167,7 +14167,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566349',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566349.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/NTWJWA_YL.pdf',
@@ -14182,7 +14182,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566373',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566373.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/NAAC_YL.pdf',
@@ -14197,7 +14197,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=566780',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/566780.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/AEFCHK_TinYan.pdf',
@@ -14212,7 +14212,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=570885',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/570885.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/YLC_CCC_ChanKwong_No2.pdf',
@@ -14227,7 +14227,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=575666',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/575666.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PEC_TinShuiWai.pdf',
@@ -14242,7 +14242,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=590614',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/590614.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/EliteKids_AC.pdf',
@@ -14257,7 +14257,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=597384',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/597384.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/Abiding.pdf',
@@ -14272,7 +14272,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=598623',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/598623.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/AgnesWise.pdf',
@@ -14287,7 +14287,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=600377',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/600377.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/CUHKFAA_ShunLungYanChak.pdf',
@@ -14332,7 +14332,7 @@ UPDATE schools
 SET
   official_profile_url = 'https://kgp2025.azurewebsites.net/edb/school.php?lang=tc&schoolno=605735',
   official_notice_url = 'https://www.edb.gov.hk/attachment/en/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/Vacancy%20Info_Districts/TC/Yuen%20Long_K1-K3%20Vacancy.pdf',
-  official_notice_updated_at = '2026-03-17'::date,
+  official_notice_updated_at = '2026-04-21'::date,
   fee_certificate_url = 'http://applications.edb.gov.hk/schoolsearch/schoolfee/605735.pdf',
   fee_certificate_updated_at = DATE '2025-10-16',
   inspection_report_url = 'https://www.edb.gov.hk/attachment/tc/edu-system/preprimary-kindergarten/quality-assurance-framework/qr/qr-report/PLK_EleanorKwokLKC.pdf',
