@@ -20,8 +20,14 @@ const querySchema = z.object({
     ])
     .optional(),
   search: z.string().max(100).optional(),
-  ageMin: z.coerce.number().int().min(0).max(12).optional(),
-  ageMax: z.coerce.number().int().min(0).max(12).optional(),
+  // Up to 199 to match LCSD's "all ages" sentinel; lets adult / senior /
+  // 親子 (0-17) presets surface in the full /programmes listing.
+  ageMin: z.coerce.number().int().min(0).max(199).optional(),
+  ageMax: z.coerce.number().int().min(0).max(199).optional(),
+  // When true, drop programmes whose age_max is the LCSD "all ages" sentinel
+  // (>= 50). Useful for narrow presets so that wide-range adult/senior rows
+  // do not flood targeted preschool/primary listings.
+  excludeAllAges: z.coerce.boolean().optional(),
   page: z.coerce.number().int().min(1).default(1),
   limit: z.coerce.number().int().min(1).max(100).default(20),
 });
@@ -44,7 +50,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const { category, district, search, ageMin, ageMax, page, limit } = parsed.data;
+    const { category, district, search, ageMin, ageMax, excludeAllAges, page, limit } = parsed.data;
 
     const result = await fetchProgrammes({
       category: category as ProgrammeCategory | undefined,
@@ -52,6 +58,7 @@ export async function GET(request: NextRequest) {
       search,
       ageMin,
       ageMax,
+      excludeAllAges,
       page,
       limit,
     });
