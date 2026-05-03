@@ -168,9 +168,25 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
       schooland_url: null,
       schooland_source_fields: {},
     } : {}),
-    vacancies: (school.vacancies ?? []).filter(
-      (v: { is_current: boolean }) => v.is_current
-    ),
+    // Some schools have multiple is_current=true rows (e.g. real EDB-scraped
+    // row "2026-27" plus a fallback "2026/27" placeholder with all
+    // check_school values). Sort so the row with a real edb_published_date
+    // wins position [0]; downstream UI uses [0].
+    vacancies: (school.vacancies ?? [])
+      .filter((v: { is_current: boolean }) => v.is_current)
+      .sort(
+        (
+          a: { edb_published_date: string | null },
+          b: { edb_published_date: string | null },
+        ) => {
+          if (a.edb_published_date && !b.edb_published_date) return -1;
+          if (!a.edb_published_date && b.edb_published_date) return 1;
+          if (a.edb_published_date && b.edb_published_date) {
+            return b.edb_published_date.localeCompare(a.edb_published_date);
+          }
+          return 0;
+        },
+      ),
   }));
 
   if (vacancyStatuses && vacancyStatuses.length > 0) {

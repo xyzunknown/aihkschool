@@ -1122,6 +1122,7 @@ async function getFeaturedSchoolsLive(): Promise<FeaturedSchool[]> {
         k2: row.k2 ?? "no_information",
         k3: row.k3 ?? "no_information",
       },
+      vacancyPublishedDate: row.edb_date ?? null,
     } satisfies FeaturedSchool;
   });
 }

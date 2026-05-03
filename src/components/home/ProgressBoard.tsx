@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { SchoolEventItem, FeaturedSchool } from "@/types/homepage";
+import { isVacancyStale } from "@/lib/utils";
 
 interface Props {
   events: SchoolEventItem[];
@@ -49,10 +50,12 @@ export function ProgressBoard({ events, schools }: Props) {
         ? offered[0].toUpperCase()
         : `${offered[0].toUpperCase()} - ${offered[offered.length - 1].toUpperCase()}`
       : null;
+    const stale = isVacancyStale(s.vacancyPublishedDate ?? null);
     return {
       school: s,
-      statusKey: vacancyKey(s.vacancyStatus?.k1),
+      statusKey: stale ? "pending" : vacancyKey(s.vacancyStatus?.k1),
       grades,
+      stale,
     };
   });
 
