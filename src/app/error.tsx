@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect } from "react";
+import * as Sentry from "@sentry/nextjs";
 import { Button } from "@/components/ui/Button";
 
 export default function Error({
@@ -9,6 +11,10 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  useEffect(() => {
+    Sentry.captureException(error);
+  }, [error]);
+
   return (
     <div className="max-w-lg mx-auto px-5 md:px-8 py-16 text-center">
       <div className="bg-white rounded-2xl border border-slate-200 p-8">

@@ -85,4 +85,6 @@ export interface FeaturedSchool {
   hasN: boolean;
   href: string;
   vacancyStatus?: { k1: string; k2: string; k3: string };
+  /** EDB vacancy publish date (ISO). Used to flag stale data on the homepage. */
+  vacancyPublishedDate?: string | null;
 }

@@ -1,0 +1,130 @@
+{
+  "generated_at": "2026-05-02T05:15:17.890Z",
+  "mode": "full",
+  "summary": {
+    "sampled": 10,
+    "distinct_candidate_schools": 868,
+    "threads_per_board": 1,
+    "generic_threads_per_board": 1,
+    "matched_threads": 7,
+    "unmatched_threads": 0,
+    "fetch_failures": 0,
+    "skipped_short_threads": 3,
+    "skipped_deleted_threads": 0,
+    "article_posts": 0,
+    "thread_posts": 7,
+    "unique_posts": 7,
+    "inserted_posts": 7,
+    "matched_school_count": 8,
+    "thread_match_rate": 0.7,
+    "robots_compliant_scope": "forumdisplay_threads_only"
+  },
+  "results": [
+    {
+      "url": "https://www.edu-kingdom.com/forum.php?mod=viewthread&tid=3877855",
+      "matched_school": false,
+      "error": "short_thread",
+      "title": "免費啟思3上下音樂，牧童笛3年級，來說普通話二年級"
+    },
+    {
+      "url": "https://www.edu-kingdom.com/forum.php?mod=viewthread&tid=3884565",
+      "matched_school": true,
+      "title": "del",
+      "school_matches": [
+        {
+          "school_id": "70ad5871-07c5-4297-99db-9283a84db5ac",
+          "confidence": 0.9
+        }
+      ],
+      "board_title": "協恩中學附屬小學"
+    },
+    {
+      "url": "https://www.edu-kingdom.com/forum.php?mod=viewthread&tid=2518654",
+      "matched_school": true,
+      "title": "新年快樂 Happy New Year",
+      "school_matches": [
+        {
+          "school_id": "99d83651-6fc2-4595-93b9-88d0c50538d1",
+          "confidence": 0.9
+        }
+      ],
+      "board_title": "維多利亞英文小學(銅鑼灣)"
+    },
+    {
+      "url": "https://www.edu-kingdom.com/forum.php?mod=viewthread&tid=3871213",
+      "matched_school": true,
+      "title": "22/23 P.1_Hope",
+      "school_matches": [
+        {
+          "school_id": "c78178a3-51af-47de-adb0-c74f872a5102",
+          "confidence": 0.95
+        }
+      ],
+      "board_title": "聖嘉勒小學"
+    },
+    {
+      "url": "https://www.edu-kingdom.com/forum.php?mod=viewthread&tid=3881952",
+      "matched_school": false,
+      "error": "short_thread",
+      "title": "校車/保姆車"
+    },
+    {
+      "url": "https://www.edu-kingdom.com/forum.php?mod=viewthread&tid=3884752",
+      "matched_school": false,
+      "error": "short_thread",
+      "title": "請問住鑽石山，大概幾點上校車去spb"
+    },
+    {
+      "url": "https://www.edu-kingdom.com/forum.php?mod=viewthread&tid=2523827",
+      "matched_school": true,
+      "title": "莊二而家做成點？",
+      "school_matches": [
+        {
+          "school_id": "1ed0f662-b197-4d2c-a51e-c89516562e30",
+          "confidence": 0.9
+        }
+      ],
+      "board_title": "保良局莊啟程第二小學"
+    },
+    {
+      "url": "https://www.edu-kingdom.com/forum.php?mod=viewthread&tid=3875521",
+      "matched_school": true,
+      "title": "請問荃灣灣景幾點上車?",
+      "school_matches": [
+        {
+          "school_id": "47db7539-ce80-43a2-95e6-42fbedca11e9",
+          "confidence": 0.95
+        }
+      ],
+      "board_title": "劍鳴幼稚園"
+    },
+    {
+      "url": "https://www.edu-kingdom.com/forum.php?mod=viewthread&tid=2631135",
+      "matched_school": true,
+      "title": "全新夏季校服、外套、被及床墊出售",
+      "school_matches": [
+        {
+          "school_id": "d8e6f6f5-b428-436e-ac2e-57b06c897b6e",
+          "confidence": 0.95
+        }
+      ],
+      "board_title": "基督教香港崇真會安仁幼兒學校"
+    },
+    {
+      "url": "https://www.edu-kingdom.com/forum.php?mod=viewthread&tid=3871952",
+      "matched_school": true,
+      "title": "今年度是否沒有了東九龍線的校巴",
+      "school_matches": [
+        {
+          "school_id": "a866e20f-7c44-4e41-862a-d721ba0f0579",
+          "confidence": 0.95
+        },
+        {
+          "school_id": "1232dd22-46f4-46ea-ae76-ffa5f094ae3e",
+          "confidence": 0.95
+        }
+      ],
+      "board_title": "寶血幼稚園"
+    }
+  ]
+}

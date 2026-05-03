@@ -5,12 +5,24 @@ interface Props {
   schools: FeaturedSchool[];
 }
 
+function getVacancyLabel(status: string | undefined): { text: string; className: string } {
+  const s = status?.toLowerCase() ?? "";
+  if (s.includes("has")) return { text: "有位", className: "bg-emerald-50 text-emerald-700" };
+  if (s.includes("wait")) return { text: "候補", className: "bg-amber-50 text-amber-700" };
+  if (s.includes("no")) return { text: "滿額", className: "bg-red-50 text-red-700" };
+  return { text: "—", className: "bg-slate-50 text-slate-400" };
+}
+
 export function VacancyTicker({ schools }: Props) {
-  const items = schools.slice(0, 5);
+  // Only show schools that actually have vacancy data
+  const items = schools
+    .filter((s) => s.vacancyStatus && (s.vacancyStatus.k1 || s.vacancyStatus.k2 || s.vacancyStatus.k3))
+    .slice(0, 5);
+
   if (items.length === 0) return null;
 
-  const k1Count = items.filter((s) => s.vacancyStatus?.k1?.toLowerCase().includes("has")).length || 2;
-  const k2Count = items.filter((s) => s.vacancyStatus?.k2?.toLowerCase().includes("has")).length || 1;
+  const k1Has = items.filter((s) => s.vacancyStatus?.k1?.toLowerCase().includes("has")).length;
+  const k2Has = items.filter((s) => s.vacancyStatus?.k2?.toLowerCase().includes("has")).length;
 
   return (
     <section className="max-w-7xl mx-auto px-5 md:px-8 mt-12">
@@ -24,11 +36,11 @@ export function VacancyTicker({ schools }: Props) {
               </span>
             </div>
             <p className="text-xs text-ink-700 mt-1">
-              今日新增 {items.length} 間學校有空缺
+              今日 {items.length} 間學校有空缺資訊
               <span className="mx-1.5 text-cream-300">·</span>
-              K1 {k1Count} 間
+              K1 {k1Has} 間有位
               <span className="mx-1.5 text-cream-300">·</span>
-              K2 {k2Count} 間
+              K2 {k2Has} 間有位
             </p>
           </div>
           <Link
@@ -39,26 +51,29 @@ export function VacancyTicker({ schools }: Props) {
           </Link>
         </div>
         <ul className="divide-y divide-cream-100">
-          {items.map((s) => (
-            <li key={s.id}>
-              <Link
-                href={s.href}
-                className="flex items-center justify-between gap-3 px-5 py-3 hover:bg-cream-50 transition"
-              >
-                <div className="flex-1 min-w-0">
-                  <p className="text-sm font-semibold text-ink-900 truncate">{s.name_tc}</p>
-                  <p className="text-xs text-ink-500 mt-0.5">
-                    {s.sessionTags[0] ?? "—"}
-                    <span className="mx-1.5">·</span>
-                    {s.district}
-                  </p>
-                </div>
-                <span className="px-2.5 py-1 rounded-md bg-leaf-100 text-forest-700 text-[11px] font-bold shrink-0">
-                  有位
-                </span>
-              </Link>
-            </li>
-          ))}
+          {items.map((s) => {
+            const label = getVacancyLabel(s.vacancyStatus?.k1);
+            return (
+              <li key={s.id}>
+                <Link
+                  href={s.href}
+                  className="flex items-center justify-between gap-3 px-5 py-3 hover:bg-cream-50 transition"
+                >
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-semibold text-ink-900 truncate">{s.name_tc}</p>
+                    <p className="text-xs text-ink-500 mt-0.5">
+                      {s.sessionTags[0] ?? "—"}
+                      <span className="mx-1.5">·</span>
+                      {s.district}
+                    </p>
+                  </div>
+                  <span className={`px-2.5 py-1 rounded-md text-[11px] font-bold shrink-0 ${label.className}`}>
+                    {label.text}
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>

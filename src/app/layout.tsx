@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { AuthProvider } from "@/components/layout/AuthProvider";
 import { ToastProvider } from "@/components/ui/Toast";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 
 function HeaderFallback() {
   return <div className="h-[73px] border-b border-[rgba(32,85,59,0.08)] bg-[#fffef9]" />;
@@ -46,6 +47,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-HK">
+      <head>
+        <GoogleAnalytics />
+      </head>
       <body className="antialiased min-h-screen flex flex-col bg-white text-ink-900 font-sans">
         <AuthProvider>
           <ToastProvider>

@@ -64,6 +64,12 @@ export interface FetchProgrammesParams {
   search?: string;
   ageMin?: number;
   ageMax?: number;
+  /**
+   * Drop programmes whose age_max signals "all ages" (LCSD encodes this as
+   * 199 but anything above 50 is effectively the same sentinel). Used by
+   * narrow age presets so they don't get flooded by adult/senior offerings.
+   */
+  excludeAllAges?: boolean;
   page?: number;
   limit?: number;
 }
@@ -99,6 +105,7 @@ export async function fetchProgrammes(
     search,
     ageMin,
     ageMax,
+    excludeAllAges,
     page = 1,
     limit = 20,
   } = params;
@@ -117,11 +124,21 @@ export async function fetchProgrammes(
   if (district) {
     query = query.eq("district", district);
   }
+  // Range overlap: programme matches when its [age_min, age_max] interval
+  // overlaps with the filter [ageMin, ageMax]. The previous logic only
+  // constrained age_max in both directions, which both excluded valid
+  // programmes (e.g. a 4-11 dance class with ageMax=6 filter) and let
+  // some 0-199 sentinel rows through.
   if (typeof ageMin === "number" && Number.isFinite(ageMin)) {
     query = query.gte("age_max", ageMin);
   }
   if (typeof ageMax === "number" && Number.isFinite(ageMax)) {
-    query = query.lte("age_max", ageMax);
+    query = query.lte("age_min", ageMax);
+  }
+  if (excludeAllAges) {
+    // LCSD uses 199 as an "all ages" sentinel and 99 for "no upper limit".
+    // Anything above 50 in age_max is effectively unbounded.
+    query = query.lt("age_max", 50);
   }
   if (search && search.trim()) {
     const safe = search.trim().replace(/[,()]/g, "");
@@ -178,11 +195,17 @@ export async function fetchUpcomingProgrammes(limit = 6): Promise<ProgrammeWithS
 
   const now = new Date().toISOString();
 
+  // Audience filter: kindergarten product, surface programmes that fit K1-K3
+  // children (~3-6) or parent-child sessions. LCSD uses age_max=199 as an
+  // "all ages" sentinel, which would otherwise leak adult/senior offerings
+  // (長期病患者乒乓球班、清晨觀鳥 etc) into the homepage card.
   const { data, error } = await supabase
     .from("lcsd_programmes")
     .select(LIST_SELECT)
     .eq("is_active", true)
     .gte("enrolment_open_at", now)
+    .lte("age_min", 6)
+    .or("age_max.lte.12,category.eq.parent_child")
     .order("enrolment_open_at", { ascending: true })
     .limit(limit);
 

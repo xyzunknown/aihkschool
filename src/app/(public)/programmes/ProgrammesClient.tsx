@@ -4,9 +4,32 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import type { ProgrammeCategory, ProgrammeWithStatus } from "@/lib/db/programmes";
 import { ProgrammeCard, ProgrammeCardSkeleton } from "@/components/programmes/ProgrammeCard";
-import { ProgrammeFilterBar } from "@/components/programmes/ProgrammeFilterBar";
+import { ProgrammeFilterBar, type AgePresetKey } from "@/components/programmes/ProgrammeFilterBar";
 
 const PAGE_SIZE = 18;
+
+// Age presets surfaced in the filter bar. The API uses range-overlap
+// matching, so we set a slightly wider range than the preset label suggests
+// (e.g. 「幼兒 3-5」 → ageMin=3, ageMax=12) to keep targeted children's
+// classes visible while excluding LCSD's age_max=199 "all ages" sentinel
+// rows that would otherwise dominate every narrow preset with adult/senior
+// programmes (殘疾人士健體計劃, 太極訓練班 etc).
+//
+// "all" disables the age filter entirely. "family" funnels through
+// category=parent_child rather than age.
+const AGE_PRESET_RANGES: Record<AgePresetKey, { ageMin: number | null; ageMax: number | null; forceCategory?: ProgrammeCategory }> = {
+  all: { ageMin: null, ageMax: null },
+  infant: { ageMin: 0, ageMax: 4 },
+  preschool: { ageMin: 3, ageMax: 12 },
+  primary: { ageMin: 6, ageMax: 18 },
+  teen: { ageMin: 12, ageMax: 21 },
+  adult: { ageMin: 18, ageMax: 99 },
+  family: { ageMin: null, ageMax: null, forceCategory: "parent_child" },
+};
+
+const VALID_PRESETS = new Set<AgePresetKey>([
+  "all", "infant", "preschool", "primary", "teen", "adult", "family",
+]);
 
 interface ApiResponse {
   data: ProgrammeWithStatus[];
@@ -22,10 +45,14 @@ export function ProgrammesClient() {
   const initialFilters = useMemo(() => {
     const cat = searchParams.get("category");
     const dist = searchParams.get("district");
+    const ageRaw = searchParams.get("age") as AgePresetKey | null;
+    const age: AgePresetKey =
+      ageRaw && VALID_PRESETS.has(ageRaw) ? ageRaw : "preschool";
     const page = parseInt(searchParams.get("page") ?? "1", 10);
     return {
       category: (cat || null) as ProgrammeCategory | null,
       district: dist || null,
+      agePreset: age,
       page: isNaN(page) ? 1 : page,
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -33,6 +60,7 @@ export function ProgrammesClient() {
 
   const [category, setCategory] = useState<ProgrammeCategory | null>(initialFilters.category);
   const [district, setDistrict] = useState<string | null>(initialFilters.district);
+  const [agePreset, setAgePreset] = useState<AgePresetKey>(initialFilters.agePreset);
   const [page, setPage] = useState<number>(initialFilters.page);
   const [programmes, setProgrammes] = useState<ProgrammeWithStatus[]>([]);
   const [total, setTotal] = useState(0);
@@ -43,21 +71,31 @@ export function ProgrammesClient() {
     const params = new URLSearchParams();
     if (category) params.set("category", category);
     if (district) params.set("district", district);
+    if (agePreset !== "preschool") params.set("age", agePreset);
     if (page > 1) params.set("page", String(page));
     const qs = params.toString();
     router.replace(qs ? `/programmes?${qs}` : "/programmes", { scroll: false });
-  }, [category, district, page, router]);
+  }, [category, district, agePreset, page, router]);
 
   // Fetch programmes
   const fetchData = useCallback(async () => {
     setIsLoading(true);
     try {
+      const range = AGE_PRESET_RANGES[agePreset];
+      const effectiveCategory: ProgrammeCategory | null =
+        range.forceCategory ?? category;
       const params = new URLSearchParams();
-      if (category) params.set("category", category);
+      if (effectiveCategory) params.set("category", effectiveCategory);
       if (district) params.set("district", district);
-      // 默認只顯示 2-6 歲
-      params.set("ageMin", "2");
-      params.set("ageMax", "6");
+      if (range.ageMin !== null) params.set("ageMin", String(range.ageMin));
+      if (range.ageMax !== null) params.set("ageMax", String(range.ageMax));
+      // Only the youngest presets benefit from dropping the all-ages
+      // sentinel (without it preschool/infant get flooded with adult tai chi
+      // and senior pickleball). For primary/teen/adult the all-ages rows
+      // are legitimately open to that band and should stay.
+      if (agePreset === "infant" || agePreset === "preschool") {
+        params.set("excludeAllAges", "1");
+      }
       params.set("page", String(page));
       params.set("limit", String(PAGE_SIZE));
 
@@ -76,7 +114,7 @@ export function ProgrammesClient() {
     } finally {
       setIsLoading(false);
     }
-  }, [category, district, page]);
+  }, [category, district, agePreset, page]);
 
   useEffect(() => {
     void fetchData();
@@ -92,6 +130,7 @@ export function ProgrammesClient() {
   const handleReset = () => {
     setCategory(null);
     setDistrict(null);
+    setAgePreset("preschool");
     setPage(1);
   };
 
@@ -103,8 +142,10 @@ export function ProgrammesClient() {
         <ProgrammeFilterBar
           category={category}
           district={district}
+          agePreset={agePreset}
           onChangeCategory={handleFilterChange(setCategory)}
           onChangeDistrict={handleFilterChange(setDistrict)}
+          onChangeAgePreset={handleFilterChange(setAgePreset)}
           onReset={handleReset}
         />
       </div>

@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "refresh:edb:vacancy": "node scripts/refresh_edb_vacancies.mjs",
     "crawl:schooland:kg": "node scripts/crawlers/schooland-kg.mjs",
     "crawl:media": "node scripts/crawlers/media-articles.mjs",
     "build:schooland:enrichment": "node scripts/build_schooland_profile_enrichment.mjs",
@@ -14,6 +15,7 @@
     "supabase:types:check": "node scripts/generate-supabase-types.mjs --check"
   },
   "dependencies": {
+    "@sentry/nextjs": "^10.51.0",
     "@supabase/ssr": "^0.9.0",
     "@supabase/supabase-js": "^2.99.3",
     "@upstash/ratelimit": "^2.0.8",

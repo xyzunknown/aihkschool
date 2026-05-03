@@ -28,7 +28,7 @@ export default function ProgrammesPage() {
               SmartPLAY 開報前追蹤
             </h1>
             <p className="mt-3 text-sm text-ink-500">
-              課文通識 &gt; 以課程 ｜ 2-6 歲 ｜ 收藏課程，開報前掌握資訊
+              康文署 SmartPLAY 課程｜全年齡｜收藏心儀課程，開報前提早提醒
             </p>
             <div className="mt-5 rounded-card bg-sand-50 border border-sand-100 px-4 py-3 max-w-lg">
               <p className="text-xs text-sand-700 leading-relaxed">

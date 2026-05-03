@@ -16,7 +16,9 @@ on:
         required: false
         default: "false"
   schedule:
-    - cron: "30 4 * * *"
+    # Every 2 days at 04:30 UTC (12:30 HKT). Cuts API/CI usage in half
+    # without losing freshness — open-day & admission articles publish slowly.
+    - cron: "30 4 */2 * *"
 
 permissions:
   contents: read

@@ -44,7 +44,7 @@ export function VacancySection({ vacancy, isStale, deadlineStatus: dlStatus, sch
           <div className="mt-4 pt-3 border-t border-slate-100 space-y-1">
             {isStale && (
               <p className="text-sm text-slate-500">
-                數據更新超過 30 天，建議直接聯絡學校確認。
+                數據更新超過 45 天，建議直接聯絡學校確認。
                 {schoolWebsite && (
                   <>
                     {" "}

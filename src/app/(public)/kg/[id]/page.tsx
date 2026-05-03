@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { fetchSchoolById, fetchSchoolEnrichment } from "@/lib/db/schools";
 import { fetchCurrentVacancy } from "@/lib/db/vacancies";
 import { fetchRelatedMediaArticles } from "@/lib/db/mediaArticles";
+import { createClient } from "@/lib/supabase/server";
 import { SchoolDetailClient } from "./SchoolDetailClient";
 import { ReputationSection } from "@/components/schools/ReputationSection";
 import { RelatedMediaSection } from "@/components/schools/RelatedMediaSection";
@@ -38,6 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       index: true,
       follow: true,
       noarchive: true,
+      nosnippet: true,
       "max-snippet": 160,
     },
   };
@@ -50,9 +52,14 @@ export default async function SchoolDetailPage({ params }: Props) {
     notFound();
   }
 
+  // Check auth for tiered enrichment payload (quote_highlights only for logged-in users)
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  const isAuthenticated = !!user;
+
   const [vacancy, enrichment, relatedMediaArticles] = await Promise.all([
     fetchCurrentVacancy(params.id),
-    fetchSchoolEnrichment(params.id),
+    fetchSchoolEnrichment(params.id, { includeRestricted: isAuthenticated }),
     fetchRelatedMediaArticles(params.id, 6),
   ]);
 

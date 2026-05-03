@@ -3,6 +3,18 @@ import { getApplicationStatusLabel, hasAdmissionInfo } from "@/lib/schools/admis
 import type { School } from "@/types/database";
 import type { SchoolEnrichment } from "@/lib/db/schools";
 
+function normalizeUrl(url: string | null | undefined): string {
+  if (!url) return "";
+  try {
+    const u = new URL(url.trim());
+    const host = u.hostname.toLowerCase().replace(/^www\./, "");
+    const path = u.pathname.replace(/\/$/, "");
+    return `${host}${path}`;
+  } catch {
+    return url.trim().toLowerCase().replace(/^www\./, "").replace(/\/$/, "");
+  }
+}
+
 interface AdmissionsSectionProps {
   school: School;
   enrichment: SchoolEnrichment | null;
@@ -10,7 +22,11 @@ interface AdmissionsSectionProps {
 
 export function AdmissionsSection({ school, enrichment }: AdmissionsSectionProps) {
   // Merge: enrichment fields take priority, fall back to school main table
-  const applicationUrl = enrichment?.application_url || school.application_url;
+  const rawApplicationUrl = enrichment?.application_url || school.application_url;
+  const applicationUrl =
+    normalizeUrl(rawApplicationUrl) === normalizeUrl(school.website)
+      ? null
+      : rawApplicationUrl;
   const applicationProcess = enrichment?.application_process || school.application_details;
   const openDayDate = enrichment?.open_day_date || null;
   const openDayDetails = enrichment?.open_day_details || school.open_day_details;
@@ -19,7 +35,7 @@ export function AdmissionsSection({ school, enrichment }: AdmissionsSectionProps
   const applicationStatus = school.application_status;
 
   const hasAnyInfo = hasAdmissionInfo(school) ||
-    enrichment?.application_url ||
+    applicationUrl ||
     enrichment?.application_process ||
     enrichment?.open_day_date ||
     enrichment?.open_day_details ||
