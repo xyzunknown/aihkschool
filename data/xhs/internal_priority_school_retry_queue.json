@@ -1,0 +1,431 @@
+{
+  "generated_at": "2026-05-04T14:44:34.269Z",
+  "source_file": "data/xhs/internal_priority_school_top100_results.json",
+  "total_retry_targets": 36,
+  "breakdown": {
+    "unreachable": 32,
+    "robots_blocked": 2,
+    "content_insufficient": 2
+  },
+  "rows": [
+    {
+      "rank": 8,
+      "school_code": "564044",
+      "name_tc": "寶血幼稚園（深水埗）",
+      "website": "http://www.pbn.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "anti_bot_challenge=www.pbn.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    },
+    {
+      "rank": 12,
+      "school_code": "158380",
+      "name_tc": "世界龍岡學校朱瑞蘭（中英文）幼稚園",
+      "website": "http://cslkg.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "anti_bot_challenge=www.cslkg.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    },
+    {
+      "rank": 15,
+      "school_code": "315907",
+      "name_tc": "基督教中心幼稚園",
+      "website": "http://www.cyckg.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "domain_policy=403 anti-bot on both protocols.",
+        "normalized_url=https://www.cyckg.edu.hk/",
+        "Playwright fallback used for www.cyckg.edu.hk",
+        "anti_bot_challenge=www.cyckg.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    },
+    {
+      "rank": 16,
+      "school_code": "324230",
+      "name_tc": "明我幼稚園",
+      "website": "http://www.dominicsaviokg.org/",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "domain_policy=HTTP homepage is reachable while HTTPS fails; keep the shared site on HTTP and retry serially.",
+        "meta_refresh=http://www.dominicsaviokg.edu.hk/",
+        "anti_bot_challenge=www.dominicsaviokg.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    },
+    {
+      "rank": 17,
+      "school_code": "131440",
+      "name_tc": "聖士提反堂小學暨幼稚園",
+      "website": "http://www.ssck.edu.hk",
+      "crawl_status": "robots_blocked",
+      "crawl_notes": [],
+      "retry_strategy": "respect_robots_manual_only"
+    },
+    {
+      "rank": 20,
+      "school_code": "559768",
+      "name_tc": "天主教聖安德肋幼稚園",
+      "website": "https://www.sackg.edu.hk",
+      "crawl_status": "robots_blocked",
+      "crawl_notes": [],
+      "retry_strategy": "respect_robots_manual_only"
+    },
+    {
+      "rank": 21,
+      "school_code": "536768",
+      "name_tc": "珈琳幼稚園（屯門分校）",
+      "website": "http://www.karlam.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "domain_policy=403 anti-bot on both protocols.",
+        "normalized_url=https://www.karlam.edu.hk/",
+        "Playwright fallback used for www.karlam.edu.hk",
+        "anti_bot_challenge=www.karlam.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    },
+    {
+      "rank": 24,
+      "school_code": "541222",
+      "name_tc": "激活幼稚園",
+      "website": "http://www.gigamind.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "base page textLen=39, too short",
+        "no dynamic links found, using SUB_PATHS fallback"
+      ],
+      "retry_strategy": "manual_review"
+    },
+    {
+      "rank": 26,
+      "school_code": "231240",
+      "name_tc": "卓思英文學校暨幼稚園（青怡分校）",
+      "website": "http://www.choicekinder.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "anti_bot_challenge=www.choicekinder.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    },
+    {
+      "rank": 29,
+      "school_code": "156930",
+      "name_tc": "佳寶幼稚園（屯門分校）",
+      "website": "http://www.guideposts.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "base page unreachable"
+      ],
+      "retry_strategy": "manual_review"
+    },
+    {
+      "rank": 30,
+      "school_code": "563323",
+      "name_tc": "香港青年協會青樂幼稚園（油麻地）",
+      "website": "http://clymt.hkfyg.org.hk",
+      "crawl_status": "content_insufficient",
+      "crawl_notes": [
+        "no dynamic links found, using SUB_PATHS fallback",
+        "confidence=low, baseTextLen=21056, pages=5, pdfs=0"
+      ],
+      "retry_strategy": "adapter_or_manual_page_selection"
+    },
+    {
+      "rank": 31,
+      "school_code": "158062",
+      "name_tc": "香港道教聯合會圓玄幼稚園（富善邨）",
+      "website": "https://www.yuenyuenkg.edu.hk/fushin/",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "domain_policy=403 anti-bot on both root and branch pages.",
+        "Playwright fallback used for www.yuenyuenkg.edu.hk",
+        "anti_bot_challenge=www.yuenyuenkg.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    },
+    {
+      "rank": 35,
+      "school_code": "151157",
+      "name_tc": "大埔浸信會幼稚園",
+      "website": "http://www.hkbkec.edu.hk/taipobc/",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "base page unreachable"
+      ],
+      "retry_strategy": "manual_review"
+    },
+    {
+      "rank": 36,
+      "school_code": "543861",
+      "name_tc": "基督教神召會合一堂幼稚園",
+      "website": "http://www.aoguck.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "anti_bot_challenge=www.aoguck.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    },
+    {
+      "rank": 38,
+      "school_code": "559415",
+      "name_tc": "博士山（香港）國際幼稚園",
+      "website": "https://www.boxhill.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "domain_policy=202/JS gate on fetch; allow browser fallback and serialize retries.",
+        "normalized_url=https://www.boxhill.edu.hk/",
+        "Playwright fallback used for www.boxhill.edu.hk",
+        "anti_bot_challenge=www.boxhill.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    },
+    {
+      "rank": 40,
+      "school_code": "159158",
+      "name_tc": "元朗三育幼稚園",
+      "website": "http://www.ylsyk.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "anti_bot_challenge=www.ylsyk.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    },
+    {
+      "rank": 51,
+      "school_code": "566942",
+      "name_tc": "銅鑼灣維多利亞（海峰園）幼兒園",
+      "website": "http://www.cbvictoria.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "base page unreachable"
+      ],
+      "retry_strategy": "manual_review"
+    },
+    {
+      "rank": 55,
+      "school_code": "215120",
+      "name_tc": "國際英文幼稚園",
+      "website": "http://www.stcatherines.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "domain_policy=403 anti-bot on both protocols.",
+        "normalized_url=https://www.stcatherines.edu.hk/",
+        "Playwright fallback used for www.stcatherines.edu.hk",
+        "anti_bot_challenge=www.stcatherines.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    },
+    {
+      "rank": 61,
+      "school_code": "564710",
+      "name_tc": "聖公會聖馬提亞堂幼兒學校",
+      "website": "http://www.smcns.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "anti_bot_challenge=www.smcns.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    },
+    {
+      "rank": 62,
+      "school_code": "564729",
+      "name_tc": "香港聖公會基愛幼兒學校",
+      "website": "http://www.kons.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "base page unreachable"
+      ],
+      "retry_strategy": "manual_review"
+    },
+    {
+      "rank": 66,
+      "school_code": "563269",
+      "name_tc": "香港聖公會聖西門西貢幼兒學校",
+      "website": "http://www.sssk.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "anti_bot_challenge=www.sssk.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    },
+    {
+      "rank": 67,
+      "school_code": "563277",
+      "name_tc": "香港聖公會聖西門良景幼兒學校",
+      "website": "http://www.sslk.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "anti_bot_challenge=www.sslk.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    },
+    {
+      "rank": 68,
+      "school_code": "563307",
+      "name_tc": "香港聖公會聖西門大興幼兒學校",
+      "website": "http://www.ssth.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "anti_bot_challenge=www.ssth.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    },
+    {
+      "rank": 69,
+      "school_code": "566926",
+      "name_tc": "香港聖公會東涌幼兒學校",
+      "website": "http://www.tcns.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "base page unreachable"
+      ],
+      "retry_strategy": "manual_review"
+    },
+    {
+      "rank": 70,
+      "school_code": "564702",
+      "name_tc": "香港聖公會夏瑞芸幼兒學校",
+      "website": "http://www.hswns.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "base page unreachable"
+      ],
+      "retry_strategy": "manual_review"
+    },
+    {
+      "rank": 71,
+      "school_code": "568104",
+      "name_tc": "聖公會聖基道幼兒園（葵涌）",
+      "website": "http://www.skhkckg.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "anti_bot_challenge=www.skhkckg.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    },
+    {
+      "rank": 72,
+      "school_code": "569712",
+      "name_tc": "聖公會聖基道幼兒園（灣仔）",
+      "website": "https://www.skhwcn.edu.hk/",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "anti_bot_challenge=www.skhwcn.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    },
+    {
+      "rank": 75,
+      "school_code": "156493",
+      "name_tc": "聖公會靈風堂幼稚園",
+      "website": "http://www.skhhsckg.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "anti_bot_challenge=www.skhhsckg.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    },
+    {
+      "rank": 83,
+      "school_code": "133019",
+      "name_tc": "寶血幼稚園",
+      "website": "http://www.pbk.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "anti_bot_challenge=www.pbk.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    },
+    {
+      "rank": 92,
+      "school_code": "321192",
+      "name_tc": "路德會救恩幼稚園",
+      "website": "http://www.rlk.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "anti_bot_challenge=www.rlk.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    },
+    {
+      "rank": 95,
+      "school_code": "582417",
+      "name_tc": "安基司幼稚園（粉嶺）",
+      "website": "http://www.anchors.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "domain_policy=403 anti-bot on both HTTP and HTTPS.",
+        "normalized_url=https://www.anchors.edu.hk/",
+        "Playwright fallback used for www.anchors.edu.hk",
+        "anti_bot_challenge=www.anchors.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    },
+    {
+      "rank": 96,
+      "school_code": "536067",
+      "name_tc": "安基司幼稚園",
+      "website": "https://www.anchors.edu.hk/",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "domain_policy=403 anti-bot on both HTTP and HTTPS.",
+        "Playwright fallback used for www.anchors.edu.hk",
+        "anti_bot_challenge=www.anchors.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    },
+    {
+      "rank": 97,
+      "school_code": "622060",
+      "name_tc": "安基司學校附屬國際幼稚園",
+      "website": "https://www.anchorsacademy.edu.hk/",
+      "crawl_status": "content_insufficient",
+      "crawl_notes": [
+        "base page textLen=0, too short",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "confidence=low, baseTextLen=158, pages=5, pdfs=0"
+      ],
+      "retry_strategy": "adapter_or_manual_page_selection"
+    },
+    {
+      "rank": 98,
+      "school_code": "565199",
+      "name_tc": "安基司國際幼兒園",
+      "website": "https://www.anchors.edu.hk/",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "domain_policy=403 anti-bot on both HTTP and HTTPS.",
+        "Playwright fallback used for www.anchors.edu.hk",
+        "anti_bot_challenge=www.anchors.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    },
+    {
+      "rank": 99,
+      "school_code": "216038",
+      "name_tc": "聖文嘉中英文幼稚園（華貴邨）",
+      "website": "http://www.stmonicawk.edu.hk",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "anti_bot_challenge=www.stmonicawk.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    },
+    {
+      "rank": 100,
+      "school_code": "231533",
+      "name_tc": "聖文嘉中英文幼稚園（荃灣）",
+      "website": "https://www.stmonicakg.edu.hk/",
+      "crawl_status": "unreachable",
+      "crawl_notes": [
+        "anti_bot_challenge=www.stmonicakg.edu.hk"
+      ],
+      "retry_strategy": "browser_or_manual_capture"
+    }
+  ]
+}

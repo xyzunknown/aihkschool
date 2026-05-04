@@ -1,0 +1,640 @@
+[
+  {
+    "school_name": "世界龍岡學校朱瑞蘭（中英文）幼稚園",
+    "brand_name": "世界龍岡學校朱瑞蘭",
+    "school_code": "158380",
+    "district": "tuen_mun",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 22,
+    "source_images": [
+      "a01.jpg",
+      "a02.jpg",
+      "a03.jpg",
+      "a04.jpg",
+      "a05.jpg",
+      "b01.jpg",
+      "b02.jpg",
+      "c02.jpg",
+      "c03.jpg",
+      "d02.jpg",
+      "f02.jpg",
+      "h01.jpg",
+      "h02.jpg",
+      "i03.jpg",
+      "j06.jpg",
+      "j07.jpg",
+      "j09.jpg",
+      "k02.jpg",
+      "l02.jpg",
+      "l03.jpg",
+      "n02.jpg",
+      "n03.jpg"
+    ]
+  },
+  {
+    "school_name": "維多利亞（何文田）國際幼兒園",
+    "brand_name": "維多利亞",
+    "school_code": "566900",
+    "district": "kowloon_city",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 11,
+    "source_images": [
+      "a02.jpg",
+      "b01.jpg",
+      "b02.jpg",
+      "c01.jpg",
+      "d01.jpg",
+      "f04.jpg",
+      "h02.jpg",
+      "i01.jpg",
+      "j04.jpg",
+      "k01.jpg",
+      "n02.jpg"
+    ]
+  },
+  {
+    "school_name": "維多利亞（何文田）國際幼稚園",
+    "brand_name": "維多利亞",
+    "school_code": "618039",
+    "district": "kowloon_city",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 11,
+    "source_images": [
+      "a02.jpg",
+      "b01.jpg",
+      "b02.jpg",
+      "c01.jpg",
+      "d01.jpg",
+      "f04.jpg",
+      "h02.jpg",
+      "i01.jpg",
+      "j04.jpg",
+      "k01.jpg",
+      "n02.jpg"
+    ]
+  },
+  {
+    "school_name": "寶血幼稚園（深水埗）",
+    "brand_name": "寶血幼稚園",
+    "school_code": "564044",
+    "district": "sham_shui_po",
+    "school_type": "non_profit",
+    "has_nursery": true,
+    "kep": false,
+    "mention_count": 10,
+    "source_images": [
+      "a02.jpg",
+      "c01.jpg",
+      "f04.jpg",
+      "g04.jpg",
+      "j05.jpg",
+      "l01.jpg",
+      "l02.jpg",
+      "l04.jpg",
+      "l05.jpg",
+      "n02.jpg"
+    ]
+  },
+  {
+    "school_name": "明慧國際幼稚園（北角分校）",
+    "brand_name": "明慧國際幼稚園",
+    "school_code": "567329",
+    "district": "eastern",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 8,
+    "source_images": [
+      "b02.jpg",
+      "c04.jpg",
+      "d02.jpg",
+      "h01.jpg",
+      "i03.jpg",
+      "j02.jpg",
+      "k02.jpg",
+      "n01.jpg"
+    ]
+  },
+  {
+    "school_name": "啓思幼稚園（帝堡城）",
+    "brand_name": "啓思幼稚園",
+    "school_code": "537578",
+    "district": "sha_tin",
+    "school_type": "non_profit",
+    "has_nursery": true,
+    "kep": false,
+    "mention_count": 7,
+    "source_images": [
+      "a03.jpg",
+      "c03.jpg",
+      "f01.jpg",
+      "h02.jpg",
+      "j07.jpg",
+      "l03.jpg",
+      "n03.jpg"
+    ]
+  },
+  {
+    "school_name": "明慧國際幼稚園（太子分校）",
+    "brand_name": "明慧國際幼稚園",
+    "school_code": "583421",
+    "district": "yau_tsim_mong",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 6,
+    "source_images": [
+      "a03.jpg",
+      "c01.jpg",
+      "d01.jpg",
+      "j03.jpg",
+      "k01.jpg",
+      "n02.jpg"
+    ]
+  },
+  {
+    "school_name": "卓思英文學校暨幼稚園（青怡分校）",
+    "brand_name": "卓思英文學校暨幼稚園",
+    "school_code": "231240",
+    "district": "kwai_tsing",
+    "school_type": "non_profit",
+    "has_nursery": true,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "a05.jpg",
+      "d01.jpg",
+      "k01.jpg",
+      "l03.jpg"
+    ]
+  },
+  {
+    "school_name": "MONTESSORI FOR CHILDREN (NURSERY)",
+    "brand_name": "MONTESSORI FOR CHILDREN ",
+    "school_code": "565466",
+    "district": "southern",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "c05.jpg",
+      "f03.jpg",
+      "f04.jpg",
+      "n04.jpg"
+    ]
+  },
+  {
+    "school_name": "香港培道小學",
+    "brand_name": "香港培道小學",
+    "school_code": "324477",
+    "district": "kowloon_city",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 2,
+    "source_images": [
+      "b02.jpg",
+      "l03.jpg"
+    ]
+  },
+  {
+    "school_name": "學之園幼稚園（君豪峰）",
+    "brand_name": "學之園幼稚園",
+    "school_code": "613681",
+    "district": "eastern",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 2,
+    "source_images": [
+      "e02.jpg",
+      "g01.jpg"
+    ]
+  },
+  {
+    "school_name": "佳寶幼稚園（屯門分校）",
+    "brand_name": "佳寶幼稚園",
+    "school_code": "156930",
+    "district": "tuen_mun",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 2,
+    "source_images": [
+      "l01.jpg",
+      "l04.jpg"
+    ]
+  },
+  {
+    "school_name": "啓思幼稚園（屯門分校）",
+    "brand_name": "啓思幼稚園",
+    "school_code": "158852",
+    "district": "tuen_mun",
+    "school_type": "non_profit",
+    "has_nursery": true,
+    "kep": false,
+    "mention_count": 2,
+    "source_images": [
+      "l01.jpg",
+      "l04.jpg"
+    ]
+  },
+  {
+    "school_name": "珈琳幼稚園（屯門分校）",
+    "brand_name": "珈琳幼稚園",
+    "school_code": "536768",
+    "district": "tuen_mun",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 2,
+    "source_images": [
+      "l01.jpg",
+      "l04.jpg"
+    ]
+  },
+  {
+    "school_name": "香港青年協會青樂幼稚園（油麻地）",
+    "brand_name": "香港青年協會青樂幼稚園",
+    "school_code": "563323",
+    "district": "yau_tsim_mong",
+    "school_type": "non_profit",
+    "has_nursery": true,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "a03.jpg"
+    ]
+  },
+  {
+    "school_name": "太陽島英文幼稚園（元朗分校）",
+    "brand_name": "太陽島英文幼稚園",
+    "school_code": "231010",
+    "district": "yuen_long",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "a04.jpg"
+    ]
+  },
+  {
+    "school_name": "香港道教聯合會圓玄幼稚園（富善邨）",
+    "brand_name": "香港道教聯合會圓玄幼稚園",
+    "school_code": "158062",
+    "district": "tai_po",
+    "school_type": "non_profit",
+    "has_nursery": true,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "a04.jpg"
+    ]
+  },
+  {
+    "school_name": "學之園幼稚園（昇御海逸）",
+    "brand_name": "學之園幼稚園",
+    "school_code": "609528",
+    "district": "kowloon_city",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "b02.jpg"
+    ]
+  },
+  {
+    "school_name": "維多利亞（君匯港）幼稚園",
+    "brand_name": "維多利亞",
+    "school_code": "574708",
+    "district": "yau_tsim_mong",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "b02.jpg"
+    ]
+  },
+  {
+    "school_name": "又一村學校",
+    "brand_name": "又一村學校",
+    "school_code": "133850",
+    "district": "sham_shui_po",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "l01.jpg"
+    ]
+  },
+  {
+    "school_name": "嘉諾撒聖心幼稚園",
+    "brand_name": "嘉諾撒聖心幼稚園",
+    "school_code": "325970",
+    "district": "central_and_western",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "l01.jpg"
+    ]
+  },
+  {
+    "school_name": "激活幼稚園",
+    "brand_name": "激活幼稚園",
+    "school_code": "541222",
+    "district": "yuen_long",
+    "school_type": "non_profit",
+    "has_nursery": true,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "l01.jpg"
+    ]
+  },
+  {
+    "school_name": "天樂幼稚園",
+    "brand_name": "天樂幼稚園",
+    "school_code": "537950",
+    "district": "yuen_long",
+    "school_type": "non_profit",
+    "has_nursery": true,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "l02.jpg"
+    ]
+  },
+  {
+    "school_name": "明我幼稚園",
+    "brand_name": "明我幼稚園",
+    "school_code": "324230",
+    "district": "eastern",
+    "school_type": "non_profit",
+    "has_nursery": true,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "l02.jpg"
+    ]
+  },
+  {
+    "school_name": "聖保羅堂幼稚園",
+    "brand_name": "聖保羅堂幼稚園",
+    "school_code": "131466",
+    "district": "central_and_western",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "l02.jpg"
+    ]
+  },
+  {
+    "school_name": "迦南幼稚園（麗港城）",
+    "brand_name": "迦南幼稚園",
+    "school_code": "216054",
+    "district": "kwun_tong",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "l02.jpg"
+    ]
+  },
+  {
+    "school_name": "基督教神召會合一堂幼稚園",
+    "brand_name": "基督教神召會合一堂幼稚園",
+    "school_code": "543861",
+    "district": "sha_tin",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "l03.jpg"
+    ]
+  },
+  {
+    "school_name": "救世軍田家炳幼稚園",
+    "brand_name": "救世軍田家炳幼稚園",
+    "school_code": "156973",
+    "district": "sha_tin",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "l03.jpg"
+    ]
+  },
+  {
+    "school_name": "聖士提反堂小學暨幼稚園",
+    "brand_name": "聖士提反堂小學暨幼稚園",
+    "school_code": "131440",
+    "district": "central_and_western",
+    "school_type": "non_profit",
+    "has_nursery": true,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "l03.jpg"
+    ]
+  },
+  {
+    "school_name": "元朗三育幼稚園",
+    "brand_name": "元朗三育幼稚園",
+    "school_code": "159158",
+    "district": "yuen_long",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "l04.jpg"
+    ]
+  },
+  {
+    "school_name": "加州天地幼稚園",
+    "brand_name": "加州天地幼稚園",
+    "school_code": "572764",
+    "district": "tuen_mun",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "l04.jpg"
+    ]
+  },
+  {
+    "school_name": "啓思幼稚園（匯景花園）",
+    "brand_name": "啓思幼稚園",
+    "school_code": "325864",
+    "district": "kwun_tong",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "l04.jpg"
+    ]
+  },
+  {
+    "school_name": "大埔浸信會幼稚園",
+    "brand_name": "大埔浸信會幼稚園",
+    "school_code": "151157",
+    "district": "tai_po",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "l04.jpg"
+    ]
+  },
+  {
+    "school_name": "救世軍荃灣幼兒學校",
+    "brand_name": "救世軍荃灣幼兒學校",
+    "school_code": "563129",
+    "district": "tsuen_wan",
+    "school_type": "non_profit",
+    "has_nursery": true,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "l04.jpg"
+    ]
+  },
+  {
+    "school_name": "聖公會青山聖彼得堂兆麟苑幼稚園",
+    "brand_name": "聖公會青山聖彼得堂兆麟苑幼稚園",
+    "school_code": "159131",
+    "district": "tuen_mun",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "l04.jpg"
+    ]
+  },
+  {
+    "school_name": "香港五常法幼稚園",
+    "brand_name": "香港五常法幼稚園",
+    "school_code": "537098",
+    "district": "north",
+    "school_type": "non_profit",
+    "has_nursery": true,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "l04.jpg"
+    ]
+  },
+  {
+    "school_name": "高主教書院幼稚園部",
+    "brand_name": "高主教書院幼稚園部",
+    "school_code": "215538",
+    "district": "eastern",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "l04.jpg"
+    ]
+  },
+  {
+    "school_name": "佛教金麗幼稚園",
+    "brand_name": "佛教金麗幼稚園",
+    "school_code": "323497",
+    "district": "kwun_tong",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "l05.jpg"
+    ]
+  },
+  {
+    "school_name": "保良局田家炳兆康幼稚園",
+    "brand_name": "保良局田家炳兆康幼稚園",
+    "school_code": "157376",
+    "district": "tuen_mun",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "l05.jpg"
+    ]
+  },
+  {
+    "school_name": "保良局金卿幼稚園",
+    "brand_name": "保良局金卿幼稚園",
+    "school_code": "325821",
+    "district": "wong_tai_sin",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "l05.jpg"
+    ]
+  },
+  {
+    "school_name": "博士山（香港）國際幼稚園",
+    "brand_name": "博士山",
+    "school_code": "559415",
+    "district": "sha_tin",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "l05.jpg"
+    ]
+  },
+  {
+    "school_name": "基督教中心幼稚園",
+    "brand_name": "基督教中心幼稚園",
+    "school_code": "315907",
+    "district": "kowloon_city",
+    "school_type": "non_profit",
+    "has_nursery": true,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "l05.jpg"
+    ]
+  },
+  {
+    "school_name": "天主教聖安德肋幼稚園",
+    "brand_name": "天主教聖安德肋幼稚園",
+    "school_code": "559768",
+    "district": "sai_kung",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 1,
+    "source_images": [
+      "l05.jpg"
+    ]
+  }
+]

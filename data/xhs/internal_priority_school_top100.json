@@ -1,0 +1,1910 @@
+{
+  "generated_at": "2026-05-04",
+  "source_files": [
+    "data/xhs/internal_priority_brands.json",
+    "data/xhs/ranking_branch_top100.json",
+    "data/xhs/ranking_brand_top100.json",
+    "data/schools_merged.json"
+  ],
+  "selection_rules": [
+    "先用 OCR 分校榜直接命中的 school_code 作为高优先种子。",
+    "再按人工整理的内部品牌池扩充分校，focus_branches 优先。",
+    "最后用 OCR 品牌榜补足，输出可抓官网的前 100 所幼稚园相关学校。",
+    "过滤掉无官网或非幼稚园/幼儿学校记录。"
+  ],
+  "candidate_counts": {
+    "kindergarten_schools_with_website": 842,
+    "ocr_branch_rows": 43,
+    "ocr_brand_rows": 100,
+    "curated_brand_rows": 15,
+    "matched_candidates": 196,
+    "curated_match_events": 63,
+    "selected": 100
+  },
+  "schools": [
+    {
+      "rank": 1,
+      "school_code": "613681",
+      "name_tc": "學之園幼稚園（君豪峰）",
+      "name_en": "LEARNING HABITAT KINDERGARTEN (NOVUM EAST)",
+      "district": "eastern",
+      "school_type": "private_independent",
+      "website": "http://www.learninghabitat.org",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 150350,
+      "sources": [
+        "ocr_branch_top",
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=2",
+        "人工优先品牌池 priority=1 brand=學之園幼稚園 focus_branch=君豪峰"
+      ]
+    },
+    {
+      "rank": 2,
+      "school_code": "618039",
+      "name_tc": "維多利亞（何文田）國際幼稚園",
+      "name_en": "VICTORIA (HOMANTIN) INTERNATIONAL KINDERGARTEN",
+      "district": "kowloon_city",
+      "school_type": "private_independent",
+      "website": "https://www.victoria.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 150050,
+      "sources": [
+        "ocr_branch_top",
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=11",
+        "人工优先品牌池 priority=2 brand=維多利亞幼稚園 focus_branch=何文田"
+      ]
+    },
+    {
+      "rank": 3,
+      "school_code": "566900",
+      "name_tc": "維多利亞（何文田）國際幼兒園",
+      "name_en": "VICTORIA (HOMANTIN) INTERNATIONAL NURSERY",
+      "district": "kowloon_city",
+      "school_type": "private_independent",
+      "website": "https://www.victoria.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 150050,
+      "sources": [
+        "ocr_branch_top",
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=11",
+        "人工优先品牌池 priority=2 brand=維多利亞幼稚園 focus_branch=何文田"
+      ]
+    },
+    {
+      "rank": 4,
+      "school_code": "574708",
+      "name_tc": "維多利亞（君匯港）幼稚園",
+      "name_en": "VICTORIA (HARBOUR GREEN) KINDERGARTEN",
+      "district": "yau_tsim_mong",
+      "school_type": "private_independent",
+      "website": "https://www.victoria.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 149050,
+      "sources": [
+        "ocr_branch_top",
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "人工优先品牌池 priority=2 brand=維多利亞幼稚園 focus_branch=君匯港"
+      ]
+    },
+    {
+      "rank": 5,
+      "school_code": "609528",
+      "name_tc": "學之園幼稚園（昇御海逸）",
+      "name_en": "LEARNING HABITAT KINDERGARTEN (CHATHAM LV)",
+      "district": "kowloon_city",
+      "school_type": "private_independent",
+      "website": "http://www.learninghabitat.org",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 149050,
+      "sources": [
+        "ocr_branch_top",
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "人工优先品牌池 priority=1 brand=學之園幼稚園"
+      ]
+    },
+    {
+      "rank": 6,
+      "school_code": "159131",
+      "name_tc": "聖公會青山聖彼得堂兆麟苑幼稚園",
+      "name_en": "SKH ST PETER'S CH CP SIU LUN COURT KG",
+      "district": "tuen_mun",
+      "school_type": "non_profit",
+      "website": "https://www.skhspcslc.edu.hk/",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 146650,
+      "sources": [
+        "ocr_branch_top",
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園 focus_branch=青山聖彼得堂"
+      ]
+    },
+    {
+      "rank": 7,
+      "school_code": "325970",
+      "name_tc": "嘉諾撒聖心幼稚園",
+      "name_en": "SACRED HEART CANOSSIAN KINDERGARTEN",
+      "district": "central_and_western",
+      "school_type": "non_profit",
+      "website": "http://www.shck.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 144250,
+      "sources": [
+        "ocr_branch_top",
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "人工优先品牌池 priority=5 brand=嘉諾撒聖心幼稚園"
+      ]
+    },
+    {
+      "rank": 8,
+      "school_code": "564044",
+      "name_tc": "寶血幼稚園（深水埗）",
+      "name_en": "PRECIOUS BLOOD KG (SHAM SHUI PO)",
+      "district": "sham_shui_po",
+      "school_type": "non_profit",
+      "website": "http://www.pbn.edu.hk",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 143050,
+      "sources": [
+        "ocr_branch_top",
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=10",
+        "人工优先品牌池 priority=8 brand=寶血幼稚園 focus_branch=深水埗"
+      ]
+    },
+    {
+      "rank": 9,
+      "school_code": "567329",
+      "name_tc": "明慧國際幼稚園（北角分校）",
+      "name_en": "MING WAI INTERNATIONAL KINDERGARTEN (NORTH POINT BRANCH)",
+      "district": "eastern",
+      "school_type": "private_independent",
+      "website": "http://www.mingwai.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 141440,
+      "sources": [
+        "ocr_branch_top",
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=8",
+        "人工优先品牌池 priority=12 brand=明慧國際幼稚園 focus_branch=北角分校",
+        "OCR 品牌榜补充命中 brand=明慧國際幼稚園 mention_count=19",
+        "OCR 品牌榜补充命中 brand=明慧幼稚園 mention_count=19"
+      ]
+    },
+    {
+      "rank": 10,
+      "school_code": "583421",
+      "name_tc": "明慧國際幼稚園（太子分校）",
+      "name_en": "MING WAI INTERNATIONAL KINDERGARTEN (PRINCE EDWARD BRANCH)",
+      "district": "yau_tsim_mong",
+      "school_type": "private_independent",
+      "website": "http://www.mingwai.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 141240,
+      "sources": [
+        "ocr_branch_top",
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=6",
+        "人工优先品牌池 priority=12 brand=明慧國際幼稚園 focus_branch=太子分校",
+        "OCR 品牌榜补充命中 brand=明慧國際幼稚園 mention_count=19",
+        "OCR 品牌榜补充命中 brand=明慧幼稚園 mention_count=19"
+      ]
+    },
+    {
+      "rank": 11,
+      "school_code": "157376",
+      "name_tc": "保良局田家炳兆康幼稚園",
+      "name_en": "PLK TIN KA PING SIU HONG KINDERGARTEN",
+      "district": "tuen_mun",
+      "school_type": "non_profit",
+      "website": "https://www.plkkgs.edu.hk/plktkpshkg/",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 102540,
+      "sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=保良局田家炳幼稚園 mention_count=14",
+        "OCR 品牌榜补充命中 brand=保良局田家炳兆康幼稚園 mention_count=7"
+      ]
+    },
+    {
+      "rank": 12,
+      "school_code": "158380",
+      "name_tc": "世界龍岡學校朱瑞蘭（中英文）幼稚園",
+      "name_en": "LKWFS CHU SUI LAN ANGLO-CHINESE KG",
+      "district": "tuen_mun",
+      "school_type": "non_profit",
+      "website": "http://cslkg.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 102200,
+      "sources": [
+        "ocr_branch_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=22"
+      ]
+    },
+    {
+      "rank": 13,
+      "school_code": "216054",
+      "name_tc": "迦南幼稚園（麗港城）",
+      "name_en": "CANNAN KG (LAGUNA CITY)",
+      "district": "kwun_tong",
+      "school_type": "non_profit",
+      "website": "http://www.cannan.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 101580,
+      "sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=迦南幼稚園 mention_count=17"
+      ]
+    },
+    {
+      "rank": 14,
+      "school_code": "156973",
+      "name_tc": "救世軍田家炳幼稚園",
+      "name_en": "SA TIN KA PING KINDERGARTEN",
+      "district": "sha_tin",
+      "school_type": "non_profit",
+      "website": "https://www.salvationarmy.org.hk/esd/tkpkg/",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 101580,
+      "sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=救世軍田家炳幼稚園 mention_count=17"
+      ]
+    },
+    {
+      "rank": 15,
+      "school_code": "315907",
+      "name_tc": "基督教中心幼稚園",
+      "name_en": "CHRISTIAN YOUTH CENTRE KINDERGARTEN",
+      "district": "kowloon_city",
+      "school_type": "non_profit",
+      "website": "https://www.cyckg.edu.hk",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 101420,
+      "sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=基督教中心幼稚園 mention_count=13"
+      ]
+    },
+    {
+      "rank": 16,
+      "school_code": "324230",
+      "name_tc": "明我幼稚園",
+      "name_en": "DOMINIC SAVIO KINDERGARTEN",
+      "district": "eastern",
+      "school_type": "non_profit",
+      "website": "http://www.dominicsaviokg.org/",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 101340,
+      "sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=明我幼稚園 mention_count=11"
+      ]
+    },
+    {
+      "rank": 17,
+      "school_code": "131440",
+      "name_tc": "聖士提反堂小學暨幼稚園",
+      "name_en": "ST STEPHEN'S CHURCH PRI SCH & KG",
+      "district": "central_and_western",
+      "school_type": "non_profit",
+      "website": "http://www.ssck.edu.hk",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 101220,
+      "sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=聖士提反堂小學暨幼稚園 mention_count=8"
+      ]
+    },
+    {
+      "rank": 18,
+      "school_code": "131466",
+      "name_tc": "聖保羅堂幼稚園",
+      "name_en": "ST PAUL'S CHURCH KINDERGARTEN",
+      "district": "central_and_western",
+      "school_type": "non_profit",
+      "website": "http://www.stpaulchurchkg.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 101220,
+      "sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=聖保羅堂幼稚園 mention_count=8"
+      ]
+    },
+    {
+      "rank": 19,
+      "school_code": "563129",
+      "name_tc": "救世軍荃灣幼兒學校",
+      "name_en": "SA TSUEN WAN NURSERY SCH",
+      "district": "tsuen_wan",
+      "school_type": "non_profit",
+      "website": "https://www.salvationarmy.org.hk/esd/twns/",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 101180,
+      "sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=救世軍荃灣幼兒學校 mention_count=7"
+      ]
+    },
+    {
+      "rank": 20,
+      "school_code": "559768",
+      "name_tc": "天主教聖安德肋幼稚園",
+      "name_en": "ST ANDREW'S CATHOLIC KINDERGARTEN",
+      "district": "sai_kung",
+      "school_type": "non_profit",
+      "website": "https://www.sackg.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 101180,
+      "sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=天主教聖安德肋幼稚園 mention_count=7"
+      ]
+    },
+    {
+      "rank": 21,
+      "school_code": "536768",
+      "name_tc": "珈琳幼稚園（屯門分校）",
+      "name_en": "KARLAM KG (TUEN MUN BRANCH)",
+      "district": "tuen_mun",
+      "school_type": "non_profit",
+      "website": "http://www.karlam.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 101160,
+      "sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=2",
+        "OCR 品牌榜补充命中 brand=珈琳幼稚園 mention_count=4"
+      ]
+    },
+    {
+      "rank": 22,
+      "school_code": "325821",
+      "name_tc": "保良局金卿幼稚園",
+      "name_en": "PLK KAM HING KINDERGARTEN",
+      "district": "wong_tai_sin",
+      "school_type": "non_profit",
+      "website": "https://www.plkkgs.edu.hk/plkkhkg/hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 101140,
+      "sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=保良局金卿幼稚園 mention_count=6"
+      ]
+    },
+    {
+      "rank": 23,
+      "school_code": "537098",
+      "name_tc": "香港五常法幼稚園",
+      "name_en": "HONG KONG 5-S KINDERGARTEN",
+      "district": "north",
+      "school_type": "non_profit",
+      "website": "http://www.hk5skg.edu.hk",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 101100,
+      "sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=香港五常法幼稚園 mention_count=5"
+      ]
+    },
+    {
+      "rank": 24,
+      "school_code": "541222",
+      "name_tc": "激活幼稚園",
+      "name_en": "GIGAMIND KINDERGARTEN",
+      "district": "yuen_long",
+      "school_type": "non_profit",
+      "website": "http://www.gigamind.edu.hk",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 101100,
+      "sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=激活幼稚園 mention_count=5"
+      ]
+    },
+    {
+      "rank": 25,
+      "school_code": "537578",
+      "name_tc": "啓思幼稚園（帝堡城）",
+      "name_en": "CREATIVE KINDERGARTEN (CASTELLO)",
+      "district": "sha_tin",
+      "school_type": "non_profit",
+      "website": "https://creative.edu.hk/",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 100700,
+      "sources": [
+        "ocr_branch_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=7"
+      ]
+    },
+    {
+      "rank": 26,
+      "school_code": "231240",
+      "name_tc": "卓思英文學校暨幼稚園（青怡分校）",
+      "name_en": "CHOICE ENGLISH SCH & KG (TSING YI BR)",
+      "district": "kwai_tsing",
+      "school_type": "non_profit",
+      "website": "http://www.choicekinder.edu.hk",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 100400,
+      "sources": [
+        "ocr_branch_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=4"
+      ]
+    },
+    {
+      "rank": 27,
+      "school_code": "565466",
+      "name_tc": "MONTESSORI FOR CHILDREN (NURSERY)",
+      "name_en": "MONTESSORI FOR CHILDREN (NURSERY)",
+      "district": "southern",
+      "school_type": "private_independent",
+      "website": "http://mfc.edu.hk/",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 100400,
+      "sources": [
+        "ocr_branch_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=4"
+      ]
+    },
+    {
+      "rank": 28,
+      "school_code": "158852",
+      "name_tc": "啓思幼稚園（屯門分校）",
+      "name_en": "CREATIVE KINDERGARTEN (TUEN MUN BRANCH)",
+      "district": "tuen_mun",
+      "school_type": "non_profit",
+      "website": "https://creative.edu.hk/",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 100200,
+      "sources": [
+        "ocr_branch_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=2"
+      ]
+    },
+    {
+      "rank": 29,
+      "school_code": "156930",
+      "name_tc": "佳寶幼稚園（屯門分校）",
+      "name_en": "GUIDEPOSTS KG (TUEN MUN BRANCH)",
+      "district": "tuen_mun",
+      "school_type": "non_profit",
+      "website": "http://www.guideposts.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 100200,
+      "sources": [
+        "ocr_branch_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=2"
+      ]
+    },
+    {
+      "rank": 30,
+      "school_code": "563323",
+      "name_tc": "香港青年協會青樂幼稚園（油麻地）",
+      "name_en": "HKFYG CHING LOK KINDERGARTEN (YAUMATEI)",
+      "district": "yau_tsim_mong",
+      "school_type": "non_profit",
+      "website": "http://clymt.hkfyg.org.hk/",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 100100,
+      "sources": [
+        "ocr_branch_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ]
+    },
+    {
+      "rank": 31,
+      "school_code": "158062",
+      "name_tc": "香港道教聯合會圓玄幼稚園（富善邨）",
+      "name_en": "HKTA YUEN YUEN KG (FU SHIN ESTATE)",
+      "district": "tai_po",
+      "school_type": "non_profit",
+      "website": "https://www.yuenyuenkg.edu.hk/fushin/",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 100100,
+      "sources": [
+        "ocr_branch_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ]
+    },
+    {
+      "rank": 32,
+      "school_code": "537950",
+      "name_tc": "天樂幼稚園",
+      "name_en": "TALENT KINDERGARTEN",
+      "district": "yuen_long",
+      "school_type": "non_profit",
+      "website": "https://www.agneskg.edu.hk/agnestalent/",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 100100,
+      "sources": [
+        "ocr_branch_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ]
+    },
+    {
+      "rank": 33,
+      "school_code": "215538",
+      "name_tc": "高主教書院幼稚園部",
+      "name_en": "RAIMONDI COLLEGE KINDERGARTEN SECTION",
+      "district": "eastern",
+      "school_type": "non_profit",
+      "website": "http://www.rckg.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 100100,
+      "sources": [
+        "ocr_branch_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ]
+    },
+    {
+      "rank": 34,
+      "school_code": "231010",
+      "name_tc": "太陽島英文幼稚園（元朗分校）",
+      "name_en": "SUN ISLAND ENGLISH KG (YUEN LONG BRANCH)",
+      "district": "yuen_long",
+      "school_type": "non_profit",
+      "website": "http://www.sunisland.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 100100,
+      "sources": [
+        "ocr_branch_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ]
+    },
+    {
+      "rank": 35,
+      "school_code": "151157",
+      "name_tc": "大埔浸信會幼稚園",
+      "name_en": "TAI PO BAPTIST KINDERGARTEN",
+      "district": "tai_po",
+      "school_type": "non_profit",
+      "website": "http://www.tpbkg.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 100100,
+      "sources": [
+        "ocr_branch_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ]
+    },
+    {
+      "rank": 36,
+      "school_code": "543861",
+      "name_tc": "基督教神召會合一堂幼稚園",
+      "name_en": "ASSEMBLY OF GOD UNION CHURCH KG",
+      "district": "sha_tin",
+      "school_type": "non_profit",
+      "website": "http://www.aoguck.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 100100,
+      "sources": [
+        "ocr_branch_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ]
+    },
+    {
+      "rank": 37,
+      "school_code": "325864",
+      "name_tc": "啓思幼稚園（匯景花園）",
+      "name_en": "CREATIVE KINDERGARTEN (SCENEWAY GARDEN)",
+      "district": "kwun_tong",
+      "school_type": "non_profit",
+      "website": "https://creative.edu.hk/",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 100100,
+      "sources": [
+        "ocr_branch_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ]
+    },
+    {
+      "rank": 38,
+      "school_code": "559415",
+      "name_tc": "博士山（香港）國際幼稚園",
+      "name_en": "BOX HILL (HK) INTERNATIONAL KINDERGARTEN",
+      "district": "sha_tin",
+      "school_type": "private_independent",
+      "website": "https://www.boxhill.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 100100,
+      "sources": [
+        "ocr_branch_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ]
+    },
+    {
+      "rank": 39,
+      "school_code": "572764",
+      "name_tc": "加州天地幼稚園",
+      "name_en": "SUNKIDS KINDERGARTEN",
+      "district": "tuen_mun",
+      "school_type": "private_independent",
+      "website": "http://sunkids.edu.hk/",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 100100,
+      "sources": [
+        "ocr_branch_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ]
+    },
+    {
+      "rank": 40,
+      "school_code": "159158",
+      "name_tc": "元朗三育幼稚園",
+      "name_en": "YUEN LONG SAM YUK KINDERGARTEN",
+      "district": "yuen_long",
+      "school_type": "non_profit",
+      "website": "http://www.ylsyk.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 100100,
+      "sources": [
+        "ocr_branch_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ]
+    },
+    {
+      "rank": 41,
+      "school_code": "323497",
+      "name_tc": "佛教金麗幼稚園",
+      "name_en": "BUDDHIST KAM LAI KINDERGARTEN",
+      "district": "kwun_tong",
+      "school_type": "non_profit",
+      "website": "http://www.buddhist-kam-lai-kg.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 100100,
+      "sources": [
+        "ocr_branch_top"
+      ],
+      "reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ]
+    },
+    {
+      "rank": 42,
+      "school_code": "561207",
+      "name_tc": "學之園幼稚園（凱帆薈）",
+      "name_en": "LEARNING HABITAT KINDERGARTEN (HAMPTON LOFT)",
+      "district": "yau_tsim_mong",
+      "school_type": "private_independent",
+      "website": "http://www.learninghabitat.org",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 50150,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=1 brand=學之園幼稚園 focus_branch=凱帆薈"
+      ]
+    },
+    {
+      "rank": 43,
+      "school_code": "216194",
+      "name_tc": "維多利亞（海怡）國際幼稚園",
+      "name_en": "VICTORIA (SOUTH HORIZONS) INTERNATIONAL KINDERGARTEN",
+      "district": "southern",
+      "school_type": "private_independent",
+      "website": "https://www.victoria.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 48950,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=2 brand=維多利亞幼稚園 focus_branch=海怡"
+      ]
+    },
+    {
+      "rank": 44,
+      "school_code": "542164",
+      "name_tc": "維多利亞（寶翠園）幼稚園",
+      "name_en": "VICTORIA (BELCHER) KINDERGARTEN",
+      "district": "central_and_western",
+      "school_type": "private_independent",
+      "website": "https://www.victoria.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 48950,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=2 brand=維多利亞幼稚園 focus_branch=寶翠園"
+      ]
+    },
+    {
+      "rank": 45,
+      "school_code": "569828",
+      "name_tc": "康怡維多利亞幼稚園",
+      "name_en": "KORNHILL VICTORIA KINDERGARTEN",
+      "district": "eastern",
+      "school_type": "private_independent",
+      "website": "https://www.victoria.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 48950,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=2 brand=維多利亞幼稚園 focus_branch=康怡"
+      ]
+    },
+    {
+      "rank": 46,
+      "school_code": "604291",
+      "name_tc": "學之園幼稚園（迎海）",
+      "name_en": "LEARNING HABITAT KINDERGARTEN (DOUBLE COVE)",
+      "district": "sha_tin",
+      "school_type": "private_independent",
+      "website": "http://www.learninghabitat.org",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 48950,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=1 brand=學之園幼稚園"
+      ]
+    },
+    {
+      "rank": 47,
+      "school_code": "612391",
+      "name_tc": "學之園幼稚園（海翩康城）",
+      "name_en": "LEARNING HABITAT KINDERGARTEN (PAPILLONS LP)",
+      "district": "sai_kung",
+      "school_type": "private_independent",
+      "website": "http://www.learninghabitat.org",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 48950,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=1 brand=學之園幼稚園"
+      ]
+    },
+    {
+      "rank": 48,
+      "school_code": "615250",
+      "name_tc": "學之園幼稚園（星匯居）",
+      "name_en": "LEARNING HABITAT KINDERGARTEN (THE SPARKLE)",
+      "district": "sham_shui_po",
+      "school_type": "private_independent",
+      "website": "http://www.learninghabitat.org/",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 48950,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=1 brand=學之園幼稚園"
+      ]
+    },
+    {
+      "rank": 49,
+      "school_code": "617474",
+      "name_tc": "學之園幼稚園（奧運）",
+      "name_en": "LEARNING HABITAT KINDERGARTEN (OLYMPIC)",
+      "district": "yau_tsim_mong",
+      "school_type": "private_independent",
+      "website": "http://www.learninghabitat.org",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 48950,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=1 brand=學之園幼稚園"
+      ]
+    },
+    {
+      "rank": 50,
+      "school_code": "534200",
+      "name_tc": "學之園幼稚園",
+      "name_en": "LEARNING HABITAT KINDERGARTEN",
+      "district": "kwai_tsing",
+      "school_type": "private_independent",
+      "website": "http://www.learninghabitat.org",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 48950,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=1 brand=學之園幼稚園"
+      ]
+    },
+    {
+      "rank": 51,
+      "school_code": "566942",
+      "name_tc": "銅鑼灣維多利亞（海峰園）幼兒園",
+      "name_en": "CAUSEWAY BAY VICTORIA NURSERY (HARBOUR HEIGHTS)",
+      "district": "eastern",
+      "school_type": "private_independent",
+      "website": "https://www.victoria.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 47750,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=2 brand=維多利亞幼稚園"
+      ]
+    },
+    {
+      "rank": 52,
+      "school_code": "566934",
+      "name_tc": "維多利亞（海峰園）幼兒園",
+      "name_en": "VICTORIA NURSERY (HARBOUR HEIGHTS)",
+      "district": "eastern",
+      "school_type": "private_independent",
+      "website": "https://www.victoria.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 47750,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=2 brand=維多利亞幼稚園"
+      ]
+    },
+    {
+      "rank": 53,
+      "school_code": "619850",
+      "name_tc": "維多利亞（海之戀）國際幼稚園",
+      "name_en": "VICTORIA (OCEAN PRIDE) INTERNATIONAL KINDERGARTEN",
+      "district": "tsuen_wan",
+      "school_type": "private_independent",
+      "website": "https://www.victoria.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 47750,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=2 brand=維多利亞幼稚園"
+      ]
+    },
+    {
+      "rank": 54,
+      "school_code": "325481",
+      "name_tc": "維多利亞幼稚園",
+      "name_en": "VICTORIA KINDERGARTEN",
+      "district": "eastern",
+      "school_type": "private_independent",
+      "website": "https://www.victoria.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 47750,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=2 brand=維多利亞幼稚園"
+      ]
+    },
+    {
+      "rank": 55,
+      "school_code": "215120",
+      "name_tc": "國際英文幼稚園",
+      "name_en": "ST. CATHERINE'S INTERNATIONAL KINDERGARTEN",
+      "district": "kowloon_city",
+      "school_type": "private_independent",
+      "website": "https://www.stcatherines.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 47700,
+      "sources": [
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=3 brand=國際英文幼稚園",
+        "OCR 品牌榜补充命中 brand=國際英文幼稚園 mention_count=5"
+      ]
+    },
+    {
+      "rank": 56,
+      "school_code": "566179",
+      "name_tc": "香港聖公會青山聖彼得堂青雲路幼稚園",
+      "name_en": "SKH S P CH CASTLE PEAK TSING WUN RD KG",
+      "district": "tuen_mun",
+      "school_type": "non_profit",
+      "website": "https://www.skhspcmain.edu.hk/",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 46550,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園 focus_branch=青山聖彼得堂"
+      ]
+    },
+    {
+      "rank": 57,
+      "school_code": "151947",
+      "name_tc": "聖公會青山聖彼得堂幼稚園",
+      "name_en": "SKH ST PETER'S CHURCH KG (CASTLE PEAK)",
+      "district": "tuen_mun",
+      "school_type": "non_profit",
+      "website": "https://www.skhspcmain.edu.hk/",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 46550,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園 focus_branch=青山聖彼得堂"
+      ]
+    },
+    {
+      "rank": 58,
+      "school_code": "157473",
+      "name_tc": "聖公會青山聖彼得堂山景邨幼稚園",
+      "name_en": "SKH ST PETER'S CH SHAN KING ESTATE KG",
+      "district": "tuen_mun",
+      "school_type": "non_profit",
+      "website": "https://www.skhspc.edu.hk/skekg/",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 46550,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園 focus_branch=青山聖彼得堂"
+      ]
+    },
+    {
+      "rank": 59,
+      "school_code": "325600",
+      "name_tc": "聖公會聖三一堂曾肇添幼稚園",
+      "name_en": "SKH HOLY TRINITY CH TSANG SHIU TIM KG",
+      "district": "kowloon_city",
+      "school_type": "non_profit",
+      "website": "http://www.tstkg.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 46550,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園 focus_branch=聖三一"
+      ]
+    },
+    {
+      "rank": 60,
+      "school_code": "326003",
+      "name_tc": "聖公會聖彼得堂幼稚園（赤柱分校）",
+      "name_en": "ST PETER'S CHURCH KINDERGARTEN (STANLEY)",
+      "district": "southern",
+      "school_type": "non_profit",
+      "website": "http://stpstkg.edu.hk/",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 46430,
+      "sources": [
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園",
+        "OCR 品牌榜补充命中 brand=聖公會聖彼得堂幼稚園 mention_count=7"
+      ]
+    },
+    {
+      "rank": 61,
+      "school_code": "564710",
+      "name_tc": "聖公會聖馬提亞堂幼兒學校",
+      "name_en": "ST MATTHIAS' CHURCH NURSERY SCHOOL",
+      "district": "yuen_long",
+      "school_type": "non_profit",
+      "website": "http://www.smcns.edu.hk",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 46390,
+      "sources": [
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園",
+        "OCR 品牌榜补充命中 brand=聖公會聖馬提亞堂幼兒學校 mention_count=6"
+      ]
+    },
+    {
+      "rank": 62,
+      "school_code": "564729",
+      "name_tc": "香港聖公會基愛幼兒學校",
+      "name_en": "HK SHENG KUNG HUI KEI OI NURSERY SCHOOL",
+      "district": "sham_shui_po",
+      "school_type": "non_profit",
+      "website": "http://www.kons.edu.hk",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 46270,
+      "sources": [
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園",
+        "OCR 品牌榜补充命中 brand=香港聖公會基愛幼兒學校 mention_count=3"
+      ]
+    },
+    {
+      "rank": 63,
+      "school_code": "159000",
+      "name_tc": "香港聖公會基督顯現堂幼稚園",
+      "name_en": "HK SKH THE CHURCH OF THE EPIPHANY KG",
+      "district": "kwai_tsing",
+      "school_type": "non_profit",
+      "website": "http://www.coekg.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 46270,
+      "sources": [
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園",
+        "OCR 品牌榜补充命中 brand=香港聖公會基督顯現堂幼稚園 mention_count=3"
+      ]
+    },
+    {
+      "rank": 64,
+      "school_code": "564907",
+      "name_tc": "香港聖公會麥理浩夫人中心幼稚園",
+      "name_en": "HKSKH LADY MACLEHOSE CTR KG",
+      "district": "kwai_tsing",
+      "school_type": "non_profit",
+      "website": "http://www.lmcdn.edu.hk",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 45350,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 65,
+      "school_code": "564893",
+      "name_tc": "香港聖公會麥理浩夫人中心〈石蔭〉幼稚園",
+      "name_en": "HKSKH LADY MACLEHOSE CTR (SHEK YAM) KG",
+      "district": "kwai_tsing",
+      "school_type": "non_profit",
+      "website": "http://www.lmcsy.edu.hk",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 45350,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 66,
+      "school_code": "563269",
+      "name_tc": "香港聖公會聖西門西貢幼兒學校",
+      "name_en": "HKSKH ST. SIMON'S SAI KUNG NURSERY SCH",
+      "district": "sai_kung",
+      "school_type": "non_profit",
+      "website": "http://www.sssk.edu.hk",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 45350,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 67,
+      "school_code": "563277",
+      "name_tc": "香港聖公會聖西門良景幼兒學校",
+      "name_en": "HKSKH ST. SIMON'S LEUNG KING NURSERY SCH",
+      "district": "tuen_mun",
+      "school_type": "non_profit",
+      "website": "http://www.sslk.edu.hk",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 45350,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 68,
+      "school_code": "563307",
+      "name_tc": "香港聖公會聖西門大興幼兒學校",
+      "name_en": "HKSKH ST. SIMON'S TAI HING NURSERY SCH",
+      "district": "tuen_mun",
+      "school_type": "non_profit",
+      "website": "http://www.ssth.edu.hk",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 45350,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 69,
+      "school_code": "566926",
+      "name_tc": "香港聖公會東涌幼兒學校",
+      "name_en": "HKSKH TUNG CHUNG NURSERY SCHOOL",
+      "district": "islands",
+      "school_type": "non_profit",
+      "website": "http://www.tcns.edu.hk",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 45350,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 70,
+      "school_code": "564702",
+      "name_tc": "香港聖公會夏瑞芸幼兒學校",
+      "name_en": "HKSKH HA SUI WAN NURSERY SCHOOL",
+      "district": "yuen_long",
+      "school_type": "non_profit",
+      "website": "http://www.hswns.edu.hk",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 45350,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 71,
+      "school_code": "568104",
+      "name_tc": "聖公會聖基道幼兒園（葵涌）",
+      "name_en": "SKH ST CHRISTOPHER'S NUR (KWAI CHUNG)",
+      "district": "kwai_tsing",
+      "school_type": "non_profit",
+      "website": "http://www.skhkckg.edu.hk",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 45350,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 72,
+      "school_code": "569712",
+      "name_tc": "聖公會聖基道幼兒園（灣仔）",
+      "name_en": "SKH ST CHRISTOPHER'S NURSERY(WAN CHAI)",
+      "district": "wan_chai",
+      "school_type": "non_profit",
+      "website": "http://www.skhwcn.edu.hk",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 45350,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 73,
+      "school_code": "325937",
+      "name_tc": "聖公會慈光堂聖匠幼稚園",
+      "name_en": "SKH KINDLY LIGHT CH HOLY CARPENTER KG",
+      "district": "kwun_tong",
+      "school_type": "non_profit",
+      "website": "http://www.skhklchc.edu.hk",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 45350,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 74,
+      "school_code": "325546",
+      "name_tc": "聖公會慈光堂柯佩璋幼稚園",
+      "name_en": "SKH KINDLY LIGHT CHURCH OR PUI CHEUNG KG",
+      "district": "wong_tai_sin",
+      "school_type": "non_profit",
+      "website": "http://www.skhklcopc.edu.hk",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 45350,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 75,
+      "school_code": "156493",
+      "name_tc": "聖公會靈風堂幼稚園",
+      "name_en": "SKH HOLY SPIRIT CHURCH KG",
+      "district": "sha_tin",
+      "school_type": "non_profit",
+      "website": "http://www.skhhsckg.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 45350,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 76,
+      "school_code": "526665",
+      "name_tc": "聖公會荊冕堂葵涌幼稚園",
+      "name_en": "SKH CROWN OF THORNS CHURCH KWAI CHUNG KG",
+      "district": "kwai_tsing",
+      "school_type": "non_profit",
+      "website": "http://skhcotkc.edu.hk/",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 45350,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 77,
+      "school_code": "153087",
+      "name_tc": "聖公會荊冕堂士德幼稚園",
+      "name_en": "SKH CROWN OF THORNS CHURCH SADICK KG",
+      "district": "kwai_tsing",
+      "school_type": "non_profit",
+      "website": "http://skhcotsd.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 45350,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 78,
+      "school_code": "154601",
+      "name_tc": "聖公會聖約瑟堂幼稚園",
+      "name_en": "SKH ST JOSEPH'S CHURCH KINDERGARTEN",
+      "district": "yuen_long",
+      "school_type": "non_profit",
+      "website": "http://www.sjckg.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 45350,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 79,
+      "school_code": "325252",
+      "name_tc": "聖公會深水埗基愛堂幼稚園",
+      "name_en": "SKH SHAM SHUI PO KEI OI CHURCH KG",
+      "district": "sham_shui_po",
+      "school_type": "non_profit",
+      "website": "http://www.skhkock.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 45350,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 80,
+      "school_code": "158119",
+      "name_tc": "聖公會救主堂幼稚園",
+      "name_en": "SKH THE CHURCH OF OUR SAVIOUR KG",
+      "district": "tai_po",
+      "school_type": "non_profit",
+      "website": "http://www.saviourkg.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 45350,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 81,
+      "school_code": "607886",
+      "name_tc": "聖公會慈光堂聖匠幼稚園（分校）",
+      "name_en": "SKH KINDLY LIGHT CH HOLY CARPENTER KG BR",
+      "district": "kwun_tong",
+      "school_type": "non_profit",
+      "website": "http://br.skhklchc.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 45350,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 82,
+      "school_code": "565938",
+      "name_tc": "寶山幼兒園",
+      "name_en": "BRAEMAR HILL NURSERY SCHOOL",
+      "district": "wan_chai",
+      "school_type": "private_independent",
+      "website": "http://www.braemarhillnurseryschool.edu.hk/",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 41750,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=7 brand=寶山幼稚園"
+      ]
+    },
+    {
+      "rank": 83,
+      "school_code": "133019",
+      "name_tc": "寶血幼稚園",
+      "name_en": "PRECIOUS BLOOD KINDERGARTEN",
+      "district": "wan_chai",
+      "school_type": "non_profit",
+      "website": "http://www.pbk.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 40550,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=8 brand=寶血幼稚園"
+      ]
+    },
+    {
+      "rank": 84,
+      "school_code": "321087",
+      "name_tc": "明慧幼稚園",
+      "name_en": "MING WAI KINDERGARTEN",
+      "district": "eastern",
+      "school_type": "private_independent",
+      "website": "http://www.mingwai.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 39440,
+      "sources": [
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=12 brand=明慧國際幼稚園",
+        "OCR 品牌榜补充命中 brand=明慧國際幼稚園 mention_count=19",
+        "OCR 品牌榜补充命中 brand=明慧幼稚園 mention_count=19"
+      ]
+    },
+    {
+      "rank": 85,
+      "school_code": "566977",
+      "name_tc": "明慧國際幼稚園",
+      "name_en": "MING WAI INTERNATIONAL KINDERGARTEN",
+      "district": "eastern",
+      "school_type": "private_independent",
+      "website": "http://www.mingwai.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 39440,
+      "sources": [
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=12 brand=明慧國際幼稚園",
+        "OCR 品牌榜补充命中 brand=明慧國際幼稚園 mention_count=19",
+        "OCR 品牌榜补充命中 brand=明慧幼稚園 mention_count=19"
+      ]
+    },
+    {
+      "rank": 86,
+      "school_code": "537713",
+      "name_tc": "劍鳴幼稚園",
+      "name_en": "KEEN MIND KINDERGARTEN",
+      "district": "kowloon_city",
+      "school_type": "private_independent",
+      "website": "http://www.keenmind.com.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 38150,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=10 brand=劍鳴幼稚園"
+      ]
+    },
+    {
+      "rank": 87,
+      "school_code": "533360",
+      "name_tc": "朗思國際幼稚園（馬鞍山）",
+      "name_en": "THINK INTERNATIONAL KINDERGARTEN (MA ON SHAN)",
+      "district": "sha_tin",
+      "school_type": "private_independent",
+      "website": "https://www.think.edu.hk/",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 35980,
+      "sources": [
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=14 brand=朗思國際幼稚園 focus_branch=馬鞍山",
+        "OCR 品牌榜补充命中 brand=朗思國際幼稚園 mention_count=9"
+      ]
+    },
+    {
+      "rank": 88,
+      "school_code": "612782",
+      "name_tc": "朗思國際幼稚園（南昌）",
+      "name_en": "THINK INTERNATIONAL KINDERGARTEN (NAM CHEONG)",
+      "district": "sham_shui_po",
+      "school_type": "private_independent",
+      "website": "https://www.think.edu.hk/",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 35980,
+      "sources": [
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=14 brand=朗思國際幼稚園 focus_branch=南昌",
+        "OCR 品牌榜补充命中 brand=朗思國際幼稚園 mention_count=9"
+      ]
+    },
+    {
+      "rank": 89,
+      "school_code": "596787",
+      "name_tc": "香港靈糧堂秀德幼稚園",
+      "name_en": "HONG KONG LING LIANG CHURCH SAU TAK KG",
+      "district": "sham_shui_po",
+      "school_type": "non_profit",
+      "website": "http://www.lingliang.org.hk",
+      "has_nursery": true,
+      "kep": false,
+      "priority_score": 35750,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=13 brand=香港靈糧堂幼稚園 focus_branch=秀德"
+      ]
+    },
+    {
+      "rank": 90,
+      "school_code": "595969",
+      "name_tc": "香港靈糧堂荃灣幼稚園",
+      "name_en": "HONG KONG LING LIANG CHURCH TSUEN WAN KG",
+      "district": "tsuen_wan",
+      "school_type": "non_profit",
+      "website": "http://www.lingliang.org.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 35750,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=13 brand=香港靈糧堂幼稚園 focus_branch=荃灣"
+      ]
+    },
+    {
+      "rank": 91,
+      "school_code": "601861",
+      "name_tc": "香港靈糧堂秀德幼稚園（二校）",
+      "name_en": "HKLLC SAU TAK KG(CAMPUS 2)",
+      "district": "sham_shui_po",
+      "school_type": "non_profit",
+      "website": "http://www.lingliang.org.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 35750,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=13 brand=香港靈糧堂幼稚園 focus_branch=秀德"
+      ]
+    },
+    {
+      "rank": 92,
+      "school_code": "321192",
+      "name_tc": "路德會救恩幼稚園",
+      "name_en": "REDEMPTION LUTHERAN KINDERGARTEN",
+      "district": "wong_tai_sin",
+      "school_type": "non_profit",
+      "website": "http://www.rlk.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 35250,
+      "sources": [
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=15 brand=救恩學校",
+        "OCR 品牌榜补充命中 brand=救恩學校 mention_count=15",
+        "OCR 品牌榜补充命中 brand=路德會救恩幼稚園 mention_count=15"
+      ]
+    },
+    {
+      "rank": 93,
+      "school_code": "216267",
+      "name_tc": "朗思國際幼稚園",
+      "name_en": "THINK INTERNATIONAL KINDERGARTEN",
+      "district": "kwun_tong",
+      "school_type": "private_independent",
+      "website": "https://www.think.edu.hk/",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 34780,
+      "sources": [
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=14 brand=朗思國際幼稚園",
+        "OCR 品牌榜补充命中 brand=朗思國際幼稚園 mention_count=9"
+      ]
+    },
+    {
+      "rank": 94,
+      "school_code": "133744",
+      "name_tc": "香港靈糧堂幼稚園",
+      "name_en": "HONG KONG LING LIANG CHURCH KG",
+      "district": "wan_chai",
+      "school_type": "non_profit",
+      "website": "http://www.lingliang.org.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 34550,
+      "sources": [
+        "curated_brand_pool"
+      ],
+      "reasons": [
+        "人工优先品牌池 priority=13 brand=香港靈糧堂幼稚園"
+      ]
+    },
+    {
+      "rank": 95,
+      "school_code": "582417",
+      "name_tc": "安基司幼稚園（粉嶺）",
+      "name_en": "ANCHORS KINDERGARTEN (FANLING)",
+      "district": "north",
+      "school_type": "private_independent",
+      "website": "https://www.anchors.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 2560,
+      "sources": [
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "OCR 品牌榜补充命中 brand=安基司國際幼兒園 mention_count=12",
+        "OCR 品牌榜补充命中 brand=安基司幼稚園 mention_count=12"
+      ]
+    },
+    {
+      "rank": 96,
+      "school_code": "536067",
+      "name_tc": "安基司幼稚園",
+      "name_en": "ANCHORS KINDERGARTEN",
+      "district": "tai_po",
+      "school_type": "private_independent",
+      "website": "https://www.anchors.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 2560,
+      "sources": [
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "OCR 品牌榜补充命中 brand=安基司國際幼兒園 mention_count=12",
+        "OCR 品牌榜补充命中 brand=安基司幼稚園 mention_count=12"
+      ]
+    },
+    {
+      "rank": 97,
+      "school_code": "622060",
+      "name_tc": "安基司學校附屬國際幼稚園",
+      "name_en": "ANCHORS ACADEMY AFFILIATED INTERNATIONAL KINDERGARTEN",
+      "district": "yuen_long",
+      "school_type": "private_independent",
+      "website": "https://www.anchorsacademy.edu.hk/",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 2560,
+      "sources": [
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "OCR 品牌榜补充命中 brand=安基司國際幼兒園 mention_count=12",
+        "OCR 品牌榜补充命中 brand=安基司幼稚園 mention_count=12"
+      ]
+    },
+    {
+      "rank": 98,
+      "school_code": "565199",
+      "name_tc": "安基司國際幼兒園",
+      "name_en": "ANCHORS INTERNATIONAL NURSERY",
+      "district": "tai_po",
+      "school_type": "private_independent",
+      "website": "https://www.anchors.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 2560,
+      "sources": [
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "OCR 品牌榜补充命中 brand=安基司國際幼兒園 mention_count=12",
+        "OCR 品牌榜补充命中 brand=安基司幼稚園 mention_count=12"
+      ]
+    },
+    {
+      "rank": 99,
+      "school_code": "216038",
+      "name_tc": "聖文嘉中英文幼稚園（華貴邨）",
+      "name_en": "ST MONICA'S AC KG (WAH KWAI ESTATE)",
+      "district": "southern",
+      "school_type": "non_profit",
+      "website": "http://www.stmonicawk.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 2080,
+      "sources": [
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "OCR 品牌榜补充命中 brand=聖文嘉中英文幼稚園 mention_count=6",
+        "OCR 品牌榜补充命中 brand=聖文嘉幼稚園 mention_count=6"
+      ]
+    },
+    {
+      "rank": 100,
+      "school_code": "231533",
+      "name_tc": "聖文嘉中英文幼稚園（荃灣）",
+      "name_en": "ST MONICA'S ANGLO-CHINESE KG (TSUEN WAN)",
+      "district": "tsuen_wan",
+      "school_type": "non_profit",
+      "website": "http://www.stmonicakg.edu.hk",
+      "has_nursery": false,
+      "kep": false,
+      "priority_score": 2080,
+      "sources": [
+        "ocr_brand_top"
+      ],
+      "reasons": [
+        "OCR 品牌榜补充命中 brand=聖文嘉中英文幼稚園 mention_count=6",
+        "OCR 品牌榜补充命中 brand=聖文嘉幼稚園 mention_count=6"
+      ]
+    }
+  ]
+}

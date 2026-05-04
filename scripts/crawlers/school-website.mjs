@@ -9,7 +9,7 @@
  *   4. content_hash dedup → upsert into school_enrichments
  *
  * Usage:
- *   node scripts/crawlers/school-website.mjs [--dry-run] [--limit N] [--school-ids id1,id2] [--school-type private_independent]
+ *   node scripts/crawlers/school-website.mjs [--dry-run] [--limit N] [--school-ids id1,id2] [--school-codes code1,code2] [--school-type private_independent]
  *
  * Env vars (auto-loaded from .env.local):
  *   NEXT_PUBLIC_SUPABASE_URL
@@ -40,6 +40,7 @@ import { createHash } from "node:crypto";
 import { writeFileSync } from "node:fs";
 import * as cheerio from "cheerio";
 import robotsParser from "robots-parser";
+import { extractIsoDate } from "../../src/lib/utils/extractIsoDate.js";
 import {
   getDomainPolicy,
   normalizeWebsiteWithPolicy,
@@ -56,6 +57,7 @@ const { values: args } = parseArgs({
     "dry-run": { type: "boolean", default: false },
     limit: { type: "string", default: "0" },
     "school-ids": { type: "string", default: "" },
+    "school-codes": { type: "string", default: "" },
     "school-type": { type: "string", default: "" },
     concurrency: { type: "string", default: "3" },
     "json-report": { type: "string", default: "" },
@@ -65,6 +67,7 @@ const { values: args } = parseArgs({
 const DRY_RUN = args["dry-run"];
 const LIMIT = parseInt(args.limit, 10) || 0;
 const SCHOOL_IDS = args["school-ids"] ? args["school-ids"].split(",") : null;
+const SCHOOL_CODES = args["school-codes"] ? args["school-codes"].split(",").map((value) => value.trim()).filter(Boolean) : null;
 const SCHOOL_TYPE = args["school-type"] || null;
 const CONCURRENCY = parseInt(args.concurrency, 10) || 3;
 const JSON_REPORT = args["json-report"] || null;
@@ -84,9 +87,15 @@ const urlPageCache = new Map();
 // Fallback sub-paths — only used when dynamic link discovery finds nothing
 const SUB_PATHS = [
   "/admission", "/admissions", "/apply", "/application",
-  "/open-day", "/openday", "/contact", "/about",
+  "/open-day", "/openday", "/school-tour", "/visit", "/contact", "/about",
   "/招生", "/入學",
 ];
+
+const OPEN_DAY_LITERAL_REGEX = /開放日|Open Day|簡介會|School Tour|Info Session/i;
+const OPEN_DAY_KEYWORDS = /開放日|Open Day|簡介會|School Tour|Info Session|歡迎.{0,6}(?:家長|準家長).{0,6}參觀|歡迎.{0,6}參觀/i;
+const DATE_SIGNAL_REGEX = /(20\d{2}[./-年]\d{1,2}|\d{1,2}[./-]\d{1,2}[./-]20\d{2}|\d{1,2}月\d{1,2}日|\b(?:jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec|january|february|march|april|june|july|august|september|october|november|december)\b|春季|夏季|秋季|冬季|spring|summer|autumn|fall|winter)/i;
+const FIELD_TRIP_BLACKLIST = /(?:K[123]|N1|N2|N班|PN|低班|中班|高班|學生|小朋友).{0,10}(?:參觀|外出|探訪|遊覽)|(?:參觀|外出|探訪|遊覽).{0,12}(?:博物館|公園|農場|超級市場|圖書館|警署|消防局|交通安全公園|郵局|海洋公園|街市)/i;
+const NAV_MENU_LABEL_REGEX = /about us|admissions?|admission forum|online application|interview result|school fees|faq|belief|curriculum|activities|facilities|contact us|home|主頁|首頁|招生|報名|網上申請|面試結果|學費|常見問題|活動|設施|聯絡我們/gi;
 
 // ─── Rate limiter ─────────────────────────────────────────────────────────
 
@@ -205,30 +214,56 @@ function looksLikeJsAppShell(html) {
 async function loadPlaywright() {
   if (!playwrightModulePromise) {
     playwrightModulePromise = Promise.resolve()
-      .then(() => require("playwright"))
-      .catch(() => null);
+      .then(() => {
+        const { chromium } = require("playwright-extra");
+        const StealthPlugin = require("puppeteer-extra-plugin-stealth");
+        chromium.use(StealthPlugin());
+        return chromium;
+      })
+      .catch(() => {
+        // Fallback to vanilla Playwright
+        return Promise.resolve()
+          .then(() => require("playwright"))
+          .then((pw) => pw.chromium)
+          .catch(() => null);
+      });
   }
   return playwrightModulePromise;
 }
 
 async function fetchHtmlWithPlaywright(url, { timeout = PLAYWRIGHT_TIMEOUT } = {}) {
-  const playwright = await loadPlaywright();
-  if (!playwright?.chromium) {
+  const chromium = await loadPlaywright();
+  if (!chromium?.launch) {
     return { response: null, notes: ["Playwright package unavailable"] };
   }
 
   let browser;
   try {
-    browser = await playwright.chromium.launch({ headless: true });
+    browser = await chromium.launch({
+      headless: true,
+      args: [
+        "--no-sandbox",
+        "--disable-blink-features=AutomationControlled",
+        "--disable-dev-shm-usage",
+      ],
+    });
+    const vw = 1280 + Math.floor(Math.random() * 200);
+    const vh = 720 + Math.floor(Math.random() * 200);
     const context = await browser.newContext({
       ignoreHTTPSErrors: true,
       userAgent: BROWSER_UA,
+      viewport: { width: vw, height: vh },
+      locale: "zh-HK",
+      timezoneId: "Asia/Hong_Kong",
       extraHTTPHeaders: {
         "Accept-Language": "zh-HK,zh;q=0.9,en;q=0.8",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
       },
     });
     const page = await context.newPage();
     await page.goto(url, { waitUntil: "domcontentloaded", timeout });
+    await page.evaluate(() => window.scrollBy(0, 100 + Math.floor(Math.random() * 300)));
+    await new Promise((r) => setTimeout(r, 500 + Math.floor(Math.random() * 1000)));
     await page.waitForLoadState("networkidle", { timeout: Math.min(timeout, 8000) }).catch(() => {});
     const html = await page.content();
     const finalUrl = page.url();
@@ -239,9 +274,9 @@ async function fetchHtmlWithPlaywright(url, { timeout = PLAYWRIGHT_TIMEOUT } = {
         text: html,
         status: 200,
         url: finalUrl,
-        via: "playwright",
+        via: "playwright-stealth",
       },
-      notes: [`Playwright fallback used for ${new URL(url).host}`],
+      notes: [`Playwright stealth fallback for ${new URL(url).host}`],
     };
   } catch (error) {
     return {
@@ -339,7 +374,7 @@ async function isAllowedByRobots(url) {
 
 function discoverCandidateUrls($, origin) {
   const kw = /admission|apply|application|enrol|open.?day|admit|報名|入學|招生|開放日|簡介會|學費|fee/i;
-  const found = new Set();
+  const found = new Map();
   $("a[href]").each((_, el) => {
     const href = $(el).attr("href") || "";
     const text = $(el).text().trim();
@@ -348,10 +383,18 @@ function discoverCandidateUrls($, origin) {
       const u = new URL(href, origin);
       if (u.origin !== origin) return; // same-site only
       if (u.pathname === "/" || u.pathname === "") return; // skip homepage
-      found.add(u.href);
+      const combined = `${href} ${text}`;
+      let score = 0;
+      if (/open.?day|開放日|school\s*tour|campus\s*visit|簡介會/i.test(combined)) score += 3;
+      if (/admission|apply|application|報名|入學|招生/i.test(combined)) score += 2;
+      if (/2026|2027|26\/27/i.test(combined)) score += 1;
+      found.set(u.href, Math.max(found.get(u.href) || 0, score));
     } catch { /* skip malformed hrefs */ }
   });
-  return Array.from(found).slice(0, 8);
+  return Array.from(found.entries())
+    .sort((first, second) => second[1] - first[1])
+    .map(([url]) => url)
+    .slice(0, 8);
 }
 
 // ── Discover PDF links on page ────────────────────────────────────────────
@@ -751,31 +794,155 @@ function extractApplicationUrl($, baseUrl) {
 }
 
 function extractOpenDayDate(fullText) {
-  const pattern = /(20\d{2})[-/年](\d{1,2})[-/月](\d{1,2})[日號]?/g;
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const candidates = [];
+  return extractIsoDate(fullText, { preferFuture: true });
+}
 
-  let m;
-  while ((m = pattern.exec(fullText)) !== null) {
-    const year = parseInt(m[1], 10);
-    const month = parseInt(m[2], 10);
-    const day = parseInt(m[3], 10);
-    if (month >= 1 && month <= 12 && day >= 1 && day <= 31) {
-      const d = new Date(year, month - 1, day);
-      if (d >= today) {
-        candidates.push(d);
-      }
+function normalizeSnippet(text) {
+  return text.replace(/\s+/g, " ").trim();
+}
+
+function clipSnippet(text, maxChars = 600) {
+  const normalized = normalizeSnippet(text);
+  if (normalized.length <= maxChars) return normalized;
+  return `${normalized.slice(0, maxChars - 1).trim()}…`;
+}
+
+function isFieldTripContext(text) {
+  const normalized = normalizeSnippet(text);
+  if (!normalized) return false;
+  if (OPEN_DAY_LITERAL_REGEX.test(normalized)) return false;
+  return FIELD_TRIP_BLACKLIST.test(normalized);
+}
+
+function isNavigationLikeContext(text) {
+  const normalized = normalizeSnippet(text);
+  if (!normalized) return false;
+  if (DATE_SIGNAL_REGEX.test(normalized)) return false;
+  const menuHits = Array.from(normalized.matchAll(NAV_MENU_LABEL_REGEX)).length;
+  const hasMenuPattern = /admissions?.*online application.*open day.*interview result|about us.*admissions.*school fees.*faq/i.test(normalized);
+  const hasMenuSequence = /admission forum.*application.*open day.*interview result.*school fees|about us.*admissions.*curriculum.*activities.*contact us/i.test(normalized);
+  const hasSeparatorPattern = /\+\s*-|\|\s*|›|»|->/i.test(normalized);
+  return menuHits >= 4 || (menuHits >= 3 && normalized.length > 100) || (menuHits >= 2 && hasSeparatorPattern) || hasMenuPattern || hasMenuSequence;
+}
+
+function splitIntoSentences(text) {
+  return text
+    .split(/(?<=[。！？!?\.])\s+|\n+/)
+    .map((sentence) => normalizeSnippet(sentence))
+    .filter(Boolean);
+}
+
+function scoreContextSnippet(text, keywords) {
+  const normalized = normalizeSnippet(text);
+  let score = 0;
+  if (keywords.test(normalized)) score += 2;
+  if (DATE_SIGNAL_REGEX.test(normalized)) score += 3;
+  if (/open.?day|開放日|school\s*tour|campus\s*visit|簡介會/i.test(normalized)) score += 2;
+  if (normalized.length >= 24) score += 1;
+  return score;
+}
+
+function buildContextAroundNode($, element, maxChars = 600) {
+  const parts = [];
+  const pushPart = (value) => {
+    const normalized = normalizeSnippet(value || "");
+    if (!normalized) return;
+    if (!parts.includes(normalized)) {
+      parts.push(normalized);
     }
+  };
+
+  pushPart($(element).text());
+  pushPart($(element).parent().text());
+
+  let sibling = $(element).next();
+  for (let index = 0; index < 3 && sibling.length > 0; index++) {
+    pushPart(sibling.text());
+    sibling = sibling.next();
   }
 
-  if (candidates.length === 0) return null;
-  candidates.sort((a, b) => a.getTime() - b.getTime());
-  const nearest = candidates[0];
-  const yy = nearest.getFullYear();
-  const mm = String(nearest.getMonth() + 1).padStart(2, "0");
-  const dd = String(nearest.getDate()).padStart(2, "0");
-  return `${yy}-${mm}-${dd}`;
+  return clipSnippet(parts.join(" "), maxChars);
+}
+
+function extractSectionByLinks($, keywords, maxChars = 600) {
+  let best = null;
+  let bestScore = 0;
+
+  $("a, button").each((_, element) => {
+    const text = $(element).text().trim();
+    const href = $(element).attr("href") || "";
+    const combined = `${text} ${href}`;
+    if (!keywords.test(combined)) return;
+
+    const context = buildContextAroundNode($, element, maxChars);
+    if (isFieldTripContext(context)) return;
+    if (isNavigationLikeContext(context)) return;
+    const score = scoreContextSnippet(context, keywords);
+    if (score > bestScore) {
+      best = context;
+      bestScore = score;
+    }
+  });
+
+  return best;
+}
+
+function extractSectionByKeywordBlocks($, keywords, maxChars = 600, { requireDateSignal = false } = {}) {
+  const matches = [];
+  const selectors = "p, li, div, section, article, td";
+
+  $(selectors).each((_, element) => {
+    const text = normalizeSnippet($(element).text());
+    if (text.length < 12 || text.length > 500) return;
+    if (!keywords.test(text)) return;
+    if (requireDateSignal && !DATE_SIGNAL_REGEX.test(text)) return;
+    if (isFieldTripContext(text)) return;
+    if (isNavigationLikeContext(text)) return;
+    matches.push({ text, score: scoreContextSnippet(text, keywords) });
+  });
+
+  matches.sort((first, second) => second.score - first.score || second.text.length - first.text.length);
+  if (matches.length === 0) return null;
+
+  const picked = [];
+  let totalLength = 0;
+  for (const match of matches) {
+    if (picked.includes(match.text)) continue;
+    picked.push(match.text);
+    totalLength += match.text.length;
+    if (totalLength >= maxChars) break;
+    if (picked.length >= 3) break;
+  }
+
+  return clipSnippet(picked.join(" "), maxChars);
+}
+
+function extractKeywordSentences(text, keywords, maxChars = 600, { requireDateSignal = false } = {}) {
+  const sentences = splitIntoSentences(text);
+  const picked = [];
+  let totalLength = 0;
+
+  for (let index = 0; index < sentences.length; index++) {
+    const sentence = sentences[index];
+    if (!keywords.test(sentence)) continue;
+
+    const window = [sentences[index - 1], sentence, sentences[index + 1]]
+      .filter(Boolean)
+      .join(" ");
+
+    if (requireDateSignal && !DATE_SIGNAL_REGEX.test(window)) continue;
+    if (isFieldTripContext(window)) continue;
+  if (isNavigationLikeContext(window)) continue;
+    const normalized = clipSnippet(window, Math.min(maxChars, 240));
+    if (picked.includes(normalized)) continue;
+
+    picked.push(normalized);
+    totalLength += normalized.length;
+    if (totalLength >= maxChars || picked.length >= 3) break;
+  }
+
+  if (picked.length === 0) return null;
+  return clipSnippet(picked.join(" "), maxChars);
 }
 
 function extractSectionByHeading($, keywords, maxChars = 600) {
@@ -796,7 +963,9 @@ function extractSectionByHeading($, keywords, maxChars = 600) {
         node = node.next();
       }
       if (parts.length > 0) {
-        return parts.join("\n").slice(0, maxChars);
+        const candidate = parts.join("\n").slice(0, maxChars);
+        if (isFieldTripContext(candidate) || isNavigationLikeContext(candidate)) continue;
+        return candidate;
       }
     }
   }
@@ -835,7 +1004,9 @@ function extractSectionByPseudoHeading($, keywords, maxChars = 600) {
       }
     }
     if (parts.length > 0) {
-      return parts.join("\n").slice(0, maxChars);
+      const candidate = parts.join("\n").slice(0, maxChars);
+      if (isFieldTripContext(candidate) || isNavigationLikeContext(candidate)) continue;
+      return candidate;
     }
   }
   return null;
@@ -843,7 +1014,16 @@ function extractSectionByPseudoHeading($, keywords, maxChars = 600) {
 
 function extractSectionCombined($, keywords, maxChars = 600) {
   return extractSectionByHeading($, keywords, maxChars)
-    || extractSectionByPseudoHeading($, keywords, maxChars);
+    || extractSectionByPseudoHeading($, keywords, maxChars)
+    || extractSectionByLinks($, keywords, maxChars)
+    || extractSectionByKeywordBlocks($, keywords, maxChars);
+}
+
+function extractOpenDayDetails($, pageText, maxChars = 600) {
+  return extractSectionCombined($, OPEN_DAY_KEYWORDS, maxChars)
+    || extractSectionByKeywordBlocks($, OPEN_DAY_KEYWORDS, maxChars, { requireDateSignal: true })
+    || extractKeywordSentences(pageText, OPEN_DAY_KEYWORDS, maxChars, { requireDateSignal: true })
+    || extractKeywordSentences(pageText, OPEN_DAY_KEYWORDS, maxChars);
 }
 
 function extractVacancyStatus(fullText, grade) {
@@ -873,6 +1053,7 @@ function extractFromHtml(htmlPages, website, pdfTexts = []) {
   };
 
   let allText = "";
+  let bestOpenDayScore = 0;
 
   for (const page of htmlPages) {
     const $ = cheerio.load(page.html);
@@ -890,11 +1071,11 @@ function extractFromHtml(htmlPages, website, pdfTexts = []) {
         /招生|入學程序|入學申請|Admission|How to Apply|報名辦法|入學須知|Application/i
       );
     }
-    if (!result.open_day_details) {
-      result.open_day_details = extractSectionCombined(
-        $,
-        /開放日|Open Day|簡介會|School Tour|參觀|Campus Visit/i
-      );
+    const openDayDetails = extractOpenDayDetails($, pageText);
+    const openDayScore = openDayDetails ? scoreContextSnippet(openDayDetails, OPEN_DAY_KEYWORDS) : 0;
+    if (openDayDetails && openDayScore >= bestOpenDayScore) {
+      result.open_day_details = openDayDetails;
+      bestOpenDayScore = openDayScore;
     }
     if (!result.admission_hours) {
       result.admission_hours = extractSectionCombined(
@@ -912,9 +1093,19 @@ function extractFromHtml(htmlPages, website, pdfTexts = []) {
     if (!result.application_process && pdfText.length > 50) {
       result.application_process = pdfText.slice(0, 600).trim();
     }
+    if (!result.open_day_details) {
+      result.open_day_details = extractKeywordSentences(pdfText, OPEN_DAY_KEYWORDS, 600, { requireDateSignal: true })
+        || extractKeywordSentences(pdfText, OPEN_DAY_KEYWORDS, 600);
+    }
   }
 
-  result.open_day_date = extractOpenDayDate(allText);
+  result.open_day_date = result.open_day_details
+    ? extractOpenDayDate(result.open_day_details)
+    : null;
+  if (!result.open_day_details) {
+    result.open_day_details = extractKeywordSentences(allText, OPEN_DAY_KEYWORDS, 600, { requireDateSignal: true })
+      || extractKeywordSentences(allText, OPEN_DAY_KEYWORDS, 600);
+  }
   result.vacancy_k1 = extractVacancyStatus(allText, "K1");
   result.vacancy_k2 = extractVacancyStatus(allText, "K2");
   result.vacancy_k3 = extractVacancyStatus(allText, "K3");
@@ -1105,12 +1296,14 @@ function getSupabase() {
 async function loadTargetSchools(supabase) {
   let query = supabase
     .from("schools")
-    .select("id, name_tc, name_en, website, school_type")
+    .select("id, school_code, name_tc, name_en, website, school_type")
     .eq("is_active", true)
     .not("website", "is", null);
 
   if (SCHOOL_IDS && SCHOOL_IDS.length > 0) {
     query = query.in("id", SCHOOL_IDS);
+  } else if (SCHOOL_CODES && SCHOOL_CODES.length > 0) {
+    query = query.in("school_code", SCHOOL_CODES);
   } else if (SCHOOL_TYPE) {
     query = query.eq("school_type", SCHOOL_TYPE);
   }
@@ -1123,6 +1316,9 @@ async function loadTargetSchools(supabase) {
   if (SCHOOL_IDS && SCHOOL_IDS.length > 0) {
     const targetIds = new Set(SCHOOL_IDS);
     rows = rows.filter((row) => targetIds.has(row.id));
+  } else if (SCHOOL_CODES && SCHOOL_CODES.length > 0) {
+    const targetCodes = new Set(SCHOOL_CODES);
+    rows = rows.filter((row) => targetCodes.has(row.school_code));
   }
   return LIMIT > 0 ? rows.slice(0, LIMIT) : rows;
 }
@@ -1351,7 +1547,7 @@ async function processSchool(school, supabase) {
 
 async function main() {
   console.log(
-    `[school-website] starting — dry-run=${DRY_RUN} limit=${LIMIT || "∞"} school-type=${SCHOOL_TYPE || "all"} concurrency=${CONCURRENCY}`
+    `[school-website] starting — dry-run=${DRY_RUN} limit=${LIMIT || "∞"} school-type=${SCHOOL_TYPE || "all"} concurrency=${CONCURRENCY} target=${SCHOOL_IDS?.length ? "ids" : SCHOOL_CODES?.length ? "codes" : "all"}`
   );
 
   let schools;
@@ -1398,6 +1594,7 @@ async function main() {
       stats,
       details: results.map((r) => ({
         school_id: r.school.id,
+        school_code: r.school.school_code ?? null,
         name_tc: r.school.name_tc,
         name_en: r.school.name_en,
         website: r.school.website,

@@ -210,6 +210,32 @@ const DOMAIN_POLICY_ENTRIES = [
     unstable: true,
     note: "Invictus campus pages still reset fetch sessions intermittently; prefer browser fallback and serialized retries.",
   }],
+
+  // ── Phase 1: anti-bot domains missing Playwright policy (16 schools) ──
+  // Shared: SKH St. Simon's (3 schools)
+  ["www.ssth.edu.hk",       { affectedSchools: 1, canonicalOrigin: "https://www.ssth.edu.hk",       usePlaywright: true, note: "Anti-bot challenge on fetch; shared SKH St. Simon's host." }],
+  ["www.sslk.edu.hk",       { affectedSchools: 1, canonicalOrigin: "https://www.sslk.edu.hk",       usePlaywright: true, note: "Anti-bot challenge on fetch; shared SKH St. Simon's host." }],
+  ["www.sssk.edu.hk",       { affectedSchools: 1, canonicalOrigin: "https://www.sssk.edu.hk",       usePlaywright: true, note: "Anti-bot challenge on fetch; shared SKH St. Simon's host." }],
+  // Shared: SKH St. Christopher's (2 schools)
+  ["www.skhwcn.edu.hk",     { affectedSchools: 1, canonicalOrigin: "https://www.skhwcn.edu.hk",     usePlaywright: true, note: "Anti-bot challenge on fetch; shared SKH St. Christopher's host." }],
+  ["www.skhkckg.edu.hk",    { affectedSchools: 1, canonicalOrigin: "https://www.skhkckg.edu.hk",    usePlaywright: true, note: "Anti-bot challenge on fetch; shared SKH St. Christopher's host." }],
+  // Shared: St. Monica's (2 schools)
+  ["www.stmonicakg.edu.hk",  { affectedSchools: 1, canonicalOrigin: "https://www.stmonicakg.edu.hk",  usePlaywright: true, note: "Anti-bot challenge on fetch; shared St. Monica's host." }],
+  ["www.stmonicawk.edu.hk",  { affectedSchools: 1, canonicalOrigin: "https://www.stmonicawk.edu.hk",  usePlaywright: true, note: "Anti-bot challenge on fetch; shared St. Monica's host." }],
+  // Shared: Precious Blood (2 schools)
+  ["www.pbk.edu.hk",         { affectedSchools: 1, canonicalOrigin: "https://www.pbk.edu.hk",         usePlaywright: true, note: "Anti-bot challenge on fetch; shared Precious Blood host." }],
+  ["www.pbn.edu.hk",         { affectedSchools: 1, canonicalOrigin: "https://www.pbn.edu.hk",         usePlaywright: true, note: "Anti-bot challenge on fetch; shared Precious Blood host." }],
+  // Individual domains
+  ["cslkg.edu.hk",           { affectedSchools: 1, canonicalOrigin: "https://cslkg.edu.hk",           usePlaywright: true, note: "Anti-bot challenge on fetch." }],
+  ["www.aoguck.edu.hk",      { affectedSchools: 1, canonicalOrigin: "https://www.aoguck.edu.hk",      usePlaywright: true, note: "Anti-bot challenge on fetch." }],
+  ["www.ylsyk.edu.hk",       { affectedSchools: 1, canonicalOrigin: "https://www.ylsyk.edu.hk",       usePlaywright: true, note: "Anti-bot challenge on fetch." }],
+  ["www.choicekinder.edu.hk",{ affectedSchools: 1, canonicalOrigin: "https://www.choicekinder.edu.hk",usePlaywright: true, note: "Anti-bot challenge on fetch." }],
+  ["www.smcns.edu.hk",       { affectedSchools: 1, canonicalOrigin: "https://www.smcns.edu.hk",       usePlaywright: true, note: "Anti-bot challenge on fetch." }],
+  ["www.skhhsckg.edu.hk",   { affectedSchools: 1, canonicalOrigin: "https://www.skhhsckg.edu.hk",    usePlaywright: true, note: "Anti-bot challenge on fetch." }],
+  ["www.rlk.edu.hk",         { affectedSchools: 1, canonicalOrigin: "https://www.rlk.edu.hk",         usePlaywright: true, note: "Anti-bot challenge on fetch." }],
+  // ── Phase 4: edge cases ──
+  ["www.gigamind.edu.hk",       { affectedSchools: 1, canonicalOrigin: "https://www.gigamind.edu.hk",       usePlaywright: true, note: "SPA-shell only, 39 chars on fetch." }],
+  ["www.dominicsaviokg.edu.hk", { affectedSchools: 1, canonicalOrigin: "https://www.dominicsaviokg.edu.hk", usePlaywright: true, note: "Meta-refresh target from dominicsaviokg.org; anti-bot on fetch." }],
 ];
 
 export const DOMAIN_POLICIES = new Map(DOMAIN_POLICY_ENTRIES);

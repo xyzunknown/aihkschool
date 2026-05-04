@@ -1,0 +1,136 @@
+{
+  "generated_at": "2026-05-04",
+  "source": "manual review of ranking_images plus OCR-assisted image analysis",
+  "notes": [
+    "This file is for internal open-day crawl prioritization only.",
+    "Brands are ranked before branches because many ranking images mix brand-level and branch-level mentions.",
+    "Use this as the first crawl queue, then expand with ranking_brand_top100.json and ranking_branch_top100.json."
+  ],
+  "top_brands": [
+    {
+      "priority": 1,
+      "brand_name": "學之園幼稚園",
+      "focus_branches": ["凱帆薈", "君豪峰", "海逸豪園", "升御海逸"],
+      "why": "Repeatedly appears in Top50/Top100 style images and premium-parent recommendation charts.",
+      "tags": ["high_attention", "private", "premium", "n_class_possible"]
+    },
+    {
+      "priority": 2,
+      "brand_name": "維多利亞幼稚園",
+      "focus_branches": ["寶翠園", "海怡", "何文田", "君匯港", "康怡"],
+      "why": "High-frequency appearance across district ranking charts and prestige-school lists.",
+      "tags": ["high_attention", "private", "international_bias"]
+    },
+    {
+      "priority": 3,
+      "brand_name": "國際英文幼稚園",
+      "focus_branches": ["羅福道", "雅息士道", "約道"],
+      "why": "Frequently listed among Kowloon Tong / elite interview-track schools.",
+      "tags": ["high_attention", "private", "interview_hot"]
+    },
+    {
+      "priority": 4,
+      "brand_name": "聖公會幼稚園",
+      "focus_branches": ["聖三一", "元朗堂", "青山聖彼得堂"],
+      "why": "Shows up in multiple district-level top tiers and church-school recommendation images.",
+      "tags": ["high_attention", "non_profit", "district_hot"]
+    },
+    {
+      "priority": 5,
+      "brand_name": "嘉諾撒聖心幼稚園",
+      "focus_branches": [],
+      "why": "Repeated top-tier appearance in Hong Kong Island charts.",
+      "tags": ["high_attention", "non_profit", "elite"]
+    },
+    {
+      "priority": 6,
+      "brand_name": "聖保祿幼稚園",
+      "focus_branches": ["聖保羅堂幼稚園"],
+      "why": "High-frequency Hong Kong Island elite-school mention cluster.",
+      "tags": ["high_attention", "non_profit", "elite"]
+    },
+    {
+      "priority": 7,
+      "brand_name": "寶山幼稚園",
+      "focus_branches": [],
+      "why": "Commonly appears in Hong Kong Island top-tier recommendation charts.",
+      "tags": ["high_attention", "private", "elite"]
+    },
+    {
+      "priority": 8,
+      "brand_name": "寶血幼稚園",
+      "focus_branches": ["深水埗"],
+      "why": "Repeated in district ranking images and Top100-style tuition tables.",
+      "tags": ["high_attention", "non_profit", "has_nursery"]
+    },
+    {
+      "priority": 9,
+      "brand_name": "民生書院幼稚園",
+      "focus_branches": [],
+      "why": "Frequently shown in Kowloon Tong / traditional-school rankings.",
+      "tags": ["high_attention", "non_profit", "traditional_hot"]
+    },
+    {
+      "priority": 10,
+      "brand_name": "劍鳴幼稚園",
+      "focus_branches": [],
+      "why": "Repeated in Kowloon Tong elite-school charts.",
+      "tags": ["high_attention", "private", "interview_hot"]
+    },
+    {
+      "priority": 11,
+      "brand_name": "啟思幼稚園",
+      "focus_branches": ["帝堡城", "匯景花園", "深灣軒", "屯門分校", "元朗分校"],
+      "why": "Appears both in district rankings and N-class / application-timeline style images.",
+      "tags": ["high_attention", "has_nursery", "district_hot"]
+    },
+    {
+      "priority": 12,
+      "brand_name": "明慧國際幼稚園",
+      "focus_branches": ["太子分校", "北角分校"],
+      "why": "Consistently appears in multiple district charts and premium-school posts.",
+      "tags": ["high_attention", "private", "international_bias"]
+    },
+    {
+      "priority": 13,
+      "brand_name": "香港靈糧堂幼稚園",
+      "focus_branches": ["秀德", "荃灣", "馬鞍山"],
+      "why": "Frequent district-tier appearance across multiple areas.",
+      "tags": ["high_attention", "non_profit", "district_hot"]
+    },
+    {
+      "priority": 14,
+      "brand_name": "朗思國際幼稚園",
+      "focus_branches": ["美孚", "馬鞍山", "南昌"],
+      "why": "Shows up in ranking images that include N-class and fee information.",
+      "tags": ["high_attention", "private", "has_nursery"]
+    },
+    {
+      "priority": 15,
+      "brand_name": "救恩學校",
+      "focus_branches": ["幼稚園部"],
+      "why": "Repeated mention in Hong Kong Island and general prestige-school images.",
+      "tags": ["high_attention", "traditional_hot"]
+    }
+  ],
+  "crawl_field_priority": [
+    "open_day_url",
+    "open_day_title",
+    "open_day_date",
+    "info_session_date",
+    "application_open_date",
+    "application_deadline",
+    "application_url",
+    "campus_name",
+    "address",
+    "phone",
+    "email",
+    "has_nursery",
+    "k1_flag",
+    "tuition",
+    "kep",
+    "session_type",
+    "teaching_language",
+    "admissions_pdf_url"
+  ]
+}

@@ -1,9 +1,11 @@
 name: Crawl School Websites
 
 on:
-  schedule:
-    # Weekly Sunday 18:00 UTC = Monday 02:00 HKT
-    - cron: "0 18 * * 0"
+  # ⏸️ Cron paused 2026-05-04 — no open days in May-Aug lull.
+  # Resume ~2026-08-01 for 2026/27 admission cycle.
+  # See docs/open_day_crawl_handoff.md#pause-may-2026
+  # schedule:
+  #   - cron: "0 18 * * 0"
   workflow_dispatch:
     inputs:
       limit:
@@ -32,7 +34,10 @@ jobs:
           cache: "npm"
 
       - name: Install deps
-        run: npm install --no-save @supabase/supabase-js
+        run: |
+          npm install
+          npx playwright install chromium
+          npx playwright install-deps chromium
 
       - name: Run crawler
         env:

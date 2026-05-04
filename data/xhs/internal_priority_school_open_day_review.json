@@ -1,0 +1,177 @@
+{
+  "generated_at": "2026-05-04T14:44:34.269Z",
+  "source_file": "data/xhs/internal_priority_school_top100_results.json",
+  "raw_signal_count": 6,
+  "validated_open_day_count": 2,
+  "pending_open_day_count": 4,
+  "activity_signal_count": 0,
+  "rejected_signal_count": 0,
+  "review_rows": [
+    {
+      "rank": 23,
+      "school_code": "537098",
+      "name_tc": "香港五常法幼稚園",
+      "name_en": "HONG KONG 5-S KINDERGARTEN",
+      "website": "http://www.hk5skg.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unchanged",
+      "application_url": "https://www.hk5skg.edu.hk/l/fae89DQhR",
+      "application_process": "2025-09-252026-2027年度招生 2025-09-022025-2026學校開放日2025-07-1824-25年度小一派位結果2025-09-252026-2027年度招生",
+      "open_day_date": null,
+      "open_day_details": "2025-2026學校開放日2025-09-02 本園將於2025年9月27日(星期六)舉行學校開放日，家長與子女可透過體驗不同的活動認識我們的學校。現誠邀各位一同參加，期待你們的蒞臨。 如有任何查詢，歡迎致電本園與校務處聯絡。 本園將於2025年9月27日(星期六)舉行學校開放日，家長與子女可透過體驗不同的活動認識我們的學校。現誠邀各位一同參加，期待你們的蒞臨。 如有任何查詢，歡迎致電本園與校務處聯絡。 本園將於2025年9月27日(星期六)舉行學校開放日，家長與子女可透過體驗不同的活動認識我們的學校。現誠邀各位一同參加，期待你們的蒞臨。",
+      "scrape_confidence": "medium",
+      "queue_sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=香港五常法幼稚園 mention_count=5"
+      ],
+      "manual_review": {
+        "review_status": "validated_open_day",
+        "confidence": "high",
+        "reviewed_source": "crawler output + targeted webpage fetch",
+        "note": "官网内容明确写明 2025-09-27 举行学校开放日，且附带完整说明。",
+        "recommended_action": "可作为已核验开放日直接展示。"
+      }
+    },
+    {
+      "rank": 25,
+      "school_code": "537578",
+      "name_tc": "啓思幼稚園（帝堡城）",
+      "name_en": "CREATIVE KINDERGARTEN (CASTELLO)",
+      "website": "https://creative.edu.hk/",
+      "school_type": "non_profit",
+      "crawl_status": "unchanged",
+      "application_url": "https://creativegp.cloudoase.com/",
+      "application_process": "2026-27 年度招生\nApplication for academic year 2026/27\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t2026-27 年度入學申請 (Application for academic year 2026/27)\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t開放日 School open days\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t入學申請\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t",
+      "open_day_date": null,
+      "open_day_details": "參加開放日",
+      "scrape_confidence": "high",
+      "queue_sources": [
+        "ocr_branch_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=7"
+      ],
+      "manual_review": {
+        "review_status": "open_day_cta_no_schedule",
+        "confidence": "medium",
+        "reviewed_source": "crawler output + targeted webpage fetch",
+        "note": "站点存在『开放日 School open days』入口与『参加开放日』CTA，但当前未抓到具体日期。",
+        "recommended_action": "以前端待核验开放日展示，后续继续抓具体场次。"
+      }
+    },
+    {
+      "rank": 28,
+      "school_code": "158852",
+      "name_tc": "啓思幼稚園（屯門分校）",
+      "name_en": "CREATIVE KINDERGARTEN (TUEN MUN BRANCH)",
+      "website": "https://creative.edu.hk/",
+      "school_type": "non_profit",
+      "crawl_status": "unchanged",
+      "application_url": "https://creativegp.cloudoase.com/",
+      "application_process": "2026-27 年度招生\nApplication for academic year 2026/27\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t2026-27 年度入學申請 (Application for academic year 2026/27)\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t開放日 School open days\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t入學申請\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t",
+      "open_day_date": null,
+      "open_day_details": "參加開放日",
+      "scrape_confidence": "high",
+      "queue_sources": [
+        "ocr_branch_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=2"
+      ],
+      "manual_review": {
+        "review_status": "open_day_cta_no_schedule",
+        "confidence": "medium",
+        "reviewed_source": "crawler output + targeted webpage fetch",
+        "note": "站点存在『开放日 School open days』入口与『参加开放日』CTA，但当前未抓到具体日期。",
+        "recommended_action": "以前端待核验开放日展示，后续继续抓具体场次。"
+      }
+    },
+    {
+      "rank": 37,
+      "school_code": "325864",
+      "name_tc": "啓思幼稚園（匯景花園）",
+      "name_en": "CREATIVE KINDERGARTEN (SCENEWAY GARDEN)",
+      "website": "https://creative.edu.hk/",
+      "school_type": "non_profit",
+      "crawl_status": "unchanged",
+      "application_url": "https://creativegp.cloudoase.com/",
+      "application_process": "2026-27 年度招生\nApplication for academic year 2026/27\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t2026-27 年度入學申請 (Application for academic year 2026/27)\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t開放日 School open days\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t入學申請\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t",
+      "open_day_date": null,
+      "open_day_details": "參加開放日",
+      "scrape_confidence": "high",
+      "queue_sources": [
+        "ocr_branch_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ],
+      "manual_review": {
+        "review_status": "open_day_cta_no_schedule",
+        "confidence": "medium",
+        "reviewed_source": "crawler output + targeted webpage fetch",
+        "note": "站点存在『开放日 School open days』入口与『参加开放日』CTA，但当前未抓到具体日期。",
+        "recommended_action": "以前端待核验开放日展示，后续继续抓具体场次。"
+      }
+    },
+    {
+      "rank": 39,
+      "school_code": "572764",
+      "name_tc": "加州天地幼稚園",
+      "name_en": "SUNKIDS KINDERGARTEN",
+      "website": "http://sunkids.edu.hk/",
+      "school_type": "private_independent",
+      "crawl_status": "unchanged",
+      "application_url": "https://sunkids.edu.hk/admissions",
+      "application_process": "See more",
+      "open_day_date": null,
+      "open_day_details": "About Us Admissions Belief Curriculum Acheivement Gallery Contact Us Admission Forum Application Open Day Interview Result School Fees School Fees Play Based Performing Arts Character Building English Putonghua Eye Level Math Activities Fa…",
+      "scrape_confidence": "medium",
+      "queue_sources": [
+        "ocr_branch_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ],
+      "manual_review": {
+        "review_status": "validated_open_day",
+        "confidence": "high",
+        "reviewed_source": "crawler output + targeted webpage fetch",
+        "note": "Admissions FAQ 明确列出 2025-10-25 为 Open Day。",
+        "recommended_action": "可作为已核验开放日直接展示。",
+        "display_date": "2025-10-25",
+        "display_details": "Admissions FAQ 明确列出 Open Day: 2025-10-25"
+      }
+    },
+    {
+      "rank": 78,
+      "school_code": "154601",
+      "name_tc": "聖公會聖約瑟堂幼稚園",
+      "name_en": "SKH ST JOSEPH'S CHURCH KINDERGARTEN",
+      "website": "http://www.sjckg.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unchanged",
+      "application_url": "http://www.sjckg.edu.hk/page.php?id=5",
+      "application_process": "入學申請表 表格下載：入學申請表",
+      "open_day_date": null,
+      "open_day_details": "學校簡介會將於 10 月份舉行，以便家長了解本校的辦學宗旨和教學取向，請家長參照本校發出的電郵上的相關資料。 家長帶同以下文件連同報名費＄40-，親身到本校地下校務處辦理，學校簡介會及面試資料將透過電郵發出。",
+      "scrape_confidence": "medium",
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ],
+      "manual_review": {
+        "review_status": "needs_manual_review",
+        "confidence": "unknown",
+        "reviewed_source": "crawler output only",
+        "note": "未做额外人工复核。",
+        "recommended_action": "人工打开招生或活动页面确认。"
+      }
+    }
+  ]
+}

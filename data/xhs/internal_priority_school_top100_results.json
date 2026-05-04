@@ -1,0 +1,3163 @@
+{
+  "generated_at": "2026-05-04T14:44:34.214Z",
+  "queue_file": "data/xhs/internal_priority_school_top100.json",
+  "report_file": "docs/school-website-report.priority-top100-2026-05-04.json",
+  "acceptance": {
+    "total_targets": 100,
+    "report_rows": 100,
+    "mapped_school_rows": 100,
+    "crawled_rows": 100,
+    "useful_extraction_rows": 64,
+    "application_signal_rows": 64,
+    "open_day_signal_rows": 6,
+    "vacancy_signal_rows": 0,
+    "status_breakdown": {
+      "total": 100,
+      "ok": 39,
+      "unchanged": 25,
+      "content_insufficient": 2,
+      "robots_blocked": 2,
+      "unreachable": 32,
+      "spa_detected": 0,
+      "pdf_only": 0,
+      "no_website": 0,
+      "dry_run": 0,
+      "error": 0
+    }
+  },
+  "rows": [
+    {
+      "rank": 1,
+      "school_code": "613681",
+      "queue_name_tc": "學之園幼稚園（君豪峰）",
+      "db_name_tc": "學之園幼稚園（君豪峰）",
+      "name_en": "LEARNING HABITAT KINDERGARTEN (NOVUM EAST)",
+      "website": "https://www.learninghabitat.org",
+      "school_type": "private_independent",
+      "crawl_status": "unchanged",
+      "crawl_url": "https://www.learninghabitat.org",
+      "crawl_notes": [],
+      "application_url": "https://www.learninghabitat.org/en/admission/programmes",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "View Details\n2026/27 PN Application - Announcement of Result\n\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n            Parents can check the interview results here from 16/4/2026 at 9:00 a.m. to 20/4/2026 at 1:00 p.m. Accepted applicants will also be notified by post. In case of any discrepancies, the placement result indicated on the registration letter shall prevail. Please note that we are not able to support late checking of results.",
+      "admission_hours": "Applicable classes PN - K3 Language of Instruction Full-Time Cantonese and English immersion learning Course Features Supplementary Putonghua lessons Teacher Each class will be co-led by one English teacher and one Cantonese teacher School Hours : Morning session 9:00 a.m. – 12:00 noon Afternoon se…",
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "high",
+      "last_crawled_at": "2026-05-04T14:40:44.652+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top",
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=2",
+        "人工优先品牌池 priority=1 brand=學之園幼稚園 focus_branch=君豪峰"
+      ]
+    },
+    {
+      "rank": 2,
+      "school_code": "618039",
+      "queue_name_tc": "維多利亞（何文田）國際幼稚園",
+      "db_name_tc": "維多利亞（何文田）國際幼稚園",
+      "name_en": "VICTORIA (HOMANTIN) INTERNATIONAL KINDERGARTEN",
+      "website": "http://www.victoria.edu.hk/en/homantin-intro.php",
+      "school_type": "international",
+      "crawl_status": "unchanged",
+      "crawl_url": "http://www.victoria.edu.hk/en/homantin-intro.php",
+      "crawl_notes": [],
+      "application_url": "https://www.victoria.edu.hk/message-from-admission-team/",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "Missed the event or want to revisit the highlights? The seminar replay will be available online soon!",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:41:19.026+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top",
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=11",
+        "人工优先品牌池 priority=2 brand=維多利亞幼稚園 focus_branch=何文田"
+      ]
+    },
+    {
+      "rank": 3,
+      "school_code": "566900",
+      "queue_name_tc": "維多利亞（何文田）國際幼兒園",
+      "db_name_tc": "維多利亞（何文田）國際幼兒園",
+      "name_en": "VICTORIA (HOMANTIN) INTERNATIONAL NURSERY",
+      "website": "http://www.victoria.edu.hk/en/homantin-intro.php",
+      "school_type": "international",
+      "crawl_status": "ok",
+      "crawl_url": "http://www.victoria.edu.hk/en/homantin-intro.php",
+      "crawl_notes": [],
+      "application_url": "https://www.victoria.edu.hk/message-from-admission-team/",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "Missed the event or want to revisit the highlights? The seminar replay will be available online soon!",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:41:19.522+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top",
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=11",
+        "人工优先品牌池 priority=2 brand=維多利亞幼稚園 focus_branch=何文田"
+      ]
+    },
+    {
+      "rank": 4,
+      "school_code": "574708",
+      "queue_name_tc": "維多利亞（君匯港）幼稚園",
+      "db_name_tc": "維多利亞（君匯港）幼稚園",
+      "name_en": "VICTORIA (HARBOUR GREEN) KINDERGARTEN",
+      "website": "http://www.victoria.edu.hk/en/harbour-green-intro.php",
+      "school_type": "private_independent",
+      "crawl_status": "ok",
+      "crawl_url": "http://www.victoria.edu.hk/en/harbour-green-intro.php",
+      "crawl_notes": [],
+      "application_url": "https://www.victoria.edu.hk/message-from-admission-team/",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "Missed the event or want to revisit the highlights? The seminar replay will be available online soon!",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:41:24.968+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top",
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "人工优先品牌池 priority=2 brand=維多利亞幼稚園 focus_branch=君匯港"
+      ]
+    },
+    {
+      "rank": 5,
+      "school_code": "609528",
+      "queue_name_tc": "學之園幼稚園（昇御海逸）",
+      "db_name_tc": "學之園幼稚園（昇御海逸）",
+      "name_en": "LEARNING HABITAT KINDERGARTEN (CHATHAM LV)",
+      "website": "https://www.learninghabitat.org",
+      "school_type": "private_independent",
+      "crawl_status": "ok",
+      "crawl_url": "https://www.learninghabitat.org",
+      "crawl_notes": [],
+      "application_url": "https://www.learninghabitat.org/en/admission/programmes",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "View Details\n2026/27 PN Application - Announcement of Result\n\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n            Parents can check the interview results here from 16/4/2026 at 9:00 a.m. to 20/4/2026 at 1:00 p.m. Accepted applicants will also be notified by post. In case of any discrepancies, the placement result indicated on the registration letter shall prevail. Please note that we are not able to support late checking of results.",
+      "admission_hours": "Applicable classes PN - K3 Language of Instruction Full-Time Cantonese and English immersion learning Course Features Supplementary Putonghua lessons Teacher Each class will be co-led by one English teacher and one Cantonese teacher School Hours : Morning session 9:00 a.m. – 12:00 noon Afternoon se…",
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "high",
+      "last_crawled_at": "2026-05-04T14:40:43.926+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top",
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "人工优先品牌池 priority=1 brand=學之園幼稚園"
+      ]
+    },
+    {
+      "rank": 6,
+      "school_code": "159131",
+      "queue_name_tc": "聖公會青山聖彼得堂兆麟苑幼稚園",
+      "db_name_tc": "聖公會青山聖彼得堂兆麟苑幼稚園",
+      "name_en": "SKH ST PETER'S CH CP SIU LUN COURT KG",
+      "website": "https://www.skhspcslc.edu.hk/",
+      "school_type": "non_profit",
+      "crawl_status": "unchanged",
+      "crawl_url": "https://www.skhspcslc.edu.hk/",
+      "crawl_notes": [],
+      "application_url": "https://skhspcslc.edu.hk/admission/",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "入學申請",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:42:39.333+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top",
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園 focus_branch=青山聖彼得堂"
+      ]
+    },
+    {
+      "rank": 7,
+      "school_code": "325970",
+      "queue_name_tc": "嘉諾撒聖心幼稚園",
+      "db_name_tc": "嘉諾撒聖心幼稚園",
+      "name_en": "SACRED HEART CANOSSIAN KINDERGARTEN",
+      "website": "http://www.shck.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "ok",
+      "crawl_url": "http://www.shck.edu.hk",
+      "crawl_notes": [
+        "no dynamic links found, using SUB_PATHS fallback"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "入學申請 入學申請 申請程序 申請程序",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:39:54.593+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top",
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "人工优先品牌池 priority=5 brand=嘉諾撒聖心幼稚園"
+      ]
+    },
+    {
+      "rank": 8,
+      "school_code": "564044",
+      "queue_name_tc": "寶血幼稚園（深水埗）",
+      "db_name_tc": "寶血幼稚園（深水埗）",
+      "name_en": "PRECIOUS BLOOD KG (SHAM SHUI PO)",
+      "website": "http://www.pbn.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "http://www.pbn.edu.hk",
+      "crawl_notes": [
+        "anti_bot_challenge=www.pbn.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:40:55.741+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "ocr_branch_top",
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=10",
+        "人工优先品牌池 priority=8 brand=寶血幼稚園 focus_branch=深水埗"
+      ]
+    },
+    {
+      "rank": 9,
+      "school_code": "567329",
+      "queue_name_tc": "明慧國際幼稚園（北角分校）",
+      "db_name_tc": "明慧國際幼稚園（北角分校）",
+      "name_en": "MING WAI INTERNATIONAL KINDERGARTEN (NORTH POINT BRANCH)",
+      "website": "http://www.mingwai.edu.hk",
+      "school_type": "international",
+      "crawl_status": "unchanged",
+      "crawl_url": "http://www.mingwai.edu.hk",
+      "crawl_notes": [],
+      "application_url": "https://www.mingwai.edu.hk/how-to-apply/north-point-admissions/admissions-information/",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "Admissions Admissions North Point Branch Prince Edward Branch North Point Branch Prince Edward Branch",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:41:07.508+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top",
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=8",
+        "人工优先品牌池 priority=12 brand=明慧國際幼稚園 focus_branch=北角分校",
+        "OCR 品牌榜补充命中 brand=明慧國際幼稚園 mention_count=19",
+        "OCR 品牌榜补充命中 brand=明慧幼稚園 mention_count=19"
+      ]
+    },
+    {
+      "rank": 10,
+      "school_code": "583421",
+      "queue_name_tc": "明慧國際幼稚園（太子分校）",
+      "db_name_tc": "明慧國際幼稚園（太子分校）",
+      "name_en": "MING WAI INTERNATIONAL KINDERGARTEN (PRINCE EDWARD BRANCH)",
+      "website": "http://www.mingwai.edu.hk",
+      "school_type": "international",
+      "crawl_status": "unchanged",
+      "crawl_url": "http://www.mingwai.edu.hk",
+      "crawl_notes": [],
+      "application_url": "https://www.mingwai.edu.hk/how-to-apply/north-point-admissions/admissions-information/",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "Admissions Admissions North Point Branch Prince Edward Branch North Point Branch Prince Edward Branch",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:41:08.33+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top",
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=6",
+        "人工优先品牌池 priority=12 brand=明慧國際幼稚園 focus_branch=太子分校",
+        "OCR 品牌榜补充命中 brand=明慧國際幼稚園 mention_count=19",
+        "OCR 品牌榜补充命中 brand=明慧幼稚園 mention_count=19"
+      ]
+    },
+    {
+      "rank": 11,
+      "school_code": "157376",
+      "queue_name_tc": "保良局田家炳兆康幼稚園",
+      "db_name_tc": "保良局田家炳兆康幼稚園",
+      "name_en": "PLK TIN KA PING SIU HONG KINDERGARTEN",
+      "website": "https://www.plkkgs.edu.hk/plktkpshkg/",
+      "school_type": "non_profit",
+      "crawl_status": "ok",
+      "crawl_url": "https://www.plkkgs.edu.hk/plktkpshkg/",
+      "crawl_notes": [
+        "no dynamic links found, using SUB_PATHS fallback"
+      ],
+      "application_url": "https://application.plkkgs.edu.hk/",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "入學申請",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:39:34.564+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=保良局田家炳幼稚園 mention_count=14",
+        "OCR 品牌榜补充命中 brand=保良局田家炳兆康幼稚園 mention_count=7"
+      ]
+    },
+    {
+      "rank": 12,
+      "school_code": "158380",
+      "queue_name_tc": "世界龍岡學校朱瑞蘭（中英文）幼稚園",
+      "db_name_tc": "世界龍岡學校朱瑞蘭（中英文）幼稚園",
+      "name_en": "LKWFS CHU SUI LAN ANGLO-CHINESE KG",
+      "website": "http://cslkg.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "http://cslkg.edu.hk",
+      "crawl_notes": [
+        "anti_bot_challenge=www.cslkg.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:38:57.131+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "ocr_branch_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=22"
+      ]
+    },
+    {
+      "rank": 13,
+      "school_code": "216054",
+      "queue_name_tc": "迦南幼稚園（麗港城）",
+      "db_name_tc": "迦南幼稚園（麗港城）",
+      "name_en": "CANNAN KG (LAGUNA CITY)",
+      "website": "https://www.cannan.edu.hk/",
+      "school_type": "non_profit",
+      "crawl_status": "unchanged",
+      "crawl_url": "https://www.cannan.edu.hk/",
+      "crawl_notes": [],
+      "application_url": "https://www.cannan.edu.hk/admission",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "2026/27學年幼兒園幼兒班/低班/高班新生申請 × 2026/27學年幼兒園幼兒班/低班/高班新生申請",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:42:51.051+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=迦南幼稚園 mention_count=17"
+      ]
+    },
+    {
+      "rank": 14,
+      "school_code": "156973",
+      "queue_name_tc": "救世軍田家炳幼稚園",
+      "db_name_tc": "救世軍田家炳幼稚園",
+      "name_en": "SA TIN KA PING KINDERGARTEN",
+      "website": "http://www.salvationarmy.org.hk/esd/tkpkg/",
+      "school_type": "non_profit",
+      "crawl_status": "unchanged",
+      "crawl_url": "https://www.salvationarmy.org.hk/esd/tkpkg/",
+      "crawl_notes": [
+        "domain_policy=Shared Salvation Army nursery paths; keep canonical https even though the host is often down.",
+        "normalized_url=https://www.salvationarmy.org.hk/esd/tkpkg/",
+        "host_adapter=salvation_army_branch",
+        "salvation_branch_root=https://www.salvationarmy.org.hk/esd/tkpkg/",
+        "salvation_pages=5"
+      ],
+      "application_url": "https://www.salvationarmy.org.hk/esd/tkpkg/admissions.html",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "入學申請 入學申請入學申請 申請程序 約見及取錄 新生註冊 常見問題 入學申請 申請程序 約見及取錄 新生註冊 常見問題",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:40:58.47+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=救世軍田家炳幼稚園 mention_count=17"
+      ]
+    },
+    {
+      "rank": 15,
+      "school_code": "315907",
+      "queue_name_tc": "基督教中心幼稚園",
+      "db_name_tc": "基督教中心幼稚園",
+      "name_en": "CHRISTIAN YOUTH CENTRE KINDERGARTEN",
+      "website": "http://www.cyckg.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "https://www.cyckg.edu.hk/",
+      "crawl_notes": [
+        "domain_policy=403 anti-bot on both protocols.",
+        "normalized_url=https://www.cyckg.edu.hk/",
+        "Playwright fallback used for www.cyckg.edu.hk",
+        "anti_bot_challenge=www.cyckg.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:40:00.565+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=基督教中心幼稚園 mention_count=13"
+      ]
+    },
+    {
+      "rank": 16,
+      "school_code": "324230",
+      "queue_name_tc": "明我幼稚園",
+      "db_name_tc": "明我幼稚園",
+      "name_en": "DOMINIC SAVIO KINDERGARTEN",
+      "website": "http://www.dominicsaviokg.org/",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "http://www.dominicsaviokg.org/",
+      "crawl_notes": [
+        "domain_policy=HTTP homepage is reachable while HTTPS fails; keep the shared site on HTTP and retry serially.",
+        "meta_refresh=http://www.dominicsaviokg.edu.hk/",
+        "anti_bot_challenge=www.dominicsaviokg.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:41:12.575+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=明我幼稚園 mention_count=11"
+      ]
+    },
+    {
+      "rank": 17,
+      "school_code": "131440",
+      "queue_name_tc": "聖士提反堂小學暨幼稚園",
+      "db_name_tc": "聖士提反堂小學暨幼稚園",
+      "name_en": "ST STEPHEN'S CHURCH PRI SCH & KG",
+      "website": "http://www.ssck.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "robots_blocked",
+      "crawl_url": "http://www.ssck.edu.hk",
+      "crawl_notes": [],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:42:40.185+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=聖士提反堂小學暨幼稚園 mention_count=8"
+      ]
+    },
+    {
+      "rank": 18,
+      "school_code": "131466",
+      "queue_name_tc": "聖保羅堂幼稚園",
+      "db_name_tc": "聖保羅堂幼稚園",
+      "name_en": "ST PAUL'S CHURCH KINDERGARTEN",
+      "website": "http://www.stpaulchurchkg.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unchanged",
+      "crawl_url": "http://www.stpaulchurchkg.edu.hk",
+      "crawl_notes": [],
+      "application_url": "http://www.stpaulchurchkg.edu.hk/index.php/section/page/1106",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "入學申請及升小資訊",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:41:28.248+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=聖保羅堂幼稚園 mention_count=8"
+      ]
+    },
+    {
+      "rank": 19,
+      "school_code": "563129",
+      "queue_name_tc": "救世軍荃灣幼兒學校",
+      "db_name_tc": "救世軍荃灣幼兒學校",
+      "name_en": "SA TSUEN WAN NURSERY SCH",
+      "website": "http://www.salvationarmy.org.hk/esd/twns/",
+      "school_type": "non_profit",
+      "crawl_status": "unchanged",
+      "crawl_url": "https://www.salvationarmy.org.hk/esd/twns/",
+      "crawl_notes": [
+        "domain_policy=Shared Salvation Army nursery paths; keep canonical https even though the host is often down.",
+        "normalized_url=https://www.salvationarmy.org.hk/esd/twns/",
+        "host_adapter=salvation_army_branch",
+        "salvation_branch_root=https://www.salvationarmy.org.hk/esd/twns/",
+        "salvation_pages=5"
+      ],
+      "application_url": "https://www.salvationarmy.org.hk/esd/twns/admissions.html",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "入學申請 入學申請入學申請 申請程序 約見及取錄 新生註冊 常見問題 入學申請 申請程序 約見及取錄 新生註冊 常見問題",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:40:58.396+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=救世軍荃灣幼兒學校 mention_count=7"
+      ]
+    },
+    {
+      "rank": 20,
+      "school_code": "559768",
+      "queue_name_tc": "天主教聖安德肋幼稚園",
+      "db_name_tc": "天主教聖安德肋幼稚園",
+      "name_en": "ST ANDREW'S CATHOLIC KINDERGARTEN",
+      "website": "https://www.sackg.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "robots_blocked",
+      "crawl_url": "https://www.sackg.edu.hk",
+      "crawl_notes": [],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:39:55.631+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=天主教聖安德肋幼稚園 mention_count=7"
+      ]
+    },
+    {
+      "rank": 21,
+      "school_code": "536768",
+      "queue_name_tc": "珈琳幼稚園（屯門分校）",
+      "db_name_tc": "珈琳幼稚園（屯門分校）",
+      "name_en": "KARLAM KG (TUEN MUN BRANCH)",
+      "website": "http://www.karlam.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "https://www.karlam.edu.hk/",
+      "crawl_notes": [
+        "domain_policy=403 anti-bot on both protocols.",
+        "normalized_url=https://www.karlam.edu.hk/",
+        "Playwright fallback used for www.karlam.edu.hk",
+        "anti_bot_challenge=www.karlam.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:41:20.92+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=2",
+        "OCR 品牌榜补充命中 brand=珈琳幼稚園 mention_count=4"
+      ]
+    },
+    {
+      "rank": 22,
+      "school_code": "325821",
+      "queue_name_tc": "保良局金卿幼稚園",
+      "db_name_tc": "保良局金卿幼稚園",
+      "name_en": "PLK KAM HING KINDERGARTEN",
+      "website": "https://www.plkkgs.edu.hk/plkkhkg/",
+      "school_type": "non_profit",
+      "crawl_status": "ok",
+      "crawl_url": "https://www.plkkgs.edu.hk/plkkhkg/",
+      "crawl_notes": [],
+      "application_url": "https://www.plkkgs.edu.hk/plkkhkg/hk/custom/custom_page",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "收生資料 Admission",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:39:33.747+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=保良局金卿幼稚園 mention_count=6"
+      ]
+    },
+    {
+      "rank": 23,
+      "school_code": "537098",
+      "queue_name_tc": "香港五常法幼稚園",
+      "db_name_tc": "香港五常法幼稚園",
+      "name_en": "HONG KONG 5-S KINDERGARTEN",
+      "website": "http://www.hk5skg.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unchanged",
+      "crawl_url": "http://www.hk5skg.edu.hk",
+      "crawl_notes": [],
+      "application_url": "https://www.hk5skg.edu.hk/l/fae89DQhR",
+      "open_day_date": null,
+      "open_day_details": "2025-2026學校開放日2025-09-02 本園將於2025年9月27日(星期六)舉行學校開放日，家長與子女可透過體驗不同的活動認識我們的學校。現誠邀各位一同參加，期待你們的蒞臨。 如有任何查詢，歡迎致電本園與校務處聯絡。 本園將於2025年9月27日(星期六)舉行學校開放日，家長與子女可透過體驗不同的活動認識我們的學校。現誠邀各位一同參加，期待你們的蒞臨。 如有任何查詢，歡迎致電本園與校務處聯絡。 本園將於2025年9月27日(星期六)舉行學校開放日，家長與子女可透過體驗不同的活動認識我們的學校。現誠邀各位一同參加，期待你們的蒞臨。",
+      "application_process": "2025-09-252026-2027年度招生 2025-09-022025-2026學校開放日2025-07-1824-25年度小一派位結果2025-09-252026-2027年度招生",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:43:07.425+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=香港五常法幼稚園 mention_count=5"
+      ]
+    },
+    {
+      "rank": 24,
+      "school_code": "541222",
+      "queue_name_tc": "激活幼稚園",
+      "db_name_tc": "激活幼稚園",
+      "name_en": "GIGAMIND KINDERGARTEN",
+      "website": "http://www.gigamind.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "http://www.gigamind.edu.hk",
+      "crawl_notes": [
+        "base page textLen=39, too short",
+        "no dynamic links found, using SUB_PATHS fallback"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:41:20.831+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "ocr_branch_top",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1",
+        "OCR 品牌榜补充命中 brand=激活幼稚園 mention_count=5"
+      ]
+    },
+    {
+      "rank": 25,
+      "school_code": "537578",
+      "queue_name_tc": "啓思幼稚園（帝堡城）",
+      "db_name_tc": "啓思幼稚園（帝堡城）",
+      "name_en": "CREATIVE KINDERGARTEN (CASTELLO)",
+      "website": "https://creative.edu.hk/",
+      "school_type": "non_profit",
+      "crawl_status": "unchanged",
+      "crawl_url": "https://creative.edu.hk/",
+      "crawl_notes": [
+        "host_adapter=creative_wp_rest",
+        "creative_target_slugs=cast,2627admissions,admissions,contact,home",
+        "creative_pages=4",
+        "normalized_origin=https://creative.edu.hk",
+        "original_website=https://creative.edu.hk/"
+      ],
+      "application_url": "https://creativegp.cloudoase.com/",
+      "open_day_date": null,
+      "open_day_details": "參加開放日",
+      "application_process": "2026-27 年度招生\nApplication for academic year 2026/27\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t2026-27 年度入學申請 (Application for academic year 2026/27)\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t開放日 School open days\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t入學申請\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t",
+      "admission_hours": "小組班上課時間是怎樣？",
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "high",
+      "last_crawled_at": "2026-05-04T14:39:45.109+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=7"
+      ]
+    },
+    {
+      "rank": 26,
+      "school_code": "231240",
+      "queue_name_tc": "卓思英文學校暨幼稚園（青怡分校）",
+      "db_name_tc": "卓思英文學校暨幼稚園（青怡分校）",
+      "name_en": "CHOICE ENGLISH SCH & KG (TSING YI BR)",
+      "website": "http://www.choicekinder.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "http://www.choicekinder.edu.hk",
+      "crawl_notes": [
+        "anti_bot_challenge=www.choicekinder.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:39:38.16+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "ocr_branch_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=4"
+      ]
+    },
+    {
+      "rank": 27,
+      "school_code": "565466",
+      "queue_name_tc": "MONTESSORI FOR CHILDREN (NURSERY)",
+      "db_name_tc": "MONTESSORI FOR CHILDREN (NURSERY)",
+      "name_en": "MONTESSORI FOR CHILDREN (NURSERY)",
+      "website": "https://mfc.edu.hk/",
+      "school_type": "private_independent",
+      "crawl_status": "unchanged",
+      "crawl_url": "https://mfc.edu.hk/",
+      "crawl_notes": [],
+      "application_url": "https://mfc.edu.hk/application-casa_hk.html",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "Admission Admission Process Casa - Application Infant - Application Process Casa - Application Infant - Application",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:38:54.057+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=4"
+      ]
+    },
+    {
+      "rank": 28,
+      "school_code": "158852",
+      "queue_name_tc": "啓思幼稚園（屯門分校）",
+      "db_name_tc": "啓思幼稚園（屯門分校）",
+      "name_en": "CREATIVE KINDERGARTEN (TUEN MUN BRANCH)",
+      "website": "https://creative.edu.hk/",
+      "school_type": "non_profit",
+      "crawl_status": "unchanged",
+      "crawl_url": "https://creative.edu.hk/",
+      "crawl_notes": [
+        "host_adapter=creative_wp_rest",
+        "creative_target_slugs=tm,2627admissions,admissions,contact,home",
+        "creative_pages=4",
+        "normalized_origin=https://creative.edu.hk",
+        "original_website=https://creative.edu.hk/"
+      ],
+      "application_url": "https://creativegp.cloudoase.com/",
+      "open_day_date": null,
+      "open_day_details": "參加開放日",
+      "application_process": "2026-27 年度招生\nApplication for academic year 2026/27\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t2026-27 年度入學申請 (Application for academic year 2026/27)\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t開放日 School open days\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t入學申請\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t",
+      "admission_hours": "小組班上課時間是怎樣？",
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "high",
+      "last_crawled_at": "2026-05-04T14:39:44.708+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=2"
+      ]
+    },
+    {
+      "rank": 29,
+      "school_code": "156930",
+      "queue_name_tc": "佳寶幼稚園（屯門分校）",
+      "db_name_tc": "佳寶幼稚園（屯門分校）",
+      "name_en": "GUIDEPOSTS KG (TUEN MUN BRANCH)",
+      "website": "http://www.guideposts.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "http://www.guideposts.edu.hk",
+      "crawl_notes": [
+        "base page unreachable"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:39:30.403+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "ocr_branch_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=2"
+      ]
+    },
+    {
+      "rank": 30,
+      "school_code": "563323",
+      "queue_name_tc": "香港青年協會青樂幼稚園（油麻地）",
+      "db_name_tc": "香港青年協會青樂幼稚園（油麻地）",
+      "name_en": "HKFYG CHING LOK KINDERGARTEN (YAUMATEI)",
+      "website": "http://clymt.hkfyg.org.hk",
+      "school_type": "non_profit",
+      "crawl_status": "content_insufficient",
+      "crawl_url": "http://clymt.hkfyg.org.hk",
+      "crawl_notes": [
+        "no dynamic links found, using SUB_PATHS fallback",
+        "confidence=low, baseTextLen=21056, pages=5, pdfs=0"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:44:32.463+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "ocr_branch_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ]
+    },
+    {
+      "rank": 31,
+      "school_code": "158062",
+      "queue_name_tc": "香港道教聯合會圓玄幼稚園（富善邨）",
+      "db_name_tc": "香港道教聯合會圓玄幼稚園（富善邨）",
+      "name_en": "HKTA YUEN YUEN KG (FU SHIN ESTATE)",
+      "website": "https://www.yuenyuenkg.edu.hk/fushin/",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "https://www.yuenyuenkg.edu.hk/fushin/",
+      "crawl_notes": [
+        "domain_policy=403 anti-bot on both root and branch pages.",
+        "Playwright fallback used for www.yuenyuenkg.edu.hk",
+        "anti_bot_challenge=www.yuenyuenkg.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:44:16.186+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "ocr_branch_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ]
+    },
+    {
+      "rank": 32,
+      "school_code": "537950",
+      "queue_name_tc": "天樂幼稚園",
+      "db_name_tc": "天樂幼稚園",
+      "name_en": "TALENT KINDERGARTEN",
+      "website": "https://www.agneskg.edu.hk/agnestalent/",
+      "school_type": "non_profit",
+      "crawl_status": "unchanged",
+      "crawl_url": "https://www.agneskg.edu.hk/agnestalent/",
+      "crawl_notes": [],
+      "application_url": "https://www.agneskg.edu.hk/agnestalent/index.php/section/page/3242",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "入學申請",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:40:37.723+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ]
+    },
+    {
+      "rank": 33,
+      "school_code": "215538",
+      "queue_name_tc": "高主教書院幼稚園部",
+      "db_name_tc": "高主教書院幼稚園部",
+      "name_en": "RAIMONDI COLLEGE KINDERGARTEN SECTION",
+      "website": "http://www.rckg.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "ok",
+      "crawl_url": "http://www.rckg.edu.hk",
+      "crawl_notes": [
+        "no dynamic links found, using SUB_PATHS fallback"
+      ],
+      "application_url": "https://www.rckg.edu.hk/?page_id=3933",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "招生須知 幼兒班報名 插班生報名 學校資料單張 收費概覽 校服式樣",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:44:22.905+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ]
+    },
+    {
+      "rank": 34,
+      "school_code": "231010",
+      "queue_name_tc": "太陽島英文幼稚園（元朗分校）",
+      "db_name_tc": "太陽島英文幼稚園（元朗分校）",
+      "name_en": "SUN ISLAND ENGLISH KG (YUEN LONG BRANCH)",
+      "website": "http://www.sunisland.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unchanged",
+      "crawl_url": "http://www.sunisland.edu.hk",
+      "crawl_notes": [],
+      "application_url": "https://sunisland.edu.hk/registration/",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "2025/26 Transfer Application Welcomed!Sun Island has joined the EDB’s “Kindergarten Education Scheme” since 2017/18 school year. All half-day school places are FREE after deduction of the government subsidy. The highest satisfaction rate of the primary one admission results among the branches is 100% (2024/25 School Year). Apply Now Sun Island has joined the EDB’s “Kindergarten Education Scheme” since 2017/18 school year. All half-day school places are FREE after deduction of the government subsidy. The highest satisfaction rate of the primary one admission results among the branches is 100%…",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:40:42.847+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ]
+    },
+    {
+      "rank": 35,
+      "school_code": "151157",
+      "queue_name_tc": "大埔浸信會幼稚園",
+      "db_name_tc": "大埔浸信會幼稚園",
+      "name_en": "TAI PO BAPTIST KINDERGARTEN",
+      "website": "http://www.hkbkec.edu.hk/taipobc/",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "http://www.hkbkec.edu.hk/taipobc/",
+      "crawl_notes": [
+        "base page unreachable"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:40:34.158+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "ocr_branch_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ]
+    },
+    {
+      "rank": 36,
+      "school_code": "543861",
+      "queue_name_tc": "基督教神召會合一堂幼稚園",
+      "db_name_tc": "基督教神召會合一堂幼稚園",
+      "name_en": "ASSEMBLY OF GOD UNION CHURCH KG",
+      "website": "http://www.aoguck.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "http://www.aoguck.edu.hk",
+      "crawl_notes": [
+        "anti_bot_challenge=www.aoguck.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:39:58.226+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "ocr_branch_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ]
+    },
+    {
+      "rank": 37,
+      "school_code": "325864",
+      "queue_name_tc": "啓思幼稚園（匯景花園）",
+      "db_name_tc": "啓思幼稚園（匯景花園）",
+      "name_en": "CREATIVE KINDERGARTEN (SCENEWAY GARDEN)",
+      "website": "https://creative.edu.hk/",
+      "school_type": "non_profit",
+      "crawl_status": "unchanged",
+      "crawl_url": "https://creative.edu.hk/",
+      "crawl_notes": [
+        "host_adapter=creative_wp_rest",
+        "creative_target_slugs=skg,2627admissions,admissions,contact,home",
+        "creative_pages=4",
+        "normalized_origin=https://creative.edu.hk",
+        "original_website=https://creative.edu.hk/"
+      ],
+      "application_url": "https://creativegp.cloudoase.com/",
+      "open_day_date": null,
+      "open_day_details": "參加開放日",
+      "application_process": "2026-27 年度招生\nApplication for academic year 2026/27\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t2026-27 年度入學申請 (Application for academic year 2026/27)\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t開放日 School open days\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t入學申請\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t",
+      "admission_hours": "小組班上課時間是怎樣？",
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "high",
+      "last_crawled_at": "2026-05-04T14:39:39.077+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ]
+    },
+    {
+      "rank": 38,
+      "school_code": "559415",
+      "queue_name_tc": "博士山（香港）國際幼稚園",
+      "db_name_tc": "博士山（香港）國際幼稚園",
+      "name_en": "BOX HILL (HK) INTERNATIONAL KINDERGARTEN",
+      "website": "https://www.boxhill.edu.hk",
+      "school_type": "international",
+      "crawl_status": "unreachable",
+      "crawl_url": "https://www.boxhill.edu.hk/",
+      "crawl_notes": [
+        "domain_policy=202/JS gate on fetch; allow browser fallback and serialize retries.",
+        "normalized_url=https://www.boxhill.edu.hk/",
+        "Playwright fallback used for www.boxhill.edu.hk",
+        "anti_bot_challenge=www.boxhill.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:39:40.439+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "ocr_branch_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ]
+    },
+    {
+      "rank": 39,
+      "school_code": "572764",
+      "queue_name_tc": "加州天地幼稚園",
+      "db_name_tc": "加州天地幼稚園",
+      "name_en": "SUNKIDS KINDERGARTEN",
+      "website": "http://sunkids.edu.hk/",
+      "school_type": "private_independent",
+      "crawl_status": "unchanged",
+      "crawl_url": "http://sunkids.edu.hk/",
+      "crawl_notes": [],
+      "application_url": "https://sunkids.edu.hk/admissions",
+      "open_day_date": null,
+      "open_day_details": "About Us Admissions Belief Curriculum Acheivement Gallery Contact Us Admission Forum Application Open Day Interview Result School Fees School Fees Play Based Performing Arts Character Building English Putonghua Eye Level Math Activities Fa…",
+      "application_process": "See more",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:39:36.488+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ]
+    },
+    {
+      "rank": 40,
+      "school_code": "159158",
+      "queue_name_tc": "元朗三育幼稚園",
+      "db_name_tc": "元朗三育幼稚園",
+      "name_en": "YUEN LONG SAM YUK KINDERGARTEN",
+      "website": "http://www.ylsyk.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "http://www.ylsyk.edu.hk",
+      "crawl_notes": [
+        "anti_bot_challenge=www.ylsyk.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:39:34.009+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "ocr_branch_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ]
+    },
+    {
+      "rank": 41,
+      "school_code": "323497",
+      "queue_name_tc": "佛教金麗幼稚園",
+      "db_name_tc": "佛教金麗幼稚園",
+      "name_en": "BUDDHIST KAM LAI KINDERGARTEN",
+      "website": "http://www.buddhist-kam-lai-kg.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unchanged",
+      "crawl_url": "http://www.buddhist-kam-lai-kg.edu.hk",
+      "crawl_notes": [
+        "no dynamic links found, using SUB_PATHS fallback"
+      ],
+      "application_url": "http://www.buddhist-kam-lai-kg.edu.hk/?page_id=55&lang=zh",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "入學申請 Admission Application",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:38:58.169+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "ocr_branch_top"
+      ],
+      "queue_reasons": [
+        "OCR 分校榜直接命中，mention_count=1"
+      ]
+    },
+    {
+      "rank": 42,
+      "school_code": "561207",
+      "queue_name_tc": "學之園幼稚園（凱帆薈）",
+      "db_name_tc": "學之園幼稚園（凱帆薈）",
+      "name_en": "LEARNING HABITAT KINDERGARTEN (HAMPTON LOFT)",
+      "website": "https://www.learninghabitat.org",
+      "school_type": "private_independent",
+      "crawl_status": "ok",
+      "crawl_url": "https://www.learninghabitat.org",
+      "crawl_notes": [],
+      "application_url": "https://www.learninghabitat.org/en/admission/programmes",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "View Details\n2026/27 PN Application - Announcement of Result\n\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n            Parents can check the interview results here from 16/4/2026 at 9:00 a.m. to 20/4/2026 at 1:00 p.m. Accepted applicants will also be notified by post. In case of any discrepancies, the placement result indicated on the registration letter shall prevail. Please note that we are not able to support late checking of results.",
+      "admission_hours": "Applicable classes PN - K3 Language of Instruction Full-Time Cantonese and English immersion learning Course Features Supplementary Putonghua lessons Teacher Each class will be co-led by one English teacher and one Cantonese teacher School Hours : Morning session 9:00 a.m. – 12:00 noon Afternoon se…",
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "high",
+      "last_crawled_at": "2026-05-04T14:40:39.411+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=1 brand=學之園幼稚園 focus_branch=凱帆薈"
+      ]
+    },
+    {
+      "rank": 43,
+      "school_code": "216194",
+      "queue_name_tc": "維多利亞（海怡）國際幼稚園",
+      "db_name_tc": "維多利亞（海怡）國際幼稚園",
+      "name_en": "VICTORIA (SOUTH HORIZONS) INTERNATIONAL KINDERGARTEN",
+      "website": "http://www.victoria.edu.hk/en/south-horizons-intro.php",
+      "school_type": "international",
+      "crawl_status": "ok",
+      "crawl_url": "http://www.victoria.edu.hk/en/south-horizons-intro.php",
+      "crawl_notes": [],
+      "application_url": "https://www.victoria.edu.hk/message-from-admission-team/",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "Missed the event or want to revisit the highlights? The seminar replay will be available online soon!",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:41:29.157+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=2 brand=維多利亞幼稚園 focus_branch=海怡"
+      ]
+    },
+    {
+      "rank": 44,
+      "school_code": "542164",
+      "queue_name_tc": "維多利亞（寶翠園）幼稚園",
+      "db_name_tc": "維多利亞（寶翠園）幼稚園",
+      "name_en": "VICTORIA (BELCHER) KINDERGARTEN",
+      "website": "http://www.victoria.edu.hk/en/belcher-intro.php",
+      "school_type": "private_independent",
+      "crawl_status": "ok",
+      "crawl_url": "http://www.victoria.edu.hk/en/belcher-intro.php",
+      "crawl_notes": [],
+      "application_url": "https://www.victoria.edu.hk/message-from-admission-team/",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "Missed the event or want to revisit the highlights? The seminar replay will be available online soon!",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:41:25.265+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=2 brand=維多利亞幼稚園 focus_branch=寶翠園"
+      ]
+    },
+    {
+      "rank": 45,
+      "school_code": "569828",
+      "queue_name_tc": "康怡維多利亞幼稚園",
+      "db_name_tc": "康怡維多利亞幼稚園",
+      "name_en": "KORNHILL VICTORIA KINDERGARTEN",
+      "website": "http://www.victoria.edu.hk",
+      "school_type": "private_independent",
+      "crawl_status": "ok",
+      "crawl_url": "http://www.victoria.edu.hk",
+      "crawl_notes": [],
+      "application_url": "https://www.victoria.edu.hk/message-from-admission-team/",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "Missed the event or want to revisit the highlights? The seminar replay will be available online soon!",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:40:59.174+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=2 brand=維多利亞幼稚園 focus_branch=康怡"
+      ]
+    },
+    {
+      "rank": 46,
+      "school_code": "604291",
+      "queue_name_tc": "學之園幼稚園（迎海）",
+      "db_name_tc": "學之園幼稚園（迎海）",
+      "name_en": "LEARNING HABITAT KINDERGARTEN (DOUBLE COVE)",
+      "website": "https://www.learninghabitat.org",
+      "school_type": "private_independent",
+      "crawl_status": "ok",
+      "crawl_url": "https://www.learninghabitat.org",
+      "crawl_notes": [],
+      "application_url": "https://www.learninghabitat.org/en/admission/programmes",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "View Details\n2026/27 PN Application - Announcement of Result\n\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n            Parents can check the interview results here from 16/4/2026 at 9:00 a.m. to 20/4/2026 at 1:00 p.m. Accepted applicants will also be notified by post. In case of any discrepancies, the placement result indicated on the registration letter shall prevail. Please note that we are not able to support late checking of results.",
+      "admission_hours": "Applicable classes PN - K3 Language of Instruction Full-Time Cantonese and English immersion learning Course Features Supplementary Putonghua lessons Teacher Each class will be co-led by one English teacher and one Cantonese teacher School Hours : Morning session 9:00 a.m. – 12:00 noon Afternoon se…",
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "high",
+      "last_crawled_at": "2026-05-04T14:40:46.64+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=1 brand=學之園幼稚園"
+      ]
+    },
+    {
+      "rank": 47,
+      "school_code": "612391",
+      "queue_name_tc": "學之園幼稚園（海翩康城）",
+      "db_name_tc": "學之園幼稚園（海翩康城）",
+      "name_en": "LEARNING HABITAT KINDERGARTEN (PAPILLONS LP)",
+      "website": "http://www.learninghabitat.org",
+      "school_type": "private_independent",
+      "crawl_status": "ok",
+      "crawl_url": "http://www.learninghabitat.org",
+      "crawl_notes": [],
+      "application_url": "https://www.learninghabitat.org/en/admission/programmes",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "View Details\n2026/27 PN Application - Announcement of Result\n\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n            Parents can check the interview results here from 16/4/2026 at 9:00 a.m. to 20/4/2026 at 1:00 p.m. Accepted applicants will also be notified by post. In case of any discrepancies, the placement result indicated on the registration letter shall prevail. Please note that we are not able to support late checking of results.",
+      "admission_hours": "Applicable classes PN - K3 Language of Instruction Full-Time Cantonese and English immersion learning Course Features Supplementary Putonghua lessons Teacher Each class will be co-led by one English teacher and one Cantonese teacher School Hours : Morning session 9:00 a.m. – 12:00 noon Afternoon se…",
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "high",
+      "last_crawled_at": "2026-05-04T14:40:48.948+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=1 brand=學之園幼稚園"
+      ]
+    },
+    {
+      "rank": 48,
+      "school_code": "615250",
+      "queue_name_tc": "學之園幼稚園（星匯居）",
+      "db_name_tc": "學之園幼稚園（星匯居）",
+      "name_en": "LEARNING HABITAT KINDERGARTEN (THE SPARKLE)",
+      "website": "https://www.learninghabitat.org/",
+      "school_type": "private_independent",
+      "crawl_status": "ok",
+      "crawl_url": "https://www.learninghabitat.org/",
+      "crawl_notes": [],
+      "application_url": "https://www.learninghabitat.org/en/admission/programmes",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "View Details\n2026/27 PN Application - Announcement of Result\n\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n            Parents can check the interview results here from 16/4/2026 at 9:00 a.m. to 20/4/2026 at 1:00 p.m. Accepted applicants will also be notified by post. In case of any discrepancies, the placement result indicated on the registration letter shall prevail. Please note that we are not able to support late checking of results.",
+      "admission_hours": "Applicable classes PN - K3 Language of Instruction Full-Time Cantonese and English immersion learning Course Features Supplementary Putonghua lessons Teacher Each class will be co-led by one English teacher and one Cantonese teacher School Hours : Morning session 9:00 a.m. – 12:00 noon Afternoon se…",
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "high",
+      "last_crawled_at": "2026-05-04T14:40:45.989+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=1 brand=學之園幼稚園"
+      ]
+    },
+    {
+      "rank": 49,
+      "school_code": "617474",
+      "queue_name_tc": "學之園幼稚園（奧運）",
+      "db_name_tc": "學之園幼稚園（奧運）",
+      "name_en": "LEARNING HABITAT KINDERGARTEN (OLYMPIC)",
+      "website": "https://www.learninghabitat.org",
+      "school_type": "private_independent",
+      "crawl_status": "ok",
+      "crawl_url": "https://www.learninghabitat.org",
+      "crawl_notes": [],
+      "application_url": "https://www.learninghabitat.org/en/admission/programmes",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "View Details\n2026/27 PN Application - Announcement of Result\n\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n            Parents can check the interview results here from 16/4/2026 at 9:00 a.m. to 20/4/2026 at 1:00 p.m. Accepted applicants will also be notified by post. In case of any discrepancies, the placement result indicated on the registration letter shall prevail. Please note that we are not able to support late checking of results.",
+      "admission_hours": "Applicable classes PN - K3 Language of Instruction Full-Time Cantonese and English immersion learning Course Features Supplementary Putonghua lessons Teacher Each class will be co-led by one English teacher and one Cantonese teacher School Hours : Morning session 9:00 a.m. – 12:00 noon Afternoon se…",
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "high",
+      "last_crawled_at": "2026-05-04T14:40:43.464+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=1 brand=學之園幼稚園"
+      ]
+    },
+    {
+      "rank": 50,
+      "school_code": "534200",
+      "queue_name_tc": "學之園幼稚園",
+      "db_name_tc": "學之園幼稚園",
+      "name_en": "LEARNING HABITAT KINDERGARTEN",
+      "website": "https://www.learninghabitat.org",
+      "school_type": "private_independent",
+      "crawl_status": "ok",
+      "crawl_url": "https://www.learninghabitat.org",
+      "crawl_notes": [],
+      "application_url": "https://www.learninghabitat.org/en/admission/programmes",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "View Details\n2026/27 PN Application - Announcement of Result\n\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n            Parents can check the interview results here from 16/4/2026 at 9:00 a.m. to 20/4/2026 at 1:00 p.m. Accepted applicants will also be notified by post. In case of any discrepancies, the placement result indicated on the registration letter shall prevail. Please note that we are not able to support late checking of results.",
+      "admission_hours": "Applicable classes PN - K3 Language of Instruction Full-Time Cantonese and English immersion learning Course Features Supplementary Putonghua lessons Teacher Each class will be co-led by one English teacher and one Cantonese teacher School Hours : Morning session 9:00 a.m. – 12:00 noon Afternoon se…",
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "high",
+      "last_crawled_at": "2026-05-04T14:40:38.734+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=1 brand=學之園幼稚園"
+      ]
+    },
+    {
+      "rank": 51,
+      "school_code": "566942",
+      "queue_name_tc": "銅鑼灣維多利亞（海峰園）幼兒園",
+      "db_name_tc": "銅鑼灣維多利亞（海峰園）幼兒園",
+      "name_en": "CAUSEWAY BAY VICTORIA NURSERY (HARBOUR HEIGHTS)",
+      "website": "http://www.cbvictoria.edu.hk",
+      "school_type": "private_independent",
+      "crawl_status": "unreachable",
+      "crawl_url": "http://www.cbvictoria.edu.hk",
+      "crawl_notes": [
+        "base page unreachable"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:43:23.985+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=2 brand=維多利亞幼稚園"
+      ]
+    },
+    {
+      "rank": 52,
+      "school_code": "566934",
+      "queue_name_tc": "維多利亞（海峰園）幼兒園",
+      "db_name_tc": "維多利亞（海峰園）幼兒園",
+      "name_en": "VICTORIA NURSERY (HARBOUR HEIGHTS)",
+      "website": "http://www.victoria.edu.hk/en/harbour-heights-intro.php",
+      "school_type": "private_independent",
+      "crawl_status": "ok",
+      "crawl_url": "http://www.victoria.edu.hk/en/harbour-heights-intro.php",
+      "crawl_notes": [],
+      "application_url": "https://www.victoria.edu.hk/message-from-admission-team/",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "Missed the event or want to revisit the highlights? The seminar replay will be available online soon!",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:41:25.787+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=2 brand=維多利亞幼稚園"
+      ]
+    },
+    {
+      "rank": 53,
+      "school_code": "619850",
+      "queue_name_tc": "維多利亞（海之戀）國際幼稚園",
+      "db_name_tc": "維多利亞（海之戀）國際幼稚園",
+      "name_en": "VICTORIA (OCEAN PRIDE) INTERNATIONAL KINDERGARTEN",
+      "website": "https://www.victoria.edu.hk/en/ocean-pride-intro.php",
+      "school_type": "international",
+      "crawl_status": "ok",
+      "crawl_url": "https://www.victoria.edu.hk/en/ocean-pride-intro.php",
+      "crawl_notes": [],
+      "application_url": "https://www.victoria.edu.hk/message-from-admission-team/",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "Missed the event or want to revisit the highlights? The seminar replay will be available online soon!",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:41:24.392+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=2 brand=維多利亞幼稚園"
+      ]
+    },
+    {
+      "rank": 54,
+      "school_code": "325481",
+      "queue_name_tc": "維多利亞幼稚園",
+      "db_name_tc": "維多利亞幼稚園",
+      "name_en": "VICTORIA KINDERGARTEN",
+      "website": "http://www.victoria.edu.hk/en/middle-kornhill-intro.php",
+      "school_type": "private_independent",
+      "crawl_status": "ok",
+      "crawl_url": "http://www.victoria.edu.hk/en/middle-kornhill-intro.php",
+      "crawl_notes": [],
+      "application_url": "https://www.victoria.edu.hk/message-from-admission-team/",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "Missed the event or want to revisit the highlights? The seminar replay will be available online soon!",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:41:30.023+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=2 brand=維多利亞幼稚園"
+      ]
+    },
+    {
+      "rank": 55,
+      "school_code": "215120",
+      "queue_name_tc": "國際英文幼稚園",
+      "db_name_tc": "國際英文幼稚園",
+      "name_en": "ST. CATHERINE'S INTERNATIONAL KINDERGARTEN",
+      "website": "http://www.stcatherines.edu.hk",
+      "school_type": "international",
+      "crawl_status": "unreachable",
+      "crawl_url": "https://www.stcatherines.edu.hk/",
+      "crawl_notes": [
+        "domain_policy=403 anti-bot on both protocols.",
+        "normalized_url=https://www.stcatherines.edu.hk/",
+        "Playwright fallback used for www.stcatherines.edu.hk",
+        "anti_bot_challenge=www.stcatherines.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:39:47.482+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=3 brand=國際英文幼稚園",
+        "OCR 品牌榜补充命中 brand=國際英文幼稚園 mention_count=5"
+      ]
+    },
+    {
+      "rank": 56,
+      "school_code": "566179",
+      "queue_name_tc": "香港聖公會青山聖彼得堂青雲路幼稚園",
+      "db_name_tc": "香港聖公會青山聖彼得堂青雲路幼稚園",
+      "name_en": "SKH S P CH CASTLE PEAK TSING WUN RD KG",
+      "website": "https://www.skhspcmain.edu.hk/",
+      "school_type": "non_profit",
+      "crawl_status": "ok",
+      "crawl_url": "https://www.skhspcmain.edu.hk/",
+      "crawl_notes": [],
+      "application_url": "https://www.skhspcmain.edu.hk/n1%e7%8f%ad%e6%8b%9b%e7%94%9f%e5%ae%89%e6%8e%92-2/",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "N1班招生安排",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:44:04.711+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園 focus_branch=青山聖彼得堂"
+      ]
+    },
+    {
+      "rank": 57,
+      "school_code": "151947",
+      "queue_name_tc": "聖公會青山聖彼得堂幼稚園",
+      "db_name_tc": "聖公會青山聖彼得堂幼稚園",
+      "name_en": "SKH ST PETER'S CHURCH KG (CASTLE PEAK)",
+      "website": "https://www.skhspcmain.edu.hk/",
+      "school_type": "non_profit",
+      "crawl_status": "ok",
+      "crawl_url": "https://www.skhspcmain.edu.hk/",
+      "crawl_notes": [],
+      "application_url": "https://www.skhspcmain.edu.hk/n1%e7%8f%ad%e6%8b%9b%e7%94%9f%e5%ae%89%e6%8e%92-2/",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "N1班招生安排",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:42:35.372+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園 focus_branch=青山聖彼得堂"
+      ]
+    },
+    {
+      "rank": 58,
+      "school_code": "157473",
+      "queue_name_tc": "聖公會青山聖彼得堂山景邨幼稚園",
+      "db_name_tc": "聖公會青山聖彼得堂山景邨幼稚園",
+      "name_en": "SKH ST PETER'S CH SHAN KING ESTATE KG",
+      "website": "https://www.skhspc.edu.hk/skekg/",
+      "school_type": "non_profit",
+      "crawl_status": "ok",
+      "crawl_url": "https://www.skhspc.edu.hk/skekg/",
+      "crawl_notes": [],
+      "application_url": "https://skhspc.edu.hk/page/?section_id=3402",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "招生流程 (設轉校支援)",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:42:37.115+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園 focus_branch=青山聖彼得堂"
+      ]
+    },
+    {
+      "rank": 59,
+      "school_code": "325600",
+      "queue_name_tc": "聖公會聖三一堂曾肇添幼稚園",
+      "db_name_tc": "聖公會聖三一堂曾肇添幼稚園",
+      "name_en": "SKH HOLY TRINITY CH TSANG SHIU TIM KG",
+      "website": "https://tstkg.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "ok",
+      "crawl_url": "https://tstkg.edu.hk",
+      "crawl_notes": [],
+      "application_url": "https://tstkg.edu.hk/application/",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "入學申請 入學申請 收生指南 全新校服 校車資訊 收生指南 全新校服 校車資訊",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:42:02.885+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園 focus_branch=聖三一"
+      ]
+    },
+    {
+      "rank": 60,
+      "school_code": "326003",
+      "queue_name_tc": "聖公會聖彼得堂幼稚園（赤柱分校）",
+      "db_name_tc": "聖公會聖彼得堂幼稚園（赤柱分校）",
+      "name_en": "ST PETER'S CHURCH KINDERGARTEN (STANLEY)",
+      "website": "https://www.stpstkg.edu.hk/",
+      "school_type": "non_profit",
+      "crawl_status": "ok",
+      "crawl_url": "https://www.stpstkg.edu.hk/",
+      "crawl_notes": [],
+      "application_url": "https://www.stpstkg.edu.hk/zh_tw/site/view?name=%E5%B9%BC%E7%A8%9A%E5%9C%92%E5%8F%8A%E5%B9%BC%E5%85%92%E5%9C%92%E5%A0%B1%E5%90%8D%E6%96%B9%E6%B3%95+",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "幼稚園及幼兒園報名方法 Admissions for Kindergarten and Nursery",
+      "admission_hours": "上課時間及學費 Time Schedule and School Fee",
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "high",
+      "last_crawled_at": "2026-05-04T14:42:02.714+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園",
+        "OCR 品牌榜补充命中 brand=聖公會聖彼得堂幼稚園 mention_count=7"
+      ]
+    },
+    {
+      "rank": 61,
+      "school_code": "564710",
+      "queue_name_tc": "聖公會聖馬提亞堂幼兒學校",
+      "db_name_tc": "聖公會聖馬提亞堂幼兒學校",
+      "name_en": "ST MATTHIAS' CHURCH NURSERY SCHOOL",
+      "website": "http://www.smcns.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "http://www.smcns.edu.hk",
+      "crawl_notes": [
+        "anti_bot_challenge=www.smcns.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:42:05.269+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園",
+        "OCR 品牌榜补充命中 brand=聖公會聖馬提亞堂幼兒學校 mention_count=6"
+      ]
+    },
+    {
+      "rank": 62,
+      "school_code": "564729",
+      "queue_name_tc": "香港聖公會基愛幼兒學校",
+      "db_name_tc": "香港聖公會基愛幼兒學校",
+      "name_en": "HK SHENG KUNG HUI KEI OI NURSERY SCHOOL",
+      "website": "http://www.kons.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "http://www.kons.edu.hk",
+      "crawl_notes": [
+        "base page unreachable"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:43:23.986+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園",
+        "OCR 品牌榜补充命中 brand=香港聖公會基愛幼兒學校 mention_count=3"
+      ]
+    },
+    {
+      "rank": 63,
+      "school_code": "159000",
+      "queue_name_tc": "香港聖公會基督顯現堂幼稚園",
+      "db_name_tc": "香港聖公會基督顯現堂幼稚園",
+      "name_en": "HK SKH THE CHURCH OF THE EPIPHANY KG",
+      "website": "http://www.coekg.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "ok",
+      "crawl_url": "http://www.coekg.edu.hk",
+      "crawl_notes": [],
+      "application_url": "https://file.isas.hk//coekg/upfiles/Editor/0688964001698128957.pdf",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "入學申請表 申請表格可於辦公時間內到學校務處索取 或到以下網址下載：入學申請表",
+      "admission_hours": "申請表格可於辦公時間內到學校務處索取 或到以下網址下載：入學申請表Application forms can be obtained at the school office during office hours.Or can be downloaded at: Application Form 有關詳情可瀏覽本校網頁：報名手續For more Information, please Press Me. 幼稚園幼兒班（K1）收生安排: 教育局Admission Arrangements for Nursery (K1) Classes in Kindergartens: EDB Appli…",
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "high",
+      "last_crawled_at": "2026-05-04T14:43:38.578+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園",
+        "OCR 品牌榜补充命中 brand=香港聖公會基督顯現堂幼稚園 mention_count=3"
+      ]
+    },
+    {
+      "rank": 64,
+      "school_code": "564907",
+      "queue_name_tc": "香港聖公會麥理浩夫人中心幼稚園",
+      "db_name_tc": "香港聖公會麥理浩夫人中心幼稚園",
+      "name_en": "HKSKH LADY MACLEHOSE CTR KG",
+      "website": "http://www.lmcdn.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "ok",
+      "crawl_url": "http://www.lmcdn.edu.hk",
+      "crawl_notes": [],
+      "application_url": "http://www.lmcdn.edu.hk/tc/application-admission",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "02/07/20252026/27 本校K1收生已開始,請於10-10-2025前交回申請表",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:44:14.813+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 65,
+      "school_code": "564893",
+      "queue_name_tc": "香港聖公會麥理浩夫人中心〈石蔭〉幼稚園",
+      "db_name_tc": "香港聖公會麥理浩夫人中心〈石蔭〉幼稚園",
+      "name_en": "HKSKH LADY MACLEHOSE CTR (SHEK YAM) KG",
+      "website": "http://www.lmcsy.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "ok",
+      "crawl_url": "http://www.lmcsy.edu.hk",
+      "crawl_notes": [],
+      "application_url": "http://www.lmcsy.edu.hk/tc/application-admission",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "02/07/20252026/27 本校K1收生已開始,請於10-10-2025前交回申請表",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:44:09.605+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 66,
+      "school_code": "563269",
+      "queue_name_tc": "香港聖公會聖西門西貢幼兒學校",
+      "db_name_tc": "香港聖公會聖西門西貢幼兒學校",
+      "name_en": "HKSKH ST. SIMON'S SAI KUNG NURSERY SCH",
+      "website": "http://www.sssk.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "http://www.sssk.edu.hk",
+      "crawl_notes": [
+        "anti_bot_challenge=www.sssk.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:44:06.728+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 67,
+      "school_code": "563277",
+      "queue_name_tc": "香港聖公會聖西門良景幼兒學校",
+      "db_name_tc": "香港聖公會聖西門良景幼兒學校",
+      "name_en": "HKSKH ST. SIMON'S LEUNG KING NURSERY SCH",
+      "website": "http://www.sslk.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "http://www.sslk.edu.hk",
+      "crawl_notes": [
+        "anti_bot_challenge=www.sslk.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:44:06.73+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 68,
+      "school_code": "563307",
+      "queue_name_tc": "香港聖公會聖西門大興幼兒學校",
+      "db_name_tc": "香港聖公會聖西門大興幼兒學校",
+      "name_en": "HKSKH ST. SIMON'S TAI HING NURSERY SCH",
+      "website": "http://www.ssth.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "http://www.ssth.edu.hk",
+      "crawl_notes": [
+        "anti_bot_challenge=www.ssth.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:43:26.852+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 69,
+      "school_code": "566926",
+      "queue_name_tc": "香港聖公會東涌幼兒學校",
+      "db_name_tc": "香港聖公會東涌幼兒學校",
+      "name_en": "HKSKH TUNG CHUNG NURSERY SCHOOL",
+      "website": "http://www.tcns.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "http://www.tcns.edu.hk",
+      "crawl_notes": [
+        "base page unreachable"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:44:03.062+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 70,
+      "school_code": "564702",
+      "queue_name_tc": "香港聖公會夏瑞芸幼兒學校",
+      "db_name_tc": "香港聖公會夏瑞芸幼兒學校",
+      "name_en": "HKSKH HA SUI WAN NURSERY SCHOOL",
+      "website": "http://www.hswns.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "http://www.hswns.edu.hk",
+      "crawl_notes": [
+        "base page unreachable"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:44:03.065+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 71,
+      "school_code": "568104",
+      "queue_name_tc": "聖公會聖基道幼兒園（葵涌）",
+      "db_name_tc": "聖公會聖基道幼兒園（葵涌）",
+      "name_en": "SKH ST CHRISTOPHER'S NUR (KWAI CHUNG)",
+      "website": "http://www.skhkckg.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "http://www.skhkckg.edu.hk",
+      "crawl_notes": [
+        "anti_bot_challenge=www.skhkckg.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:42:00.007+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 72,
+      "school_code": "569712",
+      "queue_name_tc": "聖公會聖基道幼兒園（灣仔）",
+      "db_name_tc": "聖公會聖基道幼兒園（灣仔）",
+      "name_en": "SKH ST CHRISTOPHER'S NURSERY(WAN CHAI)",
+      "website": "https://www.skhwcn.edu.hk/",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "https://www.skhwcn.edu.hk/",
+      "crawl_notes": [
+        "anti_bot_challenge=www.skhwcn.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:41:59.678+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 73,
+      "school_code": "325937",
+      "queue_name_tc": "聖公會慈光堂聖匠幼稚園",
+      "db_name_tc": "聖公會慈光堂聖匠幼稚園",
+      "name_en": "SKH KINDLY LIGHT CH HOLY CARPENTER KG",
+      "website": "http://www.skhklchc.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "ok",
+      "crawl_url": "http://www.skhklchc.edu.hk",
+      "crawl_notes": [
+        "no dynamic links found, using SUB_PATHS fallback"
+      ],
+      "application_url": "https://skhklchc.edu.hk/page/?section_id=3923",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "入學申請",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:41:54.827+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 74,
+      "school_code": "325546",
+      "queue_name_tc": "聖公會慈光堂柯佩璋幼稚園",
+      "db_name_tc": "聖公會慈光堂柯佩璋幼稚園",
+      "name_en": "SKH KINDLY LIGHT CHURCH OR PUI CHEUNG KG",
+      "website": "http://www.skhklcopc.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unchanged",
+      "crawl_url": "http://www.skhklcopc.edu.hk",
+      "crawl_notes": [],
+      "application_url": "https://skhklcopc.edu.hk/page/?section_id=4272",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "入學申請",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:41:33.076+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 75,
+      "school_code": "156493",
+      "queue_name_tc": "聖公會靈風堂幼稚園",
+      "db_name_tc": "聖公會靈風堂幼稚園",
+      "name_en": "SKH HOLY SPIRIT CHURCH KG",
+      "website": "http://www.skhhsckg.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "http://www.skhhsckg.edu.hk",
+      "crawl_notes": [
+        "anti_bot_challenge=www.skhhsckg.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:42:26.289+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 76,
+      "school_code": "526665",
+      "queue_name_tc": "聖公會荊冕堂葵涌幼稚園",
+      "db_name_tc": "聖公會荊冕堂葵涌幼稚園",
+      "name_en": "SKH CROWN OF THORNS CHURCH KWAI CHUNG KG",
+      "website": "https://www.skhcotkc.edu.hk/",
+      "school_type": "non_profit",
+      "crawl_status": "ok",
+      "crawl_url": "https://www.skhcotkc.edu.hk/",
+      "crawl_notes": [
+        "no dynamic links found, using SUB_PATHS fallback"
+      ],
+      "application_url": "https://skhcotkc.edu.hk/admission",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:42:19.925+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 77,
+      "school_code": "153087",
+      "queue_name_tc": "聖公會荊冕堂士德幼稚園",
+      "db_name_tc": "聖公會荊冕堂士德幼稚園",
+      "name_en": "SKH CROWN OF THORNS CHURCH SADICK KG",
+      "website": "https://www.skhcotsd.edu.hk/",
+      "school_type": "non_profit",
+      "crawl_status": "ok",
+      "crawl_url": "https://www.skhcotsd.edu.hk/",
+      "crawl_notes": [],
+      "application_url": "https://skhcotsd.edu.hk/%e5%85%a5%e5%ad%b8%e7%94%b3%e8%ab%8b/",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "入學申請及升學概況 入學申請及升學概況 入學申請 升學概況 入學申請 升學概況",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:42:22.11+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 78,
+      "school_code": "154601",
+      "queue_name_tc": "聖公會聖約瑟堂幼稚園",
+      "db_name_tc": "聖公會聖約瑟堂幼稚園",
+      "name_en": "SKH ST JOSEPH'S CHURCH KINDERGARTEN",
+      "website": "http://www.sjckg.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unchanged",
+      "crawl_url": "http://www.sjckg.edu.hk",
+      "crawl_notes": [],
+      "application_url": "http://www.sjckg.edu.hk/page.php?id=5",
+      "open_day_date": null,
+      "open_day_details": "學校簡介會將於 10 月份舉行，以便家長了解本校的辦學宗旨和教學取向，請家長參照本校發出的電郵上的相關資料。 家長帶同以下文件連同報名費＄40-，親身到本校地下校務處辦理，學校簡介會及面試資料將透過電郵發出。",
+      "application_process": "入學申請表 表格下載：入學申請表",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:42:10.185+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 79,
+      "school_code": "325252",
+      "queue_name_tc": "聖公會深水埗基愛堂幼稚園",
+      "db_name_tc": "聖公會深水埗基愛堂幼稚園",
+      "name_en": "SKH SHAM SHUI PO KEI OI CHURCH KG",
+      "website": "http://www.skhkock.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unchanged",
+      "crawl_url": "http://www.skhkock.edu.hk",
+      "crawl_notes": [],
+      "application_url": "http://www.skhkock.edu.hk/index.php/section/page/3865",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:41:35.593+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 80,
+      "school_code": "158119",
+      "queue_name_tc": "聖公會救主堂幼稚園",
+      "db_name_tc": "聖公會救主堂幼稚園",
+      "name_en": "SKH THE CHURCH OF OUR SAVIOUR KG",
+      "website": "http://www.saviourkg.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "ok",
+      "crawl_url": "http://www.saviourkg.edu.hk",
+      "crawl_notes": [],
+      "application_url": "https://saviourkg.edu.hk/%e5%a0%b1%e5%90%8d%e6%89%8b%e7%ba%8c/",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "入學申請 入學申請 申請資訊 申請資訊",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:41:47.229+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 81,
+      "school_code": "607886",
+      "queue_name_tc": "聖公會慈光堂聖匠幼稚園（分校）",
+      "db_name_tc": "聖公會慈光堂聖匠幼稚園（分校）",
+      "name_en": "SKH KINDLY LIGHT CH HOLY CARPENTER KG BR",
+      "website": "http://br.skhklchc.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "ok",
+      "crawl_url": "http://br.skhklchc.edu.hk",
+      "crawl_notes": [],
+      "application_url": "https://skhklchc.edu.hk/page/?section_id=3923",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "入學申請",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:41:40.507+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=4 brand=聖公會幼稚園"
+      ]
+    },
+    {
+      "rank": 82,
+      "school_code": "565938",
+      "queue_name_tc": "寶山幼兒園",
+      "db_name_tc": "寶山幼兒園",
+      "name_en": "BRAEMAR HILL NURSERY SCHOOL",
+      "website": "http://www.braemarhillnurseryschool.edu.hk/",
+      "school_type": "private_independent",
+      "crawl_status": "unchanged",
+      "crawl_url": "http://www.braemarhillnurseryschool.edu.hk/",
+      "crawl_notes": [
+        "meta_refresh=http://www.braemarhillnurseryschool.edu.hk/en/index.html"
+      ],
+      "application_url": "http://www.braemarhillnurseryschool.edu.hk/en/admissions.html",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "Admissions",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:40:54.4+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=7 brand=寶山幼稚園"
+      ]
+    },
+    {
+      "rank": 83,
+      "school_code": "133019",
+      "queue_name_tc": "寶血幼稚園",
+      "db_name_tc": "寶血幼稚園",
+      "name_en": "PRECIOUS BLOOD KINDERGARTEN",
+      "website": "http://www.pbk.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "http://www.pbk.edu.hk",
+      "crawl_notes": [
+        "anti_bot_challenge=www.pbk.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:40:54.409+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=8 brand=寶血幼稚園"
+      ]
+    },
+    {
+      "rank": 84,
+      "school_code": "321087",
+      "queue_name_tc": "明慧幼稚園",
+      "db_name_tc": "明慧幼稚園",
+      "name_en": "MING WAI KINDERGARTEN",
+      "website": "http://www.mingwai.edu.hk",
+      "school_type": "private_independent",
+      "crawl_status": "unchanged",
+      "crawl_url": "http://www.mingwai.edu.hk",
+      "crawl_notes": [],
+      "application_url": "https://www.mingwai.edu.hk/how-to-apply/north-point-admissions/admissions-information/",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "Admissions Admissions North Point Branch Prince Edward Branch North Point Branch Prince Edward Branch",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:41:07.81+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=12 brand=明慧國際幼稚園",
+        "OCR 品牌榜补充命中 brand=明慧國際幼稚園 mention_count=19",
+        "OCR 品牌榜补充命中 brand=明慧幼稚園 mention_count=19"
+      ]
+    },
+    {
+      "rank": 85,
+      "school_code": "566977",
+      "queue_name_tc": "明慧國際幼稚園",
+      "db_name_tc": "明慧國際幼稚園",
+      "name_en": "MING WAI INTERNATIONAL KINDERGARTEN",
+      "website": "http://www.mingwai.edu.hk",
+      "school_type": "international",
+      "crawl_status": "unchanged",
+      "crawl_url": "http://www.mingwai.edu.hk",
+      "crawl_notes": [],
+      "application_url": "https://www.mingwai.edu.hk/how-to-apply/north-point-admissions/admissions-information/",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "Admissions Admissions North Point Branch Prince Edward Branch North Point Branch Prince Edward Branch",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:41:08.168+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=12 brand=明慧國際幼稚園",
+        "OCR 品牌榜补充命中 brand=明慧國際幼稚園 mention_count=19",
+        "OCR 品牌榜补充命中 brand=明慧幼稚園 mention_count=19"
+      ]
+    },
+    {
+      "rank": 86,
+      "school_code": "537713",
+      "queue_name_tc": "劍鳴幼稚園",
+      "db_name_tc": "劍鳴幼稚園",
+      "name_en": "KEEN MIND KINDERGARTEN",
+      "website": "http://www.keenmind.com.hk",
+      "school_type": "private_independent",
+      "crawl_status": "unchanged",
+      "crawl_url": "http://www.keenmind.com.hk",
+      "crawl_notes": [
+        "meta_refresh=http://www.keenmind.com.hk/site"
+      ],
+      "application_url": "http://www.keenmind.com.hk/site/page2.php?id=40",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "Application Form",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:39:33+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=10 brand=劍鳴幼稚園"
+      ]
+    },
+    {
+      "rank": 87,
+      "school_code": "533360",
+      "queue_name_tc": "朗思國際幼稚園（馬鞍山）",
+      "db_name_tc": "朗思國際幼稚園（馬鞍山）",
+      "name_en": "THINK INTERNATIONAL KINDERGARTEN (MA ON SHAN)",
+      "website": "https://www.think.edu.hk",
+      "school_type": "international",
+      "crawl_status": "ok",
+      "crawl_url": "https://www.think.edu.hk",
+      "crawl_notes": [],
+      "application_url": "https://www.think.edu.hk/admission",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "2026 / 2027 Admission Enrol Now",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:41:14.867+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=14 brand=朗思國際幼稚園 focus_branch=馬鞍山",
+        "OCR 品牌榜补充命中 brand=朗思國際幼稚園 mention_count=9"
+      ]
+    },
+    {
+      "rank": 88,
+      "school_code": "612782",
+      "queue_name_tc": "朗思國際幼稚園（南昌）",
+      "db_name_tc": "朗思國際幼稚園（南昌）",
+      "name_en": "THINK INTERNATIONAL KINDERGARTEN (NAM CHEONG)",
+      "website": "https://www.think.edu.hk",
+      "school_type": "international",
+      "crawl_status": "ok",
+      "crawl_url": "https://www.think.edu.hk",
+      "crawl_notes": [],
+      "application_url": "https://www.think.edu.hk/admission",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "2026 / 2027 Admission Enrol Now",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:41:13.966+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=14 brand=朗思國際幼稚園 focus_branch=南昌",
+        "OCR 品牌榜补充命中 brand=朗思國際幼稚園 mention_count=9"
+      ]
+    },
+    {
+      "rank": 89,
+      "school_code": "596787",
+      "queue_name_tc": "香港靈糧堂秀德幼稚園",
+      "db_name_tc": "香港靈糧堂秀德幼稚園",
+      "name_en": "HONG KONG LING LIANG CHURCH SAU TAK KG",
+      "website": "http://www.lingliang.org.hk",
+      "school_type": "non_profit",
+      "crawl_status": "ok",
+      "crawl_url": "http://www.lingliang.org.hk",
+      "crawl_notes": [
+        "no dynamic links found, using SUB_PATHS fallback"
+      ],
+      "application_url": "https://www.lingliang.org.hk/en/admission",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "由教育局為參與「免費優質幼稚園計劃」之學校提供之2026/27年度收生安排2025年9月至11月家長向 教育局遞交「註冊證」申請，同時向幼稚園申請2026/27學年K1學位↓資料齊全，教育局約6至8星期完成審核，發出「註冊證」或「入學許可書」給家長（註1）2025年12月12日前↓幼稚園通知家長K1學位申請結果↓↓如申請人獲取錄如申請人不獲取錄↓↓2026年1月8至10日「統一註冊日期」\n家長到一所幼稚園註冊，並繳交註冊費（註2）2026年1月底\n參考教育局公布的K1-K3空缺資訊再申請報讀其他幼稚園注意：1. 如家長未能於「統一註冊日期」內攜帶電子「註冊證」／「入學許可書」到取錄其子女的幼稚園辦理註冊手續，該幼稚園或未能為其子女進行註冊。因此，家長須在指定日期內向教育局遞交「註冊證」的申請。2. 如兒童於「統一註冊日期」後獲取錄，家長仍須以電子「註冊證」／「入學許可書」註冊。如家長在一所幼稚園註冊後打算為子女轉校，須到原先註冊的幼稚園掃描電子「註冊證」／「入學許可書」上的二維碼以完成取消註冊手續。如家長已完成取消註冊手續，即代表該幼稚園不會再為該兒童保留學位。一般來說，其原先註冊的幼稚園不會退還「註冊費」。\n本校為參與「免費優質幼稚園計劃」之學校，將會依照教育局「2026/27學年之收生安排」處理入學申請。如欲瀏覽幼稚園幼兒班（K1）收生安排，請按此查閱。為配合教育局2026/2",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:44:14.061+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=13 brand=香港靈糧堂幼稚園 focus_branch=秀德"
+      ]
+    },
+    {
+      "rank": 90,
+      "school_code": "595969",
+      "queue_name_tc": "香港靈糧堂荃灣幼稚園",
+      "db_name_tc": "香港靈糧堂荃灣幼稚園",
+      "name_en": "HONG KONG LING LIANG CHURCH TSUEN WAN KG",
+      "website": "http://www.lingliang.org.hk",
+      "school_type": "non_profit",
+      "crawl_status": "ok",
+      "crawl_url": "http://www.lingliang.org.hk",
+      "crawl_notes": [
+        "no dynamic links found, using SUB_PATHS fallback"
+      ],
+      "application_url": "https://www.lingliang.org.hk/en/admission",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "由教育局為參與「免費優質幼稚園計劃」之學校提供之2026/27年度收生安排2025年9月至11月家長向 教育局遞交「註冊證」申請，同時向幼稚園申請2026/27學年K1學位↓資料齊全，教育局約6至8星期完成審核，發出「註冊證」或「入學許可書」給家長（註1）2025年12月12日前↓幼稚園通知家長K1學位申請結果↓↓如申請人獲取錄如申請人不獲取錄↓↓2026年1月8至10日「統一註冊日期」\n家長到一所幼稚園註冊，並繳交註冊費（註2）2026年1月底\n參考教育局公布的K1-K3空缺資訊再申請報讀其他幼稚園注意：1. 如家長未能於「統一註冊日期」內攜帶電子「註冊證」／「入學許可書」到取錄其子女的幼稚園辦理註冊手續，該幼稚園或未能為其子女進行註冊。因此，家長須在指定日期內向教育局遞交「註冊證」的申請。2. 如兒童於「統一註冊日期」後獲取錄，家長仍須以電子「註冊證」／「入學許可書」註冊。如家長在一所幼稚園註冊後打算為子女轉校，須到原先註冊的幼稚園掃描電子「註冊證」／「入學許可書」上的二維碼以完成取消註冊手續。如家長已完成取消註冊手續，即代表該幼稚園不會再為該兒童保留學位。一般來說，其原先註冊的幼稚園不會退還「註冊費」。\n本校為參與「免費優質幼稚園計劃」之學校，將會依照教育局「2026/27學年之收生安排」處理入學申請。如欲瀏覽幼稚園幼兒班（K1）收生安排，請按此查閱。為配合教育局2026/2",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:44:16.625+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=13 brand=香港靈糧堂幼稚園 focus_branch=荃灣"
+      ]
+    },
+    {
+      "rank": 91,
+      "school_code": "601861",
+      "queue_name_tc": "香港靈糧堂秀德幼稚園（二校）",
+      "db_name_tc": "香港靈糧堂秀德幼稚園（二校）",
+      "name_en": "HKLLC SAU TAK KG(CAMPUS 2)",
+      "website": "http://www.lingliang.org.hk",
+      "school_type": "non_profit",
+      "crawl_status": "ok",
+      "crawl_url": "http://www.lingliang.org.hk",
+      "crawl_notes": [
+        "no dynamic links found, using SUB_PATHS fallback"
+      ],
+      "application_url": "https://www.lingliang.org.hk/en/admission",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "由教育局為參與「免費優質幼稚園計劃」之學校提供之2026/27年度收生安排2025年9月至11月家長向 教育局遞交「註冊證」申請，同時向幼稚園申請2026/27學年K1學位↓資料齊全，教育局約6至8星期完成審核，發出「註冊證」或「入學許可書」給家長（註1）2025年12月12日前↓幼稚園通知家長K1學位申請結果↓↓如申請人獲取錄如申請人不獲取錄↓↓2026年1月8至10日「統一註冊日期」\n家長到一所幼稚園註冊，並繳交註冊費（註2）2026年1月底\n參考教育局公布的K1-K3空缺資訊再申請報讀其他幼稚園注意：1. 如家長未能於「統一註冊日期」內攜帶電子「註冊證」／「入學許可書」到取錄其子女的幼稚園辦理註冊手續，該幼稚園或未能為其子女進行註冊。因此，家長須在指定日期內向教育局遞交「註冊證」的申請。2. 如兒童於「統一註冊日期」後獲取錄，家長仍須以電子「註冊證」／「入學許可書」註冊。如家長在一所幼稚園註冊後打算為子女轉校，須到原先註冊的幼稚園掃描電子「註冊證」／「入學許可書」上的二維碼以完成取消註冊手續。如家長已完成取消註冊手續，即代表該幼稚園不會再為該兒童保留學位。一般來說，其原先註冊的幼稚園不會退還「註冊費」。\n本校為參與「免費優質幼稚園計劃」之學校，將會依照教育局「2026/27學年之收生安排」處理入學申請。如欲瀏覽幼稚園幼兒班（K1）收生安排，請按此查閱。為配合教育局2026/2",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:44:17.013+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=13 brand=香港靈糧堂幼稚園 focus_branch=秀德"
+      ]
+    },
+    {
+      "rank": 92,
+      "school_code": "321192",
+      "queue_name_tc": "路德會救恩幼稚園",
+      "db_name_tc": "路德會救恩幼稚園",
+      "name_en": "REDEMPTION LUTHERAN KINDERGARTEN",
+      "website": "http://www.rlk.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "http://www.rlk.edu.hk",
+      "crawl_notes": [
+        "anti_bot_challenge=www.rlk.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:42:43.45+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=15 brand=救恩學校",
+        "OCR 品牌榜补充命中 brand=救恩學校 mention_count=15",
+        "OCR 品牌榜补充命中 brand=路德會救恩幼稚園 mention_count=15"
+      ]
+    },
+    {
+      "rank": 93,
+      "school_code": "216267",
+      "queue_name_tc": "朗思國際幼稚園",
+      "db_name_tc": "朗思國際幼稚園",
+      "name_en": "THINK INTERNATIONAL KINDERGARTEN",
+      "website": "https://www.think.edu.hk",
+      "school_type": "international",
+      "crawl_status": "ok",
+      "crawl_url": "https://www.think.edu.hk",
+      "crawl_notes": [],
+      "application_url": "https://www.think.edu.hk/admission",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "2026 / 2027 Admission Enrol Now",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:41:14.527+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool",
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=14 brand=朗思國際幼稚園",
+        "OCR 品牌榜补充命中 brand=朗思國際幼稚園 mention_count=9"
+      ]
+    },
+    {
+      "rank": 94,
+      "school_code": "133744",
+      "queue_name_tc": "香港靈糧堂幼稚園",
+      "db_name_tc": "香港靈糧堂幼稚園",
+      "name_en": "HONG KONG LING LIANG CHURCH KG",
+      "website": "http://www.lingliang.org.hk",
+      "school_type": "non_profit",
+      "crawl_status": "ok",
+      "crawl_url": "http://www.lingliang.org.hk",
+      "crawl_notes": [
+        "no dynamic links found, using SUB_PATHS fallback"
+      ],
+      "application_url": "https://www.lingliang.org.hk/en/admission",
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": "由教育局為參與「免費優質幼稚園計劃」之學校提供之2026/27年度收生安排2025年9月至11月家長向 教育局遞交「註冊證」申請，同時向幼稚園申請2026/27學年K1學位↓資料齊全，教育局約6至8星期完成審核，發出「註冊證」或「入學許可書」給家長（註1）2025年12月12日前↓幼稚園通知家長K1學位申請結果↓↓如申請人獲取錄如申請人不獲取錄↓↓2026年1月8至10日「統一註冊日期」\n家長到一所幼稚園註冊，並繳交註冊費（註2）2026年1月底\n參考教育局公布的K1-K3空缺資訊再申請報讀其他幼稚園注意：1. 如家長未能於「統一註冊日期」內攜帶電子「註冊證」／「入學許可書」到取錄其子女的幼稚園辦理註冊手續，該幼稚園或未能為其子女進行註冊。因此，家長須在指定日期內向教育局遞交「註冊證」的申請。2. 如兒童於「統一註冊日期」後獲取錄，家長仍須以電子「註冊證」／「入學許可書」註冊。如家長在一所幼稚園註冊後打算為子女轉校，須到原先註冊的幼稚園掃描電子「註冊證」／「入學許可書」上的二維碼以完成取消註冊手續。如家長已完成取消註冊手續，即代表該幼稚園不會再為該兒童保留學位。一般來說，其原先註冊的幼稚園不會退還「註冊費」。\n本校為參與「免費優質幼稚園計劃」之學校，將會依照教育局「2026/27學年之收生安排」處理入學申請。如欲瀏覽幼稚園幼兒班（K1）收生安排，請按此查閱。為配合教育局2026/2",
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "medium",
+      "last_crawled_at": "2026-05-04T14:44:14.327+00:00",
+      "useful_extraction": true,
+      "queue_sources": [
+        "curated_brand_pool"
+      ],
+      "queue_reasons": [
+        "人工优先品牌池 priority=13 brand=香港靈糧堂幼稚園"
+      ]
+    },
+    {
+      "rank": 95,
+      "school_code": "582417",
+      "queue_name_tc": "安基司幼稚園（粉嶺）",
+      "db_name_tc": "安基司幼稚園（粉嶺）",
+      "name_en": "ANCHORS KINDERGARTEN (FANLING)",
+      "website": "http://www.anchors.edu.hk",
+      "school_type": "private_independent",
+      "crawl_status": "unreachable",
+      "crawl_url": "https://www.anchors.edu.hk/",
+      "crawl_notes": [
+        "domain_policy=403 anti-bot on both HTTP and HTTPS.",
+        "normalized_url=https://www.anchors.edu.hk/",
+        "Playwright fallback used for www.anchors.edu.hk",
+        "anti_bot_challenge=www.anchors.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:40:52.478+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "OCR 品牌榜补充命中 brand=安基司國際幼兒園 mention_count=12",
+        "OCR 品牌榜补充命中 brand=安基司幼稚園 mention_count=12"
+      ]
+    },
+    {
+      "rank": 96,
+      "school_code": "536067",
+      "queue_name_tc": "安基司幼稚園",
+      "db_name_tc": "安基司幼稚園",
+      "name_en": "ANCHORS KINDERGARTEN",
+      "website": "https://www.anchors.edu.hk/",
+      "school_type": "private_independent",
+      "crawl_status": "unreachable",
+      "crawl_url": "https://www.anchors.edu.hk/",
+      "crawl_notes": [
+        "domain_policy=403 anti-bot on both HTTP and HTTPS.",
+        "Playwright fallback used for www.anchors.edu.hk",
+        "anti_bot_challenge=www.anchors.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:40:52.478+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "OCR 品牌榜补充命中 brand=安基司國際幼兒園 mention_count=12",
+        "OCR 品牌榜补充命中 brand=安基司幼稚園 mention_count=12"
+      ]
+    },
+    {
+      "rank": 97,
+      "school_code": "622060",
+      "queue_name_tc": "安基司學校附屬國際幼稚園",
+      "db_name_tc": "安基司學校附屬國際幼稚園",
+      "name_en": "ANCHORS ACADEMY AFFILIATED INTERNATIONAL KINDERGARTEN",
+      "website": "https://www.anchorsacademy.edu.hk/",
+      "school_type": "international",
+      "crawl_status": "content_insufficient",
+      "crawl_url": "https://www.anchorsacademy.edu.hk/",
+      "crawl_notes": [
+        "base page textLen=0, too short",
+        "no dynamic links found, using SUB_PATHS fallback",
+        "confidence=low, baseTextLen=158, pages=5, pdfs=0"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:40:48.997+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "OCR 品牌榜补充命中 brand=安基司國際幼兒園 mention_count=12",
+        "OCR 品牌榜补充命中 brand=安基司幼稚園 mention_count=12"
+      ]
+    },
+    {
+      "rank": 98,
+      "school_code": "565199",
+      "queue_name_tc": "安基司國際幼兒園",
+      "db_name_tc": "安基司國際幼兒園",
+      "name_en": "ANCHORS INTERNATIONAL NURSERY",
+      "website": "https://www.anchors.edu.hk/",
+      "school_type": "international",
+      "crawl_status": "unreachable",
+      "crawl_url": "https://www.anchors.edu.hk/",
+      "crawl_notes": [
+        "domain_policy=403 anti-bot on both HTTP and HTTPS.",
+        "Playwright fallback used for www.anchors.edu.hk",
+        "anti_bot_challenge=www.anchors.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:40:52.233+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "OCR 品牌榜补充命中 brand=安基司國際幼兒園 mention_count=12",
+        "OCR 品牌榜补充命中 brand=安基司幼稚園 mention_count=12"
+      ]
+    },
+    {
+      "rank": 99,
+      "school_code": "216038",
+      "queue_name_tc": "聖文嘉中英文幼稚園（華貴邨）",
+      "db_name_tc": "聖文嘉中英文幼稚園（華貴邨）",
+      "name_en": "ST MONICA'S AC KG (WAH KWAI ESTATE)",
+      "website": "http://www.stmonicawk.edu.hk",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "http://www.stmonicawk.edu.hk",
+      "crawl_notes": [
+        "anti_bot_challenge=www.stmonicawk.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:42:43.448+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "OCR 品牌榜补充命中 brand=聖文嘉中英文幼稚園 mention_count=6",
+        "OCR 品牌榜补充命中 brand=聖文嘉幼稚園 mention_count=6"
+      ]
+    },
+    {
+      "rank": 100,
+      "school_code": "231533",
+      "queue_name_tc": "聖文嘉中英文幼稚園（荃灣）",
+      "db_name_tc": "聖文嘉中英文幼稚園（荃灣）",
+      "name_en": "ST MONICA'S ANGLO-CHINESE KG (TSUEN WAN)",
+      "website": "https://www.stmonicakg.edu.hk/",
+      "school_type": "non_profit",
+      "crawl_status": "unreachable",
+      "crawl_url": "https://www.stmonicakg.edu.hk/",
+      "crawl_notes": [
+        "anti_bot_challenge=www.stmonicakg.edu.hk"
+      ],
+      "application_url": null,
+      "open_day_date": null,
+      "open_day_details": null,
+      "application_process": null,
+      "admission_hours": null,
+      "vacancy_k1": null,
+      "vacancy_k2": null,
+      "vacancy_k3": null,
+      "scrape_confidence": "low",
+      "last_crawled_at": "2026-05-04T14:42:43.452+00:00",
+      "useful_extraction": false,
+      "queue_sources": [
+        "ocr_brand_top"
+      ],
+      "queue_reasons": [
+        "OCR 品牌榜补充命中 brand=聖文嘉中英文幼稚園 mention_count=6",
+        "OCR 品牌榜补充命中 brand=聖文嘉幼稚園 mention_count=6"
+      ]
+    }
+  ]
+}
