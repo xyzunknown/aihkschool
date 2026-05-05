@@ -1,7 +1,16 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllNewsItems } from "@/lib/homepage/liveData";
+import { NEWS_ITEMS } from "@/data/homepage";
 import type { NewsItem } from "@/types/homepage";
+
+export const revalidate = 3600;
+
+export function generateStaticParams() {
+  return NEWS_ITEMS
+    .filter((item) => !item.is_external)
+    .map((item) => ({ id: item.id }));
+}
 
 async function fetchHtml(url: string): Promise<string | null> {
   try {
@@ -10,10 +19,15 @@ async function fetchHtml(url: string): Promise<string | null> {
       headers: {
         "user-agent": "Mozilla/5.0 HKSchoolPlace/1.0",
       },
+      signal: AbortSignal.timeout(8000),
     });
-    if (!response.ok) return null;
+    if (!response.ok) {
+      console.error(`[ArticlePage] fetch failed: ${url} (${response.status})`);
+      return null;
+    }
     return await response.text();
-  } catch {
+  } catch (err) {
+    console.error(`[ArticlePage] fetch error: ${url} — ${err instanceof Error ? err.message : String(err)}`);
     return null;
   }
 }
@@ -48,13 +62,20 @@ function extractMainContent(html: string): string {
     // GovHK press releases — uses <span> or <div>
     html.match(/<(?:div|span)[^>]*id=["']pressrelease["'][^>]*>([\s\S]*?)<\/(?:div|span)>/i) ??
     html.match(/<(?:div|span)[^>]*class=["']acontent["'][^>]*>([\s\S]*?)<\/(?:div|span)>/i) ??
-    // EDB content area
+    // EDB content areas (order by specificity)
+    html.match(/<(?:div|td|section)[^>]*id=["']mainContent["'][^>]*>([\s\S]*?)<\/(?:div|td|section)>/i) ??
+    html.match(/<(?:div|td|section)[^>]*id=["']content["'][^>]*>([\s\S]*?)<\/(?:div|td|section)>/i) ??
     html.match(/<div[^>]*class=["'][^"]*edb-content[^"]*["'][^>]*>([\s\S]*?)<\/div>/i) ??
+    html.match(/<div[^>]*class=["'][^"]*edb_content[^"]*["'][^>]*>([\s\S]*?)<\/div>/i) ??
+    html.match(/<div[^>]*class=["'][^"]*content\s[^"]*["'][^>]*>([\s\S]*?)<\/div>/i) ??
+    html.match(/<div[^>]*class=["'][^"]*page-content[^"]*["'][^>]*>([\s\S]*?)<\/div>/i) ??
     // Generic patterns
     html.match(/<article[^>]*>([\s\S]*?)<\/article>/i) ??
     html.match(/<main[^>]*>([\s\S]*?)<\/main>/i) ??
     html.match(/<div[^>]*class=["'][^"]*content-body[^"]*["'][^>]*>([\s\S]*?)<\/div>/i) ??
-    html.match(/<div[^>]*role=["']main["'][^>]*>([\s\S]*?)<\/div>/i);
+    html.match(/<div[^>]*role=["']main["'][^>]*>([\s\S]*?)<\/div>/i) ??
+    // Last resort: extract body content
+    html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
 
   const raw = contentMatch?.[1] ?? "";
   if (!raw) return "";
@@ -69,15 +90,16 @@ function extractMainContent(html: string): string {
     .replace(/<form[\s\S]*?<\/form>/gi, "")
     .replace(/<img[^>]*>/gi, "")
     .replace(/<a\s[^>]*>([\s\S]*?)<\/a>/gi, "$1")
-    // GovHK boilerplate cleanup
+    // GovHK / EDB boilerplate cleanup
     .replace(/<div[^>]*class=["'][^"]*controlDisplay[^"]*["'][^>]*>[\s\S]*?<\/div>/gi, "")
     .replace(/\bNNNN\b/g, "")
     .replace(/Ends\/\w+,\s+\w+\s+\d{1,2},\s+\d{4}/gi, "")
     .replace(/完\s*\/\s*\S{2,3}\s*，\s*\d{1,2}月\d{1,2}日/g, "")
     .replace(/Issued at HKT \d{2}:\d{2}/gi, "")
     .replace(/於HKT \d{2}:\d{2}發出/g, "")
+    // Preserve structural + formatting tags; strip the rest
     .replace(/<[^>]+>/g, (tag) => {
-      if (/^<\/?(p|h[1-6]|ul|ol|li|br|blockquote)\s*\/?>/i.test(tag)) return tag;
+      if (/^<\/?(p|h[1-6]|ul|ol|li|br|blockquote|table|thead|tbody|tr|t[dh]|strong|em|b|i|u|sub|sup|hr|pre|code)\s*\/?>/i.test(tag)) return tag;
       return "";
     })
     .replace(/\n{3,}/g, "\n\n")
@@ -137,6 +159,12 @@ export default async function ArticlePage({ params }: PageProps) {
   const html = await fetchArticleContent(article.href);
   const mainContent = html ? extractMainContent(html) : "";
   const hasContent = mainContent.length > 20;
+
+  if (!html) {
+    console.error(`[ArticlePage] fetchArticleContent returned null for: ${article.href}`);
+  } else if (!hasContent) {
+    console.warn(`[ArticlePage] extractMainContent produced no usable content for: ${article.href} (html length: ${html.length})`);
+  }
   const hostname = extractHostname(article.href);
 
   const relatedNews = allNews
@@ -182,9 +210,11 @@ export default async function ArticlePage({ params }: PageProps) {
         </div>
       ) : (
         <div className="mb-8 rounded-2xl border border-slate-200 bg-white p-10 text-center">
-          <p className="mb-5 text-sm text-slate-500">
-            無法載入完整內容，請前往原始來源查看。
+          <p className="mb-3 text-sm text-slate-500">
+            {html ? "無法解析文章內容" : "無法載入原始網頁"}
+            ，請前往原始來源查看。
           </p>
+          <p className="mb-5 text-xs text-slate-400">{hostname}</p>
           <Link
             href={article.href}
             target="_blank"
@@ -207,7 +237,6 @@ export default async function ArticlePage({ params }: PageProps) {
               <line x1="10" y1="14" x2="21" y2="3" />
             </svg>
           </Link>
-          <p className="mt-3 text-xs text-slate-400">{hostname}</p>
         </div>
       )}
 

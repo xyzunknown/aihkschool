@@ -142,6 +142,16 @@ function cleanText(value: string): string {
     .trim();
 }
 
+function simpleHash(str: string): string {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash |= 0;
+  }
+  return Math.abs(hash).toString(36);
+}
+
 function shorten(text: string, maxLength: number): string {
   if (text.length <= maxLength) return text;
   return `${text.slice(0, maxLength - 1).trim()}\u2026`;
@@ -289,12 +299,12 @@ async function getEdbNewsItems(): Promise<NewsItem[]> {
     .slice(0, 6);
 
   return Promise.all(
-    relevant.map(async (item, index) => {
+    relevant.map(async (item) => {
       const summary = await fetchNewsSummary(item.link, item.title);
       const source = item.link.includes("info.gov.hk") ? "govhk" : "edb";
 
       return {
-        id: `live-news-edb-${index + 1}`,
+        id: `rss-${source}-${simpleHash(item.link)}`,
         source,
         source_category: toSourceCategory(source),
         source_label: source === "govhk" ? "政府公報" : "教育局",
@@ -324,8 +334,8 @@ async function getHk01NewsItems(): Promise<NewsItem[]> {
     .slice(0, 4);
 
   return Promise.all(
-    relevant.map(async (item, index) => ({
-      id: `live-news-hk01-${index + 1}`,
+    relevant.map(async (item) => ({
+      id: `rss-hk01-${simpleHash(item.link)}`,
       source: "hk01",
       source_category: "media" as const,
       source_label: "HK01",
