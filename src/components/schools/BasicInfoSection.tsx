@@ -49,14 +49,6 @@ export function BasicInfoSection({ school }: BasicInfoSectionProps) {
         ? SCHOOLAND_SESSION_LABELS[school.schooland_session_label] ?? school.schooland_session_label
         : null,
     },
-    {
-      label: "Schooland",
-      value: school.schooland_url ? (
-        <a href={school.schooland_url} target="_blank" rel="noopener noreferrer" className="text-slate-950 hover:underline">
-          查看來源頁
-        </a>
-      ) : null,
-    },
   ].filter((field) => field.value !== null && field.value !== undefined && field.value !== "");
 
   const fields = [
@@ -129,10 +121,7 @@ export function BasicInfoSection({ school }: BasicInfoSectionProps) {
         {schoolandFields.length > 0 && (
           <div className="mt-5 border-t border-slate-100 pt-5">
             <div className="mb-3 flex items-center justify-between gap-3">
-              <h3 className="text-sm font-semibold text-slate-800">Schooland 補充資料</h3>
-              <span className="rounded bg-slate-100 px-2 py-1 text-xs font-medium text-slate-500">
-                來源：Schooland
-              </span>
+              <h3 className="text-sm font-semibold text-slate-800">補充資料</h3>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
               {schoolandFields.map((field) => (
