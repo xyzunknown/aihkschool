@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import type { Activity } from "@/lib/db/activities";
 import {
