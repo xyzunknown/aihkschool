@@ -6,7 +6,6 @@ import { SchoolAvatar } from "@/components/schools/SchoolAvatar";
 import { VacancySection } from "@/components/schools/VacancySection";
 import { BasicInfoSection } from "@/components/schools/BasicInfoSection";
 import { FeesSection } from "@/components/schools/FeesSection";
-import { AdmissionsSection } from "@/components/schools/AdmissionsSection";
 import { OfficialLinksSection } from "@/components/schools/OfficialLinksSection";
 import { DetailBottomCTA } from "@/components/schools/DetailBottomCTA";
 import { ReminderSheet } from "@/components/schools/ReminderSheet";
@@ -184,7 +183,6 @@ export function SchoolDetailClient({ school, vacancy, enrichment }: Props) {
       <BasicInfoSection school={school} />
       <OfficialLinksSection school={school} />
       <FeesSection school={school} />
-      <AdmissionsSection school={school} enrichment={enrichment ?? null} />
 
       <DetailBottomCTA
         school={school}

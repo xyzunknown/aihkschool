@@ -395,15 +395,16 @@ const SORT_OPTIONS = [
 
 ### 5.1 新的 Section 顺序
 
-修改后共 7 个 section（原来 4 个，新增 2 个，扩充 1 个）：
+修改后共 6 个 section（原来 4 个，新增 2 个，移除 1 个）：
 
 1. **即時學額狀態**（VacancySection）— 扩充：加竞争度参考
 2. **學校概況**（BasicInfoSection）— 不变
 3. **學費及各項收費**（FeesSection）— 扩充：加家长预估费用
-4. **招生與開放日**（AdmissionsSection）— 不变
-5. **面試資訊**（InterviewIntelSection）— **新增**
-6. **申請時間線**（ApplicationTimelineSection）— **新增**
-7. 底部 CTA 栏（DetailBottomCTA）— 不变
+4. **面試資訊**（InterviewIntelSection）— **新增**
+5. **申請時間線**（ApplicationTimelineSection）— **新增**
+6. 底部 CTA 栏（DetailBottomCTA）— 不变
+
+> **2026-05-05 更新**：第 4 项「招生與開放日」（AdmissionsSection）已移除 —— 爬虫无法稳定获取相关学校信息。
 
 ### 5.2 数据获取
 
