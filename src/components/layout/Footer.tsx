@@ -3,7 +3,6 @@ import Image from "next/image";
 
 const QUICK_LINKS = [
   { href: "/kg", label: "找幼稚園" },
-  { href: "/timeline", label: "開放日" },
   { href: "/activities", label: "課外活動" },
   { href: "/programmes", label: "開報前追蹤" },
   { href: "/account", label: "我的收藏" },

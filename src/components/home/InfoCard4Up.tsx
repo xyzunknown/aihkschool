@@ -17,13 +17,6 @@ interface Props {
 }
 
 export function InfoCard4Up({ events }: Props) {
-  const now = new Date();
-  const sevenDaysOut = new Date(now.getTime() + 7 * 86400000);
-
-  const openDays = events
-    .filter((e) => e.event_type === "open_day" && !e.is_past && new Date(e.date_iso) <= sevenDaysOut)
-    .slice(0, 3);
-
   const deadlines = events
     .filter((e) => e.event_type === "deadline" && !e.is_past)
     .slice(0, 3);
@@ -33,11 +26,11 @@ export function InfoCard4Up({ events }: Props) {
       <div className="mb-6">
         <h2 className="text-2xl font-bold text-ink-900">幫你掌握申請進度</h2>
         <p className="mt-1 text-sm text-ink-700">
-          開放日、報名截止、學位空缺與個人提醒清單，一站搞掂。
+          報名截止、學位空缺與個人提醒清單，一站搞掂。
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
       {/* 熱門地區 */}
       <Card>
         <CardHeader title="熱門地區">
@@ -61,41 +54,6 @@ export function InfoCard4Up({ events }: Props) {
           className="mt-4 block text-center px-4 h-9 rounded-pill border border-forest-300 text-forest-700 text-sm font-medium hover:bg-forest-50 transition leading-9"
         >
           查看全部地區
-        </Link>
-      </Card>
-
-      {/* 本週開放日 */}
-      <Card>
-        <CardHeader title="本週開放日">
-          <Link href="/timeline" className="text-xs text-forest-600 hover:underline">
-            查看全部 →
-          </Link>
-        </CardHeader>
-        <ul className="mt-2 space-y-3 flex-1">
-          {openDays.length === 0 && (
-            <li className="text-sm text-ink-700 leading-relaxed">
-              本週暫無開放日。
-              <br />
-              <span className="text-xs text-ink-500">收藏心儀學校，新開放日會自動通知你。</span>
-            </li>
-          )}
-          {openDays.map((e) => (
-            <li key={e.id} className="border-b border-cream-200 pb-2 last:border-0">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-semibold text-forest-700">{e.date}</span>
-                <DistrictBadge district={e.district} />
-              </div>
-              <Link href={e.detail_href} className="text-sm text-ink-900 mt-1 block hover:text-forest-600 line-clamp-1">
-                {e.school_name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <Link
-          href={openDays.length === 0 ? "/kg" : "/timeline"}
-          className="mt-4 block text-center px-4 h-9 rounded-pill bg-forest-600 text-white text-sm font-medium hover:bg-forest-700 transition leading-9"
-        >
-          {openDays.length === 0 ? "去搜尋學校" : "查看全部開放日"}
         </Link>
       </Card>
 
@@ -149,9 +107,9 @@ export function InfoCard4Up({ events }: Props) {
           />
           <p className="text-base font-semibold text-ink-900 mt-2">建立孩子的申請時間線</p>
           <p className="text-xs text-ink-700 mt-1 leading-relaxed">
-            收藏學校後，自動追蹤開放日、
+            收藏學校後，自動追蹤報名截止
             <br />
-            報名截止與學位空缺更新。
+            與學位空缺更新。
           </p>
         </div>
         <Link
@@ -195,35 +153,5 @@ function CardHeader({
       </h3>
       {children}
     </div>
-  );
-}
-
-function DistrictBadge({ district }: { district?: string }) {
-  if (!district) return null;
-  const labels: Record<string, string> = {
-    central_and_western: "中西區",
-    wan_chai: "灣仔區",
-    eastern: "東區",
-    southern: "南區",
-    yau_tsim_mong: "油尖旺區",
-    sham_shui_po: "深水埗區",
-    kowloon_city: "九龍城",
-    kwun_tong: "觀塘區",
-    wong_tai_sin: "黃大仙",
-    sha_tin: "沙田區",
-    tai_po: "大埔區",
-    yuen_long: "元朗區",
-    tuen_mun: "屯門區",
-    tsuen_wan: "荃灣區",
-    kwai_tsing: "葵青區",
-    sai_kung: "西貢區",
-    north: "北區",
-    islands: "離島區",
-  };
-  const label = labels[district] || district;
-  return (
-    <span className="px-2 py-0.5 rounded-md bg-leaf-50 text-forest-600 text-[10px] font-medium">
-      {label}
-    </span>
   );
 }

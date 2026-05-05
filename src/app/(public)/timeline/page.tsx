@@ -6,10 +6,10 @@ export const revalidate = 21600; // 6 hours ISR
 
 export const metadata: Metadata = {
   title: "學校活動時間線 — HKSchoolPlace",
-  description: "查看未來 90 天內所有幼稚園的開放日、面試、簡介會及報名截止日期，幫你規劃申請時間。",
+  description: "查看未來 90 天內所有幼稚園的面試、簡介會及報名截止日期，幫你規劃申請時間。",
   openGraph: {
     title: "學校活動時間線 — HKSchoolPlace",
-    description: "查看未來 90 天內所有幼稚園的開放日、面試、簡介會及報名截止日期。",
+    description: "查看未來 90 天內所有幼稚園的面試、簡介會及報名截止日期。",
     type: "website",
     url: "https://aihkschool.vercel.app/timeline",
   },

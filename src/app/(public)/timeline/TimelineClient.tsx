@@ -37,7 +37,7 @@ export function TimelineClient({ events }: TimelineClientProps) {
             學校活動時間線
           </h1>
           <p className="mt-3 text-sm md:text-base text-ink-700 max-w-xl">
-            未來 90 天內的開放日、面試、簡介會及報名截止日期
+            未來 90 天內的面試、簡介會及報名截止日期
             {futureCount > 0 && (
               <span className="ml-2 text-forest-700 font-semibold">
                 · {futureCount} 個即將到來

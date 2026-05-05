@@ -8,7 +8,6 @@ import { useAuth } from "@/components/layout/AuthProvider";
 
 const NAV_ITEMS = [
   { href: "/kg", label: "找幼稚園", match: ["/kg"] },
-  { href: "/timeline", label: "開放日", match: ["/timeline"] },
   { href: "/activities", label: "課外活動", match: ["/activities"] },
   { href: "/programmes", label: "康體通", match: ["/programmes"] },
   { href: "/news", label: "消息資訊", match: ["/news"] },

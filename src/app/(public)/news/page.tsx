@@ -8,7 +8,6 @@ import type { NewsItem } from "@/types/homepage";
 const CATEGORIES = [
   { key: "all", label: "全部" },
   { key: "latest", label: "最新" },
-  { key: "open_day_tab", label: "開放日" },
   { key: "activity", label: "活動" },
   { key: "policy", label: "升學" },
   { key: "edu_policy", label: "教育政策" },
@@ -64,7 +63,6 @@ export default function NewsPage() {
 
   const filtered = items.filter((item) => {
     if (activeCategory === "all" || activeCategory === "latest") return true;
-    if (activeCategory === "open_day_tab") return item.content_type === "open_day";
     if (activeCategory === "activity") return item.content_type === "school_event";
     if (activeCategory === "policy") return item.content_type === "admission";
     if (activeCategory === "edu_policy") return item.content_type === "policy";
@@ -82,7 +80,7 @@ export default function NewsPage() {
           </Link>
           <h1 className="text-3xl md:text-4xl font-bold text-ink-900 leading-tight">資訊消息</h1>
           <p className="mt-3 text-sm md:text-base text-ink-700 max-w-xl">
-            掌握最新教育資訊、開放日、活動、升學政策
+            掌握最新教育資訊、學校活動、升學政策
           </p>
         </div>
       </section>

@@ -30,12 +30,8 @@ function vacancyLabel(key: string) {
 
 export function ProgressBoard({ events, schools }: Props) {
   const now = new Date();
-  const sevenDaysOut = new Date(now.getTime() + 7 * 86400000);
   const fourteenDaysOut = new Date(now.getTime() + 14 * 86400000);
 
-  const openDayCount = events.filter(
-    (e) => e.event_type === "open_day" && !e.is_past && new Date(e.date_iso) <= sevenDaysOut
-  ).length;
   const deadlineCount = events.filter(
     (e) => e.event_type === "deadline" && !e.is_past && new Date(e.date_iso) <= fourteenDaysOut
   ).length;
@@ -65,20 +61,6 @@ export function ProgressBoard({ events, schools }: Props) {
       <div>
         <SectionHeader title="申請進度看板" href="/timeline" />
         <div className="space-y-4">
-          <TaskCard
-            title="本週開放日"
-            badge={openDayCount > 0 ? `${openDayCount} 場` : undefined}
-            desc={
-              openDayCount > 0
-                ? `未來 7 日內共有 ${openDayCount} 場開放日`
-                : "暫未收到本週開放日資訊，可訂閱後續更新"
-            }
-            sub={openDayCount > 0 ? "把握機會，盡早了解學校環境" : undefined}
-            cta="查看日程"
-            href="/timeline?filter=open_day"
-            illustration="/brand/timeline/school.png"
-            tone="brand"
-          />
           <TaskCard
             title="即將截止"
             badge={deadlineCount > 0 ? `${deadlineCount} 間` : undefined}

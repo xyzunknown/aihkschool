@@ -15,21 +15,6 @@ const ACTIONS = [
     ),
   },
   {
-    href: "/timeline",
-    title: "開放日",
-    desc: "查看近期開放日",
-    iconBg: "bg-leaf-100/70",
-    iconFg: "text-forest-700",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="4" width="18" height="18" rx="2" />
-        <line x1="16" y1="2" x2="16" y2="6" />
-        <line x1="8" y1="2" x2="8" y2="6" />
-        <line x1="3" y1="10" x2="21" y2="10" />
-      </svg>
-    ),
-  },
-  {
     href: "/timeline?filter=deadline",
     title: "截止提醒",
     desc: "重要日期不錯過",
@@ -72,7 +57,7 @@ const ACTIONS = [
 export function QuickActions() {
   return (
     <section className="max-w-[1200px] mx-auto px-5 md:px-8 mt-2 md:mt-1">
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-0 bg-white rounded-card border border-surface-border shadow-[0_12px_32px_rgba(30,82,56,0.07)] p-3 md:p-3 md:divide-x md:divide-surface-border">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-0 bg-white rounded-card border border-surface-border shadow-[0_12px_32px_rgba(30,82,56,0.07)] p-3 md:p-3 md:divide-x md:divide-surface-border">
         {ACTIONS.map((a) => (
           <Link
             key={a.title}

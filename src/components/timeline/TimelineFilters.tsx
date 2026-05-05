@@ -4,7 +4,6 @@ import type { EventType } from "@/types/homepage";
 
 const EVENT_TYPE_OPTIONS: Array<{ value: EventType | "all"; label: string }> = [
   { value: "all", label: "全部" },
-  { value: "open_day", label: "開放日" },
   { value: "interview", label: "面試" },
   { value: "briefing", label: "簡介會" },
   { value: "deadline", label: "報名截止" },

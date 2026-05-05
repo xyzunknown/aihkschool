@@ -11,7 +11,7 @@ const STATS = [
   },
   {
     value: "每日更新",
-    label: "學位空缺・開放日",
+    label: "學位空缺・申請資訊",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="23 4 23 10 17 10" />
