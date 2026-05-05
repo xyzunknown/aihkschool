@@ -68,7 +68,6 @@ export default async function SchoolDetailPage({ params }: Props) {
       <SchoolDetailClient
         school={school}
         vacancy={vacancy}
-        enrichment={enrichment}
       />
       <div className="mx-auto max-w-4xl px-5 md:px-8">
         <ReputationSection enrichment={enrichment} />

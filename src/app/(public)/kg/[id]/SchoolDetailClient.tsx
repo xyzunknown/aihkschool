@@ -14,7 +14,6 @@ import { useAuth } from "@/components/layout/AuthProvider";
 import { useToast } from "@/components/ui/Toast";
 import { DISTRICT_LABELS, formatEnglishSchoolName, isVacancyStale, deadlineStatus } from "@/lib/utils";
 import type { School, Vacancy, DataSource } from "@/types/database";
-import type { SchoolEnrichment } from "@/lib/db/schools";
 import { useCompare } from "@/lib/hooks/useCompare";
 import Link from "next/link";
 
@@ -30,10 +29,9 @@ async function getErrorMessage(response: Response, fallback: string) {
 interface Props {
   school: School;
   vacancy: Vacancy | null;
-  enrichment?: SchoolEnrichment | null;
 }
 
-export function SchoolDetailClient({ school, vacancy, enrichment }: Props) {
+export function SchoolDetailClient({ school, vacancy }: Props) {
   const { user, requireAuth } = useAuth();
   const { showToast } = useToast();
   const { addToCompare, removeFromCompare, isInCompare, canAdd } = useCompare();
