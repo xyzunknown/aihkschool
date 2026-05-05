@@ -154,4 +154,4 @@ INSERT INTO activities (
         '2570 3262', 'https://www.lcsd.gov.hk/',
         'manual', 'high'
     )
-ON CONFLICT DO NOTHING;
+ON CONFLICT (title, organizer, start_date) DO NOTHING;

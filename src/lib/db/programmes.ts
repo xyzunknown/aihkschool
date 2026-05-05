@@ -1,5 +1,6 @@
 import { createServiceClient } from "@/lib/supabase/server";
 import type { District } from "@/types/database";
+import { computeEnrolmentStatus } from "@/lib/programmes/labels";
 
 // ============================================================
 // Types
@@ -140,6 +141,16 @@ export async function fetchProgrammes(
     // Anything above 50 in age_max is effectively unbounded.
     query = query.lt("age_max", 50);
   }
+  // Auto-hide programmes whose enrolment window closed more than 30 days ago.
+  // Keep: future/recent open_at, recent close_at, or no dates at all.
+  {
+    const cutoff = new Date();
+    cutoff.setDate(cutoff.getDate() - 30);
+    const cutoffISO = cutoff.toISOString();
+    query = query.or(
+      `enrolment_close_at.gte.${cutoffISO},enrolment_open_at.gte.${cutoffISO},enrolment_open_at.is.null`,
+    );
+  }
   if (search && search.trim()) {
     const safe = search.trim().replace(/[,()]/g, "");
     query = query.or(`name_zh.ilike.%${safe}%,name_en.ilike.%${safe}%,venue.ilike.%${safe}%`);
@@ -155,12 +166,28 @@ export async function fetchProgrammes(
     throw new Error(`Failed to fetch programmes: ${error.message}`);
   }
 
-  const mapped = ((data ?? []) as ProgrammeRow[]).map((row) => ({
-    ...row,
-    lcsd_programme_status: Array.isArray(row.lcsd_programme_status)
+  const mapped = ((data ?? []) as ProgrammeRow[]).map((row) => {
+    const rawStatus = Array.isArray(row.lcsd_programme_status)
       ? row.lcsd_programme_status[0] ?? null
-      : row.lcsd_programme_status ?? null,
-  })) as ProgrammeWithStatus[];
+      : row.lcsd_programme_status ?? null;
+    const enrolmentStatus = computeEnrolmentStatus(
+      row.enrolment_open_at,
+      row.enrolment_close_at,
+      rawStatus?.enrolment_status ?? null,
+    );
+    return {
+      ...row,
+      lcsd_programme_status: rawStatus
+        ? { ...rawStatus, enrolment_status: enrolmentStatus }
+        : {
+            programme_id: row.id,
+            seats_available: null,
+            is_full: false,
+            enrolment_status: enrolmentStatus,
+            last_checked_at: null,
+          },
+    } as ProgrammeWithStatus;
+  });
 
   return {
     data: mapped,
@@ -182,11 +209,25 @@ export async function fetchProgrammeById(id: string): Promise<ProgrammeWithStatu
 
   if (error || !data) return null;
   const row = data as ProgrammeRow;
+  const rawStatus = Array.isArray(row.lcsd_programme_status)
+    ? row.lcsd_programme_status[0] ?? null
+    : row.lcsd_programme_status ?? null;
+  const enrolmentStatus = computeEnrolmentStatus(
+    row.enrolment_open_at,
+    row.enrolment_close_at,
+    rawStatus?.enrolment_status ?? null,
+  );
   return {
     ...row,
-    lcsd_programme_status: Array.isArray(row.lcsd_programme_status)
-      ? row.lcsd_programme_status[0] ?? null
-      : row.lcsd_programme_status ?? null,
+    lcsd_programme_status: rawStatus
+      ? { ...rawStatus, enrolment_status: enrolmentStatus }
+      : {
+          programme_id: row.id,
+          seats_available: null,
+          is_full: false,
+          enrolment_status: enrolmentStatus,
+          last_checked_at: null,
+        },
   } as ProgrammeWithStatus;
 }
 
@@ -210,12 +251,28 @@ export async function fetchUpcomingProgrammes(limit = 6): Promise<ProgrammeWithS
     .limit(limit);
 
   if (error) return [];
-  return ((data ?? []) as ProgrammeRow[]).map((row) => ({
-    ...row,
-    lcsd_programme_status: Array.isArray(row.lcsd_programme_status)
+  return ((data ?? []) as ProgrammeRow[]).map((row) => {
+    const rawStatus = Array.isArray(row.lcsd_programme_status)
       ? row.lcsd_programme_status[0] ?? null
-      : row.lcsd_programme_status ?? null,
-  })) as ProgrammeWithStatus[];
+      : row.lcsd_programme_status ?? null;
+    const enrolmentStatus = computeEnrolmentStatus(
+      row.enrolment_open_at,
+      row.enrolment_close_at,
+      rawStatus?.enrolment_status ?? null,
+    );
+    return {
+      ...row,
+      lcsd_programme_status: rawStatus
+        ? { ...rawStatus, enrolment_status: enrolmentStatus }
+        : {
+            programme_id: row.id,
+            seats_available: null,
+            is_full: false,
+            enrolment_status: enrolmentStatus,
+            last_checked_at: null,
+          },
+    } as ProgrammeWithStatus;
+  });
 }
 
 /**

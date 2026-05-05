@@ -104,6 +104,8 @@ export const NEWS_ITEMS: NewsItem[] = [
     published_at: "2026-04-21T00:00:00+08:00",
     href: "https://www.edb.gov.hk/tc/edu-system/preprimary-kindergarten/vacancy-in-kindergarten/index.html",
     is_external: false,
+    content_type: "admission",
+    content_type_label: "升學",
   },
   {
     id: "news-2",
@@ -116,6 +118,8 @@ export const NEWS_ITEMS: NewsItem[] = [
     published_at: "2026-04-15T00:00:00+08:00",
     href: "https://www.edb.gov.hk/tc/edu-system/preprimary-kindergarten/kindergarten-education-scheme/index.html",
     is_external: false,
+    content_type: "policy",
+    content_type_label: "教育政策",
   },
   {
     id: "news-3",
@@ -128,6 +132,8 @@ export const NEWS_ITEMS: NewsItem[] = [
     published_at: "2026-04-08T00:00:00+08:00",
     href: "https://www.edb.gov.hk/tc/edu-system/preprimary-kindergarten/overview/k1-admission-arrangements.html",
     is_external: false,
+    content_type: "admission",
+    content_type_label: "升學",
   },
   {
     id: "news-4",
@@ -140,6 +146,8 @@ export const NEWS_ITEMS: NewsItem[] = [
     published_at: "2026-04-03T00:00:00+08:00",
     href: "https://www.info.gov.hk/gia/general/202604/03/P2026040300522.htm",
     is_external: false,
+    content_type: "policy",
+    content_type_label: "教育政策",
   },
   {
     id: "news-5",
@@ -152,6 +160,8 @@ export const NEWS_ITEMS: NewsItem[] = [
     published_at: "2026-05-01T00:00:00+08:00",
     href: "https://www.edb.gov.hk/tc/edu-system/preprimary-kindergarten/overview/index.html",
     is_external: false,
+    content_type: "policy",
+    content_type_label: "教育政策",
   },
 ];
 

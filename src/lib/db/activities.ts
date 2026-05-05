@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
+import { getOneMonthAgoDate } from "@/lib/activities/labels";
 
 // ============================================================
 // Types
@@ -86,6 +87,18 @@ const LIST_SELECT = `id, title, category, organizer, district, address,
 // Queries
 // ============================================================
 
+function sortByExpiryThenDate(activities: Activity[]): Activity[] {
+  const now = Date.now();
+  return activities.slice().sort((a, b) => {
+    const aExpired = a.end_date ? new Date(a.end_date).getTime() < now : false;
+    const bExpired = b.end_date ? new Date(b.end_date).getTime() < now : false;
+    if (aExpired !== bExpired) return aExpired ? 1 : -1;
+    const aDate = a.start_date ? new Date(a.start_date).getTime() : Infinity;
+    const bDate = b.start_date ? new Date(b.start_date).getTime() : Infinity;
+    return aDate - bDate;
+  });
+}
+
 export async function fetchActivities(
   params: FetchActivitiesParams = {},
 ): Promise<FetchActivitiesResult> {
@@ -128,6 +141,11 @@ export async function fetchActivities(
     query = query.or(`title.ilike.%${safe}%,organizer.ilike.%${safe}%`);
   }
 
+  // 過濾：結束超過一個月的活動不再前端顯示
+  // end_date IS NULL = 長期活動
+  const oneMonthAgo = getOneMonthAgoDate();
+  query = query.or(`end_date.is.null,end_date.gte.${oneMonthAgo}`);
+
   // 按 start_date 升序：即將開始的在前；NULL 沉底
   query = query
     .order("start_date", { ascending: true, nullsFirst: false })
@@ -139,8 +157,11 @@ export async function fetchActivities(
     throw new Error(`Failed to fetch activities: ${error.message}`);
   }
 
+  // 排序：未过期在前，已过期沉底（兩類內部均按 start_date 升序）
+  const sorted = sortByExpiryThenDate((data ?? []) as Activity[]);
+
   return {
-    data: (data ?? []) as Activity[],
+    data: sorted,
     count: count ?? 0,
     page,
     limit: safeLimit,
@@ -166,6 +187,7 @@ export async function fetchRelatedActivities(
   limit = 4,
 ): Promise<Activity[]> {
   const supabase = await createClient();
+  const oneMonthAgo = getOneMonthAgoDate();
 
   // 優先：同類別；次選：同區域
   const { data, error } = await supabase
@@ -178,24 +200,27 @@ export async function fetchRelatedActivities(
         activity.district ? `,district.eq.${activity.district}` : ""
       }`,
     )
+    .or(`end_date.is.null,end_date.gte.${oneMonthAgo}`)
     .order("start_date", { ascending: true, nullsFirst: false })
     .limit(limit);
 
   if (error) return [];
-  return (data ?? []) as Activity[];
+  return sortByExpiryThenDate((data ?? []) as Activity[]);
 }
 
 export async function fetchFeaturedActivities(limit = 6): Promise<Activity[]> {
   const supabase = await createClient();
+  const oneMonthAgo = getOneMonthAgoDate();
 
   // 首頁預覽：最近即將開始的活動
   const { data, error } = await supabase
     .from("activities")
     .select(LIST_SELECT)
     .eq("is_active", true)
+    .or(`end_date.is.null,end_date.gte.${oneMonthAgo}`)
     .order("start_date", { ascending: true, nullsFirst: false })
     .limit(limit);
 
   if (error) return [];
-  return (data ?? []) as Activity[];
+  return sortByExpiryThenDate((data ?? []) as Activity[]);
 }

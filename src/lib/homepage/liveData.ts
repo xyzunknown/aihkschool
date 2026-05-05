@@ -281,6 +281,40 @@ function isExternalSource(source: string): boolean {
   return source !== "edb" && source !== "govhk";
 }
 
+/* ─── Content type detection ─── */
+
+const POLICY_REGEX =
+  /(政策|措施|資助|安排|計劃|方案|支援|津貼|補貼|撥款|修訂|公告|通告|指引|規定|檢討|報告|統計|概覽|概覽|數據|拨款|修订|检讨|补贴|规定|数据)/i;
+const EVENT_ACTIVITY_REGEX =
+  /(活動|講座|工作坊|研討會|嘉年華|體驗|講座|talk|workshop|seminar|webinar)/i;
+
+function detectContentType(
+  title: string,
+  link: string,
+  source: string
+): { content_type: NonNullable<NewsItem["content_type"]>; content_type_label: string } {
+  const combined = `${title} ${link}`;
+
+  if (OPEN_DAY_REGEX.test(combined)) {
+    return { content_type: "open_day", content_type_label: "開放日" };
+  }
+  if (ADMISSION_REGEX.test(combined)) {
+    return { content_type: "admission", content_type_label: "升學" };
+  }
+  if (EVENT_ACTIVITY_REGEX.test(combined)) {
+    return { content_type: "school_event", content_type_label: "活動" };
+  }
+  if (POLICY_REGEX.test(combined)) {
+    return { content_type: "policy", content_type_label: "教育政策" };
+  }
+
+  // Default: EDB/GovHK → policy, HK01/media → feature (shown under all/latest only)
+  if (source === "edb" || source === "govhk") {
+    return { content_type: "policy", content_type_label: "教育政策" };
+  }
+  return { content_type: "feature", content_type_label: "媒體報導" };
+}
+
 /* ─── News fetchers ─── */
 
 async function getEdbNewsItems(): Promise<NewsItem[]> {
@@ -302,6 +336,11 @@ async function getEdbNewsItems(): Promise<NewsItem[]> {
     relevant.map(async (item) => {
       const summary = await fetchNewsSummary(item.link, item.title);
       const source = item.link.includes("info.gov.hk") ? "govhk" : "edb";
+      const { content_type, content_type_label } = detectContentType(
+        item.title,
+        item.link,
+        source
+      );
 
       return {
         id: `rss-${source}-${simpleHash(item.link)}`,
@@ -314,6 +353,8 @@ async function getEdbNewsItems(): Promise<NewsItem[]> {
         published_at: new Date(item.pubDate).toISOString(),
         href: item.link,
         is_external: isExternalSource(source),
+        content_type,
+        content_type_label,
       } satisfies NewsItem;
     })
   );
@@ -334,18 +375,28 @@ async function getHk01NewsItems(): Promise<NewsItem[]> {
     .slice(0, 4);
 
   return Promise.all(
-    relevant.map(async (item) => ({
-      id: `rss-hk01-${simpleHash(item.link)}`,
-      source: "hk01",
-      source_category: "media" as const,
-      source_label: "HK01",
-      title: cleanText(item.title),
-      summary: await fetchNewsSummary(item.link, item.title),
-      date: formatMonthDay(item.pubDate),
-      published_at: new Date(item.pubDate).toISOString(),
-      href: item.link,
-      is_external: true,
-    }))
+    relevant.map(async (item) => {
+      const { content_type, content_type_label } = detectContentType(
+        item.title,
+        item.link,
+        "hk01"
+      );
+
+      return {
+        id: `rss-hk01-${simpleHash(item.link)}`,
+        source: "hk01",
+        source_category: "media" as const,
+        source_label: "HK01",
+        title: cleanText(item.title),
+        summary: await fetchNewsSummary(item.link, item.title),
+        date: formatMonthDay(item.pubDate),
+        published_at: new Date(item.pubDate).toISOString(),
+        href: item.link,
+        is_external: true,
+        content_type,
+        content_type_label,
+      };
+    })
   );
 }
 

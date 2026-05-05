@@ -9,20 +9,19 @@ import { ProgrammeFilterBar, type AgePresetKey } from "@/components/programmes/P
 const PAGE_SIZE = 18;
 
 // Age presets surfaced in the filter bar. The API uses range-overlap
-// matching, so we set a slightly wider range than the preset label suggests
-// (e.g. 「幼兒 3-5」 → ageMin=3, ageMax=12) to keep targeted children's
-// classes visible while excluding LCSD's age_max=199 "all ages" sentinel
-// rows that would otherwise dominate every narrow preset with adult/senior
-// programmes (殘疾人士健體計劃, 太極訓練班 etc).
+// matching: a programme matches when its [age_min, age_max] overlaps with
+// the filter [ageMin, ageMax]. We keep ranges tight to the label to avoid
+// cross-contamination between tabs (e.g. 4-6歲 courses leaking into the
+// 0-2歲 infant tab).
 //
 // "all" disables the age filter entirely. "family" funnels through
 // category=parent_child rather than age.
 const AGE_PRESET_RANGES: Record<AgePresetKey, { ageMin: number | null; ageMax: number | null; forceCategory?: ProgrammeCategory }> = {
   all: { ageMin: null, ageMax: null },
-  infant: { ageMin: 0, ageMax: 4 },
-  preschool: { ageMin: 3, ageMax: 12 },
-  primary: { ageMin: 6, ageMax: 18 },
-  teen: { ageMin: 12, ageMax: 21 },
+  infant: { ageMin: 0, ageMax: 2 },
+  preschool: { ageMin: 2, ageMax: 6 },
+  primary: { ageMin: 6, ageMax: 12 },
+  teen: { ageMin: 12, ageMax: 18 },
   adult: { ageMin: 18, ageMax: 99 },
   family: { ageMin: null, ageMax: null, forceCategory: "parent_child" },
 };
@@ -64,7 +63,8 @@ export function ProgrammesClient() {
   const [page, setPage] = useState<number>(initialFilters.page);
   const [programmes, setProgrammes] = useState<ProgrammeWithStatus[]>([]);
   const [total, setTotal] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
   // Sync filters → URL
   useEffect(() => {
@@ -79,7 +79,12 @@ export function ProgrammesClient() {
 
   // Fetch programmes
   const fetchData = useCallback(async () => {
-    setIsLoading(true);
+    const isFirst = isInitialLoad;
+    if (isFirst) {
+      setIsInitialLoad(false);
+    } else {
+      setIsRefreshing(true);
+    }
     try {
       const range = AGE_PRESET_RANGES[agePreset];
       const effectiveCategory: ProgrammeCategory | null =
@@ -89,11 +94,7 @@ export function ProgrammesClient() {
       if (district) params.set("district", district);
       if (range.ageMin !== null) params.set("ageMin", String(range.ageMin));
       if (range.ageMax !== null) params.set("ageMax", String(range.ageMax));
-      // Only the youngest presets benefit from dropping the all-ages
-      // sentinel (without it preschool/infant get flooded with adult tai chi
-      // and senior pickleball). For primary/teen/adult the all-ages rows
-      // are legitimately open to that band and should stay.
-      if (agePreset === "infant" || agePreset === "preschool") {
+      if (agePreset === "infant" || agePreset === "preschool" || agePreset === "primary") {
         params.set("excludeAllAges", "1");
       }
       params.set("page", String(page));
@@ -105,16 +106,20 @@ export function ProgrammesClient() {
         setProgrammes(json.data);
         setTotal(json.count);
       } else {
+        if (isFirst) {
+          setProgrammes([]);
+          setTotal(0);
+        }
+      }
+    } catch {
+      if (isFirst) {
         setProgrammes([]);
         setTotal(0);
       }
-    } catch {
-      setProgrammes([]);
-      setTotal(0);
     } finally {
-      setIsLoading(false);
+      setIsRefreshing(false);
     }
-  }, [category, district, agePreset, page]);
+  }, [category, district, agePreset, page, isInitialLoad]);
 
   useEffect(() => {
     void fetchData();
@@ -150,7 +155,14 @@ export function ProgrammesClient() {
         />
       </div>
 
-      {isLoading ? (
+      {isRefreshing && programmes.length > 0 && (
+        <div className="mb-4 flex items-center gap-2 text-xs text-slate-400">
+          <div className="h-1 w-8 animate-pulse rounded-full bg-brand-700" />
+          <span>更新中...</span>
+        </div>
+      )}
+
+      {isInitialLoad ? (
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {Array.from({ length: 6 }).map((_, i) => (
             <ProgrammeCardSkeleton key={i} />

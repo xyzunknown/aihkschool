@@ -1,4 +1,4 @@
-import type { ProgrammeCategory } from "@/lib/db/programmes";
+import type { ProgrammeCategory, EnrolmentStatus } from "@/lib/db/programmes";
 
 // ============================================================
 // Programme labels (Traditional Chinese)
@@ -101,10 +101,31 @@ export function formatAgeRange(
   ageMax: number | null,
 ): string | null {
   if (ageMin === null && ageMax === null) return null;
-  if (ageMin !== null && ageMax !== null) return `${ageMin}-${ageMax}歲`;
+  const cappedMax = ageMax !== null && ageMax >= 99 ? 99 : ageMax;
+  if (ageMin !== null && cappedMax !== null && ageMin === cappedMax) return `${ageMin}歲`;
+  if (ageMin !== null && cappedMax !== null) {
+    if (cappedMax >= 99) return `${ageMin}歲以上`;
+    return `${ageMin}-${cappedMax}歲`;
+  }
   if (ageMin !== null) return `${ageMin}歲以上`;
-  if (ageMax !== null) return `${ageMax}歲以下`;
+  if (cappedMax !== null) return `${cappedMax}歲以下`;
   return null;
+}
+
+export function computeEnrolmentStatus(
+  enrolmentOpenAt: string | null,
+  enrolmentCloseAt: string | null,
+  dbStatus: EnrolmentStatus | null,
+): EnrolmentStatus {
+  const now = new Date();
+  const openAt = enrolmentOpenAt ? new Date(enrolmentOpenAt) : null;
+  const closeAt = enrolmentCloseAt ? new Date(enrolmentCloseAt) : null;
+
+  if (openAt && openAt > now) return "pre_open";
+  if (closeAt && closeAt <= now) return "closed";
+  if (openAt && openAt <= now) return "open";
+
+  return dbStatus || "pre_open";
 }
 
 export function getEnrolmentCountdown(enrolmentOpenAt: string | null): string | null {

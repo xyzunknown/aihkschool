@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Activity } from "@/lib/db/activities";
 import {
   CATEGORY_LABELS,
@@ -20,7 +21,10 @@ export function ActivityCard({ activity }: ActivityCardProps) {
   const districtLabel = activity.district ? DISTRICT_LABELS[activity.district] : null;
 
   return (
-    <div className="flex h-full flex-col rounded-[20px] border border-surface-border bg-white p-5 shadow-[0_8px_24px_rgba(30,82,56,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(30,82,56,0.1)]">
+    <Link
+      href={`/activities/${activity.id}`}
+      className="flex h-full flex-col rounded-[20px] border border-surface-border bg-white p-5 shadow-[0_8px_24px_rgba(30,82,56,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(30,82,56,0.1)]"
+    >
       <div className="mb-3 flex items-center justify-between">
         <span className="inline-flex items-center rounded-pill bg-leaf-50 px-2.5 py-1 text-[11px] font-semibold text-forest-700 ring-1 ring-forest-700/10">
           {CATEGORY_LABELS[activity.category]}
@@ -68,10 +72,13 @@ export function ActivityCard({ activity }: ActivityCardProps) {
       </div>
 
       {activity.contact_url && !expired && (
-        <a
-          href={activity.contact_url}
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            window.open(activity.contact_url!, "_blank", "noopener,noreferrer");
+          }}
           className="mt-4 inline-flex h-10 w-full items-center justify-center gap-1.5 rounded-pill bg-forest-600 px-4 text-sm font-medium text-white transition hover:bg-forest-700 shadow-[0_10px_24px_rgba(30,82,56,0.12)]"
         >
           查看詳情 / 報名
@@ -80,9 +87,9 @@ export function ActivityCard({ activity }: ActivityCardProps) {
             <polyline points="15 3 21 3 21 9" />
             <line x1="10" y1="14" x2="21" y2="3" />
           </svg>
-        </a>
+        </button>
       )}
-    </div>
+    </Link>
   );
 }
 

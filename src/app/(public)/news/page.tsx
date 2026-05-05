@@ -12,7 +12,6 @@ const CATEGORIES = [
   { key: "activity", label: "活動" },
   { key: "policy", label: "升學" },
   { key: "edu_policy", label: "教育政策" },
-  { key: "parent", label: "家長攻略" },
 ] as const;
 
 const SOURCE_STYLES: Record<string, string> = {
@@ -69,7 +68,6 @@ export default function NewsPage() {
     if (activeCategory === "activity") return item.content_type === "school_event";
     if (activeCategory === "policy") return item.content_type === "admission";
     if (activeCategory === "edu_policy") return item.content_type === "policy";
-    if (activeCategory === "parent") return item.content_type === "feature";
     return true;
   });
 
@@ -84,7 +82,7 @@ export default function NewsPage() {
           </Link>
           <h1 className="text-3xl md:text-4xl font-bold text-ink-900 leading-tight">資訊消息</h1>
           <p className="mt-3 text-sm md:text-base text-ink-700 max-w-xl">
-            掌握最新教育資訊、開放日、活動、升學政策及家長攻略
+            掌握最新教育資訊、開放日、活動、升學政策
           </p>
         </div>
       </section>

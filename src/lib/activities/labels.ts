@@ -134,3 +134,16 @@ export function isExpired(endDate: string | null): boolean {
   if (!endDate) return false;
   return new Date(endDate).getTime() < Date.now();
 }
+
+export function isExpiredMoreThanOneMonth(endDate: string | null): boolean {
+  if (!endDate) return false;
+  const oneMonthAgo = new Date();
+  oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+  return new Date(endDate).getTime() < oneMonthAgo.getTime();
+}
+
+export function getOneMonthAgoDate(): string {
+  const d = new Date();
+  d.setMonth(d.getMonth() - 1);
+  return d.toISOString().split("T")[0];
+}

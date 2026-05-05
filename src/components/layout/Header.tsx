@@ -9,18 +9,14 @@ import { useAuth } from "@/components/layout/AuthProvider";
 const NAV_ITEMS = [
   { href: "/kg", label: "找幼稚園", match: ["/kg"] },
   { href: "/timeline", label: "開放日", match: ["/timeline"] },
-  { href: "/priority", label: "評價優勢", match: ["/priority"] },
   { href: "/activities", label: "課外活動", match: ["/activities"] },
   { href: "/programmes", label: "康體通", match: ["/programmes"] },
-  { href: "/news?tab=parent", label: "家長攻略", match: ["/news"], tab: "parent" },
+  { href: "/news", label: "消息資訊", match: ["/news"] },
   { href: "/account", label: "收藏夾", match: ["/account"] },
 ] as const;
 
-function isActiveItem(pathname: string, activeTab: string | null, item: (typeof NAV_ITEMS)[number]) {
-  const matchesPath = item.match.some((p) => pathname === p || pathname.startsWith(`${p}/`));
-  if (!matchesPath) return false;
-  if ("tab" in item) return activeTab === item.tab;
-  return pathname !== "/news" || activeTab !== "parent";
+function isActiveItem(pathname: string, _activeTab: string | null, item: (typeof NAV_ITEMS)[number]) {
+  return item.match.some((p) => pathname === p || pathname.startsWith(`${p}/`));
 }
 
 export function Header() {
