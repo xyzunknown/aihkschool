@@ -80,7 +80,7 @@ function extractMainContent(html: string): string {
   const raw = contentMatch?.[1] ?? "";
   if (!raw) return "";
 
-  // Strip scripts, styles, nav, forms, images, and GovHK boilerplate
+  // Strip scripts, styles, nav, forms, images
   return raw
     .replace(/<script[\s\S]*?<\/script>/gi, "")
     .replace(/<style[\s\S]*?<\/style>/gi, "")
@@ -89,6 +89,9 @@ function extractMainContent(html: string): string {
     .replace(/<footer[\s\S]*?<\/footer>/gi, "")
     .replace(/<form[\s\S]*?<\/form>/gi, "")
     .replace(/<img[^>]*>/gi, "")
+    // Remove skip-nav / anchor-only links entirely (before generic <a> cleanup)
+    .replace(/<a\s[^>]*href=["']#[^"']*["'][^>]*>[\s\S]*?<\/a>/gi, "")
+    // Strip remaining <a> tags, keep text
     .replace(/<a\s[^>]*>([\s\S]*?)<\/a>/gi, "$1")
     // GovHK / EDB boilerplate cleanup
     .replace(/<div[^>]*class=["'][^"]*controlDisplay[^"]*["'][^>]*>[\s\S]*?<\/div>/gi, "")
@@ -97,6 +100,12 @@ function extractMainContent(html: string): string {
     .replace(/完\s*\/\s*\S{2,3}\s*，\s*\d{1,2}月\d{1,2}日/g, "")
     .replace(/Issued at HKT \d{2}:\d{2}/gi, "")
     .replace(/於HKT \d{2}:\d{2}發出/g, "")
+    // Text-level accessibility boilerplate
+    .replace(/跳至主要內容/g, "")
+    .replace(/跳至主內容/g, "")
+    .replace(/跳至內容/g, "")
+    .replace(/跳到主要內容/g, "")
+    .replace(/Skip to main content/gi, "")
     // Preserve structural + formatting tags; strip the rest
     .replace(/<[^>]+>/g, (tag) => {
       if (/^<\/?(p|h[1-6]|ul|ol|li|br|blockquote|table|thead|tbody|tr|t[dh]|strong|em|b|i|u|sub|sup|hr|pre|code)\s*\/?>/i.test(tag)) return tag;
