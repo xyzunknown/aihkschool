@@ -9,6 +9,173 @@ function formatCurrency(value: number) {
   return `HK$${value.toLocaleString()}`;
 }
 
+const CLASS_HEADERS = ["幼兒 3-4 歲", "低班 4-5 歲", "高班 5-6 歲"] as const;
+const ROW_LABELS = ["上午班", "下午班", "全日班"] as const;
+
+type FeeRow = {
+  label: string;
+  values: string[];
+};
+
+type ParsedFeeBlock = {
+  lead: string[];
+  table: { headers: string[]; rows: FeeRow[] } | null;
+};
+
+function normalizeText(text: string) {
+  return text.replace(/\r\n?/g, "\n").replace(/\u00a0/g, " ").trim();
+}
+
+function splitSegments(text: string) {
+  return text
+    .split(/\n+/)
+    .flatMap((line) => line.split(/\s\/\s/))
+    .map((part) => part.replace(/\s+/g, " ").trim())
+    .filter(Boolean);
+}
+
+function parseDelimitedTable(text: string): ParsedFeeBlock | null {
+  if (!text.includes("|")) return null;
+  const leadIndex = text.indexOf(CLASS_HEADERS[0]);
+  if (leadIndex === -1) return null;
+
+  const lead = splitSegments(text.slice(0, leadIndex));
+  const tableText = text.slice(leadIndex).trim();
+  const tokens = tableText.split(/\s*\|{1,2}\s*/).map((part) => part.trim()).filter(Boolean);
+
+  if (tokens.length < 7) return null;
+  if (CLASS_HEADERS.some((header, index) => tokens[index] !== header)) return null;
+
+  const rows: FeeRow[] = [];
+  for (let i = CLASS_HEADERS.length; i < tokens.length; i += 4) {
+    const label = tokens[i];
+    const values = tokens.slice(i + 1, i + 4);
+    if (!label || values.length === 0) continue;
+    rows.push({
+      label,
+      values: values.map((value) => value || "—"),
+    });
+  }
+
+  if (!rows.length) return null;
+
+  return {
+    lead,
+    table: {
+      headers: [...CLASS_HEADERS],
+      rows,
+    },
+  };
+}
+
+function extractValues(segment: string) {
+  const values = segment.match(/(?:HK\$|\$)\s?\d[\d,]*(?:\(\d+\))?|免費|[—–-]{1,3}/g);
+  return values?.length ? values.map((value) => value.trim()) : [];
+}
+
+function parseCompactTable(text: string): ParsedFeeBlock | null {
+  const leadIndex = text.indexOf(CLASS_HEADERS[0]);
+  if (leadIndex === -1) return null;
+
+  const lead = splitSegments(text.slice(0, leadIndex));
+  const tableText = text.slice(leadIndex);
+  const rows: FeeRow[] = [];
+  let rowStart = -1;
+
+  for (let i = 0; i < ROW_LABELS.length; i++) {
+    const label = ROW_LABELS[i];
+    const start = tableText.indexOf(label);
+    if (start === -1) continue;
+
+    if (rowStart !== -1 && start <= rowStart) continue;
+
+    const nextLabel = ROW_LABELS.slice(i + 1)
+      .map((next) => tableText.indexOf(next, start + label.length))
+      .filter((idx) => idx !== -1)
+      .sort((a, b) => a - b)[0];
+    const segment = tableText.slice(start + label.length, nextLabel ?? tableText.length);
+    const values = extractValues(segment);
+
+    if (values.length === 0) continue;
+
+    rows.push({
+      label,
+      values: values.slice(0, CLASS_HEADERS.length),
+    });
+    rowStart = start;
+  }
+
+  if (!rows.length) return null;
+
+  return {
+    lead,
+    table: {
+      headers: [...CLASS_HEADERS],
+      rows,
+    },
+  };
+}
+
+function parseFeeBlock(text: string): ParsedFeeBlock {
+  const normalized = normalizeText(text);
+  return parseDelimitedTable(normalized) ?? parseCompactTable(normalized) ?? {
+    lead: splitSegments(normalized),
+    table: null,
+  };
+}
+
+function FeeNarrative({ title, text }: { title: string; text: string }) {
+  const parsed = parseFeeBlock(text);
+
+  return (
+    <div>
+      <div className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">{title}</div>
+      <div className="space-y-3">
+        {parsed.lead.length > 0 && (
+          <div className="space-y-2">
+            {parsed.lead.map((segment) => (
+              <p key={segment} className="text-sm text-slate-900 leading-relaxed break-words">
+                {segment}
+              </p>
+            ))}
+          </div>
+        )}
+
+        {parsed.table && (
+          <div className="overflow-x-auto rounded-xl border border-slate-200">
+            <table className="min-w-full border-collapse text-sm">
+              <thead className="bg-slate-50">
+                <tr>
+                  <th className="px-3 py-2 text-left font-medium text-slate-500">班別</th>
+                  {parsed.table.headers.map((header) => (
+                    <th key={header} className="px-3 py-2 text-left font-medium text-slate-500 whitespace-nowrap">
+                      {header}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {parsed.table.rows.map((row) => (
+                  <tr key={row.label} className="border-t border-slate-100">
+                    <th className="px-3 py-2 text-left font-medium text-slate-900 whitespace-nowrap bg-white">
+                      {row.label}
+                    </th>
+                    {parsed.table?.headers.map((header, index) => (
+                      <td key={header} className="px-3 py-2 text-slate-900 whitespace-nowrap bg-white">
+                        {row.values[index] ?? "—"}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export function FeesSection({ school }: FeesSectionProps) {
   const hasMonthlyFee = school.fee_monthly_hkd !== null;
   const hasAnnualFee = school.fee_annual_hkd !== null;
@@ -77,20 +244,10 @@ export function FeesSection({ school }: FeesSectionProps) {
         {hasOtherFeesNote && (
           <div className="mt-4 space-y-3 border-t border-slate-200 pt-4">
             {school.fee_notes && (
-              <div>
-                <div className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">
-                  官網費用摘要
-                </div>
-                <p className="text-sm text-slate-900 leading-relaxed">{school.fee_notes}</p>
-              </div>
+              <FeeNarrative title="官網費用摘要" text={school.fee_notes} />
             )}
             {school.other_fees_note && (
-              <div>
-                <div className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">
-                  其他收費
-                </div>
-                <p className="text-sm text-slate-900 leading-relaxed">{school.other_fees_note}</p>
-              </div>
+              <FeeNarrative title="其他收費" text={school.other_fees_note} />
             )}
           </div>
         )}
