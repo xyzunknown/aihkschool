@@ -1,3 +1,5 @@
+"use client";
+
 import type { ProgrammeCategory } from "@/lib/db/programmes";
 import {
   PROGRAMME_CATEGORY_LABELS,

@@ -207,7 +207,7 @@ export function getAvatarColor(schoolId: string): { bg: string; text: string } {
   for (let i = 0; i < schoolId.length; i++) {
     hash = ((hash << 5) - hash + schoolId.charCodeAt(i)) | 0;
   }
-  const index = Math.abs(hash) % AVATAR_COLORS.length;
+  const index = (hash >>> 0) % AVATAR_COLORS.length;
   return AVATAR_COLORS[index];
 }
 
@@ -222,6 +222,7 @@ export function getAvatarColor(schoolId: string): { bg: string; text: string } {
 export function isVacancyStale(edbPublishedDate: string | null): boolean {
   if (!edbPublishedDate) return true;
   const published = new Date(edbPublishedDate);
+  if (Number.isNaN(published.getTime())) return true;
   const now = new Date();
   const diffDays = (now.getTime() - published.getTime()) / (1000 * 60 * 60 * 24);
   return diffDays > 45;
@@ -233,6 +234,7 @@ export function isVacancyStale(edbPublishedDate: string | null): boolean {
 export function daysUntilDeadline(deadline: string | null): number | null {
   if (!deadline) return null;
   const d = new Date(deadline);
+  if (Number.isNaN(d.getTime())) return null;
   const now = new Date();
   now.setHours(0, 0, 0, 0);
   d.setHours(0, 0, 0, 0);
@@ -257,6 +259,7 @@ export function deadlineStatus(deadline: string | null): "safe" | "warn" | "urge
 export function formatDateCN(dateStr: string | null): string {
   if (!dateStr) return "暫無";
   const d = new Date(dateStr);
+  if (Number.isNaN(d.getTime())) return "暫無";
   return `${d.getMonth() + 1}月${d.getDate()}日`;
 }
 

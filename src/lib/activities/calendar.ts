@@ -27,7 +27,7 @@ export function generateICS(activity: Activity): string {
   let dtstart: string;
   let dtend: string;
 
-  if (activity.start_date && timeParsed) {
+  if (activity.start_date && timeParsed && isValidDateOnly(activity.start_date)) {
     // Case 1: timed event — use start_date + parsed time (HKT = UTC+8)
     const [sh, sm] = timeParsed.start;
     const [eh, em] = timeParsed.end;
@@ -38,12 +38,19 @@ export function generateICS(activity: Activity): string {
     dtend = `DTEND:${formatDateTimeUTC(endUTC)}`;
   } else if (activity.start_date) {
     // Case 2/3: all-day event
-    const start = activity.start_date.replace(/-/g, "");
     // ICS all-day DTEND is exclusive — add 1 day
-    const endDate = activity.end_date || activity.start_date;
-    const endExclusive = addDays(endDate, 1).replace(/-/g, "");
-    dtstart = `DTSTART;VALUE=DATE:${start}`;
-    dtend = `DTEND;VALUE=DATE:${endExclusive}`;
+    const startDate = normalizeDateOnly(activity.start_date);
+    const endDate = normalizeDateOnly(activity.end_date || activity.start_date);
+
+    if (!startDate || !endDate) {
+      const today = new Date().toISOString().split("T")[0].replace(/-/g, "");
+      dtstart = `DTSTART;VALUE=DATE:${today}`;
+      dtend = `DTEND;VALUE=DATE:${today}`;
+    } else {
+      const endExclusive = addDays(endDate, 1);
+      dtstart = `DTSTART;VALUE=DATE:${startDate}`;
+      dtend = `DTEND;VALUE=DATE:${endExclusive}`;
+    }
   } else {
     // No date info — use today as fallback
     const today = new Date().toISOString().split("T")[0].replace(/-/g, "");
@@ -117,9 +124,22 @@ function formatDateTimeUTC(d: Date): string {
 }
 
 function addDays(dateStr: string, days: number): string {
-  const d = new Date(dateStr);
+  const d = new Date(`${dateStr}T00:00:00`);
+  if (Number.isNaN(d.getTime())) {
+    return new Date().toISOString().split("T")[0].replace(/-/g, "");
+  }
   d.setDate(d.getDate() + days);
-  return d.toISOString().split("T")[0];
+  return d.toISOString().split("T")[0].replace(/-/g, "");
+}
+
+function normalizeDateOnly(dateStr: string): string | null {
+  const d = new Date(`${dateStr}T00:00:00`);
+  if (Number.isNaN(d.getTime())) return null;
+  return d.toISOString().split("T")[0].replace(/-/g, "");
+}
+
+function isValidDateOnly(dateStr: string): boolean {
+  return normalizeDateOnly(dateStr) !== null;
 }
 
 function escapeICS(text: string): string {

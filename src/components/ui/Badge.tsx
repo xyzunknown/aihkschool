@@ -1,3 +1,5 @@
+"use client";
+
 interface BadgeProps {
   children: React.ReactNode;
   variant?: "default" | "active" | "success" | "warning" | "danger";

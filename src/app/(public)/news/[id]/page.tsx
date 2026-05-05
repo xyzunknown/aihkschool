@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { getAllNewsItems } from "@/lib/homepage/liveData";
 import { NEWS_ITEMS } from "@/data/homepage";
 import type { NewsItem } from "@/types/homepage";
@@ -10,6 +11,41 @@ export function generateStaticParams() {
   return NEWS_ITEMS
     .filter((item) => !item.is_external)
     .map((item) => ({ id: item.id }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
+  const decodedId = decodeURIComponent(params.id);
+  const allNews = await getAllNewsItems();
+  const article = allNews.find((item) => item.id === decodedId);
+
+  if (!article || article.is_external) {
+    return {
+      title: "資訊消息",
+      description: "掌握最新教育資訊、學校活動、升學政策。",
+    };
+  }
+
+  const description = article.summary || article.title;
+
+  return {
+    title: article.title,
+    description,
+    openGraph: {
+      title: article.title,
+      description,
+      type: "article",
+      url: `/news/${encodeURIComponent(article.id)}`,
+    },
+    twitter: {
+      card: "summary",
+      title: article.title,
+      description,
+    },
+  };
 }
 
 async function fetchHtml(url: string): Promise<string | null> {
@@ -111,6 +147,8 @@ function extractMainContent(html: string): string {
       if (/^<\/?(p|h[1-6]|ul|ol|li|br|blockquote|table|thead|tbody|tr|t[dh]|strong|em|b|i|u|sub|sup|hr|pre|code)\s*\/?>/i.test(tag)) return tag;
       return "";
     })
+    .replace(/\son[a-z-]+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, "")
+    .replace(/\sstyle\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, "")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
 }

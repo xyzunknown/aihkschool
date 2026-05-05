@@ -1,5 +1,9 @@
+"use client";
+
+import { useState, type FormEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useToast } from "@/components/ui/Toast";
 
 const QUICK_LINKS = [
   { href: "/kg", label: "找幼稚園" },
@@ -22,6 +26,44 @@ const SUPPORT_LINKS = [
 ] as const;
 
 export function Footer() {
+  const { showToast } = useToast();
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const trimmed = email.trim();
+    if (!trimmed || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) {
+      showToast({ message: "請先輸入有效電郵" });
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: trimmed }),
+      });
+
+      if (!response.ok) {
+        const json = await response.json().catch(() => null);
+        showToast({
+          message: json?.error?.message ?? "訂閱未成功，請稍後再試",
+        });
+        return;
+      }
+
+      setEmail("");
+      showToast({ message: "已送出訂閱，謝謝你" });
+    } catch {
+      showToast({ message: "訂閱未成功，請稍後再試" });
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
   return (
     <footer className="relative mt-12 bg-[linear-gradient(180deg,#FCFDFC_0%,#F7FBF8_100%)] border-t border-surface-border">
       <div className="relative max-w-[1200px] mx-auto px-5 md:px-8 py-9 md:py-10 grid grid-cols-1 md:grid-cols-12 gap-7 md:gap-8">
@@ -97,17 +139,22 @@ export function Footer() {
         <div className="md:col-span-4">
           <h4 className="text-sm font-semibold text-ink-900 mb-3">訂閱幼稚園資訊</h4>
           <p className="text-sm text-ink-700 mb-3">接收最新資訊及入學消息</p>
-          <form className="flex items-center gap-2">
+          <form className="flex items-center gap-2" onSubmit={handleSubmit}>
             <input
               type="email"
+              name="email"
+              autoComplete="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="輸入您的電郵地址"
               className="flex-1 px-4 h-11 rounded-pill bg-white border border-surface-border text-sm outline-none focus:border-brand-500 shadow-[0_8px_20px_rgba(30,82,56,0.05)]"
             />
             <button
               type="submit"
-              className="px-5 h-11 rounded-pill bg-forest-600 text-white text-sm font-medium hover:bg-forest-700 transition shadow-[0_10px_24px_rgba(30,82,56,0.12)]"
+              disabled={isSubmitting}
+              className="px-5 h-11 rounded-pill bg-forest-600 text-white text-sm font-medium hover:bg-forest-700 transition shadow-[0_10px_24px_rgba(30,82,56,0.12)] disabled:cursor-not-allowed disabled:opacity-60"
             >
-              訂閱
+              {isSubmitting ? "送出中..." : "訂閱"}
             </button>
           </form>
           <div className="mt-4 space-y-2">

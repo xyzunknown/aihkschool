@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/Button";
 import type { School } from "@/types/database";
 
 interface DetailBottomCTAProps {
@@ -25,6 +24,14 @@ export function DetailBottomCTA({ school, isFavorited, onToggleFavorite, isInCom
     return `申請 ${getAcademicYear()} 入學`;
   };
 
+  const buttonBase =
+    "inline-flex flex-1 items-center justify-center gap-1.5 rounded-xl px-5 py-2.5 text-sm font-medium transition-transform hover:scale-[1.02]";
+
+  const primaryButtonClass =
+    "bg-slate-950 text-white";
+  const secondaryButtonClass =
+    "bg-white text-slate-900 border border-slate-200";
+
   const getPrimaryAction = () => {
     if (school.website) {
       return (
@@ -32,41 +39,37 @@ export function DetailBottomCTA({ school, isFavorited, onToggleFavorite, isInCom
           href={school.website}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1"
+          className={`${buttonBase} ${primaryButtonClass}`}
         >
-          <Button variant="primary" className="w-full">
-            {getApplyButtonText()}
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              className="ml-2"
-            >
-              <polyline points="5 12 19 12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </Button>
+          {getApplyButtonText()}
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            className="ml-2"
+          >
+            <polyline points="5 12 19 12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
         </a>
       );
     }
 
     if (school.phone) {
       return (
-        <a href={`tel:${school.phone}`} className="flex-1">
-          <Button variant="primary" className="w-full">
-            致電學校
-          </Button>
+        <a href={`tel:${school.phone}`} className={`${buttonBase} ${primaryButtonClass}`}>
+          致電學校
         </a>
       );
     }
 
     return (
-      <Button variant="primary" className="flex-1" disabled>
+      <button type="button" className={`${buttonBase} ${primaryButtonClass} cursor-not-allowed opacity-50`} disabled>
         暫無聯絡方式
-      </Button>
+      </button>
     );
   };
 
@@ -76,23 +79,23 @@ export function DetailBottomCTA({ school, isFavorited, onToggleFavorite, isInCom
         {getPrimaryAction()}
 
         {onToggleCompare && (
-          <Button
-            variant={isInCompare ? "primary" : "secondary"}
+          <button
+            type="button"
             onClick={onToggleCompare}
-            className="flex-none"
+            className={`${buttonBase} flex-none ${isInCompare ? primaryButtonClass : secondaryButtonClass}`}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <rect x="3" y="3" width="8" height="18" rx="1.5" fill={isInCompare ? "currentColor" : "none"} />
               <rect x="13" y="3" width="8" height="18" rx="1.5" fill={isInCompare ? "currentColor" : "none"} />
             </svg>
             {isInCompare ? "已加入對比" : "加入對比"}
-          </Button>
+          </button>
         )}
 
-        <Button
-          variant={isFavorited ? "primary" : "secondary"}
+        <button
+          type="button"
           onClick={onToggleFavorite}
-          className="flex-none"
+          className={`${buttonBase} flex-none ${isFavorited ? primaryButtonClass : secondaryButtonClass}`}
         >
           <svg
             width="16"
@@ -105,7 +108,7 @@ export function DetailBottomCTA({ school, isFavorited, onToggleFavorite, isInCom
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
           </svg>
           {isFavorited ? "已收藏" : "收藏"}
-        </Button>
+        </button>
       </div>
     </div>
   );

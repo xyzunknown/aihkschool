@@ -28,6 +28,39 @@ function sourceStyle(source: string): string {
 
 type CategoryKey = (typeof CATEGORIES)[number]["key"];
 
+function buildShareUrl(href: string) {
+  if (typeof window === "undefined") return href;
+  return new URL(href, window.location.origin).toString();
+}
+
+async function copyTextToClipboard(text: string) {
+  if (typeof window === "undefined") return false;
+
+  const clipboard = window.navigator.clipboard;
+  if (clipboard?.writeText) {
+    await clipboard.writeText(text);
+    return true;
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "true");
+  textarea.style.position = "fixed";
+  textarea.style.opacity = "0";
+  textarea.style.left = "-9999px";
+  document.body.appendChild(textarea);
+  textarea.select();
+
+  let copied = false;
+  try {
+    copied = document.execCommand("copy");
+  } finally {
+    document.body.removeChild(textarea);
+  }
+
+  return copied;
+}
+
 export default function NewsPage() {
   const searchParams = useSearchParams();
   const [items, setItems] = useState<NewsItem[]>([]);
@@ -68,6 +101,31 @@ export default function NewsPage() {
     if (activeCategory === "edu_policy") return item.content_type === "policy";
     return true;
   });
+
+  async function handleShare(item: NewsItem, href: string) {
+    const shareUrl = buildShareUrl(href);
+    const shareData = {
+      title: item.title,
+      text: item.summary || item.title,
+      url: shareUrl,
+    };
+
+    try {
+      if (typeof navigator !== "undefined" && "share" in navigator) {
+        await navigator.share(shareData);
+        return;
+      }
+
+      if (await copyTextToClipboard(shareUrl)) {
+        window.alert("連結已複製");
+        return;
+      }
+    } catch {
+      // Fall through to a simple, non-blocking message.
+    }
+
+    window.alert(`請手動複製這個連結：${shareUrl}`);
+  }
 
   return (
     <>
@@ -119,15 +177,17 @@ export default function NewsPage() {
               const href = isExternal ? item.href : `/news/${encodeURIComponent(item.id)}`;
 
               return (
-                <Link
+                <article
                   key={item.id}
-                  href={href}
-                  target={isExternal ? "_blank" : undefined}
-                  rel={isExternal ? "noreferrer" : undefined}
-                  className="block group"
+                  className="rounded-card border border-cream-200 bg-white px-5 py-4 transition hover:shadow-card hover:border-forest-200"
                 >
-                  <article className="rounded-card border border-cream-200 bg-white px-5 py-4 transition hover:shadow-card hover:border-forest-200">
-                    <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-3">
+                    <Link
+                      href={href}
+                      target={isExternal ? "_blank" : undefined}
+                      rel={isExternal ? "noreferrer" : undefined}
+                      className="flex min-w-0 flex-1 items-start gap-3 group"
+                    >
                       <div className="flex-shrink-0 w-10 h-10 rounded-full bg-leaf-50 flex items-center justify-center text-base">
                         📰
                       </div>
@@ -153,28 +213,32 @@ export default function NewsPage() {
                           </p>
                         )}
                       </div>
-                      <div className="flex-shrink-0 flex flex-col items-end gap-2">
-                        <span className="text-[11px] text-ink-500">{item.date}</span>
-                        <div className="flex items-center gap-1.5 text-ink-400">
-                          <button aria-label="收藏" className="hover:text-forest-600">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
-                            </svg>
-                          </button>
-                          <button aria-label="分享" className="hover:text-forest-600">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                              <circle cx="18" cy="5" r="3" />
-                              <circle cx="6" cy="12" r="3" />
-                              <circle cx="18" cy="19" r="3" />
-                              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-                              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
-                            </svg>
-                          </button>
-                        </div>
+                    </Link>
+                    <div className="flex-shrink-0 flex flex-col items-end gap-2">
+                      <span className="text-[11px] text-ink-500">{item.date}</span>
+                      <div className="flex items-center gap-1.5 text-ink-400">
+                        <button
+                          type="button"
+                          aria-label="分享"
+                          className="hover:text-forest-600"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            void handleShare(item, href);
+                          }}
+                        >
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <circle cx="18" cy="5" r="3" />
+                            <circle cx="6" cy="12" r="3" />
+                            <circle cx="18" cy="19" r="3" />
+                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+                          </svg>
+                        </button>
                       </div>
                     </div>
-                  </article>
-                </Link>
+                  </div>
+                </article>
               );
             })}
           </div>

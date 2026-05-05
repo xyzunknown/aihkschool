@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { createClient } from "@/lib/supabase/server";
+import { NEWS_ITEMS } from "@/data/homepage";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://aihkschool.vercel.app";
 
@@ -15,11 +16,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/news`, lastModified: new Date(), priority: 0.7 },
     { url: `${BASE_URL}/activities`, lastModified: new Date(), priority: 0.7 },
     { url: `${BASE_URL}/programmes`, lastModified: new Date(), priority: 0.6 },
+    { url: `${BASE_URL}/priority`, lastModified: new Date(), priority: 0.5 },
     { url: `${BASE_URL}/contact`, lastModified: new Date(), priority: 0.3 },
     { url: `${BASE_URL}/terms`, lastModified: new Date(), priority: 0.3 },
     { url: `${BASE_URL}/privacy`, lastModified: new Date(), priority: 0.3 },
     { url: `${BASE_URL}/disclaimer`, lastModified: new Date(), priority: 0.3 },
   ];
+
+  const newsRoutes: MetadataRoute.Sitemap = NEWS_ITEMS
+    .filter((item) => !item.is_external)
+    .map((item) => ({
+      url: `${BASE_URL}/news/${item.id}`,
+      lastModified: item.published_at ? new Date(item.published_at) : new Date(),
+      priority: 0.6,
+    }));
 
   // Dynamic: school detail pages
   let schoolRoutes: MetadataRoute.Sitemap = [];
@@ -81,5 +91,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.warn("sitemap: failed to fetch programmes, skipping dynamic programme routes");
   }
 
-  return [...staticRoutes, ...schoolRoutes, ...activityRoutes, ...programmeRoutes];
+  return [...staticRoutes, ...newsRoutes, ...schoolRoutes, ...activityRoutes, ...programmeRoutes];
 }

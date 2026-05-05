@@ -80,6 +80,7 @@ export function SchoolCard({
 }: SchoolCardProps) {
   const router = useRouter();
   const stale = vacancy ? isVacancyStale(vacancy.edb_published_date) : true;
+  const handleNavigate = () => router.push(`/kg/${id}`);
 
   const hasChineseName = /[\u3400-\u9fff]/.test(nameTc);
   const displayNameEn = formatEnglishSchoolName(nameEn?.trim() || nameTc);
@@ -121,7 +122,16 @@ export function SchoolCard({
   return (
     <div
       className="bg-white rounded-2xl border border-slate-200 p-5 cursor-pointer hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200"
-      onClick={() => router.push(`/kg/${id}`)}
+      role="link"
+      tabIndex={0}
+      aria-label={`前往 ${primaryName}`}
+      onClick={handleNavigate}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handleNavigate();
+        }
+      }}
     >
       {/* Row 1: Avatar + Name + Favorite */}
       <div className="flex items-start gap-3 mb-3">
@@ -139,6 +149,7 @@ export function SchoolCard({
           {/* Compare button */}
           {onToggleCompare && (
             <button
+              type="button"
               className="p-1"
               onClick={(e) => {
                 e.stopPropagation();
@@ -153,12 +164,13 @@ export function SchoolCard({
             </button>
           )}
           {/* Favorite button */}
-          <button
-            className="p-1 -mr-1"
-            onClick={(e) => {
-              e.stopPropagation();
-              onToggleFavorite?.();
-            }}
+        <button
+          type="button"
+          className="p-1 -mr-1"
+          onClick={(e) => {
+            e.stopPropagation();
+            onToggleFavorite?.();
+          }}
             aria-label={isFavorited ? "取消收藏" : "加入收藏"}
           >
           {isFavorited ? (

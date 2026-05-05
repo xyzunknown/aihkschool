@@ -1,3 +1,5 @@
+"use client";
+
 import type { ActivityCategory, ActivityDistrict } from "@/lib/db/activities";
 import {
   CATEGORY_LABELS,

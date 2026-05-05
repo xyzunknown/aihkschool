@@ -23,64 +23,55 @@ export function ActivityCard({ activity }: ActivityCardProps) {
   const districtLabel = activity.district ? DISTRICT_LABELS[activity.district] : null;
 
   return (
-    <Link
-      href={`/activities/${activity.id}`}
-      className="flex h-full flex-col rounded-[20px] border border-surface-border bg-white p-5 shadow-[0_8px_24px_rgba(30,82,56,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(30,82,56,0.1)]"
-    >
-      <div className="mb-3 flex items-center justify-between">
-        <span className="inline-flex items-center rounded-pill bg-leaf-50 px-2.5 py-1 text-[11px] font-semibold text-forest-700 ring-1 ring-forest-700/10">
-          {CATEGORY_LABELS[activity.category]}
-        </span>
-        {fee.isFree ? (
-          <span className="inline-flex items-center rounded-pill bg-leaf-100 px-2.5 py-1 text-[11px] font-bold text-forest-700 ring-1 ring-forest-700/10">
-            免費
+    <article className="flex h-full flex-col rounded-[20px] border border-surface-border bg-white p-5 shadow-[0_8px_24px_rgba(30,82,56,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(30,82,56,0.1)]">
+      <Link href={`/activities/${activity.id}`} className="block">
+        <div className="mb-3 flex items-center justify-between">
+          <span className="inline-flex items-center rounded-pill bg-leaf-50 px-2.5 py-1 text-[11px] font-semibold text-forest-700 ring-1 ring-forest-700/10">
+            {CATEGORY_LABELS[activity.category]}
           </span>
-        ) : fee.shortLabel !== "費用待定" ? (
-          <span className="inline-flex items-center rounded-pill bg-sand-50 px-2.5 py-1 text-[11px] font-semibold text-sand-700 ring-1 ring-sand-700/10">
-            {fee.shortLabel}
-          </span>
-        ) : null}
-      </div>
+          {fee.isFree ? (
+            <span className="inline-flex items-center rounded-pill bg-leaf-100 px-2.5 py-1 text-[11px] font-bold text-forest-700 ring-1 ring-forest-700/10">
+              免費
+            </span>
+          ) : fee.shortLabel !== "費用待定" ? (
+            <span className="inline-flex items-center rounded-pill bg-sand-50 px-2.5 py-1 text-[11px] font-semibold text-sand-700 ring-1 ring-sand-700/10">
+              {fee.shortLabel}
+            </span>
+          ) : null}
+        </div>
 
-      <h3 className="mb-1 text-base font-semibold leading-snug text-ink-900 line-clamp-2">
-        {activity.title}
-      </h3>
+        <h3 className="mb-1 text-base font-semibold leading-snug text-ink-900 line-clamp-2">
+          {activity.title}
+        </h3>
 
-      {activity.organizer && (
-        <p className="mb-3 text-sm text-ink-500 line-clamp-1">
-          {activity.organizer}
-          {districtLabel && ` · ${districtLabel}`}
-        </p>
-      )}
-
-      <div className="mb-3 flex items-center gap-2 flex-wrap">
-        <span className="text-sm font-medium text-ink-700">{dateRange}</span>
-        {expired && (
-          <span className="inline-flex items-center rounded-pill bg-cream-200 px-2 py-0.5 text-[11px] font-medium text-ink-500">
-            已結束
-          </span>
+        {activity.organizer && (
+          <p className="mb-3 text-sm text-ink-500 line-clamp-1">
+            {activity.organizer}
+            {districtLabel && ` · ${districtLabel}`}
+          </p>
         )}
-      </div>
 
-      <div className="mt-auto space-y-2 text-sm text-ink-700">
-        {activity.schedule && (
-          <Row icon="time">{activity.schedule}</Row>
-        )}
-        {activity.address && (
-          <Row icon="pin">{activity.address}</Row>
-        )}
-        {ageRange && <Row icon="user">適合 {ageRange}</Row>}
-        {activity.contact_phone && <Row icon="phone">{activity.contact_phone}</Row>}
-      </div>
+        <div className="mb-3 flex items-center gap-2 flex-wrap">
+          <span className="text-sm font-medium text-ink-700">{dateRange}</span>
+          {expired && (
+            <span className="inline-flex items-center rounded-pill bg-cream-200 px-2 py-0.5 text-[11px] font-medium text-ink-500">
+              已結束
+            </span>
+          )}
+        </div>
+
+        <div className="mt-auto space-y-2 text-sm text-ink-700">
+          {activity.schedule && <Row icon="time">{activity.schedule}</Row>}
+          {activity.address && <Row icon="pin">{activity.address}</Row>}
+          {ageRange && <Row icon="user">適合 {ageRange}</Row>}
+          {activity.contact_phone && <Row icon="phone">{activity.contact_phone}</Row>}
+        </div>
+      </Link>
 
       {activity.contact_url && !expired && (
         <button
           type="button"
-          onClick={(e) => {
-            e.stopPropagation();
-            e.preventDefault();
-            window.open(activity.contact_url!, "_blank", "noopener,noreferrer");
-          }}
+          onClick={() => window.open(activity.contact_url!, "_blank", "noopener,noreferrer")}
           className="mt-4 inline-flex h-10 w-full items-center justify-center gap-1.5 rounded-pill bg-forest-600 px-4 text-sm font-medium text-white transition hover:bg-forest-700 shadow-[0_10px_24px_rgba(30,82,56,0.12)]"
         >
           查看詳情 / 報名
@@ -91,7 +82,7 @@ export function ActivityCard({ activity }: ActivityCardProps) {
           </svg>
         </button>
       )}
-    </Link>
+    </article>
   );
 }
 
