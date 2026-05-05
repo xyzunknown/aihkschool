@@ -1,18 +1,14 @@
 #!/usr/bin/env node
 /**
- * Media article crawler for the "topic information" layer.
+ * @deprecated ABANDONED — 2026-05
  *
- * Scope:
- *   - Oh!爸媽 / Ohpama
- *   - Sunday Kiss
- *   - Parenting Headline
+ * This crawler was unable to extract usable school-matched article data from
+ * Oh!爸媽 / Sunday Kiss / Parenting Headline. The pipeline is permanently
+ * abandoned. The media_articles table and RelatedMediaSection component remain
+ * in place but will always show empty states.
  *
- * It uses public RSS, sitemap, and listing/category pages as entry points.
- * Articles are classified, matched to schools, and upserted into media_articles.
- *
- * Usage:
- *   node scripts/crawlers/media-articles.mjs --dry-run --limit 80 --report docs/media-articles-smoke.json
- *   node scripts/crawlers/media-articles.mjs --source ohpama --limit 80
+ * DO NOT attempt to revive this crawler without first verifying the target
+ * sites still publish KG-relevant articles with extractable school names.
  */
 
 import { existsSync, readFileSync } from "node:fs";

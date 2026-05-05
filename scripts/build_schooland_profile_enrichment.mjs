@@ -187,6 +187,12 @@ function buildSourceFields(record) {
     "schooland_size_label",
     "schooland_session_label",
     "schooland_url",
+    "schooland_intro",
+    "schooland_teaching_summary",
+    "schooland_facilities_summary",
+    "schooland_founded_year",
+    "schooland_staff_count",
+    "schooland_teacher_student_ratio",
   ];
   return keys.reduce((acc, key) => {
     if (record[key] !== null && record[key] !== undefined && record[key] !== "") {
@@ -235,6 +241,12 @@ function buildOtherFees(row) {
   return compact || null;
 }
 
+function toInt(value) {
+  if (value === null || value === undefined || value === "") return null;
+  const parsed = parseInt(String(value).replace(/[^\d]/g, ""), 10);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
 function toRecord(row) {
   const operatorName = extractOperatorName(row);
   const groupTag = inferGroupTag(row, operatorName);
@@ -259,6 +271,12 @@ function toRecord(row) {
     schooland_nursery_service: inferNurseryService(row),
     schooland_size_label: inferSizeLabel(row),
     schooland_session_label: inferSessionLabel(row),
+    schooland_intro: collapseWhitespace(row.intro) || null,
+    schooland_teaching_summary: collapseWhitespace(row.teaching_summary) || null,
+    schooland_facilities_summary: collapseWhitespace(row.facilities_summary) || null,
+    schooland_founded_year: toInt(row.founded_year),
+    schooland_staff_count: toInt(row.staff_count),
+    schooland_teacher_student_ratio: collapseWhitespace(row.teacher_student_ratio) || null,
     source: "schooland.hk/kg",
   };
 }
@@ -288,6 +306,12 @@ function writeSql(records) {
       `schooland_source_updated_at = now()`,
       `schooland_source_fields = ${sqlJson(buildSourceFields(item))}`,
       `schooland_secondary_flags = jsonb_strip_nulls(jsonb_build_object('name_tc', CASE WHEN name_tc IS NULL AND ${sqlString(item.name_tc)} IS NOT NULL THEN 'schooland.hk/kg' ELSE NULL END, 'name_en', CASE WHEN name_en IS NULL AND ${sqlString(item.name_en)} IS NOT NULL THEN 'schooland.hk/kg' ELSE NULL END, 'website', CASE WHEN website IS NULL AND ${sqlString(item.website)} IS NOT NULL THEN 'schooland.hk/kg' ELSE NULL END, 'fee_annual_hkd', CASE WHEN fee_annual_hkd IS NULL AND ${sqlNumber(item.fee_annual_hkd)} IS NOT NULL THEN 'schooland.hk/kg' ELSE NULL END))`,
+      `schooland_intro = COALESCE(${sqlString(item.schooland_intro)}, schooland_intro)`,
+      `schooland_teaching_summary = COALESCE(${sqlString(item.schooland_teaching_summary)}, schooland_teaching_summary)`,
+      `schooland_facilities_summary = COALESCE(${sqlString(item.schooland_facilities_summary)}, schooland_facilities_summary)`,
+      `schooland_founded_year = COALESCE(${sqlNumber(item.schooland_founded_year)}, schooland_founded_year)`,
+      `schooland_staff_count = COALESCE(${sqlNumber(item.schooland_staff_count)}, schooland_staff_count)`,
+      `schooland_teacher_student_ratio = COALESCE(${sqlString(item.schooland_teacher_student_ratio)}, schooland_teacher_student_ratio)`,
       "last_profile_scraped_at = now()",
     ];
     lines.push(
@@ -311,6 +335,12 @@ function main() {
   const withNurseryService = records.filter((row) => row.schooland_nursery_service !== "unknown").length;
   const withSizeLabel = records.filter((row) => row.schooland_size_label).length;
   const withSessionLabel = records.filter((row) => row.schooland_session_label).length;
+  const withIntro = records.filter((row) => row.schooland_intro).length;
+  const withTeachingSummary = records.filter((row) => row.schooland_teaching_summary).length;
+  const withFacilitiesSummary = records.filter((row) => row.schooland_facilities_summary).length;
+  const withFoundedYear = records.filter((row) => row.schooland_founded_year).length;
+  const withStaffCount = records.filter((row) => row.schooland_staff_count).length;
+  const withTSR = records.filter((row) => row.schooland_teacher_student_ratio).length;
 
   ensureParentDir(OUTPUT_PATH);
   fs.writeFileSync(OUTPUT_PATH, `${JSON.stringify(records, null, 2)}\n`, "utf8");
@@ -330,6 +360,12 @@ function main() {
     with_nursery_service: withNurseryService,
     with_size_label: withSizeLabel,
     with_session_label: withSessionLabel,
+    with_intro: withIntro,
+    with_teaching_summary: withTeachingSummary,
+    with_facilities_summary: withFacilitiesSummary,
+    with_founded_year: withFoundedYear,
+    with_staff_count: withStaffCount,
+    with_teacher_student_ratio: withTSR,
     match_methods: matchedRows.reduce((acc, row) => {
       acc[row.matched_school_method] = (acc[row.matched_school_method] || 0) + 1;
       return acc;

@@ -147,7 +147,50 @@ export function BasicInfoSection({ school }: BasicInfoSectionProps) {
           </div>
         )}
 
-        {/* Stats pills — reserved for future data fields (師生比例, 校舍面積) */}
+        {/* Stats pills */}
+        {(school.schooland_founded_year || school.schooland_staff_count || school.schooland_teacher_student_ratio) && (
+          <div className="mt-5 flex flex-wrap gap-2">
+            {school.schooland_founded_year && (
+              <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-600">
+                創校 {school.schooland_founded_year} 年
+              </span>
+            )}
+            {school.schooland_staff_count && (
+              <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-600">
+                教職員約 {school.schooland_staff_count} 人
+              </span>
+            )}
+            {school.schooland_teacher_student_ratio && (
+              <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-600">
+                師生比例 1:{school.schooland_teacher_student_ratio}
+              </span>
+            )}
+          </div>
+        )}
+
+        {/* Schooland text blocks */}
+        {(school.schooland_intro || school.schooland_teaching_summary || school.schooland_facilities_summary) && (
+          <div className="mt-5 border-t border-slate-100 pt-5 space-y-4">
+            {school.schooland_intro && (
+              <div>
+                <h3 className="text-sm font-semibold text-slate-800 mb-2">教學理念及課程</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">{school.schooland_intro}</p>
+              </div>
+            )}
+            {school.schooland_teaching_summary && (
+              <div>
+                <h3 className="text-sm font-semibold text-slate-800 mb-2">教學情況</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">{school.schooland_teaching_summary}</p>
+              </div>
+            )}
+            {school.schooland_facilities_summary && (
+              <div>
+                <h3 className="text-sm font-semibold text-slate-800 mb-2">學校設施</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">{school.schooland_facilities_summary}</p>
+              </div>
+            )}
+          </div>
+        )}
 
         <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
           {mapEmbedSrc ? (

@@ -4,12 +4,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { createClient } from "@/lib/supabase/server";
 import {
-  MEDIA_CONTENT_TYPE_LABELS,
-  MEDIA_SOURCE_LABELS,
-  fetchMediaArticles,
-  type MediaArticle,
-} from "@/lib/db/mediaArticles";
-import {
+  BANNERS,
   FEATURED_SCHOOLS,
   NEWS_ITEMS,
   SCHOOL_EVENTS,
@@ -19,6 +14,7 @@ import {
   SCHOOL_TYPE_LABELS,
   formatEnglishSchoolName,
 } from "@/lib/utils";
+import { extractIsoDate } from "@/lib/utils/extractIsoDate";
 import type {
   FeaturedSchool,
   HomeBanner,
@@ -89,16 +85,11 @@ const BANNER_IMAGES = [
 /* ─── Regex filters ─── */
 
 const KG_NEWS_REGEX =
-  /(kindergarten|\bk[123](?!\d)|pre-primary|pre primary|preschool|幼稚園|幼兒班|收生安排|收生|註冊證|註冊|家長簡介會)/i;
+  /(kindergarten|k1|pre-primary|pre primary|preschool|幼稚園|幼兒班|收生安排|收生|註冊證|註冊|家長簡介會)/i;
 const HK01_KG_NEWS_REGEX =
-  /(幼稚園|幼兒(?!車)|\bk[123](?!\d)|學前|收生|入學|\bpn\b|幼教|校舍|停辦|學券|概覽)/i;
+  /(幼稚園|幼兒|k1|學前|收生|入學|pn|幼教|校舍|停辦|學券|概覽)/i;
 const NOISE_REGEX =
-  /(smart parent net|parent-child code|secondary|primary one|senior secondary|principals and teachers|vacant kindergarten premises|jupas|dse|大學|大学|中學|中学|小一|升小|小六|p\.?[1-6]|呈分試|常識科|默書|呈分|統一派位|世界排名)/i;
-
-// Sensational / accident news that mentions 幼兒/幼稚園 incidentally but is
-// not useful to a parent making school decisions (accidents, crime, deaths).
-const SENSATIONAL_REGEX =
-  /(墮.{0,4}(軌|樓|海|河|車|斃)|跳.{0,3}(軌|樓|車)|虐|斃命|殞命|遇害|罪案|搶劫|猥褻|性侵|綁架|失蹤|墜樓|身亡|罹難|燒傷|燒死|溺斃|車禍|肉身護)/;
+  /(smart parent net|parent-child code|secondary|primary one|senior secondary|principals and teachers|vacant kindergarten premises)/i;
 const OPEN_DAY_REGEX =
   /(open day|open house|school tour|campus tour|visit us|校園參觀|開放日|參觀)/i;
 const ADMISSION_REGEX =
@@ -246,11 +237,7 @@ function parseSitemapNewsItems(xml: string) {
 }
 
 function isRelevantNews(title: string): boolean {
-  return (
-    KG_NEWS_REGEX.test(title) &&
-    !NOISE_REGEX.test(title) &&
-    !SENSATIONAL_REGEX.test(title)
-  );
+  return KG_NEWS_REGEX.test(title) && !NOISE_REGEX.test(title);
 }
 
 async function fetchNewsSummary(url: string, fallbackTitle: string): Promise<string> {
@@ -282,24 +269,6 @@ function toSourceCategory(source: string): "government" | "media" | "school" {
 
 function isExternalSource(source: string): boolean {
   return source !== "edb" && source !== "govhk";
-}
-
-function mediaArticleToNewsItem(article: MediaArticle): NewsItem {
-  const publishedAt = article.published_at || new Date().toISOString();
-  return {
-    id: `media-${article.source}-${article.external_id}`,
-    source: article.source,
-    source_category: "media",
-    source_label: MEDIA_SOURCE_LABELS[article.source],
-    title: cleanText(article.title),
-    summary: shorten(article.summary || article.body_excerpt || article.title, 72),
-    date: formatMonthDay(publishedAt),
-    published_at: publishedAt,
-    href: article.url,
-    is_external: true,
-    content_type: article.content_type,
-    content_type_label: MEDIA_CONTENT_TYPE_LABELS[article.content_type],
-  };
 }
 
 /* ─── News fetchers ─── */
@@ -350,9 +319,7 @@ async function getHk01NewsItems(): Promise<NewsItem[]> {
         item.link &&
         item.title &&
         isRecent(item.pubDate) &&
-        HK01_KG_NEWS_REGEX.test(`${item.title} ${item.link}`) &&
-        !NOISE_REGEX.test(`${item.title} ${item.link}`) &&
-        !SENSATIONAL_REGEX.test(`${item.title} ${item.link}`)
+        HK01_KG_NEWS_REGEX.test(`${item.title} ${item.link}`)
     )
     .slice(0, 4);
 
@@ -373,14 +340,12 @@ async function getHk01NewsItems(): Promise<NewsItem[]> {
 }
 
 async function getLiveNewsItems(): Promise<NewsItem[]> {
-  const [edbItems, hk01Items, mediaArticles] = await Promise.all([
+  const [edbItems, hk01Items] = await Promise.all([
     getEdbNewsItems(),
     getHk01NewsItems(),
-    fetchMediaArticles(24),
   ]);
 
-  const mediaItems = mediaArticles.map(mediaArticleToNewsItem);
-  const liveItems = sortNewsByPublishedAt([...edbItems, ...hk01Items, ...mediaItems]);
+  const liveItems = sortNewsByPublishedAt([...edbItems, ...hk01Items]);
 
   // If live fetch succeeded, merge with recent fallback (deduped)
   if (liveItems.length > 0) {
@@ -400,14 +365,12 @@ async function getLiveNewsItems(): Promise<NewsItem[]> {
 
 /** Fetch all news (for /news page). No slice limit. */
 export async function getAllNewsItems(): Promise<NewsItem[]> {
-  const [edbItems, hk01Items, mediaArticles] = await Promise.all([
+  const [edbItems, hk01Items] = await Promise.all([
     getEdbNewsItems(),
     getHk01NewsItems(),
-    fetchMediaArticles(100),
   ]);
 
-  const mediaItems = mediaArticles.map(mediaArticleToNewsItem);
-  const liveItems = sortNewsByPublishedAt([...edbItems, ...hk01Items, ...mediaItems]);
+  const liveItems = sortNewsByPublishedAt([...edbItems, ...hk01Items]);
 
   if (liveItems.length > 0) {
     const recentFallback = sortNewsByPublishedAt(
@@ -425,144 +388,6 @@ export async function getAllNewsItems(): Promise<NewsItem[]> {
 }
 
 /* ─── Event helpers ─── */
-
-const MONTH_KEYS = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
-
-function pad(n: number): string {
-  return String(n).padStart(2, "0");
-}
-
-function buildIso(year: number, month: number, day: number): string | null {
-  if (month < 1 || month > 12 || day < 1 || day > 31) return null;
-  return `${year}-${pad(month)}-${pad(day)}`;
-}
-
-/**
- * Resolve a year-less month/day into a full ISO date.
- * If the date with the current year is more than 30 days in the past,
- * try the next year (covers e.g. "14 Mar" seen in late April).
- */
-function resolveYearAware(month: number, day: number, explicitYear: number | null): string | null {
-  if (explicitYear) return buildIso(explicitYear, month, day);
-
-  const now = new Date();
-  const currentYear = now.getFullYear();
-  const candidate = buildIso(currentYear, month, day);
-  if (!candidate) return null;
-  const candidateDate = parseDate(candidate);
-  if (!candidateDate) return null;
-
-  const diffDays = (candidateDate.getTime() - now.getTime()) / (24 * 60 * 60 * 1000);
-  if (diffDays < -MAX_EVENT_PAST_DAYS) {
-    return buildIso(currentYear + 1, month, day);
-  }
-  return candidate;
-}
-
-/**
- * Extract an ISO date from free-form open-day text.
- * Supports:
- *   - Chinese:   `M月D日` (year optional)
- *   - English:   `14 Mar 2026`, `Mar 14, 2026`, `14th March`, `March 2026`
- *   - Numeric:   `YYYY-MM-DD`, `D/M/YYYY`, `M/D/YYYY` (heuristic: prefer D/M when first segment > 12)
- *   - Ranges:    `Apr & May 2026`, `14-15 Mar 2026` → first valid date in range
- *   - Seasons:   `2026春季` (Spring) / `夏季` (Summer) / `秋季` (Autumn) / `冬季` (Winter) → mid-month of season
- * Year resolution: if no year present and the inferred date is >7 days past,
- * roll forward to next year.
- */
-function extractIsoDate(text: string): string | null {
-  if (!text) return null;
-  const cleaned = text.replace(/\s+/g, " ").trim();
-  const lowered = cleaned.toLowerCase();
-
-  // 1. ISO YYYY-MM-DD
-  const iso = cleaned.match(/(20\d{2})-(\d{1,2})-(\d{1,2})/);
-  if (iso) {
-    const built = buildIso(Number(iso[1]), Number(iso[2]), Number(iso[3]));
-    if (built) return built;
-  }
-
-  // 2. Chinese: optional 4-digit year + M月D日
-  const cn = cleaned.match(/(?:(20\d{2})\s*年\s*)?(\d{1,2})\s*月\s*(\d{1,2})\s*日/);
-  if (cn) {
-    return resolveYearAware(Number(cn[2]), Number(cn[3]), cn[1] ? Number(cn[1]) : null);
-  }
-
-  // 3. English month range: "Apr & May 2026" → first future month, day 1.
-  //    Run BEFORE single-month patterns so "Apr & May 2026" doesn't get mis-parsed as "Apr 20" day-of-year.
-  const monthRange = lowered.match(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\s*(?:&|and|to|-|–|—|\/)\s*(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*(?:\s*,?\s*(20\d{2}))?/i);
-  if (monthRange) {
-    const m1 = MONTH_KEYS.indexOf(monthRange[1].toLowerCase()) + 1;
-    const m2 = MONTH_KEYS.indexOf(monthRange[2].toLowerCase()) + 1;
-    const year = monthRange[3] ? Number(monthRange[3]) : null;
-    const candidate1 = resolveYearAware(m1, 1, year);
-    const candidate2 = resolveYearAware(m2, 1, year);
-    const now = new Date();
-    const c1 = candidate1 ? parseDate(candidate1) : null;
-    if (c1 && (c1.getTime() - now.getTime()) / 86400000 >= -MAX_EVENT_PAST_DAYS) return candidate1;
-    return candidate2 ?? candidate1;
-  }
-
-  // 4. English with day + month (run BEFORE month-only so "14 Mar 2026" keeps the day).
-  //    `(?!\d)` after day prevents matching "20" out of "2026" when no real day is present.
-  const enDayFirst = lowered.match(/\b(\d{1,2})(?:st|nd|rd|th)?(?!\d)\s+(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*(?:\s*(?:to|-|–|—)\s*\d{1,2}(?:st|nd|rd|th)?)?(?:\s*,?\s*(20\d{2}))?/i);
-  if (enDayFirst) {
-    const day = Number(enDayFirst[1]);
-    const month = MONTH_KEYS.indexOf(enDayFirst[2].toLowerCase()) + 1;
-    const year = enDayFirst[3] ? Number(enDayFirst[3]) : null;
-    return resolveYearAware(month, day, year);
-  }
-
-  const enMonthFirst = lowered.match(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\s+(\d{1,2})(?:st|nd|rd|th)?(?!\d)(?:\s*,?\s*(20\d{2}))?/i);
-  if (enMonthFirst) {
-    const month = MONTH_KEYS.indexOf(enMonthFirst[1].toLowerCase()) + 1;
-    const day = Number(enMonthFirst[2]);
-    const year = enMonthFirst[3] ? Number(enMonthFirst[3]) : null;
-    return resolveYearAware(month, day, year);
-  }
-
-  // 5. English month-only with year: "April 2026", "Sep 2026" → day 1.
-  const monthOnly = lowered.match(/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\s+(20\d{2})\b/i);
-  if (monthOnly) {
-    const month = MONTH_KEYS.indexOf(monthOnly[1].toLowerCase()) + 1;
-    return buildIso(Number(monthOnly[2]), month, 1);
-  }
-
-  // 5. Numeric D/M/YYYY (HK style — day first when first segment > 12)
-  const numeric = cleaned.match(/\b(\d{1,2})\/(\d{1,2})\/(20\d{2})\b/);
-  if (numeric) {
-    const a = Number(numeric[1]);
-    const b = Number(numeric[2]);
-    const y = Number(numeric[3]);
-    if (a > 12) return buildIso(y, b, a);  // must be D/M
-    if (b > 12) return buildIso(y, a, b);  // must be M/D
-    return buildIso(y, b, a);              // default HK: D/M/Y
-  }
-
-  // 6. Seasons (Chinese): 2026春季/夏季/秋季/冬季 → middle of representative month
-  const season = cleaned.match(/(20\d{2})?\s*(春季|夏季|秋季|冬季|春|夏|秋|冬)/);
-  if (season) {
-    const seasonMonth: Record<string, number> = {
-      春: 3, 春季: 3,
-      夏: 6, 夏季: 6,
-      秋: 9, 秋季: 9,
-      冬: 12, 冬季: 12,
-    };
-    const m = seasonMonth[season[2]];
-    const year = season[1] ? Number(season[1]) : null;
-    if (m) return resolveYearAware(m, 15, year);
-  }
-
-  return null;
-}
-
-function extractDateLabel(text: string): string | null {
-  const iso = extractIsoDate(text);
-  if (!iso) return null;
-  const match = iso.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-  if (!match) return null;
-  return `${Number(match[2])}月${Number(match[3])}日`;
-}
 
 function toSchoolName(row: EnrichmentRow): string {
   return row.name_tc || row.name_en || "學校官方";
@@ -606,6 +431,14 @@ function isEventPast(dateIso: string): boolean {
   const now = new Date();
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   return eventDate.getTime() < today.getTime();
+}
+
+function extractDateLabel(text: string): string | null {
+  const iso = extractIsoDate(text);
+  if (!iso) return null;
+  const date = parseDate(iso);
+  if (!date) return null;
+  return `${date.getMonth() + 1}月${date.getDate()}日`;
 }
 
 function toSearchHref(row: { name_tc?: string | null; name_en?: string | null }) {
@@ -991,7 +824,7 @@ async function getHomepageBanners(): Promise<HomeBanner[]> {
   ]);
 
   if (profiles.length === 0 || schoolList.length === 0) {
-    return [];
+    return BANNERS;
   }
 
   const schoolMap = new Map(schoolList.map((row) => [row.code, row]));
@@ -1018,7 +851,7 @@ async function getHomepageBanners(): Promise<HomeBanner[]> {
     .slice(0, BANNER_IMAGES.length);
 
   if (candidates.length === 0) {
-    return [];
+    return BANNERS;
   }
 
   return candidates.map(({ profile, school }, index) => {
@@ -1122,7 +955,6 @@ async function getFeaturedSchoolsLive(): Promise<FeaturedSchool[]> {
         k2: row.k2 ?? "no_information",
         k3: row.k3 ?? "no_information",
       },
-      vacancyPublishedDate: row.edb_date ?? null,
     } satisfies FeaturedSchool;
   });
 }

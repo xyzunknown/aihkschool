@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import type { NewsItem } from "@/types/homepage";
 
 const CATEGORIES = [
@@ -30,9 +31,11 @@ function sourceStyle(source: string): string {
 type CategoryKey = (typeof CATEGORIES)[number]["key"];
 
 export default function NewsPage() {
+  const searchParams = useSearchParams();
   const [items, setItems] = useState<NewsItem[]>([]);
   const [activeCategory, setActiveCategory] = useState<CategoryKey>("all");
   const [isLoading, setIsLoading] = useState(true);
+  const requestedTab = searchParams.get("tab");
 
   const fetchNews = useCallback(async () => {
     setIsLoading(true);
@@ -52,6 +55,13 @@ export default function NewsPage() {
   useEffect(() => {
     void fetchNews();
   }, [fetchNews]);
+
+  useEffect(() => {
+    const nextCategory = CATEGORIES.some((cat) => cat.key === requestedTab)
+      ? (requestedTab as CategoryKey)
+      : "all";
+    setActiveCategory(nextCategory);
+  }, [requestedTab]);
 
   const filtered = items.filter((item) => {
     if (activeCategory === "all" || activeCategory === "latest") return true;

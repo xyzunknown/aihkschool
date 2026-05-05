@@ -31,6 +31,8 @@ const FULL_LIST_SELECT = `id, school_code, name_tc, name_en, district, phone, we
   school_type, kep_participant, session_type, language_primary, has_nursery,
   schooland_operator_name, schooland_group_tag, schooland_free_scheme, schooland_nursery_service,
   schooland_size_label, schooland_session_label, schooland_url, schooland_source_fields,
+  schooland_intro, schooland_teaching_summary, schooland_facilities_summary,
+  schooland_founded_year, schooland_staff_count, schooland_teacher_student_ratio,
   latitude, longitude,
   fee_monthly_hkd, application_status, application_details, application_url,
   grades_offered, data_source, last_verified_at,
@@ -49,6 +51,8 @@ const NEW_COLUMN_NAMES = [
   "schooland_operator_name", "schooland_group_tag", "schooland_free_scheme",
   "schooland_nursery_service", "schooland_size_label", "schooland_session_label",
   "schooland_url", "schooland_source_fields",
+  "schooland_intro", "schooland_teaching_summary", "schooland_facilities_summary",
+  "schooland_founded_year", "schooland_staff_count", "schooland_teacher_student_ratio",
 ];
 
 function buildSchoolListQuery(
@@ -167,6 +171,12 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
       schooland_session_label: null,
       schooland_url: null,
       schooland_source_fields: {},
+      schooland_intro: null,
+      schooland_teaching_summary: null,
+      schooland_facilities_summary: null,
+      schooland_founded_year: null,
+      schooland_staff_count: null,
+      schooland_teacher_student_ratio: null,
     } : {}),
     // Some schools have multiple is_current=true rows (e.g. real EDB-scraped
     // row "2026-27" plus a fallback "2026/27" placeholder with all
@@ -294,6 +304,8 @@ export async function fetchSchoolById(id: string) {
      schooland_operator_name, schooland_group_tag, schooland_free_scheme, schooland_nursery_service,
      schooland_size_label, schooland_session_label, schooland_url, schooland_source_url,
      schooland_source_updated_at, schooland_source_fields, schooland_secondary_flags,
+     schooland_intro, schooland_teaching_summary, schooland_facilities_summary,
+     schooland_founded_year, schooland_staff_count, schooland_teacher_student_ratio,
      language_primary, language_secondary, fee_monthly_hkd, fee_annual_hkd,
      application_fee_hkd, registration_fee_hkd, other_fees_note, fee_notes,
      official_profile_url, fee_certificate_url, fee_certificate_updated_at,
@@ -347,7 +359,13 @@ export async function fetchSchoolById(id: string) {
     error.message.includes("schooland_source_url") ||
     error.message.includes("schooland_source_updated_at") ||
     error.message.includes("schooland_source_fields") ||
-    error.message.includes("schooland_secondary_flags");
+    error.message.includes("schooland_secondary_flags") ||
+    error.message.includes("schooland_intro") ||
+    error.message.includes("schooland_teaching_summary") ||
+    error.message.includes("schooland_facilities_summary") ||
+    error.message.includes("schooland_founded_year") ||
+    error.message.includes("schooland_staff_count") ||
+    error.message.includes("schooland_teacher_student_ratio");
 
   if (!shouldFallback) {
     return null;
@@ -395,6 +413,12 @@ export async function fetchSchoolById(id: string) {
     schooland_source_updated_at: null,
     schooland_source_fields: {},
     schooland_secondary_flags: {},
+    schooland_intro: null,
+    schooland_teaching_summary: null,
+    schooland_facilities_summary: null,
+    schooland_founded_year: null,
+    schooland_staff_count: null,
+    schooland_teacher_student_ratio: null,
     last_profile_scraped_at: null,
   } as School;
 }

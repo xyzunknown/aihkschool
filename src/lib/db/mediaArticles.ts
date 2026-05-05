@@ -1,3 +1,9 @@
+/**
+ * @deprecated ABANDONED — 2026-05
+ * The media_articles crawler pipeline was unable to extract usable data.
+ * The table remains but is never populated. All queries return empty results.
+ * See: scripts/crawlers/media-articles.mjs
+ */
 import { createClient } from "@/lib/supabase/server";
 
 export type MediaArticleContentType =

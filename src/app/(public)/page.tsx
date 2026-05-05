@@ -1,10 +1,9 @@
 import { Hero } from "@/components/home/Hero";
-import { MegaSearch } from "@/components/home/MegaSearch";
-import { ProgressBoard } from "@/components/home/ProgressBoard";
-import { ProgrammesPreview } from "@/components/home/ProgrammesPreview";
-import { FeaturedSchoolsRow } from "@/components/home/FeaturedSchoolsRow";
-import { ArticleGrid } from "@/components/home/ArticleGrid";
-import { StatsBanner } from "@/components/home/StatsBanner";
+import { HeroSearchBar } from "@/components/home/HeroSearchBar";
+import { ParentMustKnow } from "@/components/home/ParentMustKnow";
+import { NewsFeed } from "@/components/home/NewsFeed";
+import { FeaturedSchools } from "@/components/home/FeaturedSchools";
+import { ActivitiesPreview } from "@/components/home/ActivitiesPreview";
 import { getHomepageLiveData } from "@/lib/homepage/liveData";
 
 const AUTH_ERROR_COPY: Record<string, string> = {
@@ -25,23 +24,38 @@ export default async function HomePage({
 
   return (
     <>
-      {authErrorMessage ? (
-        <div className="max-w-[1200px] mx-auto px-5 md:px-8 pt-6">
-          <div className="rounded-card border border-status-limited-bg bg-status-limited-bg/40 px-4 py-3 text-sm text-status-limited-fg">
-            {authErrorMessage}
-          </div>
-        </div>
-      ) : null}
+      <div className="max-w-6xl mx-auto px-5 md:px-8">
+        {authErrorMessage ? (
+          <section className="pt-6">
+            <div className="rounded-2xl border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-950 md:px-5">
+              {authErrorMessage}
+            </div>
+          </section>
+        ) : null}
+      </div>
 
       <Hero />
-      <MegaSearch />
-      <ProgressBoard events={liveData.events} schools={liveData.featuredSchools} />
-      <div className="max-w-[1200px] mx-auto px-5 md:px-8 mt-10">
-        <ProgrammesPreview />
+
+      <div className="max-w-6xl mx-auto px-5 md:px-8">
+        {/* Hero Search */}
+        <section className="pb-10 md:pb-14">
+          <HeroSearchBar />
+        </section>
+
+        {/* 近期家長必知 */}
+        <ParentMustKnow
+          events={liveData.events}
+        />
+
+        {/* 課外活動精選 */}
+        <ActivitiesPreview />
+
+        {/* 消息動態 */}
+        <NewsFeed items={liveData.newsItems} />
+
+        {/* 精選名校 */}
+        <FeaturedSchools schools={liveData.featuredSchools} />
       </div>
-      <FeaturedSchoolsRow schools={liveData.featuredSchools} />
-      <ArticleGrid items={liveData.newsItems} />
-      <StatsBanner />
     </>
   );
 }

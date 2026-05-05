@@ -509,6 +509,9 @@ DATABASE_URL='postgresql://postgres.ordaiibaaqkdsiqparqe:密码@aws-1-ap-northea
 
 **连接字符串获取**：Supabase Dashboard → Project Settings → Database → Connection string → 选 **Session pooler** mode → 复制 URI。
 
+**已废弃的 pipeline**：
+- `media_articles` 表 / `scripts/crawlers/media-articles.mjs` — 无法抓取到有效数据，已永久废弃。不要尝试重新运行或修复。
+
 **执行顺序**（脚本已自动处理）：
 1. `supabase/migrations/` — 按文件名顺序，添加新列/表（幂等，可重复跑）
 2. `supabase/seed/001_schools.sql` — 873 所 EDB 非牟利学校 + 学位数据
@@ -517,6 +520,8 @@ DATABASE_URL='postgresql://postgres.ordaiibaaqkdsiqparqe:密码@aws-1-ap-northea
 5. `supabase/seed/004_private_international_profile_enrichment.sql` — 私立/国际学校详细资料
 6. `supabase/seed/005_edb_fee_enrichment.sql` — EDB 学费数据
 7. `supabase/seed/006_private_international_vacancy_enrichment.sql` — 私立/国际学位数据
+8. `supabase/seed/009_schooland_profile_enrichment.sql` — Schooland 结构化补充数据
+9. `supabase/seed/011_private_international_geo.sql` — 私立/国际学校经纬度补充
 
 **注意**：`psql` 命令需要已安装。如未安装：`brew install libpq && brew link --force libpq`。连接字符串中密码含特殊字符时必须用**单引号**包裹。
 

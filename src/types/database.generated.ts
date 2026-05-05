@@ -426,6 +426,60 @@ export type Database = {
         }
         Relationships: []
       }
+      media_articles: {
+        Row: {
+          body_excerpt: string | null
+          category: string | null
+          content_type: string
+          external_id: string
+          fetched_at: string
+          id: string
+          published_at: string | null
+          raw_metadata: Json
+          school_match_status: string
+          school_matches: Json
+          source: string
+          summary: string | null
+          title: string
+          updated_at: string
+          url: string
+        }
+        Insert: {
+          body_excerpt?: string | null
+          category?: string | null
+          content_type: string
+          external_id: string
+          fetched_at?: string
+          id?: string
+          published_at?: string | null
+          raw_metadata?: Json
+          school_match_status: string
+          school_matches?: Json
+          source: string
+          summary?: string | null
+          title: string
+          updated_at?: string
+          url: string
+        }
+        Update: {
+          body_excerpt?: string | null
+          category?: string | null
+          content_type?: string
+          external_id?: string
+          fetched_at?: string
+          id?: string
+          published_at?: string | null
+          raw_metadata?: Json
+          school_match_status?: string
+          school_matches?: Json
+          source?: string
+          summary?: string | null
+          title?: string
+          updated_at?: string
+          url?: string
+        }
+        Relationships: []
+      }
       programme_reminders: {
         Row: {
           created_at: string | null
@@ -614,6 +668,7 @@ export type Database = {
           official_website: string | null
           open_day_date: string | null
           open_day_details: string | null
+          pages_fetched: number | null
           pros_tags: Json | null
           quote_highlights: Json | null
           raw_extracted: Json | null
@@ -621,6 +676,8 @@ export type Database = {
           reputation_summary: string | null
           school_id: string
           scrape_confidence: string | null
+          scrape_notes: string | null
+          scrape_status: string | null
           sentiment_positive_ratio: number | null
           source_count_by_platform: Json | null
           vacancy_k1: string | null
@@ -640,6 +697,7 @@ export type Database = {
           official_website?: string | null
           open_day_date?: string | null
           open_day_details?: string | null
+          pages_fetched?: number | null
           pros_tags?: Json | null
           quote_highlights?: Json | null
           raw_extracted?: Json | null
@@ -647,6 +705,8 @@ export type Database = {
           reputation_summary?: string | null
           school_id: string
           scrape_confidence?: string | null
+          scrape_notes?: string | null
+          scrape_status?: string | null
           sentiment_positive_ratio?: number | null
           source_count_by_platform?: Json | null
           vacancy_k1?: string | null
@@ -666,6 +726,7 @@ export type Database = {
           official_website?: string | null
           open_day_date?: string | null
           open_day_details?: string | null
+          pages_fetched?: number | null
           pros_tags?: Json | null
           quote_highlights?: Json | null
           raw_extracted?: Json | null
@@ -673,6 +734,8 @@ export type Database = {
           reputation_summary?: string | null
           school_id?: string
           scrape_confidence?: string | null
+          scrape_notes?: string | null
+          scrape_status?: string | null
           sentiment_positive_ratio?: number | null
           source_count_by_platform?: Json | null
           vacancy_k1?: string | null
@@ -704,11 +767,15 @@ export type Database = {
           email: string | null
           fax: string | null
           fee_annual_hkd: number | null
+          fee_certificate_updated_at: string | null
+          fee_certificate_url: string | null
           fee_monthly_hkd: number | null
           fee_notes: string | null
           grades_offered: string[]
           has_nursery: boolean
           id: string
+          inspection_report_updated_at: string | null
+          inspection_report_url: string | null
           is_active: boolean
           kep_participant: boolean
           language_primary: string | null
@@ -721,10 +788,8 @@ export type Database = {
           master_data_notes: string | null
           name_en: string | null
           name_tc: string
-          fee_certificate_url: string | null
-          fee_certificate_updated_at: string | null
-          official_notice_url: string | null
           official_notice_updated_at: string | null
+          official_notice_url: string | null
           official_profile_url: string | null
           open_day_details: string | null
           open_day_url: string | null
@@ -733,8 +798,11 @@ export type Database = {
           registration_fee_hkd: number | null
           school_code: string | null
           school_type: string
+          schooland_facilities_summary: string | null
+          schooland_founded_year: number | null
           schooland_free_scheme: boolean | null
           schooland_group_tag: string | null
+          schooland_intro: string | null
           schooland_nursery_service: string | null
           schooland_operator_name: string | null
           schooland_secondary_flags: Json
@@ -743,10 +811,11 @@ export type Database = {
           schooland_source_fields: Json
           schooland_source_updated_at: string | null
           schooland_source_url: string | null
+          schooland_staff_count: number | null
+          schooland_teacher_student_ratio: string | null
+          schooland_teaching_summary: string | null
           schooland_url: string | null
           session_type: string | null
-          inspection_report_url: string | null
-          inspection_report_updated_at: string | null
           updated_at: string
           website: string | null
         }
@@ -763,11 +832,15 @@ export type Database = {
           email?: string | null
           fax?: string | null
           fee_annual_hkd?: number | null
+          fee_certificate_updated_at?: string | null
+          fee_certificate_url?: string | null
           fee_monthly_hkd?: number | null
           fee_notes?: string | null
           grades_offered?: string[]
           has_nursery?: boolean
           id?: string
+          inspection_report_updated_at?: string | null
+          inspection_report_url?: string | null
           is_active?: boolean
           kep_participant?: boolean
           language_primary?: string | null
@@ -780,10 +853,8 @@ export type Database = {
           master_data_notes?: string | null
           name_en?: string | null
           name_tc: string
-          fee_certificate_url?: string | null
-          fee_certificate_updated_at?: string | null
-          official_notice_url?: string | null
           official_notice_updated_at?: string | null
+          official_notice_url?: string | null
           official_profile_url?: string | null
           open_day_details?: string | null
           open_day_url?: string | null
@@ -792,8 +863,11 @@ export type Database = {
           registration_fee_hkd?: number | null
           school_code?: string | null
           school_type: string
+          schooland_facilities_summary?: string | null
+          schooland_founded_year?: number | null
           schooland_free_scheme?: boolean | null
           schooland_group_tag?: string | null
+          schooland_intro?: string | null
           schooland_nursery_service?: string | null
           schooland_operator_name?: string | null
           schooland_secondary_flags?: Json
@@ -802,10 +876,11 @@ export type Database = {
           schooland_source_fields?: Json
           schooland_source_updated_at?: string | null
           schooland_source_url?: string | null
+          schooland_staff_count?: number | null
+          schooland_teacher_student_ratio?: string | null
+          schooland_teaching_summary?: string | null
           schooland_url?: string | null
           session_type?: string | null
-          inspection_report_url?: string | null
-          inspection_report_updated_at?: string | null
           updated_at?: string
           website?: string | null
         }
@@ -822,11 +897,15 @@ export type Database = {
           email?: string | null
           fax?: string | null
           fee_annual_hkd?: number | null
+          fee_certificate_updated_at?: string | null
+          fee_certificate_url?: string | null
           fee_monthly_hkd?: number | null
           fee_notes?: string | null
           grades_offered?: string[]
           has_nursery?: boolean
           id?: string
+          inspection_report_updated_at?: string | null
+          inspection_report_url?: string | null
           is_active?: boolean
           kep_participant?: boolean
           language_primary?: string | null
@@ -839,10 +918,8 @@ export type Database = {
           master_data_notes?: string | null
           name_en?: string | null
           name_tc?: string
-          fee_certificate_url?: string | null
-          fee_certificate_updated_at?: string | null
-          official_notice_url?: string | null
           official_notice_updated_at?: string | null
+          official_notice_url?: string | null
           official_profile_url?: string | null
           open_day_details?: string | null
           open_day_url?: string | null
@@ -851,8 +928,11 @@ export type Database = {
           registration_fee_hkd?: number | null
           school_code?: string | null
           school_type?: string
+          schooland_facilities_summary?: string | null
+          schooland_founded_year?: number | null
           schooland_free_scheme?: boolean | null
           schooland_group_tag?: string | null
+          schooland_intro?: string | null
           schooland_nursery_service?: string | null
           schooland_operator_name?: string | null
           schooland_secondary_flags?: Json
@@ -861,10 +941,11 @@ export type Database = {
           schooland_source_fields?: Json
           schooland_source_updated_at?: string | null
           schooland_source_url?: string | null
+          schooland_staff_count?: number | null
+          schooland_teacher_student_ratio?: string | null
+          schooland_teaching_summary?: string | null
           schooland_url?: string | null
           session_type?: string | null
-          inspection_report_url?: string | null
-          inspection_report_updated_at?: string | null
           updated_at?: string
           website?: string | null
         }

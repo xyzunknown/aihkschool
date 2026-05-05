@@ -3,27 +3,32 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useAuth } from "@/components/layout/AuthProvider";
 
 const NAV_ITEMS = [
   { href: "/kg", label: "找幼稚園", match: ["/kg"] },
   { href: "/timeline", label: "開放日", match: ["/timeline"] },
-  { href: "/news", label: "評價優勢", match: ["/news"] },
+  { href: "/priority", label: "評價優勢", match: ["/priority"] },
   { href: "/activities", label: "課外活動", match: ["/activities"] },
   { href: "/programmes", label: "康體通", match: ["/programmes"] },
-  { href: "/news?tab=parent", label: "家長攻略", match: ["/news?tab=parent"] },
+  { href: "/news?tab=parent", label: "家長攻略", match: ["/news"], tab: "parent" },
   { href: "/account", label: "收藏夾", match: ["/account"] },
 ] as const;
 
-function isActiveItem(pathname: string, item: (typeof NAV_ITEMS)[number]) {
-  return item.match.some((p) => pathname === p || pathname.startsWith(`${p}/`));
+function isActiveItem(pathname: string, activeTab: string | null, item: (typeof NAV_ITEMS)[number]) {
+  const matchesPath = item.match.some((p) => pathname === p || pathname.startsWith(`${p}/`));
+  if (!matchesPath) return false;
+  if ("tab" in item) return activeTab === item.tab;
+  return pathname !== "/news" || activeTab !== "parent";
 }
 
 export function Header() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const { user, signIn } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
+  const activeTab = searchParams.get("tab");
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-surface-border">
@@ -47,7 +52,7 @@ export function Header() {
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-7 flex-1 justify-center">
           {NAV_ITEMS.map((item) => {
-            const active = isActiveItem(pathname, item);
+            const active = isActiveItem(pathname, activeTab, item);
             return (
               <Link
                 key={item.href}
@@ -126,7 +131,7 @@ export function Header() {
       {menuOpen && (
         <nav className="lg:hidden border-t border-cream-200 bg-cream-50 px-5 py-3">
           {NAV_ITEMS.map((item) => {
-            const active = isActiveItem(pathname, item);
+            const active = isActiveItem(pathname, activeTab, item);
             return (
               <Link
                 key={item.href}
