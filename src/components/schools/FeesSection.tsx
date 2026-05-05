@@ -26,12 +26,53 @@ function normalizeText(text: string) {
   return text.replace(/\r\n?/g, "\n").replace(/\u00a0/g, " ").trim();
 }
 
-function splitSegments(text: string) {
-  return text
+function cleanNarrativeSegment(segment: string) {
+  return segment
+    .replace(/^(?:學校收費|官網費用摘要|其他收費)\s*/, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function splitNarrativeSegments(text: string) {
+  const normalized = normalizeText(text).replace(/\s*\|\s*/g, "\n");
+  const markers = ["學校有參加", "這裡資料每年", "有關學校的最新學費詳情", "請參看教育局提供的", "註："];
+
+  let pieces = normalized
     .split(/\n+/)
     .flatMap((line) => line.split(/\s\/\s/))
-    .map((part) => part.replace(/\s+/g, " ").trim())
+    .map((part) => part.trim())
     .filter(Boolean);
+
+  for (const marker of markers) {
+    const nextPieces: string[] = [];
+    for (const piece of pieces) {
+      const index = piece.indexOf(marker);
+      if (index === -1) {
+        nextPieces.push(piece);
+        continue;
+      }
+
+      const before = piece.slice(0, index).trim();
+      const after = piece.slice(index).trim();
+      if (before) nextPieces.push(before);
+      if (after) nextPieces.push(after);
+    }
+    pieces = nextPieces;
+  }
+
+  const seen = new Set<string>();
+  const unique: string[] = [];
+
+  for (const piece of pieces) {
+    const cleaned = cleanNarrativeSegment(piece);
+    if (!cleaned) continue;
+    const signature = cleaned.replace(/\s+/g, " ").toLowerCase();
+    if (seen.has(signature)) continue;
+    seen.add(signature);
+    unique.push(cleaned);
+  }
+
+  return unique;
 }
 
 function parseDelimitedTable(text: string): ParsedFeeBlock | null {
@@ -39,7 +80,7 @@ function parseDelimitedTable(text: string): ParsedFeeBlock | null {
   const leadIndex = text.indexOf(CLASS_HEADERS[0]);
   if (leadIndex === -1) return null;
 
-  const lead = splitSegments(text.slice(0, leadIndex));
+  const lead = splitNarrativeSegments(text.slice(0, leadIndex));
   const tableText = text.slice(leadIndex).trim();
   const tokens = tableText.split(/\s*\|{1,2}\s*/).map((part) => part.trim()).filter(Boolean);
 
@@ -77,7 +118,7 @@ function parseCompactTable(text: string): ParsedFeeBlock | null {
   const leadIndex = text.indexOf(CLASS_HEADERS[0]);
   if (leadIndex === -1) return null;
 
-  const lead = splitSegments(text.slice(0, leadIndex));
+  const lead = splitNarrativeSegments(text.slice(0, leadIndex));
   const tableText = text.slice(leadIndex);
   const rows: FeeRow[] = [];
   let rowStart = -1;
@@ -119,61 +160,43 @@ function parseCompactTable(text: string): ParsedFeeBlock | null {
 function parseFeeBlock(text: string): ParsedFeeBlock {
   const normalized = normalizeText(text);
   return parseDelimitedTable(normalized) ?? parseCompactTable(normalized) ?? {
-    lead: splitSegments(normalized),
+    lead: splitNarrativeSegments(normalized),
     table: null,
   };
 }
 
-function FeeNarrative({ title, text }: { title: string; text: string }) {
-  const parsed = parseFeeBlock(text);
+function dedupeFeeBlocks(blocks: Array<{ title: string; block: ParsedFeeBlock }>) {
+  const seenLeads = new Set<string>();
+  const unique: Array<{ title: string; block: ParsedFeeBlock }> = [];
+  let renderedTable = false;
 
-  return (
-    <div>
-      <div className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">{title}</div>
-      <div className="space-y-3">
-        {parsed.lead.length > 0 && (
-          <div className="space-y-2">
-            {parsed.lead.map((segment) => (
-              <p key={segment} className="text-sm text-slate-900 leading-relaxed break-words">
-                {segment}
-              </p>
-            ))}
-          </div>
-        )}
+  for (const item of blocks) {
+    const leadSignature = item.block.lead.join("\n");
 
-        {parsed.table && (
-          <div className="overflow-x-auto rounded-xl border border-slate-200">
-            <table className="min-w-full border-collapse text-sm">
-              <thead className="bg-slate-50">
-                <tr>
-                  <th className="px-3 py-2 text-left font-medium text-slate-500">班別</th>
-                  {parsed.table.headers.map((header) => (
-                    <th key={header} className="px-3 py-2 text-left font-medium text-slate-500 whitespace-nowrap">
-                      {header}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {parsed.table.rows.map((row) => (
-                  <tr key={row.label} className="border-t border-slate-100">
-                    <th className="px-3 py-2 text-left font-medium text-slate-900 whitespace-nowrap bg-white">
-                      {row.label}
-                    </th>
-                    {parsed.table?.headers.map((header, index) => (
-                      <td key={header} className="px-3 py-2 text-slate-900 whitespace-nowrap bg-white">
-                        {row.values[index] ?? "—"}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </div>
-    </div>
-  );
+    if (item.block.table) {
+      if (renderedTable) {
+        if (leadSignature && !seenLeads.has(leadSignature)) {
+          seenLeads.add(leadSignature);
+          unique.push({
+            title: item.title,
+            block: { lead: item.block.lead, table: null },
+          });
+        }
+        continue;
+      }
+
+      renderedTable = true;
+      if (leadSignature) seenLeads.add(leadSignature);
+      unique.push(item);
+      continue;
+    }
+
+    if (leadSignature && seenLeads.has(leadSignature)) continue;
+    if (leadSignature) seenLeads.add(leadSignature);
+    unique.push(item);
+  }
+
+  return unique;
 }
 
 export function FeesSection({ school }: FeesSectionProps) {
@@ -183,6 +206,12 @@ export function FeesSection({ school }: FeesSectionProps) {
   const hasRegistrationFee = school.registration_fee_hkd !== null;
   const hasOtherFeesNote = Boolean(school.other_fees_note || school.fee_notes);
   const showKepStatus = school.school_type !== "international";
+  const feeBlocks = dedupeFeeBlocks(
+    [
+      school.fee_notes ? { title: "官網費用摘要", block: parseFeeBlock(school.fee_notes) } : null,
+      school.other_fees_note ? { title: "其他收費", block: parseFeeBlock(school.other_fees_note) } : null,
+    ].filter((item): item is { title: string; block: ParsedFeeBlock } => Boolean(item))
+  );
 
   if (!showKepStatus && !hasMonthlyFee && !hasAnnualFee && !hasApplicationFee && !hasRegistrationFee && !hasOtherFeesNote) {
     return (
@@ -243,12 +272,53 @@ export function FeesSection({ school }: FeesSectionProps) {
 
         {hasOtherFeesNote && (
           <div className="mt-4 space-y-3 border-t border-slate-200 pt-4">
-            {school.fee_notes && (
-              <FeeNarrative title="官網費用摘要" text={school.fee_notes} />
-            )}
-            {school.other_fees_note && (
-              <FeeNarrative title="其他收費" text={school.other_fees_note} />
-            )}
+            {feeBlocks.map(({ title, block }) => (
+              <div key={title}>
+                <div className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">{title}</div>
+                <div className="space-y-3">
+                  {block.lead.length > 0 && (
+                    <div className="space-y-2">
+                      {block.lead.map((segment) => (
+                        <p key={segment} className="text-sm text-slate-900 leading-relaxed break-words">
+                          {segment}
+                        </p>
+                      ))}
+                    </div>
+                  )}
+
+                  {block.table && (
+                    <div className="overflow-x-auto rounded-xl border border-slate-200">
+                      <table className="min-w-full border-collapse text-sm">
+                        <thead className="bg-slate-50">
+                          <tr>
+                            <th className="px-3 py-2 text-left font-medium text-slate-500">班別</th>
+                            {block.table.headers.map((header) => (
+                              <th key={header} className="px-3 py-2 text-left font-medium text-slate-500 whitespace-nowrap">
+                                {header}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {block.table.rows.map((row) => (
+                            <tr key={row.label} className="border-t border-slate-100">
+                              <th className="px-3 py-2 text-left font-medium text-slate-900 whitespace-nowrap bg-white">
+                                {row.label}
+                              </th>
+                              {block.table?.headers.map((header, index) => (
+                                <td key={header} className="px-3 py-2 text-slate-900 whitespace-nowrap bg-white">
+                                  {row.values[index] ?? "—"}
+                                </td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
         )}
 

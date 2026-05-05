@@ -157,6 +157,7 @@ export async function fetchProgrammes(
   }
 
   query = query
+    .order("enrolment_close_at", { ascending: false, nullsFirst: true })
     .order("enrolment_open_at", { ascending: true, nullsFirst: false })
     .range(offset, offset + safeLimit - 1);
 

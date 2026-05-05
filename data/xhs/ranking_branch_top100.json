@@ -57,29 +57,6 @@
     ]
   },
   {
-    "school_name": "維多利亞（何文田）國際幼稚園",
-    "brand_name": "維多利亞",
-    "school_code": "618039",
-    "district": "kowloon_city",
-    "school_type": "private_independent",
-    "has_nursery": false,
-    "kep": false,
-    "mention_count": 11,
-    "source_images": [
-      "a02.jpg",
-      "b01.jpg",
-      "b02.jpg",
-      "c01.jpg",
-      "d01.jpg",
-      "f04.jpg",
-      "h02.jpg",
-      "i01.jpg",
-      "j04.jpg",
-      "k01.jpg",
-      "n02.jpg"
-    ]
-  },
-  {
     "school_name": "寶血幼稚園（深水埗）",
     "brand_name": "寶血幼稚園",
     "school_code": "564044",
@@ -635,6 +612,760 @@
     "mention_count": 1,
     "source_images": [
       "l05.jpg"
+    ]
+  },
+  {
+    "school_name": "國際英文幼稚園",
+    "brand_name": "國際英文幼稚園",
+    "school_code": "215120",
+    "district": "kowloon_city",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 8,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "寶山幼兒園",
+    "brand_name": "寶山幼兒園",
+    "school_code": "565938",
+    "district": "wan_chai",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 8,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "維多利亞幼稚園",
+    "brand_name": "維多利亞",
+    "school_code": "325481",
+    "district": "eastern",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 8,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "根德園幼稚園",
+    "brand_name": "根德園幼稚園",
+    "school_code": "322300",
+    "district": "kowloon_city",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 7,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "劍鳴幼稚園",
+    "brand_name": "劍鳴幼稚園",
+    "school_code": "537713",
+    "district": "kowloon_city",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 6,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "約克中英文幼稚園",
+    "brand_name": "約克中英文幼稚園",
+    "school_code": "215449",
+    "district": "kowloon_city",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 6,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "維多利亞（寶翠園）幼稚園",
+    "brand_name": "維多利亞",
+    "school_code": "542164",
+    "district": "central_and_western",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 6,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "金巴倫英文幼稚園",
+    "brand_name": "金巴倫英文幼稚園",
+    "school_code": "214868",
+    "district": "kowloon_city",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 6,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "京斯敦國際幼稚園",
+    "brand_name": "京斯敦國際幼稚園",
+    "school_code": "519863",
+    "district": "kowloon_city",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 5,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "多多國際幼稚園（九龍塘）",
+    "brand_name": "多多",
+    "school_code": "542504",
+    "district": "kowloon_city",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 5,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "多多寶馬山國際幼稚園",
+    "brand_name": "多多",
+    "school_code": "575852",
+    "district": "eastern",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 5,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "學之園幼稚園",
+    "brand_name": "學之園",
+    "school_code": "534200",
+    "district": "kwai_tsing",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 5,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "學之園幼稚園（凱帆薈）",
+    "brand_name": "學之園",
+    "school_code": "561207",
+    "district": "yau_tsim_mong",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 5,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "學之園幼稚園（迎海）",
+    "brand_name": "學之園",
+    "school_code": "604291",
+    "district": "sha_tin",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 5,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "安菲爾國際幼稚園",
+    "brand_name": "安菲爾國際幼稚園",
+    "school_code": "535818",
+    "district": "kowloon_city",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 5,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "康怡維多利亞幼稚園",
+    "brand_name": "維多利亞",
+    "school_code": "569828",
+    "district": "eastern",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 5,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "救恩學校",
+    "brand_name": "救恩",
+    "school_code": "512273",
+    "district": "central_and_western",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 5,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "朗思國際幼稚園",
+    "brand_name": "朗思國際幼稚園",
+    "school_code": "216267",
+    "district": "kwun_tong",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 5,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "約克英文小學暨幼稚園（九龍塘）",
+    "brand_name": "約克英文小學暨幼稚園",
+    "school_code": "322822",
+    "district": "kowloon_city",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 5,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "維多利亞（海怡）國際幼稚園",
+    "brand_name": "維多利亞",
+    "school_code": "216194",
+    "district": "southern",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 5,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "路德會救恩幼稚園",
+    "brand_name": "救恩學校",
+    "school_code": "321192",
+    "district": "wong_tai_sin",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 5,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "香港真光幼稚園（堅道）",
+    "brand_name": "香港真光",
+    "school_code": "536911",
+    "district": "central_and_western",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 5,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "香港靈糧堂幼稚園",
+    "brand_name": "香港靈糧堂",
+    "school_code": "133744",
+    "district": "wan_chai",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 5,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "YORK INTERNATIONAL PRE-SCHOOL",
+    "brand_name": "約克國際",
+    "school_code": "578479",
+    "district": "kowloon_city",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "九龍靈糧堂幼稚園",
+    "brand_name": "九龍靈糧堂",
+    "school_code": "324680",
+    "district": "kowloon_city",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "右思維幼稚園",
+    "brand_name": "右思維幼稚園",
+    "school_code": "325961",
+    "district": "southern",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "哈羅小獅幼稚園",
+    "brand_name": "哈羅小獅幼稚園",
+    "school_code": "627275",
+    "district": "kwun_tong",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "學之園幼稚園（奧運）",
+    "brand_name": "學之園",
+    "school_code": "617474",
+    "district": "yau_tsim_mong",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "學之園幼稚園（星匯居）",
+    "brand_name": "學之園",
+    "school_code": "615250",
+    "district": "sham_shui_po",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "學之園幼稚園（海翩康城）",
+    "brand_name": "學之園",
+    "school_code": "612391",
+    "district": "sai_kung",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "安基司幼稚園",
+    "brand_name": "安基司",
+    "school_code": "536067",
+    "district": "tai_po",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "崇真小學暨幼稚園",
+    "brand_name": "崇真",
+    "school_code": "514659",
+    "district": "sham_shui_po",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "弘志幼稚園",
+    "brand_name": "弘志幼稚園",
+    "school_code": "519871",
+    "district": "islands",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "德信幼稚園",
+    "brand_name": "德信",
+    "school_code": "133582",
+    "district": "yau_tsim_mong",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "德寶英文幼稚園（將軍澳）",
+    "brand_name": "德寶",
+    "school_code": "530131",
+    "district": "sai_kung",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "栢基國際幼稚園",
+    "brand_name": "栢基",
+    "school_code": "215937",
+    "district": "southern",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "樂基幼兒學校（駿景園）",
+    "brand_name": "樂基幼兒學校",
+    "school_code": "522953",
+    "district": "sha_tin",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "綠茵英文（國際）幼稚園（將軍澳）",
+    "brand_name": "綠茵英文國際幼稚園",
+    "school_code": "523984",
+    "district": "sai_kung",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "維多利亞（海之戀）國際幼稚園",
+    "brand_name": "維多利亞",
+    "school_code": "619850",
+    "district": "tsuen_wan",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "聖羅撒幼稚園",
+    "brand_name": "聖羅撒",
+    "school_code": "312479",
+    "district": "kowloon_city",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "道爾頓幼稚園",
+    "brand_name": "道爾頓幼稚園",
+    "school_code": "607592",
+    "district": "wan_chai",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "銅鑼灣維多利亞（海峰園）幼兒園",
+    "brand_name": "維多利亞",
+    "school_code": "566942",
+    "district": "eastern",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "香港墨爾文國際幼稚園",
+    "brand_name": "墨爾文國際幼稚園",
+    "school_code": "606979",
+    "district": "yau_tsim_mong",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "香港墨爾文國際幼稚園（港島西）",
+    "brand_name": "墨爾文國際幼稚園",
+    "school_code": "613037",
+    "district": "central_and_western",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "香港民生幼稚園（北角）",
+    "brand_name": "香港民生幼稚園",
+    "school_code": "324965",
+    "district": "eastern",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "香港靈糧堂秀德幼稚園",
+    "brand_name": "香港靈糧堂",
+    "school_code": "596787",
+    "district": "sham_shui_po",
+    "school_type": "non_profit",
+    "has_nursery": true,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "香港靈糧堂荃灣幼稚園",
+    "brand_name": "香港靈糧堂",
+    "school_code": "595969",
+    "district": "tsuen_wan",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 4,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "地利亞英文小學暨幼稚園",
+    "brand_name": "地利亞英文小學暨幼稚園",
+    "school_code": "216208",
+    "district": "sham_shui_po",
+    "school_type": "non_profit",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 3,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "安基司學校附屬國際幼稚園",
+    "brand_name": "安基司",
+    "school_code": "622060",
+    "district": "yuen_long",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 3,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "安基司幼稚園（粉嶺）",
+    "brand_name": "安基司",
+    "school_code": "582417",
+    "district": "north",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 3,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "帝京香港幼稚園",
+    "brand_name": "帝京香港幼稚園",
+    "school_code": "325848",
+    "district": "wan_chai",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 3,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "康傑中英文幼稚園（青衣）",
+    "brand_name": "康傑",
+    "school_code": "231614",
+    "district": "kwai_tsing",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 3,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "弘志幼稚園（東涌）",
+    "brand_name": "弘志幼稚園",
+    "school_code": "578193",
+    "district": "islands",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 3,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "德萃幼稚園（紅磡）",
+    "brand_name": "德萃",
+    "school_code": "604445",
+    "district": "kowloon_city",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 3,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "德萃幼稚園（馬鞍山）",
+    "brand_name": "德萃",
+    "school_code": "616290",
+    "district": "sha_tin",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 3,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "心怡天地國際幼稚園（屯門）",
+    "brand_name": "心怡天地",
+    "school_code": "615170",
+    "district": "tuen_mun",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 3,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "朗思國際幼稚園（南昌）",
+    "brand_name": "朗思國際",
+    "school_code": "612782",
+    "district": "sham_shui_po",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 3,
+    "source_images": [
+      "curated"
+    ]
+  },
+  {
+    "school_name": "朗思國際幼稚園（馬鞍山）",
+    "brand_name": "朗思國際",
+    "school_code": "533360",
+    "district": "sha_tin",
+    "school_type": "private_independent",
+    "has_nursery": false,
+    "kep": false,
+    "mention_count": 3,
+    "source_images": [
+      "curated"
     ]
   }
 ]
