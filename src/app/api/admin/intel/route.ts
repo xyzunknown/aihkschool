@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { fetchPendingIntel } from "@/lib/db/intel";
 
+export const dynamic = "force-dynamic";
+
 const ADMIN_EMAILS = process.env.ADMIN_EMAILS?.split(",").map((e) => e.trim()) ?? [];
 
 function isAdmin(userEmail: string | undefined): boolean {

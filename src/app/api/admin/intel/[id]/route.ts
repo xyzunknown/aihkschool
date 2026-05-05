@@ -3,6 +3,8 @@ import { createClient } from "@/lib/supabase/server";
 import { updateIntelStatus } from "@/lib/db/intel";
 import { z } from "zod";
 
+export const dynamic = "force-dynamic";
+
 const ADMIN_EMAILS = process.env.ADMIN_EMAILS?.split(",").map((e) => e.trim()) ?? [];
 
 function isAdmin(userEmail: string | undefined): boolean {

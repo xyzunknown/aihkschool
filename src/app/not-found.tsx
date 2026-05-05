@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/Button";
 
 export default function NotFound() {
   return (
@@ -11,11 +10,17 @@ export default function NotFound() {
           您訪問嘅頁面唔存在，可能已被移除或地址有誤。
         </p>
         <div className="flex gap-3 justify-center">
-          <Link href="/">
-            <Button variant="primary">返回首頁</Button>
+          <Link
+            href="/"
+            className="inline-flex items-center justify-center rounded-xl bg-slate-950 px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-[1.02]"
+          >
+            返回首頁
           </Link>
-          <Link href="/kg">
-            <Button variant="secondary">瀏覽學校</Button>
+          <Link
+            href="/kg"
+            className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-medium text-slate-900 transition-transform hover:scale-[1.02]"
+          >
+            瀏覽學校
           </Link>
         </div>
       </div>

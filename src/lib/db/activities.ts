@@ -119,7 +119,10 @@ export async function fetchActivities(
   let query = supabase
     .from("activities")
     .select(LIST_SELECT, { count: "exact" })
-    .eq("is_active", true);
+    .eq("is_active", true)
+    .neq("source", "manual")
+    .not("source_url", "is", null)
+    .neq("source_url", "");
 
   if (category) {
     query = query.eq("category", category);
@@ -176,6 +179,9 @@ export async function fetchActivityById(id: string): Promise<Activity | null> {
     .select(LIST_SELECT)
     .eq("id", id)
     .eq("is_active", true)
+    .neq("source", "manual")
+    .not("source_url", "is", null)
+    .neq("source_url", "")
     .single();
 
   if (error || !data) return null;
@@ -194,6 +200,9 @@ export async function fetchRelatedActivities(
     .from("activities")
     .select(LIST_SELECT)
     .eq("is_active", true)
+    .neq("source", "manual")
+    .not("source_url", "is", null)
+    .neq("source_url", "")
     .neq("id", activity.id)
     .or(
       `category.eq.${activity.category}${
@@ -217,6 +226,9 @@ export async function fetchFeaturedActivities(limit = 6): Promise<Activity[]> {
     .from("activities")
     .select(LIST_SELECT)
     .eq("is_active", true)
+    .neq("source", "manual")
+    .not("source_url", "is", null)
+    .neq("source_url", "")
     .or(`end_date.is.null,end_date.gte.${oneMonthAgo}`)
     .order("start_date", { ascending: true, nullsFirst: false })
     .limit(limit);

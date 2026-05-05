@@ -129,10 +129,20 @@ export function ActivitiesClient() {
           ))}
         </div>
       ) : activities.length === 0 ? (
-        <div className="rounded-2xl border border-slate-200 bg-white p-10 text-center">
-          <p className="text-sm text-slate-500">
-            暫無符合條件嘅課外活動，試試調整篩選條件
+        <div className="rounded-[24px] border border-surface-border bg-white p-8 text-center shadow-[0_8px_24px_rgba(30,82,56,0.05)] md:p-10">
+          <p className="text-lg font-semibold text-ink-900">
+            暫時未有已核實嘅課外活動
           </p>
+          <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-ink-600">
+            我哋只會展示有來源頁可核對嘅活動，避免家長去到先發現報名方式唔清楚。
+          </p>
+          <button
+            type="button"
+            onClick={handleReset}
+            className="mt-5 inline-flex h-10 items-center justify-center rounded-pill border border-forest-600 px-5 text-sm font-medium text-forest-700 transition hover:bg-forest-50"
+          >
+            清除篩選
+          </button>
         </div>
       ) : (
         <>
