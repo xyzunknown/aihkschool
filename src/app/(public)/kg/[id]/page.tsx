@@ -2,11 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { fetchSchoolById, fetchSchoolEnrichment } from "@/lib/db/schools";
 import { fetchCurrentVacancy } from "@/lib/db/vacancies";
-import { fetchRelatedMediaArticles } from "@/lib/db/mediaArticles";
 import { createClient } from "@/lib/supabase/server";
 import { SchoolDetailClient } from "./SchoolDetailClient";
 import { ReputationSection } from "@/components/schools/ReputationSection";
-import { RelatedMediaSection } from "@/components/schools/RelatedMediaSection";
+import { AdmissionsSection } from "@/components/schools/AdmissionsSection";
 import { DISTRICT_LABELS } from "@/lib/utils";
 
 export const revalidate = 3600; // ISR 1 hour
@@ -57,10 +56,9 @@ export default async function SchoolDetailPage({ params }: Props) {
   const { data: { user } } = await supabase.auth.getUser();
   const isAuthenticated = !!user;
 
-  const [vacancy, enrichment, relatedMediaArticles] = await Promise.all([
+  const [vacancy, enrichment] = await Promise.all([
     fetchCurrentVacancy(params.id),
     fetchSchoolEnrichment(params.id, { includeRestricted: isAuthenticated }),
-    fetchRelatedMediaArticles(params.id, 6),
   ]);
 
   return (
@@ -71,7 +69,7 @@ export default async function SchoolDetailPage({ params }: Props) {
       />
       <div className="mx-auto max-w-4xl px-5 md:px-8">
         <ReputationSection enrichment={enrichment} />
-        <RelatedMediaSection articles={relatedMediaArticles} />
+        <AdmissionsSection school={school} enrichment={enrichment} />
       </div>
     </>
   );
