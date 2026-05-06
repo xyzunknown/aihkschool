@@ -9,13 +9,13 @@ import { useAuth } from "@/components/layout/AuthProvider";
 const NAV_ITEMS = [
   { href: "/kg", label: "找幼稚園", match: ["/kg"] },
   { href: "/activities", label: "課外活動", match: ["/activities"] },
-  { href: "/programmes", label: "康體通", match: ["/programmes"] },
+  { href: "/programmes", label: "興趣班 (康體通)", match: ["/programmes"] },
   { href: "/news", label: "消息資訊", match: ["/news"] },
 ] as const;
 
 const ACCOUNT_MENU_ITEMS = [
-  { href: "/account", label: "個人中心" },
-  { href: "/account#favorites", label: "收藏夾" },
+  { href: "/account", label: "我的帳戶" },
+  { href: "/account#favorites", label: "收藏管理" },
 ] as const;
 
 function isActiveItem(pathname: string, _activeTab: string | null, item: (typeof NAV_ITEMS)[number]) {
@@ -156,7 +156,7 @@ export function Header() {
                 onClick={signIn}
                 className="px-4 h-9 rounded-pill bg-forest-600 text-white text-sm font-medium hover:bg-forest-700 transition"
               >
-                建立帳戶
+                登入 / 建立帳戶
               </button>
             </div>
           )}
@@ -214,7 +214,7 @@ export function Header() {
                 onClick={signIn}
                 className="flex-1 h-9 rounded-pill bg-forest-600 text-white text-sm font-medium"
               >
-                建立帳戶
+                登入 / 建立帳戶
               </button>
             </div>
           )}

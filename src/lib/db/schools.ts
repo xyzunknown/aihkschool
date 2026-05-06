@@ -15,6 +15,7 @@ export interface FetchSchoolsParams {
   type?: SchoolType;
   language?: string;
   session?: SessionFilter;
+  grade?: "n" | "k1" | "k2" | "k3";
   hasNursery?: boolean;
   schoolandFreeScheme?: boolean;
   schoolandNurseryService?: "yes";
@@ -123,6 +124,7 @@ function buildSchoolListQuery(
 export async function fetchSchools(params: FetchSchoolsParams = {}) {
   const supabase = await createClient();
   const {
+    grade,
     vacancyStatuses,
     page = 1,
     limit = 20,
@@ -204,12 +206,15 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
       const currentVacancy = school.vacancies?.[0];
       if (!currentVacancy) return false;
 
-      const statuses = [
-        currentVacancy.n_vacancy,
-        currentVacancy.k1_vacancy,
-        currentVacancy.k2_vacancy,
-        currentVacancy.k3_vacancy,
-      ].map((status: string) => normalizeVacancyStatus(status as VacancyStatus));
+      const statusByGrade: Record<"n" | "k1" | "k2" | "k3", VacancyStatus> = {
+        n: currentVacancy.n_vacancy,
+        k1: currentVacancy.k1_vacancy,
+        k2: currentVacancy.k2_vacancy,
+        k3: currentVacancy.k3_vacancy,
+      };
+      const statuses = grade
+        ? [normalizeVacancyStatus(statusByGrade[grade])]
+        : Object.values(statusByGrade).map((status) => normalizeVacancyStatus(status));
 
       return statuses.some((status) => vacancyStatuses.includes(status));
     });

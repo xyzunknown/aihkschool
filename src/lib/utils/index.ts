@@ -214,10 +214,9 @@ export function getAvatarColor(schoolId: string): { bg: string; text: string } {
 /**
  * 判斷空缺數據是否過期。
  *
- * EDB publishes vacancy data on roughly a monthly cycle, so anything within
- * ~45 days is still the most recent official snapshot users could find. Past
- * that, the data is genuinely stale and we tell the user to check the school
- * website directly.
+ * EDB vacancy snapshots change often enough that anything older than about a
+ * month should be treated as stale and shown with a direct check-the-school
+ * warning.
  */
 export function isVacancyStale(edbPublishedDate: string | null): boolean {
   if (!edbPublishedDate) return true;
@@ -225,7 +224,7 @@ export function isVacancyStale(edbPublishedDate: string | null): boolean {
   if (Number.isNaN(published.getTime())) return true;
   const now = new Date();
   const diffDays = (now.getTime() - published.getTime()) / (1000 * 60 * 60 * 24);
-  return diffDays > 45;
+  return diffDays > 30;
 }
 
 /**

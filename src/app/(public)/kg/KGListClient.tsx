@@ -98,6 +98,7 @@ export default function KGListClient() {
       selectedDistricts: params.getAll("district") as District[],
       selectedType: params.get("type") as SchoolType | null,
       vacancyFilter: params.getAll("vacancy"),
+      selectedGrade: (params.get("grade") as "n" | "k1" | "k2" | "k3" | null),
       sessionFilter: params.get("session") as string | null,
       hasNurseryFilter: params.get("hasNursery") === "true",
       schoolandFreeSchemeFilter: params.get("schoolandFreeScheme") === "true",
@@ -114,6 +115,7 @@ export default function KGListClient() {
     selectedDistricts,
     selectedType,
     vacancyFilter,
+    selectedGrade,
     sessionFilter,
     hasNurseryFilter,
     schoolandFreeSchemeFilter,
@@ -133,6 +135,7 @@ export default function KGListClient() {
       selectedDistricts.forEach((d) => params.append("district", d));
       if (selectedType) params.set("type", selectedType);
       vacancyFilter.forEach((v) => params.append("vacancy", v));
+      if (selectedGrade) params.set("grade", selectedGrade);
       if (sessionFilter) params.set("session", sessionFilter);
       if (hasNurseryFilter) params.set("hasNursery", "true");
       if (schoolandFreeSchemeFilter) params.set("schoolandFreeScheme", "true");
@@ -162,6 +165,7 @@ export default function KGListClient() {
     selectedDistricts,
     selectedType,
     vacancyFilter,
+    selectedGrade,
     sessionFilter,
     hasNurseryFilter,
     schoolandFreeSchemeFilter,
@@ -303,6 +307,7 @@ export default function KGListClient() {
         selectedDistricts={selectedDistricts}
         selectedType={selectedType}
         vacancyFilter={vacancyFilter}
+        selectedGrade={selectedGrade}
         sessionFilter={sessionFilter}
         hasNurseryFilter={hasNurseryFilter}
         schoolandFreeSchemeFilter={schoolandFreeSchemeFilter}

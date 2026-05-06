@@ -89,7 +89,7 @@ export async function POST(request: NextRequest) {
 
     if (message === "MAX_FAVORITES_REACHED") {
       return NextResponse.json(
-        { error: { code: "MAX_FAVORITES_REACHED", message: "最多只能收藏 10 所学校" } },
+        { error: { code: "MAX_FAVORITES_REACHED", message: "已達收藏上限，請先到我的帳戶刪除一所收藏再加入新的學校" } },
         { status: 409 }
       );
     }

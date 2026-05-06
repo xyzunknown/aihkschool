@@ -25,6 +25,10 @@ export async function GET(request: NextRequest) {
     const districts = searchParams.getAll("district") as District[];
     const type = searchParams.get("type") as SchoolType | null;
     const language = searchParams.get("language");
+    const gradeParam = searchParams.get("grade");
+    const grade = ["n", "k1", "k2", "k3"].includes(gradeParam ?? "")
+      ? (gradeParam as "n" | "k1" | "k2" | "k3")
+      : undefined;
     const sessionParam = searchParams.get("session");
     const session = sessionParam && SESSION_FILTERS.includes(sessionParam as SessionFilter)
       ? (sessionParam as SessionFilter)
@@ -46,6 +50,7 @@ export async function GET(request: NextRequest) {
       districts: districts.length > 0 ? districts : undefined,
       type: type ?? undefined,
       language: language ?? undefined,
+      grade,
       session,
       hasNursery: hasNursery === "true" ? true : undefined,
       schoolandFreeScheme: schoolandFreeScheme === "true" ? true : undefined,

@@ -136,7 +136,7 @@ export function SchoolDetailClient({ school, vacancy }: Props) {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 pb-24">
+    <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
       {/* Back link */}
       <Link
         href="/kg"

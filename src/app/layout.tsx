@@ -37,6 +37,11 @@ export const metadata: Metadata = {
     type: "website",
     locale: "zh_HK",
     siteName: "HKSchoolPlace",
+    images: ["/brand/Web Logo/Logo.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/brand/Web Logo/Logo.png"],
   },
 };
 

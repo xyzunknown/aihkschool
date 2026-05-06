@@ -13,6 +13,13 @@ export const metadata: Metadata = {
     description: "搜尋全港幼稚園，查看 K1-K3 學位空缺狀態、申請截止日期。",
     type: "website",
     url: "https://aihkschool.vercel.app/kg",
+    images: ["/brand/Web Logo/Logo.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "幼稚園列表 — HKSchoolPlace",
+    description: "搜尋全港幼稚園，查看 K1-K3 學位空缺狀態、申請截止日期。",
+    images: ["/brand/Web Logo/Logo.png"],
   },
 };
 

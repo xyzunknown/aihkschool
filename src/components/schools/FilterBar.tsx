@@ -8,6 +8,7 @@ interface FilterBarProps {
   selectedDistricts: District[];
   selectedType: SchoolType | null;
   vacancyFilter: string[];
+  selectedGrade: "n" | "k1" | "k2" | "k3" | null;
   sessionFilter: string | null;
   hasNurseryFilter: boolean;
   schoolandFreeSchemeFilter: boolean;
@@ -23,6 +24,7 @@ export function FilterBar({
   selectedDistricts,
   selectedType,
   vacancyFilter,
+  selectedGrade,
   sessionFilter,
   hasNurseryFilter,
   schoolandFreeSchemeFilter,
@@ -56,6 +58,14 @@ export function FilterBar({
     { key: "no_information", label: "待更新" },
   ];
 
+  const gradeOptions = [
+    { key: "all", label: "全部年级" },
+    { key: "n", label: "N" },
+    { key: "k1", label: "K1" },
+    { key: "k2", label: "K2" },
+    { key: "k3", label: "K3" },
+  ] as const;
+
   const schoolTypeOptions = [
     { key: "all", label: "全部" },
     ...Object.entries(SCHOOL_TYPE_LABELS).map(([key, label]) => ({ key, label })),
@@ -71,6 +81,7 @@ export function FilterBar({
 
   const moreFilterCount =
     (sessionFilter ? 1 : 0) +
+    (selectedGrade ? 1 : 0) +
     (hasNurseryFilter ? 1 : 0) +
     (schoolandFreeSchemeFilter ? 1 : 0) +
     (schoolandNurseryServiceFilter ? 1 : 0) +
@@ -117,6 +128,21 @@ export function FilterBar({
                 key={key}
                 onClick={() => onToggleVacancy(key)}
                 className={`${pillBase} ${vacancyFilter.includes(key) ? pillActive : pillInactive}`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {gradeOptions.map(({ key, label }) => (
+              <button
+                key={key}
+                onClick={() => onUpdateFilter("grade", key === "all" ? null : selectedGrade === key ? null : key)}
+                className={`${pillBase} ${
+                  (key === "all" && !selectedGrade) || selectedGrade === key
+                    ? pillActive
+                    : pillInactive
+                }`}
               >
                 {label}
               </button>

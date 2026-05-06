@@ -586,11 +586,6 @@ async function readSchoolList(): Promise<SchoolListRow[]> {
     : [];
 }
 
-async function readPriorityTop100Rows(): Promise<PriorityTop100Row[]> {
-  const parsed = priorityTop100Data as { rows?: PriorityTop100Row[] };
-  return Array.isArray(parsed.rows) ? parsed.rows : [];
-}
-
 function uniqueByHref<T extends { href: string }>(items: T[]): T[] {
   const seen = new Set<string>();
   return items.filter((item) => {
@@ -889,10 +884,9 @@ async function getHomepageBanners(): Promise<HomeBanner[]> {
 /* ─── Featured schools (picked from top 100 priority list) ─── */
 
 async function getFeaturedSchoolsLive(): Promise<FeaturedSchool[]> {
-  const [priorityRows, schoolList] = await Promise.all([
-    readPriorityTop100Rows(),
-    readSchoolList(),
-  ]);
+  const parsedPriority = priorityTop100Data as { rows?: PriorityTop100Row[] };
+  const priorityRows = Array.isArray(parsedPriority.rows) ? parsedPriority.rows : [];
+  const schoolList = await readSchoolList();
 
   if (priorityRows.length === 0 || schoolList.length === 0) {
     return FEATURED_SCHOOLS;

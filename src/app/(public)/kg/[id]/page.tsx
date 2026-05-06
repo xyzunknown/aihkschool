@@ -33,6 +33,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       type: "website",
       url: `https://aihkschool.vercel.app/kg/${params.id}`,
+      images: ["/brand/Web Logo/Logo.png"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/brand/Web Logo/Logo.png"],
     },
     robots: {
       index: true,
@@ -62,15 +69,15 @@ export default async function SchoolDetailPage({ params }: Props) {
   ]);
 
   return (
-    <>
+    <div className="pb-24">
       <SchoolDetailClient
         school={school}
         vacancy={vacancy}
       />
-      <div className="mx-auto max-w-4xl px-5 md:px-8">
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
         <ReputationSection enrichment={enrichment} />
         <AdmissionsSection school={school} enrichment={enrichment} />
       </div>
-    </>
+    </div>
   );
 }

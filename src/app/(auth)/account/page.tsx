@@ -137,7 +137,7 @@ export default function AccountPage() {
   return (
     <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
       <div className="max-w-2xl mx-auto">
-        <h1 className="text-2xl font-bold text-slate-950 mb-6">你好，{user.user_metadata?.full_name ?? user.email?.split("@")[0]}</h1>
+        <h1 className="text-2xl font-bold text-slate-950 mb-6">我的帳戶</h1>
 
         {/* User card */}
         <div className="bg-white rounded-2xl border border-slate-200 p-6 mb-8">
@@ -205,7 +205,7 @@ export default function AccountPage() {
         {/* Favorites section */}
         <div id="favorites" className="flex items-center justify-between mb-6 scroll-mt-24">
           <h2 className="text-lg font-semibold text-slate-950">收藏中的學校 ({favorites.length}/{MAX_FAVORITES})</h2>
-          {favorites.length >= MAX_FAVORITES && <span className="text-sm text-orange-600 font-medium">已達上限</span>}
+          {favorites.length >= MAX_FAVORITES && <span className="text-sm text-orange-600 font-medium">已達上限，先刪一所再加新收藏</span>}
         </div>
 
         {loadingFavs ? (

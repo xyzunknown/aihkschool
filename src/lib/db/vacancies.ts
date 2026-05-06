@@ -13,13 +13,15 @@ export async function fetchCurrentVacancy(schoolId: string): Promise<Vacancy | n
     )
     .eq("school_id", schoolId)
     .eq("is_current", true)
-    .single();
+    .order("edb_published_date", { ascending: false, nullsFirst: false })
+    .order("updated_at", { ascending: false })
+    .limit(1);
 
   if (error) {
     return null;
   }
 
-  return data as Vacancy;
+  return (data?.[0] ?? null) as Vacancy | null;
 }
 
 export async function fetchVacanciesBySchool(schoolId: string) {

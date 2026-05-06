@@ -39,11 +39,13 @@ export async function generateMetadata({
       description,
       type: "article",
       url: `/news/${encodeURIComponent(article.id)}`,
+      images: ["/brand/Web Logo/Logo.png"],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: article.title,
       description,
+      images: ["/brand/Web Logo/Logo.png"],
     },
   };
 }

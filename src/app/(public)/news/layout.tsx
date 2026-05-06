@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "資訊消息",
     description: "掌握最新教育資訊、學校活動、升學政策。",
+    images: ["/brand/Web Logo/Logo.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/brand/Web Logo/Logo.png"],
   },
 };
 
