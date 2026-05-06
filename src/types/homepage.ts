@@ -77,10 +77,16 @@ export interface NewsItem {
 
 export interface FeaturedSchool {
   id: string;
+  detailId?: string | null;
   schoolCode?: string;
   name_tc: string;
   name_en: string;
   district: string;
+  schoolType?: string | null;
+  schoolandGroupTag?: string | null;
+  schoolandNurseryService?: string | null;
+  schoolandSizeLabel?: string | null;
+  schoolandSessionLabel?: string | null;
   sessionTags: string[];
   hasN: boolean;
   href: string;

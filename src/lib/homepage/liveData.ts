@@ -892,11 +892,40 @@ async function getFeaturedSchoolsLive(): Promise<FeaturedSchool[]> {
     return FEATURED_SCHOOLS;
   }
 
+  const priorityCodes = priorityRows
+    .map((row) => row.school_code)
+    .filter((code): code is string => Boolean(code));
+  const supabase = await createClient();
+  const { data: schoolRows } = await supabase
+    .from("schools")
+    .select(
+      "id, school_code, name_tc, name_en, district, school_type, session_type, has_nursery, schooland_group_tag, schooland_nursery_service, schooland_size_label, schooland_session_label"
+    )
+    .in("school_code", priorityCodes);
+
+  const schoolRowsByCode = new Map(
+    (schoolRows ?? []).map((row: {
+      id: string;
+      school_code: string | null;
+      name_tc: string | null;
+      name_en: string | null;
+      district: string | null;
+      school_type: string | null;
+      session_type: string | null;
+      has_nursery: boolean | null;
+      schooland_group_tag: string | null;
+      schooland_nursery_service: string | null;
+      schooland_size_label: string | null;
+      schooland_session_label: string | null;
+    }) => [row.school_code, row])
+  );
+
   const schoolMap = new Map(schoolList.map((row) => [row.code, row]));
   const featured = priorityRows
     .sort((a, b) => (a.rank ?? Number.MAX_SAFE_INTEGER) - (b.rank ?? Number.MAX_SAFE_INTEGER))
     .map<FeaturedSchool | null>((row) => {
       const school = schoolMap.get(row.school_code ?? "");
+      const schoolRecord = schoolRowsByCode.get(row.school_code ?? "");
       const nameTc = school?.name_tc || row.db_name_tc || row.queue_name_tc || "";
       if (!nameTc) return null;
 
@@ -905,21 +934,28 @@ async function getFeaturedSchoolsLive(): Promise<FeaturedSchool[]> {
           ? DISTRICT_LABELS[school.district]
           : school?.district ?? toSourceLabel(row.school_type);
 
+      const sessionSource = schoolRecord?.session_type ?? school?.session ?? null;
       return {
-        id: row.school_code ?? nameTc,
+        id: schoolRecord?.id ?? row.school_code ?? nameTc,
+        detailId: schoolRecord?.id ?? null,
         schoolCode: row.school_code ?? undefined,
         name_tc: nameTc,
         name_en: formatEnglishSchoolName(school?.name_en || row.name_en || null),
         district,
-        sessionTags: normalizeSessionTags(school?.session),
-        hasN: Boolean(school?.session?.includes("N")),
+        schoolType: schoolRecord?.school_type ?? school?.school_type ?? row.school_type ?? null,
+        sessionTags: normalizeSessionTags(sessionSource),
+        hasN: Boolean(schoolRecord?.has_nursery ?? school?.session?.includes("N")),
         href: `/kg?search=${encodeURIComponent(nameTc)}`,
+        schoolandGroupTag: schoolRecord?.schooland_group_tag ?? null,
+        schoolandNurseryService: schoolRecord?.schooland_nursery_service ?? null,
+        schoolandSizeLabel: schoolRecord?.schooland_size_label ?? null,
+        schoolandSessionLabel: schoolRecord?.schooland_session_label ?? null,
         vacancyStatus: school
           ? {
-              k1: school.k1 ?? "no_information",
-              k2: school.k2 ?? "no_information",
-              k3: school.k3 ?? "no_information",
-            }
+            k1: school.k1 ?? "no_information",
+            k2: school.k2 ?? "no_information",
+            k3: school.k3 ?? "no_information",
+          }
           : undefined,
         vacancyPublishedDate: school?.edb_date ?? null,
       } satisfies FeaturedSchool;
