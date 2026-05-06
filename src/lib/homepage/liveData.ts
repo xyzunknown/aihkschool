@@ -3,6 +3,8 @@ import "server-only";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { createClient } from "@/lib/supabase/server";
+import priorityTop100Data from "../../../data/xhs/internal_priority_school_top100_results.json";
+import schoolListData from "../../../data/schools_merged.json";
 import {
   BANNERS,
   FEATURED_SCHOOLS,
@@ -579,29 +581,14 @@ async function readSchoolEnrichment(): Promise<EnrichmentRow[]> {
 }
 
 async function readSchoolList(): Promise<SchoolListRow[]> {
-  try {
-    const filePath = path.join(process.cwd(), "data", "schools_merged.json");
-    const raw = await fs.readFile(filePath, "utf8");
-    return JSON.parse(raw) as SchoolListRow[];
-  } catch {
-    return [];
-  }
+  return Array.isArray(schoolListData)
+    ? (schoolListData as SchoolListRow[])
+    : [];
 }
 
 async function readPriorityTop100Rows(): Promise<PriorityTop100Row[]> {
-  try {
-    const filePath = path.join(
-      process.cwd(),
-      "data",
-      "xhs",
-      "internal_priority_school_top100_results.json"
-    );
-    const raw = await fs.readFile(filePath, "utf8");
-    const parsed = JSON.parse(raw) as { rows?: PriorityTop100Row[] };
-    return Array.isArray(parsed.rows) ? parsed.rows : [];
-  } catch {
-    return [];
-  }
+  const parsed = priorityTop100Data as { rows?: PriorityTop100Row[] };
+  return Array.isArray(parsed.rows) ? parsed.rows : [];
 }
 
 function uniqueByHref<T extends { href: string }>(items: T[]): T[] {
