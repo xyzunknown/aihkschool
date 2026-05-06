@@ -3,7 +3,8 @@
 /supabase/
 /data/logo-cache/
 /data/profile-cache/
-/data/xhs/
+/data/xhs/*
+!/data/xhs/internal_priority_school_top100_results.json
 /public/images/banners/柜子-Banner-06.png
 /public/images/banners/树叶-Banner-04.png
 /public/images/banners/积木-Banner-05.png
