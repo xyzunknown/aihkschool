@@ -203,7 +203,7 @@ export default function AccountPage() {
         </div>
 
         {/* Favorites section */}
-        <div className="flex items-center justify-between mb-6">
+        <div id="favorites" className="flex items-center justify-between mb-6 scroll-mt-24">
           <h2 className="text-lg font-semibold text-slate-950">收藏中的學校 ({favorites.length}/{MAX_FAVORITES})</h2>
           {favorites.length >= MAX_FAVORITES && <span className="text-sm text-orange-600 font-medium">已達上限</span>}
         </div>

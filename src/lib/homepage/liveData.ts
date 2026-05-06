@@ -46,6 +46,15 @@ type SchoolListRow = {
   edb_date?: string | null;
 };
 
+type PriorityTop100Row = {
+  rank?: number | null;
+  school_code?: string | null;
+  db_name_tc?: string | null;
+  queue_name_tc?: string | null;
+  name_en?: string | null;
+  school_type?: string | null;
+};
+
 const HOMEPAGE_BANNER_ENABLED_VALUES = new Set([
   "1",
   "true",
@@ -100,8 +109,6 @@ const BLOCKED_URL_REGEX = /(godaddy\.com|javascript:|facebook\.com)/i;
 
 /** Only show news published within the last 60 days */
 const MAX_NEWS_AGE_DAYS = 60;
-/** Show events up to 30 days in the future */
-const MAX_EVENT_FUTURE_DAYS = 30;
 /** Keep past events for 7 days after they occurred */
 const MAX_EVENT_PAST_DAYS = 7;
 /** Timeline page: show events up to 90 days in the future */
@@ -463,17 +470,6 @@ function detectEventType(details: string, url: string): { type: SchoolEventItem[
   return { type: "open_day", label: "開放日" };
 }
 
-function isEventInWindow(dateIso: string): boolean {
-  const eventDate = parseDate(dateIso);
-  if (!eventDate) return false;
-
-  const now = new Date();
-  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  const diffDays = (eventDate.getTime() - today.getTime()) / (24 * 60 * 60 * 1000);
-
-  return diffDays >= -MAX_EVENT_PAST_DAYS && diffDays <= MAX_EVENT_FUTURE_DAYS;
-}
-
 function isEventInTimelineWindow(dateIso: string): boolean {
   const eventDate = parseDate(dateIso);
   if (!eventDate) return false;
@@ -592,6 +588,22 @@ async function readSchoolList(): Promise<SchoolListRow[]> {
   }
 }
 
+async function readPriorityTop100Rows(): Promise<PriorityTop100Row[]> {
+  try {
+    const filePath = path.join(
+      process.cwd(),
+      "data",
+      "xhs",
+      "internal_priority_school_top100_results.json"
+    );
+    const raw = await fs.readFile(filePath, "utf8");
+    const parsed = JSON.parse(raw) as { rows?: PriorityTop100Row[] };
+    return Array.isArray(parsed.rows) ? parsed.rows : [];
+  } catch {
+    return [];
+  }
+}
+
 function uniqueByHref<T extends { href: string }>(items: T[]): T[] {
   const seen = new Set<string>();
   return items.filter((item) => {
@@ -629,80 +641,6 @@ async function mergedEnrichmentRows(): Promise<EnrichmentRow[]> {
     merged.push(row);
   }
   return merged;
-}
-
-async function getSchoolEvents(): Promise<SchoolEventItem[]> {
-  const rows = await mergedEnrichmentRows();
-  if (rows.length === 0) return SCHOOL_EVENTS;
-
-  const events: SchoolEventItem[] = [];
-  let counter = 0;
-
-  for (const row of rows) {
-    // Open day events
-    if (
-      row.open_day_url &&
-      !BLOCKED_URL_REGEX.test(row.open_day_url) &&
-      OPEN_DAY_REGEX.test(`${row.open_day_details || ""} ${row.open_day_url}`)
-    ) {
-      const details = cleanText(row.open_day_details || "");
-      const dateIso = extractIsoDate(details);
-      const dateLabel = extractDateLabel(details);
-      const { type, label } = detectEventType(details, row.open_day_url);
-
-      if (dateIso && isEventInWindow(dateIso)) {
-        counter += 1;
-        events.push({
-          id: `evt-od-${counter}`,
-          school_name: toSchoolName(row),
-          school_type: "private_independent",
-          date: dateLabel ? `${dateLabel} ${label}` : label,
-          date_iso: dateIso,
-          event_type: type,
-          event_label: label,
-          href: row.open_day_url,
-          detail_href: toSearchHref(row),
-          is_past: isEventPast(dateIso),
-        });
-      }
-    }
-
-    // Admission/interview events (only if they have specific dates)
-    if (
-      row.application_url &&
-      !BLOCKED_URL_REGEX.test(row.application_url) &&
-      ADMISSION_REGEX.test(`${row.application_details || ""} ${row.application_url}`)
-    ) {
-      const details = cleanText(row.application_details || "");
-      const dateIso = extractIsoDate(details);
-      const dateLabel = extractDateLabel(details);
-
-      if (dateIso && isEventInWindow(dateIso)) {
-        const { type, label } = detectEventType(details, row.application_url);
-        counter += 1;
-        events.push({
-          id: `evt-adm-${counter}`,
-          school_name: toSchoolName(row),
-          school_type: "private_independent",
-          date: dateLabel ? `${dateLabel} ${label}` : label,
-          date_iso: dateIso,
-          event_type: type,
-          event_label: label,
-          href: row.application_url,
-          detail_href: toSearchHref(row),
-          is_past: isEventPast(dateIso),
-        });
-      }
-    }
-  }
-
-  // Sort by date ascending (nearest first), past events last
-  const sorted = uniqueByHref(events).sort((a, b) => {
-    if (a.is_past !== b.is_past) return a.is_past ? 1 : -1;
-    return a.date_iso.localeCompare(b.date_iso);
-  });
-
-  return sorted.length > 0 ? sorted : SCHOOL_EVENTS;
 }
 
 /** Compute days from today to event date (negative = past) */
@@ -820,12 +758,18 @@ function normalizeSessionTags(session: string | null | undefined): string[] {
 
   const tags: string[] = [];
   const lowered = session.toLowerCase();
+  const raw = session.trim();
 
-  if (lowered.includes("whole_day")) {
+  if (lowered.includes("whole_day") || raw.includes("全日")) {
     tags.push("全日班");
   }
 
-  if (lowered.includes("am") || lowered.includes("pm")) {
+  if (
+    lowered.includes("am") ||
+    lowered.includes("pm") ||
+    raw.includes("上午") ||
+    raw.includes("下午")
+  ) {
     tags.push("半日班");
   }
 
@@ -955,90 +899,71 @@ async function getHomepageBanners(): Promise<HomeBanner[]> {
   });
 }
 
-/* ─── Featured schools (dynamic from vacancy data) ─── */
+/* ─── Featured schools (picked from top 100 priority list) ─── */
 
 async function getFeaturedSchoolsLive(): Promise<FeaturedSchool[]> {
-  const schoolList = await readSchoolList();
-  if (schoolList.length === 0) return FEATURED_SCHOOLS;
+  const [priorityRows, schoolList] = await Promise.all([
+    readPriorityTop100Rows(),
+    readSchoolList(),
+  ]);
 
-  // Pick schools that have vacancy data and diverse districts
-  const withVacancy = schoolList.filter(
-    (row) => row.name_tc && row.district && (row.k1 || row.k2 || row.k3)
-  );
-
-  if (withVacancy.length < 3) return FEATURED_SCHOOLS;
-
-  // Diversify by district: pick from different districts
-  const seenDistricts = new Set<string>();
-  const picked: SchoolListRow[] = [];
-
-  // First pass: one per district, prefer schools with has_vacancy
-  const sorted = [...withVacancy].sort((a, b) => {
-    const aScore = (a.k1 === "has_vacancy" ? 2 : 0) + (a.k2 === "has_vacancy" ? 1 : 0);
-    const bScore = (b.k1 === "has_vacancy" ? 2 : 0) + (b.k2 === "has_vacancy" ? 1 : 0);
-    return bScore - aScore;
-  });
-
-  for (const row of sorted) {
-    if (picked.length >= 3) break;
-    if (row.district && !seenDistricts.has(row.district)) {
-      seenDistricts.add(row.district);
-      picked.push(row);
-    }
+  if (priorityRows.length === 0 || schoolList.length === 0) {
+    return FEATURED_SCHOOLS;
   }
 
-  // Fill remaining slots if needed
-  for (const row of sorted) {
-    if (picked.length >= 3) break;
-    if (!picked.includes(row)) picked.push(row);
-  }
+  const schoolMap = new Map(schoolList.map((row) => [row.code, row]));
+  const featured = priorityRows
+    .sort((a, b) => (a.rank ?? Number.MAX_SAFE_INTEGER) - (b.rank ?? Number.MAX_SAFE_INTEGER))
+    .map<FeaturedSchool | null>((row) => {
+      const school = schoolMap.get(row.school_code ?? "");
+      const nameTc = school?.name_tc || row.db_name_tc || row.queue_name_tc || "";
+      if (!nameTc) return null;
 
-  if (picked.length < 3) return FEATURED_SCHOOLS;
+      const district =
+        school?.district && school.district in DISTRICT_LABELS
+          ? DISTRICT_LABELS[school.district]
+          : school?.district ?? toSourceLabel(row.school_type);
 
-  return picked.map((row) => {
-    const district =
-      row.district && row.district in DISTRICT_LABELS
-        ? DISTRICT_LABELS[row.district as keyof typeof DISTRICT_LABELS]
-        : row.district ?? "";
-    const sessionTags = normalizeSessionTags(row.session);
+      return {
+        id: row.school_code ?? nameTc,
+        schoolCode: row.school_code ?? undefined,
+        name_tc: nameTc,
+        name_en: formatEnglishSchoolName(school?.name_en || row.name_en || null),
+        district,
+        sessionTags: normalizeSessionTags(school?.session),
+        hasN: Boolean(school?.session?.includes("N")),
+        href: `/kg?search=${encodeURIComponent(nameTc)}`,
+        vacancyStatus: school
+          ? {
+              k1: school.k1 ?? "no_information",
+              k2: school.k2 ?? "no_information",
+              k3: school.k3 ?? "no_information",
+            }
+          : undefined,
+        vacancyPublishedDate: school?.edb_date ?? null,
+      } satisfies FeaturedSchool;
+    })
+    .filter((school): school is FeaturedSchool => school !== null)
+    .slice(0, 3);
 
-    return {
-      id: row.code ?? row.name_tc ?? "",
-      schoolCode: row.code ?? undefined,
-      name_tc: row.name_tc ?? "",
-      name_en: formatEnglishSchoolName(row.name_en),
-      district,
-      sessionTags,
-      hasN: false,
-      href: `/kg?search=${encodeURIComponent(row.name_tc ?? "")}`,
-      vacancyStatus: {
-        k1: row.k1 ?? "no_information",
-        k2: row.k2 ?? "no_information",
-        k3: row.k3 ?? "no_information",
-      },
-      vacancyPublishedDate: row.edb_date ?? null,
-    } satisfies FeaturedSchool;
-  });
+  return featured.length > 0 ? featured : FEATURED_SCHOOLS;
 }
 
 /* ─── Main export ─── */
 
 export async function getHomepageLiveData(): Promise<{
   banners: HomeBanner[];
-  events: SchoolEventItem[];
   newsItems: NewsItem[];
   featuredSchools: FeaturedSchool[];
 }> {
-  const [banners, events, newsItems, featuredSchools] = await Promise.all([
+  const [banners, newsItems, featuredSchools] = await Promise.all([
     getHomepageBanners(),
-    getSchoolEvents(),
     getLiveNewsItems(),
     getFeaturedSchoolsLive(),
   ]);
 
   return {
     banners,
-    events,
     newsItems,
     featuredSchools,
   };

@@ -1,6 +1,5 @@
 import { Hero } from "@/components/home/Hero";
 import { HeroSearchBar } from "@/components/home/HeroSearchBar";
-import { ParentMustKnow } from "@/components/home/ParentMustKnow";
 import { NewsFeed } from "@/components/home/NewsFeed";
 import { FeaturedSchools } from "@/components/home/FeaturedSchools";
 import { ActivitiesPreview } from "@/components/home/ActivitiesPreview";
@@ -42,19 +41,14 @@ export default async function HomePage({
           <HeroSearchBar />
         </section>
 
-        {/* 近期家長必知 */}
-        <ParentMustKnow
-          events={liveData.events}
-        />
+        {/* 精選名校 */}
+        <FeaturedSchools schools={liveData.featuredSchools} />
 
         {/* 課外活動精選 */}
         <ActivitiesPreview />
 
         {/* 消息動態 */}
         <NewsFeed items={liveData.newsItems} />
-
-        {/* 精選名校 */}
-        <FeaturedSchools schools={liveData.featuredSchools} />
       </div>
     </>
   );

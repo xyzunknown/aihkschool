@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useSearchParams } from "next/navigation";
@@ -11,7 +11,11 @@ const NAV_ITEMS = [
   { href: "/activities", label: "課外活動", match: ["/activities"] },
   { href: "/programmes", label: "康體通", match: ["/programmes"] },
   { href: "/news", label: "消息資訊", match: ["/news"] },
-  { href: "/account", label: "收藏夾", match: ["/account"] },
+] as const;
+
+const ACCOUNT_MENU_ITEMS = [
+  { href: "/account", label: "個人中心" },
+  { href: "/account#favorites", label: "收藏夾" },
 ] as const;
 
 function isActiveItem(pathname: string, _activeTab: string | null, item: (typeof NAV_ITEMS)[number]) {
@@ -21,9 +25,39 @@ function isActiveItem(pathname: string, _activeTab: string | null, item: (typeof
 export function Header() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const { user, signIn } = useAuth();
+  const { user, signIn, signOut } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [accountMenuOpen, setAccountMenuOpen] = useState(false);
+  const accountMenuRef = useRef<HTMLDivElement | null>(null);
   const activeTab = searchParams.get("tab");
+
+  useEffect(() => {
+    const handlePointerDown = (event: MouseEvent | TouchEvent) => {
+      if (!accountMenuRef.current) return;
+      if (event.target instanceof Node && accountMenuRef.current.contains(event.target)) return;
+      setAccountMenuOpen(false);
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setAccountMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handlePointerDown);
+    document.addEventListener("touchstart", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      document.removeEventListener("touchstart", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
+  useEffect(() => {
+    setAccountMenuOpen(false);
+  }, [pathname]);
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-surface-border">
@@ -76,12 +110,40 @@ export function Header() {
         {/* Right cluster: auth buttons */}
         <div className="flex items-center gap-2 ml-auto">
           {user ? (
-            <Link
-              href="/account"
-              className="w-9 h-9 rounded-full bg-forest-600 text-white flex items-center justify-center text-sm font-semibold"
-            >
-              {(user.user_metadata?.full_name ?? user.email ?? "U").charAt(0).toUpperCase()}
-            </Link>
+            <div ref={accountMenuRef} className="relative">
+              <button
+                onClick={() => setAccountMenuOpen((value) => !value)}
+                className="w-9 h-9 rounded-full bg-forest-600 text-white flex items-center justify-center text-sm font-semibold"
+                aria-label="打開個人選單"
+                aria-expanded={accountMenuOpen}
+              >
+                {(user.user_metadata?.full_name ?? user.email ?? "U").charAt(0).toUpperCase()}
+              </button>
+              {accountMenuOpen ? (
+                <div className="absolute right-0 top-full mt-2 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg">
+                  {ACCOUNT_MENU_ITEMS.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setAccountMenuOpen(false)}
+                      className="block rounded-xl px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-950"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      setAccountMenuOpen(false);
+                      await signOut();
+                    }}
+                    className="mt-1 block w-full rounded-xl px-3 py-2 text-left text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-950"
+                  >
+                    登出
+                  </button>
+                </div>
+              ) : null}
+            </div>
           ) : (
             <div className="hidden sm:flex items-center gap-2">
               <button
