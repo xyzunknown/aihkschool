@@ -3,6 +3,7 @@ import { HeroSearchBar } from "@/components/home/HeroSearchBar";
 import { NewsFeed } from "@/components/home/NewsFeed";
 import { FeaturedSchools } from "@/components/home/FeaturedSchools";
 import { ActivitiesPreview } from "@/components/home/ActivitiesPreview";
+import { ProgrammesPreview } from "@/components/home/ProgrammesPreview";
 import { getHomepageLiveData } from "@/lib/homepage/liveData";
 
 const AUTH_ERROR_COPY: Record<string, string> = {
@@ -43,6 +44,9 @@ export default async function HomePage({
 
         {/* 精選名校 */}
         <FeaturedSchools schools={liveData.featuredSchools} />
+
+        {/* 康體通開報倒數 */}
+        <ProgrammesPreview />
 
         {/* 課外活動精選 */}
         <ActivitiesPreview />
