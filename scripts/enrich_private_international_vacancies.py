@@ -7,6 +7,14 @@ This script is intentionally conservative:
 - generic admissions / apply-now signals become `check_school`
 - if a site is unreachable and no admissions signal exists, statuses remain `no_information`
 
+Improvements (2026-05):
+- Method 1: http→https upgrade + SSL cert tolerance to recover unreachable sites
+- Method 2: fixed-path probing (/admissions, /apply, /enrolment, …) when homepage
+            link discovery finds nothing
+- Method 3: noise-snippet filter tightened; waitlist detection made more aggressive
+- Method 4: AI fallback (OpenAI-compatible API) for schools that are still
+            check_school / no_information after regex extraction
+
 Outputs:
 - data/private_international_vacancy_enrichment.json
 - supabase/seed/006_private_international_vacancy_enrichment.sql
@@ -18,7 +26,9 @@ import concurrent.futures
 import csv
 import html
 import json
+import os
 import re
+import ssl
 import urllib.parse
 import urllib.request
 from dataclasses import dataclass
@@ -85,6 +95,269 @@ APPLICATION_KEYWORDS = (
     "招生", "報名", "申請", "入學", "收生", "幼兒班入學",
 )
 
+# Method 2: fixed sub-paths to probe when homepage link discovery finds nothing.
+# Ordered by likelihood of containing vacancy / admissions content.
+FIXED_ADMISSIONS_PATHS = (
+    "/admissions",
+    "/admission",
+    "/admissions/apply",
+    "/admissions/how-to-apply",
+    "/apply",
+    "/enrolment",
+    "/enrollment",
+    "/how-to-apply",
+    "/application",
+    "/vacancies",
+    "/vacancy",
+    "/join-us",
+    "/registration",
+    "/intake",
+    "/en/admissions",
+    "/en/admission",
+    "/en/apply",
+    "/en/enrolment",
+)
+
+# ─── Method 4: AI extraction config ──────────────────────────────────────────
+# Uses the OpenAI-compatible proxy already configured in .env.local.
+# Env vars read at runtime (not import time) so the script still works without them.
+#
+# OPENAI_API_KEY      — required for AI extraction
+# OPENAI_BASE_URL     — proxy base URL (default: https://api.openai.com)
+# OPENAI_MODEL        — model name (default: gpt-4o-mini for cost efficiency)
+# VAC_AI_ENABLED      — set to "0" to disable AI extraction entirely
+# VAC_AI_MAX_SCHOOLS  — max schools to send to AI per run (default: 165, i.e. all)
+
+AI_SYSTEM_PROMPT = """You are a JSON-only extractor. Output ONLY a JSON object, nothing else.
+
+Format: {"n":"STATUS","k1":"STATUS","k2":"STATUS","k3":"STATUS","summary":"EVIDENCE"}
+
+STATUS must be exactly one of:
+- has_vacancy (explicit: spaces/places available now)
+- waiting_list (waitlist or 候補 mentioned)
+- no_vacancy (full / 額滿 / no vacancy)
+- check_school (apply now / admissions open / rolling / year-round — no vacancy info)
+- no_information (no admissions content found)
+- not_offered (grade not offered by this school)
+
+Do not output any explanation. Output the JSON object only."""
+
+
+def _load_env_local() -> None:
+    """Load .env.local into os.environ if not already set (mirrors JS dotenv behaviour)."""
+    env_path = ROOT / ".env.local"
+    if not env_path.exists():
+        return
+    for line in env_path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        eq = line.find("=")
+        if eq < 0:
+            continue
+        key = line[:eq].strip()
+        val = line[eq + 1:].strip().strip('"').strip("'")
+        if key and key not in os.environ:
+            os.environ[key] = val
+
+
+def _ai_call(text_content: str, school_name: str, grades_offered: list[str]) -> dict | None:
+    """Call the OpenAI-compatible API and return parsed vacancy dict, or None on failure.
+
+    Method 4: AI extraction for schools where regex found no concrete signal.
+    Uses OPENAI_API_KEY / OPENAI_BASE_URL / OPENAI_MODEL_VACANCY (or OPENAI_MODEL) from environment.
+    Default model: minimax-m2.5 (non-reasoning, fast, reliable JSON output).
+    Includes retry logic for 429 rate-limit responses.
+    """
+    _load_env_local()
+
+    api_key = os.environ.get("OPENAI_API_KEY")
+    if not api_key or os.environ.get("VAC_AI_ENABLED", "0") == "0":
+        return None
+
+    base_url = os.environ.get("OPENAI_BASE_URL", "https://api.openai.com").rstrip("/")
+    model = os.environ.get("OPENAI_MODEL_VACANCY", "minimax-m2.5")
+
+    grades_str = ", ".join(grades_offered) if grades_offered else "K1, K2, K3"
+    user_msg = (
+        f"School: {school_name}\n"
+        f"Grades offered: {grades_str}\n\n"
+        f"--- Website text (truncated to 1500 chars) ---\n"
+        f"{text_content[:1500]}"
+    )
+
+    payload = json.dumps({
+        "model": model,
+        "max_tokens": 400,  # minimax-m2.5: non-reasoning, ~100 output tokens sufficient
+        "temperature": 0,
+        "messages": [
+            {"role": "system", "content": AI_SYSTEM_PROMPT},
+            {"role": "user", "content": user_msg},
+        ],
+    }).encode("utf-8")
+
+    req = urllib.request.Request(
+        f"{base_url}/chat/completions",
+        data=payload,
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+            # Browser-like headers required for Cloudflare-protected proxies
+            "User-Agent": (
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"
+            ),
+            "Accept": "application/json, text/plain, */*",
+            "Accept-Language": "en-US,en;q=0.9",
+            "Origin": base_url.split("/v")[0] if "/v" in base_url else base_url,
+            "Referer": base_url.split("/v")[0] + "/" if "/v" in base_url else base_url + "/",
+        },
+        method="POST",
+    )
+
+    import time as _time
+    ctx = ssl.create_default_context()
+
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                body = json.loads(resp.read().decode("utf-8"))
+            break
+        except urllib.error.HTTPError as exc:
+            if exc.code == 429:
+                wait = 20 * (attempt + 1)  # 20s, 40s, 60s back-off
+                print(f"    [AI] 429 rate-limit, waiting {wait}s (attempt {attempt+1}/3)", flush=True)
+                _time.sleep(wait)
+                continue
+            print(f"    [AI] HTTP {exc.code}: {exc.read().decode()[:120]}", flush=True)
+            return None
+        except Exception as exc:
+            print(f"    [AI] API error: {exc}", flush=True)
+            if attempt < 2:
+                _time.sleep(10)
+                continue
+            return None
+    else:
+        return None
+
+    raw = body.get("choices", [{}])[0].get("message", {}).get("content", "").strip()
+    finish_reason = body.get("choices", [{}])[0].get("finish_reason", "unknown")
+    if not raw:
+        print(f"    [AI] empty response (finish={finish_reason}, model={model})", flush=True)
+        return None
+    # Strip markdown code fences if present
+    raw = re.sub(r"^```(?:json)?\s*|\s*```$", "", raw, flags=re.S).strip()
+
+    try:
+        result = json.loads(raw)
+    except json.JSONDecodeError:
+        # Model may have output reasoning text before/after JSON — try to extract JSON block
+        json_match = re.search(r'\{[^{}]*"(?:n|k1|k2|k3)"[^{}]*\}', raw, re.S)
+        if json_match:
+            try:
+                result = json.loads(json_match.group())
+            except json.JSONDecodeError:
+                print(f"    [AI] JSON parse error: {raw[:120]}", flush=True)
+                return None
+        else:
+            print(f"    [AI] JSON parse error: {raw[:120]}", flush=True)
+            return None
+
+    # Validate: must have at least one grade key
+    valid_statuses = {"has_vacancy", "waiting_list", "no_vacancy", "check_school", "no_information", "not_offered"}
+    grade_keys = {"n", "k1", "k2", "k3"}
+    if not any(k in result for k in grade_keys):
+        print(f"    [AI] unexpected response shape: {raw[:120]}", flush=True)
+        return None
+    # Sanitise: reject any status value not in our enum
+    for k in grade_keys:
+        if k in result and result[k] not in valid_statuses:
+            result[k] = "no_information"
+
+    return result
+
+
+def ai_extract_vacancy(
+    target: "SchoolTarget",
+    scraped_texts: list[str],
+    record: dict,
+    ai_semaphore: "threading.Semaphore | None" = None,
+) -> dict:
+    """Apply AI extraction to a record that still has weak signals.
+
+    Only called when the record has no concrete grade-level signal after regex.
+    Updates grade vacancy fields and evidence in-place and returns the record.
+    ai_semaphore: optional threading.Semaphore to limit concurrent AI calls.
+    """
+    CONCRETE = {"has_vacancy", "waiting_list", "no_vacancy"}
+
+    # Skip if regex already found concrete signals for all offered grades
+    needs_ai = any(
+        record.get(f"{g}_vacancy") not in CONCRETE
+        for g in ("n", "k1", "k2", "k3")
+        if (g.upper() if g != "n" else "N") in target.grades_offered
+    )
+    if not needs_ai:
+        return record
+
+    # Combine all scraped page texts, deduplicated, up to 1500 chars total
+    combined = "\n\n".join(dict.fromkeys(scraped_texts))[:1500]
+    if not combined.strip():
+        return record
+
+    if ai_semaphore:
+        ai_semaphore.acquire()
+    try:
+        ai_result = _ai_call(combined, target.name_en, target.grades_offered)
+    finally:
+        if ai_semaphore:
+            ai_semaphore.release()
+
+    if not ai_result:
+        return record
+
+    summary = ai_result.get("summary", "")
+    improved = False
+
+    for grade in ("n", "k1", "k2", "k3"):
+        field = f"{grade}_vacancy"
+        code_grade = grade.upper() if grade != "n" else "N"
+        if code_grade not in target.grades_offered:
+            continue
+        ai_status = ai_result.get(grade)
+        if not ai_status or ai_status == "not_offered":
+            continue
+        current = record.get(field, "no_information")
+        # Only upgrade: concrete > check_school > no_information
+        # Never downgrade a concrete signal already found by regex
+        if current in CONCRETE:
+            continue
+        if ai_status in CONCRETE or (ai_status == "check_school" and current == "no_information"):
+            record[field] = ai_status
+            record["evidence"][grade] = {
+                "summary": summary,
+                "url": record.get("source_url", ""),
+                "method": "ai",
+            }
+            improved = True
+
+    if improved:
+        # Recompute overall_status from grade fields
+        grade_statuses = [
+            record.get(f"{g}_vacancy")
+            for g in ("n", "k1", "k2", "k3")
+            if (g.upper() if g != "n" else "N") in target.grades_offered
+        ]
+        status_priority = {"has_vacancy": 5, "waiting_list": 4, "no_vacancy": 3,
+                           "check_school": 2, "no_information": 1}
+        best = max(grade_statuses, key=lambda s: status_priority.get(s, 0), default="no_information")
+        record["overall_status"] = best
+        if not record.get("overall_summary"):
+            record["overall_summary"] = summary
+        record["scrape_status"] = record.get("scrape_status", "ok") + "+ai"
+
+    return record
+
 
 @dataclass
 class SchoolTarget:
@@ -99,22 +372,61 @@ class SchoolTarget:
     application_url: str | None
 
 
-def request_url(url: str, timeout: int = 8) -> tuple[bytes | None, str | None]:
-    req = urllib.request.Request(
-        url,
-        headers={
-            "User-Agent": USER_AGENT,
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-            "Accept-Language": "zh-HK,zh-TW,zh;q=0.9,en;q=0.8",
-        },
-    )
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
-            if resp.status >= 400:
-                return None, None
-            return resp.read(), resp.headers.get_content_type()
-    except Exception:
-        return None, None
+def request_url(url: str, timeout: int = 10) -> tuple[bytes | None, str | None]:
+    """Fetch a URL, following redirects and auto-upgrading http→https on failure.
+
+    Method 1 fixes:
+    - http→https upgrade: retry with https if http fails
+    - SSL certificate errors: fall back to unverified context for .edu.hk sites
+      that have self-signed or chain-incomplete certificates
+    - Follow redirects automatically (urllib default)
+    """
+
+    headers = {
+        "User-Agent": USER_AGENT,
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "zh-HK,zh-TW,zh;q=0.9,en;q=0.8",
+    }
+
+    def _try(target_url: str, verify_ssl: bool = True) -> tuple[bytes | None, str | None]:
+        req = urllib.request.Request(target_url, headers=headers)
+        ctx = None if verify_ssl else ssl.create_default_context()
+        if not verify_ssl and ctx:
+            ctx.check_hostname = False
+            ctx.verify_mode = ssl.CERT_NONE
+        try:
+            with urllib.request.urlopen(req, timeout=timeout, context=ctx) as resp:
+                if resp.status >= 400:
+                    return None, None
+                return resp.read(), resp.headers.get_content_type()
+        except ssl.SSLError:
+            return None, None
+        except Exception:
+            return None, None
+
+    # First attempt: normal verified request
+    payload, ct = _try(url)
+    if payload is not None:
+        return payload, ct
+
+    # Method 1a: retry with https if original was http
+    if url.startswith("http://"):
+        https_url = "https://" + url[len("http://"):]
+        payload, ct = _try(https_url)
+        if payload is not None:
+            return payload, ct
+        # Method 1b: https but with SSL verification disabled (self-signed certs)
+        payload, ct = _try(https_url, verify_ssl=False)
+        if payload is not None:
+            return payload, ct
+
+    # Method 1b for original https: SSL cert issue on the original URL
+    if url.startswith("https://"):
+        payload, ct = _try(url, verify_ssl=False)
+        if payload is not None:
+            return payload, ct
+
+    return None, None
 
 
 def normalize_website(url: str) -> str:
@@ -191,14 +503,35 @@ def unique(seq: Iterable[str]) -> list[str]:
 
 
 def candidate_pages(website: str, raw_html: str) -> list[str]:
+    """Return up to 6 admissions-relevant sub-page URLs for a school.
+
+    Method 2: in addition to link-discovery from the homepage, we probe a set
+    of well-known fixed paths (/admissions, /apply, /enrolment, …).  This
+    recovers schools whose homepage has no visible admissions link (e.g. SPAs,
+    image-heavy sites, or sites where the nav is rendered by JS).
+
+    Fixed-path URLs are appended *after* link-discovered URLs so that pages
+    found via explicit links (higher confidence) are scraped first.
+    """
     base = normalize_website(website)
+    parsed_base = urllib.parse.urlparse(base)
+    origin = f"{parsed_base.scheme}://{parsed_base.netloc}"
+
+    # Link-discovery from homepage HTML
     links = parse_links(raw_html, base)
-    admissions = sorted(
+    discovered = sorted(
         links,
         key=lambda item: score_link(item[0], item[1], APPLICATION_KEYWORDS),
         reverse=True,
     )
-    return unique([url for url, text in admissions if score_link(url, text, APPLICATION_KEYWORDS) > 0])[:4]
+    discovered_urls = [url for url, text in discovered if score_link(url, text, APPLICATION_KEYWORDS) > 0]
+
+    # Fixed-path probes (Method 2)
+    fixed_urls = [origin + path for path in FIXED_ADMISSIONS_PATHS]
+
+    # Merge: discovered first, then fixed paths not already in discovered set
+    all_candidates = unique(discovered_urls + fixed_urls)
+    return all_candidates[:8]  # increased cap from 4 to 8 to allow fixed paths
 
 
 def load_profile_manifest() -> dict[str, dict]:
@@ -276,7 +609,18 @@ def split_snippets(text: str) -> list[str]:
 
 
 def is_noise_snippet(snippet: str) -> bool:
+    """Return True for snippets that carry no vacancy signal.
+
+    Method 3 additions:
+    - Pure button / CTA text (≤ 25 chars) that matches generic admissions words
+      is almost always a nav label or button, not content.
+    - Navigation-bar fragments: multiple words separated by / or | are menus.
+    - Snippets that are just a list of page names (e.g. "Admissions Gallery
+      Contact Careers") with no sentence structure.
+    """
     lowered = snippet.lower()
+
+    # Original noise filters
     if "available online soon" in lowered:
         return True
     if "summer camp" in lowered or "winter camp" in lowered or "spring camp" in lowered:
@@ -291,30 +635,97 @@ def is_noise_snippet(snippet: str) -> bool:
         return True
     if "workshop" in lowered or "trial class" in lowered:
         return True
+
+    # Method 3: pure button / CTA text — too short to be real content
+    # e.g. "Apply Now", "Admissions", "Register Here"
+    if len(snippet) <= 25 and re.search(
+        r"^(apply now|admissions?|register|enrol|enroll|contact us|learn more|find out more|click here)$",
+        snippet.strip(),
+        re.I,
+    ):
+        return True
+
+    # Method 3: navigation-bar fragments — slash/pipe-separated page names
+    # e.g. "Admissions / Gallery / Contact" or "Home | About | Apply"
+    if re.search(r"\b\w+\b\s*[/|]\s*\b\w+\b\s*[/|]\s*\b\w+\b", snippet):
+        return True
+
+    # Method 3: snippet looks like a pure nav menu (≥ 3 capitalised words, no verb)
+    # e.g. "Admissions Gallery Testimonials Contact Careers"
+    words = snippet.split()
+    if (
+        len(words) >= 3
+        and len(snippet) <= 80
+        and sum(1 for w in words if w and w[0].isupper()) >= len(words) * 0.8
+        and not re.search(r"\b(is|are|was|were|have|has|will|can|please|we|our|your|the)\b", lowered)
+    ):
+        return True
+
     return False
 
 
 def detect_status(snippet: str) -> str | None:
+    """Classify a text snippet into a vacancy status.
+
+    Method 3 fixes:
+    - Standalone "waitlist" / "waiting list" now defaults to waiting_list
+      (previously required extra context to avoid check_school).
+    - "Waitlist: …" prefix pattern explicitly mapped to waiting_list.
+    - Conditional phrasing ("if placed on waiting list") stays check_school.
+    - "limited places remaining" / "places still available" → has_vacancy.
+    """
     lowered = snippet.lower()
 
-    if re.search(r"long waiting list|placed on our waiting list|currently.*waiting list|候補生|候補名單|候补生|候补名单", snippet, re.I):
+    # Strong waiting-list signals
+    if re.search(
+        r"long waiting list|placed on our waiting list|currently.*waiting list"
+        r"|候補生|候補名單|候补生|候补名单"
+        r"|waitlist:\s|waiting list:",
+        snippet, re.I,
+    ):
         return "waiting_list"
 
     if re.search(r"waiting list|waitlist|候補|候补", snippet, re.I):
-        if "?" in snippet or "how long is the waitlist" in lowered or "waitlist duration" in lowered or "varies by campus" in lowered:
+        # Conditional / hypothetical phrasing → check_school
+        if re.search(
+            r"\bif\b.*wait|option to.*wait|join the waitlist|can place you"
+            r"|how long is the waitlist|waitlist duration|varies by campus"
+            r"|\?",
+            lowered, re.I,
+        ):
             return "check_school"
-        return "check_school" if re.search(r"\bif\b|option to|join the waitlist|can place you", lowered, re.I) else "waiting_list"
+        # Everything else with "waiting list" / "waitlist" → waiting_list
+        return "waiting_list"
 
     if re.search(r"no vacancy|does not have a vacancy|classes? (?:are )?full|已滿|已满|額滿|满额", snippet, re.I):
         return "no_vacancy"
 
-    if re.search(r"\bif there are spaces? available\b|in case there are more applicants than vacancies|if we have school places available", lowered, re.I):
+    if re.search(
+        r"\bif there are spaces? available\b"
+        r"|in case there are more applicants than vacancies"
+        r"|if we have school places available",
+        lowered, re.I,
+    ):
         return "check_school"
 
-    if re.search(r"limited spaces? (?:are )?(?:still )?available|spaces? available in|places? available in|space available -|places? are available|vacancies available|vacancy available|有位|空缺", snippet, re.I):
+    if re.search(
+        r"limited spaces? (?:are )?(?:still )?available"
+        r"|spaces? available in|places? available in"
+        r"|space available -|places? are available"
+        r"|vacancies available|vacancy available"
+        r"|limited places remaining|places still available"
+        r"|有位|空缺",
+        snippet, re.I,
+    ):
         return "has_vacancy"
 
-    if re.search(r"admissions? open|apply now|now accepting|accepting applications|accepting enrolment|accepting enrollment|rolling admission|year round|throughout the year|招生中|接受申請|全年接受申請|全年招生", snippet, re.I):
+    if re.search(
+        r"admissions? open|now accepting|accepting applications"
+        r"|accepting enrolment|accepting enrollment"
+        r"|rolling admission|year round|throughout the year"
+        r"|招生中|接受申請|全年接受申請|全年招生",
+        snippet, re.I,
+    ):
         return "check_school"
 
     if any(term in lowered for term in CHECK_TERMS):
@@ -405,7 +816,7 @@ def build_default_record(target: SchoolTarget, scrape_status: str = "ok") -> dic
     }
 
 
-def enrich_school(target: SchoolTarget) -> dict:
+def enrich_school(target: SchoolTarget, ai_semaphore: "threading.Semaphore | None" = None) -> dict:
     home_url = normalize_website(target.website)
     home_html = fetch_html(home_url, target.school_code)
     if not home_html:
@@ -421,7 +832,7 @@ def enrich_school(target: SchoolTarget) -> dict:
             record["source_url"] = target.application_url or target.website
         return record
 
-    page_urls = unique([home_url, *(candidate_pages(target.website, home_html)), *( [target.application_url] if target.application_url else [] )])[:6]
+    page_urls = unique([home_url, *(candidate_pages(target.website, home_html)), *( [target.application_url] if target.application_url else [] )])[:10]
     offered_lookup = {grade.lower() for grade in target.grades_offered}
 
     grade_best: dict[str, dict | None] = {grade: None for grade in GRADE_KEYS}
@@ -480,7 +891,8 @@ def enrich_school(target: SchoolTarget) -> dict:
                 code_grade = grade.upper() if grade != "n" else "N"
                 if code_grade not in target.grades_offered:
                     continue
-                if record[field] == "no_information":
+                # Upgrade both no_information AND check_school to the concrete signal
+                if record[field] in {"no_information", "check_school"}:
                     record[field] = overall_best["status"]
                     record["evidence"][grade] = {"summary": overall_best["snippet"], "url": overall_best["url"]}
 
@@ -499,6 +911,21 @@ def enrich_school(target: SchoolTarget) -> dict:
                 record["overall_summary"] = target.application_details or target.application_status
             if target.application_url:
                 record["source_url"] = target.application_url
+
+    # Combine all scraped page texts to pass to the AI.
+    # Prioritise admissions-related pages; cap total at 1500 chars to keep
+    # prompt small enough for flash model (avoids finish=length truncation).
+    scraped_texts: list[str] = []
+    for page_url in scraped_pages:
+        raw = home_html if page_url == home_url else fetch_html(page_url, target.school_code)
+        if raw:
+            page_text = strip_html(raw)
+            # Prioritise admissions pages by putting them first
+            if re.search(r"admission|apply|enrol|vacancy|招生|申請", page_url, re.I):
+                scraped_texts.insert(0, page_text[:800])
+            else:
+                scraped_texts.append(page_text[:400])
+    record = ai_extract_vacancy(target, scraped_texts, record, ai_semaphore)
 
     return record
 
@@ -533,14 +960,19 @@ def write_sql(records: list[dict]) -> None:
 
 
 def main() -> None:
+    import threading
     targets = load_targets()
     records: list[dict | None] = [None] * len(targets)
+
+    # Limit concurrent AI calls to 3 to avoid 429 rate-limit errors.
+    # Web scraping still runs at full concurrency (max_workers=6).
+    ai_semaphore = threading.Semaphore(3)
 
     def work(item: tuple[int, SchoolTarget]) -> tuple[int, dict]:
         idx, target = item
         print(f"[{idx + 1}/{len(targets)}] {target.school_code} {target.name_en}", flush=True)
         try:
-            return idx, enrich_school(target)
+            return idx, enrich_school(target, ai_semaphore)
         except Exception as exc:
             record = build_default_record(target, "failed")
             record["overall_summary"] = f"抓取失敗：{str(exc)[:160]}"
@@ -552,7 +984,7 @@ def main() -> None:
                         record[field] = "check_school"
             return idx, record
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as executor:
         completed = 0
         for idx, record in executor.map(work, list(enumerate(targets))):
             records[idx] = record

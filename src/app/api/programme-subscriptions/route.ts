@@ -7,6 +7,7 @@ import {
   insertSubscription,
   deleteSubscription,
 } from "@/lib/db/programme-subscriptions";
+import { assertUserNotDisabled } from "@/lib/db/users";
 
 export const dynamic = "force-dynamic";
 
@@ -56,6 +57,7 @@ export async function POST(request: NextRequest) {
         { status: 401 },
       );
     }
+    await assertUserNotDisabled(user.id);
 
     const body = await request.json();
     const parsed = subscribeSchema.safeParse(body);
@@ -113,6 +115,12 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { error: { code: "ALREADY_SUBSCRIBED", message: "已追蹤此課程" } },
         { status: 409 },
+      );
+    }
+    if (message === "USER_DISABLED") {
+      return NextResponse.json(
+        { error: { code: "USER_DISABLED", message: "此帳戶已被停用，暫時不能追蹤課程。" } },
+        { status: 403 },
       );
     }
 

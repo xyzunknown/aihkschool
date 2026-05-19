@@ -4,10 +4,20 @@ import { createContext, useContext, useEffect, useState, useCallback, ReactNode 
 import { createClient } from "@/lib/supabase/client";
 import type { User as SupabaseUser } from "@supabase/supabase-js";
 
+type EmailAuthMode = "login" | "register";
+
+interface AuthActionResult {
+  error?: string;
+  message?: string;
+}
+
 interface AuthContextType {
   user: SupabaseUser | null;
   loading: boolean;
-  signIn: () => Promise<void>;
+  signIn: () => Promise<AuthActionResult | void>;
+  signInWithEmail: (email: string, password: string, mode: EmailAuthMode) => Promise<AuthActionResult>;
+  signInWithGoogle: () => Promise<AuthActionResult | void>;
+  signInWithWechat: () => Promise<AuthActionResult>;
   signOut: () => Promise<void>;
   /** Call to trigger an action after login (optimistic login-then-act) */
   requireAuth: (callback: () => void) => void;
@@ -17,11 +27,14 @@ const AuthContext = createContext<AuthContextType>({
   user: null,
   loading: true,
   signIn: async () => {},
+  signInWithEmail: async () => ({}),
+  signInWithGoogle: async () => {},
+  signInWithWechat: async () => ({}),
   signOut: async () => {},
   requireAuth: () => {},
 });
 
-function getAuthCallbackUrl() {
+function getAuthCallbackUrl(next = "/account") {
   let baseUrl =
     process.env.NEXT_PUBLIC_SITE_URL ??
     process.env.NEXT_PUBLIC_VERCEL_URL ??
@@ -35,7 +48,9 @@ function getAuthCallbackUrl() {
     baseUrl = `${baseUrl}/`;
   }
 
-  return new URL("auth/callback", baseUrl).toString();
+  const callbackUrl = new URL("auth/callback", baseUrl);
+  callbackUrl.searchParams.set("next", next);
+  return callbackUrl.toString();
 }
 
 export function useAuth() {
@@ -113,7 +128,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  const signIn = useCallback(async () => {
+  const signInWithGoogle = useCallback(async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
@@ -125,10 +140,60 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       return;
     }
 
-    const params = new URLSearchParams();
-    params.set("error", error.message.toLowerCase().includes("origin not allowed") ? "auth_origin" : "auth");
-    window.location.assign(`/?${params.toString()}`);
+    return {
+      error: error.message.toLowerCase().includes("origin not allowed")
+        ? "目前網址未加入登入允許清單，請檢查登入設定。"
+        : "Google 登入未完成，請稍後再試。",
+    };
   }, [supabase]);
+
+  const signInWithEmail = useCallback(
+    async (email: string, password: string, mode: EmailAuthMode): Promise<AuthActionResult> => {
+      const normalizedEmail = email.trim().toLowerCase();
+
+      if (!normalizedEmail || !password) {
+        return { error: "請輸入電郵和密碼。" };
+      }
+
+      if (password.length < 6) {
+        return { error: "密碼至少需要 6 個字元。" };
+      }
+
+      if (mode === "register") {
+        const { error } = await supabase.auth.signUp({
+          email: normalizedEmail,
+          password,
+          options: {
+            emailRedirectTo: getAuthCallbackUrl("/account"),
+          },
+        });
+
+        if (error) {
+          return { error: error.message };
+        }
+
+        return { message: "帳戶已建立。如需要確認電郵，請查看收件箱。" };
+      }
+
+      const { error } = await supabase.auth.signInWithPassword({
+        email: normalizedEmail,
+        password,
+      });
+
+      if (error) {
+        return { error: "電郵或密碼不正確，請再試一次。" };
+      }
+
+      return { message: "登入成功。" };
+    },
+    [supabase],
+  );
+
+  const signInWithWechat = useCallback(async (): Promise<AuthActionResult> => {
+    return { error: "微信登入入口已預留，正式接入後即可使用。" };
+  }, []);
+
+  const signIn = signInWithGoogle;
 
   const signOut = useCallback(async () => {
     await supabase.auth.signOut();
@@ -145,7 +210,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [user, signIn]);
 
   return (
-    <AuthContext.Provider value={{ user, loading, signIn, signOut, requireAuth }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        loading,
+        signIn,
+        signInWithEmail,
+        signInWithGoogle,
+        signInWithWechat,
+        signOut,
+        requireAuth,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

@@ -189,13 +189,13 @@ function Rank({ title, rows = [] }: { title: string; rows?: Item[] }) {
   </div>;
 }
 
-function SimpleTable({ items, columns, onEdit }: { items: Item[]; columns: string[]; onEdit: (item: Item) => void }) {
+function SimpleTable({ items, columns, onEdit }: { items: Item[]; columns: string[]; onEdit?: (item: Item) => void }) {
   return <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
     <table className="w-full text-left text-sm">
-      <thead className="bg-slate-50 text-xs text-slate-500"><tr>{columns.map((col) => <th key={col} className="px-4 py-3">{col}</th>)}<th className="px-4 py-3 text-right">操作</th></tr></thead>
+      <thead className="bg-slate-50 text-xs text-slate-500"><tr>{columns.map((col) => <th key={col} className="px-4 py-3">{col}</th>)}{onEdit ? <th className="px-4 py-3 text-right">操作</th> : null}</tr></thead>
       <tbody className="divide-y divide-slate-100">
-        {items.map((item) => <tr key={String(item.id)}>{columns.map((col) => <td key={col} className="max-w-xs truncate px-4 py-3 text-slate-700">{format(item[col])}</td>)}<td className="px-4 py-3 text-right"><button onClick={() => onEdit(item)} className="font-medium text-slate-950 underline">編輯</button></td></tr>)}
-        {!items.length ? <EmptyTableRow colSpan={columns.length + 1} message="暫無資料" /> : null}
+        {items.map((item) => <tr key={String(item.id)}>{columns.map((col) => <td key={col} className="max-w-xs truncate px-4 py-3 text-slate-700">{format(item[col])}</td>)}{onEdit ? <td className="px-4 py-3 text-right"><button onClick={() => onEdit(item)} className="font-medium text-slate-950 underline">編輯</button></td> : null}</tr>)}
+        {!items.length ? <EmptyTableRow colSpan={columns.length + (onEdit ? 1 : 0)} message="暫無資料" /> : null}
       </tbody>
     </table>
   </div>;
@@ -205,7 +205,7 @@ function Newsletter({ subscribers, campaigns, onEditCampaign }: { subscribers: I
   return <div className="grid gap-5 lg:grid-cols-2">
     <section>
       <h2 className="mb-3 font-semibold text-slate-950">訂閱名單</h2>
-      <SimpleTable items={subscribers} columns={["email", "status", "source", "subscribed_at"]} onEdit={() => {}} />
+      <SimpleTable items={subscribers} columns={["email", "status", "source", "subscribed_at"]} />
     </section>
     <section>
       <h2 className="mb-3 font-semibold text-slate-950">郵件計劃</h2>

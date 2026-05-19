@@ -36,11 +36,16 @@ export function AdminHomepageClient() {
   const [tab, setTab] = useState<Tab>("banners");
   const [items, setItems] = useState<Array<Record<string, unknown>>>([]);
   const [editing, setEditing] = useState<Record<string, unknown> | null>(null);
+  const [message, setMessage] = useState<string | null>(null);
 
   async function load() {
     const res = await fetch(`/api/admin/homepage?type=${tab}`);
     const json = await res.json();
-    setItems(json.data ?? []);
+    if (res.ok) {
+      setItems(json.data ?? []);
+    } else {
+      setMessage(json.error?.message ?? "載入失敗");
+    }
   }
 
   useEffect(() => { void load(); }, [tab]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -56,14 +61,20 @@ export function AdminHomepageClient() {
       body: JSON.stringify(cleanPayload(tab, editing)),
     });
     if (res.ok) {
+      setMessage("已保存首頁內容");
       setEditing(null);
       await load();
+    } else {
+      const json = await res.json();
+      setMessage(json.error?.message ?? "保存失敗");
     }
   }
 
   async function remove(id: string) {
-    await fetch(`/api/admin/homepage/${tab}/${id}`, { method: "DELETE" });
-    await load();
+    const res = await fetch(`/api/admin/homepage/${tab}/${id}`, { method: "DELETE" });
+    const json = await res.json().catch(() => ({}));
+    setMessage(res.ok ? "已刪除首頁內容" : json.error?.message ?? "刪除失敗");
+    if (res.ok) await load();
   }
 
   return (
@@ -83,6 +94,7 @@ export function AdminHomepageClient() {
           </button>
         ))}
       </div>
+      {message ? <div className="mb-4 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700">{message}</div> : null}
 
       <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
         <table className="w-full text-left text-sm">

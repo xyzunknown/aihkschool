@@ -42,12 +42,12 @@ export function ProgrammesClient() {
   const searchParams = useSearchParams();
 
   const initialFilters = useMemo(() => {
-    const cat = searchParams.get("category");
-    const dist = searchParams.get("district");
-    const ageRaw = searchParams.get("age") as AgePresetKey | null;
+    const cat = searchParams?.get("category");
+    const dist = searchParams?.get("district");
+    const ageRaw = searchParams?.get("age") as AgePresetKey | null;
     const age: AgePresetKey =
       ageRaw && VALID_PRESETS.has(ageRaw) ? ageRaw : "preschool";
-    const page = parseInt(searchParams.get("page") ?? "1", 10);
+    const page = parseInt(searchParams?.get("page") ?? "1", 10);
     return {
       category: (cat || null) as ProgrammeCategory | null,
       district: dist || null,

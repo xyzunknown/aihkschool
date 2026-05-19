@@ -35,7 +35,7 @@ function cleanNarrativeSegment(segment: string) {
 
 function splitNarrativeSegments(text: string) {
   const normalized = normalizeText(text).replace(/\s*\|\s*/g, "\n");
-  const markers = ["學校有參加", "這裡資料每年", "有關學校的最新學費詳情", "請參看教育局提供的", "註："];
+  const markers = ["學校有參加", "以下列出", "這裡資料每年", "有關學校的最新學費詳情", "請參看教育局提供的", "註："];
 
   let pieces = normalized
     .split(/\n+/)
@@ -110,7 +110,7 @@ function parseDelimitedTable(text: string): ParsedFeeBlock | null {
 }
 
 function extractValues(segment: string) {
-  const values = segment.match(/(?:HK\$|\$)\s?\d[\d,]*(?:\(\d+\))?|免費|[—–-]{1,3}/g);
+  const values = segment.match(/(?:HK\$|\$)\s?\d[\d,]*(?:\(\d+\))?(?:\s*[-–]\s*(?:HK\$|\$)?\s?\d[\d,]*(?:\(\d+\))?)?|免費|[—–-]{1,3}/g);
   return values?.length ? values.map((value) => value.trim()) : [];
 }
 

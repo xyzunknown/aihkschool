@@ -1,15 +1,15 @@
 -- Private / international school vacancy enrichment from official school websites
 UPDATE vacancies
 SET
-  n_vacancy = 'check_school',
+  n_vacancy = 'waiting_list',
   k1_vacancy = 'waiting_list',
   k2_vacancy = 'waiting_list',
-  k3_vacancy = 'check_school',
+  k3_vacancy = 'waiting_list',
   edb_source_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '542164' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'check_school', 'waiting_list', 'waiting_list', 'check_school', 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1', true
+SELECT id, '2026/27', 'waiting_list', 'waiting_list', 'waiting_list', 'waiting_list', 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1', true
 FROM schools
 WHERE school_code = '542164' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -76,15 +76,15 @@ WHERE school_code = '590673' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'check_school',
-  k1_vacancy = 'check_school',
-  k2_vacancy = 'check_school',
-  k3_vacancy = 'check_school',
-  edb_source_url = 'https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-2026-2027-new-students/'
+  n_vacancy = 'waiting_list',
+  k1_vacancy = 'waiting_list',
+  k2_vacancy = 'waiting_list',
+  k3_vacancy = 'waiting_list',
+  edb_source_url = 'https://www.tutortime.com.hk/admission/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '593133' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-2026-2027-new-students/', true
+SELECT id, '2026/27', 'waiting_list', 'waiting_list', 'waiting_list', 'waiting_list', 'https://www.tutortime.com.hk/admission/', true
 FROM schools
 WHERE school_code = '593133' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -121,15 +121,15 @@ WHERE school_code = '601420' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'check_school',
-  k1_vacancy = 'check_school',
-  k2_vacancy = 'check_school',
-  k3_vacancy = 'check_school',
+  n_vacancy = 'waiting_list',
+  k1_vacancy = 'waiting_list',
+  k2_vacancy = 'waiting_list',
+  k3_vacancy = 'waiting_list',
   edb_source_url = 'https://www.mightyoaks.edu.hk/admission'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '603643' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'https://www.mightyoaks.edu.hk/admission', true
+SELECT id, '2026/27', 'waiting_list', 'waiting_list', 'waiting_list', 'waiting_list', 'https://www.mightyoaks.edu.hk/admission', true
 FROM schools
 WHERE school_code = '603643' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -316,45 +316,45 @@ WHERE school_code = '324965' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'check_school',
+  n_vacancy = 'waiting_list',
   k1_vacancy = 'waiting_list',
   k2_vacancy = 'waiting_list',
-  k3_vacancy = 'check_school',
+  k3_vacancy = 'waiting_list',
   edb_source_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '325481' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'check_school', 'waiting_list', 'waiting_list', 'check_school', 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1', true
+SELECT id, '2026/27', 'waiting_list', 'waiting_list', 'waiting_list', 'waiting_list', 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1', true
 FROM schools
 WHERE school_code = '325481' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'check_school',
+  n_vacancy = 'waiting_list',
   k1_vacancy = 'waiting_list',
   k2_vacancy = 'waiting_list',
-  k3_vacancy = 'check_school',
+  k3_vacancy = 'waiting_list',
   edb_source_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '566934' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'check_school', 'waiting_list', 'waiting_list', 'check_school', 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1', true
+SELECT id, '2026/27', 'waiting_list', 'waiting_list', 'waiting_list', 'waiting_list', 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1', true
 FROM schools
 WHERE school_code = '566934' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'check_school',
+  n_vacancy = 'waiting_list',
   k1_vacancy = 'waiting_list',
   k2_vacancy = 'waiting_list',
-  k3_vacancy = 'check_school',
+  k3_vacancy = 'waiting_list',
   edb_source_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '566942' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'check_school', 'waiting_list', 'waiting_list', 'check_school', 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1', true
+SELECT id, '2026/27', 'waiting_list', 'waiting_list', 'waiting_list', 'waiting_list', 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1', true
 FROM schools
 WHERE school_code = '566942' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -391,30 +391,30 @@ WHERE school_code = '567329' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'check_school',
+  n_vacancy = 'waiting_list',
   k1_vacancy = 'waiting_list',
   k2_vacancy = 'waiting_list',
-  k3_vacancy = 'check_school',
+  k3_vacancy = 'waiting_list',
   edb_source_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '569828' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'check_school', 'waiting_list', 'waiting_list', 'check_school', 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1', true
+SELECT id, '2026/27', 'waiting_list', 'waiting_list', 'waiting_list', 'waiting_list', 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1', true
 FROM schools
 WHERE school_code = '569828' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'check_school',
-  k1_vacancy = 'check_school',
-  k2_vacancy = 'check_school',
-  k3_vacancy = 'check_school',
-  edb_source_url = 'https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-2026-2027-new-students/'
+  n_vacancy = 'waiting_list',
+  k1_vacancy = 'waiting_list',
+  k2_vacancy = 'waiting_list',
+  k3_vacancy = 'waiting_list',
+  edb_source_url = 'https://www.tutortime.com.hk/admission/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '575852' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-2026-2027-new-students/', true
+SELECT id, '2026/27', 'waiting_list', 'waiting_list', 'waiting_list', 'waiting_list', 'https://www.tutortime.com.hk/admission/', true
 FROM schools
 WHERE school_code = '575852' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -766,15 +766,15 @@ WHERE school_code = '537713' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'check_school',
-  k1_vacancy = 'check_school',
-  k2_vacancy = 'check_school',
-  k3_vacancy = 'check_school',
-  edb_source_url = 'https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-2026-2027-new-students/'
+  n_vacancy = 'waiting_list',
+  k1_vacancy = 'waiting_list',
+  k2_vacancy = 'waiting_list',
+  k3_vacancy = 'waiting_list',
+  edb_source_url = 'https://www.tutortime.com.hk/admission/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '542504' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-2026-2027-new-students/', true
+SELECT id, '2026/27', 'waiting_list', 'waiting_list', 'waiting_list', 'waiting_list', 'https://www.tutortime.com.hk/admission/', true
 FROM schools
 WHERE school_code = '542504' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -796,15 +796,15 @@ WHERE school_code = '544744' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'check_school',
+  n_vacancy = 'waiting_list',
   k1_vacancy = 'waiting_list',
   k2_vacancy = 'waiting_list',
-  k3_vacancy = 'check_school',
+  k3_vacancy = 'waiting_list',
   edb_source_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '566900' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'check_school', 'waiting_list', 'waiting_list', 'check_school', 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1', true
+SELECT id, '2026/27', 'waiting_list', 'waiting_list', 'waiting_list', 'waiting_list', 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1', true
 FROM schools
 WHERE school_code = '566900' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -1021,15 +1021,15 @@ WHERE school_code = '617741' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'check_school',
+  n_vacancy = 'waiting_list',
   k1_vacancy = 'waiting_list',
   k2_vacancy = 'waiting_list',
-  k3_vacancy = 'check_school',
+  k3_vacancy = 'waiting_list',
   edb_source_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '618039' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'check_school', 'waiting_list', 'waiting_list', 'check_school', 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1', true
+SELECT id, '2026/27', 'waiting_list', 'waiting_list', 'waiting_list', 'waiting_list', 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1', true
 FROM schools
 WHERE school_code = '618039' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -1771,15 +1771,15 @@ WHERE school_code = '215937' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'check_school',
+  n_vacancy = 'waiting_list',
   k1_vacancy = 'waiting_list',
   k2_vacancy = 'waiting_list',
-  k3_vacancy = 'check_school',
+  k3_vacancy = 'waiting_list',
   edb_source_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '216194' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'check_school', 'waiting_list', 'waiting_list', 'check_school', 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1', true
+SELECT id, '2026/27', 'waiting_list', 'waiting_list', 'waiting_list', 'waiting_list', 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1', true
 FROM schools
 WHERE school_code = '216194' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -1816,15 +1816,15 @@ WHERE school_code = '565466' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'waiting_list',
+  n_vacancy = 'check_school',
   k1_vacancy = 'check_school',
   k2_vacancy = 'check_school',
   k3_vacancy = 'check_school',
-  edb_source_url = 'https://mulberryhousekg.com/how-to-apply/'
+  edb_source_url = 'https://mulberryhousekg.com/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '578053' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'waiting_list', 'check_school', 'check_school', 'check_school', 'https://mulberryhousekg.com/how-to-apply/', true
+SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'https://mulberryhousekg.com/', true
 FROM schools
 WHERE school_code = '578053' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -1906,15 +1906,15 @@ WHERE school_code = '567027' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'waiting_list',
+  n_vacancy = 'check_school',
   k1_vacancy = 'check_school',
   k2_vacancy = 'check_school',
   k3_vacancy = 'check_school',
-  edb_source_url = 'https://mulberryhousekg.com/how-to-apply/'
+  edb_source_url = 'https://mulberryhousekg.com/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '601721' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'waiting_list', 'check_school', 'check_school', 'check_school', 'https://mulberryhousekg.com/how-to-apply/', true
+SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'https://mulberryhousekg.com/', true
 FROM schools
 WHERE school_code = '601721' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -1996,15 +1996,15 @@ WHERE school_code = '597716' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'check_school',
+  n_vacancy = 'waiting_list',
   k1_vacancy = 'waiting_list',
   k2_vacancy = 'waiting_list',
-  k3_vacancy = 'check_school',
+  k3_vacancy = 'waiting_list',
   edb_source_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '619850' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'check_school', 'waiting_list', 'waiting_list', 'check_school', 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1', true
+SELECT id, '2026/27', 'waiting_list', 'waiting_list', 'waiting_list', 'waiting_list', 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1', true
 FROM schools
 WHERE school_code = '619850' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -2251,15 +2251,15 @@ WHERE school_code = '571490' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'check_school',
+  n_vacancy = 'waiting_list',
   k1_vacancy = 'waiting_list',
   k2_vacancy = 'waiting_list',
-  k3_vacancy = 'check_school',
+  k3_vacancy = 'waiting_list',
   edb_source_url = 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '574708' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'check_school', 'waiting_list', 'waiting_list', 'check_school', 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1', true
+SELECT id, '2026/27', 'waiting_list', 'waiting_list', 'waiting_list', 'waiting_list', 'https://www.victoria.edu.hk/application-procedure/?tab=PN_K1', true
 FROM schools
 WHERE school_code = '574708' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -2401,15 +2401,15 @@ WHERE school_code = '605441' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'check_school',
-  k1_vacancy = 'check_school',
-  k2_vacancy = 'check_school',
-  k3_vacancy = 'check_school',
-  edb_source_url = 'https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-2026-2027-new-students/'
+  n_vacancy = 'waiting_list',
+  k1_vacancy = 'waiting_list',
+  k2_vacancy = 'waiting_list',
+  k3_vacancy = 'waiting_list',
+  edb_source_url = 'https://www.tutortime.com.hk/admission/'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '605794' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-2026-2027-new-students/', true
+SELECT id, '2026/27', 'waiting_list', 'waiting_list', 'waiting_list', 'waiting_list', 'https://www.tutortime.com.hk/admission/', true
 FROM schools
 WHERE school_code = '605794' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true
@@ -2431,15 +2431,15 @@ WHERE school_code = '612189' AND NOT EXISTS (
 );
 UPDATE vacancies
 SET
-  n_vacancy = 'check_school',
-  k1_vacancy = 'check_school',
-  k2_vacancy = 'check_school',
-  k3_vacancy = 'check_school',
+  n_vacancy = 'waiting_list',
+  k1_vacancy = 'waiting_list',
+  k2_vacancy = 'waiting_list',
+  k3_vacancy = 'waiting_list',
   edb_source_url = 'https://www.eminent-education.org/admissions-1'
 FROM schools
 WHERE vacancies.school_id = schools.id AND schools.school_code = '615633' AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true;
 INSERT INTO vacancies (school_id, academic_year, n_vacancy, k1_vacancy, k2_vacancy, k3_vacancy, edb_source_url, is_current)
-SELECT id, '2026/27', 'check_school', 'check_school', 'check_school', 'check_school', 'https://www.eminent-education.org/admissions-1', true
+SELECT id, '2026/27', 'waiting_list', 'waiting_list', 'waiting_list', 'waiting_list', 'https://www.eminent-education.org/admissions-1', true
 FROM schools
 WHERE school_code = '615633' AND NOT EXISTS (
   SELECT 1 FROM vacancies WHERE vacancies.school_id = schools.id AND vacancies.academic_year = '2026/27' AND vacancies.is_current = true

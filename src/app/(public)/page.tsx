@@ -34,7 +34,7 @@ export default async function HomePage({
         ) : null}
       </div>
 
-      <Hero />
+      <Hero banners={liveData.banners} />
 
       <div className="max-w-6xl mx-auto px-5 md:px-8">
         {/* Hero Search */}

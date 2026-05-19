@@ -19,8 +19,11 @@ on:
         description: "Log only, no DB writes"
         required: false
         default: "false"
-  schedule:
-    - cron: "0 4 * * 1"
+  # Auto-schedule disabled 2026-05-11: edu-kingdom.com threads yield no
+  # school-matched content of value. Pipeline retired. Keep manual dispatch
+  # only for forensic re-checks.
+  # schedule:
+  #   - cron: "0 4 * * 1"
 
 permissions:
   contents: read
@@ -45,6 +48,11 @@ jobs:
 
       - name: Install deps
         run: npm install --no-save @supabase/supabase-js cheerio robots-parser
+
+      - name: Abort — direction retired
+        run: |
+          echo "edu-kingdom.com crawl is retired (2026-05-11): threads yield no school-matched content of value." >&2
+          exit 1
 
       - name: Determine mode from cron
         id: cron-mode

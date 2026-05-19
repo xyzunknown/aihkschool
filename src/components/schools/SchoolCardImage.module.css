@@ -1,0 +1,149 @@
+.imageFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: #f4faf5;
+}
+
+.realImage {
+  object-fit: cover;
+}
+
+.placeholder {
+  isolation: isolate;
+  border: 1px solid rgba(183, 211, 195, 0.66);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.64);
+}
+
+.tint0 {
+  background: linear-gradient(135deg, #eaf6ec 0%, #f4faf5 100%);
+}
+
+.tint1 {
+  background: linear-gradient(135deg, #eaf5f0 0%, #f6faf7 100%);
+}
+
+.tint2 {
+  background: linear-gradient(135deg, #eef7ec 0%, #f5faf4 100%);
+}
+
+.arcTexture {
+  position: absolute;
+  inset: -22%;
+  z-index: 0;
+  opacity: 0.58;
+  background:
+    repeating-radial-gradient(
+      circle at 50% 40%,
+      rgba(255, 255, 255, 0.08) 0 1px,
+      transparent 1px 68px
+    );
+  pointer-events: none;
+}
+
+.content {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 9% 6% 14%;
+}
+
+.logoBase {
+  width: clamp(64px, 36%, 150px);
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow:
+    0 10px 24px rgba(21, 116, 99, 0.10),
+    0 2px 8px rgba(21, 116, 99, 0.06);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.logo {
+  width: 74%;
+  height: 74%;
+  object-fit: contain;
+}
+
+.monogram {
+  width: 68%;
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  border: 2px solid rgba(31, 89, 55, 0.88);
+  display: grid;
+  place-items: center;
+  color: #1f5937;
+  font-weight: 700;
+  font-size: clamp(28px, 8vw, 64px);
+  line-height: 1;
+}
+
+.schoolName {
+  color: #1f5937;
+  font-weight: 650;
+  text-align: center;
+  line-height: 1.22;
+  letter-spacing: 0.02em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  max-width: 78%;
+  margin-top: clamp(10px, 3%, 20px);
+}
+
+.nameShort {
+  font-size: clamp(20px, 6vw, 40px);
+}
+
+.nameMedium {
+  font-size: clamp(17px, 5vw, 32px);
+}
+
+.nameLong {
+  max-width: 82%;
+  font-size: clamp(15px, 4.3vw, 28px);
+}
+
+.watermark {
+  position: absolute;
+  right: 8%;
+  bottom: 7%;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(21, 116, 99, 0.18);
+  font-weight: 700;
+  font-size: clamp(10px, 2.2vw, 16px);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.watermarkIcon {
+  font-size: 1.24em;
+  line-height: 1;
+}
+
+@media (max-width: 640px) {
+  .content {
+    padding-bottom: 16%;
+  }
+
+  .logoBase {
+    width: clamp(60px, 34%, 120px);
+  }
+
+  .watermark {
+    right: 7%;
+    bottom: 6%;
+  }
+}

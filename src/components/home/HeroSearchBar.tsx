@@ -35,7 +35,7 @@ export function HeroSearchBar() {
           placeholder="搜尋學校名稱、地區…"
           className="flex-1 px-6 py-3 rounded-xl border border-slate-200 bg-white text-slate-950 placeholder-slate-400 focus:outline-none focus:border-slate-400 transition-colors"
         />
-        <Button variant="primary" className="px-8 py-3">
+        <Button type="submit" variant="primary" className="px-8 py-3">
           立即搜索
         </Button>
       </form>

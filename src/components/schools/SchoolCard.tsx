@@ -7,13 +7,11 @@ import {
   DISTRICT_LABELS,
   formatEnglishSchoolName,
   formatUpdateDate,
+  getAvatarColor,
   getSessionTags,
-  hasNurseryClass,
   isVacancyStale,
   SCHOOL_TYPE_LABELS,
-  SCHOOLAND_NURSERY_SERVICE_LABELS,
   SCHOOLAND_SESSION_LABELS,
-  SCHOOLAND_SIZE_LABELS,
 } from "@/lib/utils";
 import type { VacancyStatus } from "@/types/database";
 
@@ -26,14 +24,8 @@ interface SchoolCardProps {
   district: string;
   schoolType?: string;
   sessionType?: string | null;
-  schoolandGroupTag?: string | null;
-  schoolandFreeScheme?: boolean | null;
-  schoolandNurseryService?: string | null;
-  schoolandSizeLabel?: string | null;
   schoolandSessionLabel?: string | null;
-  gradesOffered?: string[] | null;
-  admissionSummary?: string | null;
-  showAdmissionSummary?: boolean;
+  feeMonthlyHkd?: number | null;
   vacancy?: {
     n_vacancy: VacancyStatus;
     k1_vacancy: VacancyStatus;
@@ -46,11 +38,6 @@ interface SchoolCardProps {
   distanceKm?: number;
   isInCompare?: boolean;
   onToggleCompare?: () => void;
-  enrichment?: {
-    application_url: string | null;
-    open_day_date: string | null;
-    open_day_details: string | null;
-  } | null;
 }
 
 export function SchoolCard({
@@ -62,21 +49,14 @@ export function SchoolCard({
   district,
   schoolType,
   sessionType,
-  schoolandGroupTag,
-  schoolandFreeScheme,
-  schoolandNurseryService,
-  schoolandSizeLabel,
   schoolandSessionLabel,
-  gradesOffered,
-  admissionSummary,
-  showAdmissionSummary = false,
+  feeMonthlyHkd,
   vacancy,
   isFavorited = false,
   onToggleFavorite,
   distanceKm,
   isInCompare = false,
   onToggleCompare,
-  enrichment,
 }: SchoolCardProps) {
   const router = useRouter();
   const stale = vacancy ? isVacancyStale(vacancy.edb_published_date) : true;
@@ -87,29 +67,12 @@ export function SchoolCard({
   const primaryName = hasChineseName ? nameTc : displayNameEn;
   const secondaryName = hasChineseName && displayNameEn !== nameTc ? displayNameEn : null;
 
-  // Derive tags
-  const sessionTags = getSessionTags(sessionType ?? null);
-  const showNursery = hasNurseryClass(gradesOffered ?? null);
-  const supplementTags = [
-    schoolandGroupTag,
-    schoolandFreeScheme ? "免費計劃" : null,
-    schoolandNurseryService === "yes"
-      ? `幼兒服務${SCHOOLAND_NURSERY_SERVICE_LABELS[schoolandNurseryService]}`
-      : null,
-    schoolandSizeLabel ? SCHOOLAND_SIZE_LABELS[schoolandSizeLabel] : null,
-    schoolandSessionLabel ? SCHOOLAND_SESSION_LABELS[schoolandSessionLabel] : null,
-  ].filter(Boolean) as string[];
-  const schoolTypeTag = schoolType
-    ? {
-        label: SCHOOL_TYPE_LABELS[schoolType] ?? schoolType,
-        className:
-          schoolType === "international"
-            ? "bg-violet-50 text-violet-700"
-            : schoolType === "private_independent"
-              ? "bg-amber-50 text-amber-700"
-              : "bg-emerald-50 text-emerald-700",
-      }
-    : null;
+  const avatarColors = getAvatarColor(id);
+  const schoolTypeInfo = getSchoolTypeInfo(schoolType);
+  const districtLabel = DISTRICT_LABELS[district as keyof typeof DISTRICT_LABELS] ?? district;
+  const distanceText = formatDistance(distanceKm);
+  const feeText = formatMonthlyFee(feeMonthlyHkd);
+  const sessionText = formatSessionLabel(sessionType, schoolandSessionLabel);
 
   // Build vacancy grades to display
   const vacancyGrades: Array<{ grade: string; status: VacancyStatus }> = [];
@@ -134,15 +97,26 @@ export function SchoolCard({
       }}
     >
       {/* Row 1: Avatar + Name + Favorite */}
-      <div className="flex items-start gap-3 mb-3">
-        <div className="flex-shrink-0">
-          <SchoolAvatar schoolId={id} schoolName={primaryName} logoUrl={logoUrl} schoolCode={schoolCode} />
+      <div className="flex items-start gap-3">
+        <div className={`flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-[14px] ${avatarColors.bg}`}>
+          <SchoolAvatar
+            schoolId={id}
+            schoolName={primaryName}
+            logoUrl={logoUrl}
+            schoolCode={schoolCode}
+            size="sm"
+            shape="rounded"
+          />
         </div>
         <div className="flex-1 min-w-0">
           <h3 className="text-base font-bold text-slate-900 leading-snug line-clamp-2">{primaryName}</h3>
           {secondaryName && (
             <p className="text-sm text-slate-400 leading-snug mt-0.5 line-clamp-1">{secondaryName}</p>
           )}
+          <p className="mt-1 flex items-center gap-1.5 text-[11px] font-semibold leading-tight text-slate-500">
+            <span className={`h-1.5 w-1.5 rounded-full ${schoolTypeInfo.dotClass}`} aria-hidden="true" />
+            <span>{schoolTypeInfo.label}</span>
+          </p>
         </div>
         {/* Favorite + Compare buttons */}
         <div className="flex-shrink-0 flex items-center gap-0.5">
@@ -186,95 +160,101 @@ export function SchoolCard({
         </div>
       </div>
 
-      {/* Row 2: District + Distance */}
-      <div className="flex items-center gap-1 text-sm text-slate-500 mb-2.5">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-slate-400">
-          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-          <circle cx="12" cy="10" r="3" />
-        </svg>
-        <span>{DISTRICT_LABELS[district as keyof typeof DISTRICT_LABELS] ?? district}</span>
-        {distanceKm != null && (
-          <>
-            <span className="text-slate-300 mx-0.5">·</span>
-            <span className="text-slate-400">
-              {distanceKm < 1
-                ? `${Math.round(distanceKm * 1000)}m`
-                : `${distanceKm.toFixed(1)}km`}
-            </span>
-          </>
-        )}
+      <div className="my-4 border-t border-slate-100" />
+
+      {/* Row 2: Three key stats */}
+      <div className="grid grid-cols-3">
+        <StatCell label="距離" value={distanceText.value} unit={distanceText.unit} />
+        <StatCell label="學費" value={feeText.value} unit={feeText.unit} hasDivider />
+        <StatCell label="班別" value={sessionText} hasDivider />
       </div>
 
-      {/* Row 3: Tags */}
-      {(sessionTags.length > 0 || showNursery || schoolTypeTag || supplementTags.length > 0) && (
-        <div className="flex flex-wrap gap-2 mb-4">
-          {sessionTags.map((tag) => (
-            <span key={tag} className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700">
-              {tag}
-            </span>
-          ))}
-          {showNursery && (
-            <span className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700">
-              設 N 班
-            </span>
-          )}
-          {schoolTypeTag && (
-            <span className={`inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium ${schoolTypeTag.className}`}>
-              {schoolTypeTag.label}
-            </span>
-          )}
-          {supplementTags.slice(0, 3).map((tag) => (
-            <span key={tag} className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-600">
-              {tag}
-            </span>
-          ))}
-        </div>
-      )}
-
-      {/* Row 4: Vacancy status badges — K1 K2 K3 horizontal */}
+      {/* Row 3: Vacancy status badges — K1 K2 K3 horizontal */}
       {vacancyGrades.length > 0 && (
-        <div className="grid grid-cols-3 gap-2 mb-4">
+        <div className="mt-4 grid grid-cols-3 gap-2">
           {vacancyGrades.map(({ grade, status }) => (
             <VacancyBadge key={grade} grade={grade} status={status} isStale={stale} />
           ))}
         </div>
       )}
 
-      {showAdmissionSummary && admissionSummary && (
-        <div className="mb-4 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5">
-          <p className="text-xs font-medium text-slate-600">{admissionSummary}</p>
-        </div>
-      )}
-
-      {/* Enrichment badges */}
-      {enrichment && (enrichment.application_url || (enrichment.open_day_date && enrichment.open_day_date >= new Date().toISOString().slice(0, 10))) && (
-        <div className="flex flex-wrap gap-2 mb-3">
-          {enrichment.application_url && (
-            <span className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-emerald-50 text-emerald-700">
-              已開放申請
-            </span>
-          )}
-          {enrichment.open_day_date && enrichment.open_day_date >= new Date().toISOString().slice(0, 10) && (
-            <span className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700">
-              開放日 {new Date(enrichment.open_day_date + "T00:00:00").toLocaleDateString("zh-HK", { month: "numeric", day: "numeric" })}
-            </span>
-          )}
-        </div>
-      )}
-
-      {/* Row 5: Footer */}
-      <div className="flex justify-between items-center pt-3 border-t border-slate-100 text-xs">
-        <span className="text-slate-400 flex items-center gap-1">
+      {/* Row 4: Footer */}
+      <div className="mt-4 flex justify-between items-center pt-3 border-t border-slate-100 text-xs">
+        <span className="min-w-0 text-slate-400 flex items-center gap-1">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-slate-300">
             <circle cx="12" cy="12" r="10" />
             <polyline points="12 6 12 12 16 14" />
           </svg>
-          {formatUpdateDate(vacancy?.edb_published_date ?? null)}
+          <span className="truncate">{formatUpdateDate(vacancy?.edb_published_date ?? null)} · {districtLabel}</span>
         </span>
-        <span className="text-blue-600 font-medium">
+        <span className="ml-3 flex-shrink-0 text-blue-600 font-medium">
           詳情 &gt;
         </span>
       </div>
     </div>
   );
+}
+
+function StatCell({
+  label,
+  value,
+  unit,
+  hasDivider = false,
+}: {
+  label: string;
+  value: string;
+  unit?: string;
+  hasDivider?: boolean;
+}) {
+  return (
+    <div className={`${hasDivider ? "border-l border-slate-100 pl-3" : "pr-3"} min-w-0`}>
+      <p className="text-[10px] font-semibold leading-none text-slate-400">{label}</p>
+      <p className="mt-1.5 truncate text-[15px] font-extrabold leading-tight text-slate-900">
+        {value}
+        {unit && <span className="ml-0.5 text-[10px] font-semibold text-slate-400">{unit}</span>}
+      </p>
+    </div>
+  );
+}
+
+function formatDistance(distanceKm?: number): { value: string; unit?: string } {
+  if (distanceKm == null) return { value: "未定位" };
+  if (distanceKm < 1) return { value: String(Math.round(distanceKm * 1000)), unit: "m" };
+  return { value: distanceKm.toFixed(1), unit: "km" };
+}
+
+function formatMonthlyFee(feeMonthlyHkd?: number | null): { value: string; unit?: string } {
+  if (feeMonthlyHkd == null) return { value: "查官網" };
+  if (feeMonthlyHkd === 0) return { value: "免費", unit: "計劃" };
+  return { value: `$${feeMonthlyHkd.toLocaleString("zh-HK")}`, unit: "/月" };
+}
+
+function formatSessionLabel(sessionType?: string | null, schoolandSessionLabel?: string | null): string {
+  if (schoolandSessionLabel) {
+    return SCHOOLAND_SESSION_LABELS[schoolandSessionLabel] ?? schoolandSessionLabel;
+  }
+
+  const sessionTags = getSessionTags(sessionType ?? null);
+  return sessionTags[0]?.replace("班", "") ?? "待更新";
+}
+
+function getSchoolTypeInfo(schoolType?: string) {
+  if (schoolType === "international") {
+    return {
+      label: `${SCHOOL_TYPE_LABELS[schoolType] ?? "國際"} · 國際課程`,
+      dotClass: "bg-violet-500",
+    };
+  }
+
+  if (schoolType === "private_independent") {
+    return {
+      label: `${SCHOOL_TYPE_LABELS[schoolType] ?? "私立獨立"} · 本地課程`,
+      dotClass: "bg-blue-500",
+    };
+  }
+
+  return {
+    label: `${schoolType ? SCHOOL_TYPE_LABELS[schoolType] ?? schoolType : "非牟利"} · 本地課程`,
+    dotClass: "bg-emerald-600",
+  };
 }

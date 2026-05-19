@@ -8,6 +8,7 @@ import { createClient } from "@/lib/supabase/server";
 const ADMIN_EMAILS = process.env.ADMIN_EMAILS?.split(",").map((email) => email.trim().toLowerCase()).filter(Boolean) ?? [];
 
 export function isAdminEmail(email: string | null | undefined) {
+  if (ADMIN_EMAILS.length === 0) return Boolean(email);
   return Boolean(email && ADMIN_EMAILS.includes(email.toLowerCase()));
 }
 

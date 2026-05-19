@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="zh-HK">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="data:," />
+  <title>HKSchoolPlace Mobile Real Flow Options</title>
+  <style>
+    :root {
+      --green: #23735a;
+      --green-deep: #183a2e;
+      --sky: #dff2f7;
+      --coral: #ff8469;
+      --warm: #fff6e9;
+      --line: #dfe9e2;
+      --muted: #687972;
+      --ink: #18352b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #eef5f0;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang HK", "PingFang TC", "Noto Sans HK", "Microsoft JhengHei", Arial, sans-serif;
+    }
+    body::-webkit-scrollbar { display: none; }
+    .board {
+      width: 1920px;
+      height: 1280px;
+      padding: 42px 54px 54px;
+      background: linear-gradient(135deg, #f8fbf7 0%, #edf7f3 100%);
+      overflow: hidden;
+      position: relative;
+    }
+    .board.assistant {
+      background: linear-gradient(135deg, #fff8ef 0%, #eaf7fb 100%);
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .brand img.logo {
+      width: 152px;
+      height: auto;
+      object-fit: contain;
+    }
+    .kicker {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      color: var(--green);
+    }
+    h1 {
+      margin: 6px 0 0;
+      font-size: 44px;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+    .note {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 590px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.78);
+      border-radius: 18px;
+      padding: 16px 20px;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.45;
+    }
+    .note img {
+      width: 76px;
+      flex: 0 0 auto;
+    }
+    .phones {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 22px;
+    }
+    .phone {
+      height: 900px;
+      border-radius: 36px;
+      background: #161d19;
+      padding: 9px;
+      box-shadow: 0 22px 50px rgba(28, 52, 42, .22);
+    }
+    .screen {
+      position: relative;
+      height: 100%;
+      border-radius: 28px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    .status {
+      height: 34px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      padding: 0 22px 6px;
+      font-size: 11px;
+      font-weight: 800;
+      color: #21372e;
+    }
+    .status .pill {
+      width: 58px;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.14);
+      position: absolute;
+      left: 50%;
+      top: 12px;
+      transform: translateX(-50%);
+    }
+    .content {
+      height: calc(100% - 92px);
+      padding: 18px 18px 10px;
+      overflow: hidden;
+    }
+    .nav {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 58px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      background: rgba(255,255,255,.96);
+      border-top: 1px solid rgba(30,60,45,.08);
+    }
+    .nav div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      font-size: 10px;
+      font-weight: 800;
+      color: #83918a;
+    }
+    .nav i {
+      width: 17px;
+      height: 17px;
+      border-radius: 6px;
+      background: #dce8e0;
+    }
+    .nav .active { color: var(--green); }
+    .nav .active i { background: var(--green); }
+    .topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .mini-logo {
+      height: 30px;
+      width: auto;
+      object-fit: contain;
+    }
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: #eef7f1;
+      padding: 2px;
+      object-fit: contain;
+    }
+    h2 {
+      margin: 14px 0 7px;
+      font-size: 24px;
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+    .sub {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .search {
+      margin-top: 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid #edf1ee;
+      box-shadow: 0 8px 20px rgba(31,83,58,.08);
+      padding: 13px 14px;
+      color: #8a9790;
+      font-weight: 800;
+      font-size: 12px;
+    }
+    .hero {
+      margin-top: 16px;
+      border-radius: 20px;
+      padding: 16px;
+      min-height: 130px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(135deg, #e8f4ee, #fff8ed);
+    }
+    .hero img { width: 86px; object-fit: contain; }
+    .metric-row, .chips, .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .metric {
+      flex: 1 1 calc(50% - 8px);
+      border-radius: 16px;
+      background: #fff;
+      padding: 13px;
+      min-height: 78px;
+      box-shadow: 0 8px 18px rgba(33,70,50,.07);
+    }
+    .metric b {
+      display: block;
+      font-size: 22px;
+      color: var(--green);
+      margin-top: 5px;
+    }
+    .metric span, .card span, .small { color: var(--muted); font-size: 11px; line-height: 1.45; }
+    .chip, .tab {
+      border-radius: 999px;
+      padding: 8px 10px;
+      background: #eef7f1;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .chip.active, .tab.active {
+      background: var(--green);
+      color: #fff;
+    }
+    .card {
+      margin-top: 10px;
+      border-radius: 18px;
+      background: #fff;
+      padding: 13px;
+      box-shadow: 0 8px 18px rgba(33,70,50,.08);
+      border: 1px solid #eef3ef;
+    }
+    .card h3 {
+      margin: 0 0 5px;
+      font-size: 14px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+    .card-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 5px 8px;
+      margin: 8px 4px 0 0;
+      background: #eef7f1;
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 900;
+    }
+    .badge.coral {
+      background: #fff0eb;
+      color: var(--coral);
+    }
+    .cta {
+      display: block;
+      width: 100%;
+      border: 0;
+      border-radius: 15px;
+      background: var(--green);
+      color: #fff;
+      font-weight: 900;
+      font-size: 13px;
+      padding: 13px 10px;
+      margin-top: 13px;
+    }
+    .section-title {
+      margin: 18px 0 8px;
+      font-size: 14px;
+      font-weight: 950;
+      color: #20372e;
+    }
+    .countdown {
+      border-radius: 18px;
+      background: var(--green);
+      color: #fff;
+      padding: 15px;
+      margin-top: 14px;
+    }
+    .countdown strong {
+      display: block;
+      font-size: 34px;
+      line-height: 1;
+      margin-top: 5px;
+    }
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-top: 11px;
+    }
+    .mini {
+      border-radius: 16px;
+      background: #fff;
+      padding: 12px;
+      min-height: 80px;
+      border: 1px solid #edf2ef;
+    }
+    .mini b {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
+    .article {
+      border-left: 4px solid var(--green);
+      padding-left: 10px;
+    }
+    .helper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 18px;
+      background: #fff8ed;
+      border: 1px solid #f3debd;
+      padding: 10px;
+      margin-top: 12px;
+    }
+    .helper img { width: 54px; object-fit: contain; }
+    .assistant .hero, .assistant-card {
+      background: linear-gradient(135deg, #fff4e4, #e7f7fb);
+    }
+    .assistant .nav .active { color: #2e6e91; }
+    .assistant .nav .active i,
+    .assistant .chip.active,
+    .assistant .tab.active,
+    .assistant .countdown,
+    .assistant .cta { background: #2e6e91; }
+    .assistant .chip,
+    .assistant .tab,
+    .assistant .badge { background: #e7f4f8; color: #2e6e91; }
+    .assistant .metric b,
+    .assistant h2,
+    .assistant .section-title { color: #1f4353; }
+    .assistant .badge.coral { background: #fff0eb; color: #ff8469; }
+    .phone-label {
+      position: absolute;
+      left: 18px;
+      top: 792px;
+      font-size: 10px;
+      color: #98a59e;
+      font-weight: 800;
+    }
+  </style>
+</head>
+<body>
+  <section class="board" id="scheme-a">
+    <div class="header">
+      <div class="brand">
+        <img class="logo" src="/brand/Web Logo/Logo.png" alt="">
+        <div>
+          <div class="kicker">方案 A｜工具型清爽版</div>
+          <h1>把真实功能放在第一位，IP 只做关键提醒</h1>
+        </div>
+      </div>
+      <div class="note">
+        <img src="/brand/mascot/04_owl_checklist.png" alt="">
+        <div>适合主产品默认方向：筛选、比较、追踪、收藏都更清晰，家长能快速完成决策。</div>
+      </div>
+    </div>
+    <div class="phones" data-scheme="clean"></div>
+  </section>
+
+  <section class="board assistant" id="scheme-b">
+    <div class="header">
+      <div class="brand">
+        <img class="logo" src="/brand/Web Logo/Logo.png" alt="">
+        <div>
+          <div class="kicker" style="color:#2e6e91">方案 B｜温暖助手版</div>
+          <h1>让猫头鹰成为流程助手，但不抢走产品功能</h1>
+        </div>
+      </div>
+      <div class="note">
+        <img src="/brand/mascot/00_original_owl.png" alt="">
+        <div>适合新用户、活动页和个人中心：多一点陪伴感，提醒与空状态更友好。</div>
+      </div>
+    </div>
+    <div class="phones" data-scheme="assistant"></div>
+  </section>
+
+  <script>
+    const mascot = "/brand/mascot/";
+    const nav = (active) => `<div class="nav">${["首页","筛选","康体通","活动","我的"].map(x => `<div class="${x===active ? "active":""}"><i></i>${x}</div>`).join("")}</div>`;
+    const status = () => `<div class="status"><span>9:41</span><i class="pill"></i><span>5G</span></div>`;
+    const logo = () => `<img class="mini-logo" src="/brand/Web Logo/Logo.png" alt="">`;
+    const phone = (body, active, label) => `<div class="phone"><div class="screen">${status()}<div class="content">${body}</div>${nav(active)}<div class="phone-label">${label}</div></div></div>`;
+    const home = (warm=false) => phone(`
+      <div class="topline">${logo()}<img class="avatar" src="${mascot}${warm ? "00_original_owl.png":"02_owl_magnifying_glass.png"}"></div>
+      <h2>今日为你整理<br>学校与活动机会</h2>
+      <p class="sub">搜索幼稚园、看学额，也能跟进康体通开报。</p>
+      <div class="search">搜索学校 / 地区 / 学额</div>
+      <div class="hero">
+        <div><b>康體通開報倒數</b><p class="sub">3 个课程明早 9:00 开报</p><button class="cta">查看提醒</button></div>
+        <img src="${mascot}01_owl_calendar.png">
+      </div>
+      <div class="section-title">精選名校</div>
+      <div class="metric-row"><div class="metric"><span>附近学校</span><b>128</b></div><div class="metric"><span>K1 空缺</span><b>36</b></div></div>
+      <div class="section-title">課外活動精選</div>
+      <div class="card"><h3>周末亲子绘画体验</h3><span>九龙城 · 4-6 岁 · 免费</span></div>
+      <div class="card"><h3>消息动态</h3><span>教育局更新幼稚园申请资料</span></div>
+    `, "首页", "首页");
+    const schools = () => phone(`
+      <div class="topline"><h2 style="margin:0">筛选学校</h2><img class="avatar" src="${mascot}02_owl_magnifying_glass.png"></div>
+      <div class="search">输入学校名称 / 地区</div>
+      <div class="chips"><span class="chip active">地区</span><span class="chip">类型</span><span class="chip">学额</span><span class="chip">N</span><span class="chip">K1</span><span class="chip">K2</span><span class="chip">K3</span></div>
+      <div class="card"><div class="card-row"><h3>明慧幼稚园</h3><b>♥</b></div><span>九龙城 · 私立 · 半日/全日</span><br><span class="badge">K1 有位</span><span class="badge">K2 少量</span><span class="badge coral">K3 满额</span></div>
+      <div class="card"><div class="card-row"><h3>快樂天地幼稚園</h3><b>♡</b></div><span>油尖旺 · 非牟利 · 参加免费计划</span><br><span class="badge">N 有位</span><span class="badge">K1 有位</span></div>
+      <div class="card"><div class="card-row"><h3>培正幼稚园</h3><b>♡</b></div><span>九龙城 · 热门 · 0.8km</span><br><span class="badge coral">候补</span><span class="badge">可比较</span></div>
+      <button class="cta">加入比较 3 间</button>
+    `, "筛选", "筛选学校");
+    const programme = (warm=false) => phone(`
+      <div class="topline"><div><p class="sub">SmartPLAY</p><h2 style="margin:0">康体通追踪</h2></div><img class="avatar" src="${mascot}01_owl_calendar.png"></div>
+      ${warm ? `<div class="helper"><img src="${mascot}04_owl_checklist.png"><div><b>小助手提醒</b><p class="sub">热门课程建议提前 10 分钟进入页面。</p></div></div>`:""}
+      <div class="countdown"><span>下次开报</span><strong>08:42:19</strong><span>游泳班 / 音乐班 / 亲子体操</span></div>
+      <div class="chips"><span class="chip active">幼儿</span><span class="chip">学前</span><span class="chip">运动</span><span class="chip">九龙</span></div>
+      <div class="card"><div class="card-row"><h3>儿童游泳初班</h3><span class="badge coral">即将开报</span></div><span>九龙公园 · 4-6 岁 · 免费 · 12 节</span><button class="cta">追踪提醒</button></div>
+      <div class="card"><div class="card-row"><h3>亲子音乐启蒙</h3><span class="badge">可报名</span></div><span>沙田大会堂 · 3-5 岁 · $320</span></div>
+      <div class="card"><h3>我的追踪</h3><span>已追踪 5 个课程，2 个今日开报</span></div>
+    `, "康体通", "康体通");
+    const activities = () => phone(`
+      <div class="topline"><h2 style="margin:0">课外活动</h2><img class="avatar" src="${mascot}03_owl_star.png"></div>
+      <p class="sub">只展示已核验来源的活动。</p>
+      <div class="chips"><span class="chip active">全部</span><span class="chip">免费</span><span class="chip">艺术</span><span class="chip">运动</span><span class="chip">港岛</span></div>
+      <div class="card"><div class="card-row"><h3>儿童创意绘画班</h3><span class="badge">免费</span></div><span>4-7 岁 · 中西区 · 周六 10:00</span><br><span class="badge">查看详情</span><span class="badge coral">报名</span></div>
+      <div class="card"><div class="card-row"><h3>STEM 小实验工作坊</h3><span class="badge coral">$180</span></div><span>6-9 岁 · 九龙塘 · 5 月 26 日</span><br><span class="badge">地址</span><span class="badge">电话</span></div>
+      <div class="card"><div class="card-row"><h3>亲子足球体验</h3><span class="badge">可报名</span></div><span>3-6 岁 · 屯门 · 户外活动</span></div>
+      <button class="cta">按年龄找活动</button>
+    `, "活动", "课外活动");
+    const news = () => phone(`
+      <div class="topline"><h2 style="margin:0">消息资讯</h2><img class="avatar" src="${mascot}05_owl_pointing_button.png"></div>
+      <div class="tabs"><span class="tab active">最新</span><span class="tab">活动</span><span class="tab">升学</span><span class="tab">政策</span></div>
+      <div class="card article"><div class="card-row"><h3>教育局更新幼稚园资料</h3><span class="badge">EDB</span></div><span>整理申请、学费、收生安排重点。</span><br><span class="badge">摘要</span><span class="badge">分享</span></div>
+      <div class="card article"><div class="card-row"><h3>康文署亲子活动开放报名</h3><span class="badge">GovHK</span></div><span>本周新增多个免费家庭活动。</span><br><span class="badge coral">外部链接</span></div>
+      <div class="card article"><div class="card-row"><h3>5 月升学日程提醒</h3><span class="badge">升学</span></div><span>开放日、申请表、面试准备。</span></div>
+      <div class="helper"><img src="${mascot}00_original_owl.png"><div><b>已帮你标重点</b><p class="sub">政策类资讯会优先显示来源。</p></div></div>
+    `, "首页", "消息资讯");
+    const account = (warm=false) => phone(`
+      <div class="topline"><h2 style="margin:0">个人中心</h2><img class="avatar" src="${mascot}04_owl_checklist.png"></div>
+      <div class="hero ${warm ? "assistant-card":""}"><div><b>早晨，家长</b><p class="sub">今日有 2 个报名提醒，3 间收藏学校更新。</p></div><img src="${mascot}${warm ? "00_original_owl.png":"04_owl_checklist.png"}"></div>
+      <div class="split"><div class="mini"><b>收藏学校</b><span>12 间 · 3 间有 K1 空缺</span></div><div class="mini"><b>康体通追踪</b><span>5 个 · 2 个今日开报</span></div></div>
+      <div class="section-title">提醒设置</div>
+      <div class="card"><div class="card-row"><h3>儿童游泳初班</h3><span class="badge coral">08:42</span></div><span>开报前 30 分钟提醒</span></div>
+      <div class="card"><div class="card-row"><h3>明慧幼稚园</h3><span class="badge">收藏中</span></div><span>K1 空缺状态已开启提醒</span></div>
+      <button class="cta">管理收藏与追踪</button>
+    `, "我的", "个人中心");
+    function render(selector, warm) {
+      document.querySelector(selector).innerHTML = [
+        home(warm), schools(), programme(warm), activities(), news(), account(warm)
+      ].join("");
+    }
+    render('[data-scheme="clean"]', false);
+    render('[data-scheme="assistant"]', true);
+  </script>
+</body>
+</html>

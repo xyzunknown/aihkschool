@@ -46,3 +46,16 @@ export async function ensurePublicUser(user: SupabaseUser) {
 
   return true;
 }
+
+export async function assertUserNotDisabled(userId: string) {
+  const supabase = await createServiceClient();
+  const { data, error } = await supabase
+    .from("users")
+    .select("admin_disabled")
+    .eq("id", userId)
+    .maybeSingle();
+
+  if (!error && (data as { admin_disabled?: boolean } | null)?.admin_disabled) {
+    throw new Error("USER_DISABLED");
+  }
+}

@@ -20,8 +20,8 @@ export function VacancySection({ vacancy, isStale, deadlineStatus: dlStatus, sch
         </a>
       </div>
       {vacancy ? (
-        <GlassCard>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <GlassCard className="p-4 md:p-6">
+          <div className="grid grid-cols-4 gap-2 md:gap-4">
             {(["N", "K1", "K2", "K3"] as const).map((grade) => {
               const status =
                 grade === "N"
@@ -33,7 +33,7 @@ export function VacancySection({ vacancy, isStale, deadlineStatus: dlStatus, sch
                       : vacancy.k3_vacancy;
               return (
                 <div key={grade} className="text-center">
-                  <h3 className="text-sm font-semibold text-slate-950 mb-2">{grade}</h3>
+                  <h3 className="mb-2 text-sm font-semibold text-slate-950">{grade}</h3>
                   <VacancyBadge grade={grade} status={status} isStale={isStale} />
                 </div>
               );

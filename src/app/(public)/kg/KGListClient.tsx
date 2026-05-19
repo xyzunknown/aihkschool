@@ -71,7 +71,7 @@ interface SchoolData {
 export default function KGListClient() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const queryString = searchParams.toString();
+  const queryString = searchParams?.toString() ?? "";
   const { user, requireAuth } = useAuth();
   const { showToast } = useToast();
 
@@ -237,27 +237,27 @@ export default function KGListClient() {
   }, [favoriteIds, requireAuth, showToast]);
 
   const updateFilter = (key: string, value: string | null) => {
-    const params = new URLSearchParams(searchParams.toString());
+    const params = new URLSearchParams(searchParams?.toString() ?? "");
     if (value) { params.set(key, value); } else { params.delete(key); }
     params.set("page", "1");
     router.push(`/kg?${params.toString()}`);
   };
 
   const goToPage = (nextPage: number) => {
-    const params = new URLSearchParams(searchParams.toString());
+    const params = new URLSearchParams(searchParams?.toString() ?? "");
     params.set("page", String(nextPage));
     router.push(`/kg?${params.toString()}`);
   };
 
   const handleSearch = (query: string) => {
-    const params = new URLSearchParams(searchParams.toString());
+    const params = new URLSearchParams(searchParams?.toString() ?? "");
     if (query) { params.set("search", query); } else { params.delete("search"); }
     params.set("page", "1");
     router.push(`/kg?${params.toString()}`);
   };
 
   const handleSortChange = (value: string) => {
-    const params = new URLSearchParams(searchParams.toString());
+    const params = new URLSearchParams(searchParams?.toString() ?? "");
     if (value === "default") { params.delete("sort"); } else { params.set("sort", value); }
     params.set("page", "1");
     router.push(`/kg?${params.toString()}`);
@@ -269,7 +269,7 @@ export default function KGListClient() {
   }, [schools]);
 
   const toggleDistrict = (district: District) => {
-    const params = new URLSearchParams(searchParams.toString());
+    const params = new URLSearchParams(searchParams?.toString() ?? "");
     const current = params.getAll("district");
     params.delete("district");
     if (current.includes(district)) {
@@ -282,7 +282,7 @@ export default function KGListClient() {
   };
 
   const toggleVacancy = (status: string) => {
-    const params = new URLSearchParams(searchParams.toString());
+    const params = new URLSearchParams(searchParams?.toString() ?? "");
     const current = params.getAll("vacancy");
     params.delete("vacancy");
     if (current.includes(status)) {
@@ -397,14 +397,8 @@ export default function KGListClient() {
                   district={school.district}
                   schoolType={school.school_type}
                   sessionType={school.session_type}
-                  schoolandGroupTag={school.schooland_group_tag}
-                  schoolandFreeScheme={school.schooland_free_scheme}
-                  schoolandNurseryService={school.schooland_nursery_service}
-                  schoolandSizeLabel={school.schooland_size_label}
                   schoolandSessionLabel={school.schooland_session_label}
-                  gradesOffered={school.grades_offered}
-                  admissionSummary={school.admission_summary}
-                  showAdmissionSummary={school.show_admission_summary}
+                  feeMonthlyHkd={school.fee_monthly_hkd}
                   vacancy={vacancy}
                   isFavorited={favoriteIds.has(school.id)}
                   onToggleFavorite={() => handleToggleFavorite(school.id)}
@@ -417,7 +411,6 @@ export default function KGListClient() {
                       addToCompare({ id: school.id, nameTc: school.name_tc, logoUrl: school.logo_url });
                     }
                   }}
-                  enrichment={school.enrichment ?? null}
                 />
               );
             })}

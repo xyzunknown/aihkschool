@@ -29,9 +29,12 @@ export function AdminOverviewClient() {
 
   useEffect(() => {
     fetch("/api/admin/overview")
-      .then((res) => res.json())
-      .then((json) => setData(json.data))
-      .catch(() => setError("載入失敗"));
+      .then(async (res) => {
+        const json = await res.json();
+        if (!res.ok) throw new Error(json.error?.message ?? "載入失敗");
+        setData(json.data);
+      })
+      .catch((err) => setError(err instanceof Error ? err.message : "載入失敗"));
   }, []);
 
   return (

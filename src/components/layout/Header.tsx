@@ -8,28 +8,29 @@ import { useAuth } from "@/components/layout/AuthProvider";
 
 const NAV_ITEMS = [
   { href: "/kg", label: "找幼稚園", match: ["/kg"] },
-  { href: "/programmes", label: "興趣班 (康體通)", match: ["/programmes"] },
+  { href: "/programmes", label: "康體通", match: ["/programmes"] },
   { href: "/activities", label: "課外活動", match: ["/activities"] },
   { href: "/news", label: "消息資訊", match: ["/news"] },
 ] as const;
 
 const ACCOUNT_MENU_ITEMS = [
-  { href: "/account", label: "我的帳戶" },
+  { href: "/account", label: "我的" },
   { href: "/account#favorites", label: "收藏管理" },
 ] as const;
 
-function isActiveItem(pathname: string, _activeTab: string | null, item: (typeof NAV_ITEMS)[number]) {
+function isActiveItem(pathname: string | null, _activeTab: string | null, item: (typeof NAV_ITEMS)[number]) {
+  if (!pathname) return false;
   return item.match.some((p) => pathname === p || pathname.startsWith(`${p}/`));
 }
 
 export function Header() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const { user, signIn, signOut } = useAuth();
+  const { user, signOut } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
   const [accountMenuOpen, setAccountMenuOpen] = useState(false);
   const accountMenuRef = useRef<HTMLDivElement | null>(null);
-  const activeTab = searchParams.get("tab");
+  const activeTab = searchParams?.get("tab") ?? null;
 
   useEffect(() => {
     const handlePointerDown = (event: MouseEvent | TouchEvent) => {
@@ -69,7 +70,8 @@ export function Header() {
             alt="HKSchoolPlace"
             width={42}
             height={42}
-            className="w-[42px] h-auto rounded-xl"
+            className="rounded-xl object-contain"
+            style={{ width: 42, height: 42 }}
             priority
           />
           <div className="hidden sm:flex flex-col leading-none">
@@ -146,18 +148,18 @@ export function Header() {
             </div>
           ) : (
             <div className="hidden sm:flex items-center gap-2">
-              <button
-                onClick={signIn}
+              <Link
+                href="/login"
                 className="px-4 h-9 rounded-pill border border-forest-600 text-forest-700 text-sm font-medium hover:bg-forest-50 transition"
               >
                 登入
-              </button>
-              <button
-                onClick={signIn}
+              </Link>
+              <Link
+                href="/login"
                 className="px-4 h-9 rounded-pill bg-forest-600 text-white text-sm font-medium hover:bg-forest-700 transition"
               >
                 登入 / 建立帳戶
-              </button>
+              </Link>
             </div>
           )}
 
@@ -204,18 +206,20 @@ export function Header() {
           })}
           {!user && (
             <div className="flex items-center gap-2 pt-3 mt-3 border-t border-cream-200">
-              <button
-                onClick={signIn}
+              <Link
+                href="/login"
+                onClick={() => setMenuOpen(false)}
                 className="flex-1 h-9 rounded-pill border border-forest-600 text-forest-700 text-sm font-medium"
               >
                 登入
-              </button>
-              <button
-                onClick={signIn}
+              </Link>
+              <Link
+                href="/login"
+                onClick={() => setMenuOpen(false)}
                 className="flex-1 h-9 rounded-pill bg-forest-600 text-white text-sm font-medium"
               >
                 登入 / 建立帳戶
-              </button>
+              </Link>
             </div>
           )}
         </nav>

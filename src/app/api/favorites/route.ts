@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { fetchUserFavorites, fetchUserFavoritesWithSchools, insertFavorite } from "@/lib/db/favorites";
-import { ensurePublicUser } from "@/lib/db/users";
+import { assertUserNotDisabled, ensurePublicUser } from "@/lib/db/users";
 
 export async function GET(request: NextRequest) {
   try {
@@ -44,6 +44,7 @@ export async function POST(request: NextRequest) {
         { status: 401 }
       );
     }
+    await assertUserNotDisabled(user.id);
 
     const { school_id } = await request.json();
 
@@ -103,6 +104,12 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { error: { code: "AUTH_PROFILE_MISSING", message: "登入帳戶資料缺失，請重新登入後再試。" } },
         { status: 503 }
+      );
+    }
+    if (message === "USER_DISABLED") {
+      return NextResponse.json(
+        { error: { code: "USER_DISABLED", message: "此帳戶已被停用，暫時不能新增收藏。" } },
+        { status: 403 }
       );
     }
 

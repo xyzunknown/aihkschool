@@ -20,11 +20,11 @@ export function ActivitiesClient() {
   const searchParams = useSearchParams();
 
   const initialFilters = useMemo(() => {
-    const cat = searchParams.get("category");
-    const dist = searchParams.get("district");
-    const free = searchParams.get("free");
-    const search = searchParams.get("search");
-    const page = parseInt(searchParams.get("page") ?? "1", 10);
+    const cat = searchParams?.get("category");
+    const dist = searchParams?.get("district");
+    const free = searchParams?.get("free");
+    const search = searchParams?.get("search");
+    const page = parseInt(searchParams?.get("page") ?? "1", 10);
     return {
       category: (cat || null) as ActivityCategory | null,
       district: (dist || null) as ActivityDistrict | null,

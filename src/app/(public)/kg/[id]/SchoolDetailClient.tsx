@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { SourceTag } from "@/components/schools/SourceTag";
 import { SchoolAvatar } from "@/components/schools/SchoolAvatar";
+import { SchoolPhoto } from "@/components/schools/SchoolPhoto";
 import { VacancySection } from "@/components/schools/VacancySection";
 import { BasicInfoSection } from "@/components/schools/BasicInfoSection";
 import { FeesSection } from "@/components/schools/FeesSection";
@@ -147,6 +148,15 @@ export function SchoolDetailClient({ school, vacancy }: Props) {
         </svg>
         返回搵學校
       </Link>
+
+      <SchoolPhoto
+        schoolCode={school.school_code}
+        schoolName={primaryName}
+        schoolId={school.id}
+        logoUrl={school.logo_url}
+        variant="hero"
+        priority
+      />
 
       {/* School header */}
       <div className="mb-8">

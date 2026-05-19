@@ -108,9 +108,13 @@ export function AdminActivitiesClient() {
       body: JSON.stringify(clean(next)),
     });
     const json = await res.json();
-    setMessage(res.ok ? "已保存活動" : json.error?.message ?? "保存失敗");
-    setEditing(null);
-    await loadRows();
+    if (res.ok) {
+      setMessage("已保存活動");
+      setEditing(null);
+      await loadRows();
+    } else {
+      setMessage(json.error?.message ?? "保存失敗");
+    }
   }
 
   function statusLabel(row: ActivityRow) {

@@ -62,12 +62,16 @@ export function AdminProgrammesClient() {
   const [editing, setEditing] = useState<ProgrammeRow | null>(null);
   const [message, setMessage] = useState<string | null>(null);
 
-  async function loadRows() {
+  async function loadRows(nextFilters = filters) {
     const params = new URLSearchParams();
-    Object.entries(filters).forEach(([key, value]) => { if (value) params.set(key, value); });
+    Object.entries(nextFilters).forEach(([key, value]) => { if (value) params.set(key, value); });
     const res = await fetch(`/api/admin/programmes?${params.toString()}`);
     const json = await res.json();
-    setRows(json.data ?? []);
+    if (res.ok) {
+      setRows(json.data ?? []);
+    } else {
+      setMessage(json.error?.message ?? "載入失敗");
+    }
   }
 
   useEffect(() => { void loadRows(); }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -86,9 +90,13 @@ export function AdminProgrammesClient() {
       body: JSON.stringify(body),
     });
     const json = await res.json();
-    setMessage(res.ok ? "已保存課程設定" : json.error?.message ?? "保存失敗");
-    setEditing(null);
-    await loadRows();
+    if (res.ok) {
+      setMessage("已保存課程設定");
+      setEditing(null);
+      await loadRows();
+    } else {
+      setMessage(json.error?.message ?? "保存失敗");
+    }
   }
 
   function status(row: ProgrammeRow) {
@@ -113,7 +121,7 @@ export function AdminProgrammesClient() {
           <h1 className="text-2xl font-bold text-slate-950">課程管理</h1>
           <p className="mt-1 text-sm text-slate-500">查看康體通課程、報名狀態、追蹤人數和提醒資料。</p>
         </div>
-        <button onClick={loadRows} className="rounded-xl bg-slate-950 px-4 py-2 text-sm font-medium text-white">刷新</button>
+        <button onClick={() => { void loadRows(); }} className="rounded-xl bg-slate-950 px-4 py-2 text-sm font-medium text-white">刷新</button>
       </div>
       {message ? <div className="mb-4 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700">{message}</div> : null}
 
@@ -122,11 +130,11 @@ export function AdminProgrammesClient() {
         <select value={filters.category} onChange={(e) => setFilters({ ...filters, category: e.target.value })} className="rounded-xl border border-slate-200 px-3 py-2 text-sm">{CATEGORY_OPTIONS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
         <select value={filters.district} onChange={(e) => setFilters({ ...filters, district: e.target.value })} className="rounded-xl border border-slate-200 px-3 py-2 text-sm"><option value="">全部地區</option>{DISTRICT_OPTIONS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
         <input value={filters.age} onChange={(e) => setFilters({ ...filters, age: e.target.value })} placeholder="年齡" type="number" className="rounded-xl border border-slate-200 px-3 py-2 text-sm" />
-        <button onClick={loadRows} className="rounded-xl border border-slate-200 px-3 py-2 text-sm font-medium">套用</button>
+        <button onClick={() => { void loadRows(); }} className="rounded-xl border border-slate-200 px-3 py-2 text-sm font-medium">套用</button>
       </div>
       <div className="mb-4 flex gap-2">
         {STATUS_OPTIONS.map(([value, label]) => (
-          <button key={value} onClick={() => { setFilters({ ...filters, status: value }); setTimeout(() => void loadRows(), 0); }} className={`rounded-xl px-4 py-2 text-sm ${filters.status === value ? "bg-slate-950 text-white" : "border border-slate-200 bg-white text-slate-700"}`}>{label}</button>
+          <button key={value} onClick={() => { const next = { ...filters, status: value }; setFilters(next); void loadRows(next); }} className={`rounded-xl px-4 py-2 text-sm ${filters.status === value ? "bg-slate-950 text-white" : "border border-slate-200 bg-white text-slate-700"}`}>{label}</button>
         ))}
       </div>
 

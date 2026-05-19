@@ -1,9 +1,11 @@
 name: Extract Reputation
 
 on:
-  schedule:
-    # Weekly Monday 06:00 UTC = 14:00 HKT (after xhs daily + weekend social ingest)
-    - cron: "0 6 * * 1"
+  # Auto-schedule disabled 2026-05-11: upstream social_posts_raw sources
+  # (edu-kingdom + xhs) are retired/paused, so aggregation has no useful
+  # input. Keep manual dispatch only for forensic re-checks.
+  # schedule:
+  #   - cron: "0 6 * * 1"
   workflow_dispatch:
     inputs:
       limit:
@@ -41,6 +43,11 @@ jobs:
 
       - name: Install deps
         run: npm install --no-save @supabase/supabase-js
+
+      - name: Abort — pipeline retired
+        run: |
+          echo "Reputation extraction is retired (2026-05-11): upstream sources (edu-kingdom + xhs) no longer produce useful social_posts_raw input." >&2
+          exit 1
 
       - name: Run reputation extractor
         env:

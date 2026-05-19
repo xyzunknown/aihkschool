@@ -3,9 +3,11 @@ import { Suspense } from "react";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 import { AuthProvider } from "@/components/layout/AuthProvider";
 import { ToastProvider } from "@/components/ui/Toast";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { ProductAnalytics } from "@/components/analytics/ProductAnalytics";
 
 function HeaderFallback() {
   return <div className="h-[73px] border-b border-[rgba(32,85,59,0.08)] bg-[#fffef9]" />;
@@ -58,11 +60,15 @@ export default function RootLayout({
       <body className="antialiased min-h-screen flex flex-col bg-white text-ink-900 font-sans">
         <AuthProvider>
           <ToastProvider>
+            <Suspense fallback={null}>
+              <ProductAnalytics />
+            </Suspense>
             <Suspense fallback={<HeaderFallback />}>
               <Header />
             </Suspense>
-            <main className="flex-1">{children}</main>
+            <main className="flex-1 pb-20 lg:pb-0">{children}</main>
             <Footer />
+            <MobileBottomNav />
           </ToastProvider>
         </AuthProvider>
       </body>

@@ -53,7 +53,7 @@ export default function AccountPage() {
   const [reminderTarget, setReminderTarget] = useState<FavoriteItem | null>(null);
 
   useEffect(() => {
-    if (!loading && !user) { showToast({ message: "請先登入" }); router.push("/"); return; }
+    if (!loading && !user) { showToast({ message: "請先登入" }); router.push("/login"); return; }
     if (user) {
       void fetchFavorites();
       void fetchProgrammeSubscriptions();
@@ -137,7 +137,7 @@ export default function AccountPage() {
   return (
     <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
       <div className="max-w-2xl mx-auto">
-        <h1 className="text-2xl font-bold text-slate-950 mb-6">我的帳戶</h1>
+        <h1 className="text-2xl font-bold text-slate-950 mb-6">我的</h1>
 
         {/* User card */}
         <div className="bg-white rounded-2xl border border-slate-200 p-6 mb-8">

@@ -66,7 +66,7 @@ export default function NewsPage() {
   const [items, setItems] = useState<NewsItem[]>([]);
   const [activeCategory, setActiveCategory] = useState<CategoryKey>("all");
   const [isLoading, setIsLoading] = useState(true);
-  const requestedTab = searchParams.get("tab");
+  const requestedTab = searchParams?.get("tab") ?? null;
 
   const fetchNews = useCallback(async () => {
     setIsLoading(true);

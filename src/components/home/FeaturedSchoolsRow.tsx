@@ -77,14 +77,14 @@ function SchoolCard({
           sizes="(max-width: 768px) 100vw, 360px"
           className="object-cover group-hover:scale-[1.04] transition duration-500"
         />
-        <button
+        <span
           aria-label="收藏"
           className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full border border-white/80 bg-white/95 flex items-center justify-center text-ink-500 hover:text-[#B4473B] shadow-[0_8px_18px_rgba(30,82,56,0.12)]"
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
           </svg>
-        </button>
+        </span>
       </div>
       <div className="p-4 flex flex-col flex-1">
         <h3 className="text-base font-semibold text-ink-900 line-clamp-1 group-hover:text-brand-700 transition">

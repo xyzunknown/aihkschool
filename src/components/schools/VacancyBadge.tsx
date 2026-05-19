@@ -10,9 +10,11 @@ interface VacancyBadgeProps {
 export function VacancyBadge({ grade, status, isStale = false }: VacancyBadgeProps) {
   if (isStale) {
     return (
-      <div className="flex flex-col items-center gap-1">
-        <span className="text-xs text-slate-400 font-medium">{grade}</span>
-        <span className="inline-flex items-center justify-center min-w-[72px] px-4 py-1.5 rounded-full text-xs font-medium border border-slate-200 text-slate-400 bg-slate-50 transition-colors duration-200">
+      <div className="flex justify-center">
+        <span
+          aria-label={`${grade} ${VACANCY_STATUS_LABELS.no_information}`}
+          className="inline-flex items-center justify-center min-w-[66px] px-3 py-1.5 rounded-full text-xs font-medium border border-slate-200 text-slate-400 bg-slate-50 transition-colors duration-200"
+        >
           {VACANCY_STATUS_LABELS.no_information}
         </span>
       </div>
@@ -29,9 +31,11 @@ export function VacancyBadge({ grade, status, isStale = false }: VacancyBadgePro
   };
 
   return (
-    <div className="flex flex-col items-center gap-1">
-      <span className="text-xs text-slate-400 font-medium">{grade}</span>
-      <span className={`inline-flex items-center justify-center min-w-[72px] px-4 py-1.5 rounded-full text-xs font-medium border transition-colors duration-200 ${styles[normalizedStatus]}`}>
+    <div className="flex justify-center">
+      <span
+        aria-label={`${grade} ${VACANCY_STATUS_LABELS[normalizedStatus]}`}
+        className={`inline-flex items-center justify-center min-w-[66px] px-3 py-1.5 rounded-full text-xs font-medium border transition-colors duration-200 ${styles[normalizedStatus]}`}
+      >
         {VACANCY_STATUS_LABELS[normalizedStatus]}
       </span>
     </div>

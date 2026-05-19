@@ -3,28 +3,24 @@
 import Image from "next/image";
 import { useState } from "react";
 import { getAvatarColor } from "@/lib/utils";
+import { hasLocalSchoolLogoFile } from "@/lib/schools/schoolLogoSources";
 
 interface SchoolAvatarProps {
   schoolId: string;
   schoolName: string;
   logoUrl?: string | null;
   schoolCode?: string | null;
-  size?: "md" | "lg";
+  size?: "sm" | "md" | "lg";
+  shape?: "circle" | "rounded";
 }
 
-/**
- * Resolve the best logo URL:
- * 1. Use DB logo_url if available
- * 2. Try /logos/{school_code}.png as auto-fallback
- */
 function resolveLogoCandidates(logoUrl?: string | null, schoolCode?: string | null): string[] {
-  const candidates = [
-    logoUrl ?? null,
-    schoolCode ? `/logos/${schoolCode}.png` : null,
-    schoolCode ? `/logos/${schoolCode}.svg` : null,
-  ].filter((candidate): candidate is string => Boolean(candidate));
+  const match = logoUrl?.match(/^\/logos\/(\d{6}\.(?:png|svg|webp))$/);
+  const safeLocalLogo = match && schoolCode && match[1].startsWith(schoolCode) && hasLocalSchoolLogoFile(match[1])
+    ? logoUrl
+    : null;
 
-  return Array.from(new Set(candidates));
+  return safeLocalLogo ? [safeLocalLogo] : [];
 }
 
 export function SchoolAvatar({
@@ -33,6 +29,7 @@ export function SchoolAvatar({
   logoUrl,
   schoolCode,
   size = "md",
+  shape = "circle",
 }: SchoolAvatarProps) {
   const candidates = resolveLogoCandidates(logoUrl, schoolCode);
   const [logoIndex, setLogoIndex] = useState(0);
@@ -41,11 +38,12 @@ export function SchoolAvatar({
   const firstChar = schoolName.trim().charAt(0);
   const colors = getAvatarColor(schoolId);
 
-  const sizeClass = size === "lg" ? "w-16 h-16" : "w-12 h-12";
-  const textSize = size === "lg" ? "text-xl" : "text-lg";
+  const sizeClass = size === "lg" ? "w-16 h-16" : size === "sm" ? "w-[38px] h-[38px]" : "w-12 h-12";
+  const textSize = size === "lg" ? "text-xl" : size === "sm" ? "text-base" : "text-lg";
+  const shapeClass = shape === "rounded" ? "rounded-[10px]" : "rounded-full";
 
   return (
-    <div className={`${sizeClass} shrink-0 rounded-full border border-slate-200 bg-white overflow-hidden`}>
+    <div className={`${sizeClass} ${shapeClass} shrink-0 border border-slate-200 bg-white overflow-hidden`}>
       {showLogo && resolved ? (
         <div className="relative h-full w-full bg-white">
           <Image

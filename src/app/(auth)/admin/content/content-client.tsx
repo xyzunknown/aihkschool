@@ -71,9 +71,13 @@ export function AdminContentClient() {
       body: JSON.stringify(clean(editing)),
     });
     const json = await res.json();
-    setMessage(res.ok ? "已保存內容" : json.error?.message ?? "保存失敗");
-    setEditing(null);
-    await load();
+    if (res.ok) {
+      setMessage("已保存內容");
+      setEditing(null);
+      await load();
+    } else {
+      setMessage(json.error?.message ?? "保存失敗");
+    }
   }
 
   return (

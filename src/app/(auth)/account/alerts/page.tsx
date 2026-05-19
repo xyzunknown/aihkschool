@@ -51,7 +51,7 @@ export default function AlertsPage() {
   useEffect(() => {
     if (!loading && !user) {
       showToast({ message: "請先登入" });
-      router.push("/");
+      router.push("/login");
       return;
     }
     if (user) fetchSubscriptions();

@@ -124,7 +124,7 @@ export function CompareClient() {
   const [schools, setSchools] = useState<SchoolCompareData[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const idsParam = searchParams.get("ids") ?? "";
+  const idsParam = searchParams?.get("ids") ?? "";
   const ids = idsParam
     .split(",")
     .map((s) => s.trim())

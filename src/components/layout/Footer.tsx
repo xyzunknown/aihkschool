@@ -7,9 +7,9 @@ import { useToast } from "@/components/ui/Toast";
 
 const QUICK_LINKS = [
   { href: "/kg", label: "找幼稚園" },
+  { href: "/programmes", label: "康體通" },
   { href: "/activities", label: "課外活動" },
-  { href: "/programmes", label: "開報前追蹤" },
-  { href: "/account", label: "我的收藏" },
+  { href: "/account", label: "我的" },
 ] as const;
 
 const ABOUT_LINKS = [
@@ -74,7 +74,8 @@ export function Footer() {
               alt="HKSchoolPlace"
               width={40}
               height={40}
-              className="w-[40px] h-auto rounded-xl"
+              className="rounded-xl object-contain"
+              style={{ width: 40, height: 40 }}
             />
             <div className="leading-tight">
               <p className="text-[17px] font-bold text-forest-700">HKSchoolPlace</p>
@@ -92,16 +93,15 @@ export function Footer() {
               { name: "instagram", path: "M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.3 2.3.5.6.2 1 .5 1.5 1s.8.9 1 1.5c.2.5.4 1.1.5 2.3 0 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.3 1.8-.5 2.3-.2.6-.5 1-1 1.5s-.9.8-1.5 1c-.5.2-1.1.4-2.3.5-1.2 0-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.3-2.3-.5a4.4 4.4 0 0 1-1.5-1 4.4 4.4 0 0 1-1-1.5c-.2-.5-.4-1.1-.5-2.3 0-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-1.2.3-1.8.5-2.3.2-.6.5-1 1-1.5s.9-.8 1.5-1c.5-.2 1.1-.4 2.3-.5 1.2 0 1.6-.1 4.8-.1zm0 2c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.5-1.3.9s-.7.8-.9 1.3c-.2.4-.3 1-.4 2.1 0 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.5.9.9 1.3s.8.7 1.3.9c.4.2 1 .3 2.1.4 1.2 0 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.5 1.3-.9s.7-.8.9-1.3c.2-.4.3-1 .4-2.1 0-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.5-.9-.9-1.3s-.8-.7-1.3-.9c-.4-.2-1-.3-2.1-.4-1.2 0-1.6-.1-4.7-.1zm0 3.4a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8zm0 7.2a2.8 2.8 0 1 0 0-5.6 2.8 2.8 0 0 0 0 5.6zm5.6-7.4a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" },
               { name: "youtube", path: "M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.3-1.6.4-3.2.4-4.8a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3-5.2 3z" },
             ].map((s) => (
-              <button
+              <span
                 key={s.name}
-                type="button"
                 className="w-9 h-9 rounded-full border border-surface-border bg-white flex items-center justify-center text-brand-700 hover:border-brand-200 hover:bg-brand-50 hover:-translate-y-0.5 transition"
                 aria-label={s.name}
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                   <path d={s.path} />
                 </svg>
-              </button>
+              </span>
             ))}
           </div>
         </div>

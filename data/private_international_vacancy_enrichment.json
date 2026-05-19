@@ -12,27 +12,32 @@
       "K2",
       "K3"
     ],
-    "n_vacancy": "check_school",
+    "n_vacancy": "waiting_list",
     "k1_vacancy": "waiting_list",
     "k2_vacancy": "waiting_list",
-    "k3_vacancy": "check_school",
+    "k3_vacancy": "waiting_list",
     "overall_status": "waiting_list",
     "overall_summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
     "source_url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
     "scraped_pages": [
       "http://www.victoria.edu.hk/",
       "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
-      "https://www.victoria.edu.hk/message-from-admission-team/"
+      "https://www.victoria.edu.hk/message-from-admission-team/",
+      "http://www.victoria.edu.hk/admissions",
+      "http://www.victoria.edu.hk/admission",
+      "http://www.victoria.edu.hk/admissions/apply",
+      "http://www.victoria.edu.hk/admissions/how-to-apply",
+      "http://www.victoria.edu.hk/apply"
     ],
     "scrape_status": "ok",
     "evidence": {
       "n": {
-        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
-        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
       },
       "k3": {
-        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
-        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
       },
       "k1": {
         "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
@@ -68,7 +73,8 @@
       "http://www.highgatehouse.edu.hk/",
       "https://www.highgatehouse.edu.hk/admission-online-enrolment/",
       "https://www.eventbrite.hk/e/parenting-with-confidence-turn-chaos-to-coorperation-tickets-1984096411778?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl",
-      "https://forms.office.com/r/402rDp05rC"
+      "https://forms.cloud.microsoft/r/WhmqYtkzvN",
+      "http://www.highgatehouse.edu.hk/admission"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -159,22 +165,43 @@
       "K2",
       "K3"
     ],
-    "n_vacancy": "check_school",
-    "k1_vacancy": "check_school",
-    "k2_vacancy": "check_school",
-    "k3_vacancy": "check_school",
-    "overall_status": "check_school",
-    "overall_summary": "Apply Now",
-    "source_url": "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-2026-2027-new-students/",
+    "n_vacancy": "waiting_list",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "waiting_list",
+    "overall_status": "waiting_list",
+    "overall_summary": "If your preferred campus does not have any openings, you will be placed on our waiting list.",
+    "source_url": "https://www.tutortime.com.hk/admission/",
     "scraped_pages": [
       "http://www.tutortime.com.hk/",
       "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-2026-2027-new-students/",
       "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-form-2025-2026-existing-students/",
       "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-form-2025-2026-new-students/",
-      "https://www.tutortime.com.hk/admission/playlab-enrollment-form/"
+      "https://www.tutortime.com.hk/admission/playlab-enrollment-form/",
+      "https://www.tutortime.com.hk/admission/",
+      "https://www.tutortime.com.hk/admission/2026-2027-nursery-kindergarten-application-existing-students/",
+      "https://www.tutortime.com.hk/admission/activity-group-pre-admission-form/",
+      "https://www.tutortime.com.hk/summer-program"
     ],
     "scrape_status": "ok",
-    "evidence": {}
+    "evidence": {
+      "n": {
+        "summary": "If your preferred campus does not have any openings, you will be placed on our waiting list.",
+        "url": "https://www.tutortime.com.hk/admission/"
+      },
+      "k1": {
+        "summary": "If your preferred campus does not have any openings, you will be placed on our waiting list.",
+        "url": "https://www.tutortime.com.hk/admission/"
+      },
+      "k2": {
+        "summary": "If your preferred campus does not have any openings, you will be placed on our waiting list.",
+        "url": "https://www.tutortime.com.hk/admission/"
+      },
+      "k3": {
+        "summary": "If your preferred campus does not have any openings, you will be placed on our waiting list.",
+        "url": "https://www.tutortime.com.hk/admission/"
+      }
+    }
   },
   {
     "school_code": "594725",
@@ -194,12 +221,12 @@
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
     "overall_status": "check_school",
-    "overall_summary": "Apply Now",
+    "overall_summary": "We offer rolling admissions for families who are looking to get started right away!",
     "source_url": "https://guidepost.hk/apply-now",
     "scraped_pages": [
       "https://guidepost.hk/locations/mid-levels",
       "https://guidepost.hk/apply-now",
-      "https://guidepost-ntloa.formstack.com/forms/guidepost_hk_application_new"
+      "https://guideposteducation.formstack.com/forms/guidepost_hk_application_new"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -223,8 +250,16 @@
     "overall_status": "no_information",
     "overall_summary": null,
     "source_url": "http://www.york.edu.hk/",
-    "scraped_pages": [],
-    "scrape_status": "homepage_unreachable",
+    "scraped_pages": [
+      "http://www.york.edu.hk/",
+      "https://york.edu.hk/en/admissions.html",
+      "http://www.york.edu.hk/onlineapplicationform/form.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_yl.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_tko.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_tm.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_wlp.htm"
+    ],
+    "scrape_status": "ok",
     "evidence": {}
   },
   {
@@ -240,33 +275,40 @@
       "K2",
       "K3"
     ],
-    "n_vacancy": "check_school",
-    "k1_vacancy": "check_school",
-    "k2_vacancy": "check_school",
-    "k3_vacancy": "check_school",
+    "n_vacancy": "waiting_list",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "waiting_list",
     "overall_status": "waiting_list",
     "overall_summary": "Waitlist: Regular updates provided",
     "source_url": "https://www.mightyoaks.edu.hk/admission",
     "scraped_pages": [
       "https://www.mightyoaks.edu.hk/",
-      "https://www.mightyoaks.edu.hk/admission"
+      "https://www.mightyoaks.edu.hk/admission",
+      "https://www.mightyoaks.edu.hk/admissions",
+      "https://www.mightyoaks.edu.hk/admissions/apply",
+      "https://www.mightyoaks.edu.hk/admissions/how-to-apply",
+      "https://www.mightyoaks.edu.hk/apply",
+      "https://www.mightyoaks.edu.hk/enrolment",
+      "https://www.mightyoaks.edu.hk/enrollment",
+      "https://www.mightyoaks.edu.hk/how-to-apply"
     ],
     "scrape_status": "ok",
     "evidence": {
       "n": {
-        "summary": "Apply now to secure a place in our award-winning, nurturing, trilingual nursery and kindergarten.",
+        "summary": "Waitlist: Regular updates provided",
         "url": "https://www.mightyoaks.edu.hk/admission"
       },
       "k1": {
-        "summary": "Admissions | Apply Now to Mighty Oaks International Kindergarten",
+        "summary": "Waitlist: Regular updates provided",
         "url": "https://www.mightyoaks.edu.hk/admission"
       },
       "k2": {
-        "summary": "Admissions | Apply Now to Mighty Oaks International Kindergarten",
+        "summary": "Waitlist: Regular updates provided",
         "url": "https://www.mightyoaks.edu.hk/admission"
       },
       "k3": {
-        "summary": "Admissions | Apply Now to Mighty Oaks International Kindergarten",
+        "summary": "Waitlist: Regular updates provided",
         "url": "https://www.mightyoaks.edu.hk/admission"
       }
     }
@@ -291,8 +333,18 @@
     "overall_status": "no_information",
     "overall_summary": null,
     "source_url": "http://www.mansangkg.edu.hk/",
-    "scraped_pages": [],
-    "scrape_status": "homepage_unreachable",
+    "scraped_pages": [
+      "http://www.mansangkg.edu.hk/",
+      "http://www.mansangkg.edu.hk/admissions?lang=eng",
+      "http://www.mansangkg.edu.hk/admissions",
+      "http://www.mansangkg.edu.hk/#",
+      "http://www.mansangkg.edu.hk/news_events_details?pkey=36&type=1&lang=eng",
+      "http://www.mansangkg.edu.hk/admission",
+      "http://www.mansangkg.edu.hk/admissions/apply",
+      "http://www.mansangkg.edu.hk/admissions/how-to-apply",
+      "http://www.mansangkg.edu.hk/apply"
+    ],
+    "scrape_status": "ok",
     "evidence": {}
   },
   {
@@ -373,7 +425,11 @@
       "https://wa.me/85255433251",
       "https://iws.edu.hk/admissions/",
       "https://iws.edu.hk/admissions/apply/",
-      "https://iws.edu.hk/admissions/tuition-fees/"
+      "https://iws.edu.hk/admissions/tuition-fees/",
+      "https://iws.edu.hk/admissions/faq/",
+      "https://iws.edu.hk/apply/",
+      "https://iws.edu.hk/admissions",
+      "https://iws.edu.hk/admission"
     ],
     "scrape_status": "ok",
     "evidence": {
@@ -409,12 +465,12 @@
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
     "overall_status": "check_school",
-    "overall_summary": "Apply Now",
+    "overall_summary": "We offer rolling admissions for families who are looking to get started right away!",
     "source_url": "https://guidepost.hk/apply-now",
     "scraped_pages": [
       "https://guidepost.hk/locations/kennedy-town",
       "https://guidepost.hk/apply-now",
-      "https://guidepost-ntloa.formstack.com/forms/guidepost_hk_application_new",
+      "https://guideposteducation.formstack.com/forms/guidepost_hk_application_new",
       "https://explore.mybookingo.com/dashboard"
     ],
     "scrape_status": "ok",
@@ -442,7 +498,10 @@
     "source_url": "https://www.malvernpreschool.hk/",
     "scraped_pages": [
       "https://www.malvernpreschool.hk/",
-      "https://www.malvernpreschool.hk/admissions-overview/"
+      "https://www.malvernpreschool.hk/#",
+      "https://www.malvernpreschool.hk/admissions-overview/",
+      "https://www.malvernpreschool.hk/admissions",
+      "https://www.malvernpreschool.hk/admission"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -469,7 +528,8 @@
     "source_url": "https://hkkidsacademy.edu.hk/admissions",
     "scraped_pages": [
       "https://hkkidsacademy.edu.hk/les-petits-lascars",
-      "https://hkkidsacademy.edu.hk/admissions"
+      "https://hkkidsacademy.edu.hk/admissions",
+      "https://hkkidsacademy.edu.hk/admission"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -546,7 +606,9 @@
     "source_url": "https://www.magartedu.com/en/how-to-apply/",
     "scraped_pages": [
       "https://www.magartedu.com/",
-      "https://www.magartedu.com/en/how-to-apply/"
+      "https://www.magartedu.com/en/how-to-apply/",
+      "https://www.magartedu.com/admission",
+      "https://www.magartedu.com/admissions/how-to-apply"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -573,8 +635,12 @@
     "source_url": "http://www.mingwai.edu.hk/",
     "scraped_pages": [
       "http://www.mingwai.edu.hk/",
+      "http://www.mingwai.edu.hk/#",
       "https://www.mingwai.edu.hk/how-to-apply/north-point-admissions/admissions-information/",
-      "https://www.mingwai.edu.hk/how-to-apply/prince-edward-admissions/admissions-information/"
+      "https://www.mingwai.edu.hk/how-to-apply/prince-edward-admissions/admissions-information/",
+      "http://www.mingwai.edu.hk/admissions",
+      "http://www.mingwai.edu.hk/admission",
+      "http://www.mingwai.edu.hk/admissions/how-to-apply"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -599,8 +665,18 @@
     "overall_status": "no_information",
     "overall_summary": null,
     "source_url": "http://www.mansangkg.edu.hk/",
-    "scraped_pages": [],
-    "scrape_status": "homepage_unreachable",
+    "scraped_pages": [
+      "http://www.mansangkg.edu.hk/",
+      "http://www.mansangkg.edu.hk/admissions?lang=eng",
+      "http://www.mansangkg.edu.hk/admissions",
+      "http://www.mansangkg.edu.hk/#",
+      "http://www.mansangkg.edu.hk/news_events_details?pkey=36&type=1&lang=eng",
+      "http://www.mansangkg.edu.hk/admission",
+      "http://www.mansangkg.edu.hk/admissions/apply",
+      "http://www.mansangkg.edu.hk/admissions/how-to-apply",
+      "http://www.mansangkg.edu.hk/apply"
+    ],
+    "scrape_status": "ok",
     "evidence": {}
   },
   {
@@ -616,27 +692,32 @@
       "K2",
       "K3"
     ],
-    "n_vacancy": "check_school",
+    "n_vacancy": "waiting_list",
     "k1_vacancy": "waiting_list",
     "k2_vacancy": "waiting_list",
-    "k3_vacancy": "check_school",
+    "k3_vacancy": "waiting_list",
     "overall_status": "waiting_list",
     "overall_summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
     "source_url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
     "scraped_pages": [
       "http://www.victoria.edu.hk/",
       "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
-      "https://www.victoria.edu.hk/message-from-admission-team/"
+      "https://www.victoria.edu.hk/message-from-admission-team/",
+      "http://www.victoria.edu.hk/admissions",
+      "http://www.victoria.edu.hk/admission",
+      "http://www.victoria.edu.hk/admissions/apply",
+      "http://www.victoria.edu.hk/admissions/how-to-apply",
+      "http://www.victoria.edu.hk/apply"
     ],
     "scrape_status": "ok",
     "evidence": {
       "n": {
-        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
-        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
       },
       "k3": {
-        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
-        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
       },
       "k1": {
         "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
@@ -661,27 +742,32 @@
       "K2",
       "K3"
     ],
-    "n_vacancy": "check_school",
+    "n_vacancy": "waiting_list",
     "k1_vacancy": "waiting_list",
     "k2_vacancy": "waiting_list",
-    "k3_vacancy": "check_school",
+    "k3_vacancy": "waiting_list",
     "overall_status": "waiting_list",
     "overall_summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
     "source_url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
     "scraped_pages": [
       "http://www.victoria.edu.hk/",
       "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
-      "https://www.victoria.edu.hk/message-from-admission-team/"
+      "https://www.victoria.edu.hk/message-from-admission-team/",
+      "http://www.victoria.edu.hk/admissions",
+      "http://www.victoria.edu.hk/admission",
+      "http://www.victoria.edu.hk/admissions/apply",
+      "http://www.victoria.edu.hk/admissions/how-to-apply",
+      "http://www.victoria.edu.hk/apply"
     ],
     "scrape_status": "ok",
     "evidence": {
       "n": {
-        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
-        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
       },
       "k3": {
-        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
-        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
       },
       "k1": {
         "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
@@ -706,27 +792,32 @@
       "K2",
       "K3"
     ],
-    "n_vacancy": "check_school",
+    "n_vacancy": "waiting_list",
     "k1_vacancy": "waiting_list",
     "k2_vacancy": "waiting_list",
-    "k3_vacancy": "check_school",
+    "k3_vacancy": "waiting_list",
     "overall_status": "waiting_list",
     "overall_summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
     "source_url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
     "scraped_pages": [
       "http://www.victoria.edu.hk/",
       "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
-      "https://www.victoria.edu.hk/message-from-admission-team/"
+      "https://www.victoria.edu.hk/message-from-admission-team/",
+      "http://www.victoria.edu.hk/admissions",
+      "http://www.victoria.edu.hk/admission",
+      "http://www.victoria.edu.hk/admissions/apply",
+      "http://www.victoria.edu.hk/admissions/how-to-apply",
+      "http://www.victoria.edu.hk/apply"
     ],
     "scrape_status": "ok",
     "evidence": {
       "n": {
-        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
-        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
       },
       "k3": {
-        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
-        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
       },
       "k1": {
         "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
@@ -760,8 +851,12 @@
     "source_url": "http://www.mingwai.edu.hk/",
     "scraped_pages": [
       "http://www.mingwai.edu.hk/",
+      "http://www.mingwai.edu.hk/#",
       "https://www.mingwai.edu.hk/how-to-apply/north-point-admissions/admissions-information/",
-      "https://www.mingwai.edu.hk/how-to-apply/prince-edward-admissions/admissions-information/"
+      "https://www.mingwai.edu.hk/how-to-apply/prince-edward-admissions/admissions-information/",
+      "http://www.mingwai.edu.hk/admissions",
+      "http://www.mingwai.edu.hk/admission",
+      "http://www.mingwai.edu.hk/admissions/how-to-apply"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -788,8 +883,12 @@
     "source_url": "http://www.mingwai.edu.hk/",
     "scraped_pages": [
       "http://www.mingwai.edu.hk/",
+      "http://www.mingwai.edu.hk/#",
       "https://www.mingwai.edu.hk/how-to-apply/north-point-admissions/admissions-information/",
-      "https://www.mingwai.edu.hk/how-to-apply/prince-edward-admissions/admissions-information/"
+      "https://www.mingwai.edu.hk/how-to-apply/prince-edward-admissions/admissions-information/",
+      "http://www.mingwai.edu.hk/admissions",
+      "http://www.mingwai.edu.hk/admission",
+      "http://www.mingwai.edu.hk/admissions/how-to-apply"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -807,27 +906,32 @@
       "K2",
       "K3"
     ],
-    "n_vacancy": "check_school",
+    "n_vacancy": "waiting_list",
     "k1_vacancy": "waiting_list",
     "k2_vacancy": "waiting_list",
-    "k3_vacancy": "check_school",
+    "k3_vacancy": "waiting_list",
     "overall_status": "waiting_list",
     "overall_summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
     "source_url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
     "scraped_pages": [
       "http://www.victoria.edu.hk/",
       "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
-      "https://www.victoria.edu.hk/message-from-admission-team/"
+      "https://www.victoria.edu.hk/message-from-admission-team/",
+      "http://www.victoria.edu.hk/admissions",
+      "http://www.victoria.edu.hk/admission",
+      "http://www.victoria.edu.hk/admissions/apply",
+      "http://www.victoria.edu.hk/admissions/how-to-apply",
+      "http://www.victoria.edu.hk/apply"
     ],
     "scrape_status": "ok",
     "evidence": {
       "n": {
-        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
-        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
       },
       "k3": {
-        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
-        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
       },
       "k1": {
         "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
@@ -852,22 +956,43 @@
       "K2",
       "K3"
     ],
-    "n_vacancy": "check_school",
-    "k1_vacancy": "check_school",
-    "k2_vacancy": "check_school",
-    "k3_vacancy": "check_school",
-    "overall_status": "check_school",
-    "overall_summary": "Apply Now",
-    "source_url": "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-2026-2027-new-students/",
+    "n_vacancy": "waiting_list",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "waiting_list",
+    "overall_status": "waiting_list",
+    "overall_summary": "If your preferred campus does not have any openings, you will be placed on our waiting list.",
+    "source_url": "https://www.tutortime.com.hk/admission/",
     "scraped_pages": [
       "http://www.tutortime.com.hk/en/home",
       "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-2026-2027-new-students/",
       "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-form-2025-2026-existing-students/",
       "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-form-2025-2026-new-students/",
-      "https://www.tutortime.com.hk/admission/playlab-enrollment-form/"
+      "https://www.tutortime.com.hk/admission/playlab-enrollment-form/",
+      "https://www.tutortime.com.hk/admission/",
+      "https://www.tutortime.com.hk/admission/2026-2027-nursery-kindergarten-application-existing-students/",
+      "https://www.tutortime.com.hk/admission/activity-group-pre-admission-form/",
+      "https://www.tutortime.com.hk/summer-program"
     ],
     "scrape_status": "ok",
-    "evidence": {}
+    "evidence": {
+      "n": {
+        "summary": "If your preferred campus does not have any openings, you will be placed on our waiting list.",
+        "url": "https://www.tutortime.com.hk/admission/"
+      },
+      "k1": {
+        "summary": "If your preferred campus does not have any openings, you will be placed on our waiting list.",
+        "url": "https://www.tutortime.com.hk/admission/"
+      },
+      "k2": {
+        "summary": "If your preferred campus does not have any openings, you will be placed on our waiting list.",
+        "url": "https://www.tutortime.com.hk/admission/"
+      },
+      "k3": {
+        "summary": "If your preferred campus does not have any openings, you will be placed on our waiting list.",
+        "url": "https://www.tutortime.com.hk/admission/"
+      }
+    }
   },
   {
     "school_code": "602329",
@@ -892,9 +1017,9 @@
     "scraped_pages": [
       "http://www.abcpathways.edu.hk/",
       "https://www.abcpathways.edu.hk/%e5%85%a5%e5%ad%b8%e7%94%b3%e8%ab%8b/",
-      "https://www.abcpathways.edu.hk/2026admissionevents/",
       "https://www.abcpathways.edu.hk/%e5%85%a5%e5%ad%b8%e8%ac%9b%e5%ba%a7%e5%8f%8a%e9%9d%a2%e8%a9%a6%e6%97%a5/",
-      "https://www.abcpathways.edu.hk/%e5%8d%87%e5%ad%b8%e4%bd%b3%e7%b8%be/"
+      "https://www.abcpathways.edu.hk/%e5%8d%87%e5%ad%b8%e4%bd%b3%e7%b8%be/",
+      "http://www.abcpathways.edu.hk/admission"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -985,12 +1110,12 @@
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
     "overall_status": "check_school",
-    "overall_summary": "Apply Now",
+    "overall_summary": "We offer rolling admissions for families who are looking to get started right away!",
     "source_url": "https://guidepost.hk/apply-now",
     "scraped_pages": [
       "https://guidepost.hk/locations/chai-wan",
       "https://guidepost.hk/apply-now",
-      "https://guidepost-ntloa.formstack.com/forms/guidepost_hk_application_new",
+      "https://guideposteducation.formstack.com/forms/guidepost_hk_application_new",
       "https://explore.mybookingo.com/dashboard"
     ],
     "scrape_status": "ok",
@@ -1092,9 +1217,14 @@
     "source_url": "http://www.discoverymind.edu.hk/",
     "scraped_pages": [
       "http://www.discoverymind.edu.hk/",
+      "http://www.discoverymind.edu.hk/#",
       "https://fs19.formsite.com/DiscoveryMind/Admission/index",
       "https://discoverymind.edu.hk/admission-procedures/",
-      "https://docs.google.com/forms/d/e/1FAIpQLSe1MfsrL6W6-W21K8OkPctkzhILZANNRMuNLHKw33CM5wF9UA/viewform"
+      "https://docs.google.com/forms/d/e/1FAIpQLSe1MfsrL6W6-W21K8OkPctkzhILZANNRMuNLHKw33CM5wF9UA/viewform",
+      "http://www.discoverymind.edu.hk/admissions",
+      "http://www.discoverymind.edu.hk/admission",
+      "http://www.discoverymind.edu.hk/admissions/apply",
+      "http://www.discoverymind.edu.hk/admissions/how-to-apply"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -1121,9 +1251,14 @@
     "source_url": "http://www.discoverymind.edu.hk/",
     "scraped_pages": [
       "http://www.discoverymind.edu.hk/",
+      "http://www.discoverymind.edu.hk/#",
       "https://fs19.formsite.com/DiscoveryMind/Admission/index",
       "https://discoverymind.edu.hk/admission-procedures/",
-      "https://docs.google.com/forms/d/e/1FAIpQLSe1MfsrL6W6-W21K8OkPctkzhILZANNRMuNLHKw33CM5wF9UA/viewform"
+      "https://docs.google.com/forms/d/e/1FAIpQLSe1MfsrL6W6-W21K8OkPctkzhILZANNRMuNLHKw33CM5wF9UA/viewform",
+      "http://www.discoverymind.edu.hk/admissions",
+      "http://www.discoverymind.edu.hk/admission",
+      "http://www.discoverymind.edu.hk/admissions/apply",
+      "http://www.discoverymind.edu.hk/admissions/how-to-apply"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -1176,7 +1311,9 @@
     "source_url": "https://www.littlelantaumontessori.com/admissions",
     "scraped_pages": [
       "https://www.littlelantaumontessori.com/",
-      "https://www.littlelantaumontessori.com/admissions"
+      "https://www.littlelantaumontessori.com/admissions",
+      "https://www.littlelantaumontessori.com/admissions/apply",
+      "https://www.littlelantaumontessori.com/admissions/how-to-apply"
     ],
     "scrape_status": "ok",
     "evidence": {
@@ -1219,7 +1356,8 @@
     "overall_summary": "Admissions for school year 2026-2027 are open.",
     "source_url": "https://www.godaddy.com/websites/website-builder?isc=pwugc&utm_source=wsb&utm_medium=applications&utm_campaign=en-ie_corp_applications_base",
     "scraped_pages": [
-      "http://www.ecole-discovery.com/"
+      "http://www.ecole-discovery.com/",
+      "https://www.godaddy.com/websites/website-builder?isc=pwugc&utm_source=wsb&utm_medium=applications&utm_campaign=en-ie_corp_applications_base"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -1268,12 +1406,12 @@
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
     "overall_status": "check_school",
-    "overall_summary": "Apply Now",
+    "overall_summary": "We offer rolling admissions for families who are looking to get started right away!",
     "source_url": "https://guidepost.hk/apply-now",
     "scraped_pages": [
       "https://guidepost.hk/locations/discovery-bay",
       "https://guidepost.hk/apply-now",
-      "https://guidepost-ntloa.formstack.com/forms/guidepost_hk_application_new",
+      "https://guideposteducation.formstack.com/forms/guidepost_hk_application_new",
       "https://explore.mybookingo.com/dashboard"
     ],
     "scrape_status": "ok",
@@ -1302,7 +1440,10 @@
     "scraped_pages": [
       "http://www.st-johannes.edu.hk/",
       "https://st-johannes.edu.hk/applying-to-sjc/#admissions",
-      "https://st-johannes.edu.hk/applying-to-sjc/"
+      "http://www.st-johannes.edu.hk/#",
+      "https://st-johannes.edu.hk/applying-to-sjc/",
+      "http://www.st-johannes.edu.hk/admissions/apply",
+      "http://www.st-johannes.edu.hk/apply"
     ],
     "scrape_status": "ok",
     "evidence": {
@@ -1391,8 +1532,16 @@
     "overall_status": "no_information",
     "overall_summary": null,
     "source_url": "http://www.york.edu.hk/",
-    "scraped_pages": [],
-    "scrape_status": "homepage_unreachable",
+    "scraped_pages": [
+      "http://www.york.edu.hk/",
+      "https://york.edu.hk/en/admissions.html",
+      "http://www.york.edu.hk/onlineapplicationform/form.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_yl.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_tko.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_tm.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_wlp.htm"
+    ],
+    "scrape_status": "ok",
     "evidence": {}
   },
   {
@@ -1415,7 +1564,15 @@
     "overall_summary": null,
     "source_url": "http://www.kentville.edu.hk/",
     "scraped_pages": [
-      "http://www.kentville.edu.hk/"
+      "http://www.kentville.edu.hk/",
+      "http://www.kentville.edu.hk/admissions",
+      "http://www.kentville.edu.hk/admission",
+      "http://www.kentville.edu.hk/admissions/apply",
+      "http://www.kentville.edu.hk/admissions/how-to-apply",
+      "http://www.kentville.edu.hk/apply",
+      "http://www.kentville.edu.hk/enrolment",
+      "http://www.kentville.edu.hk/enrollment",
+      "http://www.kentville.edu.hk/how-to-apply"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -1439,8 +1596,16 @@
     "overall_status": "no_information",
     "overall_summary": null,
     "source_url": "http://www.york.edu.hk/",
-    "scraped_pages": [],
-    "scrape_status": "homepage_unreachable",
+    "scraped_pages": [
+      "http://www.york.edu.hk/",
+      "https://york.edu.hk/en/admissions.html",
+      "http://www.york.edu.hk/onlineapplicationform/form.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_yl.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_tko.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_tm.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_wlp.htm"
+    ],
+    "scrape_status": "ok",
     "evidence": {}
   },
   {
@@ -1460,15 +1625,19 @@
     "k1_vacancy": "check_school",
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
-    "overall_status": "check_school",
-    "overall_summary": "Now accepting applications for 2025/26",
+    "overall_status": "has_vacancy",
+    "overall_summary": "*Play Sessions for the current school year will be arranged shortly after the application is received if places are available.*",
     "source_url": "http://www.kingston.edu.hk/admissions",
     "scraped_pages": [
       "http://www.kingston.edu.hk/",
       "http://www.kingston.edu.hk/admissions",
       "http://www.kingston.edu.hk/admissions/admissions-process",
       "http://www.kingston.edu.hk/admissions/apply-online",
-      "http://www.kingston.edu.hk/admissions/contact-our-admissions-team"
+      "http://www.kingston.edu.hk/admissions/contact-our-admissions-team",
+      "http://www.kingston.edu.hk/learning-at-kingston/school-admission-statistics",
+      "http://www.kingston.edu.hk/admissions/school-fees",
+      "http://www.kingston.edu.hk/admissions/school-tours",
+      "http://www.kingston.edu.hk/admissions/faqs"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -1492,8 +1661,16 @@
     "overall_status": "no_information",
     "overall_summary": null,
     "source_url": "http://www.york.edu.hk/",
-    "scraped_pages": [],
-    "scrape_status": "homepage_unreachable",
+    "scraped_pages": [
+      "http://www.york.edu.hk/",
+      "https://york.edu.hk/en/admissions.html",
+      "http://www.york.edu.hk/onlineapplicationform/form.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_yl.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_tko.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_tm.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_wlp.htm"
+    ],
+    "scrape_status": "ok",
     "evidence": {}
   },
   {
@@ -1559,22 +1736,43 @@
       "K2",
       "K3"
     ],
-    "n_vacancy": "check_school",
-    "k1_vacancy": "check_school",
-    "k2_vacancy": "check_school",
-    "k3_vacancy": "check_school",
-    "overall_status": "check_school",
-    "overall_summary": "Apply Now",
-    "source_url": "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-2026-2027-new-students/",
+    "n_vacancy": "waiting_list",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "waiting_list",
+    "overall_status": "waiting_list",
+    "overall_summary": "If your preferred campus does not have any openings, you will be placed on our waiting list.",
+    "source_url": "https://www.tutortime.com.hk/admission/",
     "scraped_pages": [
       "http://www.tutortime.com.hk/",
       "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-2026-2027-new-students/",
       "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-form-2025-2026-existing-students/",
       "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-form-2025-2026-new-students/",
-      "https://www.tutortime.com.hk/admission/playlab-enrollment-form/"
+      "https://www.tutortime.com.hk/admission/playlab-enrollment-form/",
+      "https://www.tutortime.com.hk/admission/",
+      "https://www.tutortime.com.hk/admission/2026-2027-nursery-kindergarten-application-existing-students/",
+      "https://www.tutortime.com.hk/admission/activity-group-pre-admission-form/",
+      "https://www.tutortime.com.hk/summer-program"
     ],
     "scrape_status": "ok",
-    "evidence": {}
+    "evidence": {
+      "n": {
+        "summary": "If your preferred campus does not have any openings, you will be placed on our waiting list.",
+        "url": "https://www.tutortime.com.hk/admission/"
+      },
+      "k1": {
+        "summary": "If your preferred campus does not have any openings, you will be placed on our waiting list.",
+        "url": "https://www.tutortime.com.hk/admission/"
+      },
+      "k2": {
+        "summary": "If your preferred campus does not have any openings, you will be placed on our waiting list.",
+        "url": "https://www.tutortime.com.hk/admission/"
+      },
+      "k3": {
+        "summary": "If your preferred campus does not have any openings, you will be placed on our waiting list.",
+        "url": "https://www.tutortime.com.hk/admission/"
+      }
+    }
   },
   {
     "school_code": "544744",
@@ -1593,13 +1791,16 @@
     "k1_vacancy": "check_school",
     "k2_vacancy": "no_information",
     "k3_vacancy": "no_information",
-    "overall_status": "check_school",
-    "overall_summary": "Apply Now",
+    "overall_status": "no_information",
+    "overall_summary": null,
     "source_url": "https://www.cpskg.edu.hk/admissions",
     "scraped_pages": [
       "http://www.cpskg.edu.hk/",
       "https://www.cpskg.edu.hk/admissions",
-      "https://www.cpskg.edu.hk/copy-of-p1-admission-result-4"
+      "https://www.cpskg.edu.hk/copy-of-p1-admission-result-4",
+      "http://www.cpskg.edu.hk/admissions",
+      "http://www.cpskg.edu.hk/admissions/apply",
+      "http://www.cpskg.edu.hk/admissions/how-to-apply"
     ],
     "scrape_status": "ok",
     "evidence": {
@@ -1622,27 +1823,32 @@
       "K2",
       "K3"
     ],
-    "n_vacancy": "check_school",
+    "n_vacancy": "waiting_list",
     "k1_vacancy": "waiting_list",
     "k2_vacancy": "waiting_list",
-    "k3_vacancy": "check_school",
+    "k3_vacancy": "waiting_list",
     "overall_status": "waiting_list",
     "overall_summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
     "source_url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
     "scraped_pages": [
       "http://www.victoria.edu.hk/",
       "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
-      "https://www.victoria.edu.hk/message-from-admission-team/"
+      "https://www.victoria.edu.hk/message-from-admission-team/",
+      "http://www.victoria.edu.hk/admissions",
+      "http://www.victoria.edu.hk/admission",
+      "http://www.victoria.edu.hk/admissions/apply",
+      "http://www.victoria.edu.hk/admissions/how-to-apply",
+      "http://www.victoria.edu.hk/apply"
     ],
     "scrape_status": "ok",
     "evidence": {
       "n": {
-        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
-        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
       },
       "k3": {
-        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
-        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
       },
       "k1": {
         "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
@@ -1674,8 +1880,16 @@
     "overall_status": "no_information",
     "overall_summary": null,
     "source_url": "http://www.york.edu.hk/",
-    "scraped_pages": [],
-    "scrape_status": "homepage_unreachable",
+    "scraped_pages": [
+      "http://www.york.edu.hk/",
+      "https://york.edu.hk/en/admissions.html",
+      "http://www.york.edu.hk/onlineapplicationform/form.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_yl.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_tko.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_tm.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_wlp.htm"
+    ],
+    "scrape_status": "ok",
     "evidence": {}
   },
   {
@@ -1698,8 +1912,16 @@
     "overall_status": "no_information",
     "overall_summary": null,
     "source_url": "http://www.york.edu.hk/",
-    "scraped_pages": [],
-    "scrape_status": "homepage_unreachable",
+    "scraped_pages": [
+      "http://www.york.edu.hk/",
+      "https://york.edu.hk/en/admissions.html",
+      "http://www.york.edu.hk/onlineapplicationform/form.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_yl.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_tko.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_tm.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_wlp.htm"
+    ],
+    "scrape_status": "ok",
     "evidence": {}
   },
   {
@@ -2001,7 +2223,9 @@
     "source_url": "https://www.magartedu.com/en/how-to-apply/",
     "scraped_pages": [
       "https://www.magartedu.com/",
-      "https://www.magartedu.com/en/how-to-apply/"
+      "https://www.magartedu.com/en/how-to-apply/",
+      "https://www.magartedu.com/admission",
+      "https://www.magartedu.com/admissions/how-to-apply"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -2046,27 +2270,32 @@
       "K2",
       "K3"
     ],
-    "n_vacancy": "check_school",
+    "n_vacancy": "waiting_list",
     "k1_vacancy": "waiting_list",
     "k2_vacancy": "waiting_list",
-    "k3_vacancy": "check_school",
+    "k3_vacancy": "waiting_list",
     "overall_status": "waiting_list",
     "overall_summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
     "source_url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
     "scraped_pages": [
       "https://www.victoria.edu.hk/",
       "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
-      "https://www.victoria.edu.hk/message-from-admission-team/"
+      "https://www.victoria.edu.hk/message-from-admission-team/",
+      "https://www.victoria.edu.hk/admissions",
+      "https://www.victoria.edu.hk/admission",
+      "https://www.victoria.edu.hk/admissions/apply",
+      "https://www.victoria.edu.hk/admissions/how-to-apply",
+      "https://www.victoria.edu.hk/apply"
     ],
     "scrape_status": "ok",
     "evidence": {
       "n": {
-        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
-        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
       },
       "k3": {
-        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
-        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
       },
       "k1": {
         "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
@@ -2240,7 +2469,9 @@
     "source_url": "https://www.maplebear.hk/admissions",
     "scraped_pages": [
       "https://www.maplebear.hk/",
-      "https://www.maplebear.hk/admissions"
+      "https://www.maplebear.hk/admissions",
+      "https://www.maplebear.hk/admissions/apply",
+      "https://www.maplebear.hk/admissions/how-to-apply"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -2268,7 +2499,9 @@
     "scraped_pages": [
       "http://www.telfordeducation.com/",
       "https://www.telfordeducation.com/contact-us/admissions",
-      "https://www.telfordeducation.com/admissions_zh"
+      "https://www.telfordeducation.com/admissions_zh",
+      "http://www.telfordeducation.com/admissions",
+      "http://www.telfordeducation.com/admission"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -2290,29 +2523,21 @@
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
     "overall_status": "check_school",
-    "overall_summary": "Apply Now",
+    "overall_summary": "Apply Now-new",
     "source_url": "https://www.harrowhongkong.hk/hll/admissions/application/",
     "scraped_pages": [
       "https://www.harrowhongkong.hk/hll/",
       "https://www.harrowhongkong.hk/hll/admissions/application/",
       "https://www.harrowhongkong.hk/hll/admissions/",
-      "https://www.harrowhongkong.hk/hll/admissions/admissions-process/"
+      "https://www.harrowhongkong.hk/hll/admissions/admissions-process/",
+      "https://www.harrowhongkong.hk/hll/#",
+      "https://www.harrowhongkong.hk/hll/admissions/age-guidelines-for-entry/",
+      "https://www.harrowhongkong.hk/hll/admissions/visit-us/",
+      "https://www.harrowhongkong.hk/hll/admissions/fees/",
+      "https://www.harrowhongkong.hk/hll/admissions/bus-service/"
     ],
     "scrape_status": "ok",
-    "evidence": {
-      "k1": {
-        "summary": "Apply Now | Harrow Little Lions Kindergarten",
-        "url": "https://www.harrowhongkong.hk/hll/admissions/application/"
-      },
-      "k2": {
-        "summary": "Apply Now | Harrow Little Lions Kindergarten",
-        "url": "https://www.harrowhongkong.hk/hll/admissions/application/"
-      },
-      "k3": {
-        "summary": "Apply Now | Harrow Little Lions Kindergarten",
-        "url": "https://www.harrowhongkong.hk/hll/admissions/application/"
-      }
-    }
+    "evidence": {}
   },
   {
     "school_code": "566241",
@@ -2336,7 +2561,9 @@
     "source_url": "https://www.magartedu.com/en/how-to-apply/",
     "scraped_pages": [
       "https://www.magartedu.com/",
-      "https://www.magartedu.com/en/how-to-apply/"
+      "https://www.magartedu.com/en/how-to-apply/",
+      "https://www.magartedu.com/admission",
+      "https://www.magartedu.com/admissions/how-to-apply"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -2387,7 +2614,8 @@
     "source_url": "http://www.mynors.edu.hk/",
     "scraped_pages": [
       "http://www.mynors.edu.hk/",
-      "https://mynors.edu.hk/kg-curriculum-duplicate-1/"
+      "https://mynors.edu.hk/kg-curriculum-duplicate-1/",
+      "http://www.mynors.edu.hk/#"
     ],
     "scrape_status": "ok",
     "evidence": {
@@ -2415,10 +2643,12 @@
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
     "overall_status": "check_school",
-    "overall_summary": "Apply Now",
+    "overall_summary": "LOHAS Park Campus: Parents may submit admission applications to the school between 1 st August and 3 rd October 2025.",
     "source_url": "http://greenfield.edu.hk/admission.php?id=",
     "scraped_pages": [
-      "http://greenfield.edu.hk/en"
+      "http://greenfield.edu.hk/en",
+      "http://greenfield.edu.hk/en#",
+      "http://www.greenfield.edu.hk/en/admission.php?id="
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -2470,10 +2700,8 @@
     "overall_status": "no_information",
     "overall_summary": null,
     "source_url": "http://busybees.webhost.ust.hk/",
-    "scraped_pages": [
-      "http://busybees.webhost.ust.hk/"
-    ],
-    "scrape_status": "ok",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
     "evidence": {}
   },
   {
@@ -2498,7 +2726,14 @@
     "source_url": "http://www.greenvillekids.edu.hk/en/admission/",
     "scraped_pages": [
       "http://www.greenvillekids.edu.hk/",
-      "http://www.greenvillekids.edu.hk/en/admission/"
+      "http://www.greenvillekids.edu.hk/en/admission/",
+      "http://www.greenvillekids.edu.hk/admissions",
+      "http://www.greenvillekids.edu.hk/admission",
+      "http://www.greenvillekids.edu.hk/admissions/apply",
+      "http://www.greenvillekids.edu.hk/admissions/how-to-apply",
+      "http://www.greenvillekids.edu.hk/apply",
+      "http://www.greenvillekids.edu.hk/enrolment",
+      "http://www.greenvillekids.edu.hk/enrollment"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -2572,7 +2807,7 @@
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
     "overall_status": "check_school",
-    "overall_summary": "Apply Now",
+    "overall_summary": "We accept applications all year round and placements are given based on date of registration.",
     "source_url": "https://www.gardenhouse.edu.hk/admissions-overview",
     "scraped_pages": [
       "http://www.gardenhouse.edu.hk/",
@@ -2600,12 +2835,12 @@
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
     "overall_status": "check_school",
-    "overall_summary": "Apply Now",
+    "overall_summary": "We offer rolling admissions for families who are looking to get started right away!",
     "source_url": "https://guidepost.hk/apply-now",
     "scraped_pages": [
       "https://guidepost.hk/locations/sai-kung",
       "https://guidepost.hk/apply-now",
-      "https://guidepost-ntloa.formstack.com/forms/guidepost_hk_application_new"
+      "https://guideposteducation.formstack.com/forms/guidepost_hk_application_new"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -2632,9 +2867,15 @@
     "source_url": "https://boxhill.edu.hk/admission/",
     "scraped_pages": [
       "http://www.boxhill.edu.hk/",
-      "https://boxhill.edu.hk/admission/",
-      "https://bit.ly/od26utswb",
-      "https://bit.ly/sc26wpu"
+      "http://www.boxhill.edu.hk/admissions",
+      "http://www.boxhill.edu.hk/admission",
+      "http://www.boxhill.edu.hk/admissions/apply",
+      "http://www.boxhill.edu.hk/admissions/how-to-apply",
+      "http://www.boxhill.edu.hk/apply",
+      "http://www.boxhill.edu.hk/enrolment",
+      "http://www.boxhill.edu.hk/enrollment",
+      "http://www.boxhill.edu.hk/how-to-apply",
+      "https://boxhill.edu.hk/admission/"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -2657,12 +2898,12 @@
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
     "overall_status": "check_school",
-    "overall_summary": "Apply Now",
+    "overall_summary": "We offer rolling admissions for families who are looking to get started right away!",
     "source_url": "https://guidepost.hk/apply-now",
     "scraped_pages": [
       "https://guidepost.hk/locations/clearwater-bay",
       "https://guidepost.hk/apply-now",
-      "https://guidepost-ntloa.formstack.com/forms/guidepost_hk_application_new",
+      "https://guideposteducation.formstack.com/forms/guidepost_hk_application_new",
       "https://explore.mybookingo.com/dashboard"
     ],
     "scrape_status": "ok",
@@ -2686,10 +2927,12 @@
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
     "overall_status": "check_school",
-    "overall_summary": "Apply Now",
+    "overall_summary": "LOHAS Park Campus: Parents may submit admission applications to the school between 1 st August and 3 rd October 2025.",
     "source_url": "http://greenfield.edu.hk/admission.php?id=",
     "scraped_pages": [
-      "http://greenfield.edu.hk/en"
+      "http://greenfield.edu.hk/en",
+      "http://greenfield.edu.hk/en#",
+      "http://www.greenfield.edu.hk/en/admission.php?id="
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -2714,8 +2957,16 @@
     "overall_status": "no_information",
     "overall_summary": null,
     "source_url": "https://www.york.edu.hk/",
-    "scraped_pages": [],
-    "scrape_status": "homepage_unreachable",
+    "scraped_pages": [
+      "https://www.york.edu.hk/",
+      "https://york.edu.hk/en/admissions.html",
+      "https://www.york.edu.hk/onlineapplicationform/form.htm",
+      "https://www.york.edu.hk/onlineapplicationform/form_yl.htm",
+      "https://www.york.edu.hk/onlineapplicationform/form_tko.htm",
+      "https://www.york.edu.hk/onlineapplicationform/form_tm.htm",
+      "https://www.york.edu.hk/onlineapplicationform/form_wlp.htm"
+    ],
+    "scrape_status": "ok",
     "evidence": {}
   },
   {
@@ -2770,7 +3021,9 @@
     "source_url": "https://loupichoun.com/school-applications",
     "scraped_pages": [
       "https://loupichoun.com/",
-      "https://loupichoun.com/school-applications"
+      "https://loupichoun.com/school-applications",
+      "https://loupichoun.com/#",
+      "https://loupichoun.com/admissions"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -2797,7 +3050,9 @@
     "source_url": "https://www.maplebear.hk/admissions",
     "scraped_pages": [
       "https://www.maplebear.hk/",
-      "https://www.maplebear.hk/admissions"
+      "https://www.maplebear.hk/admissions",
+      "https://www.maplebear.hk/admissions/apply",
+      "https://www.maplebear.hk/admissions/how-to-apply"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -2847,7 +3102,9 @@
     "source_url": "https://www.maplebear.hk/admissions",
     "scraped_pages": [
       "https://www.maplebear.hk/",
-      "https://www.maplebear.hk/admissions"
+      "https://www.maplebear.hk/admissions",
+      "https://www.maplebear.hk/admissions/apply",
+      "https://www.maplebear.hk/admissions/how-to-apply"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -2876,7 +3133,11 @@
       "https://www.pips.edu.hk/lohas/index.asp",
       "https://www.pips.edu.hk/lohas/admission_pn-kg.asp#nav00",
       "https://www.pips.edu.hk/lohas/application.asp#nav00",
-      "https://www.pips.edu.hk/lohas/admission_SteppingStonesProgramme.asp#nav00"
+      "https://www.pips.edu.hk/lohas/admission_SteppingStonesProgramme.asp#nav00",
+      "https://www.pips.edu.hk/admissions",
+      "https://www.pips.edu.hk/admission",
+      "https://www.pips.edu.hk/admissions/apply",
+      "https://www.pips.edu.hk/admissions/how-to-apply"
     ],
     "scrape_status": "ok",
     "evidence": {
@@ -2920,15 +3181,16 @@
     "source_url": "https://zh.aik.edu.hk/apply",
     "scraped_pages": [
       "http://www.aik.edu.hk/",
-      "https://zh.aik.edu.hk/apply",
-      "https://zh.aik.edu.hk/schoolapplication",
-      "https://zh.aik.edu.hk/apply-online"
+      "https://www.aik.edu.hk/apply-online",
+      "https://www.aik.edu.hk/apply",
+      "https://www.aik.edu.hk/schoolapplication",
+      "https://zh.aik.edu.hk/apply"
     ],
     "scrape_status": "ok",
     "evidence": {
       "k1": {
         "summary": "2025-2026 K1-K2插班生申請：個別班級或有少量空缺，請填寫並遞交網上申請表，入學部會根據實際學位空缺與您聯繫。",
-        "url": "https://zh.aik.edu.hk/schoolapplication"
+        "url": "https://www.aik.edu.hk/schoolapplication"
       }
     }
   },
@@ -2952,8 +3214,16 @@
     "overall_status": "no_information",
     "overall_summary": null,
     "source_url": "http://www.york.edu.hk/",
-    "scraped_pages": [],
-    "scrape_status": "homepage_unreachable",
+    "scraped_pages": [
+      "http://www.york.edu.hk/",
+      "https://york.edu.hk/en/admissions.html",
+      "http://www.york.edu.hk/onlineapplicationform/form.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_yl.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_tko.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_tm.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_wlp.htm"
+    ],
+    "scrape_status": "ok",
     "evidence": {}
   },
   {
@@ -2981,7 +3251,11 @@
       "https://www.kendall.edu.hk/admissions/#application-form",
       "http://www.kendall.edu.hk/admissions#submission-of-application",
       "http://www.kendall.edu.hk/admissions#application-form",
-      "http://www.kendall.edu.hk/admissions"
+      "http://www.kendall.edu.hk/admissions",
+      "https://www.kendall.edu.hk/admissions/",
+      "http://www.kendall.edu.hk/admissions#schedule-and-tuition",
+      "http://www.kendall.edu.hk/admissions#school-bus",
+      "http://www.kendall.edu.hk/admission"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -3070,7 +3344,11 @@
       "http://www.catiline.edu.hk/primarynbsponenbspadmissions.html",
       "http://www.catiline.edu.hk/onlineapplication-844287.html",
       "https://www.catiline.edu.hk/onlineapplication-844287.html",
-      "http://www.catiline.edu.hk/guidancenotehk-721767.html"
+      "http://www.catiline.edu.hk/guidancenotehk-721767.html",
+      "http://www.catiline.edu.hk/formhk-997248.html",
+      "http://www.catiline.edu.hk/application-procedure.html",
+      "http://www.catiline.edu.hk/onlineapplication_eng.html",
+      "http://www.catiline.edu.hk/application-form1.html"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -3146,7 +3424,14 @@
     "source_url": "http://www.hkpreschool.edu.hk/index.php/section/page/3142",
     "scraped_pages": [
       "http://www.hkpreschool.edu.hk/",
-      "http://www.hkpreschool.edu.hk/index.php/section/page/3142"
+      "http://www.hkpreschool.edu.hk/index.php/section/page/3142",
+      "http://www.hkpreschool.edu.hk/admissions",
+      "http://www.hkpreschool.edu.hk/admission",
+      "http://www.hkpreschool.edu.hk/admissions/apply",
+      "http://www.hkpreschool.edu.hk/admissions/how-to-apply",
+      "http://www.hkpreschool.edu.hk/apply",
+      "http://www.hkpreschool.edu.hk/enrolment",
+      "http://www.hkpreschool.edu.hk/enrollment"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -3202,9 +3487,15 @@
     "source_url": "https://boxhill.edu.hk/admission/",
     "scraped_pages": [
       "https://www.boxhill.edu.hk/",
-      "https://boxhill.edu.hk/admission/",
-      "https://bit.ly/od26utswb",
-      "https://bit.ly/sc26wpu"
+      "https://www.boxhill.edu.hk/admissions",
+      "https://www.boxhill.edu.hk/admission",
+      "https://www.boxhill.edu.hk/admissions/apply",
+      "https://www.boxhill.edu.hk/admissions/how-to-apply",
+      "https://www.boxhill.edu.hk/apply",
+      "https://www.boxhill.edu.hk/enrolment",
+      "https://www.boxhill.edu.hk/enrollment",
+      "https://www.boxhill.edu.hk/how-to-apply",
+      "https://boxhill.edu.hk/admission/"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -3257,9 +3548,15 @@
     "source_url": "https://boxhill.edu.hk/admission/",
     "scraped_pages": [
       "http://www.boxhill.edu.hk/",
-      "https://boxhill.edu.hk/admission/",
-      "https://bit.ly/od26utswb",
-      "https://bit.ly/sc26wpu"
+      "http://www.boxhill.edu.hk/admissions",
+      "http://www.boxhill.edu.hk/admission",
+      "http://www.boxhill.edu.hk/admissions/apply",
+      "http://www.boxhill.edu.hk/admissions/how-to-apply",
+      "http://www.boxhill.edu.hk/apply",
+      "http://www.boxhill.edu.hk/enrolment",
+      "http://www.boxhill.edu.hk/enrollment",
+      "http://www.boxhill.edu.hk/how-to-apply",
+      "https://boxhill.edu.hk/admission/"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -3370,6 +3667,7 @@
     "scraped_pages": [
       "http://www.puikiukg.edu.hk/",
       "http://www.puikiukg.edu.hk/chi/application-procedures",
+      "http://www.puikiukg.edu.hk/#",
       "http://www.puikiukg.edu.hk/chi/enrolment-grades"
     ],
     "scrape_status": "ok",
@@ -3393,7 +3691,7 @@
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
     "overall_status": "check_school",
-    "overall_summary": "Learn More & Apply Now",
+    "overall_summary": "ADMISSION INFORMATION",
     "source_url": "https://kindergarten.sthilarys.edu.hk/?page_id=943",
     "scraped_pages": [
       "https://kindergarten.sthilarys.edu.hk/",
@@ -3426,6 +3724,7 @@
     "scraped_pages": [
       "http://www.puikiukg.edu.hk/",
       "http://www.puikiukg.edu.hk/chi/application-procedures",
+      "http://www.puikiukg.edu.hk/#",
       "http://www.puikiukg.edu.hk/chi/enrolment-grades"
     ],
     "scrape_status": "ok",
@@ -3456,7 +3755,11 @@
       "http://www.pips.edu.hk/hk/admission_playgroup.asp",
       "http://www.pips.edu.hk/hk/admissions_process.asp#nav00",
       "http://www.pips.edu.hk/hk/admissions_structure.asp#nav00",
-      "http://www.pips.edu.hk/hk/admissions_fees.asp#nav00"
+      "http://www.pips.edu.hk/hk/admissions_fees.asp#nav00",
+      "http://www.pips.edu.hk/hk/admissions_procedures.asp#nav00",
+      "http://www.pips.edu.hk/hk/application.asp#nav00",
+      "http://www.pips.edu.hk/hk/admissions_schoolbus.asp#nav00",
+      "http://www.pips.edu.hk/admissions"
     ],
     "scrape_status": "ok",
     "evidence": {
@@ -3491,27 +3794,32 @@
       "K2",
       "K3"
     ],
-    "n_vacancy": "check_school",
+    "n_vacancy": "waiting_list",
     "k1_vacancy": "waiting_list",
     "k2_vacancy": "waiting_list",
-    "k3_vacancy": "check_school",
+    "k3_vacancy": "waiting_list",
     "overall_status": "waiting_list",
     "overall_summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
     "source_url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
     "scraped_pages": [
       "http://www.victoria.edu.hk/",
       "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
-      "https://www.victoria.edu.hk/message-from-admission-team/"
+      "https://www.victoria.edu.hk/message-from-admission-team/",
+      "http://www.victoria.edu.hk/admissions",
+      "http://www.victoria.edu.hk/admission",
+      "http://www.victoria.edu.hk/admissions/apply",
+      "http://www.victoria.edu.hk/admissions/how-to-apply",
+      "http://www.victoria.edu.hk/apply"
     ],
     "scrape_status": "ok",
     "evidence": {
       "n": {
-        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
-        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
       },
       "k3": {
-        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
-        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
       },
       "k1": {
         "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
@@ -3570,6 +3878,7 @@
     "scraped_pages": [
       "http://mfc.edu.hk/",
       "https://form.jotform.me/82552941042453",
+      "http://mfc.edu.hk/#",
       "http://mfc.edu.hk/application-casa_hk.html",
       "http://mfc.edu.hk/application-infant_hk.html"
     ],
@@ -3589,38 +3898,16 @@
       "K2",
       "K3"
     ],
-    "n_vacancy": "waiting_list",
+    "n_vacancy": "check_school",
     "k1_vacancy": "check_school",
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
-    "overall_status": "waiting_list",
-    "overall_summary": "Your child will be allotted a class and a date of commencement, or be placed on the waiting list.",
-    "source_url": "https://mulberryhousekg.com/how-to-apply/",
-    "scraped_pages": [
-      "https://mulberryhousekg.com/",
-      "https://mulberryhousekg.com/how-to-apply/",
-      "https://mulberryhousekg.com/en/online-application-form/",
-      "https://mulberryhousekg.com/online-application-form/"
-    ],
-    "scrape_status": "ok",
-    "evidence": {
-      "k1": {
-        "summary": "Mulberry House International Kindergarten is open for rolling admission and accept applications all year round.",
-        "url": "https://mulberryhousekg.com/how-to-apply/"
-      },
-      "k2": {
-        "summary": "Mulberry House International Kindergarten is open for rolling admission and accept applications all year round.",
-        "url": "https://mulberryhousekg.com/how-to-apply/"
-      },
-      "k3": {
-        "summary": "Mulberry House International Kindergarten is open for rolling admission and accept applications all year round.",
-        "url": "https://mulberryhousekg.com/how-to-apply/"
-      },
-      "n": {
-        "summary": "Your child will be allotted a class and a date of commencement, or be placed on the waiting list.",
-        "url": "https://mulberryhousekg.com/how-to-apply/"
-      }
-    }
+    "overall_status": "check_school",
+    "overall_summary": "Online Application Form",
+    "source_url": "https://mulberryhousekg.com/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
   },
   {
     "school_code": "598089",
@@ -3640,12 +3927,12 @@
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
     "overall_status": "check_school",
-    "overall_summary": "Apply Now",
+    "overall_summary": "We offer rolling admissions for families who are looking to get started right away!",
     "source_url": "https://guidepost.hk/apply-now",
     "scraped_pages": [
       "https://guidepost.hk/locations/pok-fu-lam",
       "https://guidepost.hk/apply-now",
-      "https://guidepost-ntloa.formstack.com/forms/guidepost_hk_application_new",
+      "https://guideposteducation.formstack.com/forms/guidepost_hk_application_new",
       "https://explore.mybookingo.com/dashboard"
     ],
     "scrape_status": "ok",
@@ -3669,12 +3956,12 @@
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
     "overall_status": "check_school",
-    "overall_summary": "Apply Now",
+    "overall_summary": "We offer rolling admissions for families who are looking to get started right away!",
     "source_url": "https://guidepost.hk/apply-now",
     "scraped_pages": [
       "https://guidepost.hk/locations/repulse-bay",
       "https://guidepost.hk/apply-now",
-      "https://guidepost-ntloa.formstack.com/forms/guidepost_hk_application_new"
+      "https://guideposteducation.formstack.com/forms/guidepost_hk_application_new"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -3764,38 +4051,16 @@
       "K2",
       "K3"
     ],
-    "n_vacancy": "waiting_list",
+    "n_vacancy": "check_school",
     "k1_vacancy": "check_school",
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
-    "overall_status": "waiting_list",
-    "overall_summary": "Your child will be allotted a class and a date of commencement, or be placed on the waiting list.",
-    "source_url": "https://mulberryhousekg.com/how-to-apply/",
-    "scraped_pages": [
-      "https://mulberryhousekg.com/",
-      "https://mulberryhousekg.com/how-to-apply/",
-      "https://mulberryhousekg.com/en/online-application-form/",
-      "https://mulberryhousekg.com/online-application-form/"
-    ],
-    "scrape_status": "ok",
-    "evidence": {
-      "k1": {
-        "summary": "Mulberry House International Kindergarten is open for rolling admission and accept applications all year round.",
-        "url": "https://mulberryhousekg.com/how-to-apply/"
-      },
-      "k2": {
-        "summary": "Mulberry House International Kindergarten is open for rolling admission and accept applications all year round.",
-        "url": "https://mulberryhousekg.com/how-to-apply/"
-      },
-      "k3": {
-        "summary": "Mulberry House International Kindergarten is open for rolling admission and accept applications all year round.",
-        "url": "https://mulberryhousekg.com/how-to-apply/"
-      },
-      "n": {
-        "summary": "Your child will be allotted a class and a date of commencement, or be placed on the waiting list.",
-        "url": "https://mulberryhousekg.com/how-to-apply/"
-      }
-    }
+    "overall_status": "check_school",
+    "overall_summary": "Online Application Form",
+    "source_url": "https://mulberryhousekg.com/",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
+    "evidence": {}
   },
   {
     "school_code": "157716",
@@ -3843,10 +4108,8 @@
     "overall_status": "no_information",
     "overall_summary": null,
     "source_url": "http://www.funful.hk/",
-    "scraped_pages": [
-      "http://www.funful.hk/"
-    ],
-    "scrape_status": "ok",
+    "scraped_pages": [],
+    "scrape_status": "homepage_unreachable",
     "evidence": {}
   },
   {
@@ -3940,27 +4203,32 @@
       "K2",
       "K3"
     ],
-    "n_vacancy": "check_school",
+    "n_vacancy": "waiting_list",
     "k1_vacancy": "waiting_list",
     "k2_vacancy": "waiting_list",
-    "k3_vacancy": "check_school",
+    "k3_vacancy": "waiting_list",
     "overall_status": "waiting_list",
     "overall_summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
     "source_url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
     "scraped_pages": [
       "http://www.victoria.edu.hk/",
       "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
-      "https://www.victoria.edu.hk/message-from-admission-team/"
+      "https://www.victoria.edu.hk/message-from-admission-team/",
+      "http://www.victoria.edu.hk/admissions",
+      "http://www.victoria.edu.hk/admission",
+      "http://www.victoria.edu.hk/admissions/apply",
+      "http://www.victoria.edu.hk/admissions/how-to-apply",
+      "http://www.victoria.edu.hk/apply"
     ],
     "scrape_status": "ok",
     "evidence": {
       "n": {
-        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
-        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
       },
       "k3": {
-        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
-        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
       },
       "k1": {
         "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
@@ -3995,7 +4263,13 @@
     "scraped_pages": [
       "http://sunkids.edu.hk/",
       "http://sunkids.edu.hk/admissions",
-      "https://admissions.sunkids.edu.hk/?page=forum-home"
+      "https://admissions.sunkids.edu.hk/?page=forum-home",
+      "http://sunkids.edu.hk/admission",
+      "http://sunkids.edu.hk/admissions/apply",
+      "http://sunkids.edu.hk/admissions/how-to-apply",
+      "http://sunkids.edu.hk/apply",
+      "http://sunkids.edu.hk/enrolment",
+      "http://sunkids.edu.hk/enrollment"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -4022,7 +4296,10 @@
     "source_url": "https://www.jingjing.edu.hk/applications",
     "scraped_pages": [
       "http://www.jingjing.edu.hk/",
-      "https://www.jingjing.edu.hk/applications"
+      "https://www.jingjing.edu.hk/applications",
+      "http://www.jingjing.edu.hk/admissions",
+      "http://www.jingjing.edu.hk/admissions/apply",
+      "http://www.jingjing.edu.hk/admissions/how-to-apply"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -4097,8 +4374,16 @@
     "overall_status": "no_information",
     "overall_summary": null,
     "source_url": "http://www.york.edu.hk/",
-    "scraped_pages": [],
-    "scrape_status": "homepage_unreachable",
+    "scraped_pages": [
+      "http://www.york.edu.hk/",
+      "https://york.edu.hk/en/admissions.html",
+      "http://www.york.edu.hk/onlineapplicationform/form.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_yl.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_tko.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_tm.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_wlp.htm"
+    ],
+    "scrape_status": "ok",
     "evidence": {}
   },
   {
@@ -4145,13 +4430,13 @@
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
     "overall_status": "check_school",
-    "overall_summary": "Apply Now",
+    "overall_summary": "We offer rolling admissions for families who are looking to get started right away!",
     "source_url": "https://guidepost.hk/apply-now",
     "scraped_pages": [
       "https://guidepost.hk/locations/happyvalley-hawthornroad",
       "https://guidepost.hk/apply-now",
       "https://explore.mybookingo.com/dashboard",
-      "https://guidepost-ntloa.formstack.com/forms/guidepost_hk_application_new"
+      "https://guideposteducation.formstack.com/forms/guidepost_hk_application_new"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -4265,7 +4550,8 @@
     "source_url": "https://www.masspreschool.com/admission",
     "scraped_pages": [
       "http://www.masspreschool.com/",
-      "https://www.masspreschool.com/admission"
+      "https://www.masspreschool.com/admission",
+      "http://www.masspreschool.com/admission"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -4288,10 +4574,11 @@
     "k2_vacancy": "check_school",
     "k3_vacancy": "check_school",
     "overall_status": "check_school",
-    "overall_summary": "Apply Now",
+    "overall_summary": "For Playgroup, miniDalton admissions on a rolling basis throughout the year for toddlers who are 12-24 months old.",
     "source_url": "https://littledalton.com/",
     "scraped_pages": [
       "https://littledalton.com/",
+      "https://littledalton.com/#",
       "https://dshk.openapply.com/",
       "https://dshk.openapply.com/roi"
     ],
@@ -4376,8 +4663,13 @@
     "source_url": "https://www.edb.gov.hk/tc/edu-system/preprimary-kindergarten/kindergarten-k1-admission-arrangements/index.html",
     "scraped_pages": [
       "https://wfns.hkcschild.edu.hk/",
+      "https://wfns.hkcschild.edu.hk/#",
       "https://wfns.hkcschild.edu.hk/?page_id=2514",
-      "https://wfns.hkcschild.edu.hk/?page_id=2517"
+      "https://wfns.hkcschild.edu.hk/?page_id=2517",
+      "https://wfns.hkcschild.edu.hk/?page_id=2527",
+      "https://wfns.hkcschild.edu.hk/admissions",
+      "https://wfns.hkcschild.edu.hk/admission",
+      "https://wfns.hkcschild.edu.hk/admissions/apply"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -4405,7 +4697,12 @@
     "scraped_pages": [
       "https://www.pips.edu.hk/kln/index.asp",
       "https://www.pips.edu.hk/kln/admission_pn-kg.asp#nav00",
-      "https://www.pips.edu.hk/kln/application.asp#nav00"
+      "https://www.pips.edu.hk/kln/application.asp#nav00",
+      "https://www.pips.edu.hk/admissions",
+      "https://www.pips.edu.hk/admission",
+      "https://www.pips.edu.hk/admissions/apply",
+      "https://www.pips.edu.hk/admissions/how-to-apply",
+      "https://www.pips.edu.hk/apply"
     ],
     "scrape_status": "ok",
     "evidence": {
@@ -4440,27 +4737,32 @@
       "K2",
       "K3"
     ],
-    "n_vacancy": "check_school",
+    "n_vacancy": "waiting_list",
     "k1_vacancy": "waiting_list",
     "k2_vacancy": "waiting_list",
-    "k3_vacancy": "check_school",
+    "k3_vacancy": "waiting_list",
     "overall_status": "waiting_list",
     "overall_summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
     "source_url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
     "scraped_pages": [
       "http://www.victoria.edu.hk/",
       "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1",
-      "https://www.victoria.edu.hk/message-from-admission-team/"
+      "https://www.victoria.edu.hk/message-from-admission-team/",
+      "http://www.victoria.edu.hk/admissions",
+      "http://www.victoria.edu.hk/admission",
+      "http://www.victoria.edu.hk/admissions/apply",
+      "http://www.victoria.edu.hk/admissions/how-to-apply",
+      "http://www.victoria.edu.hk/apply"
     ],
     "scrape_status": "ok",
     "evidence": {
       "n": {
-        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
-        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
       },
       "k3": {
-        "summary": "AY2025/26 Pre-Nursery (PN) to Upper Class (K3) Rolling Admissions",
-        "url": "https://www.victoria.edu.hk/message-from-admission-team/"
+        "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
+        "url": "https://www.victoria.edu.hk/application-procedure/?tab=PN_K1"
       },
       "k1": {
         "summary": "Since there is a long waiting list, campus will inform parents via email or phone when your application is accepted.",
@@ -4494,8 +4796,12 @@
     "source_url": "http://www.mingwai.edu.hk/",
     "scraped_pages": [
       "http://www.mingwai.edu.hk/",
+      "http://www.mingwai.edu.hk/#",
       "https://www.mingwai.edu.hk/how-to-apply/north-point-admissions/admissions-information/",
-      "https://www.mingwai.edu.hk/how-to-apply/prince-edward-admissions/admissions-information/"
+      "https://www.mingwai.edu.hk/how-to-apply/prince-edward-admissions/admissions-information/",
+      "http://www.mingwai.edu.hk/admissions",
+      "http://www.mingwai.edu.hk/admission",
+      "http://www.mingwai.edu.hk/admissions/how-to-apply"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -4572,7 +4878,10 @@
     "source_url": "http://www.malvernpreschool.hk/",
     "scraped_pages": [
       "http://www.malvernpreschool.hk/",
-      "https://www.malvernpreschool.hk/admissions-overview/"
+      "http://www.malvernpreschool.hk/#",
+      "https://www.malvernpreschool.hk/admissions-overview/",
+      "http://www.malvernpreschool.hk/admissions",
+      "http://www.malvernpreschool.hk/admission"
     ],
     "scrape_status": "ok",
     "evidence": {}
@@ -4706,8 +5015,16 @@
     "overall_status": "no_information",
     "overall_summary": null,
     "source_url": "http://www.york.edu.hk/",
-    "scraped_pages": [],
-    "scrape_status": "homepage_unreachable",
+    "scraped_pages": [
+      "http://www.york.edu.hk/",
+      "https://york.edu.hk/en/admissions.html",
+      "http://www.york.edu.hk/onlineapplicationform/form.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_yl.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_tko.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_tm.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_wlp.htm"
+    ],
+    "scrape_status": "ok",
     "evidence": {}
   },
   {
@@ -4723,22 +5040,43 @@
       "K2",
       "K3"
     ],
-    "n_vacancy": "check_school",
-    "k1_vacancy": "check_school",
-    "k2_vacancy": "check_school",
-    "k3_vacancy": "check_school",
-    "overall_status": "check_school",
-    "overall_summary": "Apply Now",
-    "source_url": "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-2026-2027-new-students/",
+    "n_vacancy": "waiting_list",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "waiting_list",
+    "overall_status": "waiting_list",
+    "overall_summary": "If your preferred campus does not have any openings, you will be placed on our waiting list.",
+    "source_url": "https://www.tutortime.com.hk/admission/",
     "scraped_pages": [
       "http://www.tutortime.com.hk/",
       "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-2026-2027-new-students/",
       "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-form-2025-2026-existing-students/",
       "https://www.tutortime.com.hk/admission/nursery-kindergarten-enrollment-form-2025-2026-new-students/",
-      "https://www.tutortime.com.hk/admission/playlab-enrollment-form/"
+      "https://www.tutortime.com.hk/admission/playlab-enrollment-form/",
+      "https://www.tutortime.com.hk/admission/",
+      "https://www.tutortime.com.hk/admission/2026-2027-nursery-kindergarten-application-existing-students/",
+      "https://www.tutortime.com.hk/admission/activity-group-pre-admission-form/",
+      "https://www.tutortime.com.hk/summer-program"
     ],
     "scrape_status": "ok",
-    "evidence": {}
+    "evidence": {
+      "n": {
+        "summary": "If your preferred campus does not have any openings, you will be placed on our waiting list.",
+        "url": "https://www.tutortime.com.hk/admission/"
+      },
+      "k1": {
+        "summary": "If your preferred campus does not have any openings, you will be placed on our waiting list.",
+        "url": "https://www.tutortime.com.hk/admission/"
+      },
+      "k2": {
+        "summary": "If your preferred campus does not have any openings, you will be placed on our waiting list.",
+        "url": "https://www.tutortime.com.hk/admission/"
+      },
+      "k3": {
+        "summary": "If your preferred campus does not have any openings, you will be placed on our waiting list.",
+        "url": "https://www.tutortime.com.hk/admission/"
+      }
+    }
   },
   {
     "school_code": "612189",
@@ -4779,10 +5117,10 @@
       "K2",
       "K3"
     ],
-    "n_vacancy": "check_school",
-    "k1_vacancy": "check_school",
-    "k2_vacancy": "check_school",
-    "k3_vacancy": "check_school",
+    "n_vacancy": "waiting_list",
+    "k1_vacancy": "waiting_list",
+    "k2_vacancy": "waiting_list",
+    "k3_vacancy": "waiting_list",
     "overall_status": "waiting_list",
     "overall_summary": "In the event our classes are full, applicants shall be placed on our waitlist.",
     "source_url": "https://www.eminent-education.org/admissions-1",
@@ -4794,20 +5132,20 @@
     "scrape_status": "ok",
     "evidence": {
       "n": {
-        "summary": "We are currently accepting applications for our Little Foresters Program (Age 2-3) and Kindergarten (K1, K2 & K3) for the 2026-2027 academic year.",
-        "url": "https://www.eminent-education.org/admission202627"
+        "summary": "In the event our classes are full, applicants shall be placed on our waitlist.",
+        "url": "https://www.eminent-education.org/admissions-1"
       },
       "k1": {
-        "summary": "We are currently accepting applications for our Little Foresters Program (Age 2-3) and Kindergarten (K1, K2 & K3) for the 2026-2027 academic year.",
-        "url": "https://www.eminent-education.org/admission202627"
+        "summary": "In the event our classes are full, applicants shall be placed on our waitlist.",
+        "url": "https://www.eminent-education.org/admissions-1"
       },
       "k2": {
-        "summary": "We are currently accepting applications for our Little Foresters Program (Age 2-3) and Kindergarten (K1, K2 & K3) for the 2026-2027 academic year.",
-        "url": "https://www.eminent-education.org/admission202627"
+        "summary": "In the event our classes are full, applicants shall be placed on our waitlist.",
+        "url": "https://www.eminent-education.org/admissions-1"
       },
       "k3": {
-        "summary": "We are currently accepting applications for our Little Foresters Program (Age 2-3) and Kindergarten (K1, K2 & K3) for the 2026-2027 academic year.",
-        "url": "https://www.eminent-education.org/admission202627"
+        "summary": "In the event our classes are full, applicants shall be placed on our waitlist.",
+        "url": "https://www.eminent-education.org/admissions-1"
       }
     }
   },
@@ -4831,8 +5169,16 @@
     "overall_status": "no_information",
     "overall_summary": null,
     "source_url": "http://www.york.edu.hk/",
-    "scraped_pages": [],
-    "scrape_status": "homepage_unreachable",
+    "scraped_pages": [
+      "http://www.york.edu.hk/",
+      "https://york.edu.hk/en/admissions.html",
+      "http://www.york.edu.hk/onlineapplicationform/form.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_yl.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_tko.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_tm.htm",
+      "http://www.york.edu.hk/onlineapplicationform/form_wlp.htm"
+    ],
+    "scrape_status": "ok",
     "evidence": {}
   },
   {

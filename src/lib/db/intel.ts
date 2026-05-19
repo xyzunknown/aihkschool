@@ -1,5 +1,6 @@
 import { createClient, createServiceClient } from "@/lib/supabase/server";
 import type { AdmissionIntel } from "@/types/database";
+import { assertUserNotDisabled } from "@/lib/db/users";
 
 export async function fetchApprovedIntel(schoolId: string, page = 1, limit = 20) {
   const supabase = await createClient();
@@ -17,6 +18,7 @@ export async function fetchApprovedIntel(schoolId: string, page = 1, limit = 20)
     )
     .eq("school_id", schoolId)
     .eq("status", "approved")
+    .eq("is_hidden" as never, false as never)
     .order("academic_year", { ascending: false })
     .order("helpful_count", { ascending: false })
     .range(offset, offset + safeLimit - 1);
@@ -46,6 +48,7 @@ export interface InsertIntelData {
 
 export async function insertIntel(data: InsertIntelData) {
   const supabase = await createClient();
+  await assertUserNotDisabled(data.user_id);
 
   const { data: inserted, error } = await supabase
     .from("admission_intel")

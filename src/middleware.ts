@@ -1,4 +1,6 @@
 import { updateSession } from "@/lib/supabase/middleware";
+import { Ratelimit } from "@upstash/ratelimit";
+import { Redis } from "@upstash/redis/cloudflare";
 import { NextResponse, type NextRequest } from "next/server";
 
 const AI_BOT_UA =
@@ -9,10 +11,6 @@ function getRateLimiter(authenticated: boolean) {
   const token = process.env.UPSTASH_REDIS_REST_TOKEN;
   if (!url || !token) return null;
   try {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const { Ratelimit } = require("@upstash/ratelimit");
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const { Redis } = require("@upstash/redis");
     return new Ratelimit({
       redis: new Redis({ url, token }),
       limiter: Ratelimit.slidingWindow(authenticated ? 120 : 60, "60 s"),
