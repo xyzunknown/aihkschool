@@ -57,6 +57,9 @@ export interface Activity {
   source_url: string | null;
   match_confidence: "high" | "medium" | "low" | null;
   is_active: boolean;
+  publish_channels?: string[] | null;
+  admin_status?: "visible" | "hidden" | "low_quality";
+  admin_notes?: string | null;
   created_at: string;
   updated_at: string;
 }
@@ -79,6 +82,11 @@ export interface FetchActivitiesResult {
 }
 
 const LIST_SELECT = `id, title, category, organizer, district, address,
+  description, age_min, age_max, fee, fee_note,
+  start_date, end_date, schedule, contact_phone, contact_url, image_url,
+  source, source_url, match_confidence, is_active, publish_channels, admin_status, admin_notes, created_at, updated_at`;
+
+const LEGACY_LIST_SELECT = `id, title, category, organizer, district, address,
   description, age_min, age_max, fee, fee_note,
   start_date, end_date, schedule, contact_phone, contact_url, image_url,
   source, source_url, match_confidence, is_active, created_at, updated_at`;
@@ -116,13 +124,25 @@ export async function fetchActivities(
   const safeLimit = Math.min(Math.max(limit, 1), 100);
   const offset = (page - 1) * safeLimit;
 
-  let query = supabase
-    .from("activities")
-    .select(LIST_SELECT, { count: "exact" })
-    .eq("is_active", true)
-    .neq("source", "manual")
-    .not("source_url", "is", null)
-    .neq("source_url", "");
+  const buildQuery = (select: string, includeAdminStatus: boolean, includePublishChannels: boolean) => {
+    let nextQuery = supabase
+      .from("activities")
+      .select(select, { count: "exact" })
+      .eq("is_active", true)
+      .not("source_url", "is", null)
+      .neq("source_url", "");
+    if (includeAdminStatus) {
+      nextQuery = nextQuery
+        .neq("admin_status" as never, "hidden" as never)
+        .neq("admin_status" as never, "low_quality" as never);
+    }
+    if (includePublishChannels) {
+      nextQuery = nextQuery.contains("publish_channels" as never, ["web"] as never);
+    }
+    return nextQuery;
+  };
+
+  let query = buildQuery(LIST_SELECT, true, true);
 
   if (category) {
     query = query.eq("category", category);
@@ -154,14 +174,44 @@ export async function fetchActivities(
     .order("start_date", { ascending: true, nullsFirst: false })
     .range(offset, offset + safeLimit - 1);
 
-  const { data, error, count } = await query;
+  let { data, error, count } = await query;
+
+  if (error?.message.includes("admin_status") || error?.message.includes("publish_channels")) {
+    query = buildQuery(LEGACY_LIST_SELECT, false, false);
+    if (category) {
+      query = query.eq("category", category);
+    }
+    if (district) {
+      query = query.eq("district", district);
+    }
+    if (free) {
+      query = query.eq("fee", 0);
+    }
+    if (typeof age === "number" && Number.isFinite(age)) {
+      query = query
+        .or(`age_min.is.null,age_min.lte.${age}`)
+        .or(`age_max.is.null,age_max.gte.${age}`);
+    }
+    if (search && search.trim()) {
+      const safe = search.trim().replace(/[,()]/g, "");
+      query = query.or(`title.ilike.%${safe}%,organizer.ilike.%${safe}%`);
+    }
+    query = query
+      .or(`end_date.is.null,end_date.gte.${oneMonthAgo}`)
+      .order("start_date", { ascending: true, nullsFirst: false })
+      .range(offset, offset + safeLimit - 1);
+    const retry = await query;
+    data = retry.data;
+    error = retry.error;
+    count = retry.count;
+  }
 
   if (error) {
     throw new Error(`Failed to fetch activities: ${error.message}`);
   }
 
   // 排序：未过期在前，已过期沉底（兩類內部均按 start_date 升序）
-  const sorted = sortByExpiryThenDate((data ?? []) as Activity[]);
+  const sorted = sortByExpiryThenDate((data ?? []) as unknown as Activity[]);
 
   return {
     data: sorted,
@@ -179,13 +229,27 @@ export async function fetchActivityById(id: string): Promise<Activity | null> {
     .select(LIST_SELECT)
     .eq("id", id)
     .eq("is_active", true)
-    .neq("source", "manual")
+    .contains("publish_channels" as never, ["web"] as never)
+    .neq("admin_status" as never, "hidden" as never)
+    .neq("admin_status" as never, "low_quality" as never)
     .not("source_url", "is", null)
     .neq("source_url", "")
     .single();
 
+  if (error?.message.includes("admin_status") || error?.message.includes("publish_channels")) {
+    const retry = await supabase
+      .from("activities")
+      .select(LEGACY_LIST_SELECT)
+      .eq("id", id)
+      .eq("is_active", true)
+      .not("source_url", "is", null)
+      .neq("source_url", "")
+      .single();
+    if (retry.error || !retry.data) return null;
+    return retry.data as unknown as Activity;
+  }
   if (error || !data) return null;
-  return data as Activity;
+  return data as unknown as Activity;
 }
 
 export async function fetchRelatedActivities(
@@ -196,11 +260,13 @@ export async function fetchRelatedActivities(
   const oneMonthAgo = getOneMonthAgoDate();
 
   // 優先：同類別；次選：同區域
-  const { data, error } = await supabase
+  const primaryRelated = await supabase
     .from("activities")
     .select(LIST_SELECT)
     .eq("is_active", true)
-    .neq("source", "manual")
+    .contains("publish_channels" as never, ["web"] as never)
+    .neq("admin_status" as never, "hidden" as never)
+    .neq("admin_status" as never, "low_quality" as never)
     .not("source_url", "is", null)
     .neq("source_url", "")
     .neq("id", activity.id)
@@ -212,9 +278,30 @@ export async function fetchRelatedActivities(
     .or(`end_date.is.null,end_date.gte.${oneMonthAgo}`)
     .order("start_date", { ascending: true, nullsFirst: false })
     .limit(limit);
+  let data = primaryRelated.data as unknown[] | null;
+  let error = primaryRelated.error;
 
+  if (error?.message.includes("admin_status") || error?.message.includes("publish_channels")) {
+    const retry = await supabase
+      .from("activities")
+      .select(LEGACY_LIST_SELECT)
+      .eq("is_active", true)
+      .not("source_url", "is", null)
+      .neq("source_url", "")
+      .neq("id", activity.id)
+      .or(
+        `category.eq.${activity.category}${
+          activity.district ? `,district.eq.${activity.district}` : ""
+        }`,
+      )
+      .or(`end_date.is.null,end_date.gte.${oneMonthAgo}`)
+      .order("start_date", { ascending: true, nullsFirst: false })
+      .limit(limit);
+    data = retry.data;
+    error = retry.error;
+  }
   if (error) return [];
-  return sortByExpiryThenDate((data ?? []) as Activity[]);
+  return sortByExpiryThenDate((data ?? []) as unknown as Activity[]);
 }
 
 export async function fetchFeaturedActivities(limit = 6): Promise<Activity[]> {
@@ -222,17 +309,34 @@ export async function fetchFeaturedActivities(limit = 6): Promise<Activity[]> {
   const oneMonthAgo = getOneMonthAgoDate();
 
   // 首頁預覽：最近即將開始的活動
-  const { data, error } = await supabase
+  const primaryFeatured = await supabase
     .from("activities")
     .select(LIST_SELECT)
     .eq("is_active", true)
-    .neq("source", "manual")
+    .contains("publish_channels" as never, ["web"] as never)
+    .neq("admin_status" as never, "hidden" as never)
+    .neq("admin_status" as never, "low_quality" as never)
     .not("source_url", "is", null)
     .neq("source_url", "")
     .or(`end_date.is.null,end_date.gte.${oneMonthAgo}`)
     .order("start_date", { ascending: true, nullsFirst: false })
     .limit(limit);
+  let data = primaryFeatured.data as unknown[] | null;
+  let error = primaryFeatured.error;
 
+  if (error?.message.includes("admin_status") || error?.message.includes("publish_channels")) {
+    const retry = await supabase
+      .from("activities")
+      .select(LEGACY_LIST_SELECT)
+      .eq("is_active", true)
+      .not("source_url", "is", null)
+      .neq("source_url", "")
+      .or(`end_date.is.null,end_date.gte.${oneMonthAgo}`)
+      .order("start_date", { ascending: true, nullsFirst: false })
+      .limit(limit);
+    data = retry.data;
+    error = retry.error;
+  }
   if (error) return [];
-  return sortByExpiryThenDate((data ?? []) as Activity[]);
+  return sortByExpiryThenDate((data ?? []) as unknown as Activity[]);
 }

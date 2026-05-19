@@ -37,7 +37,7 @@ const FULL_LIST_SELECT = `id, school_code, name_tc, name_en, district, phone, we
   latitude, longitude,
   fee_monthly_hkd, application_status, application_details, application_url,
   grades_offered, data_source, last_verified_at,
-  is_active, created_at, updated_at,
+  is_active, publish_channels, created_at, updated_at,
   vacancies ( id, academic_year, k1_vacancy, k2_vacancy, k3_vacancy, n_vacancy, application_deadline, edb_published_date, is_current )`;
 
 const LEGACY_LIST_SELECT = `id, school_code, name_tc, name_en, district, phone, website, logo_url,
@@ -54,6 +54,7 @@ const NEW_COLUMN_NAMES = [
   "schooland_url", "schooland_source_fields",
   "schooland_intro", "schooland_teaching_summary", "schooland_facilities_summary",
   "schooland_founded_year", "schooland_staff_count", "schooland_teacher_student_ratio",
+  "publish_channels",
 ];
 
 function buildSchoolListQuery(
@@ -72,6 +73,10 @@ function buildSchoolListQuery(
     .from("schools")
     .select(selectStr, { count: "exact" })
     .eq("is_active", true);
+
+  if (!isLegacy) {
+    query = query.contains("publish_channels", ["web"]);
+  }
 
   if (districts && districts.length > 0) {
     query = query.in("district", districts);
@@ -179,6 +184,7 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
       schooland_founded_year: null,
       schooland_staff_count: null,
       schooland_teacher_student_ratio: null,
+      publish_channels: ["web", "ios", "android"],
     } : {}),
     // Some schools have multiple is_current=true rows (e.g. real EDB-scraped
     // row "2026-27" plus a fallback "2026/27" placeholder with all
@@ -317,7 +323,7 @@ export async function fetchSchoolById(id: string) {
      official_notice_url, official_notice_updated_at,
      inspection_report_url, inspection_report_updated_at, master_data_notes,
      application_status, application_details, application_url, open_day_details, open_day_url,
-     grades_offered, data_source, last_verified_at, last_profile_scraped_at, is_active, created_at, updated_at`;
+     grades_offered, data_source, last_verified_at, last_profile_scraped_at, is_active, publish_channels, created_at, updated_at`;
 
   const legacySelect = `id, school_code, name_tc, name_en, district, address_tc, address_en,
      phone, fax, email, website, logo_url, school_type, kep_participant, session_type,
@@ -329,6 +335,7 @@ export async function fetchSchoolById(id: string) {
     .select(fullSelect)
     .eq("id", id)
     .eq("is_active", true)
+    .contains("publish_channels", ["web"])
     .single();
 
   if (!error) {
@@ -370,7 +377,8 @@ export async function fetchSchoolById(id: string) {
     error.message.includes("schooland_facilities_summary") ||
     error.message.includes("schooland_founded_year") ||
     error.message.includes("schooland_staff_count") ||
-    error.message.includes("schooland_teacher_student_ratio");
+    error.message.includes("schooland_teacher_student_ratio") ||
+    error.message.includes("publish_channels");
 
   if (!shouldFallback) {
     return null;
@@ -425,6 +433,7 @@ export async function fetchSchoolById(id: string) {
     schooland_staff_count: null,
     schooland_teacher_student_ratio: null,
     last_profile_scraped_at: null,
+    publish_channels: ["web", "ios", "android"],
   } as School;
 }
 
@@ -533,6 +542,7 @@ export async function searchSchools(query: string) {
     .from("schools")
     .select("id, name_tc, name_en, district")
     .eq("is_active", true)
+    .contains("publish_channels", ["web"])
     .or(`name_tc.ilike.%${query}%,name_en.ilike.%${query}%`)
     .limit(10);
 

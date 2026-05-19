@@ -38,6 +38,7 @@ export type Database = {
           is_active: boolean
           match_confidence: string | null
           organizer: string | null
+          publish_channels: string[]
           raw_extracted: Json | null
           schedule: string | null
           source: string
@@ -64,6 +65,7 @@ export type Database = {
           is_active?: boolean
           match_confidence?: string | null
           organizer?: string | null
+          publish_channels?: string[]
           raw_extracted?: Json | null
           schedule?: string | null
           source: string
@@ -90,6 +92,7 @@ export type Database = {
           is_active?: boolean
           match_confidence?: string | null
           organizer?: string | null
+          publish_channels?: string[]
           raw_extracted?: Json | null
           schedule?: string | null
           source?: string
@@ -377,6 +380,7 @@ export type Database = {
           lcsd_programme_id: string
           name_en: string | null
           name_zh: string | null
+          publish_channels: string[]
           raw_url: string | null
           sessions_count: number | null
           start_date: string | null
@@ -398,6 +402,7 @@ export type Database = {
           lcsd_programme_id: string
           name_en?: string | null
           name_zh?: string | null
+          publish_channels?: string[]
           raw_url?: string | null
           sessions_count?: number | null
           start_date?: string | null
@@ -419,6 +424,7 @@ export type Database = {
           lcsd_programme_id?: string
           name_en?: string | null
           name_zh?: string | null
+          publish_channels?: string[]
           raw_url?: string | null
           sessions_count?: number | null
           start_date?: string | null
@@ -795,6 +801,7 @@ export type Database = {
           open_day_url: string | null
           other_fees_note: string | null
           phone: string | null
+          publish_channels: string[]
           registration_fee_hkd: number | null
           school_code: string | null
           school_type: string
@@ -860,6 +867,7 @@ export type Database = {
           open_day_url?: string | null
           other_fees_note?: string | null
           phone?: string | null
+          publish_channels?: string[]
           registration_fee_hkd?: number | null
           school_code?: string | null
           school_type: string
@@ -925,6 +933,7 @@ export type Database = {
           open_day_url?: string | null
           other_fees_note?: string | null
           phone?: string | null
+          publish_channels?: string[]
           registration_fee_hkd?: number | null
           school_code?: string | null
           school_type?: string

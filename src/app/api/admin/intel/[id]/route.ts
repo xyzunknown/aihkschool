@@ -1,50 +1,26 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
-import { updateIntelStatus } from "@/lib/db/intel";
 import { z } from "zod";
+import { requireAdminApi } from "@/lib/admin/auth";
+import { writeAdminAuditLog } from "@/lib/admin/audit";
+import { createServiceClient } from "@/lib/supabase/server";
 
 export const dynamic = "force-dynamic";
 
-const ADMIN_EMAILS = process.env.ADMIN_EMAILS?.split(",").map((e) => e.trim()) ?? [];
-
-function isAdmin(userEmail: string | undefined): boolean {
-  if (!userEmail) return false;
-  // Secure-by-default: if ADMIN_EMAILS is not set, deny everyone.
-  if (ADMIN_EMAILS.length === 0) return false;
-  return ADMIN_EMAILS.includes(userEmail);
-}
-
 const patchSchema = z.object({
-  status: z.enum(["approved", "rejected"]),
+  status: z.enum(["pending", "approved", "rejected"]).optional(),
   rejectionReason: z.string().optional(),
+  is_hidden: z.boolean().optional(),
 });
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } },
 ) {
   try {
-    const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
+    const auth = await requireAdminApi();
+    if (auth.response) return auth.response;
 
-    if (!user) {
-      return NextResponse.json(
-        { error: { code: "UNAUTHORIZED", message: "Please log in" } },
-        { status: 401 }
-      );
-    }
-
-    if (!isAdmin(user.email)) {
-      return NextResponse.json(
-        { error: { code: "FORBIDDEN", message: "Admin access required" } },
-        { status: 403 }
-      );
-    }
-
-    const { id } = await params;
-    const body = await request.json();
-    const parsed = patchSchema.safeParse(body);
-
+    const parsed = patchSchema.safeParse(await request.json());
     if (!parsed.success) {
       return NextResponse.json(
         { error: { code: "BAD_REQUEST", message: "Invalid request body" } },
@@ -52,8 +28,39 @@ export async function PATCH(
       );
     }
 
-    const { status, rejectionReason } = parsed.data;
-    await updateIntelStatus(id, status, rejectionReason);
+    const updateData: Record<string, string | boolean> = {};
+    if (parsed.data.status) updateData.status = parsed.data.status;
+    if (parsed.data.status === "rejected" && parsed.data.rejectionReason) {
+      updateData.rejection_reason = parsed.data.rejectionReason;
+    }
+    if (typeof parsed.data.is_hidden === "boolean") {
+      updateData.is_hidden = parsed.data.is_hidden;
+    }
+
+    const supabase = await createServiceClient();
+    const { data: before } = await supabase.from("admission_intel").select("*").eq("id", params.id).single();
+    const { data, error } = await supabase
+      .from("admission_intel")
+      .update(updateData as never)
+      .eq("id", params.id)
+      .select("*")
+      .single();
+
+    if (error) {
+      return NextResponse.json(
+        { error: { code: "INTERNAL_ERROR", message: error.message } },
+        { status: 500 }
+      );
+    }
+
+    await writeAdminAuditLog({
+      user: auth.user!,
+      action: "intel.update",
+      targetType: "admission_intel",
+      targetId: params.id,
+      before: before as never,
+      after: data as never,
+    });
 
     return NextResponse.json({ success: true });
   } catch (err) {

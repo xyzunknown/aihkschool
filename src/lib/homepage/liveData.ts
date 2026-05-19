@@ -639,11 +639,12 @@ function computeDaysUntil(dateIso: string): number {
  * Also enriches events with days_until and school metadata from schools_merged.json.
  */
 export async function getAllSchoolEvents(): Promise<SchoolEventItem[]> {
-  const [rows, schoolList] = await Promise.all([
+  const [rows, schoolList, managedEvents] = await Promise.all([
     mergedEnrichmentRows(),
     readSchoolList(),
+    getManagedTimelineEvents(),
   ]);
-  if (rows.length === 0) return SCHOOL_EVENTS.map((e) => ({ ...e, days_until: computeDaysUntil(e.date_iso) }));
+  if (rows.length === 0 && managedEvents.length === 0) return SCHOOL_EVENTS.map((e) => ({ ...e, days_until: computeDaysUntil(e.date_iso) }));
 
   // Map school_code → metadata for district/school_type lookup
   const schoolMap = new Map(schoolList.map((row) => [row.code, row]));
@@ -728,9 +729,52 @@ export async function getAllSchoolEvents(): Promise<SchoolEventItem[]> {
     return a.date_iso.localeCompare(b.date_iso);
   });
 
-  return sorted.length > 0
-    ? sorted
+  const merged = [...managedEvents, ...sorted].sort((a, b) => {
+    if (a.is_past !== b.is_past) return a.is_past ? 1 : -1;
+    return a.date_iso.localeCompare(b.date_iso);
+  });
+
+  return merged.length > 0
+    ? uniqueByHref(merged)
     : SCHOOL_EVENTS.map((e) => ({ ...e, days_until: computeDaysUntil(e.date_iso) }));
+}
+
+async function getManagedTimelineEvents(): Promise<SchoolEventItem[]> {
+  try {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+      .from("timeline_events" as never)
+      .select("*, schools:school_id ( id, district, school_type )")
+      .eq("is_visible", true)
+      .gte("event_date", new Date(Date.now() - MAX_EVENT_PAST_DAYS * 24 * 60 * 60 * 1000).toISOString().slice(0, 10))
+      .lte("event_date", new Date(Date.now() + MAX_TIMELINE_FUTURE_DAYS * 24 * 60 * 60 * 1000).toISOString().slice(0, 10))
+      .order("is_pinned" as never, { ascending: false } as never)
+      .order("event_date" as never, { ascending: true } as never);
+    if (error || !data) return [];
+
+    return (data as Array<Record<string, unknown>>).flatMap((row) => {
+      const dateIso = String(row.event_date || "");
+      if (!dateIso || !isEventInTimelineWindow(dateIso)) return [];
+      const school = Array.isArray(row.schools) ? row.schools[0] : row.schools;
+      const schoolRecord = school && typeof school === "object" ? school as Record<string, unknown> : {};
+      return [{
+        id: String(row.id),
+        school_name: String(row.school_name || "學校活動"),
+        school_type: typeof schoolRecord.school_type === "string" ? schoolRecord.school_type : undefined,
+        district: typeof schoolRecord.district === "string" ? schoolRecord.district : undefined,
+        date: `${formatMonthDay(dateIso)} ${String(row.event_label || "")}`.trim(),
+        date_iso: dateIso,
+        event_type: row.event_type as SchoolEventItem["event_type"],
+        event_label: String(row.event_label || ""),
+        href: String(row.href || "/"),
+        detail_href: String(row.detail_href || (row.school_id ? `/kg/${row.school_id}` : "/timeline")),
+        is_past: isEventPast(dateIso),
+        days_until: computeDaysUntil(dateIso),
+      } satisfies SchoolEventItem];
+    });
+  } catch {
+    return [];
+  }
 }
 
 /* ─── Banner generation ─── */
@@ -801,6 +845,9 @@ function scoreBannerCandidate(
 }
 
 async function getHomepageBanners(): Promise<HomeBanner[]> {
+  const managed = await getManagedHomepageBanners();
+  if (managed.length > 0) return managed;
+
   if (!isHomepageBannerEnabled()) {
     return [];
   }
@@ -884,6 +931,9 @@ async function getHomepageBanners(): Promise<HomeBanner[]> {
 /* ─── Featured schools (picked from top 100 priority list) ─── */
 
 async function getFeaturedSchoolsLive(): Promise<FeaturedSchool[]> {
+  const managed = await getManagedFeaturedSchools();
+  if (managed.length > 0) return managed;
+
   const parsedPriority = priorityTop100Data as { rows?: PriorityTop100Row[] };
   const priorityRows = Array.isArray(parsedPriority.rows) ? parsedPriority.rows : [];
   const schoolList = await readSchoolList();
@@ -966,6 +1016,118 @@ async function getFeaturedSchoolsLive(): Promise<FeaturedSchool[]> {
   return featured.length > 0 ? featured : FEATURED_SCHOOLS;
 }
 
+async function getManagedHomepageBanners(): Promise<HomeBanner[]> {
+  try {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+      .from("homepage_banners" as never)
+      .select("*")
+      .eq("is_visible", true)
+      .contains("publish_channels" as never, ["web"] as never)
+      .order("sort_order", { ascending: true });
+
+    if (error || !data) return [];
+
+    return (data as Array<Record<string, unknown>>).map((row) => ({
+      id: String(row.id),
+      layout: (row.layout as HomeBanner["layout"]) || "classic",
+      source_label: String(row.source_label || "HKSchoolPlace"),
+      title_tc: String(row.title_tc || ""),
+      subtitle_en: typeof row.subtitle_en === "string" ? row.subtitle_en : undefined,
+      tags: Array.isArray(row.tags) ? row.tags.map(String) : [],
+      cta_primary: {
+        label: String(row.cta_primary_label || "查看詳情"),
+        url: String(row.cta_primary_url || "/"),
+      },
+      cta_secondary: row.cta_secondary_label && row.cta_secondary_url
+        ? { label: String(row.cta_secondary_label), url: String(row.cta_secondary_url) }
+        : undefined,
+      footer_note: typeof row.footer_note === "string" ? row.footer_note : undefined,
+      image_src: String(row.image_src || "/brand/Web Logo/Logo.png"),
+      image_alt: String(row.image_alt || ""),
+    })).filter((item) => item.title_tc);
+  } catch {
+    return [];
+  }
+}
+
+async function getManagedFeaturedSchools(): Promise<FeaturedSchool[]> {
+  try {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+      .from("homepage_featured_schools" as never)
+      .select("*, schools ( id, school_code, name_tc, name_en, district, school_type, session_type, has_nursery, schooland_group_tag, schooland_nursery_service, schooland_size_label, schooland_session_label )")
+      .eq("is_visible", true)
+      .contains("publish_channels" as never, ["web"] as never)
+      .order("sort_order", { ascending: true })
+      .limit(6);
+
+    if (error || !data) return [];
+
+    return (data as Array<Record<string, unknown>>).flatMap((row) => {
+      const school = Array.isArray(row.schools) ? row.schools[0] : row.schools;
+      if (!school || typeof school !== "object") return [];
+      const schoolRecord = school as Record<string, unknown>;
+      const nameTc = String(row.custom_title || schoolRecord.name_tc || "");
+      if (!nameTc) return [];
+      return [{
+        id: String(schoolRecord.id || row.id),
+        detailId: String(schoolRecord.id || ""),
+        schoolCode: typeof schoolRecord.school_code === "string" ? schoolRecord.school_code : undefined,
+        name_tc: nameTc,
+        name_en: formatEnglishSchoolName(String(row.custom_name_en || schoolRecord.name_en || "")),
+        district: schoolRecord.district && String(schoolRecord.district) in DISTRICT_LABELS
+          ? DISTRICT_LABELS[String(schoolRecord.district) as keyof typeof DISTRICT_LABELS]
+          : String(schoolRecord.district || ""),
+        schoolType: typeof schoolRecord.school_type === "string" ? schoolRecord.school_type : null,
+        sessionTags: normalizeSessionTags(typeof schoolRecord.session_type === "string" ? schoolRecord.session_type : null),
+        hasN: Boolean(schoolRecord.has_nursery),
+        href: `/kg/${schoolRecord.id}`,
+        schoolandGroupTag: typeof schoolRecord.schooland_group_tag === "string" ? schoolRecord.schooland_group_tag : null,
+        schoolandNurseryService: typeof schoolRecord.schooland_nursery_service === "string" ? schoolRecord.schooland_nursery_service : null,
+        schoolandSizeLabel: typeof schoolRecord.schooland_size_label === "string" ? schoolRecord.schooland_size_label : null,
+        schoolandSessionLabel: typeof schoolRecord.schooland_session_label === "string" ? schoolRecord.schooland_session_label : null,
+      } satisfies FeaturedSchool];
+    });
+  } catch {
+    return [];
+  }
+}
+
+async function getManagedNewsItems(): Promise<NewsItem[]> {
+  try {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+      .from("homepage_news_items" as never)
+      .select("*")
+      .eq("is_visible", true)
+      .contains("publish_channels" as never, ["web"] as never)
+      .order("is_pinned" as never, { ascending: false } as never)
+      .order("sort_order", { ascending: true })
+      .order("published_at", { ascending: false })
+      .limit(12);
+
+    if (error || !data) return [];
+
+    return (data as Array<Record<string, unknown>>).map((row) => ({
+      id: String(row.id),
+      source: String(row.source || "hkschoolplace"),
+      source_category: (row.source_category as NewsItem["source_category"]) || "school",
+      source_label: String(row.source_label || "HKSchoolPlace"),
+      title: String(row.title || ""),
+      summary: String(row.summary || ""),
+      date: String(row.display_date || formatMonthDay(String(row.published_at))),
+      published_at: String(row.published_at || new Date().toISOString()),
+      href: String(row.href || "/"),
+      is_external: Boolean(row.is_external),
+      content_type: row.content_type as NewsItem["content_type"],
+      content_type_label: typeof row.content_type_label === "string" ? row.content_type_label : undefined,
+    })).filter((item) => item.title);
+  } catch {
+    return [];
+  }
+}
+
 /* ─── Main export ─── */
 
 export async function getHomepageLiveData(): Promise<{
@@ -973,15 +1135,16 @@ export async function getHomepageLiveData(): Promise<{
   newsItems: NewsItem[];
   featuredSchools: FeaturedSchool[];
 }> {
-  const [banners, newsItems, featuredSchools] = await Promise.all([
+  const [banners, managedNewsItems, fallbackNewsItems, featuredSchools] = await Promise.all([
     getHomepageBanners(),
+    getManagedNewsItems(),
     getLiveNewsItems(),
     getFeaturedSchoolsLive(),
   ]);
 
   return {
     banners,
-    newsItems,
+    newsItems: managedNewsItems.length > 0 ? managedNewsItems : fallbackNewsItems,
     featuredSchools,
   };
 }
