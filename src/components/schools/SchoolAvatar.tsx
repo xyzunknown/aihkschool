@@ -14,7 +14,26 @@ interface SchoolAvatarProps {
   shape?: "circle" | "rounded";
 }
 
-function resolveLogoCandidates(logoUrl?: string | null, schoolCode?: string | null): string[] {
+function isLowLegibilityLogo(schoolName: string, schoolCode?: string | null): boolean {
+  const lowLegibilityNames = [
+    "香港中文大學校友會聯會",
+    "遵道幼稚園",
+  ];
+  const lowLegibilityCodes = new Set(["560740", "597384", "600377", "158887"]);
+
+  return (
+    lowLegibilityNames.some((name) => schoolName.includes(name)) ||
+    Boolean(schoolCode && lowLegibilityCodes.has(schoolCode))
+  );
+}
+
+function resolveLogoCandidates(
+  schoolName: string,
+  logoUrl?: string | null,
+  schoolCode?: string | null,
+): string[] {
+  if (isLowLegibilityLogo(schoolName, schoolCode)) return [];
+
   const match = logoUrl?.match(/^\/logos\/(\d{6}\.(?:png|svg|webp))$/);
   const safeLocalLogo = match && schoolCode && match[1].startsWith(schoolCode) && hasLocalSchoolLogoFile(match[1])
     ? logoUrl
@@ -31,7 +50,7 @@ export function SchoolAvatar({
   size = "md",
   shape = "circle",
 }: SchoolAvatarProps) {
-  const candidates = resolveLogoCandidates(logoUrl, schoolCode);
+  const candidates = resolveLogoCandidates(schoolName, logoUrl, schoolCode);
   const [logoIndex, setLogoIndex] = useState(0);
   const resolved = candidates[logoIndex] ?? null;
   const [showLogo, setShowLogo] = useState(candidates.length > 0);

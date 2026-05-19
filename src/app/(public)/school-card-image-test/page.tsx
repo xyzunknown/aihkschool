@@ -19,6 +19,7 @@ const stressSchools = [
     distanceKm: 1.2,
     sessionType: "am_pm",
     feeMonthlyHkd: 4500,
+    applicationStatus: "open",
   },
   {
     id: "map-international-long",
@@ -30,6 +31,7 @@ const stressSchools = [
     distanceKm: 4.7,
     sessionType: "am",
     feeMonthlyHkd: 6200,
+    applicationStatus: "website",
   },
   {
     id: "map-nonprofit-extra-long",
@@ -63,6 +65,7 @@ const stressSchools = [
     distanceKm: 3.6,
     sessionType: "am_pm",
     feeMonthlyHkd: 3800,
+    applicationStatus: "year_round",
   },
   {
     id: "map-simple-nonprofit",
@@ -105,6 +108,9 @@ export default function SchoolCardImageTestPage() {
               sessionType={school.sessionType}
               schoolandSessionLabel={null}
               feeMonthlyHkd={school.feeMonthlyHkd}
+              applicationStatus={"applicationStatus" in school ? school.applicationStatus : null}
+              applicationDetails={null}
+              applicationUrl={null}
               vacancy={vacancy}
               isFavorited={false}
               distanceKm={school.distanceKm}

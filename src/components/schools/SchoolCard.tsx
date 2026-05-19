@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { VacancyBadge } from "./VacancyBadge";
 import { SchoolAvatar } from "./SchoolAvatar";
+import { getAdmissionSummary } from "@/lib/schools/admissions";
 import {
   DISTRICT_LABELS,
   formatEnglishSchoolName,
@@ -26,6 +27,10 @@ interface SchoolCardProps {
   sessionType?: string | null;
   schoolandSessionLabel?: string | null;
   feeMonthlyHkd?: number | null;
+  applicationStatus?: string | null;
+  applicationDetails?: string | null;
+  applicationUrl?: string | null;
+  admissionSummary?: string | null;
   vacancy?: {
     n_vacancy: VacancyStatus;
     k1_vacancy: VacancyStatus;
@@ -51,6 +56,10 @@ export function SchoolCard({
   sessionType,
   schoolandSessionLabel,
   feeMonthlyHkd,
+  applicationStatus,
+  applicationDetails,
+  applicationUrl,
+  admissionSummary,
   vacancy,
   isFavorited = false,
   onToggleFavorite,
@@ -70,13 +79,21 @@ export function SchoolCard({
   const avatarColors = getAvatarColor(id);
   const schoolTypeInfo = getSchoolTypeInfo(schoolType);
   const districtLabel = DISTRICT_LABELS[district as keyof typeof DISTRICT_LABELS] ?? district;
-  const distanceText = formatDistance(distanceKm);
+  const primaryStat = formatPrimaryStat(distanceKm, districtLabel);
   const feeText = formatMonthlyFee(feeMonthlyHkd);
   const sessionText = formatSessionLabel(sessionType, schoolandSessionLabel);
+  const isPrivateOrInternational = schoolType === "international" || schoolType === "private_independent";
+  const admissionText = admissionSummary || getAdmissionSummary({
+    schoolType,
+    applicationStatus,
+    applicationDetails,
+    applicationUrl,
+    vacancy,
+  });
 
   // Build vacancy grades to display
   const vacancyGrades: Array<{ grade: string; status: VacancyStatus }> = [];
-  if (vacancy) {
+  if (vacancy && !isPrivateOrInternational) {
     vacancyGrades.push({ grade: "K1", status: vacancy.k1_vacancy });
     vacancyGrades.push({ grade: "K2", status: vacancy.k2_vacancy });
     vacancyGrades.push({ grade: "K3", status: vacancy.k3_vacancy });
@@ -84,7 +101,7 @@ export function SchoolCard({
 
   return (
     <div
-      className="bg-white rounded-2xl border border-slate-200 p-5 cursor-pointer hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200"
+      className="flex h-full min-h-[286px] cursor-pointer flex-col rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm"
       role="link"
       tabIndex={0}
       aria-label={`前往 ${primaryName}`}
@@ -108,8 +125,8 @@ export function SchoolCard({
             shape="rounded"
           />
         </div>
-        <div className="flex-1 min-w-0">
-          <h3 className="text-base font-bold text-slate-900 leading-snug line-clamp-2">{primaryName}</h3>
+        <div className="min-w-0 flex-1">
+          <h3 className="min-h-[44px] text-base font-bold leading-snug text-slate-900 line-clamp-2">{primaryName}</h3>
           {secondaryName && (
             <p className="text-sm text-slate-400 leading-snug mt-0.5 line-clamp-1">{secondaryName}</p>
           )}
@@ -164,22 +181,29 @@ export function SchoolCard({
 
       {/* Row 2: Three key stats */}
       <div className="grid grid-cols-3">
-        <StatCell label="距離" value={distanceText.value} unit={distanceText.unit} />
+        <StatCell label={primaryStat.label} value={primaryStat.value} unit={primaryStat.unit} />
         <StatCell label="學費" value={feeText.value} unit={feeText.unit} hasDivider />
         <StatCell label="班別" value={sessionText} hasDivider />
       </div>
 
-      {/* Row 3: Vacancy status badges — K1 K2 K3 horizontal */}
-      {vacancyGrades.length > 0 && (
-        <div className="mt-4 grid grid-cols-3 gap-2">
+      {/* Row 3: KEP vacancy only for schools that participate in the EDB scheme. */}
+      <div className="mt-4 min-h-9">
+        {vacancyGrades.length > 0 ? (
+          <div className="grid grid-cols-3 gap-2">
           {vacancyGrades.map(({ grade, status }) => (
             <VacancyBadge key={grade} grade={grade} status={status} isStale={stale} />
           ))}
-        </div>
-      )}
+          </div>
+        ) : isPrivateOrInternational ? (
+          <div className="flex min-h-9 items-center justify-center rounded-full border border-blue-200 bg-blue-50 px-3 text-xs font-semibold text-blue-700">
+            <span className="mr-1 text-[10px] font-bold opacity-75">招生</span>
+            <span className="truncate">{admissionText}</span>
+          </div>
+        ) : null}
+      </div>
 
       {/* Row 4: Footer */}
-      <div className="mt-4 flex justify-between items-center pt-3 border-t border-slate-100 text-xs">
+      <div className="mt-auto flex justify-between items-center pt-3 border-t border-slate-100 text-xs">
         <span className="min-w-0 text-slate-400 flex items-center gap-1">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-slate-300">
             <circle cx="12" cy="12" r="10" />
@@ -217,10 +241,10 @@ function StatCell({
   );
 }
 
-function formatDistance(distanceKm?: number): { value: string; unit?: string } {
-  if (distanceKm == null) return { value: "未定位" };
-  if (distanceKm < 1) return { value: String(Math.round(distanceKm * 1000)), unit: "m" };
-  return { value: distanceKm.toFixed(1), unit: "km" };
+function formatPrimaryStat(distanceKm: number | undefined, districtLabel: string): { label: string; value: string; unit?: string } {
+  if (distanceKm == null) return { label: "地區", value: districtLabel };
+  if (distanceKm < 1) return { label: "距離", value: String(Math.round(distanceKm * 1000)), unit: "m" };
+  return { label: "距離", value: distanceKm.toFixed(1), unit: "km" };
 }
 
 function formatMonthlyFee(feeMonthlyHkd?: number | null): { value: string; unit?: string } {
@@ -235,7 +259,7 @@ function formatSessionLabel(sessionType?: string | null, schoolandSessionLabel?:
   }
 
   const sessionTags = getSessionTags(sessionType ?? null);
-  return sessionTags[0]?.replace("班", "") ?? "待更新";
+  return sessionTags[0]?.replace("班", "") ?? "—";
 }
 
 function getSchoolTypeInfo(schoolType?: string) {

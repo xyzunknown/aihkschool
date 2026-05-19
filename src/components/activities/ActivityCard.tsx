@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import type { Activity } from "@/lib/db/activities";
 import {
@@ -10,21 +11,37 @@ import {
   formatAgeRange,
   isExpired,
 } from "@/lib/activities/labels";
+import { getActivitySceneImage } from "@/lib/media/activity-scenes";
 
 interface ActivityCardProps {
   activity: Activity;
+  priority?: boolean;
 }
 
-export function ActivityCard({ activity }: ActivityCardProps) {
+export function ActivityCard({ activity, priority = false }: ActivityCardProps) {
   const fee = formatFee(activity);
   const dateRange = formatDateRange(activity.start_date, activity.end_date);
   const ageRange = formatAgeRange(activity.age_min, activity.age_max);
   const expired = isExpired(activity.end_date);
   const districtLabel = activity.district ? DISTRICT_LABELS[activity.district] : null;
+  const sceneImage = getActivitySceneImage(activity);
 
   return (
-    <article className="flex h-full flex-col rounded-[20px] border border-surface-border bg-white p-5 shadow-[0_8px_24px_rgba(30,82,56,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(30,82,56,0.1)]">
+    <article className="flex h-full flex-col overflow-hidden rounded-[20px] border border-surface-border bg-white shadow-[0_8px_24px_rgba(30,82,56,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(30,82,56,0.1)]">
       <Link href={`/activities/${activity.id}`} className="block">
+        <div className="relative aspect-[3/2] w-full overflow-hidden bg-cream-100">
+          <Image
+            src={sceneImage}
+            alt=""
+            fill
+            priority={priority}
+            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-ink-900/24 to-transparent" />
+        </div>
+
+        <div className="p-5">
         <div className="mb-3 flex items-center justify-between">
           <span className="inline-flex items-center rounded-pill bg-leaf-50 px-2.5 py-1 text-[11px] font-semibold text-forest-700 ring-1 ring-forest-700/10">
             {CATEGORY_LABELS[activity.category]}
@@ -66,13 +83,14 @@ export function ActivityCard({ activity }: ActivityCardProps) {
           {ageRange && <Row icon="user">適合 {ageRange}</Row>}
           {activity.contact_phone && <Row icon="phone">{activity.contact_phone}</Row>}
         </div>
+        </div>
       </Link>
 
       {activity.contact_url && !expired && (
         <button
           type="button"
           onClick={() => window.open(activity.contact_url!, "_blank", "noopener,noreferrer")}
-          className="mt-4 inline-flex h-10 w-full items-center justify-center gap-1.5 rounded-pill bg-forest-600 px-4 text-sm font-medium text-white transition hover:bg-forest-700 shadow-[0_10px_24px_rgba(30,82,56,0.12)]"
+          className="mx-5 mb-5 mt-auto inline-flex h-10 items-center justify-center gap-1.5 rounded-pill bg-forest-600 px-4 text-sm font-medium text-white transition hover:bg-forest-700 shadow-[0_10px_24px_rgba(30,82,56,0.12)]"
         >
           查看詳情 / 報名
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

@@ -40,6 +40,11 @@ const FULL_LIST_SELECT = `id, school_code, name_tc, name_en, district, phone, we
   is_active, publish_channels, created_at, updated_at,
   vacancies ( id, academic_year, k1_vacancy, k2_vacancy, k3_vacancy, n_vacancy, application_deadline, edb_published_date, is_current )`;
 
+const FULL_LIST_SELECT_WITHOUT_CHANNELS = FULL_LIST_SELECT.replace(
+  "is_active, publish_channels, created_at, updated_at,",
+  "is_active, created_at, updated_at,",
+);
+
 const LEGACY_LIST_SELECT = `id, school_code, name_tc, name_en, district, phone, website, logo_url,
   school_type, kep_participant, session_type, language_primary,
   fee_monthly_hkd, grades_offered, data_source, last_verified_at,
@@ -62,6 +67,7 @@ function buildSchoolListQuery(
   selectStr: string,
   params: FetchSchoolsParams,
   isLegacy: boolean,
+  canFilterPublishChannels = true,
 ) {
   const {
     districts, type, language, session, hasNursery,
@@ -74,7 +80,7 @@ function buildSchoolListQuery(
     .select(selectStr, { count: "exact" })
     .eq("is_active", true);
 
-  if (!isLegacy) {
+  if (!isLegacy && canFilterPublishChannels) {
     query = query.contains("publish_channels", ["web"]);
   }
 
@@ -141,15 +147,27 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
   // Try full query first, fallback to legacy if new columns don't exist
   let result = await buildSchoolListQuery(supabase, FULL_LIST_SELECT, params, false);
   let isLegacy = false;
+  let hasPublishChannels = true;
 
   if (result.error) {
     const needsFallback = NEW_COLUMN_NAMES.some((col) =>
       result.error!.message.includes(col)
     );
-    if (needsFallback) {
+    const onlyPublishChannelsMissing =
+      result.error.message.includes("publish_channels") &&
+      NEW_COLUMN_NAMES
+        .filter((col) => col !== "publish_channels")
+        .every((col) => !result.error!.message.includes(col));
+
+    if (onlyPublishChannelsMissing) {
+      console.warn("fetchSchools: retrying without publish_channels:", result.error.message);
+      result = await buildSchoolListQuery(supabase, FULL_LIST_SELECT_WITHOUT_CHANNELS, params, false, false);
+      hasPublishChannels = false;
+    } else if (needsFallback) {
       console.warn("fetchSchools: falling back to legacy select (missing columns):", result.error.message);
       result = await buildSchoolListQuery(supabase, LEGACY_LIST_SELECT, params, true);
       isLegacy = true;
+      hasPublishChannels = false;
     }
     if (result.error) {
       throw new Error(`Failed to fetch schools: ${result.error.message}`);
@@ -184,8 +202,8 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
       schooland_founded_year: null,
       schooland_staff_count: null,
       schooland_teacher_student_ratio: null,
-      publish_channels: ["web", "ios", "android"],
     } : {}),
+    ...(!hasPublishChannels ? { publish_channels: ["web", "ios", "android"] } : {}),
     // Some schools have multiple is_current=true rows (e.g. real EDB-scraped
     // row "2026-27" plus a fallback "2026/27" placeholder with all
     // check_school values). Sort so the row with a real edb_published_date

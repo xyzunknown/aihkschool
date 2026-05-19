@@ -13,9 +13,10 @@ export function VacancyBadge({ grade, status, isStale = false }: VacancyBadgePro
       <div className="flex justify-center">
         <span
           aria-label={`${grade} ${VACANCY_STATUS_LABELS.no_information}`}
-          className="inline-flex items-center justify-center min-w-[66px] px-3 py-1.5 rounded-full text-xs font-medium border border-slate-200 text-slate-400 bg-slate-50 transition-colors duration-200"
+          className="inline-flex min-h-9 min-w-[78px] items-center justify-center gap-1 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-400 transition-colors duration-200"
         >
-          {VACANCY_STATUS_LABELS.no_information}
+          <span className="text-[10px] font-bold text-slate-500">{grade}</span>
+          <span>{VACANCY_STATUS_LABELS.no_information}</span>
         </span>
       </div>
     );
@@ -34,8 +35,9 @@ export function VacancyBadge({ grade, status, isStale = false }: VacancyBadgePro
     <div className="flex justify-center">
       <span
         aria-label={`${grade} ${VACANCY_STATUS_LABELS[normalizedStatus]}`}
-        className={`inline-flex items-center justify-center min-w-[66px] px-3 py-1.5 rounded-full text-xs font-medium border transition-colors duration-200 ${styles[normalizedStatus]}`}
+        className={`inline-flex min-h-9 min-w-[78px] items-center justify-center gap-1 rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors duration-200 ${styles[normalizedStatus]}`}
       >
+        <span className="text-[10px] font-bold opacity-75">{grade}</span>
         {VACANCY_STATUS_LABELS[normalizedStatus]}
       </span>
     </div>

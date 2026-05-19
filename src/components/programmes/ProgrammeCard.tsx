@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { ProgrammeWithStatus } from "@/lib/db/programmes";
 import {
@@ -11,12 +12,14 @@ import {
   formatAgeRange,
   getEnrolmentCountdown,
 } from "@/lib/programmes/labels";
+import { getProgrammeSceneImage } from "@/lib/media/activity-scenes";
 
 interface ProgrammeCardProps {
   programme: ProgrammeWithStatus;
+  priority?: boolean;
 }
 
-export function ProgrammeCard({ programme }: ProgrammeCardProps) {
+export function ProgrammeCard({ programme, priority = false }: ProgrammeCardProps) {
   const fee = formatProgrammeFee(programme.fee_hkd);
   const dateRange = formatProgrammeDateRange(programme.start_date, programme.end_date);
   const ageRange = formatAgeRange(programme.age_min, programme.age_max);
@@ -24,10 +27,24 @@ export function ProgrammeCard({ programme }: ProgrammeCardProps) {
   const countdown = getEnrolmentCountdown(programme.enrolment_open_at);
   const status = programme.lcsd_programme_status;
   const enrolmentStatus = status?.enrolment_status || "pre_open";
+  const sceneImage = getProgrammeSceneImage(programme);
 
   return (
     <Link href={`/programmes/${programme.id}`} className="block h-full">
-      <div className="flex h-full flex-col rounded-card border border-cream-200 bg-white p-5 shadow-soft transition hover:shadow-card">
+      <div className="flex h-full flex-col overflow-hidden rounded-card border border-cream-200 bg-white shadow-soft transition hover:shadow-card">
+        <div className="relative aspect-[3/2] w-full overflow-hidden bg-cream-100">
+          <Image
+            src={sceneImage}
+            alt=""
+            fill
+            priority={priority}
+            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-ink-900/24 to-transparent" />
+        </div>
+
+        <div className="flex flex-1 flex-col p-5">
         <div className="mb-3 flex items-center justify-between">
           <span className="inline-flex items-center rounded-pill bg-leaf-50 px-2.5 py-1 text-[11px] font-semibold text-forest-700">
             {PROGRAMME_CATEGORY_LABELS[programme.category || "other"]}
@@ -119,6 +136,7 @@ export function ProgrammeCard({ programme }: ProgrammeCardProps) {
               <span>適合 {ageRange}</span>
             </div>
           )}
+        </div>
         </div>
       </div>
     </Link>

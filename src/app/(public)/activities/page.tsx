@@ -33,12 +33,13 @@ export default function ActivitiesPage() {
           </div>
           <div className="relative h-32 md:h-48 hidden md:flex items-end justify-center">
             <Image
-              src="/brand/hero/family.png"
+              src="/images/activity-scenes/art-table.webp"
               alt=""
-              width={420}
-              height={420}
+              width={600}
+              height={400}
+              priority
               sizes="320px"
-              className="relative z-10 max-h-full w-auto object-contain opacity-90"
+              className="relative z-10 h-full w-full rounded-[20px] object-cover opacity-95 shadow-[0_16px_40px_rgba(30,82,56,0.10)]"
             />
           </div>
         </div>

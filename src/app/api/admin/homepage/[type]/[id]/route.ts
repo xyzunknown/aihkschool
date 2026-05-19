@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { requireAdminApi } from "@/lib/admin/auth";
 import { writeAdminAuditLog } from "@/lib/admin/audit";
@@ -49,6 +50,8 @@ export async function PATCH(
     after: data as never,
   });
 
+  revalidatePath("/");
+
   return NextResponse.json({ data });
 }
 
@@ -77,6 +80,8 @@ export async function DELETE(
     targetId: params.id,
     before: before as never,
   });
+
+  revalidatePath("/");
 
   return NextResponse.json({ success: true });
 }

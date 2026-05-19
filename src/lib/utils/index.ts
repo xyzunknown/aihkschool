@@ -293,7 +293,7 @@ export function formatEnglishSchoolName(name: string | null | undefined): string
     return trimmed;
   }
 
-  const keepUpper = new Set(["HK", "YMCA", "KCS", "ESF", "ICS", "IB"]);
+  const keepUpper = new Set(["HK", "YMCA", "KCS", "ESF", "ICS", "IB", "CUHK", "FAA", "CUHKFAA"]);
 
   return trimmed.replace(/[A-Z][A-Z'&.-]*/g, (word) => {
     if (keepUpper.has(word)) return word;

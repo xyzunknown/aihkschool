@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { fetchProgrammeById } from "@/lib/db/programmes";
 import {
   PROGRAMME_CATEGORY_LABELS,
@@ -13,6 +14,7 @@ import {
   getEnrolmentCountdown,
 } from "@/lib/programmes/labels";
 import { SubscribeButton } from "@/components/programmes/SubscribeButton";
+import { getProgrammeSceneImage } from "@/lib/media/activity-scenes";
 
 export const revalidate = 600;
 
@@ -42,6 +44,7 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
   const countdown = getEnrolmentCountdown(programme.enrolment_open_at);
   const status = programme.lcsd_programme_status;
   const enrolmentStatus = status?.enrolment_status || "pre_open";
+  const sceneImage = getProgrammeSceneImage(programme);
 
   return (
     <div className="mx-auto max-w-3xl px-5 py-8 md:px-8 md:py-12">
@@ -57,7 +60,19 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
       </a>
 
       {/* 主卡片 */}
-      <div className="rounded-2xl border border-slate-200 bg-white p-6 md:p-8">
+      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
+        <div className="relative aspect-[3/2] bg-slate-100">
+          <Image
+            src={sceneImage}
+            alt=""
+            fill
+            priority
+            sizes="(min-width: 768px) 720px, 100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/28 to-transparent" />
+        </div>
+        <div className="p-6 md:p-8">
         {/* 類別 + 狀態 */}
         <div className="mb-4 flex items-center gap-2">
           <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
@@ -127,6 +142,7 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
               前往 SmartPLAY 報名
             </a>
           )}
+        </div>
         </div>
       </div>
 

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { requireAdminApi } from "@/lib/admin/auth";
 import { writeAdminAuditLog } from "@/lib/admin/audit";
@@ -81,6 +82,10 @@ export async function PATCH(request: NextRequest, { params }: { params: { id: st
     before: before as never,
     after: data as never,
   });
+
+  revalidatePath("/");
+  revalidatePath("/kg");
+  revalidatePath(`/kg/${params.id}`);
 
   return NextResponse.json({ data });
 }

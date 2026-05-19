@@ -6,6 +6,8 @@ import { ActivitiesPreview } from "@/components/home/ActivitiesPreview";
 import { ProgrammesPreview } from "@/components/home/ProgrammesPreview";
 import { getHomepageLiveData } from "@/lib/homepage/liveData";
 
+export const dynamic = "force-dynamic";
+
 const AUTH_ERROR_COPY: Record<string, string> = {
   auth: "登入未完成。請再試一次；如果你是在 preview 或本地環境操作，請確認 Supabase Auth 的 Redirect URLs 已包含目前站點。",
   auth_config: "登入設定未完成。請檢查 Supabase Auth 的 Site URL 和 Redirect URLs。",

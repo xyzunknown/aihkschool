@@ -61,7 +61,12 @@ class StaticBuildDirectoryPlugin {
 const nextConfig = {
   generateBuildId: async () => stableBuildId,
   images: {
-    remotePatterns: [],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "static.timable.com",
+      },
+    ],
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 60 * 60 * 24 * 30,
   },

@@ -180,8 +180,8 @@ export function ProgrammesClient() {
             共 {total} 個課程
           </p>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {programmes.map((p) => (
-              <ProgrammeCard key={p.id} programme={p} />
+            {programmes.map((p, index) => (
+              <ProgrammeCard key={p.id} programme={p} priority={index < 3} />
             ))}
           </div>
 

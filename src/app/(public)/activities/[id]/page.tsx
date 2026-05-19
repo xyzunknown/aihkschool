@@ -5,6 +5,7 @@ import {
   fetchActivityById,
   fetchRelatedActivities,
 } from "@/lib/db/activities";
+import Image from "next/image";
 import { ActivityCard } from "@/components/activities/ActivityCard";
 import { AddToCalendarButton } from "@/components/activities/AddToCalendarButton";
 import {
@@ -15,6 +16,7 @@ import {
   formatAgeRange,
   isExpired,
 } from "@/lib/activities/labels";
+import { getActivitySceneImage } from "@/lib/media/activity-scenes";
 
 export const revalidate = 3600;
 
@@ -45,6 +47,7 @@ export default async function ActivityDetailPage({ params }: PageProps) {
   const dateRange = formatDateRange(activity.start_date, activity.end_date);
   const ageRange = formatAgeRange(activity.age_min, activity.age_max);
   const expired = isExpired(activity.end_date);
+  const sceneImage = getActivitySceneImage(activity);
 
   return (
     <div className="mx-auto max-w-4xl px-5 py-8 md:px-8 md:py-12">
@@ -57,6 +60,17 @@ export default async function ActivityDetailPage({ params }: PageProps) {
 
       {/* Hero */}
       <div className="mb-8">
+        <div className="relative mb-6 aspect-[3/2] overflow-hidden rounded-2xl bg-slate-100">
+          <Image
+            src={sceneImage}
+            alt=""
+            fill
+            priority
+            sizes="(min-width: 768px) 768px, 100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/28 to-transparent" />
+        </div>
         <div className="mb-4 flex flex-wrap items-center gap-2">
           <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
             {CATEGORY_LABELS[activity.category]}

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { requireAdminApi } from "@/lib/admin/auth";
 import { writeAdminAuditLog } from "@/lib/admin/audit";
@@ -121,6 +122,8 @@ export async function POST(request: NextRequest) {
     targetId: (data as { id?: string })?.id ?? null,
     after: data as never,
   });
+
+  revalidatePath("/");
 
   return NextResponse.json({ data }, { status: 201 });
 }

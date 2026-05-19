@@ -150,8 +150,8 @@ export function ActivitiesClient() {
             共 {total} 個活動
           </p>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {activities.map((a) => (
-              <ActivityCard key={a.id} activity={a} />
+            {activities.map((a, index) => (
+              <ActivityCard key={a.id} activity={a} priority={index < 3} />
             ))}
           </div>
 

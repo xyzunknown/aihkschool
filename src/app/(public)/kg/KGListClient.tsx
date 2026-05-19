@@ -399,6 +399,10 @@ export default function KGListClient() {
                   sessionType={school.session_type}
                   schoolandSessionLabel={school.schooland_session_label}
                   feeMonthlyHkd={school.fee_monthly_hkd}
+                  applicationStatus={school.application_status}
+                  applicationDetails={school.application_details}
+                  applicationUrl={school.enrichment?.application_url ?? school.application_url}
+                  admissionSummary={school.admission_summary}
                   vacancy={vacancy}
                   isFavorited={favoriteIds.has(school.id)}
                   onToggleFavorite={() => handleToggleFavorite(school.id)}

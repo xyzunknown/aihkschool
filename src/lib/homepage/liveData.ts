@@ -57,6 +57,31 @@ type PriorityTop100Row = {
   school_type?: string | null;
 };
 
+type FeaturedSchoolRow = {
+  id: string;
+  school_code: string | null;
+  name_tc: string | null;
+  name_en: string | null;
+  district: string | null;
+  school_type: string | null;
+  session_type: string | null;
+  has_nursery: boolean | null;
+  schooland_group_tag: string | null;
+  schooland_nursery_service: string | null;
+  schooland_size_label: string | null;
+  schooland_session_label: string | null;
+  vacancies?: Array<{
+    k1_vacancy: string | null;
+    k2_vacancy: string | null;
+    k3_vacancy: string | null;
+    edb_published_date: string | null;
+    is_current: boolean | null;
+  }> | null;
+};
+
+const FEATURED_SCHOOL_FIELDS =
+  "id, school_code, name_tc, name_en, district, school_type, session_type, has_nursery, schooland_group_tag, schooland_nursery_service, schooland_size_label, schooland_session_label, vacancies ( k1_vacancy, k2_vacancy, k3_vacancy, edb_published_date, is_current )";
+
 const HOMEPAGE_BANNER_ENABLED_VALUES = new Set([
   "1",
   "true",
@@ -802,6 +827,74 @@ function normalizeSessionTags(session: string | null | undefined): string[] {
   return tags;
 }
 
+function normalizeFeaturedSessionTags(
+  session: string | null | undefined,
+  schoolandSessionLabel: string | null | undefined,
+): string[] {
+  const tags = normalizeSessionTags(session);
+
+  if (schoolandSessionLabel === "whole_day" || schoolandSessionLabel === "mixed") {
+    tags.push("全日班");
+  }
+
+  if (
+    schoolandSessionLabel === "am" ||
+    schoolandSessionLabel === "pm" ||
+    schoolandSessionLabel === "mixed"
+  ) {
+    tags.push("半日班");
+  }
+
+  return Array.from(new Set(tags));
+}
+
+function getCurrentVacancy(row: FeaturedSchoolRow) {
+  const vacancies = Array.isArray(row.vacancies) ? row.vacancies : [];
+  return vacancies.find((vacancy) => vacancy.is_current) ?? vacancies[0] ?? null;
+}
+
+function toFeaturedSchool(
+  school: FeaturedSchoolRow,
+  overrides: {
+    id?: string;
+    nameTc?: string | null;
+    nameEn?: string | null;
+    href?: string;
+  } = {},
+): FeaturedSchool | null {
+  const nameTc = overrides.nameTc || school.name_tc || "";
+  if (!nameTc) return null;
+
+  const vacancy = getCurrentVacancy(school);
+
+  return {
+    id: overrides.id ?? school.id,
+    detailId: school.id,
+    schoolCode: school.school_code ?? undefined,
+    name_tc: nameTc,
+    name_en: formatEnglishSchoolName(overrides.nameEn || school.name_en || ""),
+    district: school.district && school.district in DISTRICT_LABELS
+      ? DISTRICT_LABELS[school.district as keyof typeof DISTRICT_LABELS]
+      : String(school.district || ""),
+    schoolType: school.school_type,
+    sessionTags: normalizeFeaturedSessionTags(school.session_type, school.schooland_session_label),
+    hasN: Boolean(school.has_nursery),
+    href: overrides.href ?? `/kg/${school.id}`,
+    schoolandGroupTag: school.schooland_group_tag,
+    schoolandNurseryService: school.schooland_nursery_service,
+    schoolandSizeLabel: school.schooland_size_label,
+    schoolandSessionLabel: school.schooland_session_label,
+    vacancyStatus: vacancy
+      ? {
+        k1: vacancy.k1_vacancy ?? "no_information",
+        k2: vacancy.k2_vacancy ?? "no_information",
+        k3: vacancy.k3_vacancy ?? "no_information",
+      }
+      : undefined,
+    vacancyPublishedDate: vacancy?.edb_published_date ?? null,
+  } satisfies FeaturedSchool;
+}
+
 function toVacancyTag(value: string | null | undefined): string | null {
   if (!value) return null;
 
@@ -948,26 +1041,11 @@ async function getFeaturedSchoolsLive(): Promise<FeaturedSchool[]> {
   const supabase = await createClient();
   const { data: schoolRows } = await supabase
     .from("schools")
-    .select(
-      "id, school_code, name_tc, name_en, district, school_type, session_type, has_nursery, schooland_group_tag, schooland_nursery_service, schooland_size_label, schooland_session_label"
-    )
+    .select(FEATURED_SCHOOL_FIELDS)
     .in("school_code", priorityCodes);
 
   const schoolRowsByCode = new Map(
-    (schoolRows ?? []).map((row: {
-      id: string;
-      school_code: string | null;
-      name_tc: string | null;
-      name_en: string | null;
-      district: string | null;
-      school_type: string | null;
-      session_type: string | null;
-      has_nursery: boolean | null;
-      schooland_group_tag: string | null;
-      schooland_nursery_service: string | null;
-      schooland_size_label: string | null;
-      schooland_session_label: string | null;
-    }) => [row.school_code, row])
+    ((schoolRows ?? []) as FeaturedSchoolRow[]).map((row) => [row.school_code, row])
   );
 
   const schoolMap = new Map(schoolList.map((row) => [row.code, row]));
@@ -976,30 +1054,34 @@ async function getFeaturedSchoolsLive(): Promise<FeaturedSchool[]> {
     .map<FeaturedSchool | null>((row) => {
       const school = schoolMap.get(row.school_code ?? "");
       const schoolRecord = schoolRowsByCode.get(row.school_code ?? "");
-      const nameTc = school?.name_tc || row.db_name_tc || row.queue_name_tc || "";
+      const nameTc = schoolRecord?.name_tc || school?.name_tc || row.db_name_tc || row.queue_name_tc || "";
       if (!nameTc) return null;
+
+      if (schoolRecord) {
+        return toFeaturedSchool(schoolRecord, {
+          id: schoolRecord.id,
+          nameTc,
+          nameEn: schoolRecord.name_en || school?.name_en || row.name_en || null,
+          href: `/kg/${schoolRecord.id}`,
+        });
+      }
 
       const district =
         school?.district && school.district in DISTRICT_LABELS
           ? DISTRICT_LABELS[school.district]
           : school?.district ?? toSourceLabel(row.school_type);
 
-      const sessionSource = schoolRecord?.session_type ?? school?.session ?? null;
       return {
-        id: schoolRecord?.id ?? row.school_code ?? nameTc,
-        detailId: schoolRecord?.id ?? null,
+        id: row.school_code ?? nameTc,
+        detailId: null,
         schoolCode: row.school_code ?? undefined,
         name_tc: nameTc,
         name_en: formatEnglishSchoolName(school?.name_en || row.name_en || null),
         district,
-        schoolType: schoolRecord?.school_type ?? school?.school_type ?? row.school_type ?? null,
-        sessionTags: normalizeSessionTags(sessionSource),
-        hasN: Boolean(schoolRecord?.has_nursery ?? school?.session?.includes("N")),
+        schoolType: school?.school_type ?? row.school_type ?? null,
+        sessionTags: normalizeSessionTags(school?.session),
+        hasN: Boolean(school?.session?.includes("N")),
         href: `/kg?search=${encodeURIComponent(nameTc)}`,
-        schoolandGroupTag: schoolRecord?.schooland_group_tag ?? null,
-        schoolandNurseryService: schoolRecord?.schooland_nursery_service ?? null,
-        schoolandSizeLabel: schoolRecord?.schooland_size_label ?? null,
-        schoolandSessionLabel: schoolRecord?.schooland_session_label ?? null,
         vacancyStatus: school
           ? {
             k1: school.k1 ?? "no_information",
@@ -1056,7 +1138,7 @@ async function getManagedFeaturedSchools(): Promise<FeaturedSchool[]> {
     const supabase = await createClient();
     const { data, error } = await supabase
       .from("homepage_featured_schools" as never)
-      .select("*, schools ( id, school_code, name_tc, name_en, district, school_type, session_type, has_nursery, schooland_group_tag, schooland_nursery_service, schooland_size_label, schooland_session_label )")
+      .select(`*, schools ( ${FEATURED_SCHOOL_FIELDS} )`)
       .eq("is_visible", true)
       .contains("publish_channels" as never, ["web"] as never)
       .order("sort_order", { ascending: true })
@@ -1067,27 +1149,19 @@ async function getManagedFeaturedSchools(): Promise<FeaturedSchool[]> {
     return (data as Array<Record<string, unknown>>).flatMap((row) => {
       const school = Array.isArray(row.schools) ? row.schools[0] : row.schools;
       if (!school || typeof school !== "object") return [];
-      const schoolRecord = school as Record<string, unknown>;
-      const nameTc = String(row.custom_title || schoolRecord.name_tc || "");
-      if (!nameTc) return [];
-      return [{
+      const schoolRecord = school as FeaturedSchoolRow;
+      const featuredSchool = toFeaturedSchool(schoolRecord, {
         id: String(schoolRecord.id || row.id),
-        detailId: String(schoolRecord.id || ""),
-        schoolCode: typeof schoolRecord.school_code === "string" ? schoolRecord.school_code : undefined,
-        name_tc: nameTc,
-        name_en: formatEnglishSchoolName(String(row.custom_name_en || schoolRecord.name_en || "")),
-        district: schoolRecord.district && String(schoolRecord.district) in DISTRICT_LABELS
-          ? DISTRICT_LABELS[String(schoolRecord.district) as keyof typeof DISTRICT_LABELS]
-          : String(schoolRecord.district || ""),
-        schoolType: typeof schoolRecord.school_type === "string" ? schoolRecord.school_type : null,
-        sessionTags: normalizeSessionTags(typeof schoolRecord.session_type === "string" ? schoolRecord.session_type : null),
-        hasN: Boolean(schoolRecord.has_nursery),
+        nameTc: typeof row.custom_title === "string" && row.custom_title.trim()
+          ? row.custom_title
+          : schoolRecord.name_tc,
+        nameEn: typeof row.custom_name_en === "string" && row.custom_name_en.trim()
+          ? row.custom_name_en
+          : schoolRecord.name_en,
         href: `/kg/${schoolRecord.id}`,
-        schoolandGroupTag: typeof schoolRecord.schooland_group_tag === "string" ? schoolRecord.schooland_group_tag : null,
-        schoolandNurseryService: typeof schoolRecord.schooland_nursery_service === "string" ? schoolRecord.schooland_nursery_service : null,
-        schoolandSizeLabel: typeof schoolRecord.schooland_size_label === "string" ? schoolRecord.schooland_size_label : null,
-        schoolandSessionLabel: typeof schoolRecord.schooland_session_label === "string" ? schoolRecord.schooland_session_label : null,
-      } satisfies FeaturedSchool];
+      });
+
+      return featuredSchool ? [featuredSchool] : [];
     });
   } catch {
     return [];
