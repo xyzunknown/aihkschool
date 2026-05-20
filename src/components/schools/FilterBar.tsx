@@ -48,8 +48,8 @@ export function FilterBar({
   );
 
   const pillBase = "px-3 py-1.5 rounded-full text-xs font-medium transition-colors";
-  const pillActive = "bg-slate-950 text-white";
-  const pillInactive = "bg-white text-slate-600 border border-slate-200";
+  const pillActive = "bg-brand-600 text-white shadow-soft";
+  const pillInactive = "bg-white text-ink-700 border border-surface-border hover:border-brand-200 hover:bg-brand-50";
 
   const vacancyOptions = [
     { key: "has_vacancy", label: "有位" },
@@ -102,7 +102,7 @@ export function FilterBar({
               {selectedDistricts.length === 0 ? "選擇地區" : `已選 ${selectedDistricts.length}`}
             </button>
             {showDistrictFilter && (
-              <div className="absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-lg border border-slate-200 p-4 z-30 w-64 max-h-64 overflow-y-auto">
+              <div className="absolute top-full left-0 mt-2 bg-white rounded-card shadow-card border border-surface-border p-4 z-30 w-64 max-h-64 overflow-y-auto">
                 {Object.entries(DISTRICT_LABELS).map(([key, label]) => (
                   <label key={key} className="flex items-center gap-2 py-1.5 cursor-pointer">
                     <input
@@ -186,7 +186,7 @@ export function FilterBar({
           </svg>
           更多篩選
           {moreFilterCount > 0 && (
-            <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-slate-950 text-white text-[10px]">
+            <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-brand-600 text-white text-[10px]">
               {moreFilterCount}
             </span>
           )}
@@ -194,7 +194,7 @@ export function FilterBar({
 
         {/* 更多篩選 panel */}
         {showMoreFilters && (
-          <div className="space-y-4 pl-3 border-l-2 border-slate-100">
+          <div className="space-y-4 pl-3 border-l-2 border-brand-100">
             {/* 上課時段 */}
             <div>
               <h4 className="text-xs font-semibold text-slate-700 mb-2">上課時段</h4>

@@ -9,11 +9,11 @@ interface BadgeProps {
 }
 
 const variants: Record<string, string> = {
-  default: "bg-slate-100 text-slate-500 border-transparent",
-  active: "bg-slate-950 text-white border-slate-950",
-  success: "bg-emerald-50 text-emerald-700 border-transparent",
-  warning: "bg-amber-50 text-amber-700 border-transparent",
-  danger: "bg-red-50 text-red-700 border-transparent",
+  default: "bg-surface-soft text-ink-500 border-surface-border",
+  active: "bg-brand-600 text-white border-brand-600",
+  success: "bg-status-available-bg text-status-available-fg border-status-available-bg",
+  warning: "bg-status-limited-bg text-status-limited-fg border-status-limited-bg",
+  danger: "bg-status-full-bg text-status-full-fg border-status-full-bg",
 };
 
 const sizes: Record<string, string> = {

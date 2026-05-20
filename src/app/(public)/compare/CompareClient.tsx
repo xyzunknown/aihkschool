@@ -175,15 +175,23 @@ export function CompareClient() {
   if (schools.length < 2) {
     return (
       <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 text-center">
-        <p className="text-xl font-semibold text-slate-950 mb-2">
-          請至少選擇 2 所學校進行對比
-        </p>
-        <p className="text-base text-slate-500 mb-6">
-          前往學校列表添加學校到對比
-        </p>
-        <Link href="/kg">
-          <Button variant="primary">搵學校</Button>
-        </Link>
+        <div className="mx-auto max-w-md rounded-card border border-surface-border bg-white px-6 py-8 shadow-soft">
+          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-brand-50 text-brand-700">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
+              <rect x="3" y="4" width="7" height="16" rx="1.5" />
+              <rect x="14" y="4" width="7" height="16" rx="1.5" />
+            </svg>
+          </div>
+          <p className="text-xl font-semibold text-ink-900 mb-2">
+            請至少選擇 2 所學校進行對比
+          </p>
+          <p className="text-base text-ink-500 mb-6">
+            前往學校列表添加學校到對比
+          </p>
+          <Link href="/kg">
+            <Button variant="primary">搵學校</Button>
+          </Link>
+        </div>
       </div>
     );
   }
@@ -220,7 +228,7 @@ export function CompareClient() {
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white">
+      <div className="overflow-x-auto rounded-card border border-surface-border bg-white shadow-soft">
         <table className="w-full border-collapse">
           <thead>
             <tr>
@@ -239,7 +247,7 @@ export function CompareClient() {
                         />
                         <button
                           onClick={() => removeSchool(school.id)}
-                          className="absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center rounded-full bg-slate-200 text-slate-500 hover:bg-red-100 hover:text-red-500 transition-colors"
+                          className="absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center rounded-full bg-surface-soft text-ink-500 hover:bg-status-full-bg hover:text-status-full-fg transition-colors"
                           aria-label={`移除 ${school.name_tc}`}
                         >
                           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">

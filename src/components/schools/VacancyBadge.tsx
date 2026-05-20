@@ -25,10 +25,10 @@ export function VacancyBadge({ grade, status, isStale = false }: VacancyBadgePro
   const normalizedStatus = normalizeVacancyStatus(status);
 
   const styles = {
-    has_vacancy: "border-emerald-300 text-emerald-600 bg-emerald-50",
-    no_vacancy: "border-red-300 text-red-600 bg-red-50",
-    waiting_list: "border-amber-300 text-amber-600 bg-amber-50",
-    no_information: "border-slate-200 text-slate-400 bg-slate-50",
+    has_vacancy: "border-status-available-bg text-status-available-fg bg-status-available-bg",
+    no_vacancy: "border-status-full-bg text-status-full-fg bg-status-full-bg",
+    waiting_list: "border-status-limited-bg text-status-limited-fg bg-status-limited-bg",
+    no_information: "border-surface-border text-status-pending-fg bg-status-pending-bg",
   };
 
   return (

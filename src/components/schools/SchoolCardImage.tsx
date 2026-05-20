@@ -123,7 +123,7 @@ export function SchoolCardImage({
       </div>
 
       <div className={styles.watermark} aria-hidden="true">
-        <span className={styles.watermarkIcon}>🐘</span>
+        <span className={styles.watermarkIcon} />
         <span>HKSchoolPlace</span>
       </div>
     </div>

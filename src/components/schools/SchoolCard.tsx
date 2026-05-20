@@ -90,6 +90,10 @@ export function SchoolCard({
     applicationUrl,
     vacancy,
   });
+  const actionIconColor = isInCompare ? "#247A4D" : "#8C9690";
+  const actionIconFill = isInCompare ? "#EAF4ED" : "none";
+  const favoriteFill = isFavorited ? "#247A4D" : "none";
+  const favoriteStroke = isFavorited ? "#247A4D" : "#8C9690";
 
   // Build vacancy grades to display
   const vacancyGrades: Array<{ grade: string; status: VacancyStatus }> = [];
@@ -101,7 +105,7 @@ export function SchoolCard({
 
   return (
     <div
-      className="flex h-full min-h-[286px] cursor-pointer flex-col rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm"
+      className="flex h-full min-h-[286px] cursor-pointer flex-col rounded-card border border-surface-border bg-white p-5 shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-card"
       role="link"
       tabIndex={0}
       aria-label={`前往 ${primaryName}`}
@@ -148,9 +152,9 @@ export function SchoolCard({
               }}
               aria-label={isInCompare ? "取消對比" : "加入對比"}
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={isInCompare ? "#0ea5e9" : "#cbd5e1"} strokeWidth="1.5">
-                <rect x="3" y="3" width="8" height="18" rx="1.5" fill={isInCompare ? "#e0f2fe" : "none"} />
-                <rect x="13" y="3" width="8" height="18" rx="1.5" fill={isInCompare ? "#e0f2fe" : "none"} />
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={actionIconColor} strokeWidth="1.5">
+                <rect x="3" y="3" width="8" height="18" rx="1.5" fill={actionIconFill} />
+                <rect x="13" y="3" width="8" height="18" rx="1.5" fill={actionIconFill} />
               </svg>
             </button>
           )}
@@ -165,11 +169,11 @@ export function SchoolCard({
             aria-label={isFavorited ? "取消收藏" : "加入收藏"}
           >
           {isFavorited ? (
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="#f59e0b" stroke="none" className="animate-heart-fill">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill={favoriteFill} stroke={favoriteStroke} strokeWidth="1.5" className="animate-heart-fill">
               <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
             </svg>
           ) : (
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" strokeWidth="1.5">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={favoriteStroke} strokeWidth="1.5">
               <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
             </svg>
           )}
@@ -195,7 +199,7 @@ export function SchoolCard({
           ))}
           </div>
         ) : isPrivateOrInternational ? (
-          <div className="flex min-h-9 items-center justify-center rounded-full border border-blue-200 bg-blue-50 px-3 text-xs font-semibold text-blue-700">
+          <div className="flex min-h-9 items-center justify-center rounded-full border border-brand-200 bg-brand-50 px-3 text-xs font-semibold text-brand-700">
             <span className="mr-1 text-[10px] font-bold opacity-75">招生</span>
             <span className="truncate">{admissionText}</span>
           </div>
@@ -211,7 +215,7 @@ export function SchoolCard({
           </svg>
           <span className="truncate">{formatUpdateDate(vacancy?.edb_published_date ?? null)} · {districtLabel}</span>
         </span>
-        <span className="ml-3 flex-shrink-0 text-blue-600 font-medium">
+        <span className="ml-3 flex-shrink-0 text-brand-600 font-medium">
           詳情 &gt;
         </span>
       </div>
@@ -266,14 +270,14 @@ function getSchoolTypeInfo(schoolType?: string) {
   if (schoolType === "international") {
     return {
       label: `${SCHOOL_TYPE_LABELS[schoolType] ?? "國際"} · 國際課程`,
-      dotClass: "bg-violet-500",
+      dotClass: "bg-forest-500",
     };
   }
 
   if (schoolType === "private_independent") {
     return {
       label: `${SCHOOL_TYPE_LABELS[schoolType] ?? "私立獨立"} · 本地課程`,
-      dotClass: "bg-blue-500",
+      dotClass: "bg-brand-500",
     };
   }
 

@@ -19,7 +19,7 @@ export function FavoriteCard({
   onNavigate, onToggleReminder, onUnfavorite,
 }: FavoriteCardProps) {
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200">
+    <div className="bg-white rounded-card border border-surface-border p-6 shadow-soft hover:shadow-card hover:-translate-y-0.5 transition-all duration-200">
       <div className="flex justify-between items-start">
         <div className="flex-1 cursor-pointer" onClick={onNavigate}>
           <p className="text-xs font-medium text-slate-500 uppercase tracking-wide">
@@ -28,7 +28,7 @@ export function FavoriteCard({
           <p className="text-base font-semibold text-slate-900 mt-0.5">{nameTc}</p>
           <p className="text-sm text-slate-500 mt-1">{nameEn}</p>
           {daysUntilDeadline !== undefined && daysUntilDeadline < 7 && (
-            <p className={`text-sm font-medium mt-2 ${daysUntilDeadline >= 0 ? "text-red-700" : "text-slate-400"}`}>
+            <p className={`text-sm font-medium mt-2 ${daysUntilDeadline >= 0 ? "text-status-full-fg" : "text-ink-400"}`}>
               {daysUntilDeadline >= 0 ? `截止日期：${daysUntilDeadline} 天` : "已逾期"}
             </p>
           )}
@@ -38,7 +38,7 @@ export function FavoriteCard({
         <button
           onClick={onToggleReminder}
           className={`text-xs font-medium flex items-center gap-1 transition-colors duration-200 ${
-            reminderEnabled ? "text-emerald-700" : "text-slate-500"
+            reminderEnabled ? "text-brand-700" : "text-ink-500"
           }`}
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -47,7 +47,7 @@ export function FavoriteCard({
           </svg>
           {reminderEnabled ? "提醒已開啟" : "開啟提醒"}
         </button>
-        <button onClick={onUnfavorite} className="text-xs text-red-600 hover:text-red-700 transition-colors duration-200">
+        <button onClick={onUnfavorite} className="text-xs text-ink-500 hover:text-status-full-fg transition-colors duration-200">
           取消收藏
         </button>
       </div>

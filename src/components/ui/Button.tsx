@@ -13,8 +13,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       "inline-flex items-center justify-center gap-1.5 font-medium transition-transform duration-200 ease-out active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed";
 
     const variants: Record<string, string> = {
-      primary: "bg-slate-950 text-white rounded-xl hover:scale-[1.02]",
-      secondary: "bg-white text-slate-900 border border-slate-200 rounded-xl hover:scale-[1.02]",
+      primary: "bg-brand-600 text-white rounded-xl shadow-soft hover:scale-[1.02] hover:bg-brand-700",
+      secondary: "bg-white text-brand-700 border border-brand-200 rounded-xl hover:scale-[1.02] hover:bg-brand-50",
     };
 
     const sizes: Record<string, string> = {

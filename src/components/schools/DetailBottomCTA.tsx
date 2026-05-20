@@ -28,9 +28,9 @@ export function DetailBottomCTA({ school, isFavorited, onToggleFavorite, isInCom
     "inline-flex flex-1 items-center justify-center gap-1.5 rounded-xl px-5 py-2.5 text-sm font-medium transition-transform hover:scale-[1.02]";
 
   const primaryButtonClass =
-    "bg-slate-950 text-white";
+    "bg-brand-600 text-white shadow-soft hover:bg-brand-700";
   const secondaryButtonClass =
-    "bg-white text-slate-900 border border-slate-200";
+    "bg-white text-brand-700 border border-brand-200 hover:bg-brand-50";
 
   const getPrimaryAction = () => {
     if (school.website) {
@@ -74,7 +74,7 @@ export function DetailBottomCTA({ school, isFavorited, onToggleFavorite, isInCom
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 px-5 py-4 z-40">
+    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-surface-border px-5 py-4 z-40 shadow-[0_-10px_30px_rgba(31,42,36,0.08)]">
       <div className="max-w-3xl mx-auto flex gap-3">
         {getPrimaryAction()}
 

@@ -329,9 +329,17 @@ export default function KGListClient() {
           <Button variant="secondary" className="mt-4" onClick={fetchData}>重試</Button>
         </div>
       ) : schools.length === 0 ? (
-        <div className="text-center py-16">
-          <p className="text-xl font-semibold text-slate-950 mb-2">沒有搵到學校</p>
-          <p className="text-base text-slate-500">試下調整篩選條件</p>
+        <div className="py-16 text-center">
+          <div className="mx-auto max-w-md rounded-card border border-surface-border bg-white px-6 py-8 shadow-soft">
+            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-brand-50 text-brand-700">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
+                <circle cx="11" cy="11" r="7" />
+                <path d="m20 20-3.5-3.5" />
+              </svg>
+            </div>
+            <p className="text-xl font-semibold text-ink-900 mb-2">沒有搵到學校</p>
+            <p className="text-base text-ink-500">試下調整篩選條件</p>
+          </div>
         </div>
       ) : (
         <>

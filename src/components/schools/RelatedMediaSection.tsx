@@ -30,7 +30,7 @@ export function RelatedMediaSection({ articles }: RelatedMediaSectionProps) {
       </div>
 
       {articles.length === 0 ? (
-        <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-5 text-sm text-slate-500">
+        <div className="rounded-card border border-dashed border-surface-border bg-surface-soft p-5 text-sm text-ink-500">
           目前未找到與這間學校直接匹配的媒體報道。我們會先保留這個區塊，待後續家長心得與相關內容來源補齊。
         </div>
       ) : (
@@ -41,13 +41,13 @@ export function RelatedMediaSection({ articles }: RelatedMediaSectionProps) {
               href={article.url}
               target="_blank"
               rel="noreferrer"
-              className="block rounded-xl border border-slate-200 bg-white p-4 transition-all hover:-translate-y-0.5 hover:shadow-sm"
+              className="block rounded-card border border-surface-border bg-white p-4 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card"
             >
               <div className="mb-2 flex flex-wrap items-center gap-2">
-                <span className="rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-medium text-blue-700">
+                <span className="rounded-full bg-brand-50 px-2.5 py-0.5 text-xs font-medium text-brand-700">
                   {MEDIA_SOURCE_LABELS[article.source]}
                 </span>
-                <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-600">
+                <span className="rounded-full bg-status-pending-bg px-2.5 py-0.5 text-xs font-medium text-status-pending-fg">
                   {MEDIA_CONTENT_TYPE_LABELS[article.content_type]}
                 </span>
                 {formatDate(article.published_at) && (
