@@ -60,40 +60,43 @@ export default async function ActivityDetailPage({ params }: PageProps) {
 
       {/* Hero */}
       <div className="mb-8">
-        <div className="relative mb-6 aspect-[3/2] overflow-hidden rounded-2xl bg-slate-100">
-          <Image
-            src={sceneImage}
-            alt=""
-            fill
-            priority
-            sizes="(min-width: 768px) 768px, 100vw"
-            className="object-cover"
-          />
-          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/28 to-transparent" />
+        <div className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5">
+          <div className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100 sm:h-36 sm:w-36">
+            <Image
+              src={sceneImage}
+              alt=""
+              fill
+              priority
+              sizes="144px"
+              className="object-cover"
+            />
+          </div>
+          <div className="min-w-0 flex-1">
+            <div className="mb-4 flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
+                {CATEGORY_LABELS[activity.category]}
+              </span>
+              {fee.isFree && (
+                <span className="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
+                  免費
+                </span>
+              )}
+              {expired && (
+                <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-500">
+                  已結束
+                </span>
+              )}
+            </div>
+            <h1 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">
+              {activity.title}
+            </h1>
+            {activity.organizer && (
+              <p className="mt-2 text-sm text-slate-500">
+                主辦：{activity.organizer}
+              </p>
+            )}
+          </div>
         </div>
-        <div className="mb-4 flex flex-wrap items-center gap-2">
-          <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
-            {CATEGORY_LABELS[activity.category]}
-          </span>
-          {fee.isFree && (
-            <span className="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
-              免費
-            </span>
-          )}
-          {expired && (
-            <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-500">
-              已結束
-            </span>
-          )}
-        </div>
-        <h1 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">
-          {activity.title}
-        </h1>
-        {activity.organizer && (
-          <p className="mt-2 text-sm text-slate-500">
-            主辦：{activity.organizer}
-          </p>
-        )}
       </div>
 
       {/* 核心信息卡片 */}

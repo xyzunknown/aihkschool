@@ -38,14 +38,14 @@ export default function ProgrammesPage() {
               </p>
             </div>
           </div>
-          <div className="relative h-32 md:h-48 hidden md:flex items-end justify-center">
+          <div className="relative hidden h-24 items-end justify-center md:flex md:h-28">
             <Image
               src="/images/activity-scenes/pool-outdoor.webp"
               alt=""
-              width={600}
-              height={400}
+              width={420}
+              height={280}
               priority
-              sizes="320px"
+              sizes="280px"
               className="relative z-10 h-full w-full rounded-[20px] object-cover opacity-95 shadow-[0_16px_40px_rgba(30,82,56,0.10)]"
             />
           </div>

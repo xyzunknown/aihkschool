@@ -31,21 +31,20 @@ export function ProgrammeCard({ programme, priority = false }: ProgrammeCardProp
 
   return (
     <Link href={`/programmes/${programme.id}`} className="block h-full">
-      <div className="flex h-full flex-col overflow-hidden rounded-card border border-cream-200 bg-white shadow-soft transition hover:shadow-card">
-        <div className="relative aspect-[3/2] w-full overflow-hidden bg-cream-100">
+      <div className="flex h-full gap-4 overflow-hidden rounded-card border border-cream-200 bg-white p-4 shadow-soft transition hover:shadow-card">
+        <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-xl bg-cream-100 sm:h-28 sm:w-28">
           <Image
             src={sceneImage}
             alt=""
             fill
             priority={priority}
-            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+            sizes="112px"
             className="object-cover"
           />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-ink-900/24 to-transparent" />
         </div>
 
-        <div className="flex flex-1 flex-col p-5">
-        <div className="mb-3 flex items-center justify-between">
+        <div className="flex min-w-0 flex-1 flex-col">
+        <div className="mb-2 flex items-center justify-between gap-2">
           <span className="inline-flex items-center rounded-pill bg-leaf-50 px-2.5 py-1 text-[11px] font-semibold text-forest-700">
             {PROGRAMME_CATEGORY_LABELS[programme.category || "other"]}
           </span>
@@ -58,11 +57,11 @@ export function ProgrammeCard({ programme, priority = false }: ProgrammeCardProp
           </span>
         </div>
 
-        <h3 className="mb-2 text-base font-semibold leading-snug text-ink-900 line-clamp-2">
+        <h3 className="mb-1 text-base font-semibold leading-snug text-ink-900 line-clamp-2">
           {programme.name_zh || programme.name_en || "未知課程"}
         </h3>
 
-        <div className="mb-3 flex items-center gap-2">
+        <div className="mb-2 flex items-center gap-2">
           {fee.isFree ? (
             <span className="inline-flex items-center rounded-pill bg-leaf-100 px-2.5 py-1 text-[11px] font-bold text-forest-700">
               免費
@@ -77,7 +76,7 @@ export function ProgrammeCard({ programme, priority = false }: ProgrammeCardProp
           )}
         </div>
 
-        <div className="mt-auto space-y-1.5 text-sm text-ink-700">
+        <div className="mt-auto space-y-1 text-sm text-ink-700">
           {/* 報名時間 */}
           <div className="flex items-center gap-1.5">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 text-forest-500">
@@ -145,6 +144,6 @@ export function ProgrammeCard({ programme, priority = false }: ProgrammeCardProp
 
 export function ProgrammeCardSkeleton() {
   return (
-    <div className="h-60 animate-pulse rounded-card border border-cream-200 bg-cream-100" />
+    <div className="h-36 animate-pulse rounded-card border border-cream-200 bg-cream-100" />
   );
 }

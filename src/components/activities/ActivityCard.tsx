@@ -28,21 +28,20 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
 
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-[20px] border border-surface-border bg-white shadow-[0_8px_24px_rgba(30,82,56,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(30,82,56,0.1)]">
-      <Link href={`/activities/${activity.id}`} className="block">
-        <div className="relative aspect-[3/2] w-full overflow-hidden bg-cream-100">
+      <Link href={`/activities/${activity.id}`} className="flex flex-1 gap-4 p-4">
+        <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-xl bg-cream-100 sm:h-28 sm:w-28">
           <Image
             src={sceneImage}
             alt=""
             fill
             priority={priority}
-            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+            sizes="112px"
             className="object-cover"
           />
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-ink-900/24 to-transparent" />
         </div>
 
-        <div className="p-5">
-        <div className="mb-3 flex items-center justify-between">
+        <div className="min-w-0 flex-1">
+        <div className="mb-2 flex items-center justify-between gap-2">
           <span className="inline-flex items-center rounded-pill bg-leaf-50 px-2.5 py-1 text-[11px] font-semibold text-forest-700 ring-1 ring-forest-700/10">
             {CATEGORY_LABELS[activity.category]}
           </span>
@@ -62,13 +61,13 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
         </h3>
 
         {activity.organizer && (
-          <p className="mb-3 text-sm text-ink-500 line-clamp-1">
+          <p className="mb-2 text-sm text-ink-500 line-clamp-1">
             {activity.organizer}
             {districtLabel && ` · ${districtLabel}`}
           </p>
         )}
 
-        <div className="mb-3 flex items-center gap-2 flex-wrap">
+        <div className="mb-2 flex items-center gap-2 flex-wrap">
           <span className="text-sm font-medium text-ink-700">{dateRange}</span>
           {expired && (
             <span className="inline-flex items-center rounded-pill bg-cream-200 px-2 py-0.5 text-[11px] font-medium text-ink-500">
@@ -77,7 +76,7 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
           )}
         </div>
 
-        <div className="mt-auto space-y-2 text-sm text-ink-700">
+        <div className="mt-auto space-y-1 text-sm text-ink-700">
           {activity.schedule && <Row icon="time">{activity.schedule}</Row>}
           {activity.address && <Row icon="pin">{activity.address}</Row>}
           {ageRange && <Row icon="user">適合 {ageRange}</Row>}
@@ -90,7 +89,7 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
         <button
           type="button"
           onClick={() => window.open(activity.contact_url!, "_blank", "noopener,noreferrer")}
-          className="mx-5 mb-5 mt-auto inline-flex h-10 items-center justify-center gap-1.5 rounded-pill bg-forest-600 px-4 text-sm font-medium text-white transition hover:bg-forest-700 shadow-[0_10px_24px_rgba(30,82,56,0.12)]"
+          className="mx-4 mb-4 mt-auto inline-flex h-9 items-center justify-center gap-1.5 rounded-pill bg-forest-600 px-4 text-sm font-medium text-white transition hover:bg-forest-700 shadow-[0_10px_24px_rgba(30,82,56,0.12)]"
         >
           查看詳情 / 報名
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -137,6 +136,6 @@ function Row({ icon, children }: { icon: "time" | "pin" | "user" | "phone"; chil
 
 export function ActivityCardSkeleton() {
   return (
-    <div className="h-64 animate-pulse rounded-[20px] border border-surface-border bg-cream-100" />
+    <div className="h-36 animate-pulse rounded-[20px] border border-surface-border bg-cream-100" />
   );
 }

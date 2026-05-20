@@ -61,50 +61,54 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
 
       {/* 主卡片 */}
       <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
-        <div className="relative aspect-[3/2] bg-slate-100">
-          <Image
-            src={sceneImage}
-            alt=""
-            fill
-            priority
-            sizes="(min-width: 768px) 720px, 100vw"
-            className="object-cover"
-          />
-          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/28 to-transparent" />
-        </div>
         <div className="p-6 md:p-8">
-        {/* 類別 + 狀態 */}
-        <div className="mb-4 flex items-center gap-2">
-          <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
-            {PROGRAMME_CATEGORY_LABELS[programme.category || "other"]}
-          </span>
-          <span
-            className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ${
-              ENROLMENT_STATUS_COLORS[enrolmentStatus]
-            }`}
-          >
-            {ENROLMENT_STATUS_LABELS[enrolmentStatus]}
-          </span>
-        </div>
+          <div className="mb-6 flex gap-4">
+            <div className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100 sm:h-36 sm:w-36">
+              <Image
+                src={sceneImage}
+                alt=""
+                fill
+                priority
+                sizes="144px"
+                className="object-cover"
+              />
+            </div>
 
-        {/* 標題 */}
-        <h1 className="mb-4 text-2xl font-bold tracking-tight text-slate-950">
-          {programme.name_zh || programme.name_en || "未知課程"}
-        </h1>
-        {programme.name_en && programme.name_zh && (
-          <p className="mb-4 text-sm text-slate-500">{programme.name_en}</p>
-        )}
+            <div className="min-w-0 flex-1">
+              {/* 類別 + 狀態 */}
+              <div className="mb-3 flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
+                  {PROGRAMME_CATEGORY_LABELS[programme.category || "other"]}
+                </span>
+                <span
+                  className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ${
+                    ENROLMENT_STATUS_COLORS[enrolmentStatus]
+                  }`}
+                >
+                  {ENROLMENT_STATUS_LABELS[enrolmentStatus]}
+                </span>
+              </div>
 
-        {/* 倒計時 banner */}
-        {countdown && (
-          <div className="mb-6 rounded-xl bg-amber-50 border border-amber-100 px-4 py-3 flex items-center gap-2">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-amber-600">
-              <circle cx="12" cy="12" r="10" />
-              <polyline points="12 6 12 12 16 14" />
-            </svg>
-            <span className="text-sm font-medium text-amber-700">{countdown}</span>
+              {/* 標題 */}
+              <h1 className="mb-2 text-2xl font-bold tracking-tight text-slate-950">
+                {programme.name_zh || programme.name_en || "未知課程"}
+              </h1>
+              {programme.name_en && programme.name_zh && (
+                <p className="text-sm text-slate-500">{programme.name_en}</p>
+              )}
+            </div>
           </div>
-        )}
+
+          {/* 倒計時 banner */}
+          {countdown && (
+            <div className="mb-6 rounded-xl bg-amber-50 border border-amber-100 px-4 py-3 flex items-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-amber-600">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span className="text-sm font-medium text-amber-700">{countdown}</span>
+            </div>
+          )}
 
         {/* 信息格子 */}
         <div className="grid grid-cols-2 gap-4 mb-6">
