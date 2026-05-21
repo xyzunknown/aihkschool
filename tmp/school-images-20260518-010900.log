@@ -1,0 +1,5 @@
+
+> hkschoolplace@0.1.0 crawl:school-images
+> node scripts/crawl-school-images.mjs --concurrency 3 --generate-missing
+
+[school-images] schools=868 concurrency=3 generate_missing=true dry_run=false

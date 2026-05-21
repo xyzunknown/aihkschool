@@ -4,7 +4,12 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import type { ProgrammeCategory, ProgrammeWithStatus } from "@/lib/db/programmes";
 import { ProgrammeCardSkeleton, ProgrammeCourseCard } from "@/components/programmes/ProgrammeCard";
-import { ProgrammeFilterBar, type AgePresetKey } from "@/components/programmes/ProgrammeFilterBar";
+import {
+  ProgrammeFilterBar,
+  type AgePresetKey,
+  type MoreFilterKey,
+  type ProgrammeSortKey,
+} from "@/components/programmes/ProgrammeFilterBar";
 
 const PAGE_SIZE = 240;
 
@@ -87,6 +92,7 @@ function openAtTime(programme: ProgrammeWithStatus) {
 function groupProgrammes(programmes: ProgrammeWithStatus[]): ProgrammeCourseGroup[] {
   const map = new Map<string, ProgrammeWithStatus[]>();
   for (const programme of programmes) {
+    if (programme.lcsd_programme_status?.enrolment_status === "closed") continue;
     const key = programmeGroupKey(programme);
     map.set(key, [...(map.get(key) ?? []), programme]);
   }
@@ -94,6 +100,10 @@ function groupProgrammes(programmes: ProgrammeWithStatus[]): ProgrammeCourseGrou
   return Array.from(map.entries())
     .map(([key, items]) => {
       const programmes = [...items].sort((a, b) => {
+        const aStatus = a.lcsd_programme_status?.enrolment_status || "pre_open";
+        const bStatus = b.lcsd_programme_status?.enrolment_status || "pre_open";
+        const statusDiff = (aStatus === "open" ? 0 : 1) - (bStatus === "open" ? 0 : 1);
+        if (statusDiff !== 0) return statusDiff;
         const openDiff = openAtTime(a) - openAtTime(b);
         if (openDiff !== 0) return openDiff;
         return (a.venue || "").localeCompare(b.venue || "", "zh-Hant-HK");
@@ -113,6 +123,63 @@ function groupProgrammes(programmes: ProgrammeWithStatus[]): ProgrammeCourseGrou
     });
 }
 
+function priceValue(programme: ProgrammeWithStatus) {
+  return programme.fee_hkd ?? Number.POSITIVE_INFINITY;
+}
+
+function latestValue(programme: ProgrammeWithStatus) {
+  const time = new Date(programme.created_at).getTime();
+  return Number.isFinite(time) ? time : 0;
+}
+
+function closingTime(programme: ProgrammeWithStatus) {
+  if (!programme.enrolment_close_at) return Number.POSITIVE_INFINITY;
+  const time = new Date(programme.enrolment_close_at).getTime();
+  return Number.isFinite(time) ? time : Number.POSITIVE_INFINITY;
+}
+
+function applySort(groups: ProgrammeCourseGroup[], sort: ProgrammeSortKey) {
+  const nextGroups = [...groups];
+  if (sort === "price_asc") {
+    return nextGroups.sort((a, b) => priceValue(a.representative) - priceValue(b.representative));
+  }
+  if (sort === "price_desc") {
+    return nextGroups.sort((a, b) => priceValue(b.representative) - priceValue(a.representative));
+  }
+  if (sort === "latest") {
+    return nextGroups.sort((a, b) => latestValue(b.representative) - latestValue(a.representative));
+  }
+  return nextGroups.sort((a, b) => closingTime(a.representative) - closingTime(b.representative));
+}
+
+function includesText(programme: ProgrammeWithStatus, terms: string[]) {
+  const text = `${programme.name_zh ?? ""} ${programme.name_en ?? ""} ${programme.venue ?? ""}`.toLocaleLowerCase("zh-Hant-HK");
+  return terms.some((term) => text.includes(term.toLocaleLowerCase("zh-Hant-HK")));
+}
+
+function matchesMoreFilter(programme: ProgrammeWithStatus, filter: MoreFilterKey) {
+  const status = programme.lcsd_programme_status;
+  if (filter === "available") return status?.enrolment_status === "open";
+  if (filter === "tight") return typeof status?.seats_available === "number" && status.seats_available > 0 && status.seats_available <= 5;
+  if (filter === "closing") {
+    const closeAt = programme.enrolment_close_at ? new Date(programme.enrolment_close_at).getTime() : Number.POSITIVE_INFINITY;
+    const now = Date.now();
+    return Number.isFinite(closeAt) && closeAt >= now && closeAt - now <= 7 * 24 * 60 * 60 * 1000;
+  }
+  if (filter === "single") return programme.sessions_count === 1;
+  if (filter === "multi") return (programme.sessions_count ?? 0) > 1;
+  if (filter === "trial") return includesText(programme, ["體驗", "試堂", "trial"]);
+  if (filter === "mtr") return includesText(programme, ["港鐵", "mtr", "站"]);
+  if (filter === "indoor") return includesText(programme, ["室內", "indoor", "體育館", "會堂"]);
+  if (filter === "outdoor") return includesText(programme, ["戶外", "outdoor", "公園", "遊樂場"]);
+  return true;
+}
+
+function applyMoreFilters(programmes: ProgrammeWithStatus[], filters: MoreFilterKey[]) {
+  if (filters.length === 0) return programmes;
+  return programmes.filter((programme) => filters.every((filter) => matchesMoreFilter(programme, filter)));
+}
+
 export function ProgrammesClient() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -120,13 +187,18 @@ export function ProgrammesClient() {
   const initialFilters = useMemo(() => {
     const cat = searchParams?.get("category");
     const dist = searchParams?.get("district");
+    const districtsRaw = searchParams?.get("districts");
     const ageRaw = searchParams?.get("age") as AgePresetKey | null;
     const age: AgePresetKey =
       ageRaw && VALID_PRESETS.has(ageRaw) ? ageRaw : "preschool";
     const page = parseInt(searchParams?.get("page") ?? "1", 10);
     return {
-      category: (cat || null) as ProgrammeCategory | null,
-      district: dist || null,
+      category: (cat || "swimming") as ProgrammeCategory | null,
+      selectedDistricts: districtsRaw
+        ? districtsRaw.split(",").filter(Boolean)
+        : dist
+          ? [dist]
+          : [],
       agePreset: age,
       page: isNaN(page) ? 1 : page,
     };
@@ -134,8 +206,10 @@ export function ProgrammesClient() {
   }, []);
 
   const [category, setCategory] = useState<ProgrammeCategory | null>(initialFilters.category);
-  const [district, setDistrict] = useState<string | null>(initialFilters.district);
+  const [selectedDistricts, setSelectedDistricts] = useState<string[]>(initialFilters.selectedDistricts);
   const [agePreset, setAgePreset] = useState<AgePresetKey>(initialFilters.agePreset);
+  const [sort, setSort] = useState<ProgrammeSortKey>("deadline");
+  const [moreFilters, setMoreFilters] = useState<MoreFilterKey[]>([]);
   const [page, setPage] = useState<number>(initialFilters.page);
   const [programmes, setProgrammes] = useState<ProgrammeWithStatus[]>([]);
   const [total, setTotal] = useState(0);
@@ -145,13 +219,13 @@ export function ProgrammesClient() {
   // Sync filters → URL
   useEffect(() => {
     const params = new URLSearchParams();
-    if (category) params.set("category", category);
-    if (district) params.set("district", district);
+    if (category && category !== "swimming") params.set("category", category);
+    if (selectedDistricts.length > 0) params.set("districts", selectedDistricts.join(","));
     if (agePreset !== "preschool") params.set("age", agePreset);
     if (page > 1) params.set("page", String(page));
     const qs = params.toString();
     router.replace(qs ? `/programmes?${qs}` : "/programmes", { scroll: false });
-  }, [category, district, agePreset, page, router]);
+  }, [category, selectedDistricts, agePreset, page, router]);
 
   // Fetch programmes
   const fetchData = useCallback(async () => {
@@ -165,7 +239,7 @@ export function ProgrammesClient() {
         range.forceCategory ?? category;
       const params = new URLSearchParams();
       if (effectiveCategory) params.set("category", effectiveCategory);
-      if (district) params.set("district", district);
+      if (selectedDistricts.length > 0) params.set("districts", selectedDistricts.join(","));
       if (range.ageMin !== null) params.set("ageMin", String(range.ageMin));
       if (range.ageMax !== null) params.set("ageMax", String(range.ageMax));
       if (agePreset === "infant" || agePreset === "preschool" || agePreset === "primary") {
@@ -196,7 +270,7 @@ export function ProgrammesClient() {
       }
       setIsRefreshing(false);
     }
-  }, [category, district, agePreset, page, isInitialLoad]);
+  }, [category, selectedDistricts, agePreset, page, isInitialLoad]);
 
   useEffect(() => {
     void fetchData();
@@ -210,19 +284,25 @@ export function ProgrammesClient() {
   };
 
   const handleReset = () => {
-    setCategory(null);
-    setDistrict(null);
+    setCategory("swimming");
+    setSelectedDistricts([]);
     setAgePreset("preschool");
+    setSort("deadline");
+    setMoreFilters([]);
     setPage(1);
   };
 
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
-  const courseGroups = useMemo(() => groupProgrammes(programmes), [programmes]);
+  const filteredProgrammes = useMemo(() => applyMoreFilters(programmes, moreFilters), [moreFilters, programmes]);
+  const courseGroups = useMemo(
+    () => applySort(groupProgrammes(filteredProgrammes), sort),
+    [filteredProgrammes, sort],
+  );
   const [expandedGroups, setExpandedGroups] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     setExpandedGroups(new Set());
-  }, [category, district, agePreset, page]);
+  }, [category, selectedDistricts, agePreset, moreFilters, sort, page]);
 
   const toggleGroup = useCallback((key: string) => {
     setExpandedGroups((prev) => {
@@ -238,11 +318,16 @@ export function ProgrammesClient() {
       <div className="mb-6">
         <ProgrammeFilterBar
           category={category}
-          district={district}
+          selectedDistricts={selectedDistricts}
           agePreset={agePreset}
+          sort={sort}
+          moreFilters={moreFilters}
+          courseCount={courseGroups.length}
           onChangeCategory={handleFilterChange(setCategory)}
-          onChangeDistrict={handleFilterChange(setDistrict)}
+          onChangeDistricts={handleFilterChange(setSelectedDistricts)}
           onChangeAgePreset={handleFilterChange(setAgePreset)}
+          onChangeSort={setSort}
+          onChangeMoreFilters={handleFilterChange(setMoreFilters)}
           onReset={handleReset}
         />
       </div>
@@ -271,9 +356,6 @@ export function ProgrammesClient() {
         </div>
       ) : (
         <>
-          <p className="mb-4 text-sm text-slate-500">
-            共 {total} 個場次，整理為 {courseGroups.length} 個課程
-          </p>
           <div className="grid grid-cols-1 items-start gap-4 lg:grid-cols-2">
             {courseGroups.map((group) => (
               <ProgrammeCourseCard

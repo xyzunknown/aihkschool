@@ -4,6 +4,7 @@ import {
   fetchProgrammes,
   type ProgrammeCategory,
 } from "@/lib/db/programmes";
+import type { District } from "@/types/database";
 
 export const dynamic = "force-dynamic";
 
@@ -19,6 +20,7 @@ const querySchema = z.object({
       "tai_po", "tsuen_wan", "tuen_mun", "yuen_long",
     ])
     .optional(),
+  districts: z.string().max(500).optional(),
   search: z.string().max(100).optional(),
   // Up to 199 to match LCSD's "all ages" sentinel; lets adult / senior /
   // 親子 (0-17) presets surface in the full /programmes listing.
@@ -50,11 +52,16 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const { category, district, search, ageMin, ageMax, excludeAllAges, page, limit } = parsed.data;
+    const { category, district, districts, search, ageMin, ageMax, excludeAllAges, page, limit } = parsed.data;
+    const districtList = districts
+      ?.split(",")
+      .map((item) => item.trim())
+      .filter(Boolean) as District[] | undefined;
 
     const result = await fetchProgrammes({
       category: category as ProgrammeCategory | undefined,
       district,
+      districts: district ? undefined : districtList,
       search,
       ageMin,
       ageMax,

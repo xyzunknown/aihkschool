@@ -1,5 +1,6 @@
 "use client";
 
+import { SchoolActionIcon } from "@/components/ui/SchoolActionIcon";
 import type { School } from "@/types/database";
 
 interface DetailBottomCTAProps {
@@ -25,12 +26,12 @@ export function DetailBottomCTA({ school, isFavorited, onToggleFavorite, isInCom
   };
 
   const buttonBase =
-    "inline-flex flex-1 items-center justify-center gap-1.5 rounded-xl px-5 py-2.5 text-sm font-medium transition-transform hover:scale-[1.02]";
+    "inline-flex flex-1 items-center justify-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-semibold transition-transform hover:scale-[1.02]";
 
   const primaryButtonClass =
     "bg-brand-600 text-white shadow-soft hover:bg-brand-700";
   const secondaryButtonClass =
-    "bg-white text-brand-700 border border-brand-200 hover:bg-brand-50";
+    "bg-surface-soft text-brand-700 border border-brand-200 hover:bg-brand-50";
 
   const getPrimaryAction = () => {
     if (school.website) {
@@ -84,10 +85,7 @@ export function DetailBottomCTA({ school, isFavorited, onToggleFavorite, isInCom
             onClick={onToggleCompare}
             className={`${buttonBase} flex-none ${isInCompare ? primaryButtonClass : secondaryButtonClass}`}
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <rect x="3" y="3" width="8" height="18" rx="1.5" fill={isInCompare ? "currentColor" : "none"} />
-              <rect x="13" y="3" width="8" height="18" rx="1.5" fill={isInCompare ? "currentColor" : "none"} />
-            </svg>
+            <SchoolActionIcon kind="compare" active={isInCompare} size="sm" />
             {isInCompare ? "已加入對比" : "加入對比"}
           </button>
         )}
@@ -97,16 +95,7 @@ export function DetailBottomCTA({ school, isFavorited, onToggleFavorite, isInCom
           onClick={onToggleFavorite}
           className={`${buttonBase} flex-none ${isFavorited ? primaryButtonClass : secondaryButtonClass}`}
         >
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill={isFavorited ? "currentColor" : "none"}
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-          </svg>
+          <SchoolActionIcon kind="favorite" active={isFavorited} size="sm" />
           {isFavorited ? "已收藏" : "收藏"}
         </button>
       </div>

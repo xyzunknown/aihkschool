@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { ProgrammeWithStatus } from "@/lib/db/programmes";
 import {
@@ -12,16 +11,14 @@ import {
   formatAgeRange,
   getEnrolmentCountdown,
 } from "@/lib/programmes/labels";
-import { getProgrammeSceneImage } from "@/lib/media/activity-scenes";
 import { SubscribeButton } from "@/components/programmes/SubscribeButton";
 import { CourseTrackAllButton } from "@/components/programmes/CourseTrackAllButton";
 
 interface ProgrammeCardProps {
   programme: ProgrammeWithStatus;
-  priority?: boolean;
 }
 
-export function ProgrammeCard({ programme, priority = false }: ProgrammeCardProps) {
+export function ProgrammeCard({ programme }: ProgrammeCardProps) {
   const fee = formatProgrammeFee(programme.fee_hkd);
   const dateRange = formatProgrammeDateRange(programme.start_date, programme.end_date);
   const ageRange = formatAgeRange(programme.age_min, programme.age_max);
@@ -29,7 +26,6 @@ export function ProgrammeCard({ programme, priority = false }: ProgrammeCardProp
   const countdown = getEnrolmentCountdown(programme.enrolment_open_at);
   const status = programme.lcsd_programme_status;
   const enrolmentStatus = status?.enrolment_status || "pre_open";
-  const sceneImage = getProgrammeSceneImage(programme);
   const detailHref = `/programmes/${programme.id}`;
   const primaryActionLabel =
     enrolmentStatus === "open"
@@ -40,19 +36,8 @@ export function ProgrammeCard({ programme, priority = false }: ProgrammeCardProp
 
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-card border border-cream-200 bg-white shadow-soft transition hover:shadow-card">
-      <Link href={detailHref} className="flex flex-1 gap-4 p-4">
-          <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-xl bg-cream-100 sm:h-28 sm:w-28">
-            <Image
-              src={sceneImage}
-              alt=""
-              fill
-              priority={priority}
-              sizes="112px"
-              className="object-cover"
-            />
-          </div>
-
-          <div className="flex min-w-0 flex-1 flex-col">
+      <Link href={detailHref} className="flex flex-1 p-4">
+        <div className="flex min-w-0 flex-1 flex-col">
           <div className="mb-2 flex items-start justify-between gap-2">
             <span className="inline-flex items-center rounded-pill bg-leaf-50 px-2.5 py-1 text-[11px] font-semibold text-forest-700">
               {PROGRAMME_CATEGORY_LABELS[programme.category || "other"]}
@@ -140,8 +125,8 @@ export function ProgrammeCard({ programme, priority = false }: ProgrammeCardProp
               </div>
             )}
           </div>
-          </div>
-        </Link>
+        </div>
+      </Link>
 
       <div className="mt-auto flex items-center gap-2 border-t border-cream-100 px-4 py-3">
         <Link
@@ -218,7 +203,9 @@ const STATUS_ORDER: Record<string, number> = {
 };
 
 function sortSessions(programmes: ProgrammeWithStatus[]) {
-  return [...programmes].sort((a, b) => {
+  return programmes
+    .filter((programme) => programme.lcsd_programme_status?.enrolment_status !== "closed")
+    .sort((a, b) => {
     const statusDiff =
       (STATUS_ORDER[a.lcsd_programme_status?.enrolment_status || "pre_open"] ?? 1) -
       (STATUS_ORDER[b.lcsd_programme_status?.enrolment_status || "pre_open"] ?? 1);
@@ -227,7 +214,7 @@ function sortSessions(programmes: ProgrammeWithStatus[]) {
     const bTime = b.enrolment_open_at ? new Date(b.enrolment_open_at).getTime() : Number.POSITIVE_INFINITY;
     if (aTime !== bTime) return aTime - bTime;
     return (a.venue || "").localeCompare(b.venue || "", "zh-Hant-HK");
-  });
+    });
 }
 
 function uniqueVenueCount(programmes: ProgrammeWithStatus[]) {
@@ -246,6 +233,7 @@ function districtSummary(programmes: ProgrammeWithStatus[]) {
 export function ProgrammeCourseCard({ group, expanded, onToggle }: ProgrammeCourseCardProps) {
   const representative = group.representative;
   const programmes = sortSessions(group.programmes);
+  if (programmes.length === 0) return null;
   const category = representative.category || "other";
   const accent = CATEGORY_ACCENTS[category] || CATEGORY_ACCENTS.other;
   const fee = formatProgrammeFee(representative.fee_hkd);

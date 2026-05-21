@@ -213,8 +213,8 @@ export async function fetchActivities(
   const oneMonthAgo = getOneMonthAgoDate();
   const today = getTodayDate();
 
-  // Default hides ended activities. The toggle shows recent ended activities too,
-  // while very old rows still stay out of the public listing.
+  // Default hides ended activities. If explicitly requested, the listing can
+  // include recent ended activities for audit-style browsing.
   query = includeExpired
     ? query.or(`end_date.is.null,end_date.gte.${oneMonthAgo}`)
     : query.or(`end_date.is.null,end_date.gte.${today}`);
@@ -362,9 +362,9 @@ export async function fetchRelatedActivities(
 
 export async function fetchFeaturedActivities(limit = 6): Promise<Activity[]> {
   const supabase = await createClient();
-  const oneMonthAgo = getOneMonthAgoDate();
+  const today = getTodayDate();
 
-  // 首頁預覽：最近即將開始的活動
+  // 首頁預覽：只展示未結束活動，保持與活動列表一致。
   const primaryFeatured = await supabase
     .from("activities")
     .select(LIST_SELECT)
@@ -374,7 +374,7 @@ export async function fetchFeaturedActivities(limit = 6): Promise<Activity[]> {
     .neq("admin_status" as never, "low_quality" as never)
     .not("source_url", "is", null)
     .neq("source_url", "")
-    .or(`end_date.is.null,end_date.gte.${oneMonthAgo}`)
+    .or(`end_date.is.null,end_date.gte.${today}`)
     .order("start_date", { ascending: true, nullsFirst: false })
     .limit(limit);
   let data = primaryFeatured.data as unknown[] | null;
@@ -387,7 +387,7 @@ export async function fetchFeaturedActivities(limit = 6): Promise<Activity[]> {
       .eq("is_active", true)
       .not("source_url", "is", null)
       .neq("source_url", "")
-      .or(`end_date.is.null,end_date.gte.${oneMonthAgo}`)
+      .or(`end_date.is.null,end_date.gte.${today}`)
       .order("start_date", { ascending: true, nullsFirst: false })
       .limit(limit);
     data = retry.data;

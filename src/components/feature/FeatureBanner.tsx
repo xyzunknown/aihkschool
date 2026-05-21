@@ -18,7 +18,7 @@ interface FeatureBannerProps {
   description: string;
   imageSrc: string;
   imageAlt: string;
-  stats: FeatureBannerStat[];
+  stats?: FeatureBannerStat[];
   actions: FeatureBannerAction[];
   imagePosition?: string;
 }
@@ -33,6 +33,8 @@ export function FeatureBanner({
   actions,
   imagePosition = "72% center",
 }: FeatureBannerProps) {
+  const hasStats = Boolean(stats?.length);
+
   return (
     <section className="relative overflow-hidden border-b border-cream-200 bg-cream-50">
       <div className="absolute inset-0">
@@ -57,23 +59,25 @@ export function FeatureBanner({
           <h1 className="max-w-[12ch] text-[24px] font-bold leading-[1.1] text-ink-900 md:max-w-none md:text-[48px]">
             {title}
           </h1>
-          <p className="mt-2 max-w-[270px] text-[13px] font-medium leading-5 text-ink-700 md:mt-4 md:max-w-[560px] md:text-lg md:leading-7">
+          <p className="mt-2 max-w-[290px] text-[13px] font-medium leading-5 text-ink-700 md:mt-4 md:max-w-[620px] md:text-lg md:leading-7">
             {description}
           </p>
 
-          <div className="mt-6 hidden flex-wrap gap-2.5 md:flex">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-[14px] border border-white/80 bg-white/84 px-3.5 py-2 shadow-soft backdrop-blur"
-              >
-                <p className="text-[11px] font-semibold text-ink-500">{stat.label}</p>
-                <p className="mt-0.5 text-sm font-bold text-ink-900">{stat.value}</p>
-              </div>
-            ))}
-          </div>
+          {hasStats && (
+            <div className="mt-6 hidden flex-wrap gap-2.5 md:flex">
+              {(stats ?? []).map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-[14px] border border-white/80 bg-white/84 px-3.5 py-2 shadow-soft backdrop-blur"
+                >
+                  <p className="text-[11px] font-semibold text-ink-500">{stat.label}</p>
+                  <p className="mt-0.5 text-sm font-bold text-ink-900">{stat.value}</p>
+                </div>
+              ))}
+            </div>
+          )}
 
-          <div className="mt-3 hidden flex-wrap items-center gap-2.5 md:mt-6 md:flex md:gap-3">
+          <div className={`mt-3 hidden flex-wrap items-center gap-2.5 md:flex md:gap-3 ${hasStats ? "md:mt-6" : "md:mt-7"}`}>
             {actions.map((action) => (
               <Link
                 key={action.label}

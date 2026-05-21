@@ -26,11 +26,6 @@ export default function ActivitiesPage() {
         imageSrc="/images/feature-banners/activities-discovery.webp"
         imageAlt="課外活動探索插畫"
         imagePosition="73% center"
-        stats={[
-          { label: "活動類型", value: "親子 · 展覽 · 體驗" },
-          { label: "搜尋方式", value: "地區與費用" },
-          { label: "資料原則", value: "可核對來源" },
-        ]}
         actions={[
           { label: "瀏覽活動", href: "#activity-list" },
           { label: "只看免費", href: "/activities?free=true", variant: "secondary" },

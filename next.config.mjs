@@ -58,6 +58,8 @@ class StaticBuildDirectoryPlugin {
 }
 
 /** @type {import('next').NextConfig} */
+const useStablePagesManifest = process.env.FORCE_STABLE_PAGES_MANIFEST === "1";
+
 const nextConfig = {
   generateBuildId: async () => stableBuildId,
   images: {
@@ -74,7 +76,7 @@ const nextConfig = {
     instrumentationHook: true,
   },
   webpack(config, { isServer, nextRuntime }) {
-    if (isServer && !nextRuntime) {
+    if (useStablePagesManifest && isServer && !nextRuntime) {
       config.plugins.push(new StablePagesManifestPlugin());
     }
     if (!isServer) {

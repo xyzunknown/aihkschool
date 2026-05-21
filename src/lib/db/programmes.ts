@@ -65,6 +65,7 @@ type ProgrammeRow = Programme & {
 export interface FetchProgrammesParams {
   category?: ProgrammeCategory;
   district?: District;
+  districts?: District[];
   search?: string;
   ageMin?: number;
   ageMax?: number;
@@ -83,6 +84,10 @@ export interface FetchProgrammesResult {
   count: number;
   page: number;
   limit: number;
+}
+
+function isVisibleProgramme(programme: ProgrammeWithStatus) {
+  return programme.lcsd_programme_status?.enrolment_status !== "closed";
 }
 
 // ============================================================
@@ -112,6 +117,7 @@ export async function fetchProgrammes(
   const {
     category,
     district,
+    districts,
     search,
     ageMin,
     ageMax,
@@ -144,6 +150,8 @@ export async function fetchProgrammes(
   }
   if (district) {
     query = query.eq("district", district);
+  } else if (districts && districts.length > 0) {
+    query = query.in("district", districts);
   }
   // Range overlap: programme matches when its [age_min, age_max] interval
   // overlaps with the filter [ageMin, ageMax]. The previous logic only
@@ -161,14 +169,12 @@ export async function fetchProgrammes(
     // Anything above 50 in age_max is effectively unbounded.
     query = query.lt("age_max", 50);
   }
-  // Auto-hide programmes whose enrolment window closed more than 30 days ago.
-  // Keep: future/recent open_at, recent close_at, or no dates at all.
+  // Hide rows once enrolment has closed. Grouped cards and homepage previews
+  // should never surface already-cutoff sessions.
   {
-    const cutoff = new Date();
-    cutoff.setDate(cutoff.getDate() - 30);
-    const cutoffISO = cutoff.toISOString();
+    const nowISO = new Date().toISOString();
     query = query.or(
-      `enrolment_close_at.gte.${cutoffISO},enrolment_open_at.gte.${cutoffISO},enrolment_open_at.is.null`,
+      `enrolment_close_at.gt.${nowISO},enrolment_close_at.is.null`,
     );
   }
   if (search && search.trim()) {
@@ -190,6 +196,8 @@ export async function fetchProgrammes(
     }
     if (district) {
       query = query.eq("district", district);
+    } else if (districts && districts.length > 0) {
+      query = query.in("district", districts);
     }
     if (typeof ageMin === "number" && Number.isFinite(ageMin)) {
       query = query.gte("age_max", ageMin);
@@ -200,10 +208,9 @@ export async function fetchProgrammes(
     if (excludeAllAges) {
       query = query.lt("age_max", 50);
     }
-    const cutoff = new Date();
-    cutoff.setDate(cutoff.getDate() - 30);
+    const nowISO = new Date().toISOString();
     query = query.or(
-      `enrolment_close_at.gte.${cutoff.toISOString()},enrolment_open_at.gte.${cutoff.toISOString()},enrolment_open_at.is.null`,
+      `enrolment_close_at.gt.${nowISO},enrolment_close_at.is.null`,
     );
     if (search && search.trim()) {
       const safe = search.trim().replace(/[,()]/g, "");
@@ -244,11 +251,11 @@ export async function fetchProgrammes(
             last_checked_at: null,
           },
     } as ProgrammeWithStatus;
-  });
+  }).filter(isVisibleProgramme);
 
   return {
     data: mapped,
-    count: count ?? 0,
+    count: Math.min(count ?? mapped.length, mapped.length),
     page,
     limit: safeLimit,
   };
@@ -336,6 +343,7 @@ export async function fetchUpcomingProgrammes(limit = 6): Promise<ProgrammeWithS
     .contains("publish_channels" as never, ["web"] as never)
     .neq("admin_status" as never, "hidden" as never)
     .gte("enrolment_open_at", now)
+    .or(`enrolment_close_at.gt.${now},enrolment_close_at.is.null`)
     .lte("age_min", 6)
     .or("age_max.lte.12,category.eq.parent_child")
     .order("enrolment_open_at", { ascending: true })
@@ -349,6 +357,7 @@ export async function fetchUpcomingProgrammes(limit = 6): Promise<ProgrammeWithS
       .select(LEGACY_LIST_SELECT)
       .eq("is_active", true)
       .gte("enrolment_open_at", now)
+      .or(`enrolment_close_at.gt.${now},enrolment_close_at.is.null`)
       .lte("age_min", 6)
       .or("age_max.lte.12,category.eq.parent_child")
       .order("enrolment_open_at", { ascending: true })
@@ -378,7 +387,7 @@ export async function fetchUpcomingProgrammes(limit = 6): Promise<ProgrammeWithS
             last_checked_at: null,
           },
     } as ProgrammeWithStatus;
-  });
+  }).filter(isVisibleProgramme);
 }
 
 /**

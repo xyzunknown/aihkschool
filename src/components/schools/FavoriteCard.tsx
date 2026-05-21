@@ -1,5 +1,6 @@
 "use client";
 
+import { SchoolActionIcon } from "@/components/ui/SchoolActionIcon";
 import { DISTRICT_LABELS } from "@/lib/utils";
 
 interface FavoriteCardProps {
@@ -37,17 +38,17 @@ export function FavoriteCard({
       <div className="flex items-center gap-3 mt-4 pt-3 border-t border-slate-200">
         <button
           onClick={onToggleReminder}
-          className={`text-xs font-medium flex items-center gap-1 transition-colors duration-200 ${
-            reminderEnabled ? "text-brand-700" : "text-ink-500"
+          className={`inline-flex h-8 items-center gap-1.5 rounded-full border px-3 text-xs font-semibold transition-all duration-200 ${
+            reminderEnabled
+              ? "border-brand-200 bg-brand-600 text-white shadow-soft"
+              : "border-surface-border bg-surface-soft text-ink-500 hover:border-brand-200 hover:bg-brand-50 hover:text-brand-700"
           }`}
         >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-          </svg>
+          <SchoolActionIcon kind="reminder" active={reminderEnabled} size="sm" />
           {reminderEnabled ? "提醒已開啟" : "開啟提醒"}
         </button>
-        <button onClick={onUnfavorite} className="text-xs text-ink-500 hover:text-status-full-fg transition-colors duration-200">
+        <button onClick={onUnfavorite} className="inline-flex h-8 items-center gap-1.5 rounded-full border border-surface-border bg-surface-soft px-3 text-xs font-semibold text-ink-500 transition-colors duration-200 hover:border-status-full-fg/20 hover:bg-status-full-bg hover:text-status-full-fg">
+          <SchoolActionIcon kind="favorite" size="sm" />
           取消收藏
         </button>
       </div>

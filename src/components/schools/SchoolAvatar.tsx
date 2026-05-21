@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { getAvatarColor } from "@/lib/utils";
 import { hasLocalSchoolLogoFile } from "@/lib/schools/schoolLogoSources";
 
@@ -14,33 +14,21 @@ interface SchoolAvatarProps {
   shape?: "circle" | "rounded";
 }
 
-function isLowLegibilityLogo(schoolName: string, schoolCode?: string | null): boolean {
-  const lowLegibilityNames = [
-    "香港中文大學校友會聯會",
-    "圓玄幼稚園",
-    "遵道幼稚園",
-  ];
-  const lowLegibilityCodes = new Set(["560740", "597384", "600377", "158887"]);
-
-  return (
-    lowLegibilityNames.some((name) => schoolName.includes(name)) ||
-    Boolean(schoolCode && lowLegibilityCodes.has(schoolCode))
-  );
-}
-
 function resolveLogoCandidates(
-  schoolName: string,
   logoUrl?: string | null,
   schoolCode?: string | null,
 ): string[] {
-  if (isLowLegibilityLogo(schoolName, schoolCode)) return [];
-
   const match = logoUrl?.match(/^\/logos\/(\d{6}\.(?:png|svg|webp))$/);
-  const safeLocalLogo = match && schoolCode && match[1].startsWith(schoolCode) && hasLocalSchoolLogoFile(match[1])
+  const safeLocalLogo = match && (!schoolCode || match[1].startsWith(schoolCode)) && hasLocalSchoolLogoFile(match[1])
     ? logoUrl
     : null;
+  const codeCandidates = schoolCode
+    ? [`${schoolCode}.svg`, `${schoolCode}.png`, `${schoolCode}.webp`]
+        .filter(hasLocalSchoolLogoFile)
+        .map((fileName) => `/logos/${fileName}`)
+    : [];
 
-  return safeLocalLogo ? [safeLocalLogo] : [];
+  return Array.from(new Set([safeLocalLogo, ...codeCandidates].filter((value): value is string => Boolean(value))));
 }
 
 export function SchoolAvatar({
@@ -51,7 +39,7 @@ export function SchoolAvatar({
   size = "md",
   shape = "circle",
 }: SchoolAvatarProps) {
-  const candidates = resolveLogoCandidates(schoolName, logoUrl, schoolCode);
+  const candidates = useMemo(() => resolveLogoCandidates(logoUrl, schoolCode), [logoUrl, schoolCode]);
   const [logoIndex, setLogoIndex] = useState(0);
   const resolved = candidates[logoIndex] ?? null;
   const [showLogo, setShowLogo] = useState(candidates.length > 0);
@@ -62,8 +50,13 @@ export function SchoolAvatar({
   const textSize = size === "lg" ? "text-2xl" : size === "sm" ? "text-lg" : "text-xl";
   const shapeClass = shape === "rounded" ? "rounded-[12px]" : "rounded-full";
 
+  useEffect(() => {
+    setLogoIndex(0);
+    setShowLogo(candidates.length > 0);
+  }, [candidates]);
+
   return (
-    <div className={`${sizeClass} ${shapeClass} shrink-0 overflow-hidden border border-slate-200 bg-white shadow-[0_1px_2px_rgba(15,23,42,0.04)]`}>
+    <div className={`${sizeClass} ${shapeClass} shrink-0 overflow-hidden border border-slate-200 bg-white shadow-[0_1px_3px_rgba(15,23,42,0.08)]`}>
       {showLogo && resolved ? (
         <div className="relative h-full w-full bg-white">
           <Image
@@ -84,9 +77,11 @@ export function SchoolAvatar({
         </div>
       ) : (
         <div
-          className="flex h-full w-full items-center justify-center bg-white"
+          className="flex h-full w-full items-center justify-center bg-slate-50"
         >
-          <span className={`${textSize} font-semibold ${colors.text}`}>{firstChar}</span>
+          <span className={`flex h-[74%] w-[74%] items-center justify-center rounded-full bg-slate-100 ${textSize} font-semibold ${colors.text}`}>
+            {firstChar}
+          </span>
         </div>
       )}
     </div>

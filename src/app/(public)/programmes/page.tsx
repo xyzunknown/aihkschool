@@ -22,15 +22,11 @@ export default function ProgrammesPage() {
       <FeatureBanner
         eyebrow="康文署 SmartPLAY"
         title="SmartPLAY 開報前追蹤"
-        description="開報前掌握課程動態，收藏心水班別，提前做好報名選擇。"
+        description="按報名時間整理仍可追蹤的課程，已截止場次會自動收起。"
         imageSrc="/images/feature-banners/smartplay-tracking.webp"
         imageAlt="SmartPLAY 開報提醒插畫"
         imagePosition="74% center"
-        stats={[
-          { label: "預設年齡", value: "幼兒 3-5" },
-          { label: "提醒重點", value: "開報時間" },
-          { label: "追蹤狀態", value: "已追蹤 0 個" },
-        ]}
+        stats={[]}
         actions={[
           { label: "瀏覽課程", href: "#programme-list" },
           { label: "查看提醒", href: "/account/alerts", variant: "secondary" },

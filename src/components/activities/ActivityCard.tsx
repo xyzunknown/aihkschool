@@ -15,6 +15,7 @@ import {
   getActivityPlaceholder,
   hasRealActivityImage,
 } from "@/lib/media/activity-scenes";
+import { getActivityRegistrationHref } from "@/lib/activities/links";
 
 interface ActivityCardProps {
   activity: Activity;
@@ -31,7 +32,7 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
   const hasImage = hasRealActivityImage(activity);
   const placeholder = getActivityPlaceholder(activity);
   const detailHref = `/activities/${activity.id}`;
-  const registrationHref = activity.contact_url || activity.source_url;
+  const registrationHref = getActivityRegistrationHref(activity);
 
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-[20px] border border-surface-border bg-white shadow-[0_8px_24px_rgba(30,82,56,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(30,82,56,0.1)]">

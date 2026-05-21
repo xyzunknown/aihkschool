@@ -1,0 +1,1111 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HKSchoolPlace 設計評審看板</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23157a43'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-size='24' font-family='Arial' fill='white'%3EHK%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #f6faf6;
+      --paper: #fffdf8;
+      --surface: #ffffff;
+      --surface-2: #eef7f0;
+      --ink: #17261d;
+      --muted: #617069;
+      --line: #dce8de;
+      --brand: #157a43;
+      --brand-dark: #0f5a32;
+      --mint: #eaf6ec;
+      --blue: #eaf3ff;
+      --gold: #f8df9a;
+      --orange: #f26b2e;
+      --danger: #b9473b;
+      --shadow: 0 18px 46px rgba(21, 75, 42, 0.10);
+      --soft-shadow: 0 9px 26px rgba(21, 75, 42, 0.08);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --font: "Noto Sans HK", "PingFang HK", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+      --serif: "Noto Serif HK", "Iowan Old Style", Georgia, serif;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 8% 8%, rgba(21,122,67,.10), transparent 32%),
+        linear-gradient(135deg, #fbfff9 0%, #f5faf7 46%, #fffaf0 100%);
+      color: var(--ink);
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button, input { font: inherit; }
+    .board {
+      display: grid;
+      grid-template-columns: minmax(340px, 420px) minmax(0, 1fr);
+      gap: 22px;
+      min-height: 100vh;
+      padding: 22px;
+    }
+
+    .audit {
+      position: sticky;
+      top: 22px;
+      align-self: start;
+      max-height: calc(100vh - 44px);
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: rgba(255,255,255,.82);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+      padding: 22px;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--brand-dark);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .kicker::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 99px;
+      background: var(--brand);
+    }
+
+    h1, h2, h3, p { margin: 0; }
+    h1 {
+      margin-top: 14px;
+      font-family: var(--serif);
+      font-size: clamp(32px, 4vw, 54px);
+      line-height: 1.04;
+      letter-spacing: -.03em;
+    }
+    .lede {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    .score {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 18px 0 20px;
+    }
+    .score div {
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: var(--paper);
+      padding: 12px;
+    }
+    .score strong {
+      display: block;
+      color: var(--brand-dark);
+      font-size: 24px;
+      letter-spacing: -.03em;
+    }
+    .score span { color: var(--muted); font-size: 12px; }
+
+    .audit-section {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+    .audit-section h2 {
+      font-size: 16px;
+      margin-bottom: 10px;
+      letter-spacing: -.01em;
+    }
+    .check-list {
+      display: grid;
+      gap: 8px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    .check-list li {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 8px;
+      align-items: start;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .mark {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 12px;
+      font-weight: 900;
+      color: #fff;
+      background: var(--brand);
+    }
+    .mark.warn { background: var(--orange); }
+
+    .direction {
+      display: grid;
+      gap: 10px;
+    }
+    .token-row {
+      display: grid;
+      grid-template-columns: 82px 1fr;
+      gap: 12px;
+      align-items: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .swatches { display: flex; gap: 7px; }
+    .swatch {
+      width: 28px;
+      height: 28px;
+      border-radius: 10px;
+      border: 1px solid rgba(23,38,29,.1);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.5);
+    }
+
+    .showcase {
+      min-width: 0;
+      border-radius: 30px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.62);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .showcase-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.76);
+      backdrop-filter: blur(16px);
+    }
+    .showcase-head h2 {
+      font-size: 22px;
+      letter-spacing: -.02em;
+    }
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tab {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .tab[aria-selected="true"] {
+      color: white;
+      background: var(--brand);
+      border-color: var(--brand);
+    }
+
+    .screens {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 22px;
+      align-items: start;
+    }
+    .screen-card {
+      display: grid;
+      gap: 12px;
+    }
+    .reason {
+      min-height: 48px;
+      border-left: 3px solid var(--brand);
+      padding: 2px 0 2px 12px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .phone {
+      width: min(100%, 340px);
+      margin: 0 auto;
+      border-radius: 38px;
+      border: 8px solid #14201a;
+      background: #14201a;
+      box-shadow: 0 24px 60px rgba(14,30,20,.22);
+      overflow: hidden;
+    }
+    .phone-inner {
+      position: relative;
+      min-height: 704px;
+      border-radius: 30px;
+      background: var(--bg);
+      overflow: hidden;
+    }
+    .island {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 86px;
+      height: 25px;
+      border-radius: 999px;
+      background: #101915;
+      z-index: 5;
+    }
+    .status {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 13px 20px 0;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .phone-content {
+      padding: 22px 16px 84px;
+    }
+    .phone h3 {
+      font-size: 27px;
+      line-height: 1.08;
+      letter-spacing: -.03em;
+    }
+    .sub {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .mini-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .place-pill, .small-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 32px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--brand-dark);
+      padding: 7px 11px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .icon-btn {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      box-shadow: var(--soft-shadow);
+    }
+    .finder {
+      margin-top: 14px;
+      border-radius: 24px;
+      background: linear-gradient(145deg, #ffffff 0%, #eff8f1 100%);
+      border: 1px solid var(--line);
+      box-shadow: var(--soft-shadow);
+      padding: 15px;
+    }
+    .searchbar {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 48px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 0 14px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .chip-row {
+      display: flex;
+      gap: 8px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+    .chip {
+      flex: 0 0 auto;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .chip.active {
+      background: var(--brand);
+      border-color: var(--brand);
+      color: white;
+    }
+    .cta {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      min-height: 46px;
+      margin-top: 12px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--brand);
+      color: white;
+      font-weight: 900;
+      box-shadow: 0 12px 26px rgba(21,122,67,.18);
+    }
+    .priority {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .priority-card {
+      min-height: 96px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+      padding: 12px;
+      box-shadow: 0 8px 18px rgba(21,75,42,.05);
+    }
+    .priority-card strong {
+      display: block;
+      font-size: 21px;
+      color: var(--brand-dark);
+      letter-spacing: -.03em;
+    }
+    .priority-card span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .mascot {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+      border-radius: 22px;
+      background: #fff9ea;
+      border: 1px solid #f1dfae;
+      padding: 12px;
+    }
+    .mascot img {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+    }
+    .mascot b { display: block; font-size: 14px; }
+    .mascot span { color: var(--muted); font-size: 12px; line-height: 1.35; }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 18px 0 10px;
+      font-size: 16px;
+      font-weight: 900;
+    }
+    .section-title a { color: var(--brand); font-size: 12px; text-decoration: none; }
+
+    .school-row {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: #fff;
+      padding: 13px;
+      box-shadow: 0 8px 20px rgba(21,75,42,.06);
+      margin-top: 10px;
+    }
+    .school-head {
+      display: grid;
+      grid-template-columns: 44px 1fr auto;
+      gap: 10px;
+      align-items: start;
+    }
+    .logo {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--mint);
+      color: var(--brand-dark);
+      font-weight: 900;
+      border: 1px solid var(--line);
+    }
+    .school-name { font-size: 14px; font-weight: 900; line-height: 1.25; }
+    .school-meta { margin-top: 3px; color: var(--muted); font-size: 11px; }
+    .heart {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: #c99714;
+      display: grid;
+      place-items: center;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .stat {
+      border-radius: 13px;
+      background: #f7faf7;
+      padding: 9px;
+    }
+    .stat span { display: block; color: var(--muted); font-size: 10px; font-weight: 800; }
+    .stat b { display: block; margin-top: 4px; font-size: 13px; }
+    .vacancy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .vacancy {
+      border-radius: 999px;
+      padding: 7px 6px;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 900;
+      background: var(--mint);
+      color: var(--brand-dark);
+    }
+    .vacancy.limited { background: #fff4dc; color: #9d5b0e; }
+    .vacancy.full { background: #fcebe8; color: var(--danger); }
+
+    .filter-bar {
+      position: sticky;
+      top: 0;
+      z-index: 3;
+      margin: -22px -16px 14px;
+      padding: 52px 16px 12px;
+      background: rgba(246,250,246,.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .filter-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+    .filter-actions .chip { background: #fff; }
+    .result-summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 8px 0 4px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .detail-photo {
+      min-height: 150px;
+      border-radius: 22px;
+      background:
+        linear-gradient(135deg, rgba(21,122,67,.78), rgba(247,223,154,.78)),
+        url("public/brand/hero/bg-mobile.jpg") center/cover;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      position: relative;
+    }
+    .detail-photo::after {
+      content: "學校實景 / 校舍相片";
+      position: absolute;
+      left: 14px;
+      bottom: 12px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      text-shadow: 0 1px 12px rgba(0,0,0,.28);
+    }
+    .detail-card {
+      margin-top: -22px;
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #fff;
+      padding: 14px;
+      box-shadow: var(--soft-shadow);
+    }
+    .detail-title {
+      display: grid;
+      grid-template-columns: 54px 1fr auto;
+      gap: 11px;
+      align-items: start;
+    }
+    .detail-title .logo {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+    }
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 9px;
+    }
+    .tag {
+      border-radius: 999px;
+      background: #f3f7f4;
+      color: var(--muted);
+      padding: 6px 8px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .deadline {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      margin-top: 12px;
+      border-radius: 16px;
+      background: #fff4dc;
+      color: #7b4506;
+      padding: 11px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .info-stack {
+      display: grid;
+      gap: 9px;
+      margin-top: 12px;
+    }
+    .info-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 1px solid #eef3ef;
+      padding-bottom: 8px;
+      font-size: 12px;
+    }
+    .info-line span { color: var(--muted); }
+    .bottom-cta {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 12px 16px 18px;
+      background: rgba(255,255,255,.92);
+      border-top: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+    .bottom-cta button {
+      min-height: 46px;
+      border-radius: 999px;
+      border: 1px solid var(--brand);
+      font-weight: 900;
+    }
+    .bottom-cta .primary { background: var(--brand); color: #fff; }
+    .bottom-cta .secondary { background: #fff; color: var(--brand-dark); }
+
+    .bottom-nav {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      min-height: 68px;
+      border-top: 1px solid var(--line);
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(14px);
+    }
+    .nav-item {
+      display: grid;
+      place-items: center;
+      align-content: center;
+      gap: 3px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .nav-item.active { color: var(--brand); }
+    .nav-dot {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: transparent;
+    }
+    .active .nav-dot { background: var(--mint); }
+
+    .desktop-wrap {
+      grid-column: 1 / -1;
+    }
+    .desktop {
+      min-height: 620px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: #fff;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .browser-bar {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      height: 42px;
+      padding: 0 14px;
+      background: #f3f7f4;
+      border-bottom: 1px solid var(--line);
+    }
+    .dot { width: 11px; height: 11px; border-radius: 50%; background: #d9e3dc; }
+    .desktop-hero {
+      display: grid;
+      grid-template-columns: minmax(330px, 510px) 1fr;
+      gap: 28px;
+      padding: 34px;
+      background: linear-gradient(135deg, #fffdf8 0%, #edf8f0 100%);
+    }
+    .desktop-copy h3 {
+      font-family: var(--serif);
+      font-size: clamp(38px, 5vw, 66px);
+      line-height: 1.02;
+      letter-spacing: -.04em;
+    }
+    .desktop-copy p {
+      margin-top: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 510px;
+    }
+    .desktop-search {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      margin-top: 22px;
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      box-shadow: var(--soft-shadow);
+    }
+    .desktop-search input {
+      border: 0;
+      outline: 0;
+      padding: 0 16px;
+      color: var(--ink);
+      min-width: 0;
+    }
+    .desktop-search button {
+      border: 0;
+      border-radius: 999px;
+      background: var(--brand);
+      color: #fff;
+      padding: 13px 20px;
+      font-weight: 900;
+    }
+    .desktop-panel {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.72);
+      padding: 18px;
+      box-shadow: var(--soft-shadow);
+    }
+    .journey {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .journey div {
+      border-radius: 16px;
+      background: #fff;
+      padding: 13px;
+      border: 1px solid var(--line);
+    }
+    .journey b { display: block; font-size: 18px; color: var(--brand-dark); }
+    .journey span { color: var(--muted); font-size: 12px; }
+    .desktop-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 18px;
+      padding: 0 34px 34px;
+      margin-top: -8px;
+    }
+    .wide-card {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #fff;
+      padding: 18px;
+      box-shadow: 0 12px 28px rgba(21,75,42,.06);
+    }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 13px;
+    }
+    .compare-table th, .compare-table td {
+      border-bottom: 1px solid #eef3ef;
+      padding: 10px 8px;
+      text-align: left;
+    }
+    .compare-table th { color: var(--muted); font-size: 12px; }
+
+    [data-panel] { display: none; }
+    [data-panel].active { display: grid; }
+    .only-active { display: none; }
+    .only-active.active { display: block; }
+
+    @media (min-width: 1700px) {
+      .screens { grid-template-columns: repeat(3, minmax(280px, 1fr)); }
+    }
+    @media (max-width: 1180px) {
+      .board { grid-template-columns: 1fr; }
+      .audit { position: relative; top: 0; max-height: none; }
+      .screens { grid-template-columns: repeat(2, minmax(280px, 1fr)); }
+    }
+    @media (max-width: 760px) {
+      .board { padding: 10px; gap: 12px; }
+      .audit, .showcase { border-radius: 22px; }
+      .showcase-head { align-items: flex-start; flex-direction: column; padding: 18px; }
+      .screens { grid-template-columns: 1fr; padding: 14px; }
+      .desktop-hero, .desktop-grid { grid-template-columns: 1fr; padding: 20px; }
+      .journey { grid-template-columns: repeat(2, 1fr); }
+      .phone { width: min(100%, 330px); }
+    }
+  </style>
+</head>
+<body>
+  <main class="board">
+    <aside class="audit" aria-label="設計評審結論">
+      <span class="kicker">Design Review</span>
+      <h1>HKSchoolPlace 設計體檢</h1>
+      <p class="lede">結論：產品資料底子扎實，但首頁和列表還沒有把家長最急的問題放到最前。建議把「年級、地區、有位、截止日、比較」變成主線，讓網頁端和 iOS 都像同一個決策工具。</p>
+      <div class="score">
+        <div><strong>7.2</strong><span>現有清晰度</span></div>
+        <div><strong>8.6</strong><span>資料價值</span></div>
+        <div><strong>6.4</strong><span>跨端一致</span></div>
+      </div>
+
+      <section class="audit-section">
+        <h2>最值得保留的 5 點</h2>
+        <ul class="check-list">
+          <li><span class="mark">✓</span><span>綠色品牌、象仔和柔和插圖已經建立了可信、親和的教育產品感。</span></li>
+          <li><span class="mark">✓</span><span>學校卡片有地區、學費、班別、學額、收藏、比較，資訊基礎比一般目錄頁強。</span></li>
+          <li><span class="mark">✓</span><span>iOS 已有搜索、篩選、詳情、比較、提醒的完整家長任務流。</span></li>
+          <li><span class="mark">✓</span><span>時間線和截止提醒是很有差異化的入口，應該繼續強化。</span></li>
+          <li><span class="mark">✓</span><span>大量真實校相、logo、活動圖可用，後續不需要靠空泛插畫撐場面。</span></li>
+        </ul>
+      </section>
+
+      <section class="audit-section">
+        <h2>最需要改的 8 點</h2>
+        <ul class="check-list">
+          <li><span class="mark warn">1</span><span>首次進入時，主問題不夠明確：家長應先看到「找 K1 / 近你 / 有位 / 截止快到」。</span></li>
+          <li><span class="mark warn">2</span><span>網頁首頁偏展示內容，搜索框和快捷條件不夠像第一任務。</span></li>
+          <li><span class="mark warn">3</span><span>列表篩選在手機上過長，應改成頂部摘要 + 底部篩選抽屜。</span></li>
+          <li><span class="mark warn">4</span><span>卡片資訊很多，但缺一個「為什麼值得點進去」的決策排序。</span></li>
+          <li><span class="mark warn">5</span><span>詳情頁首屏應先放學額、截止、申請、收藏/比較，而不是平均鋪開資料。</span></li>
+          <li><span class="mark warn">6</span><span>網頁底部導航是 5 個入口，iOS 是 3 個入口，產品心智不一致。</span></li>
+          <li><span class="mark warn">7</span><span>米色、葉子、emoji 在部分頁面變成裝飾噪音，削弱了資料工具感。</span></li>
+          <li><span class="mark warn">8</span><span>空狀態還只是「沒有結果」，應給出下一步：放寬地區、改年級、保存提醒。</span></li>
+        </ul>
+      </section>
+
+      <section class="audit-section direction">
+        <h2>建議後的設計方向</h2>
+        <div class="token-row"><b>顏色</b><span>白底 + 淺薄荷綠，主綠只給主行動；橙色只表示截止和風險。</span></div>
+        <div class="token-row"><b>字體</b><span>中文無襯線為主，首頁大標可用柔和宋體氣質，避免太童趣。</span></div>
+        <div class="token-row"><b>卡片</b><span>16-20px 圓角、細邊、少陰影；資訊卡按「決策優先級」分區。</span></div>
+        <div class="token-row"><b>層級</b><span>先給結論：有位、距離、學費、截止；次級資料收進詳情段落。</span></div>
+        <div class="token-row"><b>導航</b><span>手機統一為「找學校、比較、我的」，時間線放在首頁和我的提醒中。</span></div>
+        <div class="swatches" aria-label="建議色板">
+          <span class="swatch" style="background:#157a43"></span>
+          <span class="swatch" style="background:#eaf6ec"></span>
+          <span class="swatch" style="background:#eaf3ff"></span>
+          <span class="swatch" style="background:#f26b2e"></span>
+          <span class="swatch" style="background:#fffdf8"></span>
+        </div>
+      </section>
+    </aside>
+
+    <section class="showcase" aria-label="建議效果圖">
+      <header class="showcase-head">
+        <div>
+          <span class="kicker">Proposed Direction</span>
+          <h2>關鍵頁面高保真效果圖</h2>
+        </div>
+        <div class="tabs" role="tablist" aria-label="畫面切換">
+          <button class="tab" role="tab" aria-selected="true" data-tab="all">全部</button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="home">首頁</button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="list">列表</button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="detail">詳情</button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="desktop">桌面</button>
+        </div>
+      </header>
+
+      <div class="screens">
+        <article class="screen-card" data-panel="home">
+          <div class="phone">
+            <div class="phone-inner">
+              <div class="island"></div>
+              <div class="status"><span>9:41</span><span>5G 100%</span></div>
+              <div class="phone-content">
+                <div class="mini-top">
+                  <span class="place-pill">⌖ 九龍城附近</span>
+                  <span class="icon-btn">🔔</span>
+                </div>
+                <h3>今天先找<br>有 K1 位的學校</h3>
+                <p class="sub">把家長第一步收斂成地區、年級、學位和截止日。</p>
+                <div class="finder">
+                  <div class="searchbar">⌕ 搜學校、地區、課程</div>
+                  <div class="chip-row">
+                    <span class="chip active">K1 2026/27</span>
+                    <span class="chip">有位</span>
+                    <span class="chip">15 分鐘內</span>
+                  </div>
+                  <button class="cta">查看 126 所學校 →</button>
+                </div>
+                <div class="priority">
+                  <div class="priority-card"><strong>32</strong><span>所 K1 有位，當中 8 所本週有截止</span></div>
+                  <div class="priority-card"><strong>14</strong><span>所可加入比較，已含學費和班別</span></div>
+                </div>
+                <div class="mascot">
+                  <img src="public/brand/mascot/03_elephant_search_home.png" alt="小象搜尋助手">
+                  <div><b>小象建議</b><span>先收藏 3 所，再開截止提醒；不用一次看完 800 所。</span></div>
+                </div>
+                <div class="section-title">學位空缺焦點 <a href="#">查看更多</a></div>
+                <div class="school-row">
+                  <div class="school-head">
+                    <div class="logo">嘉</div>
+                    <div><div class="school-name">嘉諾撒聖心幼稚園</div><div class="school-meta">中西區 · 非牟利 · K1 有位</div></div>
+                    <div class="heart">♡</div>
+                  </div>
+                  <div class="vacancy-grid"><span class="vacancy">K1 有位</span><span class="vacancy limited">K2 少量</span><span class="vacancy full">K3 滿額</span></div>
+                </div>
+              </div>
+              <nav class="bottom-nav">
+                <div class="nav-item active"><span class="nav-dot">⌕</span><span>找學校</span></div>
+                <div class="nav-item"><span class="nav-dot">▥</span><span>比較</span></div>
+                <div class="nav-item"><span class="nav-dot">●</span><span>我的</span></div>
+              </nav>
+            </div>
+          </div>
+          <p class="reason">首頁改成任務入口：先回答家長「我今天要怎樣開始找」，再露出內容推薦。</p>
+        </article>
+
+        <article class="screen-card" data-panel="list">
+          <div class="phone">
+            <div class="phone-inner">
+              <div class="island"></div>
+              <div class="status"><span>9:41</span><span>5G 100%</span></div>
+              <div class="phone-content">
+                <div class="filter-bar">
+                  <h3>找幼稚園</h3>
+                  <p class="sub">126 所符合：K1、有位、九龍城 + 黃大仙</p>
+                  <div class="filter-actions">
+                    <span class="chip active">K1</span>
+                    <span class="chip active">有位</span>
+                    <span class="chip">地區 2</span>
+                    <span class="chip">更多</span>
+                  </div>
+                </div>
+                <div class="searchbar">⌕ 搜校名或街道</div>
+                <div class="result-summary"><span>按截止日優先</span><span>地圖 ▾</span></div>
+                <div class="school-row">
+                  <div class="school-head">
+                    <div class="logo">約</div>
+                    <div><div class="school-name">約克英文小學暨幼稚園</div><div class="school-meta">九龍塘 · 私立 · 1.4km</div></div>
+                    <div class="heart">♡</div>
+                  </div>
+                  <div class="stats">
+                    <div class="stat"><span>截止</span><b>還有 6 天</b></div>
+                    <div class="stat"><span>學費</span><b>$5,820/月</b></div>
+                    <div class="stat"><span>班別</span><b>上午</b></div>
+                  </div>
+                  <div class="vacancy-grid"><span class="vacancy">K1 有位</span><span class="vacancy limited">N 少量</span><span class="vacancy">可比較</span></div>
+                </div>
+                <div class="school-row">
+                  <div class="school-head">
+                    <div class="logo">根</div>
+                    <div><div class="school-name">根德園幼稚園</div><div class="school-meta">九龍城 · 非牟利 · 2.1km</div></div>
+                    <div class="heart">♥</div>
+                  </div>
+                  <div class="stats">
+                    <div class="stat"><span>截止</span><b>5月31日</b></div>
+                    <div class="stat"><span>學費</span><b>查官網</b></div>
+                    <div class="stat"><span>班別</span><b>上/下午</b></div>
+                  </div>
+                  <div class="vacancy-grid"><span class="vacancy">K1 有位</span><span class="vacancy">K2 有位</span><span class="vacancy full">K3 滿額</span></div>
+                </div>
+                <div class="school-row">
+                  <div class="school-head">
+                    <div class="logo">宣</div>
+                    <div><div class="school-name">宣道幼稚園</div><div class="school-meta">九龍塘 · 非牟利 · 2.7km</div></div>
+                    <div class="heart">♡</div>
+                  </div>
+                  <div class="stats">
+                    <div class="stat"><span>截止</span><b>待公布</b></div>
+                    <div class="stat"><span>學費</span><b>$0 計劃</b></div>
+                    <div class="stat"><span>語言</span><b>中英</b></div>
+                  </div>
+                </div>
+              </div>
+              <nav class="bottom-nav">
+                <div class="nav-item active"><span class="nav-dot">⌕</span><span>找學校</span></div>
+                <div class="nav-item"><span class="nav-dot">▥</span><span>比較</span></div>
+                <div class="nav-item"><span class="nav-dot">●</span><span>我的</span></div>
+              </nav>
+            </div>
+          </div>
+          <p class="reason">列表改成結果優先：手機上不先鋪滿篩選，而是保留條件摘要和可快速修改的入口。</p>
+        </article>
+
+        <article class="screen-card" data-panel="detail">
+          <div class="phone">
+            <div class="phone-inner">
+              <div class="island"></div>
+              <div class="status"><span>9:41</span><span>5G 100%</span></div>
+              <div class="phone-content">
+                <div class="mini-top">
+                  <span class="place-pill">← 返回列表</span>
+                  <span class="icon-btn">♡</span>
+                </div>
+                <div class="detail-photo"></div>
+                <div class="detail-card">
+                  <div class="detail-title">
+                    <div class="logo">耀</div>
+                    <div>
+                      <div class="school-name">耀中國際幼稚園</div>
+                      <div class="school-meta">Yew Chung International Kindergarten</div>
+                    </div>
+                    <span class="small-pill">國際</span>
+                  </div>
+                  <div class="tag-row">
+                    <span class="tag">九龍塘</span><span class="tag">英普</span><span class="tag">全日班</span><span class="tag">1.8km</span>
+                  </div>
+                  <div class="deadline"><span>2026/27 K1 報名開放中</span><b>還有 12 天</b></div>
+                </div>
+                <div class="section-title">家長最需要先看的資料</div>
+                <div class="priority">
+                  <div class="priority-card"><strong>K1</strong><span>可申請，建議先預約參觀</span></div>
+                  <div class="priority-card"><strong>$8.9k</strong><span>月費估算，另有雜費</span></div>
+                </div>
+                <div class="info-stack">
+                  <div class="info-line"><span>官方網站</span><b>已找到申請入口</b></div>
+                  <div class="info-line"><span>學校類別</span><b>私立 / 國際課程</b></div>
+                  <div class="info-line"><span>升小路徑</span><b>需補官方資料</b></div>
+                  <div class="info-line"><span>資料新鮮度</span><b>4月21日更新</b></div>
+                </div>
+              </div>
+              <div class="bottom-cta">
+                <button class="secondary">加入比較</button>
+                <button class="primary">申請 / 提醒</button>
+              </div>
+            </div>
+          </div>
+          <p class="reason">詳情頁首屏先給決策摘要和固定行動，不讓家長在長資料頁裡找「下一步」。</p>
+        </article>
+
+        <article class="screen-card desktop-wrap" data-panel="desktop">
+          <div class="desktop">
+            <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="place-pill">HKSchoolPlace / kg</span></div>
+            <section class="desktop-hero">
+              <div class="desktop-copy">
+                <span class="kicker">For Hong Kong Parents</span>
+                <h3>找幼稚園，先看有位和截止日。</h3>
+                <p>桌面端適合做深度比較，不應只是手機頁放大。首頁先給搜索，再給本週任務、時間線和可比較學校。</p>
+                <div class="desktop-search">
+                  <input value="九龍城 K1 有位" aria-label="搜尋條件">
+                  <button>搜尋學校</button>
+                </div>
+                <div class="journey">
+                  <div><b>1</b><span>輸入地區與年級</span></div>
+                  <div><b>2</b><span>按有位和截止排序</span></div>
+                  <div><b>3</b><span>收藏 3 所學校</span></div>
+                  <div><b>4</b><span>打開提醒與比較</span></div>
+                </div>
+              </div>
+              <div class="desktop-panel">
+                <div class="section-title">本週家長任務 <a href="#">時間線</a></div>
+                <div class="school-row">
+                  <div class="school-head"><div class="logo">根</div><div><div class="school-name">根德園幼稚園</div><div class="school-meta">K1 報名截止 · 5月31日</div></div><span class="small-pill">提醒</span></div>
+                </div>
+                <div class="school-row">
+                  <div class="school-head"><div class="logo">約</div><div><div class="school-name">約克英文小學暨幼稚園</div><div class="school-meta">開放日 · 6月8日 · 九龍塘</div></div><span class="small-pill">收藏</span></div>
+                </div>
+                <div class="school-row">
+                  <div class="school-head"><div class="logo">宣</div><div><div class="school-name">宣道幼稚園</div><div class="school-meta">待更新資料，建議回報或追蹤</div></div><span class="small-pill">追蹤</span></div>
+                </div>
+              </div>
+            </section>
+            <section class="desktop-grid">
+              <div class="wide-card">
+                <div class="section-title">推薦比較清單 <a href="#">加入更多</a></div>
+                <table class="compare-table">
+                  <thead><tr><th>學校</th><th>距離</th><th>學費</th><th>K1</th><th>下一步</th></tr></thead>
+                  <tbody>
+                    <tr><td>根德園幼稚園</td><td>2.1km</td><td>查官網</td><td>有位</td><td>加入比較</td></tr>
+                    <tr><td>約克英文小學暨幼稚園</td><td>1.4km</td><td>$5,820</td><td>有位</td><td>開提醒</td></tr>
+                    <tr><td>宣道幼稚園</td><td>2.7km</td><td>$0</td><td>待更新</td><td>追蹤</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="wide-card">
+                <div class="section-title">信息層級建議</div>
+                <ul class="check-list">
+                  <li><span class="mark">1</span><span>首屏只放搜索、年級、地區、有位、截止。</span></li>
+                  <li><span class="mark">2</span><span>學校卡先顯示可決策資料，再顯示介紹資料。</span></li>
+                  <li><span class="mark">3</span><span>桌面端突出比較表，手機端突出單校行動。</span></li>
+                </ul>
+              </div>
+            </section>
+          </div>
+          <p class="reason">桌面端應承擔深度比較和時間線管理，讓它和 iOS 一樣是同一條找學校流程。</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const tabs = Array.from(document.querySelectorAll('[data-tab]'));
+    const panels = Array.from(document.querySelectorAll('[data-panel]'));
+
+    function setTab(name) {
+      tabs.forEach((tab) => {
+        tab.setAttribute('aria-selected', String(tab.dataset.tab === name));
+      });
+      panels.forEach((panel) => {
+        panel.classList.toggle('active', name === 'all' || panel.dataset.panel === name);
+      });
+    }
+
+    tabs.forEach((tab) => tab.addEventListener('click', () => setTab(tab.dataset.tab)));
+    setTab('all');
+  </script>
+</body>
+</html>

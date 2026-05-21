@@ -6,6 +6,8 @@ import { createClient } from "@/lib/supabase/server";
 import { SchoolDetailClient } from "./SchoolDetailClient";
 import { ReputationSection } from "@/components/schools/ReputationSection";
 import { AdmissionsSection } from "@/components/schools/AdmissionsSection";
+import { OfficialProfileSection } from "@/components/schools/OfficialProfileSection";
+import { getKgpOfficialProfile } from "@/lib/schools/kgpProfile";
 import { DISTRICT_LABELS } from "@/lib/utils";
 
 export const revalidate = 3600; // ISR 1 hour
@@ -67,6 +69,7 @@ export default async function SchoolDetailPage({ params }: Props) {
     fetchCurrentVacancy(params.id),
     fetchSchoolEnrichment(params.id, { includeRestricted: isAuthenticated }),
   ]);
+  const officialProfile = getKgpOfficialProfile(school.school_code, school.name_tc);
 
   return (
     <div className="pb-24">
@@ -75,6 +78,7 @@ export default async function SchoolDetailPage({ params }: Props) {
         vacancy={vacancy}
       />
       <div className="mx-auto max-w-6xl px-5 md:px-8">
+        <OfficialProfileSection profile={officialProfile} />
         <ReputationSection enrichment={enrichment} />
         <AdmissionsSection school={school} enrichment={enrichment} />
       </div>

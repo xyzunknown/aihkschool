@@ -79,6 +79,7 @@ export interface FeaturedSchool {
   id: string;
   detailId?: string | null;
   schoolCode?: string;
+  logoUrl?: string | null;
   name_tc: string;
   name_en: string;
   district: string;

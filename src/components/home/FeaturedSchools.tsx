@@ -39,6 +39,7 @@ export function FeaturedSchools({ schools }: FeaturedSchoolsProps) {
               <SchoolAvatar
                 schoolId={school.id}
                 schoolName={school.name_tc}
+                logoUrl={school.logoUrl}
                 schoolCode={school.schoolCode}
               />
               <div className="flex-1 min-w-0">

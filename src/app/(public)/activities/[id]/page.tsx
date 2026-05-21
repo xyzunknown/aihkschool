@@ -20,6 +20,10 @@ import {
   getActivityPlaceholder,
   hasRealActivityImage,
 } from "@/lib/media/activity-scenes";
+import {
+  getActivityOrganizerHref,
+  getActivityRegistrationHref,
+} from "@/lib/activities/links";
 
 export const revalidate = 3600;
 
@@ -53,6 +57,8 @@ export default async function ActivityDetailPage({ params }: PageProps) {
   const hasImage = hasRealActivityImage(activity);
   const placeholder = getActivityPlaceholder(activity);
   const organizer = getDisplayOrganizer(activity.organizer);
+  const registrationHref = getActivityRegistrationHref(activity);
+  const organizerHref = getActivityOrganizerHref(activity);
 
   return (
     <div className="mx-auto max-w-4xl px-5 py-8 md:px-8 md:py-12">
@@ -160,9 +166,9 @@ export default async function ActivityDetailPage({ params }: PageProps) {
       {/* CTA */}
       {!expired && (
         <div className="mb-10 flex flex-wrap items-center gap-4">
-          {(activity.source_url || activity.contact_url) && (
+          {registrationHref && (
             <a
-              href={activity.source_url || activity.contact_url || "#"}
+              href={registrationHref}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center rounded-xl bg-slate-950 px-6 py-3 text-base font-medium text-white transition-transform hover:scale-[1.02]"
@@ -188,18 +194,16 @@ export default async function ActivityDetailPage({ params }: PageProps) {
           {activity.start_date && (
             <AddToCalendarButton activity={activity} />
           )}
-          {activity.contact_url &&
-            activity.source_url &&
-            activity.contact_url !== activity.source_url && (
-              <a
-                href={activity.contact_url}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-1 text-sm text-slate-500 underline decoration-slate-300 underline-offset-2 hover:text-slate-950 hover:decoration-slate-950"
-              >
-                主辦方官網
-              </a>
-            )}
+          {organizerHref && (
+            <a
+              href={organizerHref}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1 text-sm text-slate-500 underline decoration-slate-300 underline-offset-2 hover:text-slate-950 hover:decoration-slate-950"
+            >
+              主辦方官網
+            </a>
+          )}
         </div>
       )}
 

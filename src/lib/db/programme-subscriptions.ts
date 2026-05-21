@@ -97,19 +97,16 @@ export async function insertSubscription(
 
   const { data, error } = await supabase
     .from("programme_subscriptions")
-    .insert({
+    .upsert({
       user_id: userId,
       programme_id: programmeId,
       notify_before_open_minutes: notifyBeforeMinutes,
       is_active: true,
-    })
+    }, { onConflict: "user_id,programme_id" })
     .select("id")
     .single();
 
   if (error) {
-    if (error.code === "23505") {
-      throw new Error("ALREADY_SUBSCRIBED");
-    }
     throw new Error(`Failed to subscribe: ${error.message}`);
   }
 

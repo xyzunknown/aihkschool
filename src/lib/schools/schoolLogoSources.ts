@@ -782,6 +782,6 @@ const LOCAL_SCHOOL_LOGO_FILES = new Set([
   "627550.png",
 ]);
 
-export function hasLocalSchoolLogoFile(fileName: string) {
+export function hasLocalSchoolLogoFile(fileName: string): boolean {
   return LOCAL_SCHOOL_LOGO_FILES.has(fileName);
 }

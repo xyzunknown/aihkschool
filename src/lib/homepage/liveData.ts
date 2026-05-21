@@ -60,6 +60,7 @@ type PriorityTop100Row = {
 type FeaturedSchoolRow = {
   id: string;
   school_code: string | null;
+  logo_url: string | null;
   name_tc: string | null;
   name_en: string | null;
   district: string | null;
@@ -80,7 +81,7 @@ type FeaturedSchoolRow = {
 };
 
 const FEATURED_SCHOOL_FIELDS =
-  "id, school_code, name_tc, name_en, district, school_type, session_type, has_nursery, schooland_group_tag, schooland_nursery_service, schooland_size_label, schooland_session_label, vacancies ( k1_vacancy, k2_vacancy, k3_vacancy, edb_published_date, is_current )";
+  "id, school_code, logo_url, name_tc, name_en, district, school_type, session_type, has_nursery, schooland_group_tag, schooland_nursery_service, schooland_size_label, schooland_session_label, vacancies ( k1_vacancy, k2_vacancy, k3_vacancy, edb_published_date, is_current )";
 
 const HOMEPAGE_BANNER_ENABLED_VALUES = new Set([
   "1",
@@ -871,6 +872,7 @@ function toFeaturedSchool(
     id: overrides.id ?? school.id,
     detailId: school.id,
     schoolCode: school.school_code ?? undefined,
+    logoUrl: school.logo_url,
     name_tc: nameTc,
     name_en: formatEnglishSchoolName(overrides.nameEn || school.name_en || ""),
     district: school.district && school.district in DISTRICT_LABELS
@@ -1075,6 +1077,7 @@ async function getFeaturedSchoolsLive(): Promise<FeaturedSchool[]> {
         id: row.school_code ?? nameTc,
         detailId: null,
         schoolCode: row.school_code ?? undefined,
+        logoUrl: undefined,
         name_tc: nameTc,
         name_en: formatEnglishSchoolName(school?.name_en || row.name_en || null),
         district,

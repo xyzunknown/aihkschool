@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Image from "next/image";
 import { fetchProgrammeById } from "@/lib/db/programmes";
 import {
   PROGRAMME_CATEGORY_LABELS,
@@ -14,7 +13,6 @@ import {
   getEnrolmentCountdown,
 } from "@/lib/programmes/labels";
 import { SubscribeButton } from "@/components/programmes/SubscribeButton";
-import { getProgrammeSceneImage } from "@/lib/media/activity-scenes";
 
 export const revalidate = 600;
 
@@ -44,7 +42,11 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
   const countdown = getEnrolmentCountdown(programme.enrolment_open_at);
   const status = programme.lcsd_programme_status;
   const enrolmentStatus = status?.enrolment_status || "pre_open";
-  const sceneImage = getProgrammeSceneImage(programme);
+  const mapHref = programme.venue
+    ? `https://maps.google.com/?q=${encodeURIComponent(
+        `${programme.venue}${programme.district ? ` ${PROGRAMME_DISTRICT_LABELS[programme.district] || programme.district}` : ""} Hong Kong`,
+      )}`
+    : null;
 
   return (
     <div className="mx-auto max-w-3xl px-5 py-8 md:px-8 md:py-12">
@@ -62,19 +64,7 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
       {/* 主卡片 */}
       <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
         <div className="p-6 md:p-8">
-          <div className="mb-6 flex gap-4">
-            <div className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100 sm:h-36 sm:w-36">
-              <Image
-                src={sceneImage}
-                alt=""
-                fill
-                priority
-                sizes="144px"
-                className="object-cover"
-              />
-            </div>
-
-            <div className="min-w-0 flex-1">
+          <div className="mb-6">
               {/* 類別 + 狀態 */}
               <div className="mb-3 flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
@@ -96,7 +86,6 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
               {programme.name_en && programme.name_zh && (
                 <p className="text-sm text-slate-500">{programme.name_en}</p>
               )}
-            </div>
           </div>
 
           {/* 倒計時 banner */}
@@ -114,7 +103,7 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
         <div className="grid grid-cols-2 gap-4 mb-6">
           <InfoCell label="報名開放" value={enrolmentTime} />
           <InfoCell label="課程日期" value={dateRange} />
-          <InfoCell label="場地" value={programme.venue || "未知"} />
+          <InfoCell label="場地" value={programme.venue || "未知"} href={mapHref ?? undefined} />
           <InfoCell
             label="地區"
             value={programme.district ? PROGRAMME_DISTRICT_LABELS[programme.district] || programme.district : "未知"}
@@ -165,23 +154,43 @@ function InfoCell({
   label,
   value,
   highlight,
+  href,
 }: {
   label: string;
   value: string;
   highlight?: boolean;
+  href?: string;
 }) {
   return (
     <div className="rounded-xl bg-slate-50 px-4 py-3">
       <p className="text-xs text-slate-400 font-medium uppercase tracking-wider mb-1">
         {label}
       </p>
-      <p
-        className={`text-sm font-semibold ${
-          highlight ? "text-emerald-600" : "text-slate-900"
-        }`}
-      >
-        {value}
-      </p>
+      {href ? (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`inline-flex items-center gap-1 text-sm font-semibold underline decoration-slate-300 underline-offset-2 hover:decoration-slate-900 ${
+            highlight ? "text-emerald-600" : "text-slate-900"
+          }`}
+        >
+          {value}
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <polyline points="15 3 21 3 21 9" />
+            <line x1="10" y1="14" x2="21" y2="3" />
+          </svg>
+        </a>
+      ) : (
+        <p
+          className={`text-sm font-semibold ${
+            highlight ? "text-emerald-600" : "text-slate-900"
+          }`}
+        >
+          {value}
+        </p>
+      )}
     </div>
   );
 }

@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { VacancyBadge } from "./VacancyBadge";
 import { SchoolAvatar } from "./SchoolAvatar";
+import { SchoolActionButton } from "@/components/ui/SchoolActionIcon";
 import { getAdmissionSummary } from "@/lib/schools/admissions";
 import {
   DISTRICT_LABELS,
@@ -88,11 +89,6 @@ export function SchoolCard({
     applicationUrl,
     vacancy,
   });
-  const actionIconColor = isInCompare ? "#247A4D" : "#8C9690";
-  const actionIconFill = isInCompare ? "#EAF4ED" : "none";
-  const favoriteFill = isFavorited ? "#247A4D" : "none";
-  const favoriteStroke = isFavorited ? "#247A4D" : "#8C9690";
-
   // Build vacancy grades to display
   const vacancyGrades: Array<{ grade: string; status: VacancyStatus }> = [];
   if (vacancy) {
@@ -135,44 +131,30 @@ export function SchoolCard({
           </p>
         </div>
         {/* Favorite + Compare buttons */}
-        <div className="flex-shrink-0 flex items-center gap-0.5">
+        <div className="flex-shrink-0 flex items-center gap-1.5">
           {/* Compare button */}
           {onToggleCompare && (
-            <button
-              type="button"
-              className="p-1"
+            <SchoolActionButton
+              kind="compare"
+              active={isInCompare}
+              label={isInCompare ? "取消對比" : "加入對比"}
               onClick={(e) => {
                 e.stopPropagation();
                 onToggleCompare();
               }}
-              aria-label={isInCompare ? "取消對比" : "加入對比"}
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={actionIconColor} strokeWidth="1.5">
-                <rect x="3" y="3" width="8" height="18" rx="1.5" fill={actionIconFill} />
-                <rect x="13" y="3" width="8" height="18" rx="1.5" fill={actionIconFill} />
-              </svg>
-            </button>
+            />
           )}
           {/* Favorite button */}
-        <button
-          type="button"
-          className="p-1 -mr-1"
-          onClick={(e) => {
-            e.stopPropagation();
-            onToggleFavorite?.();
-          }}
-            aria-label={isFavorited ? "取消收藏" : "加入收藏"}
-          >
-          {isFavorited ? (
-            <svg width="28" height="28" viewBox="0 0 24 24" fill={favoriteFill} stroke={favoriteStroke} strokeWidth="1.5" className="animate-heart-fill">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-            </svg>
-          ) : (
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={favoriteStroke} strokeWidth="1.5">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-            </svg>
-          )}
-        </button>
+          <SchoolActionButton
+            kind="favorite"
+            active={isFavorited}
+            label={isFavorited ? "取消收藏" : "加入收藏"}
+            className={isFavorited ? "animate-heart-fill" : ""}
+            onClick={(e) => {
+              e.stopPropagation();
+              onToggleFavorite?.();
+            }}
+          />
         </div>
       </div>
 
@@ -203,15 +185,18 @@ export function SchoolCard({
 
       {/* Row 4: Footer */}
       <div className="mt-auto flex justify-between items-center pt-3 border-t border-slate-100 text-xs">
-        <span className="min-w-0 text-slate-400 flex items-center gap-1">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-slate-300">
+        <span className="min-w-0 text-slate-400 flex items-center gap-1.5">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-brand-500/55">
             <circle cx="12" cy="12" r="10" />
             <polyline points="12 6 12 12 16 14" />
           </svg>
           <span className="truncate">{formatUpdateDate(vacancy?.edb_published_date ?? null)} · {districtLabel}</span>
         </span>
-        <span className="ml-3 flex-shrink-0 text-brand-600 font-medium">
-          詳情 &gt;
+        <span className="ml-3 inline-flex flex-shrink-0 items-center gap-1 rounded-full bg-brand-50 px-2.5 py-1 text-brand-700 font-semibold">
+          詳情
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
         </span>
       </div>
     </div>
