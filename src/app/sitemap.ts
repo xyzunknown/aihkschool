@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
 import { createClient } from "@/lib/supabase/server";
 import { NEWS_ITEMS } from "@/data/homepage";
+import { getSiteUrl } from "@/lib/seo";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://aihkschool.vercel.app";
+const BASE_URL = getSiteUrl();
 
 export const revalidate = 86400; // 24 hours
 
@@ -16,6 +17,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/news`, lastModified: new Date(), priority: 0.7 },
     { url: `${BASE_URL}/activities`, lastModified: new Date(), priority: 0.7 },
     { url: `${BASE_URL}/programmes`, lastModified: new Date(), priority: 0.6 },
+    { url: `${BASE_URL}/ios-app`, lastModified: new Date(), priority: 0.6 },
+    { url: `${BASE_URL}/topics`, lastModified: new Date(), priority: 0.6 },
     { url: `${BASE_URL}/priority`, lastModified: new Date(), priority: 0.5 },
     { url: `${BASE_URL}/contact`, lastModified: new Date(), priority: 0.3 },
     { url: `${BASE_URL}/terms`, lastModified: new Date(), priority: 0.3 },

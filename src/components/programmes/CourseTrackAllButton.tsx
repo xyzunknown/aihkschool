@@ -17,13 +17,13 @@ async function getSubscriptionIds() {
 }
 
 export function CourseTrackAllButton({ programmeIds }: CourseTrackAllButtonProps) {
-  const { user } = useAuth();
+  const { user, requireAuth } = useAuth();
   const { showToast } = useToast();
   const [loading, setLoading] = useState(false);
 
   const handleTrackAll = async () => {
     if (!user) {
-      showToast({ message: "請先登入" });
+      requireAuth(() => {});
       return;
     }
 
@@ -69,7 +69,7 @@ export function CourseTrackAllButton({ programmeIds }: CourseTrackAllButtonProps
       type="button"
       onClick={handleTrackAll}
       disabled={loading}
-      className="inline-flex h-9 items-center justify-center gap-1.5 rounded-lg border border-brand-200 bg-white px-3 text-xs font-semibold text-brand-700 transition hover:bg-brand-50 disabled:opacity-50"
+      className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-brand-200 bg-white px-4 text-sm font-semibold text-brand-700 transition hover:bg-brand-50 disabled:opacity-50"
     >
       {loading ? (
         <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-t-transparent" />

@@ -76,7 +76,7 @@ const nextConfig = {
     instrumentationHook: true,
   },
   webpack(config, { isServer, nextRuntime }) {
-    if (useStablePagesManifest && isServer && !nextRuntime) {
+    if (useStablePagesManifest && isServer) {
       config.plugins.push(new StablePagesManifestPlugin());
     }
     if (!isServer) {

@@ -9,6 +9,8 @@ import { AdmissionsSection } from "@/components/schools/AdmissionsSection";
 import { OfficialProfileSection } from "@/components/schools/OfficialProfileSection";
 import { getKgpOfficialProfile } from "@/lib/schools/kgpProfile";
 import { DISTRICT_LABELS } from "@/lib/utils";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { absoluteUrl, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const revalidate = 3600; // ISR 1 hour
 
@@ -24,33 +26,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const district = DISTRICT_LABELS[school.district as keyof typeof DISTRICT_LABELS] ?? school.district;
-  const title = `${school.name_tc} — HKSchoolPlace`;
-  const description = `${school.name_tc}（${district}）嘅學位空缺、學費、面試心得。`;
+  const title = `${school.name_tc}｜${district}幼稚園資料`;
+  const description = `${school.name_tc}（${district}）幼稚園資料：學額空缺、學費、班別、申請資訊、官方連結和家長口碑整理。`;
 
-  return {
+  return pageMetadata({
     title,
     description,
-    openGraph: {
-      title,
-      description,
-      type: "website",
-      url: `https://aihkschool.vercel.app/kg/${params.id}`,
-      images: ["/brand/Web Logo/Logo.png"],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: ["/brand/Web Logo/Logo.png"],
-    },
-    robots: {
-      index: true,
-      follow: true,
-      noarchive: true,
-      nosnippet: true,
-      "max-snippet": 160,
-    },
-  };
+    path: `/kg/${params.id}`,
+    image: school.logo_url || undefined,
+  });
 }
 
 export default async function SchoolDetailPage({ params }: Props) {
@@ -70,9 +54,41 @@ export default async function SchoolDetailPage({ params }: Props) {
     fetchSchoolEnrichment(params.id, { includeRestricted: isAuthenticated }),
   ]);
   const officialProfile = getKgpOfficialProfile(school.school_code, school.name_tc);
+  const district = DISTRICT_LABELS[school.district as keyof typeof DISTRICT_LABELS] ?? school.district;
+  const schoolJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    name: school.name_tc,
+    alternateName: school.name_en ?? undefined,
+    url: absoluteUrl(`/kg/${school.id}`),
+    logo: school.logo_url ? absoluteUrl(school.logo_url) : undefined,
+    address: school.address_tc
+      ? {
+          "@type": "PostalAddress",
+          streetAddress: school.address_tc,
+          addressLocality: district,
+          addressRegion: "Hong Kong",
+        }
+      : undefined,
+    telephone: school.phone ?? undefined,
+    email: school.email ?? undefined,
+    sameAs: [school.website, school.official_profile_url, school.schooland_url].filter(Boolean),
+    areaServed: district,
+    description: `${school.name_tc} 的學額空缺、學費、班別、申請資訊和家長口碑整理。`,
+  };
 
   return (
     <div className="pb-24">
+      <JsonLd
+        data={[
+          breadcrumbJsonLd([
+            { name: "首頁", path: "/" },
+            { name: "香港幼稚園搜尋", path: "/kg" },
+            { name: school.name_tc, path: `/kg/${school.id}` },
+          ]),
+          schoolJsonLd,
+        ]}
+      />
       <SchoolDetailClient
         school={school}
         vacancy={vacancy}

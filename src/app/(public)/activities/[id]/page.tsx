@@ -24,6 +24,8 @@ import {
   getActivityOrganizerHref,
   getActivityRegistrationHref,
 } from "@/lib/activities/links";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { absoluteUrl, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const revalidate = 3600;
 
@@ -36,12 +38,14 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const activity = await fetchActivityById(params.id);
   if (!activity) return { title: "活動 | HKSchoolPlace" };
-  return {
-    title: `${activity.title} | 課外活動 | HKSchoolPlace`,
+  return pageMetadata({
+    title: `${activity.title}｜香港親子活動`,
     description:
-      activity.description?.slice(0, 120) ??
-      `${activity.organizer ?? ""} 主辦的幼稚園課外活動`,
-  };
+      activity.description?.slice(0, 150) ??
+      `${activity.organizer ?? ""} 主辦的香港幼稚園階段親子活動，查看日期、地區、年齡和費用。`,
+    path: `/activities/${params.id}`,
+    image: activity.image_url || undefined,
+  });
 }
 
 export default async function ActivityDetailPage({ params }: PageProps) {
@@ -59,9 +63,46 @@ export default async function ActivityDetailPage({ params }: PageProps) {
   const organizer = getDisplayOrganizer(activity.organizer);
   const registrationHref = getActivityRegistrationHref(activity);
   const organizerHref = getActivityOrganizerHref(activity);
+  const eventJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: activity.title,
+    description: activity.description ?? `${organizer ?? "主辦方"} 的親子活動`,
+    url: absoluteUrl(`/activities/${activity.id}`),
+    image: activity.image_url ? [absoluteUrl(activity.image_url)] : undefined,
+    startDate: activity.start_date ?? undefined,
+    endDate: activity.end_date ?? undefined,
+    eventStatus: expired ? "https://schema.org/EventCompleted" : "https://schema.org/EventScheduled",
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    organizer: organizer ? { "@type": "Organization", name: organizer, url: organizerHref ?? undefined } : undefined,
+    location: activity.address || activity.district
+      ? {
+          "@type": "Place",
+          name: activity.address ?? DISTRICT_LABELS[activity.district!] ?? activity.district,
+          address: activity.address ?? DISTRICT_LABELS[activity.district!] ?? activity.district,
+        }
+      : undefined,
+    offers: {
+      "@type": "Offer",
+      url: registrationHref ?? absoluteUrl(`/activities/${activity.id}`),
+      price: fee.isFree ? 0 : undefined,
+      priceCurrency: "HKD",
+      availability: expired ? "https://schema.org/SoldOut" : "https://schema.org/InStock",
+    },
+  };
 
   return (
     <div className="mx-auto max-w-4xl px-5 py-8 md:px-8 md:py-12">
+      <JsonLd
+        data={[
+          breadcrumbJsonLd([
+            { name: "首頁", path: "/" },
+            { name: "課外活動", path: "/activities" },
+            { name: activity.title, path: `/activities/${activity.id}` },
+          ]),
+          eventJsonLd,
+        ]}
+      />
       <Link
         href="/activities"
         className="mb-6 inline-flex items-center text-sm text-slate-500 transition-colors hover:text-slate-950"

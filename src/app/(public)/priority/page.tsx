@@ -3,8 +3,8 @@ import { PrioritySchoolsSection } from "@/components/priority/PrioritySchoolsSec
 import { getPrioritySchools } from "@/lib/prioritySchools";
 
 export const metadata: Metadata = {
-  title: "內部優先 65 校 — HKSchoolPlace",
-  description: "根據內部 OCR 熱度與官網招生抓取整理出的 65 所優先幼稚園名單。",
+  title: "熱點學校 100 — HKSchoolPlace",
+  description: "根據家長討論熱度與招生資料整理出的 100 所熱門幼稚園清單。",
 };
 
 export default async function PriorityPage() {
@@ -14,8 +14,8 @@ export default async function PriorityPage() {
     <div className="pb-14 pt-8">
       <PrioritySchoolsSection
         schools={schools}
-        title="內部優先 65 校"
-        description="這份名單來自 OCR 熱度排序與官網招生抓取結果的交集，只保留目前前端可直接使用的有效欄位。你可以先在平台內定位，再跳到官方招生頁。"
+        title="熱點學校 100"
+        description="這份名單整理了家長討論度高、平台已匹配到資料的 100 所熱門幼稚園。你可以先在平台內定位，再跳到官方招生頁。"
         ctaHref="/kg"
         ctaLabel="返回幼稚園列表"
       />

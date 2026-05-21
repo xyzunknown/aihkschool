@@ -150,13 +150,7 @@ export function Header() {
             <div className="hidden sm:flex items-center gap-2">
               <Link
                 href="/login"
-                className="px-4 h-9 rounded-pill border border-forest-600 text-forest-700 text-sm font-medium hover:bg-forest-50 transition"
-              >
-                登入
-              </Link>
-              <Link
-                href="/login"
-                className="px-4 h-9 rounded-pill bg-forest-600 text-white text-sm font-medium hover:bg-forest-700 transition"
+                className="inline-flex h-9 min-w-[136px] items-center justify-center rounded-pill bg-forest-600 px-5 text-center text-sm font-medium text-white transition hover:bg-forest-700"
               >
                 登入 / 建立帳戶
               </Link>
@@ -209,14 +203,7 @@ export function Header() {
               <Link
                 href="/login"
                 onClick={() => setMenuOpen(false)}
-                className="flex-1 h-9 rounded-pill border border-forest-600 text-forest-700 text-sm font-medium"
-              >
-                登入
-              </Link>
-              <Link
-                href="/login"
-                onClick={() => setMenuOpen(false)}
-                className="flex-1 h-9 rounded-pill bg-forest-600 text-white text-sm font-medium"
+                className="inline-flex h-9 flex-1 items-center justify-center rounded-pill bg-forest-600 text-center text-sm font-medium text-white"
               >
                 登入 / 建立帳戶
               </Link>

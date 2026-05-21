@@ -2,26 +2,17 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 import KGListClient from "./KGListClient";
 import { SchoolCardSkeleton } from "@/components/ui/Skeleton";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const revalidate = 3600; // ISR 1 hour
 
-export const metadata: Metadata = {
-  title: "幼稚園列表 — HKSchoolPlace",
-  description: "搜尋全港幼稚園，查看 K1-K3 學位空缺狀態、申請截止日期，一站式對比。",
-  openGraph: {
-    title: "幼稚園列表 — HKSchoolPlace",
-    description: "搜尋全港幼稚園，查看 K1-K3 學位空缺狀態、申請截止日期。",
-    type: "website",
-    url: "https://aihkschool.vercel.app/kg",
-    images: ["/brand/Web Logo/Logo.png"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "幼稚園列表 — HKSchoolPlace",
-    description: "搜尋全港幼稚園，查看 K1-K3 學位空缺狀態、申請截止日期。",
-    images: ["/brand/Web Logo/Logo.png"],
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "香港幼稚園搜尋與 K1-K3 學額空缺",
+  description:
+    "搜尋全港幼稚園，按地區、N 班、K1-K3 學額、學費、班別和課程資料篩選比較。",
+  path: "/kg",
+});
 
 function KGListFallback() {
   return (
@@ -39,8 +30,16 @@ function KGListFallback() {
 
 export default function KGListPage() {
   return (
-    <Suspense fallback={<KGListFallback />}>
-      <KGListClient />
-    </Suspense>
+    <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "首頁", path: "/" },
+          { name: "香港幼稚園搜尋", path: "/kg" },
+        ])}
+      />
+      <Suspense fallback={<KGListFallback />}>
+        <KGListClient />
+      </Suspense>
+    </>
   );
 }

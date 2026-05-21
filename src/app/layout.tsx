@@ -8,42 +8,91 @@ import { AuthProvider } from "@/components/layout/AuthProvider";
 import { ToastProvider } from "@/components/ui/Toast";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { ProductAnalytics } from "@/components/analytics/ProductAnalytics";
+import { JsonLd } from "@/components/seo/JsonLd";
+import {
+  DEFAULT_OG_IMAGE,
+  IOS_BUNDLE_ID,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  absoluteUrl,
+  canonical,
+  getSiteUrl,
+  mobileAppJsonLd,
+  organizationJsonLd,
+  websiteJsonLd,
+} from "@/lib/seo";
 
 function HeaderFallback() {
   return <div className="h-[73px] border-b border-[rgba(32,85,59,0.08)] bg-[#fffef9]" />;
 }
 
 function getMetadataBase() {
-  let baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    process.env.NEXT_PUBLIC_VERCEL_URL ??
-    "https://aihkschool.vercel.app";
-
-  if (!baseUrl.startsWith("http")) {
-    baseUrl = `https://${baseUrl}`;
-  }
-
-  return new URL(baseUrl);
+  return new URL(getSiteUrl());
 }
 
 export const metadata: Metadata = {
+  applicationName: SITE_NAME,
   title: {
     default: "HKSchoolPlace — 香港幼稚園搜尋平台",
     template: "%s | HKSchoolPlace",
   },
-  description: "幫助香港家長搵到合適嘅幼稚園，追蹤申請截止日期，分享面試心得。",
+  description: SITE_DESCRIPTION,
   metadataBase: getMetadataBase(),
+  alternates: canonical("/"),
+  keywords: [
+    "香港幼稚園",
+    "幼稚園學額",
+    "K1 申請",
+    "N 班",
+    "SmartPLAY",
+    "親子活動",
+    "國際幼稚園",
+    "幼稚園比較",
+  ],
+  authors: [{ name: SITE_NAME, url: absoluteUrl("/") }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  category: "education",
+  appleWebApp: {
+    capable: true,
+    title: SITE_NAME,
+    statusBarStyle: "default",
+  },
+  appLinks: {
+    web: {
+      url: absoluteUrl("/"),
+      should_fallback: true,
+    },
+  },
+  other: {
+    "al:ios:app_name": SITE_NAME,
+    "al:ios:bundle_id": IOS_BUNDLE_ID,
+  },
   openGraph: {
     title: "HKSchoolPlace — 香港幼稚園搜尋平台",
-    description: "一站式查看全港幼稚園學額空缺、截止日期同家長面試心得。",
+    description: SITE_DESCRIPTION,
     type: "website",
     locale: "zh_HK",
-    siteName: "HKSchoolPlace",
-    images: ["/brand/Web Logo/Logo.png"],
+    siteName: SITE_NAME,
+    url: absoluteUrl("/"),
+    images: [{ url: absoluteUrl(DEFAULT_OG_IMAGE), width: 1200, height: 630, alt: SITE_NAME }],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/brand/Web Logo/Logo.png"],
+    title: "HKSchoolPlace — 香港幼稚園搜尋平台",
+    description: SITE_DESCRIPTION,
+    images: [absoluteUrl(DEFAULT_OG_IMAGE)],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": 180,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
   },
 };
 
@@ -63,6 +112,7 @@ export default function RootLayout({
             <Suspense fallback={null}>
               <ProductAnalytics />
             </Suspense>
+            <JsonLd data={[organizationJsonLd(), websiteJsonLd(), mobileAppJsonLd()]} />
             <Suspense fallback={<HeaderFallback />}>
               <Header />
             </Suspense>

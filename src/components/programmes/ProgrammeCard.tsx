@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { ProgrammeWithStatus } from "@/lib/db/programmes";
+import { getProgrammeSceneImage } from "@/lib/media/activity-scenes";
 import {
   PROGRAMME_CATEGORY_LABELS,
   PROGRAMME_DISTRICT_LABELS,
@@ -242,45 +244,55 @@ export function ProgrammeCourseCard({ group, expanded, onToggle }: ProgrammeCour
   const countdown = getEnrolmentCountdown(earliest.enrolment_open_at);
   const venueCount = uniqueVenueCount(programmes);
   const preview = programmes.slice(0, 2);
-  const earliestStatus = earliest.lcsd_programme_status?.enrolment_status || "pre_open";
+  const imageSrc = getProgrammeSceneImage(representative);
 
   return (
-    <article className="relative overflow-hidden rounded-xl border border-cream-200 bg-white shadow-soft transition hover:shadow-card">
+    <article className="relative overflow-hidden rounded-card border border-cream-200 bg-white shadow-soft transition hover:shadow-card">
       <div className={`absolute inset-y-0 left-0 w-1.5 ${accent.bar}`} />
-      <div className="p-4 pl-5 sm:p-5 sm:pl-6">
-        <div className="flex flex-wrap items-start justify-between gap-3">
+      <div className="flex min-h-[520px] flex-col md:min-h-[320px] md:flex-row">
+        <Link
+          href={`/programmes/${representative.id}`}
+          className="relative ml-1.5 block h-56 overflow-hidden rounded-r-none rounded-t-[18px] md:h-[320px] md:w-[38%] md:shrink-0 md:self-start md:rounded-l-[18px] md:rounded-r-none md:rounded-t-none"
+          aria-label={`${group.title} 課程詳情`}
+        >
+          <Image
+            src={imageSrc}
+            alt=""
+            fill
+            sizes="(min-width: 1024px) 20vw, (min-width: 768px) 38vw, 100vw"
+            className="object-cover"
+            priority={false}
+          />
+        </Link>
+
+        <div className="flex min-w-0 flex-1 flex-col p-5 sm:p-6">
           <div className="min-w-0 flex-1">
-            <div className="mb-2 flex flex-wrap items-center gap-2">
+            <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-2">
               <span className={`inline-flex items-center gap-1 rounded-lg px-2.5 py-1 text-xs font-semibold ${accent.bg} ${accent.text}`}>
                 <span className="grid h-4 w-4 place-items-center rounded bg-white/70 text-[10px]" aria-hidden="true">
                   {accent.icon}
                 </span>
                 {PROGRAMME_CATEGORY_LABELS[category]}
               </span>
-              <span className="text-xs text-ink-500">
+              <span className="min-w-0 text-sm text-ink-500 md:truncate">
                 {venueCount || programmes.length} 個地點開辦 · {districtSummary(programmes)}
               </span>
             </div>
             <Link href={`/programmes/${representative.id}`} className="block">
-              <h3 className="line-clamp-2 text-lg font-semibold leading-snug text-ink-900 hover:text-brand-700">
+              <h3 className="line-clamp-2 text-[22px] font-bold leading-[1.3] text-[#111827] hover:text-brand-700 lg:text-[24px]">
                 {group.title}
               </h3>
             </Link>
-            <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
-              <span className="font-semibold text-forest-700">{fee.label}</span>
+            <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-base">
+              <span className="font-bold text-forest-700">{fee.label}</span>
               {representative.sessions_count && <span className="text-ink-500">{representative.sessions_count} 堂</span>}
               {ageRange && <span className="text-ink-500">適合 {ageRange}</span>}
             </div>
           </div>
 
-          <span className={`inline-flex h-8 items-center rounded-lg px-2.5 text-xs font-semibold ${ENROLMENT_STATUS_COLORS[earliestStatus]}`}>
-            {ENROLMENT_STATUS_LABELS[earliestStatus]}
-          </span>
-        </div>
-
-        <div className="mt-4 rounded-lg bg-slate-50 px-3 py-2.5 text-sm text-ink-700">
+        <div className="mt-5 rounded-xl bg-slate-50 px-4 py-3 text-sm text-ink-700">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-            <span className="inline-flex items-center gap-1.5 font-medium text-ink-900">
+            <span className="inline-flex items-center gap-2 font-semibold text-ink-900">
               <ClockIcon />
               最快報名：{formatEnrolmentTime(earliest.enrolment_open_at)}
             </span>
@@ -288,9 +300,9 @@ export function ProgrammeCourseCard({ group, expanded, onToggle }: ProgrammeCour
           </div>
         </div>
 
-        <div className="mt-4 space-y-2">
+        <div className="mt-5 space-y-2.5">
           {preview.map((programme) => (
-            <div key={programme.id} className="flex min-w-0 items-center gap-2 text-sm text-ink-700">
+            <div key={programme.id} className="flex min-w-0 items-center gap-2 text-base text-ink-700">
               <PinIcon />
               <Link href={`/programmes/${programme.id}`} className="truncate hover:text-brand-700">
                 {programme.venue || "場地待定"}
@@ -300,11 +312,11 @@ export function ProgrammeCourseCard({ group, expanded, onToggle }: ProgrammeCour
           ))}
         </div>
 
-        <div className="mt-5 flex flex-wrap items-center gap-2">
+        <div className="mt-auto flex flex-wrap items-center gap-3 pt-6">
           <button
             type="button"
             onClick={onToggle}
-            className="inline-flex h-9 items-center justify-center gap-1.5 rounded-lg bg-slate-900 px-3 text-xs font-semibold text-white transition hover:bg-slate-800"
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-slate-900 px-4 text-sm font-semibold text-white transition hover:bg-slate-800"
             aria-expanded={expanded}
           >
             {expanded ? "收起場次" : `查看全部 ${programmes.length} 個場次`}
@@ -322,6 +334,7 @@ export function ProgrammeCourseCard({ group, expanded, onToggle }: ProgrammeCour
             ))}
           </div>
         )}
+        </div>
       </div>
     </article>
   );
@@ -331,7 +344,6 @@ function SessionMetaRow({ programme }: { programme: ProgrammeWithStatus }) {
   const dateRange = formatProgrammeDateRange(programme.start_date, programme.end_date);
   const enrolmentTime = formatEnrolmentTime(programme.enrolment_open_at);
   const countdown = getEnrolmentCountdown(programme.enrolment_open_at);
-  const status = programme.lcsd_programme_status?.enrolment_status || "pre_open";
 
   return (
     <div className="grid gap-2 text-sm text-ink-700 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center">
@@ -357,9 +369,6 @@ function SessionMetaRow({ programme }: { programme: ProgrammeWithStatus }) {
         )}
       </div>
       <div className="flex items-center gap-2">
-        <span className={`inline-flex h-8 items-center rounded-lg px-2.5 text-xs font-semibold ${ENROLMENT_STATUS_COLORS[status]}`}>
-          {ENROLMENT_STATUS_LABELS[status]}
-        </span>
         <SubscribeButton programmeId={programme.id} size="sm" />
       </div>
     </div>

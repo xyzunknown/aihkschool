@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { absoluteUrl } from "@/lib/seo";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -6,37 +7,37 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/account/"],
+        disallow: ["/api/", "/account/", "/admin/", "/login"],
       },
       {
-        userAgent: "GPTBot",
-        disallow: "/",
+        userAgent: "Googlebot",
+        allow: "/",
       },
       {
-        userAgent: "ClaudeBot",
-        disallow: "/",
+        userAgent: "Bingbot",
+        allow: "/",
       },
       {
-        userAgent: "anthropic-ai",
-        disallow: "/",
+        userAgent: "OAI-SearchBot",
+        allow: "/",
+      },
+      {
+        userAgent: "ChatGPT-User",
+        allow: "/",
       },
       {
         userAgent: "PerplexityBot",
-        disallow: "/",
+        allow: "/",
       },
       {
-        userAgent: "CCBot",
-        disallow: "/",
+        userAgent: "ClaudeBot",
+        allow: "/",
       },
       {
-        userAgent: "Google-Extended",
-        disallow: "/",
-      },
-      {
-        userAgent: "Bytespider",
-        disallow: "/",
+        userAgent: "GPTBot",
+        allow: "/",
       },
     ],
-    sitemap: "https://aihkschool.vercel.app/sitemap.xml",
+    sitemap: absoluteUrl("/sitemap.xml"),
   };
 }

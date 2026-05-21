@@ -72,7 +72,7 @@ export function PrioritySchoolsSection({
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <div className="inline-flex items-center rounded-full border border-emerald-200 bg-white/85 px-3 py-1 text-[11px] font-semibold tracking-[0.18em] text-emerald-800 uppercase">
-              Priority 65
+              Hot 100
             </div>
             <h2 className="mt-3 text-2xl font-semibold tracking-tight text-ink-900 md:text-3xl">
               {title}

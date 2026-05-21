@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getAllNewsItems } from "@/lib/homepage/liveData";
+import { getAllNewsItems, getNewsItemById } from "@/lib/homepage/liveData";
 import { NEWS_ITEMS } from "@/data/homepage";
 import type { NewsItem } from "@/types/homepage";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { absoluteUrl, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const revalidate = 3600;
 
@@ -19,8 +21,7 @@ export async function generateMetadata({
   params: { id: string };
 }): Promise<Metadata> {
   const decodedId = decodeURIComponent(params.id);
-  const allNews = await getAllNewsItems();
-  const article = allNews.find((item) => item.id === decodedId);
+  const article = await getNewsItemById(decodedId);
 
   if (!article || article.is_external) {
     return {
@@ -32,21 +33,13 @@ export async function generateMetadata({
   const description = article.summary || article.title;
 
   return {
-    title: article.title,
-    description,
-    openGraph: {
+    ...pageMetadata({
       title: article.title,
       description,
+      path: `/news/${encodeURIComponent(article.id)}`,
       type: "article",
-      url: `/news/${encodeURIComponent(article.id)}`,
-      images: ["/brand/Web Logo/Logo.png"],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: article.title,
-      description,
-      images: ["/brand/Web Logo/Logo.png"],
-    },
+    }),
+    title: article.title,
   };
 }
 
@@ -196,8 +189,7 @@ interface PageProps {
 
 export default async function ArticlePage({ params }: PageProps) {
   const decodedId = decodeURIComponent(params.id);
-  const allNews = await getAllNewsItems();
-  const article = allNews.find((item) => item.id === decodedId);
+  const article = await getNewsItemById(decodedId);
 
   if (!article) notFound();
 
@@ -215,6 +207,7 @@ export default async function ArticlePage({ params }: PageProps) {
     console.warn(`[ArticlePage] extractMainContent produced no usable content for: ${article.href} (html length: ${html.length})`);
   }
   const hostname = extractHostname(article.href);
+  const allNews = await getAllNewsItems();
 
   const relatedNews = allNews
     .filter(
@@ -223,9 +216,32 @@ export default async function ArticlePage({ params }: PageProps) {
         item.source_category === article.source_category
     )
     .slice(0, 3);
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.summary || article.title,
+    url: absoluteUrl(`/news/${encodeURIComponent(article.id)}`),
+    datePublished: article.published_at ?? undefined,
+    dateModified: article.published_at ?? undefined,
+    inLanguage: "zh-HK",
+    author: { "@type": "Organization", name: article.source_label },
+    publisher: { "@type": "Organization", name: "HKSchoolPlace" },
+    isBasedOn: article.href,
+  };
 
   return (
     <div className="mx-auto max-w-4xl px-5 py-8 md:px-8 md:py-12">
+      <JsonLd
+        data={[
+          breadcrumbJsonLd([
+            { name: "首頁", path: "/" },
+            { name: "消息資訊", path: "/news" },
+            { name: article.title, path: `/news/${encodeURIComponent(article.id)}` },
+          ]),
+          articleJsonLd,
+        ]}
+      />
       <Link
         href="/news"
         className="mb-6 inline-flex items-center text-sm text-slate-500 transition-colors hover:text-slate-950"

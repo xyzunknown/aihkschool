@@ -3,22 +3,27 @@ import type { Metadata } from "next";
 import { ActivitiesClient } from "./ActivitiesClient";
 import { ActivityCardSkeleton } from "@/components/activities/ActivityCard";
 import { FeatureBanner } from "@/components/feature/FeatureBanner";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const revalidate = 3600;
 
-export const metadata: Metadata = {
-  title: "課外活動 | HKSchoolPlace",
+export const metadata: Metadata = pageMetadata({
+  title: "香港幼稚園階段親子活動",
   description:
-    "香港幼稚園階段親子活動搜尋 — 親子玩樂、展覽演出、學習體驗、節慶活動。按地區和費用篩選，幫小朋友搵到合適活動。",
-  openGraph: {
-    title: "課外活動 | HKSchoolPlace",
-    description: "香港幼稚園階段親子活動搜尋，按地區和費用篩選。",
-  },
-};
+    "搜尋香港幼稚園階段親子活動、展覽演出、學習體驗和節慶活動，按地區、年齡和費用篩選。",
+  path: "/activities",
+});
 
 export default function ActivitiesPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "首頁", path: "/" },
+          { name: "課外活動", path: "/activities" },
+        ])}
+      />
       <FeatureBanner
         eyebrow="幼稚園階段興趣探索"
         title="課外活動"

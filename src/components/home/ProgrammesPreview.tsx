@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { fetchUpcomingProgrammes } from "@/lib/db/programmes";
-import { ProgrammeCard } from "@/components/programmes/ProgrammeCard";
+import { ProgrammesPreviewClient } from "@/components/home/ProgrammesPreviewClient";
 
 export async function ProgrammesPreview() {
   let programmes = [] as Awaited<ReturnType<typeof fetchUpcomingProgrammes>>;
@@ -30,13 +30,7 @@ export async function ProgrammesPreview() {
         </Link>
       </div>
 
-      <div className="-mx-5 flex gap-4 overflow-x-auto px-5 pb-2 hide-scrollbar md:mx-0 md:grid md:grid-cols-2 xl:grid-cols-3 md:gap-5 md:px-0 md:overflow-visible">
-        {programmes.map((programme) => (
-          <div key={programme.id} className="w-[286px] flex-shrink-0 md:w-auto">
-            <ProgrammeCard programme={programme} />
-          </div>
-        ))}
-      </div>
+      <ProgrammesPreviewClient programmes={programmes} />
     </section>
   );
 }

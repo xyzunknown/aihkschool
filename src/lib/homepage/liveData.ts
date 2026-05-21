@@ -135,8 +135,10 @@ const BLOCKED_URL_REGEX = /(godaddy\.com|javascript:|facebook\.com)/i;
 
 /* ─── Freshness constants ─── */
 
-/** Only show news published within the last 60 days */
+/** Keep government and school news visible for the normal news window */
 const MAX_NEWS_AGE_DAYS = 60;
+/** Keep media reports visible for a shorter window */
+const MAX_MEDIA_NEWS_AGE_DAYS = 5;
 /** Keep past events for 7 days after they occurred */
 const MAX_EVENT_PAST_DAYS = 7;
 /** Timeline page: show events up to 90 days in the future */
@@ -192,16 +194,28 @@ function shorten(text: string, maxLength: number): string {
   return `${text.slice(0, maxLength - 1).trim()}\u2026`;
 }
 
-function formatMonthDay(dateInput: string): string {
-  const date = new Date(dateInput);
-  if (Number.isNaN(date.getTime())) return dateInput;
-  return `${date.getMonth() + 1}月${date.getDate()}日`;
-}
-
 function parseDate(dateInput: string): Date | null {
+  const chineseDateMatch = dateInput
+    .trim()
+    .match(/^(\d{4})年(\d{1,2})月(\d{1,2})日$/);
+  if (chineseDateMatch) {
+    const [, year, month, day] = chineseDateMatch;
+    return new Date(Number(year), Number(month) - 1, Number(day));
+  }
+
   const date = new Date(dateInput);
   if (Number.isNaN(date.getTime())) return null;
   return date;
+}
+
+function formatMonthDay(dateInput: string): string {
+  const date = parseDate(dateInput);
+  if (!date) return dateInput;
+  return `${date.getMonth() + 1}月${date.getDate()}日`;
+}
+
+function toIsoString(dateInput: string): string {
+  return parseDate(dateInput)?.toISOString() ?? dateInput;
 }
 
 /** Returns true if the date is within the last MAX_NEWS_AGE_DAYS days */
@@ -210,6 +224,13 @@ function isRecent(publishedAt: string): boolean {
   if (!date) return false;
   const age = Date.now() - date.getTime();
   return age >= 0 && age < MAX_NEWS_AGE_DAYS * 24 * 60 * 60 * 1000;
+}
+
+function isRecentMediaReport(publishedAt: string): boolean {
+  const date = parseDate(publishedAt);
+  if (!date) return false;
+  const age = Date.now() - date.getTime();
+  return age >= 0 && age < MAX_MEDIA_NEWS_AGE_DAYS * 24 * 60 * 60 * 1000;
 }
 
 function sortNewsByPublishedAt(items: NewsItem[]): NewsItem[] {
@@ -352,7 +373,7 @@ function detectContentType(
 
 /* ─── News fetchers ─── */
 
-async function getEdbNewsItems(): Promise<NewsItem[]> {
+async function getEdbNewsItems(options: { includeOlder?: boolean } = {}): Promise<NewsItem[]> {
   // Use Traditional Chinese RSS feed
   const rss = await fetchText("https://www.edb.gov.hk/tc/whats_new_rss.xml");
   if (!rss) return [];
@@ -363,7 +384,7 @@ async function getEdbNewsItems(): Promise<NewsItem[]> {
         item.link &&
         item.title &&
         isRelevantNews(item.title) &&
-        isRecent(item.pubDate)
+        (options.includeOlder || isRecent(item.pubDate))
     )
     .slice(0, 6);
 
@@ -385,7 +406,7 @@ async function getEdbNewsItems(): Promise<NewsItem[]> {
         title: cleanText(item.title),
         summary,
         date: formatMonthDay(item.pubDate),
-        published_at: new Date(item.pubDate).toISOString(),
+        published_at: toIsoString(item.pubDate),
         href: item.link,
         is_external: isExternalSource(source),
         content_type,
@@ -395,7 +416,7 @@ async function getEdbNewsItems(): Promise<NewsItem[]> {
   );
 }
 
-async function getHk01NewsItems(): Promise<NewsItem[]> {
+async function getHk01NewsItems(options: { includeOlder?: boolean } = {}): Promise<NewsItem[]> {
   const sitemap = await fetchText("https://www.hk01.com/sitemapByLastMod.xml");
   if (!sitemap) return [];
 
@@ -404,7 +425,7 @@ async function getHk01NewsItems(): Promise<NewsItem[]> {
       (item) =>
         item.link &&
         item.title &&
-        isRecent(item.pubDate) &&
+        (options.includeOlder || isRecentMediaReport(item.pubDate)) &&
         HK01_KG_NEWS_REGEX.test(`${item.title} ${item.link}`)
     )
     .slice(0, 4);
@@ -425,7 +446,7 @@ async function getHk01NewsItems(): Promise<NewsItem[]> {
         title: cleanText(item.title),
         summary: await fetchNewsSummary(item.link, item.title),
         date: formatMonthDay(item.pubDate),
-        published_at: new Date(item.pubDate).toISOString(),
+        published_at: toIsoString(item.pubDate),
         href: item.link,
         is_external: true,
         content_type,
@@ -481,6 +502,26 @@ export async function getAllNewsItems(): Promise<NewsItem[]> {
 
   // Live fetch completely failed — return all fallback data regardless of age
   return sortNewsByPublishedAt(NEWS_ITEMS);
+}
+
+export async function getNewsItemById(id: string): Promise<NewsItem | null> {
+  const fallbackItem = NEWS_ITEMS.find((item) => item.id === id);
+  if (fallbackItem) return fallbackItem;
+
+  const currentItems = await getAllNewsItems();
+  const currentItem = currentItems.find((item) => item.id === id);
+  if (currentItem) return currentItem;
+
+  const [olderEdbItems, olderHk01Items] = await Promise.all([
+    getEdbNewsItems({ includeOlder: true }),
+    getHk01NewsItems({ includeOlder: true }),
+  ]);
+
+  return (
+    sortNewsByPublishedAt([...olderEdbItems, ...olderHk01Items]).find(
+      (item) => item.id === id
+    ) ?? null
+  );
 }
 
 /* ─── Event helpers ─── */

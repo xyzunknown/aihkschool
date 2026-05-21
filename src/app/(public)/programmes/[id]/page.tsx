@@ -13,6 +13,8 @@ import {
   getEnrolmentCountdown,
 } from "@/lib/programmes/labels";
 import { SubscribeButton } from "@/components/programmes/SubscribeButton";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { absoluteUrl, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const revalidate = 600;
 
@@ -25,10 +27,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!programme) return { title: "課程未找到" };
 
   const name = programme.name_zh || programme.name_en || "課程";
-  return {
-    title: `${name} | SmartPLAY 開報前追蹤`,
-    description: `${name} — ${programme.venue || ""}，${formatProgrammeFee(programme.fee_hkd).label}，可加入開報前追蹤。`,
-  };
+  return pageMetadata({
+    title: `${name}｜SmartPLAY 開報前追蹤`,
+    description: `${name}，${programme.venue || "香港康文署場地"}，${formatProgrammeFee(programme.fee_hkd).label}，查看報名時間、適合年齡和課程日期。`,
+    path: `/programmes/${params.id}`,
+  });
 }
 
 export default async function ProgrammeDetailPage({ params }: PageProps) {
@@ -47,9 +50,39 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
         `${programme.venue}${programme.district ? ` ${PROGRAMME_DISTRICT_LABELS[programme.district] || programme.district}` : ""} Hong Kong`,
       )}`
     : null;
+  const programmeJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: programme.name_zh || programme.name_en || "SmartPLAY 課程",
+    alternateName: programme.name_en || undefined,
+    description: `${programme.name_zh || programme.name_en || "SmartPLAY 課程"} 的報名時間、地點、費用和適合年齡整理。`,
+    url: absoluteUrl(`/programmes/${programme.id}`),
+    provider: {
+      "@type": "Organization",
+      name: "康樂及文化事務署 SmartPLAY",
+      url: "https://www.smartplay.lcsd.gov.hk/",
+    },
+    offers: {
+      "@type": "Offer",
+      price: programme.fee_hkd ?? 0,
+      priceCurrency: "HKD",
+      availability: enrolmentStatus === "closed" ? "https://schema.org/SoldOut" : "https://schema.org/InStock",
+      url: programme.raw_url ?? absoluteUrl(`/programmes/${programme.id}`),
+    },
+  };
 
   return (
     <div className="mx-auto max-w-3xl px-5 py-8 md:px-8 md:py-12">
+      <JsonLd
+        data={[
+          breadcrumbJsonLd([
+            { name: "首頁", path: "/" },
+            { name: "SmartPLAY 開報前追蹤", path: "/programmes" },
+            { name: programme.name_zh || programme.name_en || "課程", path: `/programmes/${programme.id}` },
+          ]),
+          programmeJsonLd,
+        ]}
+      />
       {/* 返回 */}
       <a
         href="/programmes"

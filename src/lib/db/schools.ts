@@ -5,6 +5,7 @@ import {
   getAdmissionSummary,
   shouldShowAdmissionSummary,
 } from "@/lib/schools/admissions";
+import { getSearchTextVariants } from "@/lib/schools/searchText";
 import type { School, District, SchoolType, SessionType, VacancyStatus } from "@/types/database";
 
 export type SessionFilter = SessionType | "half_day";
@@ -123,7 +124,17 @@ function buildSchoolListQuery(
     query = query.eq("schooland_size_label", schoolandSize);
   }
   if (search && search.trim()) {
-    query = query.or(`name_tc.ilike.%${search.trim()}%,name_en.ilike.%${search.trim()}%`);
+    const variants = getSearchTextVariants(search)
+      .map((value) => value.replace(/[%_,()]/g, " ").replace(/\s+/g, " ").trim())
+      .filter(Boolean);
+    const clauses = variants.flatMap((value) => [
+      `name_tc.ilike.%${value}%`,
+      `name_en.ilike.%${value}%`,
+      `district.ilike.%${value}%`,
+    ]);
+    if (clauses.length > 0) {
+      query = query.or(clauses.join(","));
+    }
   }
 
   // No DB-level sort — we sort in-memory after vacancy enrichment

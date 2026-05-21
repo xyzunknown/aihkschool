@@ -356,7 +356,7 @@ export function ProgrammesClient() {
         </div>
       ) : (
         <>
-          <div className="grid grid-cols-1 items-start gap-4 lg:grid-cols-2">
+          <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-2">
             {courseGroups.map((group) => (
               <ProgrammeCourseCard
                 key={group.key}

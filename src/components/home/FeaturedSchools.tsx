@@ -1,27 +1,28 @@
+"use client";
+
 import Link from "next/link";
-import { SchoolAvatar } from "@/components/schools/SchoolAvatar";
-import { VacancyBadge } from "@/components/schools/VacancyBadge";
+import { SchoolCard } from "@/components/schools/SchoolCard";
 import { FEATURED_SCHOOLS } from "@/data/homepage";
-import {
-  isVacancyStale,
-  SCHOOL_TYPE_LABELS,
-  SCHOOLAND_NURSERY_SERVICE_LABELS,
-  SCHOOLAND_SESSION_LABELS,
-  SCHOOLAND_SIZE_LABELS,
-} from "@/lib/utils";
+import { useAuth } from "@/components/layout/AuthProvider";
+import { useCompare } from "@/lib/hooks/useCompare";
 import type { FeaturedSchool } from "@/types/homepage";
+import type { VacancyStatus } from "@/types/database";
 
 interface FeaturedSchoolsProps {
   schools?: FeaturedSchool[];
 }
 
 export function FeaturedSchools({ schools }: FeaturedSchoolsProps) {
+  const { requireAuth } = useAuth();
+  const { addToCompare, removeFromCompare, isInCompare, canAdd } = useCompare();
+  const list = schools && schools.length > 0 ? schools : FEATURED_SCHOOLS;
+
   return (
     <section className="mb-10">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-semibold text-slate-950">精選名校</h2>
         <Link
-          href="/kg"
+          href="/priority"
           className="text-slate-500 hover:text-slate-950 text-sm font-medium transition-colors"
         >
           查看全部 →
@@ -29,117 +30,44 @@ export function FeaturedSchools({ schools }: FeaturedSchoolsProps) {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-        {(schools && schools.length > 0 ? schools : FEATURED_SCHOOLS).map((school) => (
-          <Link
-            key={school.id}
-            href={school.detailId ? `/kg/${school.detailId}` : school.href}
-            className="group block rounded-2xl border border-slate-200 bg-white p-5 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200"
-          >
-            <div className="flex items-start gap-3 mb-3">
-              <SchoolAvatar
-                schoolId={school.id}
-                schoolName={school.name_tc}
-                logoUrl={school.logoUrl}
-                schoolCode={school.schoolCode}
-              />
-              <div className="flex-1 min-w-0">
-                <h3 className="text-base font-bold text-slate-900 leading-snug line-clamp-2 group-hover:text-blue-700 transition-colors">
-                  {school.name_tc}
-                </h3>
-                <p className="text-sm text-slate-400 leading-snug mt-0.5 line-clamp-1">
-                  {school.name_en}
-                </p>
-              </div>
-            </div>
+        {list.map((school) => {
+          const schoolId = school.detailId ?? school.id;
+          const vacancy = school.vacancyStatus
+            ? {
+              n_vacancy: "no_information" as VacancyStatus,
+              k1_vacancy: school.vacancyStatus.k1 as VacancyStatus,
+              k2_vacancy: school.vacancyStatus.k2 as VacancyStatus,
+              k3_vacancy: school.vacancyStatus.k3 as VacancyStatus,
+              edb_published_date: school.vacancyPublishedDate ?? null,
+            }
+            : null;
 
-            <div className="flex items-center gap-1 text-sm text-slate-500 mb-2.5">
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="text-slate-400"
-              >
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-              <span>{school.district}</span>
-            </div>
-
-            <div className="flex flex-wrap gap-2 mb-3">
-              {school.sessionTags.map((tag) => (
-                <span
-                  key={tag}
-                  className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700"
-                >
-                  {tag}
-                </span>
-              ))}
-              {school.schoolType && (
-                <span
-                  className={`inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium ${
-                    school.schoolType === "international"
-                      ? "bg-violet-50 text-violet-700"
-                      : school.schoolType === "private_independent"
-                        ? "bg-amber-50 text-amber-700"
-                        : "bg-emerald-50 text-emerald-700"
-                  }`}
-                >
-                  {SCHOOL_TYPE_LABELS[school.schoolType] ?? school.schoolType}
-                </span>
-              )}
-              {school.schoolandGroupTag && (
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-600">
-                  {school.schoolandGroupTag}
-                </span>
-              )}
-              {school.schoolandSizeLabel && (
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-600">
-                  {SCHOOLAND_SIZE_LABELS[school.schoolandSizeLabel] ?? school.schoolandSizeLabel}
-                </span>
-              )}
-              {school.schoolandSessionLabel && (
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-600">
-                  {SCHOOLAND_SESSION_LABELS[school.schoolandSessionLabel] ?? school.schoolandSessionLabel}
-                </span>
-              )}
-              {school.schoolandNurseryService === "yes" && (
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-600">
-                  幼兒服務{SCHOOLAND_NURSERY_SERVICE_LABELS.yes}
-                </span>
-              )}
-              {school.hasN && (
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700">
-                  設 N 班
-                </span>
-              )}
-            </div>
-
-            {/* Vacancy status */}
-            {school.vacancyStatus && (
-              <div className="flex items-center gap-2 mb-3">
-                {(["k1", "k2", "k3"] as const).map((grade) => (
-                  <VacancyBadge
-                    key={grade}
-                    grade={grade.toUpperCase()}
-                    status={school.vacancyStatus![grade] as import("@/types/database").VacancyStatus}
-                    isStale={isVacancyStale(school.vacancyPublishedDate ?? null)}
-                  />
-                ))}
-              </div>
-            )}
-
-            <div className="flex justify-end pt-3 border-t border-slate-100">
-              <span className="text-blue-600 text-xs font-medium">
-                詳情 &gt;
-              </span>
-            </div>
-          </Link>
-        ))}
+          return (
+            <SchoolCard
+              key={school.id}
+              id={schoolId}
+              nameTc={school.name_tc}
+              nameEn={school.name_en}
+              logoUrl={school.logoUrl}
+              schoolCode={school.schoolCode}
+              district={school.district}
+              schoolType={school.schoolType ?? undefined}
+              schoolandSessionLabel={school.schoolandSessionLabel}
+              vacancy={vacancy}
+              onToggleFavorite={() => requireAuth(() => {})}
+              isInCompare={isInCompare(schoolId)}
+              onToggleCompare={() => {
+                if (isInCompare(schoolId)) {
+                  removeFromCompare(schoolId);
+                } else if (canAdd) {
+                  requireAuth(() => {
+                    addToCompare({ id: schoolId, nameTc: school.name_tc, logoUrl: school.logoUrl });
+                  });
+                }
+              }}
+            />
+          );
+        })}
       </div>
     </section>
   );

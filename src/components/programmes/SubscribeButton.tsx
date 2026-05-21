@@ -19,7 +19,7 @@ interface SubscribeButtonProps {
 }
 
 export function SubscribeButton({ programmeId, size = "md" }: SubscribeButtonProps) {
-  const { user } = useAuth();
+  const { user, requireAuth } = useAuth();
   const { showToast } = useToast();
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -50,7 +50,7 @@ export function SubscribeButton({ programmeId, size = "md" }: SubscribeButtonPro
 
   const handleToggle = useCallback(async () => {
     if (!user) {
-      showToast({ message: "請先登入" });
+      requireAuth(() => {});
       return;
     }
 
@@ -88,7 +88,7 @@ export function SubscribeButton({ programmeId, size = "md" }: SubscribeButtonPro
     } finally {
       setLoading(false);
     }
-  }, [user, isSubscribed, programmeId, showToast]);
+  }, [user, isSubscribed, programmeId, requireAuth, showToast]);
 
   const sizeClasses = size === "sm"
     ? "px-3 py-1.5 text-xs"

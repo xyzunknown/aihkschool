@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState, useCallback, ReactNode } from "react";
+import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import type { Provider, User as SupabaseUser } from "@supabase/supabase-js";
 
@@ -78,6 +79,7 @@ function isIgnorableExtensionError(input: unknown): boolean {
 }
 
 export function AuthProvider({ children }: { children: ReactNode }) {
+  const router = useRouter();
   const [user, setUser] = useState<SupabaseUser | null>(null);
   const [loading, setLoading] = useState(true);
   const [pendingAction, setPendingAction] = useState<(() => void) | null>(null);
@@ -206,7 +208,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     [supabase],
   );
 
-  const signIn = signInWithGoogle;
+  const signIn = useCallback(async () => {
+    const currentPath =
+      typeof window === "undefined"
+        ? "/account"
+        : `${window.location.pathname}${window.location.search}`;
+    const next = currentPath.startsWith("/login") ? "/account" : currentPath;
+    router.push(`/login?next=${encodeURIComponent(next)}`);
+  }, [router]);
 
   const signOut = useCallback(async () => {
     await supabase.auth.signOut();

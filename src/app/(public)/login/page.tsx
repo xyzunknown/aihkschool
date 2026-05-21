@@ -16,6 +16,7 @@ const selectedSchools = [
 export default function LoginPage() {
   const router = useRouter();
   const { user, loading, signInWithEmail, signInWithGoogle, signInWithFacebook, signInWithApple } = useAuth();
+  const [next, setNext] = useState("/account");
   const [mode, setMode] = useState<AuthMode>("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,10 +25,18 @@ export default function LoginPage() {
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
-    if (!loading && user) {
-      router.replace("/account");
+    const params = new URLSearchParams(window.location.search);
+    const requestedNext = params.get("next");
+    if (requestedNext?.startsWith("/")) {
+      setNext(requestedNext);
     }
-  }, [loading, router, user]);
+  }, []);
+
+  useEffect(() => {
+    if (!loading && user) {
+      router.replace(next);
+    }
+  }, [loading, next, router, user]);
 
   const handleEmailSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -40,7 +49,7 @@ export default function LoginPage() {
     } else {
       setStatus({ kind: "ok", text: result.message ?? "已完成。" });
       if (mode === "login") {
-        router.replace("/account");
+        router.replace(next);
       }
     }
 

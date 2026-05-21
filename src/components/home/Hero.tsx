@@ -35,16 +35,6 @@ export function Hero({ banners = [] }: { banners?: HomeBanner[] }) {
             className="hidden md:block object-cover object-right"
           />
 
-          <Image
-            src="/brand/mascot/02_elephant_wave_hero.png"
-            alt="小象助手"
-            width={680}
-            height={680}
-            priority
-            sizes="340px"
-            className="pointer-events-none absolute bottom-0 right-5 z-[5] hidden h-[300px] w-auto drop-shadow-[0_14px_24px_rgba(31,42,36,0.16)] md:block lg:right-10 lg:h-[340px]"
-          />
-
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,250,239,0.3)_0%,rgba(255,250,239,0.18)_100%)] md:hidden" />
 
           <div className="relative z-10 h-full flex items-start md:items-center px-6 pt-8 pb-7 md:px-10 md:py-10 lg:px-12 lg:py-12">

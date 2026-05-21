@@ -3,9 +3,6 @@ import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis/cloudflare";
 import { NextResponse, type NextRequest } from "next/server";
 
-const AI_BOT_UA =
-  /GPTBot|ClaudeBot|anthropic-ai|PerplexityBot|CCBot|Google-Extended|Bytespider/i;
-
 function getRateLimiter(authenticated: boolean) {
   const url = process.env.UPSTASH_REDIS_REST_URL;
   const token = process.env.UPSTASH_REDIS_REST_TOKEN;
@@ -22,13 +19,7 @@ function getRateLimiter(authenticated: boolean) {
 }
 
 export async function middleware(request: NextRequest) {
-  // 1. Block known AI crawler bots
-  const ua = request.headers.get("user-agent") ?? "";
-  if (AI_BOT_UA.test(ua)) {
-    return new NextResponse("Forbidden", { status: 403 });
-  }
-
-  // 2. Rate limit — 仅 /api/* 路径（避免正常页面浏览被 429）
+  // Rate limit — 仅 /api/* 路径（避免正常页面浏览被 429）
   if (request.nextUrl.pathname.startsWith("/api/")) {
     const isAuth = !!request.cookies.get("sb-access-token");
     const limiter = getRateLimiter(isAuth);
@@ -41,7 +32,7 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  // 3. Normal Supabase session handling
+  // Normal Supabase session handling
   return await updateSession(request);
 }
 

@@ -420,7 +420,9 @@ export default function KGListClient() {
                     if (isInCompare(school.id)) {
                       removeFromCompare(school.id);
                     } else if (canAdd) {
-                      addToCompare({ id: school.id, nameTc: school.name_tc, logoUrl: school.logo_url });
+                      requireAuth(() => {
+                        addToCompare({ id: school.id, nameTc: school.name_tc, logoUrl: school.logo_url });
+                      });
                     }
                   }}
                 />

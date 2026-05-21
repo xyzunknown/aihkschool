@@ -3,22 +3,27 @@ import type { Metadata } from "next";
 import { ProgrammesClient } from "./ProgrammesClient";
 import { ProgrammeCardSkeleton } from "@/components/programmes/ProgrammeCard";
 import { FeatureBanner } from "@/components/feature/FeatureBanner";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const revalidate = 3600;
 
-export const metadata: Metadata = {
-  title: "SmartPLAY 開報前追蹤 | HKSchoolPlace",
+export const metadata: Metadata = pageMetadata({
+  title: "SmartPLAY 開報前追蹤",
   description:
-    "康文署 SmartPLAY 幼兒課程開報前追蹤 — 游泳、律動、美術、親子活動。收藏心儀課程，提早收到開報提醒。",
-  openGraph: {
-    title: "SmartPLAY 開報前追蹤 | HKSchoolPlace",
-    description: "康文署幼兒課程開報前追蹤，提早掌握開報時間。",
-  },
-};
+    "康文署 SmartPLAY 幼兒課程開報前追蹤，整理游泳、律動、美術和親子活動的報名時間、地點和費用。",
+  path: "/programmes",
+});
 
 export default function ProgrammesPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "首頁", path: "/" },
+          { name: "SmartPLAY 開報前追蹤", path: "/programmes" },
+        ])}
+      />
       <FeatureBanner
         eyebrow="康文署 SmartPLAY"
         title="SmartPLAY 開報前追蹤"

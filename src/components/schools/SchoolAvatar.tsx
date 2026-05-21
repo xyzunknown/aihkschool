@@ -79,7 +79,7 @@ export function SchoolAvatar({
         <div
           className="flex h-full w-full items-center justify-center bg-slate-50"
         >
-          <span className={`flex h-[74%] w-[74%] items-center justify-center rounded-full bg-slate-100 ${textSize} font-semibold ${colors.text}`}>
+          <span className={`flex h-full w-full items-center justify-center ${textSize} font-semibold ${colors.text}`}>
             {firstChar}
           </span>
         </div>

@@ -213,28 +213,20 @@ export function ProgrammeFilterBar({
   };
 
   return (
-    <div className="relative rounded-2xl bg-white/90 px-1 py-1 md:px-0 md:py-0">
-      <div className="flex items-center justify-between gap-3">
+    <div className="rounded-2xl bg-white/90 px-1 py-1 md:px-0 md:py-0">
+      <div className="flex flex-wrap items-center gap-2 md:gap-3">
         <button
           type="button"
           onClick={() => setOpenPanel(openPanel === "district" ? null : "district")}
-          className="inline-flex min-h-11 items-center justify-center rounded-xl border border-brand-200 bg-white px-4 text-sm font-semibold text-brand-800 shadow-sm transition hover:border-brand-400 hover:bg-brand-50"
+          className={`inline-flex min-h-11 items-center justify-center rounded-xl border bg-white px-4 text-sm font-semibold shadow-sm transition hover:border-brand-400 hover:bg-brand-50 ${
+            openPanel === "district"
+              ? "border-brand-700 text-brand-800"
+              : "border-brand-200 text-brand-800"
+          }`}
         >
-          地區：{selectedDistrictText} <span className="ml-2 text-brand-600">⌄</span>
+          地區：{selectedDistrictText} <span className="ml-2 text-brand-700">{openPanel === "district" ? "⌃" : "⌄"}</span>
         </button>
 
-        <button
-          type="button"
-          onClick={() => setOpenPanel(openPanel === "sort" ? null : "sort")}
-          className="inline-flex min-h-11 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-brand-300 hover:bg-slate-50"
-        >
-          <span className="hidden md:inline">排序：{sortLabel(sort)}</span>
-          <span className="md:hidden">排序</span>
-          <span className="ml-2 text-slate-500">⌄</span>
-        </button>
-      </div>
-
-      <div className="mt-4 flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
         {AGE_PRESETS.map((p) => {
           const isActive = agePreset === p.key;
           return (
@@ -254,7 +246,7 @@ export function ProgrammeFilterBar({
         })}
       </div>
 
-      <div className="mt-3 flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
+      <div className="mt-3 flex flex-wrap gap-2">
         {TYPE_PRESETS.map((item) => {
           const isActive = category === item.key;
           return (
@@ -277,56 +269,70 @@ export function ProgrammeFilterBar({
           onClick={() => setOpenPanel(openPanel === "more" ? null : "more")}
           className="flex-shrink-0 rounded-full border border-brand-200 bg-white px-4 py-2 text-sm font-semibold text-brand-800 transition hover:border-brand-400 hover:bg-brand-50"
         >
-          <span className="hidden md:inline">{moreFilters.length > 0 ? `更多篩選：${moreFilters.length}` : "更多篩選"} ⌄</span>
-          <span className="md:hidden">{moreFilters.length > 0 ? `篩選 ${moreFilters.length}` : "篩選"} ⌄</span>
+          <span className="hidden md:inline">{moreFilters.length > 0 ? `更多篩選：${moreFilters.length}` : "更多篩選"} {openPanel === "more" ? "⌃" : "⌄"}</span>
+          <span className="md:hidden">{moreFilters.length > 0 ? `篩選 ${moreFilters.length}` : "篩選"} {openPanel === "more" ? "⌃" : "⌄"}</span>
         </button>
       </div>
 
-      {selectedTags.length > 0 ? (
-        <div className="mt-4 flex items-center gap-2 overflow-x-auto pb-1 text-sm scrollbar-hide">
-          <span className="flex-shrink-0 text-slate-500">已選：</span>
-          {selectedTags.map((tag) => (
-            <button
-              key={tag.key}
-              type="button"
-              onClick={tag.remove}
-              className="flex-shrink-0 rounded-full bg-slate-100 px-3 py-1.5 font-medium text-slate-600 transition hover:bg-slate-200"
-            >
-              {tag.label} ×
-            </button>
-          ))}
-          {showClear ? (
-            <button
-              type="button"
-              onClick={onReset}
-              className="flex-shrink-0 rounded-full px-2 py-1 text-sm font-semibold text-brand-700 hover:bg-brand-50"
-            >
-              清除全部
-            </button>
-          ) : null}
-        </div>
+      {openPanel === "district" ? (
+        <InlineDistrictPanel
+          selectedDistricts={selectedDistricts}
+          onChangeDistricts={onChangeDistricts}
+        />
       ) : null}
 
-      <p className="mt-3 text-sm text-slate-500">共 {courseCount} 個課程</p>
+      {openPanel === "sort" ? (
+        <InlineSortPanel activeSort={sort} onChoose={chooseSort} />
+      ) : null}
+
+      <div className="mt-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+        {selectedTags.length > 0 ? (
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 text-sm scrollbar-hide">
+            <span className="flex-shrink-0 text-slate-500">已選：</span>
+            {selectedTags.map((tag) => (
+              <button
+                key={tag.key}
+                type="button"
+                onClick={tag.remove}
+                className="flex-shrink-0 rounded-full bg-slate-100 px-3 py-1.5 font-medium text-slate-600 transition hover:bg-slate-200"
+              >
+                {tag.label} ×
+              </button>
+            ))}
+            {showClear ? (
+              <button
+                type="button"
+                onClick={onReset}
+                className="flex-shrink-0 rounded-full px-2 py-1 text-sm font-semibold text-brand-700 hover:bg-brand-50"
+              >
+                清除全部
+              </button>
+            ) : null}
+          </div>
+        ) : (
+          <span className="text-sm text-slate-500">已選：無</span>
+        )}
+
+        <div className="flex flex-shrink-0 items-center gap-3 self-start md:self-auto">
+          <button
+            type="button"
+            onClick={() => setOpenPanel(openPanel === "sort" ? null : "sort")}
+            className={`inline-flex min-h-10 items-center justify-center rounded-xl border bg-white px-4 text-sm font-semibold shadow-sm transition hover:border-brand-400 hover:bg-brand-50 ${
+              openPanel === "sort"
+                ? "border-brand-700 text-brand-800"
+                : "border-slate-200 text-slate-700"
+            }`}
+          >
+            排序：{sortLabel(sort)}
+            <span className={`ml-2 ${openPanel === "sort" ? "text-brand-700" : "text-slate-500"}`}>
+              {openPanel === "sort" ? "⌃" : "⌄"}
+            </span>
+          </button>
+          <p className="text-sm text-slate-500">共 {courseCount} 個課程</p>
+        </div>
+      </div>
 
       <div className="hidden md:block">
-        {openPanel === "district" ? (
-          <FloatingPanel align="left">
-            <DistrictPanel
-              selectedDistricts={selectedDistricts}
-              courseCount={courseCount}
-              onChangeDistricts={onChangeDistricts}
-              onClose={() => setOpenPanel(null)}
-            />
-          </FloatingPanel>
-        ) : null}
-
-        {openPanel === "sort" ? (
-          <FloatingPanel align="right" compact>
-            <SortPanel activeSort={sort} onChoose={chooseSort} />
-          </FloatingPanel>
-        ) : null}
-
         {openPanel === "more" ? (
           <FloatingPanel align="left">
             <MorePanel
@@ -341,39 +347,110 @@ export function ProgrammeFilterBar({
       </div>
 
       <div className="md:hidden">
-        {openPanel ? (
+        {openPanel === "more" ? (
           <div className="fixed inset-0 z-[100] bg-slate-950/30" onClick={() => setOpenPanel(null)}>
             <div
               className="absolute inset-x-0 bottom-0 max-h-[82vh] rounded-t-3xl bg-white shadow-2xl"
               onClick={(event) => event.stopPropagation()}
             >
-              {openPanel === "district" ? (
-                <DistrictPanel
-                  title="選擇地區"
-                  selectedDistricts={selectedDistricts}
-                  courseCount={courseCount}
-                  onChangeDistricts={onChangeDistricts}
-                  onClose={() => setOpenPanel(null)}
-                />
-              ) : null}
-              {openPanel === "sort" ? (
-                <SortPanel activeSort={sort} onChoose={chooseSort} mobile />
-              ) : null}
-              {openPanel === "more" ? (
-                <MorePanel
-                  title="篩選課程"
-                  selectedFilters={moreFilters}
-                  courseCount={courseCount}
-                  clearLabel="清除全部"
-                  onChangeFilters={onChangeMoreFilters}
-                  onClose={() => setOpenPanel(null)}
-                />
-              ) : null}
+              <MorePanel
+                title="篩選課程"
+                selectedFilters={moreFilters}
+                courseCount={courseCount}
+                clearLabel="清除全部"
+                onChangeFilters={onChangeMoreFilters}
+                onClose={() => setOpenPanel(null)}
+              />
             </div>
           </div>
         ) : null}
       </div>
     </div>
+  );
+}
+
+function InlineDistrictPanel({
+  selectedDistricts,
+  onChangeDistricts,
+}: {
+  selectedDistricts: string[];
+  onChangeDistricts: (v: string[]) => void;
+}) {
+  const toggleDistrict = (district: string) => {
+    if (selectedDistricts.includes(district)) {
+      onChangeDistricts(selectedDistricts.filter((item) => item !== district));
+    } else {
+      onChangeDistricts([...selectedDistricts, district]);
+    }
+  };
+
+  return (
+    <section className="mt-4 rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/50">
+      <div className="flex items-center justify-between gap-3 border-t border-slate-200 px-4 pb-3 pt-4 md:px-5">
+        <h3 className="text-base font-bold text-slate-900">地區</h3>
+        <button
+          type="button"
+          onClick={() => onChangeDistricts([])}
+          className="rounded-lg border border-brand-700 bg-white px-3 py-1.5 text-sm font-semibold text-brand-800 transition hover:bg-brand-50"
+        >
+          清除地區
+        </button>
+      </div>
+      <div className="px-4 pb-4 md:px-5">
+        <div className="divide-y divide-slate-100 overflow-hidden rounded-xl border border-slate-100 md:max-h-[252px]">
+          {DISTRICT_GROUPS.map((group) => (
+            <div key={group.label} className="grid grid-cols-[86px_1fr] md:grid-cols-[116px_1fr]">
+              <div className="bg-slate-50 px-4 py-3 text-sm font-bold text-slate-600">
+                {group.label}
+              </div>
+              <div className="flex flex-wrap gap-2 px-3 py-2.5">
+                {group.districts.map((district) => (
+                  <FilterChip
+                    key={district}
+                    label={PROGRAMME_DISTRICT_LABELS[district] ?? district}
+                    active={selectedDistricts.includes(district)}
+                    onClick={() => toggleDistrict(district)}
+                  />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function InlineSortPanel({
+  activeSort,
+  onChoose,
+}: {
+  activeSort: ProgrammeSortKey;
+  onChoose: (v: ProgrammeSortKey) => void;
+}) {
+  return (
+    <section className="mt-4 rounded-2xl border border-slate-200 bg-white px-4 py-4 shadow-lg shadow-slate-200/50 md:px-5">
+      <div className="border-t border-slate-200 pt-4">
+        <h3 className="text-base font-bold text-slate-900">排序</h3>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {SORT_OPTIONS.map((option) => (
+            <button
+              key={option.key}
+              type="button"
+              onClick={() => onChoose(option.key)}
+              className={`rounded-full border px-3.5 py-2 text-sm font-semibold transition ${
+                activeSort === option.key
+                  ? "border-brand-700 bg-brand-700 text-white"
+                  : "border-slate-200 bg-white text-slate-700 hover:border-brand-200 hover:bg-brand-50"
+              }`}
+            >
+              {option.label}
+              {option.hint ? <span className="ml-2 text-xs opacity-70">{option.hint}</span> : null}
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -393,66 +470,6 @@ function FloatingPanel({
       } ${compact ? "w-72" : "w-[680px]"}`}
     >
       {children}
-    </div>
-  );
-}
-
-function DistrictPanel({
-  title = "地區",
-  selectedDistricts,
-  courseCount,
-  onChangeDistricts,
-  onClose,
-}: {
-  title?: string;
-  selectedDistricts: string[];
-  courseCount: number;
-  onChangeDistricts: (v: string[]) => void;
-  onClose: () => void;
-}) {
-  const toggleDistrict = (district: string) => {
-    if (selectedDistricts.includes(district)) {
-      onChangeDistricts(selectedDistricts.filter((item) => item !== district));
-    } else {
-      onChangeDistricts([...selectedDistricts, district]);
-    }
-  };
-
-  return (
-    <div className="flex max-h-[82vh] flex-col">
-      <div className="overflow-y-auto px-5 pt-5 md:px-6">
-        <h3 className="text-base font-bold text-slate-900">{title}</h3>
-        <div className="mt-4">
-          <FilterChip
-            label="全部地區"
-            active={selectedDistricts.length === 0}
-            onClick={() => onChangeDistricts([])}
-          />
-        </div>
-        <div className="mt-5 space-y-5 pb-5">
-          {DISTRICT_GROUPS.map((group) => (
-            <section key={group.label}>
-              <h4 className="mb-2 text-sm font-semibold text-slate-500">{group.label}</h4>
-              <div className="flex flex-wrap gap-2">
-                {group.districts.map((district) => (
-                  <FilterChip
-                    key={district}
-                    label={PROGRAMME_DISTRICT_LABELS[district] ?? district}
-                    active={selectedDistricts.includes(district)}
-                    onClick={() => toggleDistrict(district)}
-                  />
-                ))}
-              </div>
-            </section>
-          ))}
-        </div>
-      </div>
-      <PanelFooter
-        clearLabel="清除"
-        courseCount={courseCount}
-        onClear={() => onChangeDistricts([])}
-        onApply={onClose}
-      />
     </div>
   );
 }
@@ -508,39 +525,6 @@ function MorePanel({
         onClear={() => onChangeFilters([])}
         onApply={onClose}
       />
-    </div>
-  );
-}
-
-function SortPanel({
-  activeSort,
-  onChoose,
-  mobile,
-}: {
-  activeSort: ProgrammeSortKey;
-  onChoose: (v: ProgrammeSortKey) => void;
-  mobile?: boolean;
-}) {
-  return (
-    <div className={mobile ? "px-5 pb-5 pt-5" : "p-3"}>
-      {mobile ? <h3 className="mb-3 text-base font-bold text-slate-900">排序</h3> : null}
-      <div className="space-y-1">
-        {SORT_OPTIONS.map((option) => (
-          <button
-            key={option.key}
-            type="button"
-            onClick={() => onChoose(option.key)}
-            className={`flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-sm font-semibold transition ${
-              activeSort === option.key
-                ? "bg-brand-50 text-brand-800"
-                : "text-slate-700 hover:bg-slate-50"
-            }`}
-          >
-            <span>{option.label}</span>
-            {option.hint ? <span className="text-xs font-medium text-slate-400">{option.hint}</span> : null}
-          </button>
-        ))}
-      </div>
     </div>
   );
 }

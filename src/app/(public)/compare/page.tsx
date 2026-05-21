@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { CompareClient } from "./CompareClient";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "學校對比 — HKSchoolPlace",
-  description: "並排對比 2-3 所幼稚園的學費、學位、班制、地區等關鍵信息。",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "香港幼稚園比較",
+  description: "並排比較 2 至 3 所香港幼稚園的學費、學額、班制、地區和學校資料。",
+  path: "/compare",
+});
 
 export default function ComparePage() {
   return <CompareClient />;
