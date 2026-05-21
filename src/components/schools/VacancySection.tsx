@@ -21,12 +21,10 @@ export function VacancySection({ vacancy, isStale, deadlineStatus: dlStatus, sch
       </div>
       {vacancy ? (
         <GlassCard className="p-4 md:p-6">
-          <div className="grid grid-cols-4 gap-2 md:gap-4">
-            {(["N", "K1", "K2", "K3"] as const).map((grade) => {
+          <div className="grid grid-cols-3 gap-2 md:gap-4">
+            {(["K1", "K2", "K3"] as const).map((grade) => {
               const status =
-                grade === "N"
-                  ? vacancy.n_vacancy
-                  : grade === "K1"
+                grade === "K1"
                     ? vacancy.k1_vacancy
                     : grade === "K2"
                       ? vacancy.k2_vacancy

@@ -9,17 +9,17 @@ export function Hero({ banners = [] }: { banners?: HomeBanner[] }) {
   const title = banner?.title_tc ?? "找到適合 BB 的\n幼稚園";
   const subtitle = banner?.footer_note ?? "全港 868 間 EDB 幼稚園・每日更新學位空缺・追蹤報名截止";
   const imageSrc = banner?.image_src;
-  const mobileImageSrc = imageSrc === "/brand/hero/hero-mascot-2026.png"
-    ? "/brand/hero/hero-mascot-2026-mobile.png"
+  const mobileImageSrc = imageSrc === "/brand/hero/bg.jpg"
+    ? "/brand/hero/bg-mobile.jpg"
     : imageSrc;
-  const imageAlt = banner?.image_alt ?? "小象助手陪伴家長和孩子搜尋適合的幼稚園";
+  const imageAlt = banner?.image_alt ?? "維港水彩風景與小象助手陪伴家長搜尋幼稚園";
 
   return (
     <section className="bg-white">
       <div className="max-w-[1200px] mx-auto px-5 md:px-8 pt-8 pb-2 md:pt-10 md:pb-3">
         <div className="relative overflow-hidden rounded-[30px] min-h-[360px] md:min-h-[420px] lg:min-h-[460px] border border-[#F2E7CC] bg-[#FFF8E9] shadow-[0_20px_44px_rgba(143,111,43,0.08)]">
           <Image
-            src={mobileImageSrc || "/brand/hero/hero-mascot-2026-mobile.png"}
+            src={mobileImageSrc || "/brand/hero/bg-mobile.jpg"}
             alt={imageAlt}
             fill
             priority
@@ -27,12 +27,22 @@ export function Hero({ banners = [] }: { banners?: HomeBanner[] }) {
             className="object-cover object-center md:hidden"
           />
           <Image
-            src={imageSrc || "/brand/hero/hero-mascot-2026.png"}
+            src={imageSrc || "/brand/hero/bg.jpg"}
             alt={imageAlt}
             fill
             priority
             sizes="(max-width: 767px) 1px, (max-width: 1280px) calc(100vw - 64px), 1200px"
             className="hidden md:block object-cover object-right"
+          />
+
+          <Image
+            src="/brand/mascot/02_elephant_wave_hero.png"
+            alt="小象助手"
+            width={680}
+            height={680}
+            priority
+            sizes="340px"
+            className="pointer-events-none absolute bottom-0 right-5 z-[5] hidden h-[300px] w-auto drop-shadow-[0_14px_24px_rgba(31,42,36,0.16)] md:block lg:right-10 lg:h-[340px]"
           />
 
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,250,239,0.3)_0%,rgba(255,250,239,0.18)_100%)] md:hidden" />

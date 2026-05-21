@@ -8,7 +8,6 @@ import {
   DISTRICT_LABELS,
   formatEnglishSchoolName,
   formatUpdateDate,
-  getAvatarColor,
   getSessionTags,
   isVacancyStale,
   SCHOOL_TYPE_LABELS,
@@ -76,7 +75,6 @@ export function SchoolCard({
   const primaryName = hasChineseName ? nameTc : displayNameEn;
   const secondaryName = hasChineseName && displayNameEn !== nameTc ? displayNameEn : null;
 
-  const avatarColors = getAvatarColor(id);
   const schoolTypeInfo = getSchoolTypeInfo(schoolType);
   const districtLabel = DISTRICT_LABELS[district as keyof typeof DISTRICT_LABELS] ?? district;
   const primaryStat = formatPrimaryStat(distanceKm, districtLabel);
@@ -97,7 +95,7 @@ export function SchoolCard({
 
   // Build vacancy grades to display
   const vacancyGrades: Array<{ grade: string; status: VacancyStatus }> = [];
-  if (vacancy && !isPrivateOrInternational) {
+  if (vacancy) {
     vacancyGrades.push({ grade: "K1", status: vacancy.k1_vacancy });
     vacancyGrades.push({ grade: "K2", status: vacancy.k2_vacancy });
     vacancyGrades.push({ grade: "K3", status: vacancy.k3_vacancy });
@@ -119,16 +117,13 @@ export function SchoolCard({
     >
       {/* Row 1: Avatar + Name + Favorite */}
       <div className="flex items-start gap-3">
-        <div className={`flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-[14px] ${avatarColors.bg}`}>
-          <SchoolAvatar
-            schoolId={id}
-            schoolName={primaryName}
-            logoUrl={logoUrl}
-            schoolCode={schoolCode}
-            size="sm"
-            shape="rounded"
-          />
-        </div>
+        <SchoolAvatar
+          schoolId={id}
+          schoolName={primaryName}
+          logoUrl={logoUrl}
+          schoolCode={schoolCode}
+          shape="rounded"
+        />
         <div className="min-w-0 flex-1">
           <h3 className="min-h-[44px] text-base font-bold leading-snug text-slate-900 line-clamp-2">{primaryName}</h3>
           {secondaryName && (

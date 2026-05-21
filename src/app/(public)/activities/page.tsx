@@ -1,51 +1,43 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
-import Image from "next/image";
 import { ActivitiesClient } from "./ActivitiesClient";
 import { ActivityCardSkeleton } from "@/components/activities/ActivityCard";
+import { FeatureBanner } from "@/components/feature/FeatureBanner";
 
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "課外活動 | HKSchoolPlace",
   description:
-    "香港幼稚園階段課外活動搜尋 — 音樂、運動、美術、舞蹈、科學、語言等興趣班。按地區、類別、費用篩選，幫小朋友搵到合適活動。",
+    "香港幼稚園階段親子活動搜尋 — 親子玩樂、展覽演出、學習體驗、節慶活動。按地區和費用篩選，幫小朋友搵到合適活動。",
   openGraph: {
     title: "課外活動 | HKSchoolPlace",
-    description: "香港幼稚園階段課外活動搜尋，按地區類別篩選。",
+    description: "香港幼稚園階段親子活動搜尋，按地區和費用篩選。",
   },
 };
 
 export default function ActivitiesPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-cream-50 border-b border-cream-200">
-        <span className="leaf-decor leaf-decor-tl pointer-events-none" />
-        <span className="leaf-decor leaf-decor-tr pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto px-5 md:px-8 py-10 md:py-14 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-          <div className="relative z-10">
-            <h1 className="text-3xl md:text-4xl font-bold text-ink-900 leading-tight">
-              課外活動
-            </h1>
-            <p className="mt-3 text-sm md:text-base text-ink-700 leading-relaxed max-w-md">
-              香港幼稚園階段興趣班、社區活動搜尋 · 音樂、運動、美術、舞蹈、科學、語言
-            </p>
-          </div>
-          <div className="relative hidden h-24 items-end justify-center md:flex md:h-28">
-            <Image
-              src="/images/activity-scenes/art-table.webp"
-              alt=""
-              width={420}
-              height={280}
-              priority
-              sizes="280px"
-              className="relative z-10 h-full w-full rounded-[20px] object-cover opacity-95 shadow-[0_16px_40px_rgba(30,82,56,0.10)]"
-            />
-          </div>
-        </div>
-      </section>
+      <FeatureBanner
+        eyebrow="幼稚園階段興趣探索"
+        title="課外活動"
+        description="按類別、地區和費用篩選，幫小朋友找到合適的親子玩樂、展覽演出、學習體驗和節慶活動。"
+        imageSrc="/images/feature-banners/activities-discovery.webp"
+        imageAlt="課外活動探索插畫"
+        imagePosition="73% center"
+        stats={[
+          { label: "活動類型", value: "親子 · 展覽 · 體驗" },
+          { label: "搜尋方式", value: "地區與費用" },
+          { label: "資料原則", value: "可核對來源" },
+        ]}
+        actions={[
+          { label: "瀏覽活動", href: "#activity-list" },
+          { label: "只看免費", href: "/activities?free=true", variant: "secondary" },
+        ]}
+      />
 
-      <div className="mx-auto max-w-7xl px-5 md:px-8 py-10">
+      <div id="activity-list" className="mx-auto max-w-7xl px-5 pt-10 pb-28 md:px-8 md:py-10">
         <Suspense fallback={<ActivitiesListSkeleton />}>
           <ActivitiesClient />
         </Suspense>

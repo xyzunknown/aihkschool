@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useEffect, useState, useCallback, ReactNode } from "react";
 import { createClient } from "@/lib/supabase/client";
-import type { User as SupabaseUser } from "@supabase/supabase-js";
+import type { Provider, User as SupabaseUser } from "@supabase/supabase-js";
 
 type EmailAuthMode = "login" | "register";
 
@@ -17,7 +17,8 @@ interface AuthContextType {
   signIn: () => Promise<AuthActionResult | void>;
   signInWithEmail: (email: string, password: string, mode: EmailAuthMode) => Promise<AuthActionResult>;
   signInWithGoogle: () => Promise<AuthActionResult | void>;
-  signInWithWechat: () => Promise<AuthActionResult>;
+  signInWithFacebook: () => Promise<AuthActionResult | void>;
+  signInWithApple: () => Promise<AuthActionResult | void>;
   signOut: () => Promise<void>;
   /** Call to trigger an action after login (optimistic login-then-act) */
   requireAuth: (callback: () => void) => void;
@@ -29,7 +30,8 @@ const AuthContext = createContext<AuthContextType>({
   signIn: async () => {},
   signInWithEmail: async () => ({}),
   signInWithGoogle: async () => {},
-  signInWithWechat: async () => ({}),
+  signInWithFacebook: async () => {},
+  signInWithApple: async () => {},
   signOut: async () => {},
   requireAuth: () => {},
 });
@@ -82,6 +84,28 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const supabase = createClient();
 
+  const signInWithProvider = useCallback(
+    async (provider: Provider, label: string) => {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider,
+        options: {
+          redirectTo: getAuthCallbackUrl(),
+        },
+      });
+
+      if (!error) {
+        return;
+      }
+
+      return {
+        error: error.message.toLowerCase().includes("origin not allowed")
+          ? "目前網址未加入登入允許清單，請檢查登入設定。"
+          : `${label} 登入未完成，請稍後再試。`,
+      };
+    },
+    [supabase],
+  );
+
   useEffect(() => {
     const getUser = async () => {
       const { data: { user } } = await supabase.auth.getUser();
@@ -129,23 +153,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signInWithGoogle = useCallback(async () => {
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo: getAuthCallbackUrl(),
-      },
-    });
+    return signInWithProvider("google", "Google");
+  }, [signInWithProvider]);
 
-    if (!error) {
-      return;
-    }
+  const signInWithFacebook = useCallback(async () => {
+    return signInWithProvider("facebook", "Facebook");
+  }, [signInWithProvider]);
 
-    return {
-      error: error.message.toLowerCase().includes("origin not allowed")
-        ? "目前網址未加入登入允許清單，請檢查登入設定。"
-        : "Google 登入未完成，請稍後再試。",
-    };
-  }, [supabase]);
+  const signInWithApple = useCallback(async () => {
+    return signInWithProvider("apple", "Apple");
+  }, [signInWithProvider]);
 
   const signInWithEmail = useCallback(
     async (email: string, password: string, mode: EmailAuthMode): Promise<AuthActionResult> => {
@@ -189,10 +206,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     [supabase],
   );
 
-  const signInWithWechat = useCallback(async (): Promise<AuthActionResult> => {
-    return { error: "微信登入入口已預留，正式接入後即可使用。" };
-  }, []);
-
   const signIn = signInWithGoogle;
 
   const signOut = useCallback(async () => {
@@ -217,7 +230,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         signIn,
         signInWithEmail,
         signInWithGoogle,
-        signInWithWechat,
+        signInWithFacebook,
+        signInWithApple,
         signOut,
         requireAuth,
       }}

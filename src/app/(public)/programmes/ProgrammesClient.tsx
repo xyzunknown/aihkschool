@@ -3,10 +3,10 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import type { ProgrammeCategory, ProgrammeWithStatus } from "@/lib/db/programmes";
-import { ProgrammeCard, ProgrammeCardSkeleton } from "@/components/programmes/ProgrammeCard";
+import { ProgrammeCardSkeleton, ProgrammeCourseCard } from "@/components/programmes/ProgrammeCard";
 import { ProgrammeFilterBar, type AgePresetKey } from "@/components/programmes/ProgrammeFilterBar";
 
-const PAGE_SIZE = 18;
+const PAGE_SIZE = 240;
 
 // Age presets surfaced in the filter bar. The API uses range-overlap
 // matching: a programme matches when its [age_min, age_max] overlaps with
@@ -35,6 +35,82 @@ interface ApiResponse {
   count: number;
   page: number;
   limit: number;
+}
+
+export interface ProgrammeCourseGroup {
+  key: string;
+  title: string;
+  programmes: ProgrammeWithStatus[];
+  representative: ProgrammeWithStatus;
+}
+
+const CHINESE_NUMERALS: Record<string, string> = {
+  一: "1",
+  二: "2",
+  三: "3",
+  四: "4",
+  五: "5",
+  六: "6",
+  七: "7",
+  八: "8",
+  九: "9",
+  十: "10",
+};
+
+function normalizeProgrammeName(value: string) {
+  return value
+    .replace(/\u3000/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/第([一二三四五六七八九十])階段/g, (_, n: string) => `第${CHINESE_NUMERALS[n] ?? n}階段`)
+    .toLocaleLowerCase("zh-Hant-HK");
+}
+
+function programmeGroupKey(programme: ProgrammeWithStatus) {
+  const name = normalizeProgrammeName(programme.name_zh || programme.name_en || "未知課程");
+  return [
+    name,
+    programme.category || "other",
+    programme.fee_hkd ?? "fee_pending",
+    programme.sessions_count ?? "sessions_pending",
+    programme.age_min ?? "age_min_pending",
+    programme.age_max ?? "age_max_pending",
+  ].join("|");
+}
+
+function openAtTime(programme: ProgrammeWithStatus) {
+  if (!programme.enrolment_open_at) return Number.POSITIVE_INFINITY;
+  const time = new Date(programme.enrolment_open_at).getTime();
+  return Number.isFinite(time) ? time : Number.POSITIVE_INFINITY;
+}
+
+function groupProgrammes(programmes: ProgrammeWithStatus[]): ProgrammeCourseGroup[] {
+  const map = new Map<string, ProgrammeWithStatus[]>();
+  for (const programme of programmes) {
+    const key = programmeGroupKey(programme);
+    map.set(key, [...(map.get(key) ?? []), programme]);
+  }
+
+  return Array.from(map.entries())
+    .map(([key, items]) => {
+      const programmes = [...items].sort((a, b) => {
+        const openDiff = openAtTime(a) - openAtTime(b);
+        if (openDiff !== 0) return openDiff;
+        return (a.venue || "").localeCompare(b.venue || "", "zh-Hant-HK");
+      });
+      const representative = programmes[0];
+      return {
+        key,
+        title: representative.name_zh || representative.name_en || "未知課程",
+        programmes,
+        representative,
+      };
+    })
+    .sort((a, b) => {
+      const openDiff = openAtTime(a.representative) - openAtTime(b.representative);
+      if (openDiff !== 0) return openDiff;
+      return a.title.localeCompare(b.title, "zh-Hant-HK");
+    });
 }
 
 export function ProgrammesClient() {
@@ -80,9 +156,7 @@ export function ProgrammesClient() {
   // Fetch programmes
   const fetchData = useCallback(async () => {
     const isFirst = isInitialLoad;
-    if (isFirst) {
-      setIsInitialLoad(false);
-    } else {
+    if (!isFirst) {
       setIsRefreshing(true);
     }
     try {
@@ -117,6 +191,9 @@ export function ProgrammesClient() {
         setTotal(0);
       }
     } finally {
+      if (isFirst) {
+        setIsInitialLoad(false);
+      }
       setIsRefreshing(false);
     }
   }, [category, district, agePreset, page, isInitialLoad]);
@@ -140,6 +217,21 @@ export function ProgrammesClient() {
   };
 
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  const courseGroups = useMemo(() => groupProgrammes(programmes), [programmes]);
+  const [expandedGroups, setExpandedGroups] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    setExpandedGroups(new Set());
+  }, [category, district, agePreset, page]);
+
+  const toggleGroup = useCallback((key: string) => {
+    setExpandedGroups((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+  }, []);
 
   return (
     <>
@@ -163,12 +255,15 @@ export function ProgrammesClient() {
       )}
 
       {isInitialLoad ? (
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <ProgrammeCardSkeleton key={i} />
-          ))}
-        </div>
-      ) : programmes.length === 0 ? (
+        <>
+          <p className="mb-4 text-sm text-slate-500">載入課程中...</p>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <ProgrammeCardSkeleton key={i} />
+            ))}
+          </div>
+        </>
+      ) : courseGroups.length === 0 ? (
         <div className="rounded-2xl border border-slate-200 bg-white p-10 text-center">
           <p className="text-sm text-slate-500">
             暫無符合條件嘅課程，試試調整篩選條件
@@ -177,11 +272,16 @@ export function ProgrammesClient() {
       ) : (
         <>
           <p className="mb-4 text-sm text-slate-500">
-            共 {total} 個課程
+            共 {total} 個場次，整理為 {courseGroups.length} 個課程
           </p>
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {programmes.map((p, index) => (
-              <ProgrammeCard key={p.id} programme={p} priority={index < 3} />
+          <div className="grid grid-cols-1 items-start gap-4 lg:grid-cols-2">
+            {courseGroups.map((group) => (
+              <ProgrammeCourseCard
+                key={group.key}
+                group={group}
+                expanded={expandedGroups.has(group.key)}
+                onToggle={() => toggleGroup(group.key)}
+              />
             ))}
           </div>
 

@@ -281,6 +281,13 @@ function extractFeeNote(doc) {
   return [range, ...remarks].filter(Boolean).join(" · ") || null;
 }
 
+function extractOrganizer(doc) {
+  const name = doc.creator?.name?.trim() || null;
+  if (!name) return null;
+  if (/膠紙座|canva/i.test(name)) return null;
+  return name;
+}
+
 function parseDate(isoStr) {
   if (!isoStr) return null;
   return isoStr.split("T")[0];
@@ -311,7 +318,7 @@ function transformEvent(doc) {
   return {
     title: doc.name || "Timable 活動",
     category: mapCategory(doc.criteria?.categories),
-    organizer: doc.creator?.name || null,
+    organizer: extractOrganizer(doc),
     district: extractDistrict(doc),
     address: extractAddress(doc),
     description: doc.criteria?.tags?.map((t) => t.name).join("、") || null,
@@ -339,6 +346,22 @@ function transformEvent(doc) {
     match_confidence: "high",
     is_active: true,
   };
+}
+
+function dedupeByActivityKey(records) {
+  const seen = new Set();
+  const deduped = [];
+  for (const record of records) {
+    const key = [
+      record.title,
+      record.organizer ?? "",
+      record.start_date ?? "",
+    ].join("|");
+    if (seen.has(key)) continue;
+    seen.add(key);
+    deduped.push(record);
+  }
+  return deduped;
 }
 
 // ─── GraphQL fetch with pagination ─────────────────────────────────────────
@@ -425,8 +448,12 @@ async function main() {
   const docs = await fetchAllEvents();
   console.log(`[timable] fetched ${docs.length} events from Timable`);
 
-  const batch = docs.map(transformEvent);
-  console.log(`[timable] transformed ${batch.length} records`);
+  const transformed = docs.map(transformEvent);
+  const batch = dedupeByActivityKey(transformed);
+  console.log(`[timable] transformed ${transformed.length} records`);
+  if (batch.length !== transformed.length) {
+    console.log(`[timable] deduped ${transformed.length - batch.length} duplicate records`);
+  }
 
   if (DRY_RUN) {
     console.log("[timable] DRY-RUN — sample output (first 3):");
@@ -448,17 +475,18 @@ async function main() {
     auth: { persistSession: false },
   });
 
-  // Soft-delete all existing timable rows
-  const { error: deactivateErr } = await supabase
+  // Replace this source's snapshot. Timable regularly reuses the same title/date
+  // keys, so delete old source rows before inserting the fresh deduped batch.
+  const { error: deleteErr } = await supabase
     .from("activities")
-    .update({ is_active: false })
+    .delete()
     .eq("source", "timable");
 
-  if (deactivateErr) {
-    console.error("[timable] deactivate failed:", deactivateErr.message);
+  if (deleteErr) {
+    console.error("[timable] delete old rows failed:", deleteErr.message);
     process.exit(1);
   }
-  console.log("[timable] soft-deleted old timable rows");
+  console.log("[timable] deleted old timable rows");
 
   // Insert fresh batch in chunks
   const CHUNK = 50;

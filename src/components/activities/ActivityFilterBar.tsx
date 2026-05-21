@@ -1,60 +1,64 @@
 "use client";
 
-import type { ActivityCategory, ActivityDistrict } from "@/lib/db/activities";
+import type { ActivityDistrict } from "@/lib/db/activities";
 import {
-  CATEGORY_LABELS,
+  CATEGORY_GROUP_LABELS,
+  CATEGORY_GROUP_ORDER,
   DISTRICT_LABELS,
+  type ActivityCategoryGroup,
 } from "@/lib/activities/labels";
 
 interface ActivityFilterBarProps {
-  category: ActivityCategory | null;
+  group: ActivityCategoryGroup | null;
   district: ActivityDistrict | null;
   free: boolean;
-  search: string;
-  onChangeCategory: (v: ActivityCategory | null) => void;
+  includeExpired: boolean;
+  expiredCount: number;
+  onChangeGroup: (v: ActivityCategoryGroup | null) => void;
   onChangeDistrict: (v: ActivityDistrict | null) => void;
   onChangeFree: (v: boolean) => void;
-  onChangeSearch: (v: string) => void;
+  onChangeIncludeExpired: (v: boolean) => void;
   onReset: () => void;
 }
 
 export function ActivityFilterBar({
-  category,
+  group,
   district,
   free,
-  search,
-  onChangeCategory,
+  includeExpired,
+  expiredCount,
+  onChangeGroup,
   onChangeDistrict,
   onChangeFree,
-  onChangeSearch,
+  onChangeIncludeExpired,
   onReset,
 }: ActivityFilterBarProps) {
-  const hasFilter = !!category || !!district || free || !!search;
+  const hasFilter = !!group || !!district || free || includeExpired;
 
   return (
     <div className="space-y-3">
       {/* 類別 pills */}
       <div className="flex items-center gap-2 overflow-x-auto pb-1 hide-scrollbar">
-        {Object.entries(CATEGORY_LABELS).map(([key, label]) => {
-          const isActive = category === key;
+        {CATEGORY_GROUP_ORDER.map((key) => {
+          const label = CATEGORY_GROUP_LABELS[key];
+          const isActive = group === key;
           return (
             <button
               key={key}
-              onClick={() => onChangeCategory(isActive ? null : (key as ActivityCategory))}
+              onClick={() => onChangeGroup(isActive ? null : key)}
               className={`flex-shrink-0 inline-flex items-center gap-1.5 rounded-pill px-4 h-10 text-sm font-medium transition ${
                 isActive
                   ? "bg-forest-600 text-white shadow-soft"
                   : "bg-white border border-cream-200 text-ink-700 hover:border-forest-300 hover:bg-leaf-50"
               }`}
             >
-              <span aria-hidden>♪</span>
               {label}
             </button>
           );
         })}
       </div>
 
-      {/* 地區 + 免費 + 搜索 + 清除 */}
+      {/* 地區 + 免費 + 已結束 + 清除 */}
       <div className="flex flex-wrap items-center gap-3">
         <select
           value={district ?? ""}
@@ -79,13 +83,15 @@ export function ActivityFilterBar({
           只顯示免費
         </label>
 
-        <input
-          type="text"
-          value={search}
-          onChange={(e) => onChangeSearch(e.target.value)}
-          placeholder="搜尋活動名稱或機構"
-          className="min-w-[200px] flex-1 rounded-pill border border-cream-200 bg-white px-4 h-10 text-sm text-ink-700 outline-none placeholder:text-ink-400 focus:border-forest-400"
-        />
+        <label className="inline-flex cursor-pointer items-center gap-2 rounded-pill border border-cream-200 bg-white px-4 h-10 text-sm text-ink-700 transition hover:bg-leaf-50">
+          <input
+            type="checkbox"
+            checked={includeExpired}
+            onChange={(e) => onChangeIncludeExpired(e.target.checked)}
+            className="h-4 w-4 rounded border-cream-300 text-forest-600 focus:ring-forest-200"
+          />
+          顯示已結束 ({expiredCount})
+        </label>
 
         {hasFilter && (
           <button

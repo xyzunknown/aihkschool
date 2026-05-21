@@ -15,7 +15,7 @@ const selectedSchools = [
 
 export default function LoginPage() {
   const router = useRouter();
-  const { user, loading, signInWithEmail, signInWithGoogle, signInWithWechat } = useAuth();
+  const { user, loading, signInWithEmail, signInWithGoogle, signInWithFacebook, signInWithApple } = useAuth();
   const [mode, setMode] = useState<AuthMode>("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -47,17 +47,24 @@ export default function LoginPage() {
     setSubmitting(false);
   };
 
-  const handleGoogle = async () => {
+  const handleProvider = async (signInWithProvider: () => Promise<{ error?: string; message?: string } | void>) => {
     setStatus(null);
-    const result = await signInWithGoogle();
+    const result = await signInWithProvider();
     if (result?.error) {
       setStatus({ kind: "error", text: result.error });
     }
   };
 
-  const handleWechat = async () => {
-    const result = await signInWithWechat();
-    setStatus({ kind: result.error ? "error" : "ok", text: result.error ?? result.message ?? "已完成。" });
+  const handleGoogle = async () => {
+    await handleProvider(signInWithGoogle);
+  };
+
+  const handleFacebook = async () => {
+    await handleProvider(signInWithFacebook);
+  };
+
+  const handleApple = async () => {
+    await handleProvider(signInWithApple);
   };
 
   return (
@@ -226,11 +233,19 @@ export default function LoginPage() {
             </button>
             <button
               type="button"
-              onClick={handleWechat}
+              onClick={handleFacebook}
               className="flex h-[52px] w-full items-center justify-center gap-3 rounded-lg border border-[#D7E0DC] bg-white text-base font-bold text-[#10213B] transition hover:bg-[#F8FCFA]"
             >
-              <span className="grid h-6 w-6 place-items-center rounded-full bg-[#11B946] text-xs font-bold text-white">微</span>
-              微信
+              <span className="grid h-6 w-6 place-items-center rounded-full bg-[#1877F2] text-sm font-bold text-white">f</span>
+              Facebook
+            </button>
+            <button
+              type="button"
+              onClick={handleApple}
+              className="flex h-[52px] w-full items-center justify-center gap-3 rounded-lg border border-[#D7E0DC] bg-white text-base font-bold text-[#10213B] transition hover:bg-[#F8FCFA]"
+            >
+              <AppleIcon />
+              Apple
             </button>
           </div>
 
@@ -302,6 +317,14 @@ function ShieldIcon() {
     <svg className="mt-0.5 h-6 w-6 shrink-0 text-[#168A7A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
       <path d="M12 3 5 6v5c0 5 3 8 7 10 4-2 7-5 7-10V6z" />
       <path d="m9 12 2 2 4-5" />
+    </svg>
+  );
+}
+
+function AppleIcon() {
+  return (
+    <svg className="h-6 w-6 shrink-0 text-[#10213B]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M16.9 12.9c0-2.2 1.8-3.2 1.9-3.3-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.6.8-3.3.8s-1.8-.8-2.9-.8c-1.5 0-2.9.9-3.7 2.2-1.6 2.8-.4 6.8 1.1 9.1.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2.1-1.1 2.8-2.2c.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.9-1.1-2.9-3.7ZM14.7 6.5c.6-.8 1-1.8.9-2.9-.9 0-2 .6-2.6 1.4-.6.7-1 1.8-.9 2.8 1 .1 2-.5 2.6-1.3Z" />
     </svg>
   );
 }

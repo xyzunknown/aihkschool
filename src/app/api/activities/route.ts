@@ -5,12 +5,17 @@ import {
   type ActivityCategory,
   type ActivityDistrict,
 } from "@/lib/db/activities";
+import type { ActivityCategoryGroup } from "@/lib/activities/labels";
 
 export const dynamic = "force-dynamic";
 
 const CATEGORY_VALUES = [
   "music", "sports", "art", "dance",
   "stem", "language", "drama", "other",
+] as const;
+
+const CATEGORY_GROUP_VALUES = [
+  "family_fun", "exhibition_show", "learning_experience", "festival_event",
 ] as const;
 
 const DISTRICT_VALUES = [
@@ -22,10 +27,12 @@ const DISTRICT_VALUES = [
 
 const querySchema = z.object({
   category: z.enum(CATEGORY_VALUES).optional(),
+  group: z.enum(CATEGORY_GROUP_VALUES).optional(),
   district: z.enum(DISTRICT_VALUES).optional(),
   free: z.enum(["true", "false"]).optional().transform((v) => v === "true"),
   age: z.coerce.number().int().min(0).max(12).optional(),
   search: z.string().max(100).optional(),
+  includeExpired: z.enum(["true", "false"]).optional().transform((v) => v === "true"),
   page: z.coerce.number().int().min(1).default(1),
   limit: z.coerce.number().int().min(1).max(100).default(20),
 });
@@ -48,14 +55,16 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const { category, district, free, age, search, page, limit } = parsed.data;
+    const { category, group, district, free, age, search, includeExpired, page, limit } = parsed.data;
 
     const result = await fetchActivities({
       category: category as ActivityCategory | undefined,
+      group: group as ActivityCategoryGroup | undefined,
       district: district as ActivityDistrict | undefined,
       free,
       age,
       search,
+      includeExpired,
       page,
       limit,
     });

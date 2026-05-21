@@ -22,8 +22,8 @@ export const BANNERS: HomeBanner[] = [
       url: "/timeline",
     },
     footer_note: "掌握全港幼稚園最新學額動態，把握申請黃金期",
-    image_src: "/brand/hero/hero-mascot-2026.png",
-    image_alt: "小象助手陪伴家長和孩子搜尋適合的幼稚園",
+    image_src: "/brand/hero/bg.jpg",
+    image_alt: "維港水彩風景與小象助手陪伴家長搜尋幼稚園",
   },
   {
     id: "banner-compare-schools",

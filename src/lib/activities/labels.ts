@@ -19,6 +19,26 @@ export const CATEGORY_LABELS: Record<ActivityCategory, string> = {
   other: "其他",
 };
 
+export type ActivityCategoryGroup =
+  | "family_fun"
+  | "exhibition_show"
+  | "learning_experience"
+  | "festival_event";
+
+export const CATEGORY_GROUP_LABELS: Record<ActivityCategoryGroup, string> = {
+  family_fun: "親子玩樂",
+  exhibition_show: "展覽演出",
+  learning_experience: "學習體驗",
+  festival_event: "節慶活動",
+};
+
+export const CATEGORY_GROUP_ORDER: ActivityCategoryGroup[] = [
+  "family_fun",
+  "exhibition_show",
+  "learning_experience",
+  "festival_event",
+];
+
 export const CATEGORY_ORDER: ActivityCategory[] = [
   "music",
   "sports",
@@ -106,8 +126,20 @@ export function formatDateRange(
   end: string | null,
 ): string {
   if (!start && !end) return "日期待定";
+  const currentYear = new Date().getFullYear();
+  const startDate = start ? new Date(start) : null;
+  const endDate = end ? new Date(end) : null;
+  const shouldShowYear =
+    !!(
+      (startDate && startDate.getFullYear() !== currentYear) ||
+      (endDate && endDate.getFullYear() !== currentYear) ||
+      (startDate && endDate && startDate.getFullYear() !== endDate.getFullYear())
+    );
   const fmt = (s: string) => {
     const d = new Date(s);
+    if (shouldShowYear) {
+      return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
+    }
     return `${d.getMonth() + 1}月${d.getDate()}日`;
   };
   if (start && !end) return `${fmt(start)} 起`;
@@ -146,4 +178,8 @@ export function getOneMonthAgoDate(): string {
   const d = new Date();
   d.setMonth(d.getMonth() - 1);
   return d.toISOString().split("T")[0];
+}
+
+export function getTodayDate(): string {
+  return new Date().toISOString().split("T")[0];
 }

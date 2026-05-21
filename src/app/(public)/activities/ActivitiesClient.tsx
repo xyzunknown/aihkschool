@@ -2,7 +2,8 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import type { Activity, ActivityCategory, ActivityDistrict } from "@/lib/db/activities";
+import type { Activity, ActivityDistrict } from "@/lib/db/activities";
+import type { ActivityCategoryGroup } from "@/lib/activities/labels";
 import { ActivityCard, ActivityCardSkeleton } from "@/components/activities/ActivityCard";
 import { ActivityFilterBar } from "@/components/activities/ActivityFilterBar";
 
@@ -11,6 +12,7 @@ const PAGE_SIZE = 18;
 interface ApiResponse {
   data: Activity[];
   count: number;
+  expiredCount: number;
   page: number;
   limit: number;
 }
@@ -20,51 +22,52 @@ export function ActivitiesClient() {
   const searchParams = useSearchParams();
 
   const initialFilters = useMemo(() => {
-    const cat = searchParams?.get("category");
+    const group = searchParams?.get("group");
     const dist = searchParams?.get("district");
     const free = searchParams?.get("free");
-    const search = searchParams?.get("search");
+    const includeExpired = searchParams?.get("includeExpired");
     const page = parseInt(searchParams?.get("page") ?? "1", 10);
     return {
-      category: (cat || null) as ActivityCategory | null,
+      group: (group || null) as ActivityCategoryGroup | null,
       district: (dist || null) as ActivityDistrict | null,
       free: free === "true",
-      search: search || "",
+      includeExpired: includeExpired === "true",
       page: isNaN(page) ? 1 : page,
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const [category, setCategory] = useState<ActivityCategory | null>(initialFilters.category);
+  const [group, setGroup] = useState<ActivityCategoryGroup | null>(initialFilters.group);
   const [district, setDistrict] = useState<ActivityDistrict | null>(initialFilters.district);
   const [free, setFree] = useState<boolean>(initialFilters.free);
-  const [search, setSearch] = useState<string>(initialFilters.search);
+  const [includeExpired, setIncludeExpired] = useState<boolean>(initialFilters.includeExpired);
   const [page, setPage] = useState<number>(initialFilters.page);
   const [activities, setActivities] = useState<Activity[]>([]);
   const [total, setTotal] = useState(0);
+  const [expiredCount, setExpiredCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
   // Sync filters → URL
   useEffect(() => {
     const params = new URLSearchParams();
-    if (category) params.set("category", category);
+    if (group) params.set("group", group);
     if (district) params.set("district", district);
     if (free) params.set("free", "true");
-    if (search.trim()) params.set("search", search.trim());
+    if (includeExpired) params.set("includeExpired", "true");
     if (page > 1) params.set("page", String(page));
     const qs = params.toString();
     router.replace(qs ? `/activities?${qs}` : "/activities", { scroll: false });
-  }, [category, district, free, search, page, router]);
+  }, [group, district, free, includeExpired, page, router]);
 
   // Fetch activities
   const fetchData = useCallback(async () => {
     setIsLoading(true);
     try {
       const params = new URLSearchParams();
-      if (category) params.set("category", category);
+      if (group) params.set("group", group);
       if (district) params.set("district", district);
       if (free) params.set("free", "true");
-      if (search.trim()) params.set("search", search.trim());
+      if (includeExpired) params.set("includeExpired", "true");
       params.set("page", String(page));
       params.set("limit", String(PAGE_SIZE));
 
@@ -73,17 +76,20 @@ export function ActivitiesClient() {
         const json = (await res.json()) as ApiResponse;
         setActivities(json.data);
         setTotal(json.count);
+        setExpiredCount(json.expiredCount);
       } else {
         setActivities([]);
         setTotal(0);
+        setExpiredCount(0);
       }
     } catch {
       setActivities([]);
       setTotal(0);
+      setExpiredCount(0);
     } finally {
       setIsLoading(false);
     }
-  }, [category, district, free, search, page]);
+  }, [group, district, free, includeExpired, page]);
 
   useEffect(() => {
     void fetchData();
@@ -97,10 +103,10 @@ export function ActivitiesClient() {
   };
 
   const handleReset = () => {
-    setCategory(null);
+    setGroup(null);
     setDistrict(null);
     setFree(false);
-    setSearch("");
+    setIncludeExpired(false);
     setPage(1);
   };
 
@@ -110,24 +116,28 @@ export function ActivitiesClient() {
     <>
       <div className="mb-6">
         <ActivityFilterBar
-          category={category}
+          group={group}
           district={district}
           free={free}
-          search={search}
-          onChangeCategory={handleFilterChange(setCategory)}
+          includeExpired={includeExpired}
+          expiredCount={expiredCount}
+          onChangeGroup={handleFilterChange(setGroup)}
           onChangeDistrict={handleFilterChange(setDistrict)}
           onChangeFree={handleFilterChange(setFree)}
-          onChangeSearch={handleFilterChange(setSearch)}
+          onChangeIncludeExpired={handleFilterChange(setIncludeExpired)}
           onReset={handleReset}
         />
       </div>
 
       {isLoading ? (
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <ActivityCardSkeleton key={i} />
-          ))}
-        </div>
+        <>
+          <p className="mb-4 text-sm text-slate-500">載入活動中...</p>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <ActivityCardSkeleton key={i} />
+            ))}
+          </div>
+        </>
       ) : activities.length === 0 ? (
         <div className="rounded-[24px] border border-surface-border bg-white p-8 text-center shadow-[0_8px_24px_rgba(30,82,56,0.05)] md:p-10">
           <p className="text-lg font-semibold text-ink-900">
@@ -147,7 +157,7 @@ export function ActivitiesClient() {
       ) : (
         <>
           <p className="mb-4 text-sm text-slate-500">
-            共 {total} 個活動
+            共 {total} 個{includeExpired ? "活動" : "即將開始 / 長期可參與活動"}
           </p>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {activities.map((a, index) => (

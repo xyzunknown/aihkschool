@@ -11,15 +11,15 @@ const vacancy = {
 const stressSchools = [
   {
     id: "map-private-short",
-    nameTc: "茵茵幼稚園",
+    nameTc: "盈思幼稚園",
     nameEn: "Witty Kindergarten",
     logoUrl: "/logos/590673.svg",
-    district: "kowloon_city",
+    district: "central_and_western",
     schoolType: "private_independent",
-    distanceKm: 1.2,
-    sessionType: "am_pm",
-    feeMonthlyHkd: 4500,
-    applicationStatus: "open",
+    distanceKm: undefined,
+    sessionType: "am_whole_day",
+    feeMonthlyHkd: 7320,
+    applicationStatus: null,
   },
   {
     id: "map-international-long",

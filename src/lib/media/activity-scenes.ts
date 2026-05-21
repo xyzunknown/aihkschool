@@ -54,6 +54,25 @@ export function getActivitySceneImage(activity: Activity) {
   return ACTIVITY_SCENE_IMAGES[activity.category] || ACTIVITY_SCENE_IMAGES.other;
 }
 
+const ACTIVITY_PLACEHOLDERS = {
+  music: { emoji: "♪", label: "展演", className: "bg-[#F7E8A4] text-[#4B3A08]" },
+  sports: { emoji: "●", label: "玩樂", className: "bg-[#DDF3D0] text-[#1D4B2C]" },
+  art: { emoji: "◆", label: "創作", className: "bg-[#F9D6C5] text-[#6B2B15]" },
+  dance: { emoji: "◇", label: "演出", className: "bg-[#E5D9FF] text-[#3F2878]" },
+  stem: { emoji: "✦", label: "探索", className: "bg-[#CAEAF4] text-[#16495B]" },
+  language: { emoji: "Aa", label: "閱讀", className: "bg-[#D8E5FF] text-[#1E3A6B]" },
+  drama: { emoji: "◐", label: "劇場", className: "bg-[#F4D0D7] text-[#692233]" },
+  other: { emoji: "◎", label: "親子", className: "bg-[#E9E1D3] text-[#43372B]" },
+} as const;
+
+export function hasRealActivityImage(activity: Activity) {
+  return Boolean(activity.image_url);
+}
+
+export function getActivityPlaceholder(activity: Activity) {
+  return ACTIVITY_PLACEHOLDERS[activity.category] || ACTIVITY_PLACEHOLDERS.other;
+}
+
 export function getProgrammeSceneImage(programme: ProgrammeWithStatus) {
   const titleImage = getTitleSceneImage(programme.name_zh || programme.name_en);
   if (titleImage) return titleImage;

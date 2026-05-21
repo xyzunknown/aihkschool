@@ -12,6 +12,7 @@
     "crawl:school-images": "node scripts/crawl-school-images.mjs",
     "crawl:media": "node scripts/crawlers/media-articles.mjs",
     "test:school-image": "node scripts/generate-school-image-test.mjs",
+    "test:ios-school-data": "node scripts/check-ios-school-sample-data.mjs",
     "build:schooland:enrichment": "node scripts/build_schooland_profile_enrichment.mjs",
     "supabase:types": "node scripts/generate-supabase-types.mjs",
     "supabase:types:check": "node scripts/generate-supabase-types.mjs --check"

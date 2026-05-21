@@ -16,7 +16,10 @@ import {
   formatAgeRange,
   isExpired,
 } from "@/lib/activities/labels";
-import { getActivitySceneImage } from "@/lib/media/activity-scenes";
+import {
+  getActivityPlaceholder,
+  hasRealActivityImage,
+} from "@/lib/media/activity-scenes";
 
 export const revalidate = 3600;
 
@@ -47,7 +50,9 @@ export default async function ActivityDetailPage({ params }: PageProps) {
   const dateRange = formatDateRange(activity.start_date, activity.end_date);
   const ageRange = formatAgeRange(activity.age_min, activity.age_max);
   const expired = isExpired(activity.end_date);
-  const sceneImage = getActivitySceneImage(activity);
+  const hasImage = hasRealActivityImage(activity);
+  const placeholder = getActivityPlaceholder(activity);
+  const organizer = getDisplayOrganizer(activity.organizer);
 
   return (
     <div className="mx-auto max-w-4xl px-5 py-8 md:px-8 md:py-12">
@@ -61,16 +66,25 @@ export default async function ActivityDetailPage({ params }: PageProps) {
       {/* Hero */}
       <div className="mb-8">
         <div className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5">
-          <div className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100 sm:h-36 sm:w-36">
-            <Image
-              src={sceneImage}
-              alt=""
-              fill
-              priority
-              sizes="144px"
-              className="object-cover"
-            />
-          </div>
+          {hasImage ? (
+            <div className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100 sm:h-36 sm:w-36">
+              <Image
+                src={activity.image_url!}
+                alt=""
+                fill
+                priority
+                sizes="144px"
+                className="object-cover"
+              />
+            </div>
+          ) : (
+            <div className={`flex h-28 w-28 flex-shrink-0 flex-col items-center justify-center gap-2 rounded-xl sm:h-36 sm:w-36 ${placeholder.className}`}>
+              <span className="text-4xl font-semibold leading-none">{placeholder.emoji}</span>
+              <span className="rounded-full bg-white/55 px-3 py-1 text-xs font-semibold">
+                {placeholder.label}
+              </span>
+            </div>
+          )}
           <div className="min-w-0 flex-1">
             <div className="mb-4 flex flex-wrap items-center gap-2">
               <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
@@ -90,9 +104,9 @@ export default async function ActivityDetailPage({ params }: PageProps) {
             <h1 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">
               {activity.title}
             </h1>
-            {activity.organizer && (
+            {organizer && (
               <p className="mt-2 text-sm text-slate-500">
-                主辦：{activity.organizer}
+                主辦：{organizer}
               </p>
             )}
           </div>
@@ -204,6 +218,14 @@ export default async function ActivityDetailPage({ params }: PageProps) {
       )}
     </div>
   );
+}
+
+function getDisplayOrganizer(organizer: string | null) {
+  if (!organizer) return null;
+  const value = organizer.trim();
+  if (!value) return null;
+  if (/膠紙座|canva/i.test(value)) return null;
+  return value;
 }
 
 function InfoRow({

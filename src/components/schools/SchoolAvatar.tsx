@@ -17,6 +17,7 @@ interface SchoolAvatarProps {
 function isLowLegibilityLogo(schoolName: string, schoolCode?: string | null): boolean {
   const lowLegibilityNames = [
     "香港中文大學校友會聯會",
+    "圓玄幼稚園",
     "遵道幼稚園",
   ];
   const lowLegibilityCodes = new Set(["560740", "597384", "600377", "158887"]);
@@ -57,20 +58,20 @@ export function SchoolAvatar({
   const firstChar = schoolName.trim().charAt(0);
   const colors = getAvatarColor(schoolId);
 
-  const sizeClass = size === "lg" ? "w-16 h-16" : size === "sm" ? "w-[38px] h-[38px]" : "w-12 h-12";
-  const textSize = size === "lg" ? "text-xl" : size === "sm" ? "text-base" : "text-lg";
-  const shapeClass = shape === "rounded" ? "rounded-[10px]" : "rounded-full";
+  const sizeClass = size === "lg" ? "h-16 w-16" : size === "sm" ? "h-10 w-10" : "h-12 w-12";
+  const textSize = size === "lg" ? "text-2xl" : size === "sm" ? "text-lg" : "text-xl";
+  const shapeClass = shape === "rounded" ? "rounded-[12px]" : "rounded-full";
 
   return (
-    <div className={`${sizeClass} ${shapeClass} shrink-0 border border-slate-200 bg-white overflow-hidden`}>
+    <div className={`${sizeClass} ${shapeClass} shrink-0 overflow-hidden border border-slate-200 bg-white shadow-[0_1px_2px_rgba(15,23,42,0.04)]`}>
       {showLogo && resolved ? (
         <div className="relative h-full w-full bg-white">
           <Image
             src={resolved}
             alt={`${schoolName} logo`}
             fill
-            className="object-contain p-1.5"
-            sizes={size === "lg" ? "64px" : "48px"}
+            className="object-contain p-[5px]"
+            sizes={size === "lg" ? "64px" : size === "sm" ? "40px" : "48px"}
             onError={() => {
               if (logoIndex < candidates.length - 1) {
                 setLogoIndex((current) => current + 1);
@@ -83,7 +84,7 @@ export function SchoolAvatar({
         </div>
       ) : (
         <div
-          className={`flex h-full w-full items-center justify-center ${colors.bg}`}
+          className="flex h-full w-full items-center justify-center bg-white"
         >
           <span className={`${textSize} font-semibold ${colors.text}`}>{firstChar}</span>
         </div>

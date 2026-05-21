@@ -120,7 +120,7 @@ export async function fetchProgrammes(
     limit = 20,
   } = params;
 
-  const safeLimit = Math.min(Math.max(limit, 1), 100);
+  const safeLimit = Math.min(Math.max(limit, 1), 300);
   const offset = (page - 1) * safeLimit;
 
   const buildQuery = (select: string, includeAdminStatus: boolean, includePublishChannels: boolean) => {

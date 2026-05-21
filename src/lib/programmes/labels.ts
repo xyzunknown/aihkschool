@@ -83,8 +83,20 @@ export function formatProgrammeDateRange(
   endDate: string | null,
 ): string {
   if (!startDate && !endDate) return "日期待定";
+  const currentYear = new Date().getFullYear();
+  const start = startDate ? new Date(startDate) : null;
+  const end = endDate ? new Date(endDate) : null;
+  const shouldShowYear =
+    !!(
+      (start && start.getFullYear() !== currentYear) ||
+      (end && end.getFullYear() !== currentYear) ||
+      (start && end && start.getFullYear() !== end.getFullYear())
+    );
   const fmt = (s: string) => {
     const d = new Date(s);
+    if (shouldShowYear) {
+      return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
+    }
     return `${d.getMonth() + 1}月${d.getDate()}日`;
   };
   if (startDate && !endDate) return `${fmt(startDate)} 起`;

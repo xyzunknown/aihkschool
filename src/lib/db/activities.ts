@@ -1,5 +1,9 @@
 import { createClient } from "@/lib/supabase/server";
-import { getOneMonthAgoDate } from "@/lib/activities/labels";
+import {
+  getOneMonthAgoDate,
+  getTodayDate,
+  type ActivityCategoryGroup,
+} from "@/lib/activities/labels";
 
 // ============================================================
 // Types
@@ -66,10 +70,12 @@ export interface Activity {
 
 export interface FetchActivitiesParams {
   category?: ActivityCategory;
+  group?: ActivityCategoryGroup;
   district?: ActivityDistrict;
   free?: boolean;           // true = 只顯示免費
   age?: number;             // 年齡落在 [age_min, age_max] 之間
   search?: string;          // 標題 / 機構模糊搜索
+  includeExpired?: boolean;
   page?: number;
   limit?: number;
 }
@@ -77,6 +83,7 @@ export interface FetchActivitiesParams {
 export interface FetchActivitiesResult {
   data: Activity[];
   count: number;
+  expiredCount: number;
   page: number;
   limit: number;
 }
@@ -107,16 +114,42 @@ function sortByExpiryThenDate(activities: Activity[]): Activity[] {
   });
 }
 
+const CATEGORY_GROUPS: Record<ActivityCategoryGroup, ActivityCategory[]> = {
+  family_fun: ["sports", "other"],
+  exhibition_show: ["music", "art", "dance", "drama"],
+  learning_experience: ["stem", "language"],
+  festival_event: ["other", "art", "drama"],
+};
+
+const FESTIVAL_KEYWORDS = [
+  "節",
+  "嘉年華",
+  "市集",
+  "中秋",
+  "聖誕",
+  "新年",
+  "農曆",
+  "端午",
+  "復活",
+  "萬聖",
+  "佛誕",
+  "舞火龍",
+  "festival",
+  "carnival",
+];
+
 export async function fetchActivities(
   params: FetchActivitiesParams = {},
 ): Promise<FetchActivitiesResult> {
   const supabase = await createClient();
   const {
     category,
+    group,
     district,
     free,
     age,
     search,
+    includeExpired = false,
     page = 1,
     limit = 20,
   } = params;
@@ -142,32 +175,49 @@ export async function fetchActivities(
     return nextQuery;
   };
 
-  let query = buildQuery(LIST_SELECT, true, true);
+  const applyFilters = <T extends ReturnType<typeof buildQuery>>(baseQuery: T) => {
+    let nextQuery = baseQuery;
+    if (category) {
+      nextQuery = nextQuery.eq("category", category) as T;
+    } else if (group) {
+      nextQuery = nextQuery.in("category", CATEGORY_GROUPS[group]) as T;
+      if (group === "festival_event") {
+        const festivalOr = FESTIVAL_KEYWORDS.map((keyword) => {
+          const safeKeyword = keyword.replace(/[,()]/g, "");
+          return `title.ilike.%${safeKeyword}%`;
+        }).join(",");
+        nextQuery = nextQuery.or(festivalOr) as T;
+      }
+    }
+    if (district) {
+      nextQuery = nextQuery.eq("district", district) as T;
+    }
+    if (free) {
+      nextQuery = nextQuery.eq("fee", 0) as T;
+    }
+    if (typeof age === "number" && Number.isFinite(age)) {
+      // age 落在 [age_min, age_max] 之間；若字段為 NULL 則視為不限
+      nextQuery = nextQuery
+        .or(`age_min.is.null,age_min.lte.${age}`)
+        .or(`age_max.is.null,age_max.gte.${age}`) as T;
+    }
+    if (search && search.trim()) {
+      const safe = search.trim().replace(/[,()]/g, "");
+      nextQuery = nextQuery.or(`title.ilike.%${safe}%,organizer.ilike.%${safe}%`) as T;
+    }
+    return nextQuery;
+  };
 
-  if (category) {
-    query = query.eq("category", category);
-  }
-  if (district) {
-    query = query.eq("district", district);
-  }
-  if (free) {
-    query = query.eq("fee", 0);
-  }
-  if (typeof age === "number" && Number.isFinite(age)) {
-    // age 落在 [age_min, age_max] 之間；若字段為 NULL 則視為不限
-    query = query
-      .or(`age_min.is.null,age_min.lte.${age}`)
-      .or(`age_max.is.null,age_max.gte.${age}`);
-  }
-  if (search && search.trim()) {
-    const safe = search.trim().replace(/[,()]/g, "");
-    query = query.or(`title.ilike.%${safe}%,organizer.ilike.%${safe}%`);
-  }
+  let query = applyFilters(buildQuery(LIST_SELECT, true, true));
 
-  // 過濾：結束超過一個月的活動不再前端顯示
-  // end_date IS NULL = 長期活動
   const oneMonthAgo = getOneMonthAgoDate();
-  query = query.or(`end_date.is.null,end_date.gte.${oneMonthAgo}`);
+  const today = getTodayDate();
+
+  // Default hides ended activities. The toggle shows recent ended activities too,
+  // while very old rows still stay out of the public listing.
+  query = includeExpired
+    ? query.or(`end_date.is.null,end_date.gte.${oneMonthAgo}`)
+    : query.or(`end_date.is.null,end_date.gte.${today}`);
 
   // 按 start_date 升序：即將開始的在前；NULL 沉底
   query = query
@@ -176,35 +226,40 @@ export async function fetchActivities(
 
   let { data, error, count } = await query;
 
-  if (error?.message.includes("admin_status") || error?.message.includes("publish_channels")) {
-    query = buildQuery(LEGACY_LIST_SELECT, false, false);
-    if (category) {
-      query = query.eq("category", category);
-    }
-    if (district) {
-      query = query.eq("district", district);
-    }
-    if (free) {
-      query = query.eq("fee", 0);
-    }
-    if (typeof age === "number" && Number.isFinite(age)) {
-      query = query
-        .or(`age_min.is.null,age_min.lte.${age}`)
-        .or(`age_max.is.null,age_max.gte.${age}`);
-    }
-    if (search && search.trim()) {
-      const safe = search.trim().replace(/[,()]/g, "");
-      query = query.or(`title.ilike.%${safe}%,organizer.ilike.%${safe}%`);
-    }
+  let expiredCount = 0;
+  const countExpired = async (includeAdminStatus: boolean, includePublishChannels: boolean) => {
+    const countQuery = applyFilters(
+      buildQuery("id", includeAdminStatus, includePublishChannels)
+        .lt("end_date", today)
+        .gte("end_date", oneMonthAgo),
+    );
+    const result = await countQuery;
+    return { count: result.count ?? 0, error: result.error };
+  };
+
+  let expiredCountResult = await countExpired(true, true);
+
+  if (
+    error?.message.includes("admin_status") ||
+    error?.message.includes("publish_channels") ||
+    expiredCountResult.error?.message.includes("admin_status") ||
+    expiredCountResult.error?.message.includes("publish_channels")
+  ) {
+    query = applyFilters(buildQuery(LEGACY_LIST_SELECT, false, false));
+    query = includeExpired
+      ? query.or(`end_date.is.null,end_date.gte.${oneMonthAgo}`)
+      : query.or(`end_date.is.null,end_date.gte.${today}`);
     query = query
-      .or(`end_date.is.null,end_date.gte.${oneMonthAgo}`)
       .order("start_date", { ascending: true, nullsFirst: false })
       .range(offset, offset + safeLimit - 1);
     const retry = await query;
     data = retry.data;
     error = retry.error;
     count = retry.count;
+    expiredCountResult = await countExpired(false, false);
   }
+
+  expiredCount = expiredCountResult.count;
 
   if (error) {
     throw new Error(`Failed to fetch activities: ${error.message}`);
@@ -216,6 +271,7 @@ export async function fetchActivities(
   return {
     data: sorted,
     count: count ?? 0,
+    expiredCount,
     page,
     limit: safeLimit,
   };
