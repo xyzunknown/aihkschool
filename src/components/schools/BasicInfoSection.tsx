@@ -4,7 +4,6 @@ import {
   formatDateCN,
   SESSION_TYPE_LABELS,
   LANGUAGE_OPTIONS,
-  SCHOOLAND_NURSERY_SERVICE_LABELS,
   SCHOOLAND_SESSION_LABELS,
   SCHOOLAND_SIZE_LABELS,
 } from "@/lib/utils";
@@ -22,6 +21,9 @@ export function BasicInfoSection({ school }: BasicInfoSectionProps) {
   const mapEmbedSrc = mapQuery
     ? `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=16&output=embed`
     : null;
+  const hasNurseryService =
+    school.has_nursery === true || school.schooland_nursery_service === "yes";
+
   const schoolandFields = [
     { label: "辦學團體", value: school.schooland_operator_name },
     { label: "集團標籤", value: school.schooland_group_tag },
@@ -32,10 +34,8 @@ export function BasicInfoSection({ school }: BasicInfoSectionProps) {
         : school.schooland_free_scheme ? "是" : "否",
     },
     {
-      label: "幼兒服務",
-      value: school.schooland_nursery_service
-        ? SCHOOLAND_NURSERY_SERVICE_LABELS[school.schooland_nursery_service] ?? school.schooland_nursery_service
-        : null,
+      label: "N 班 / 2-3 歲幼兒服務",
+      value: hasNurseryService ? "設有" : null,
     },
     {
       label: "規模",

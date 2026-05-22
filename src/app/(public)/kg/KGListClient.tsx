@@ -98,7 +98,6 @@ export default function KGListClient() {
       sessionFilter: params.get("session") as string | null,
       hasNurseryFilter: params.get("hasNursery") === "true",
       schoolandFreeSchemeFilter: params.get("schoolandFreeScheme") === "true",
-      schoolandNurseryServiceFilter: params.get("schoolandNurseryService") === "yes",
       schoolandGroupFilter: params.get("schoolandGroup"),
       schoolandSizeFilter: params.get("schoolandSize"),
       sortBy: params.get("sort") ?? "default",
@@ -115,7 +114,6 @@ export default function KGListClient() {
     sessionFilter,
     hasNurseryFilter,
     schoolandFreeSchemeFilter,
-    schoolandNurseryServiceFilter,
     schoolandGroupFilter,
     schoolandSizeFilter,
     sortBy,
@@ -135,7 +133,6 @@ export default function KGListClient() {
       if (sessionFilter) params.set("session", sessionFilter);
       if (hasNurseryFilter) params.set("hasNursery", "true");
       if (schoolandFreeSchemeFilter) params.set("schoolandFreeScheme", "true");
-      if (schoolandNurseryServiceFilter) params.set("schoolandNurseryService", "yes");
       if (schoolandGroupFilter) params.set("schoolandGroup", schoolandGroupFilter);
       if (schoolandSizeFilter) params.set("schoolandSize", schoolandSizeFilter);
       if (searchQuery) params.set("search", searchQuery);
@@ -165,7 +162,6 @@ export default function KGListClient() {
     sessionFilter,
     hasNurseryFilter,
     schoolandFreeSchemeFilter,
-    schoolandNurseryServiceFilter,
     schoolandGroupFilter,
     schoolandSizeFilter,
     searchQuery,
@@ -307,7 +303,6 @@ export default function KGListClient() {
         sessionFilter={sessionFilter}
         hasNurseryFilter={hasNurseryFilter}
         schoolandFreeSchemeFilter={schoolandFreeSchemeFilter}
-        schoolandNurseryServiceFilter={schoolandNurseryServiceFilter}
         schoolandGroupFilter={schoolandGroupFilter}
         schoolandSizeFilter={schoolandSizeFilter}
         onToggleDistrict={toggleDistrict}

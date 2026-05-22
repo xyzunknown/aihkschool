@@ -12,7 +12,6 @@ interface FilterBarProps {
   sessionFilter: string | null;
   hasNurseryFilter: boolean;
   schoolandFreeSchemeFilter: boolean;
-  schoolandNurseryServiceFilter: boolean;
   schoolandGroupFilter: string | null;
   schoolandSizeFilter: string | null;
   onToggleDistrict: (district: District) => void;
@@ -28,7 +27,6 @@ export function FilterBar({
   sessionFilter,
   hasNurseryFilter,
   schoolandFreeSchemeFilter,
-  schoolandNurseryServiceFilter,
   schoolandGroupFilter,
   schoolandSizeFilter,
   onToggleDistrict,
@@ -41,7 +39,6 @@ export function FilterBar({
       sessionFilter ||
       hasNurseryFilter ||
       schoolandFreeSchemeFilter ||
-      schoolandNurseryServiceFilter ||
       schoolandGroupFilter ||
       schoolandSizeFilter
     )
@@ -84,7 +81,6 @@ export function FilterBar({
     (selectedGrade ? 1 : 0) +
     (hasNurseryFilter ? 1 : 0) +
     (schoolandFreeSchemeFilter ? 1 : 0) +
-    (schoolandNurseryServiceFilter ? 1 : 0) +
     (schoolandGroupFilter ? 1 : 0) +
     (schoolandSizeFilter ? 1 : 0);
 
@@ -243,18 +239,6 @@ export function FilterBar({
                 className={`${pillBase} ${schoolandFreeSchemeFilter ? pillActive : pillInactive}`}
               >
                 參加
-              </button>
-            </div>
-
-            <div>
-              <h4 className="text-xs font-semibold text-slate-700 mb-2">幼兒服務</h4>
-              <button
-                onClick={() =>
-                  onUpdateFilter("schoolandNurseryService", schoolandNurseryServiceFilter ? null : "yes")
-                }
-                className={`${pillBase} ${schoolandNurseryServiceFilter ? pillActive : pillInactive}`}
-              >
-                有
               </button>
             </div>
 

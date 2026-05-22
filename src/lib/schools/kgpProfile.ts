@@ -208,7 +208,7 @@ function buildProfile(row: CsvRow): KgpOfficialProfile {
     item(row, "非華語學童支援", "對非華語學童的支援"),
     item(row, "特殊需要支援", "對有特殊需要的學童的支援"),
     item(row, "2 歲以下幼兒服務", "提供2歲以下幼兒服務"),
-    item(row, "2-3 歲幼兒服務", "提供2-3歲幼兒服務"),
+    item(row, "N 班 / 2-3 歲幼兒服務", "提供2-3歲幼兒服務"),
     item(row, "延長服務時間", "提供延長服務時間"),
     item(row, "暫托服務", "提供暫托服務"),
   ]);
