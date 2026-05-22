@@ -5,7 +5,7 @@ interface VacancyBadgeProps {
   grade: string;
   status: VacancyStatus;
   isStale?: boolean;
-  variant?: "pill" | "block";
+  variant?: "pill" | "block" | "compactBlock";
 }
 
 export function VacancyBadge({ grade, status, isStale = false, variant = "pill" }: VacancyBadgeProps) {
@@ -19,14 +19,18 @@ export function VacancyBadge({ grade, status, isStale = false, variant = "pill" 
     no_information: "border-surface-border text-status-pending-fg bg-status-pending-bg",
   };
 
-  if (variant === "block") {
+  if (variant === "block" || variant === "compactBlock") {
+    const compact = variant === "compactBlock";
+
     return (
       <div
         aria-label={`${grade} ${VACANCY_STATUS_LABELS[normalizedStatus]}`}
-        className={`flex min-h-[86px] min-w-0 flex-1 flex-col items-center justify-center rounded-[14px] border px-3 py-4 text-center transition-colors duration-200 ${styles[normalizedStatus]} ${staleClass}`}
+        className={`flex min-w-0 flex-1 flex-col items-center justify-center border text-center transition-colors duration-200 ${
+          compact ? "min-h-[58px] rounded-[10px] px-2 py-2" : "min-h-[86px] rounded-[14px] px-3 py-4"
+        } ${styles[normalizedStatus]} ${staleClass}`}
       >
-        <span className="text-sm font-bold leading-none opacity-70">{grade}</span>
-        <span className="mt-2 text-xl font-extrabold leading-none">{VACANCY_STATUS_LABELS[normalizedStatus]}</span>
+        <span className={`${compact ? "text-[11px]" : "text-sm"} font-bold leading-none opacity-70`}>{grade}</span>
+        <span className={`${compact ? "mt-1 text-base" : "mt-2 text-xl"} font-extrabold leading-none`}>{VACANCY_STATUS_LABELS[normalizedStatus]}</span>
       </div>
     );
   }

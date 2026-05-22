@@ -37,7 +37,7 @@ export default function ActivitiesPage() {
         ]}
       />
 
-      <div id="activity-list" className="mx-auto max-w-7xl px-5 pt-10 pb-28 md:px-8 md:py-10">
+      <div id="activity-list" className="mx-auto max-w-[1680px] px-5 pt-10 pb-28 md:px-8 md:py-10">
         <Suspense fallback={<ActivitiesListSkeleton />}>
           <ActivitiesClient />
         </Suspense>

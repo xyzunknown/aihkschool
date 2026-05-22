@@ -32,9 +32,9 @@ export async function ActivitiesPreview() {
         </Link>
       </div>
 
-      <div className="-mx-5 flex gap-4 overflow-x-auto px-5 pb-2 hide-scrollbar md:mx-0 md:grid md:grid-cols-2 xl:grid-cols-3 md:gap-5 md:px-0 md:overflow-visible">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
         {activities.map((a) => (
-          <div key={a.id} className="w-[286px] flex-shrink-0 md:w-auto">
+          <div key={a.id} className="min-w-0">
             <ActivityCard activity={a} />
           </div>
         ))}

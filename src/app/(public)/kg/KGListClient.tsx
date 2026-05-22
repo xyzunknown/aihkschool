@@ -289,7 +289,7 @@ export default function KGListClient() {
   const totalPages = Math.ceil(count / PAGE_SIZE);
 
   return (
-    <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
+    <div className="mx-auto max-w-7xl px-5 py-6 md:px-8">
       <h1 className="text-2xl font-bold tracking-tight text-slate-950 mb-2">策劃香港卓越教育藍圖</h1>
       <p className="text-slate-600 mb-8">權威性的教育機構指南，即時更新學位空缺狀態及報名資訊。</p>
 
@@ -311,7 +311,7 @@ export default function KGListClient() {
       />
 
       {loading ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
           {[1, 2, 3, 4, 5, 6].map((i) => <SchoolCardSkeleton key={i} />)}
         </div>
       ) : error ? (
@@ -369,7 +369,7 @@ export default function KGListClient() {
               )}
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
             {displaySchools.map((school) => {
               const currentVacancy = school.vacancies?.[0];
               const vacancy = currentVacancy ? {
@@ -407,6 +407,7 @@ export default function KGListClient() {
                   onToggleFavorite={() => handleToggleFavorite(school.id)}
                   distanceKm={distanceKm}
                   isInCompare={isInCompare(school.id)}
+                  compact
                   onToggleCompare={() => {
                     if (isInCompare(school.id)) {
                       removeFromCompare(school.id);
