@@ -11,7 +11,6 @@ import { useAuth } from "@/components/layout/AuthProvider";
 import { useToast } from "@/components/ui/Toast";
 import { useGeolocation, haversineDistance } from "@/lib/hooks/useGeolocation";
 import { useCompare } from "@/lib/hooks/useCompare";
-import { CompareBar } from "@/components/compare/CompareBar";
 import type { District, SchoolType, VacancyStatus } from "@/types/database";
 
 async function getErrorMessage(response: Response, fallback: string) {
@@ -82,12 +81,9 @@ export default function KGListClient() {
   const [favoriteIds, setFavoriteIds] = useState<Set<string>>(new Set());
   const { latitude: userLat, longitude: userLng, requestLocation, loading: geoLoading } = useGeolocation();
   const {
-    compareItems,
     addToCompare,
     removeFromCompare,
-    clearCompare,
     isInCompare,
-    compareUrl,
     canAdd,
   } = useCompare();
 
@@ -443,14 +439,6 @@ export default function KGListClient() {
           )}
         </>
       )}
-
-      {/* Compare floating bar */}
-      <CompareBar
-        items={compareItems}
-        compareUrl={compareUrl}
-        onRemove={removeFromCompare}
-        onClear={clearCompare}
-      />
     </div>
   );
 }

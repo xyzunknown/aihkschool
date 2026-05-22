@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 import { AuthProvider } from "@/components/layout/AuthProvider";
+import { CompareBar } from "@/components/compare/CompareBar";
 import { ToastProvider } from "@/components/ui/Toast";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { ProductAnalytics } from "@/components/analytics/ProductAnalytics";
@@ -106,7 +107,7 @@ export default function RootLayout({
       <head>
         <GoogleAnalytics />
       </head>
-      <body className="antialiased min-h-screen flex flex-col bg-white text-ink-900 font-sans">
+      <body className="antialiased min-h-screen flex flex-col bg-surface-page text-ink-900 font-sans">
         <AuthProvider>
           <ToastProvider>
             <Suspense fallback={null}>
@@ -118,6 +119,7 @@ export default function RootLayout({
             </Suspense>
             <main className="flex-1 pb-20 lg:pb-0">{children}</main>
             <Footer />
+            <CompareBar />
             <MobileBottomNav />
           </ToastProvider>
         </AuthProvider>

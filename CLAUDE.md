@@ -272,29 +272,31 @@ All user-facing text must be **Traditional Chinese (粵語風格)**. Use convers
 
 ### Core Principle
 
-> Color is information, not decoration. Only status gets color. Everything else is black/white/grey. Saturation under 20%.
+> Color is information, not decoration. Keep one calm brand green, one warm alert accent, white cards, and clear status colors. Avoid parallel cream / sand / forest / brand variants that look different in code but identical to users.
 
 ### Palette (Tailwind)
 
 | Use | Color |
 |-----|-------|
-| Base background | `slate-50` (#f8fafc) |
-| Card / surface | `white` (#ffffff) solid, no blur |
-| Primary text | `slate-950` (#020617) |
-| Secondary text | `slate-700` (#334155) |
-| Muted text | `slate-500` (#64748b) |
-| Border | `slate-200` (#e2e8f0) |
-| Divider (light) | `slate-100` (#f1f5f9) |
-| Featured surface (dark card) | `slate-900` (#0f172a) with `text-white` |
+| Base background | `ivory-50` / `surface-page` (#FDFBF4) |
+| Section background | `ivory-100` / `surface-soft` (#FAF6E9) |
+| Card / surface | `white` (#ffffff) solid, 1px border |
+| Primary text | `ink-900` (#161D19) |
+| Secondary text | `ink-700` (#3F4B44) |
+| Muted text | `ink-500` (#6B766F) |
+| Border | `surface-border` / `line-card` (#E6ECE5) |
+| Featured surface (dark card) | `brand-900` / `forest-900` (#0F3D27) with `text-white` |
+| Main action | `brand-700` (#17623F) |
+| Alert accent | `clay-500` (#D86A3A) |
 
 #### Status Colors (vacancy badges & deadline indicators only)
 
 | Status | Background | Text | Use |
 |--------|-----------|------|-----|
-| 尚有學額 / safe (>14d) | `emerald-50` (#ecfdf5) | `emerald-700` (#047857) | Has vacancy |
-| 學額緊張 / warning (7–14d) | `amber-50` (#fffbeb) | `amber-700` (#b45309) | Running low / deadline approaching |
-| 名額已滿 / urgent (<7d) | `red-50` (#fef2f2) | `red-700` (#b91c1c) | Full / deadline imminent |
-| 未開放 / not applicable | `slate-100` (#f1f5f9) | `slate-500` (#64748b) | Not offered / check school |
+| 尚有學額 / safe (>14d) | `status-available-bg` (#EAF6EC) | `status-available-fg` (#247A4D) | Has vacancy |
+| 學額緊張 / warning (7-14d) | `status-limited-bg` (#FFEBB8) | `status-limited-fg` (#8E5F1E) | Running low / deadline approaching |
+| 名額已滿 / urgent (<7d) | `status-full-bg` (#FADFCB) | `status-full-fg` (#8E3D17) | Full / deadline imminent |
+| 未開放 / not applicable | `status-pending-bg` (#F2F4F2) | `status-pending-fg` (#7C837E) | Not offered / check school |
 
 ### Cards
 
@@ -302,21 +304,21 @@ Two card variants:
 
 **Content Card** (default — school list, detail sections, stats):
 ```
-bg-white rounded-2xl border border-slate-200 p-6
+bg-white rounded-2xl border border-surface-border p-6
 hover: shadow-sm transition-shadow duration-200 — no scale, no color change
 ```
 
 **Featured Card** (homepage highlights, promotional — max 1 per page section):
 ```
-bg-slate-900 text-white rounded-2xl p-6
+bg-brand-900 text-white rounded-2xl p-6
 ```
 
 No glass/blur effect in V1. All cards use solid backgrounds.
 
 ### Buttons (Two Types Only)
 
-- **Primary** (max one per page): `bg-slate-950 text-white rounded-xl px-6 py-3`
-- **Secondary**: `bg-white text-slate-900 border border-slate-200 rounded-xl px-6 py-3`
+- **Primary** (max one per page): `bg-brand-700 text-white rounded-xl px-6 py-3`
+- **Secondary**: `bg-white text-brand-700 border border-brand-200 rounded-xl px-6 py-3`
 - Hover: `scale(1.02)` over 200ms — no color change
 - Disabled: `opacity-50 cursor-not-allowed`
 
@@ -327,10 +329,19 @@ Pill-shaped badges positioned **top-right** of school cards:
 inline-flex items-center rounded-full px-3 py-1 text-xs font-medium
 ```
 
-- 尚有學額: `bg-emerald-50 text-emerald-700`
-- 學額緊張: `bg-amber-50 text-amber-700`
-- 名額已滿: `bg-red-50 text-red-700`
-- 未開放: `bg-slate-100 text-slate-500`
+- 尚有學額: `bg-status-available-bg text-status-available-fg`
+- 學額緊張: `bg-status-limited-bg text-status-limited-fg`
+- 名額已滿: `bg-status-full-bg text-status-full-fg`
+- 未開放: `bg-status-pending-bg text-status-pending-fg`
+
+### Compare Floating Dock
+
+When users add schools to compare, show one floating dock across public web pages and the iOS school list. It should:
+
+- Stay above mobile bottom navigation.
+- Show selected schools as removable chips.
+- Enable compare only after 2 schools are selected.
+- Use `brand-700` for the action, `brand-50` for selected chips, white for the dock surface, and `surface-border` for the outline.
 
 Each grade (N/K1/K2/K3) gets its own badge. Show grade prefix: `K1 尚有學額`, `K2 學額緊張`.
 
