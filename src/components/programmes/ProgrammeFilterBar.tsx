@@ -213,20 +213,29 @@ export function ProgrammeFilterBar({
   };
 
   return (
-    <div className="rounded-2xl bg-white/90 px-1 py-1 md:px-0 md:py-0">
-      <div className="flex flex-wrap items-center gap-2 md:gap-3">
+    <div className="relative rounded-card border border-surface-border bg-white px-4 py-4 shadow-soft md:px-5">
+      <div className="grid gap-3 border-b border-surface-border pb-3 md:grid-cols-[88px_1fr] md:items-center">
+        <h4 className="text-xs font-semibold text-slate-600">地區位置</h4>
+        <div className="flex flex-wrap items-center gap-2">
         <button
           type="button"
           onClick={() => setOpenPanel(openPanel === "district" ? null : "district")}
-          className={`inline-flex min-h-11 items-center justify-center rounded-xl border bg-white px-4 text-sm font-semibold shadow-sm transition hover:border-brand-400 hover:bg-brand-50 ${
+          className={`inline-flex h-8 items-center justify-center rounded-lg border px-3 text-xs font-semibold transition hover:border-brand-400 hover:bg-brand-50 ${
             openPanel === "district"
-              ? "border-brand-700 text-brand-800"
-              : "border-brand-200 text-brand-800"
+              ? "border-brand-700 bg-brand-700 text-white shadow-sm"
+              : "border-slate-200 bg-white text-ink-700"
           }`}
         >
-          地區：{selectedDistrictText} <span className="ml-2 text-brand-700">{openPanel === "district" ? "⌃" : "⌄"}</span>
+          <span className="mr-1">⌖</span>
+          {selectedDistrictText} <span className="ml-2 text-[10px]">{openPanel === "district" ? "⌃" : "⌄"}</span>
         </button>
+        <span className="text-xs text-slate-400">or 搜尋課程地區</span>
+        </div>
+      </div>
 
+      <div className="grid gap-3 border-b border-surface-border py-3 md:grid-cols-[88px_1fr] md:items-center">
+        <h4 className="text-xs font-semibold text-slate-600">年齡</h4>
+        <div className="flex flex-wrap gap-2">
         {AGE_PRESETS.map((p) => {
           const isActive = agePreset === p.key;
           return (
@@ -234,19 +243,22 @@ export function ProgrammeFilterBar({
               key={p.key}
               type="button"
               onClick={() => onChangeAgePreset(p.key)}
-              className={`flex-shrink-0 rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+              className={`inline-flex h-8 items-center rounded-lg px-3 text-xs font-semibold transition-colors ${
                 isActive
                   ? "bg-brand-700 text-white shadow-sm"
-                  : "border border-transparent bg-slate-100 text-slate-600 hover:bg-slate-200"
+                  : "border border-slate-200 bg-white text-ink-700 hover:border-brand-200 hover:bg-brand-50"
               }`}
             >
               {p.label}
             </button>
           );
         })}
+        </div>
       </div>
 
-      <div className="mt-3 flex flex-wrap gap-2">
+      <div className="grid gap-3 border-b border-surface-border py-3 md:grid-cols-[88px_1fr] md:items-center">
+        <h4 className="text-xs font-semibold text-slate-600">課程類別</h4>
+        <div className="flex flex-wrap gap-2">
         {TYPE_PRESETS.map((item) => {
           const isActive = category === item.key;
           return (
@@ -254,10 +266,10 @@ export function ProgrammeFilterBar({
               key={item.key}
               type="button"
               onClick={() => onChangeCategory(isActive ? null : item.key)}
-              className={`flex-shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+              className={`inline-flex h-8 items-center rounded-lg px-3 text-xs font-semibold transition-colors ${
                 isActive
                   ? "bg-brand-700 text-white"
-                  : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                  : "border border-slate-200 bg-white text-ink-700 hover:border-brand-200 hover:bg-brand-50"
               }`}
             >
               {item.label}
@@ -267,11 +279,12 @@ export function ProgrammeFilterBar({
         <button
           type="button"
           onClick={() => setOpenPanel(openPanel === "more" ? null : "more")}
-          className="flex-shrink-0 rounded-full border border-brand-200 bg-white px-4 py-2 text-sm font-semibold text-brand-800 transition hover:border-brand-400 hover:bg-brand-50"
+          className="inline-flex h-8 items-center rounded-lg border border-slate-200 bg-white px-3 text-xs font-semibold text-ink-700 transition hover:border-brand-400 hover:bg-brand-50"
         >
           <span className="hidden md:inline">{moreFilters.length > 0 ? `更多篩選：${moreFilters.length}` : "更多篩選"} {openPanel === "more" ? "⌃" : "⌄"}</span>
           <span className="md:hidden">{moreFilters.length > 0 ? `篩選 ${moreFilters.length}` : "篩選"} {openPanel === "more" ? "⌃" : "⌄"}</span>
         </button>
+        </div>
       </div>
 
       {openPanel === "district" ? (
@@ -285,7 +298,7 @@ export function ProgrammeFilterBar({
         <InlineSortPanel activeSort={sort} onChoose={chooseSort} />
       ) : null}
 
-      <div className="mt-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+      <div className="flex flex-col gap-3 py-3 md:flex-row md:items-center md:justify-between">
         {selectedTags.length > 0 ? (
           <div className="flex items-center gap-2 overflow-x-auto pb-1 text-sm scrollbar-hide">
             <span className="flex-shrink-0 text-slate-500">已選：</span>
@@ -385,25 +398,25 @@ function InlineDistrictPanel({
   };
 
   return (
-    <section className="mt-4 rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/50">
-      <div className="flex items-center justify-between gap-3 border-t border-slate-200 px-4 pb-3 pt-4 md:px-5">
-        <h3 className="text-base font-bold text-slate-900">地區</h3>
+    <section className="mt-3 overflow-hidden rounded-card border border-surface-border bg-white shadow-card">
+      <div className="flex items-center justify-between gap-3 border-b border-surface-border px-4 py-3 md:px-5">
+        <h3 className="text-xs font-semibold text-slate-500">共 18 區 · 已選 {selectedDistricts.length}</h3>
         <button
           type="button"
           onClick={() => onChangeDistricts([])}
-          className="rounded-lg border border-brand-700 bg-white px-3 py-1.5 text-sm font-semibold text-brand-800 transition hover:bg-brand-50"
+          className="text-xs font-semibold text-slate-500 transition hover:text-brand-700"
         >
-          清除地區
+          清除全部
         </button>
       </div>
-      <div className="px-4 pb-4 md:px-5">
-        <div className="divide-y divide-slate-100 overflow-hidden rounded-xl border border-slate-100 md:max-h-[252px]">
+      <div className="px-4 py-3 md:px-5">
+        <div className="divide-y divide-surface-border overflow-hidden md:max-h-[252px]">
           {DISTRICT_GROUPS.map((group) => (
-            <div key={group.label} className="grid grid-cols-[86px_1fr] md:grid-cols-[116px_1fr]">
-              <div className="bg-slate-50 px-4 py-3 text-sm font-bold text-slate-600">
+            <div key={group.label} className="grid grid-cols-[70px_1fr] md:grid-cols-[86px_1fr]">
+              <div className="px-1 py-3 text-xs font-bold text-slate-600">
                 {group.label}
               </div>
-              <div className="flex flex-wrap gap-2 px-3 py-2.5">
+              <div className="flex flex-wrap gap-2 py-2.5">
                 {group.districts.map((district) => (
                   <FilterChip
                     key={district}
@@ -542,10 +555,10 @@ function FilterChip({
     <button
       type="button"
       onClick={onClick}
-      className={`rounded-full px-3.5 py-2 text-sm font-medium transition ${
+      className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
         active
           ? "bg-brand-700 text-white"
-          : "border border-slate-200 bg-white text-slate-600 hover:border-brand-200 hover:bg-brand-50"
+          : "border border-slate-200 bg-white text-ink-700 hover:border-brand-200 hover:bg-brand-50"
       }`}
     >
       {label}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import type { ReactNode } from "react";
 import { DISTRICT_LABELS, SCHOOL_TYPE_LABELS, SCHOOLAND_GROUP_OPTIONS, SCHOOLAND_SIZE_LABELS } from "@/lib/utils";
 import type { District, SchoolType } from "@/types/database";
 
@@ -18,6 +19,13 @@ interface FilterBarProps {
   onUpdateFilter: (key: string, value: string | null) => void;
   onToggleVacancy: (status: string) => void;
 }
+
+const DISTRICT_GROUPS: { label: string; districts: District[] }[] = [
+  { label: "港島", districts: ["central_and_western", "eastern", "southern", "wan_chai"] },
+  { label: "九龍", districts: ["kowloon_city", "kwun_tong", "sham_shui_po", "wong_tai_sin", "yau_tsim_mong"] },
+  { label: "新界", districts: ["kwai_tsing", "north", "sai_kung", "sha_tin", "tai_po", "tsuen_wan", "tuen_mun", "yuen_long"] },
+  { label: "離島", districts: ["islands"] },
+];
 
 export function FilterBar({
   selectedDistricts,
@@ -44,9 +52,9 @@ export function FilterBar({
     )
   );
 
-  const pillBase = "px-3 py-1.5 rounded-full text-xs font-medium transition-colors";
-  const pillActive = "bg-brand-600 text-white shadow-soft";
-  const pillInactive = "bg-white text-ink-700 border border-surface-border hover:border-brand-200 hover:bg-brand-50";
+  const pillBase = "inline-flex h-8 items-center rounded-lg px-3 text-xs font-semibold transition-colors";
+  const pillActive = "bg-brand-700 text-white shadow-sm";
+  const pillInactive = "border border-slate-200 bg-white text-ink-700 hover:border-brand-200 hover:bg-brand-50";
 
   const vacancyOptions = [
     { key: "has_vacancy", label: "有位" },
@@ -84,117 +92,197 @@ export function FilterBar({
     (schoolandGroupFilter ? 1 : 0) +
     (schoolandSizeFilter ? 1 : 0);
 
+  const activeTags = [
+    ...selectedDistricts.map((district) => ({
+      key: `district-${district}`,
+      label: DISTRICT_LABELS[district],
+      onRemove: () => onToggleDistrict(district),
+    })),
+    ...(sessionFilter ? [{ key: "session", label: sessionOptions.find((item) => item.key === sessionFilter)?.label ?? sessionFilter, onRemove: () => onUpdateFilter("session", null) }] : []),
+    ...(hasNurseryFilter ? [{ key: "nursery", label: "設有 N 班", onRemove: () => onUpdateFilter("hasNursery", null) }] : []),
+    ...(schoolandFreeSchemeFilter ? [{ key: "free-scheme", label: "免費計劃", onRemove: () => onUpdateFilter("schoolandFreeScheme", null) }] : []),
+    ...(schoolandGroupFilter ? [{ key: "group", label: `集團：${schoolandGroupFilter}`, onRemove: () => onUpdateFilter("schoolandGroup", null) }] : []),
+    ...(schoolandSizeFilter ? [{ key: "size", label: SCHOOLAND_SIZE_LABELS[schoolandSizeFilter] ?? schoolandSizeFilter, onRemove: () => onUpdateFilter("schoolandSize", null) }] : []),
+  ];
+
+  const districtSummary =
+    selectedDistricts.length === 0
+      ? "選擇地區"
+      : selectedDistricts.length <= 2
+        ? selectedDistricts.map((district) => DISTRICT_LABELS[district]).join("、")
+        : `${DISTRICT_LABELS[selectedDistricts[0]]}等 ${selectedDistricts.length} 區`;
+
+  const hasAnyFilter =
+    selectedDistricts.length > 0 ||
+    !!selectedType ||
+    vacancyFilter.length > 0 ||
+    !!selectedGrade ||
+    moreFilterCount > 0;
+
   return (
     <>
-      <div className="space-y-4 mb-6">
-        {/* 地區位置 */}
-        <div>
-          <h4 className="text-xs font-semibold text-slate-700 mb-2">地區位置</h4>
-          <div className="relative">
+      <div className="mb-6 rounded-card border border-surface-border bg-white px-4 py-4 shadow-soft md:px-5">
+        <div className="grid gap-0 divide-y divide-surface-border">
+          <div className="grid gap-3 py-3 md:grid-cols-[88px_1fr] md:items-center">
+            <h4 className="text-xs font-semibold text-slate-600">地區位置</h4>
+            <div className="relative flex flex-wrap items-center gap-2">
             <button
               onClick={() => setShowDistrictFilter(!showDistrictFilter)}
               className={`${pillBase} ${selectedDistricts.length > 0 ? pillActive : pillInactive}`}
             >
-              {selectedDistricts.length === 0 ? "選擇地區" : `已選 ${selectedDistricts.length}`}
+              <span className="mr-1">⌖</span>
+              {districtSummary}
+              <span className="ml-2 text-[10px]">{showDistrictFilter ? "⌃" : "⌄"}</span>
             </button>
+            <span className="text-xs text-slate-400">or 直接搜尋地區名稱</span>
             {showDistrictFilter && (
-              <div className="absolute top-full left-0 mt-2 bg-white rounded-card shadow-card border border-surface-border p-4 z-30 w-64 max-h-64 overflow-y-auto">
-                {Object.entries(DISTRICT_LABELS).map(([key, label]) => (
-                  <label key={key} className="flex items-center gap-2 py-1.5 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={selectedDistricts.includes(key as District)}
-                      onChange={() => onToggleDistrict(key as District)}
-                      className="rounded"
-                    />
-                    <span className="text-sm text-slate-700">{label}</span>
-                  </label>
+              <div className="absolute left-0 top-full z-30 mt-2 w-[min(92vw,440px)] overflow-hidden rounded-card border border-surface-border bg-white shadow-card">
+                <div className="flex items-center justify-between border-b border-surface-border px-4 py-3 text-xs text-slate-500">
+                  <span>共 18 區 · 已選 {selectedDistricts.length}</span>
+                  <button type="button" onClick={() => selectedDistricts.forEach(onToggleDistrict)} className="font-semibold hover:text-brand-700">
+                    清除全部
+                  </button>
+                </div>
+                <div className="max-h-[300px] overflow-y-auto px-4 py-3">
+                  {DISTRICT_GROUPS.map((group) => (
+                    <div key={group.label} className="mb-4 last:mb-0">
+                      <div className="mb-2 flex items-center justify-between text-xs font-semibold text-slate-600">
+                        <span>{group.label}</span>
+                        <button
+                          type="button"
+                          onClick={() => group.districts.filter((district) => !selectedDistricts.includes(district)).forEach(onToggleDistrict)}
+                          className="text-brand-700 hover:text-brand-800"
+                        >
+                          選擇全部
+                        </button>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {group.districts.map((district) => (
+                          <button
+                            key={district}
+                            type="button"
+                            onClick={() => onToggleDistrict(district)}
+                            className={`${pillBase} ${selectedDistricts.includes(district) ? "bg-brand-50 text-brand-800 ring-1 ring-brand-200" : pillInactive}`}
+                          >
+                            {selectedDistricts.includes(district) ? "✓ " : ""}{DISTRICT_LABELS[district]}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex items-center justify-between border-t border-surface-border px-4 py-3">
+                  <button type="button" onClick={() => setShowDistrictFilter(false)} className="text-xs font-semibold text-slate-500 hover:text-slate-700">
+                    取消
+                  </button>
+                  <button type="button" onClick={() => setShowDistrictFilter(false)} className="rounded-full bg-brand-700 px-5 py-2 text-xs font-bold text-white shadow-sm">
+                    套用 {selectedDistricts.length}
+                  </button>
+                </div>
+              </div>
+            )}
+            </div>
+          </div>
+
+          <div className="grid gap-3 py-3 md:grid-cols-[88px_1fr] md:items-center">
+            <h4 className="text-xs font-semibold text-slate-600">學位狀態</h4>
+            <div className="flex flex-wrap items-center gap-2">
+              {vacancyOptions.map(({ key, label }) => (
+                <button
+                  key={key}
+                  onClick={() => onToggleVacancy(key)}
+                  className={`${pillBase} ${vacancyFilter.includes(key) ? pillActive : pillInactive}`}
+                >
+                  {label}
+                </button>
+              ))}
+              <span className="mx-1 hidden h-5 w-px bg-surface-border md:inline-block" />
+              {gradeOptions.map(({ key, label }) => (
+                <button
+                  key={key}
+                  onClick={() => onUpdateFilter("grade", key === "all" ? null : selectedGrade === key ? null : key)}
+                  className={`${pillBase} ${
+                    (key === "all" && !selectedGrade) || selectedGrade === key
+                      ? pillActive
+                      : pillInactive
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-3 py-3 md:grid-cols-[88px_1fr] md:items-center">
+            <h4 className="text-xs font-semibold text-slate-600">學校類別</h4>
+            <div className="flex flex-wrap gap-2">
+              {schoolTypeOptions.map(({ key, label }) => (
+                <button
+                  key={key}
+                  onClick={() => onUpdateFilter("type", selectedType === key || (key === "all" && selectedType === null) ? null : key === "all" ? null : key)}
+                  className={`${pillBase} ${
+                    (key === "all" && selectedType === null) || selectedType === key
+                      ? pillActive
+                      : pillInactive
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-between gap-3 py-3">
+            <button
+              onClick={() => setShowMoreFilters(!showMoreFilters)}
+              className="inline-flex h-8 items-center gap-2 rounded-lg text-xs font-semibold text-slate-700 transition hover:text-brand-700"
+            >
+              <span>{showMoreFilters ? "−" : "+"}</span>
+              更多篩選
+              {moreFilterCount > 0 && (
+                <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-brand-700 px-1.5 text-[10px] text-white">
+                  {moreFilterCount}
+                </span>
+              )}
+            </button>
+            {hasAnyFilter && (
+              <button
+                type="button"
+                onClick={() => {
+                  selectedDistricts.forEach(onToggleDistrict);
+                  vacancyFilter.forEach(onToggleVacancy);
+                  onUpdateFilter("grade", null);
+                  onUpdateFilter("type", null);
+                  onUpdateFilter("session", null);
+                  onUpdateFilter("hasNursery", null);
+                  onUpdateFilter("schoolandFreeScheme", null);
+                  onUpdateFilter("schoolandGroup", null);
+                  onUpdateFilter("schoolandSize", null);
+                }}
+                className="text-xs font-semibold text-slate-500 hover:text-brand-700"
+              >
+                清除全部
+              </button>
+            )}
+            {activeTags.length > 0 && (
+              <div className="flex w-full flex-wrap gap-2">
+                {activeTags.map((tag) => (
+                  <button
+                    key={tag.key}
+                    type="button"
+                    onClick={tag.onRemove}
+                    className="inline-flex h-7 items-center rounded-md bg-brand-50 px-2.5 text-xs font-semibold text-brand-800"
+                  >
+                    × {tag.label}
+                  </button>
                 ))}
               </div>
             )}
           </div>
-        </div>
 
-        {/* 學位狀態 */}
-        <div>
-          <h4 className="text-xs font-semibold text-slate-700 mb-2">學位狀態</h4>
-          <div className="flex flex-wrap gap-2">
-            {vacancyOptions.map(({ key, label }) => (
-              <button
-                key={key}
-                onClick={() => onToggleVacancy(key)}
-                className={`${pillBase} ${vacancyFilter.includes(key) ? pillActive : pillInactive}`}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-          <div className="mt-2 flex flex-wrap gap-2">
-            {gradeOptions.map(({ key, label }) => (
-              <button
-                key={key}
-                onClick={() => onUpdateFilter("grade", key === "all" ? null : selectedGrade === key ? null : key)}
-                className={`${pillBase} ${
-                  (key === "all" && !selectedGrade) || selectedGrade === key
-                    ? pillActive
-                    : pillInactive
-                }`}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* 學校類別 */}
-        <div>
-          <h4 className="text-xs font-semibold text-slate-700 mb-2">學校類別</h4>
-          <div className="flex flex-wrap gap-2">
-            {schoolTypeOptions.map(({ key, label }) => (
-              <button
-                key={key}
-                onClick={() => onUpdateFilter("type", selectedType === key || (key === "all" && selectedType === null) ? null : key === "all" ? null : key)}
-                className={`${pillBase} ${
-                  (key === "all" && selectedType === null) || selectedType === key
-                    ? pillActive
-                    : pillInactive
-                }`}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* 更多篩選 toggle */}
-        <button
-          onClick={() => setShowMoreFilters(!showMoreFilters)}
-          className="flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-slate-700 transition-colors"
-        >
-          <svg
-            className={`w-3.5 h-3.5 transition-transform ${showMoreFilters ? "rotate-90" : ""}`}
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-          </svg>
-          更多篩選
-          {moreFilterCount > 0 && (
-            <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-brand-600 text-white text-[10px]">
-              {moreFilterCount}
-            </span>
-          )}
-        </button>
-
-        {/* 更多篩選 panel */}
-        {showMoreFilters && (
-          <div className="space-y-4 pl-3 border-l-2 border-brand-100">
-            {/* 上課時段 */}
-            <div>
-              <h4 className="text-xs font-semibold text-slate-700 mb-2">上課時段</h4>
-              <div className="flex flex-wrap gap-2">
+          {showMoreFilters && (
+            <div className="grid gap-4 border-t border-surface-border py-4 md:grid-cols-2">
+              <FilterSection title="上課時段">
                 {sessionOptions.map(({ key, label }) => (
                   <button
                     key={key}
@@ -213,55 +301,31 @@ export function FilterBar({
                     {label}
                   </button>
                 ))}
-              </div>
-            </div>
+              </FilterSection>
 
-            {/* 設有N班 */}
-            <div>
-              <h4 className="text-xs font-semibold text-slate-700 mb-2">設有N班（2-3歲）</h4>
-              <button
-                onClick={() =>
-                  onUpdateFilter("hasNursery", hasNurseryFilter ? null : "true")
-                }
-                className={`${pillBase} ${hasNurseryFilter ? pillActive : pillInactive}`}
-              >
-                設有N班
-              </button>
-            </div>
+              <FilterSection title="設有N班（2-3歲）">
+                <button
+                  onClick={() =>
+                    onUpdateFilter("hasNursery", hasNurseryFilter ? null : "true")
+                  }
+                  className={`${pillBase} ${hasNurseryFilter ? pillActive : pillInactive}`}
+                >
+                  設有N班
+                </button>
+              </FilterSection>
 
-            {/* Schooland structured filters */}
-            <div>
-              <h4 className="text-xs font-semibold text-slate-700 mb-2">免費計劃</h4>
-              <button
-                onClick={() =>
-                  onUpdateFilter("schoolandFreeScheme", schoolandFreeSchemeFilter ? null : "true")
-                }
-                className={`${pillBase} ${schoolandFreeSchemeFilter ? pillActive : pillInactive}`}
-              >
-                參加
-              </button>
-            </div>
+              <FilterSection title="免費計劃">
+                <button
+                  onClick={() =>
+                    onUpdateFilter("schoolandFreeScheme", schoolandFreeSchemeFilter ? null : "true")
+                  }
+                  className={`${pillBase} ${schoolandFreeSchemeFilter ? pillActive : pillInactive}`}
+                >
+                  參加
+                </button>
+              </FilterSection>
 
-            <div>
-              <h4 className="text-xs font-semibold text-slate-700 mb-2">集團</h4>
-              <div className="flex flex-wrap gap-2">
-                {SCHOOLAND_GROUP_OPTIONS.slice(0, 12).map((group) => (
-                  <button
-                    key={group}
-                    onClick={() =>
-                      onUpdateFilter("schoolandGroup", schoolandGroupFilter === group ? null : group)
-                    }
-                    className={`${pillBase} ${schoolandGroupFilter === group ? pillActive : pillInactive}`}
-                  >
-                    {group}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h4 className="text-xs font-semibold text-slate-700 mb-2">規模</h4>
-              <div className="flex flex-wrap gap-2">
+              <FilterSection title="規模">
                 {Object.entries(SCHOOLAND_SIZE_LABELS).map(([key, label]) => (
                   <button
                     key={key}
@@ -273,10 +337,24 @@ export function FilterBar({
                     {label}
                   </button>
                 ))}
-              </div>
+              </FilterSection>
+
+              <FilterSection title="集團" wide>
+                {SCHOOLAND_GROUP_OPTIONS.slice(0, 12).map((group) => (
+                  <button
+                    key={group}
+                    onClick={() =>
+                      onUpdateFilter("schoolandGroup", schoolandGroupFilter === group ? null : group)
+                    }
+                    className={`${pillBase} ${schoolandGroupFilter === group ? pillActive : pillInactive}`}
+                  >
+                    {group}
+                  </button>
+                ))}
+              </FilterSection>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
 
       {/* Close district filter on click outside */}
@@ -287,5 +365,22 @@ export function FilterBar({
         />
       )}
     </>
+  );
+}
+
+function FilterSection({
+  title,
+  wide,
+  children,
+}: {
+  title: string;
+  wide?: boolean;
+  children: ReactNode;
+}) {
+  return (
+    <div className={wide ? "md:col-span-2" : ""}>
+      <h4 className="mb-2 text-xs font-semibold text-slate-600">{title}</h4>
+      <div className="flex flex-wrap gap-2">{children}</div>
+    </div>
   );
 }
