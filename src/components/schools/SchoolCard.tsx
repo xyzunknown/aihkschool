@@ -8,7 +8,6 @@ import { getAdmissionSummary } from "@/lib/schools/admissions";
 import {
   DISTRICT_LABELS,
   formatEnglishSchoolName,
-  formatUpdateDate,
   getSessionTags,
   isVacancyStale,
   SCHOOL_TYPE_LABELS,
@@ -55,7 +54,6 @@ export function SchoolCard({
   schoolType,
   sessionType,
   schoolandSessionLabel,
-  feeMonthlyHkd,
   applicationStatus,
   applicationDetails,
   applicationUrl,
@@ -78,8 +76,6 @@ export function SchoolCard({
 
   const schoolTypeInfo = getSchoolTypeInfo(schoolType);
   const districtLabel = DISTRICT_LABELS[district as keyof typeof DISTRICT_LABELS] ?? district;
-  const primaryStat = formatPrimaryStat(distanceKm, districtLabel);
-  const feeText = formatMonthlyFee(feeMonthlyHkd);
   const sessionText = formatSessionLabel(sessionType, schoolandSessionLabel);
   const isPrivateOrInternational = schoolType === "international" || schoolType === "private_independent";
   const admissionText = admissionSummary || getAdmissionSummary({
@@ -99,7 +95,7 @@ export function SchoolCard({
 
   return (
     <div
-      className="flex h-full min-h-[286px] cursor-pointer flex-col rounded-card border border-surface-border bg-white p-5 shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-card"
+      className="flex h-full min-h-[376px] cursor-pointer flex-col rounded-card border border-surface-border bg-white p-5 shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-card"
       role="link"
       tabIndex={0}
       aria-label={`前往 ${primaryName}`}
@@ -111,28 +107,23 @@ export function SchoolCard({
         }
       }}
     >
-      {/* Row 1: Avatar + Name + Favorite */}
-      <div className="flex items-start gap-3">
+      {/* Row 1: Avatar + Name + Actions */}
+      <div className="flex items-start gap-4">
         <SchoolAvatar
           schoolId={id}
           schoolName={primaryName}
           logoUrl={logoUrl}
           schoolCode={schoolCode}
+          size="lg"
           shape="rounded"
         />
         <div className="min-w-0 flex-1">
-          <h3 className="min-h-[44px] text-base font-bold leading-snug text-slate-900 line-clamp-2">{primaryName}</h3>
+          <h3 className="min-h-[44px] text-[20px] font-extrabold leading-tight text-slate-950 line-clamp-2">{primaryName}</h3>
           {secondaryName && (
-            <p className="text-sm text-slate-400 leading-snug mt-0.5 line-clamp-1">{secondaryName}</p>
+            <p className="mt-1 text-base leading-snug text-slate-400 line-clamp-1">{secondaryName}</p>
           )}
-          <p className="mt-1 flex items-center gap-1.5 text-[11px] font-semibold leading-tight text-slate-500">
-            <span className={`h-1.5 w-1.5 rounded-full ${schoolTypeInfo.dotClass}`} aria-hidden="true" />
-            <span>{schoolTypeInfo.label}</span>
-          </p>
         </div>
-        {/* Favorite + Compare buttons */}
-        <div className="flex-shrink-0 flex items-center gap-1.5">
-          {/* Compare button */}
+        <div className="flex-shrink-0 flex items-center gap-2">
           {onToggleCompare && (
             <SchoolActionButton
               kind="compare"
@@ -158,44 +149,39 @@ export function SchoolCard({
         </div>
       </div>
 
-      <div className="my-4 border-t border-slate-100" />
-
-      {/* Row 2: Three key stats */}
-      <div className="grid grid-cols-3">
-        <StatCell label={primaryStat.label} value={primaryStat.value} unit={primaryStat.unit} />
-        <StatCell label="學費" value={feeText.value} unit={feeText.unit} hasDivider />
-        <StatCell label="班別" value={sessionText} hasDivider />
+      <div className="mt-5 flex flex-wrap items-center gap-2 text-sm">
+        <InfoChip label={schoolTypeInfo.shortLabel} tone="brand" />
+        <InfoChip label={sessionText === "—" ? "班別待更新" : `${sessionText}班`} />
+        <InfoChip label={hasNurseryVacancy(vacancy?.n_vacancy) ? "設 N 班" : "N 班待查"} />
+        <InfoChip label={formatLocationChip(distanceKm, districtLabel)} />
       </div>
 
-      {/* Row 3: KEP vacancy only for schools that participate in the EDB scheme. */}
-      <div className="mt-4 min-h-9">
+      {/* Row 3: K1/K2/K3 vacancy spectrum. */}
+      <div className="mt-5 rounded-[18px] border border-cream-200 bg-cream-50/60 p-3">
         {vacancyGrades.length > 0 ? (
-          <div className="grid grid-cols-3 gap-2">
-          {vacancyGrades.map(({ grade, status }) => (
-            <VacancyBadge key={grade} grade={grade} status={status} isStale={stale} />
-          ))}
+          <div className="grid grid-cols-3 gap-3">
+            {vacancyGrades.map(({ grade, status }) => (
+              <VacancyBadge key={grade} grade={grade} status={status} isStale={stale} variant="block" />
+            ))}
           </div>
         ) : isPrivateOrInternational ? (
-          <div className="flex min-h-9 items-center justify-center rounded-full border border-brand-200 bg-brand-50 px-3 text-xs font-semibold text-brand-700">
-            <span className="mr-1 text-[10px] font-bold opacity-75">招生</span>
+          <div className="flex min-h-[86px] items-center justify-center rounded-[14px] border border-brand-200 bg-brand-50 px-3 text-sm font-semibold text-brand-700">
+            <span className="mr-1 text-xs font-bold opacity-75">招生</span>
             <span className="truncate">{admissionText}</span>
           </div>
         ) : null}
       </div>
 
       {/* Row 4: Footer */}
-      <div className="mt-auto flex justify-between items-center pt-3 border-t border-slate-100 text-xs">
-        <span className="min-w-0 text-slate-400 flex items-center gap-1.5">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-brand-500/55">
-            <circle cx="12" cy="12" r="10" />
-            <polyline points="12 6 12 12 16 14" />
-          </svg>
-          <span className="truncate">{formatUpdateDate(vacancy?.edb_published_date ?? null)} · {districtLabel}</span>
+      <div className="mt-auto flex items-end justify-between gap-4 pt-5 text-sm">
+        <span className="min-w-0 text-slate-400">
+          <span className="truncate">{formatFullUpdateDate(vacancy?.edb_published_date ?? null)}</span>
         </span>
-        <span className="ml-3 inline-flex flex-shrink-0 items-center gap-1 rounded-full bg-brand-50 px-2.5 py-1 text-brand-700 font-semibold">
+        <span className="inline-flex h-12 flex-shrink-0 items-center gap-2 rounded-full bg-forest-700 px-6 text-base font-extrabold text-white shadow-sm">
           詳情
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M9 18l6-6-6-6" />
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M5 12h14" />
+            <path d="m13 6 6 6-6 6" />
           </svg>
         </span>
       </div>
@@ -203,38 +189,35 @@ export function SchoolCard({
   );
 }
 
-function StatCell({
-  label,
-  value,
-  unit,
-  hasDivider = false,
-}: {
-  label: string;
-  value: string;
-  unit?: string;
-  hasDivider?: boolean;
-}) {
+function InfoChip({ label, tone = "neutral" }: { label: string; tone?: "brand" | "neutral" }) {
   return (
-    <div className={`${hasDivider ? "border-l border-slate-100 pl-3" : "pr-3"} min-w-0`}>
-      <p className="text-[10px] font-semibold leading-none text-slate-400">{label}</p>
-      <p className="mt-1.5 truncate text-[15px] font-extrabold leading-tight text-slate-900">
-        {value}
-        {unit && <span className="ml-0.5 text-[10px] font-semibold text-slate-400">{unit}</span>}
-      </p>
-    </div>
+    <span className={`inline-flex min-h-9 items-center rounded-full px-3 font-semibold leading-none ${
+      tone === "brand" ? "bg-brand-50 text-brand-700" : "bg-cream-100 text-slate-600"
+    }`}>
+      {label}
+    </span>
   );
 }
 
-function formatPrimaryStat(distanceKm: number | undefined, districtLabel: string): { label: string; value: string; unit?: string } {
-  if (distanceKm == null) return { label: "地區", value: districtLabel };
-  if (distanceKm < 1) return { label: "距離", value: String(Math.round(distanceKm * 1000)), unit: "m" };
-  return { label: "距離", value: distanceKm.toFixed(1), unit: "km" };
+function formatLocationChip(distanceKm: number | undefined, districtLabel: string): string {
+  const district = districtLabel.replace(/區$/, "");
+  if (distanceKm == null) return `📍 ${district}`;
+  if (distanceKm < 1) return `📍 ${district} · ${Math.round(distanceKm * 1000)}m`;
+  return `📍 ${district} · ${distanceKm.toFixed(1)}km`;
 }
 
-function formatMonthlyFee(feeMonthlyHkd?: number | null): { value: string; unit?: string } {
-  if (feeMonthlyHkd == null) return { value: "查官網" };
-  if (feeMonthlyHkd === 0) return { value: "免費", unit: "計劃" };
-  return { value: `$${feeMonthlyHkd.toLocaleString("zh-HK")}`, unit: "/月" };
+function hasNurseryVacancy(status?: VacancyStatus): boolean {
+  return status === "has_vacancy" || status === "waiting_list" || status === "no_vacancy";
+}
+
+function formatFullUpdateDate(dateStr: string | null): string {
+  if (!dateStr) return "更新於 暫無日期";
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return "更新於 暫無日期";
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `更新於 ${year}-${month}-${day}`;
 }
 
 function formatSessionLabel(sessionType?: string | null, schoolandSessionLabel?: string | null): string {
@@ -250,6 +233,7 @@ function getSchoolTypeInfo(schoolType?: string) {
   if (schoolType === "international") {
     return {
       label: `${SCHOOL_TYPE_LABELS[schoolType] ?? "國際"} · 國際課程`,
+      shortLabel: SCHOOL_TYPE_LABELS[schoolType] ?? "國際",
       dotClass: "bg-forest-500",
     };
   }
@@ -257,12 +241,14 @@ function getSchoolTypeInfo(schoolType?: string) {
   if (schoolType === "private_independent") {
     return {
       label: `${SCHOOL_TYPE_LABELS[schoolType] ?? "私立獨立"} · 本地課程`,
+      shortLabel: SCHOOL_TYPE_LABELS[schoolType] ?? "私立獨立",
       dotClass: "bg-brand-500",
     };
   }
 
   return {
     label: `${schoolType ? SCHOOL_TYPE_LABELS[schoolType] ?? schoolType : "非牟利"} · 本地課程`,
+    shortLabel: schoolType ? SCHOOL_TYPE_LABELS[schoolType] ?? schoolType : "非牟利",
     dotClass: "bg-emerald-600",
   };
 }

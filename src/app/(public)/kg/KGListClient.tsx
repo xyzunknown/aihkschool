@@ -374,7 +374,7 @@ export default function KGListClient() {
               )}
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {displaySchools.map((school) => {
               const currentVacancy = school.vacancies?.[0];
               const vacancy = currentVacancy ? {

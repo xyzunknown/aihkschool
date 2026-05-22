@@ -90,11 +90,11 @@ export default function SchoolCardImageTestPage() {
             徽章 + 數據卡片測試
           </h1>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-500">
-            無地圖圖位；校徽作身份錨點，距離、學費、班別改為三欄數據。
+            校徽、學校名、標籤、K1/K2/K3 學額與詳情按鈕按新版卡片順序呈現。
           </p>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2">
           {stressSchools.map((school) => (
             <SchoolCard
               key={school.id}

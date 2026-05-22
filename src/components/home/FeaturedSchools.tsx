@@ -29,7 +29,7 @@ export function FeaturedSchools({ schools }: FeaturedSchoolsProps) {
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {list.map((school) => {
           const schoolId = school.detailId ?? school.id;
           const vacancy = school.vacancyStatus

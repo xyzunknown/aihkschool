@@ -5,9 +5,10 @@ interface VacancyBadgeProps {
   grade: string;
   status: VacancyStatus;
   isStale?: boolean;
+  variant?: "pill" | "block";
 }
 
-export function VacancyBadge({ grade, status, isStale = false }: VacancyBadgeProps) {
+export function VacancyBadge({ grade, status, isStale = false, variant = "pill" }: VacancyBadgeProps) {
   const normalizedStatus = normalizeVacancyStatus(status);
   const staleClass = isStale ? "opacity-85" : "";
 
@@ -17,6 +18,18 @@ export function VacancyBadge({ grade, status, isStale = false }: VacancyBadgePro
     waiting_list: "border-status-limited-bg text-status-limited-fg bg-status-limited-bg",
     no_information: "border-surface-border text-status-pending-fg bg-status-pending-bg",
   };
+
+  if (variant === "block") {
+    return (
+      <div
+        aria-label={`${grade} ${VACANCY_STATUS_LABELS[normalizedStatus]}`}
+        className={`flex min-h-[86px] min-w-0 flex-1 flex-col items-center justify-center rounded-[14px] border px-3 py-4 text-center transition-colors duration-200 ${styles[normalizedStatus]} ${staleClass}`}
+      >
+        <span className="text-sm font-bold leading-none opacity-70">{grade}</span>
+        <span className="mt-2 text-xl font-extrabold leading-none">{VACANCY_STATUS_LABELS[normalizedStatus]}</span>
+      </div>
+    );
+  }
 
   return (
     <div className="flex justify-center">
