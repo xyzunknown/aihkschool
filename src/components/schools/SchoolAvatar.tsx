@@ -22,8 +22,10 @@ function resolveLogoCandidates(
   const safeLocalLogo = match && (!schoolCode || match[1].startsWith(schoolCode)) && hasLocalSchoolLogoFile(match[1])
     ? logoUrl
     : null;
+  // Raster formats first: a real bitmap logo should win over any same-code
+  // SVG, so a stray placeholder SVG can never shadow a real logo again.
   const codeCandidates = schoolCode
-    ? [`${schoolCode}.svg`, `${schoolCode}.png`, `${schoolCode}.webp`]
+    ? [`${schoolCode}.png`, `${schoolCode}.webp`, `${schoolCode}.svg`]
         .filter(hasLocalSchoolLogoFile)
         .map((fileName) => `/logos/${fileName}`)
     : [];

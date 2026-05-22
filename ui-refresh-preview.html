@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HKSchoolPlace · UI / 配色 / 佈局改良預覽</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          // 改良後的設計 token
+          ivory: { 50: '#FDFBF4', 100: '#FAF6E9', 200: '#F1ECDA' },
+          forest: { 50: '#EEF6F0', 100: '#DCEBE1', 200: '#B7D8C2', 500: '#2F7D55', 600: '#247A4D', 700: '#17623F', 900: '#0F3D27' },
+          clay:   { 50: '#FDF1E9', 100: '#FADFCB', 500: '#D86A3A', 600: '#B85222', 700: '#8E3D17' },
+          sun:    { 50: '#FFF8E5', 100: '#FFEBB8', 500: '#E6A82E', 700: '#8E5F1E' },
+          ink:    { 900: '#161D19', 800: '#222B25', 700: '#3F4B44', 500: '#6B766F', 400: '#9AA39E', 300: '#C7CEC9' },
+          line:   { soft: '#EBE7DA', card: '#E6ECE5' }
+        },
+        boxShadow: {
+          card: '0 1px 0 rgba(31,42,36,.04), 0 12px 30px -18px rgba(31,42,36,.18)',
+          dock: '0 -8px 30px -10px rgba(31,42,36,.18)',
+        },
+        fontFamily: {
+          sans: ['"PingFang HK"', '"Noto Sans HK"', '"Noto Sans TC"', 'system-ui', 'sans-serif'],
+          display: ['"Noto Serif HK"', '"PingFang HK"', 'serif'],
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body { background: #F6F1E3; color: #161D19; }
+  .swatch { box-shadow: inset 0 0 0 1px rgba(0,0,0,.06); }
+  .label { font-size: 11px; letter-spacing: .06em; font-weight: 600; text-transform: uppercase; color: #6B766F; }
+  .chip-pop { transition: transform .18s ease, box-shadow .18s ease; }
+  .chip-pop:hover { transform: translateY(-1px); box-shadow: 0 8px 18px -10px rgba(31,42,36,.25); }
+  .gridlines { background-image:
+    linear-gradient(to right, rgba(31,42,36,.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(31,42,36,.04) 1px, transparent 1px);
+    background-size: 24px 24px; }
+  .compare-row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  @media (max-width: 900px) { .compare-row { grid-template-columns: 1fr; } }
+  .tag-old { background:#F2F4F2; color:#7C837E; }
+  .tag-new { background:#DCEBE1; color:#17623F; }
+  .ken { animation: ken 20s ease-in-out infinite alternate; }
+  @keyframes ken { 0% { transform: scale(1) translate(0,0); } 100% { transform: scale(1.08) translate(-1%,-1%); } }
+  .marquee { animation: marq 26s linear infinite; }
+  @keyframes marq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  .ribbon-old::before { content:'現時'; position:absolute; top:-10px; left:14px; background:#F2F4F2; color:#5A6661; font-size:11px; font-weight:600; padding:2px 10px; border-radius:999px; }
+  .ribbon-new::before { content:'建議'; position:absolute; top:-10px; left:14px; background:#17623F; color:#fff; font-size:11px; font-weight:600; padding:2px 10px; border-radius:999px; }
+</style>
+</head>
+<body class="font-sans antialiased">
+
+<!-- ───────────────────────────────────────────────── 頂部說明 ───────────────────────────────────────────────── -->
+<section class="max-w-[1200px] mx-auto px-6 pt-12 pb-8">
+  <div class="flex items-end gap-4 flex-wrap">
+    <div>
+      <p class="label mb-2">UI / 配色 / 佈局 改良預覽</p>
+      <h1 class="font-display text-[40px] leading-[1.1] tracking-tight text-ink-900 font-bold">
+        HKSchoolPlace<br/>更清、更輕、更聚焦
+      </h1>
+      <p class="mt-4 max-w-[640px] text-ink-700 leading-relaxed">
+        以下為僅針對「視覺、互動、組件、佈局」的設計建議，<b>內容、字句、資料來源完全不改</b>。
+        每組對比的左方為現時版本（基於目前 codebase 重繪），右方為建議版本。
+      </p>
+    </div>
+    <div class="ml-auto flex items-center gap-2">
+      <span class="inline-flex items-center gap-1.5 rounded-full bg-forest-50 px-3 py-1.5 text-xs font-medium text-forest-700 border border-forest-200">
+        <span class="w-1.5 h-1.5 rounded-full bg-forest-500"></span> 不動內容 · 只動 UI
+      </span>
+      <span class="inline-flex items-center gap-1.5 rounded-full bg-ivory-50 px-3 py-1.5 text-xs font-medium text-ink-700 border border-line-soft">
+        9 項改良
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────────────────────────────── 1. 配色系統 ───────────────────────────────────────────────── -->
+<section class="max-w-[1200px] mx-auto px-6 pb-12">
+  <h2 class="text-xl font-semibold mb-1">① 配色系統 · 主色保留，狀態色與層級重整</h2>
+  <p class="text-sm text-ink-500 mb-6">主體森林綠 <code class="bg-white px-1.5 py-0.5 rounded text-[12px]">#247A4D</code> 保留，但目前 cream / sand / brand / forest 四個近似綠系互相打架；建議收斂為「奶色底 + 森林綠主 + 黏土橘強調 + 三段狀態色」。</p>
+
+  <div class="compare-row">
+    <!-- 現時 -->
+    <div class="relative rounded-2xl bg-white p-6 border border-line-card ribbon-old">
+      <div class="grid grid-cols-5 gap-3">
+        <div><div class="swatch h-14 rounded-xl" style="background:#FDFBF5"></div><p class="label mt-1">cream/50</p></div>
+        <div><div class="swatch h-14 rounded-xl" style="background:#F4ECD8"></div><p class="label mt-1">cream/200</p></div>
+        <div><div class="swatch h-14 rounded-xl" style="background:#FFF8EC"></div><p class="label mt-1">sand/50</p></div>
+        <div><div class="swatch h-14 rounded-xl" style="background:#F0F6F1"></div><p class="label mt-1">forest/50</p></div>
+        <div><div class="swatch h-14 rounded-xl" style="background:#EAF4ED"></div><p class="label mt-1">brand/50</p></div>
+        <div><div class="swatch h-14 rounded-xl" style="background:#2F7D55"></div><p class="label mt-1">brand/500</p></div>
+        <div><div class="swatch h-14 rounded-xl" style="background:#247A4D"></div><p class="label mt-1">brand/600</p></div>
+        <div><div class="swatch h-14 rounded-xl" style="background:#3A8159"></div><p class="label mt-1">forest/500</p></div>
+        <div><div class="swatch h-14 rounded-xl" style="background:#2F6B47"></div><p class="label mt-1">forest/600</p></div>
+        <div><div class="swatch h-14 rounded-xl" style="background:#245636"></div><p class="label mt-1">forest/700</p></div>
+      </div>
+      <p class="mt-4 text-sm text-ink-700"><b>問題：</b> 5 個米色 + 5 個綠色，肉眼分不清，CTA 與背景對比度偏低。</p>
+    </div>
+
+    <!-- 建議 -->
+    <div class="relative rounded-2xl bg-white p-6 border border-line-card ribbon-new">
+      <div class="grid grid-cols-5 gap-3">
+        <div><div class="swatch h-14 rounded-xl" style="background:#FDFBF4"></div><p class="label mt-1">ivory/50<br>底色</p></div>
+        <div><div class="swatch h-14 rounded-xl" style="background:#FAF6E9"></div><p class="label mt-1">ivory/100<br>section</p></div>
+        <div><div class="swatch h-14 rounded-xl" style="background:#FFFFFF"></div><p class="label mt-1">white<br>卡面</p></div>
+        <div><div class="swatch h-14 rounded-xl" style="background:#17623F"></div><p class="label mt-1">forest/700<br>主 CTA</p></div>
+        <div><div class="swatch h-14 rounded-xl" style="background:#D86A3A"></div><p class="label mt-1">clay/500<br>強調 · 截止</p></div>
+        <div><div class="swatch h-14 rounded-xl" style="background:#0F3D27;color:#fff"></div><p class="label mt-1">forest/900<br>精選卡</p></div>
+        <div><div class="swatch h-14 rounded-xl" style="background:#EAF6EC"></div><p class="label mt-1">尚有學額</p></div>
+        <div><div class="swatch h-14 rounded-xl" style="background:#FFEBB8"></div><p class="label mt-1">學額緊張</p></div>
+        <div><div class="swatch h-14 rounded-xl" style="background:#FADFCB"></div><p class="label mt-1">名額已滿</p></div>
+        <div><div class="swatch h-14 rounded-xl" style="background:#F2F4F2"></div><p class="label mt-1">未開放</p></div>
+      </div>
+      <p class="mt-4 text-sm text-ink-700">
+        <b>收斂為 4 個語義角色：</b> 底色（ivory）、主品牌（forest 一階）、強調（clay 橘）、狀態色（4 級）。<br>
+        卡面 100% 純白 + 1px 邊框替代多層米色，視覺更乾淨。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────────────────────────────── 2. Header ───────────────────────────────────────────────── -->
+<section class="max-w-[1200px] mx-auto px-6 pb-12">
+  <h2 class="text-xl font-semibold mb-1">② 頂部導覽 · 由「居中導覽」改為「左品牌 / 中導覽 / 右動作」三段式</h2>
+  <p class="text-sm text-ink-500 mb-6">加入「就近搜尋」快速入口、滾動時自動縮高 56→48px、active 項用色條而非菱形符號。</p>
+
+  <div class="space-y-4">
+    <!-- 現時 -->
+    <div class="relative rounded-2xl bg-white border border-line-card overflow-hidden ribbon-old">
+      <div class="h-[72px] flex items-center px-6 gap-4">
+        <div class="flex items-center gap-2.5">
+          <div class="w-[42px] h-[42px] rounded-xl bg-forest-600 text-white flex items-center justify-center font-bold">HK</div>
+          <div class="leading-none">
+            <div class="text-[17px] font-bold text-forest-700 tracking-tight">HKSchoolPlace</div>
+            <div class="text-[11px] text-ink-500 mt-1">全港幼稚園搜尋平台</div>
+          </div>
+        </div>
+        <nav class="flex-1 flex justify-center gap-7 text-sm">
+          <a class="text-forest-700 font-semibold relative">
+            <span class="inline-flex items-center gap-1.5"><span class="text-forest-500">◆</span>找幼稚園</span>
+            <span class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-0.5 rounded-full bg-forest-500"></span>
+          </a>
+          <a class="text-ink-700">康體通</a>
+          <a class="text-ink-700">課外活動</a>
+          <a class="text-ink-700">消息資訊</a>
+        </nav>
+        <a class="ml-auto inline-flex h-9 min-w-[136px] items-center justify-center rounded-full bg-forest-600 px-5 text-sm font-medium text-white">登入 / 建立帳戶</a>
+      </div>
+    </div>
+
+    <!-- 建議 -->
+    <div class="relative rounded-2xl bg-white/95 backdrop-blur border border-line-card overflow-hidden ribbon-new">
+      <div class="h-14 flex items-center px-6 gap-5 border-b border-line-soft/60">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-forest-600 to-forest-900 text-white flex items-center justify-center font-bold">HK</div>
+          <div class="leading-none">
+            <div class="text-[15px] font-bold text-ink-900 tracking-tight">HKSchoolPlace</div>
+          </div>
+        </div>
+        <nav class="flex items-center gap-1 text-sm ml-2">
+          <a class="px-3 py-1.5 rounded-full bg-forest-50 text-forest-700 font-semibold">找幼稚園</a>
+          <a class="px-3 py-1.5 rounded-full text-ink-700 hover:bg-ivory-100">康體通</a>
+          <a class="px-3 py-1.5 rounded-full text-ink-700 hover:bg-ivory-100">課外活動</a>
+          <a class="px-3 py-1.5 rounded-full text-ink-700 hover:bg-ivory-100">消息資訊</a>
+        </nav>
+        <div class="ml-auto flex items-center gap-2">
+          <button class="hidden md:inline-flex items-center gap-1.5 h-9 px-3 rounded-full border border-line-card text-sm text-ink-800 hover:border-forest-200">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.5 8 12 8 12s8-6.5 8-12a8 8 0 0 0-8-8z"/></svg>
+            就近搜尋
+          </button>
+          <button class="w-9 h-9 rounded-full hover:bg-ivory-100 flex items-center justify-center text-ink-700">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          </button>
+          <a class="inline-flex h-9 items-center justify-center rounded-full bg-forest-700 px-4 text-sm font-medium text-white hover:bg-forest-900">登入</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ul class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-3 text-sm text-ink-700">
+    <li class="flex gap-2"><span class="text-forest-600">●</span> 高度由 72 → 56px，內容上移視窗一行</li>
+    <li class="flex gap-2"><span class="text-forest-600">●</span> active 項改用 pill 樣式，可一眼掃到所在分區</li>
+    <li class="flex gap-2"><span class="text-forest-600">●</span> 新增「就近搜尋」與搜尋圖示，地理位置場景一鍵直達</li>
+  </ul>
+</section>
+
+<!-- ───────────────────────────────────────────────── 3. Hero ───────────────────────────────────────────────── -->
+<section class="max-w-[1200px] mx-auto px-6 pb-12">
+  <h2 class="text-xl font-semibold mb-1">③ Hero 區 · 把首頁搜尋條融入 Hero，砍掉「Hero + 搜尋條」兩段式</h2>
+  <p class="text-sm text-ink-500 mb-6">現時 Hero 下方還有一條獨立 <code class="bg-white px-1.5 py-0.5 rounded text-[12px]">HeroSearchBar</code>，視覺上頭重腳輕。建議把多欄搜尋直接嵌入 Hero 卡片底部，並引入「進入後仍可重用」的搜尋摘要 chip。</p>
+
+  <!-- 現時 Hero -->
+  <div class="relative rounded-2xl border border-line-card overflow-hidden bg-white ribbon-old mb-5">
+    <div class="relative h-[300px] rounded-2xl m-3 overflow-hidden bg-gradient-to-br from-ivory-100 via-ivory-50 to-forest-50">
+      <div class="absolute inset-0 ken" style="background:
+        radial-gradient(60% 80% at 80% 30%, rgba(47,125,85,.18), transparent 60%),
+        radial-gradient(40% 60% at 20% 80%, rgba(216,106,58,.10), transparent 60%);"></div>
+      <div class="relative h-full flex items-center p-10">
+        <div class="w-[460px] rounded-3xl bg-white/55 backdrop-blur-[2px] border border-white/55 p-7">
+          <h1 class="text-[38px] font-semibold leading-[1.08] tracking-tight">找到適合 BB 的<br>幼稚園</h1>
+          <p class="mt-4 text-sm text-ink-700 max-w-[330px]">全港 868 間 EDB 幼稚園・每日更新學位空缺・追蹤報名截止</p>
+          <a class="mt-6 inline-flex items-center gap-1 px-6 h-12 rounded-full bg-forest-700 text-white text-sm font-semibold">立即搜尋幼稚園 →</a>
+          <ul class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-xs text-ink-700">
+            <li>✓ 資料齊全更新</li><li>✓ 免費使用</li><li>✓ 專為香港家長設計</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- 重複的搜尋條（現時佈局） -->
+    <div class="px-3 pb-3">
+      <div class="rounded-2xl border border-line-soft bg-ivory-50 p-3 flex items-center gap-2">
+        <input class="flex-1 h-11 rounded-xl px-4 text-sm bg-white border border-line-card" placeholder="搜尋學校 / 地區 / 校網" />
+        <button class="h-11 px-5 rounded-xl bg-ink-900 text-white text-sm font-medium">搜尋</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 建議 Hero -->
+  <div class="relative rounded-2xl border border-line-card overflow-hidden bg-white ribbon-new">
+    <div class="relative h-[360px] rounded-2xl m-3 overflow-hidden">
+      <div class="absolute inset-0 ken" style="background:
+        radial-gradient(70% 90% at 78% 28%, rgba(47,125,85,.28), rgba(15,61,39,.10) 60%, transparent),
+        radial-gradient(50% 70% at 18% 90%, rgba(216,106,58,.15), transparent 60%),
+        linear-gradient(160deg, #FDFBF4, #F1ECDA 70%);"></div>
+      <!-- 裝飾葉子 -->
+      <svg class="absolute right-10 top-10 opacity-40" width="180" height="180" viewBox="0 0 100 100" fill="none">
+        <path d="M50 5 Q80 30 80 60 Q80 90 50 95 Q20 90 20 60 Q20 30 50 5 Z" fill="#2F7D55"/>
+        <path d="M50 5 L50 95" stroke="#fff" stroke-width="1.5"/>
+      </svg>
+      <div class="relative h-full flex items-end p-8 md:p-10">
+        <div class="w-full">
+          <span class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-forest-700 bg-white/80 px-3 py-1 rounded-full">
+            <span class="w-1.5 h-1.5 rounded-full bg-clay-500"></span> 每日 01:00 自動更新
+          </span>
+          <h1 class="mt-3 font-display text-[44px] leading-[1.05] tracking-tight text-ink-900 font-bold max-w-[600px]">
+            找到適合 BB 的幼稚園
+          </h1>
+          <p class="mt-3 text-[15px] text-ink-700 max-w-[540px]">
+            全港 868 間 EDB 幼稚園・每日更新學位空缺・追蹤報名截止
+          </p>
+
+          <!-- 嵌入式搜尋條 -->
+          <div class="mt-6 rounded-2xl bg-white shadow-card p-2 flex flex-wrap md:flex-nowrap items-stretch gap-2 border border-line-card">
+            <label class="flex-1 min-w-[180px] flex items-center gap-2 px-4 py-2 hover:bg-ivory-50 rounded-xl cursor-pointer">
+              <span class="label">地區</span>
+              <span class="ml-auto text-sm font-semibold text-ink-900">全部地區 ▾</span>
+            </label>
+            <span class="w-px bg-line-soft hidden md:block"></span>
+            <label class="flex-1 min-w-[180px] flex items-center gap-2 px-4 py-2 hover:bg-ivory-50 rounded-xl cursor-pointer">
+              <span class="label">班別</span>
+              <span class="ml-auto text-sm font-semibold text-ink-900">K1 報名 ▾</span>
+            </label>
+            <span class="w-px bg-line-soft hidden md:block"></span>
+            <label class="flex-1 min-w-[180px] flex items-center gap-2 px-4 py-2 hover:bg-ivory-50 rounded-xl cursor-pointer">
+              <span class="label">學費</span>
+              <span class="ml-auto text-sm font-semibold text-ink-900">不限 ▾</span>
+            </label>
+            <button class="h-12 px-6 rounded-xl bg-clay-500 hover:bg-clay-600 text-white text-sm font-semibold inline-flex items-center gap-1.5">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+              搜尋
+            </button>
+          </div>
+
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="text-[12px] text-ink-500 mr-1">熱門：</span>
+            <a class="text-[12px] text-ink-700 hover:text-forest-700 underline-offset-2 hover:underline">沙田 K1 有位</a>
+            <span class="text-ink-300">·</span>
+            <a class="text-[12px] text-ink-700 hover:text-forest-700 hover:underline">免費幼稚園</a>
+            <span class="text-ink-300">·</span>
+            <a class="text-[12px] text-ink-700 hover:text-forest-700 hover:underline">11月開放日</a>
+            <span class="text-ink-300">·</span>
+            <a class="text-[12px] text-ink-700 hover:text-forest-700 hover:underline">設 N 班</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ul class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-3 text-sm text-ink-700">
+    <li class="flex gap-2"><span class="text-forest-600">●</span> 合併 Hero 與搜尋條，首屏少滾動一次</li>
+    <li class="flex gap-2"><span class="text-forest-600">●</span> 多欄搜尋分割，視覺上跟 Booking / Airbnb 同類產品的心智模型一致</li>
+    <li class="flex gap-2"><span class="text-forest-600">●</span> 主 CTA 改用 clay 橘，與森林綠形成「找位 / 動作」對比</li>
+  </ul>
+</section>
+
+<!-- ───────────────────────────────────────────────── 4. 學校卡片 ───────────────────────────────────────────────── -->
+<section class="max-w-[1200px] mx-auto px-6 pb-12">
+  <h2 class="text-xl font-semibold mb-1">④ 學校卡片 · 結構不變，但層級重新分配</h2>
+  <p class="text-sm text-ink-500 mb-6">現時卡片三組數字（地區 / 學費 / 班別）視覺權重等於學校名稱，等於什麼都沒突出。建議把「學校名 + 截止倒數」做成首屏錨點，下面再放數據。</p>
+
+  <div class="compare-row">
+    <!-- 現時 -->
+    <div class="relative rounded-2xl bg-ivory-50 p-4 border border-line-card ribbon-old">
+      <div class="rounded-2xl bg-white p-5 border border-line-card shadow-card">
+        <div class="flex items-start gap-3">
+          <div class="w-12 h-12 rounded-xl bg-forest-100 text-forest-700 flex items-center justify-center font-bold">陳</div>
+          <div class="flex-1 min-w-0">
+            <h3 class="text-base font-bold leading-snug text-ink-900 line-clamp-2">聖公會聖三一堂中學附屬幼稚園</h3>
+            <p class="text-sm text-ink-400 leading-snug mt-0.5">SKH Holy Trinity Kindergarten</p>
+            <p class="mt-1 flex items-center gap-1.5 text-[11px] font-semibold text-ink-500">
+              <span class="w-1.5 h-1.5 rounded-full bg-forest-500"></span>非牟利 · 本地課程
+            </p>
+          </div>
+          <button class="w-8 h-8 rounded-full bg-ivory-100 text-ink-500 flex items-center justify-center">♡</button>
+        </div>
+        <div class="my-4 border-t border-line-soft"></div>
+        <div class="grid grid-cols-3">
+          <div class="pr-3">
+            <p class="text-[10px] font-semibold text-ink-400">地區</p>
+            <p class="mt-1.5 text-[15px] font-extrabold text-ink-900">沙田</p>
+          </div>
+          <div class="border-l border-line-soft pl-3">
+            <p class="text-[10px] font-semibold text-ink-400">學費</p>
+            <p class="mt-1.5 text-[15px] font-extrabold text-ink-900">免費<span class="ml-0.5 text-[10px] text-ink-400">計劃</span></p>
+          </div>
+          <div class="border-l border-line-soft pl-3">
+            <p class="text-[10px] font-semibold text-ink-400">班別</p>
+            <p class="mt-1.5 text-[15px] font-extrabold text-ink-900">半日</p>
+          </div>
+        </div>
+        <div class="mt-4 grid grid-cols-3 gap-2">
+          <span class="inline-flex items-center justify-center rounded-full px-3 py-1 text-xs font-medium bg-[#EAF6EC] text-[#247A4D]">K1 尚有學額</span>
+          <span class="inline-flex items-center justify-center rounded-full px-3 py-1 text-xs font-medium bg-[#FFF4DC] text-[#A46612]">K2 學額緊張</span>
+          <span class="inline-flex items-center justify-center rounded-full px-3 py-1 text-xs font-medium bg-[#FCEBE8] text-[#B4473B]">K3 名額已滿</span>
+        </div>
+        <div class="mt-3 pt-3 border-t border-line-soft text-xs flex items-center justify-between">
+          <span class="text-ink-400">更新於 2026-05-19 · 沙田</span>
+          <span class="inline-flex items-center gap-1 rounded-full bg-forest-50 px-2.5 py-1 text-forest-700 font-semibold">詳情 →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 建議 -->
+    <div class="relative rounded-2xl bg-ivory-50 p-4 border border-line-card ribbon-new">
+      <div class="rounded-2xl bg-white p-5 border border-line-card shadow-card relative overflow-hidden">
+        <!-- 截止倒數 chip -->
+        <span class="absolute top-4 right-4 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-clay-50 text-clay-700 text-[11px] font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-clay-500 animate-pulse"></span>截止 12 日
+        </span>
+
+        <div class="flex items-start gap-3 pr-20">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-forest-500 to-forest-700 text-white flex items-center justify-center font-bold">聖</div>
+          <div class="flex-1 min-w-0">
+            <h3 class="text-[17px] font-bold leading-tight text-ink-900 line-clamp-2">聖公會聖三一堂中學附屬幼稚園</h3>
+            <p class="text-[13px] text-ink-400 leading-snug mt-0.5">SKH Holy Trinity Kindergarten</p>
+          </div>
+        </div>
+
+        <div class="mt-3 flex flex-wrap items-center gap-1.5 text-[11px]">
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-forest-50 text-forest-700 font-semibold">非牟利</span>
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-ivory-100 text-ink-700">半日班</span>
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-ivory-100 text-ink-700">設 N 班</span>
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-ivory-100 text-ink-700">📍 沙田 · 1.2km</span>
+        </div>
+
+        <!-- 學位光譜 meter（取代三粒分開的 badge） -->
+        <div class="mt-4 rounded-xl bg-ivory-50 p-3 border border-line-soft">
+          <div class="flex items-center justify-between mb-2">
+            <span class="label">K1 / K2 / K3 學額</span>
+            <span class="text-[11px] text-ink-500">5 月 19 日</span>
+          </div>
+          <div class="flex items-stretch gap-1.5">
+            <div class="flex-1 rounded-lg bg-[#EAF6EC] text-[#247A4D] py-2 text-center">
+              <div class="text-[10px] font-semibold opacity-70">K1</div>
+              <div class="text-[13px] font-bold">尚有</div>
+            </div>
+            <div class="flex-1 rounded-lg bg-[#FFEBB8] text-[#8E5F1E] py-2 text-center">
+              <div class="text-[10px] font-semibold opacity-70">K2</div>
+              <div class="text-[13px] font-bold">緊張</div>
+            </div>
+            <div class="flex-1 rounded-lg bg-[#FADFCB] text-[#8E3D17] py-2 text-center">
+              <div class="text-[10px] font-semibold opacity-70">K3</div>
+              <div class="text-[13px] font-bold">已滿</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 學費 inline -->
+        <div class="mt-3 flex items-center justify-between text-[13px]">
+          <div>
+            <span class="label">月費</span>
+            <span class="ml-1.5 font-bold text-ink-900">免費計劃</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <button class="w-8 h-8 rounded-full border border-line-card text-ink-500 hover:border-clay-500 hover:text-clay-600 flex items-center justify-center" title="加入對比">⇄</button>
+            <button class="w-8 h-8 rounded-full border border-line-card text-ink-500 hover:border-clay-500 hover:text-clay-600 flex items-center justify-center" title="收藏">♡</button>
+            <a class="ml-1 inline-flex items-center gap-1 h-8 px-3 rounded-full bg-forest-700 text-white text-[12px] font-semibold hover:bg-forest-900">詳情 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ul class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-3 text-sm text-ink-700">
+    <li class="flex gap-2"><span class="text-forest-600">●</span> 學校名字距變大 16→17px、line-height 收緊，可一眼識別</li>
+    <li class="flex gap-2"><span class="text-forest-600">●</span> 三粒學額 pill 改為「連體 meter」，空間省 30%，視覺仍三色分明</li>
+    <li class="flex gap-2"><span class="text-forest-600">●</span> 新增「截止倒數」橘色 chip，動作驅動而非單純資料</li>
+  </ul>
+</section>
+
+<!-- ───────────────────────────────────────────────── 5. 精選名校 Bento ───────────────────────────────────────────────── -->
+<section class="max-w-[1200px] mx-auto px-6 pb-12">
+  <h2 class="text-xl font-semibold mb-1">⑤ 精選名校 · 由 3 欄均分改為「1 大 + 2 小」Bento</h2>
+  <p class="text-sm text-ink-500 mb-6">當前 3 個卡片視覺權重相同，「精選」感受不出來。建議首位用深森林綠 featured card，內含一句 editor's note，旁邊兩個維持白卡。</p>
+
+  <!-- 現時 -->
+  <div class="relative rounded-2xl bg-ivory-50 p-5 border border-line-card mb-5 ribbon-old">
+    <div class="grid grid-cols-3 gap-4">
+      <!-- 3 個一樣的卡 -->
+      <div class="rounded-2xl bg-white p-4 border border-line-card">
+        <div class="w-10 h-10 rounded-xl bg-forest-100 text-forest-700 flex items-center justify-center font-bold mb-2">陳</div>
+        <h3 class="text-sm font-bold">陳守仁紀念幼稚園</h3>
+        <p class="text-xs text-ink-500 mt-1">中西區 · 非牟利</p>
+      </div>
+      <div class="rounded-2xl bg-white p-4 border border-line-card">
+        <div class="w-10 h-10 rounded-xl bg-forest-100 text-forest-700 flex items-center justify-center font-bold mb-2">耀</div>
+        <h3 class="text-sm font-bold">耀中國際幼稚園</h3>
+        <p class="text-xs text-ink-500 mt-1">九龍塘 · 國際</p>
+      </div>
+      <div class="rounded-2xl bg-white p-4 border border-line-card">
+        <div class="w-10 h-10 rounded-xl bg-forest-100 text-forest-700 flex items-center justify-center font-bold mb-2">聖</div>
+        <h3 class="text-sm font-bold">聖瑪加利男女英文中小學附屬幼稚園</h3>
+        <p class="text-xs text-ink-500 mt-1">深水埗 · 私立獨立</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 建議 Bento -->
+  <div class="relative rounded-2xl bg-ivory-50 p-5 border border-line-card ribbon-new">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <!-- 主推卡 (深色 featured) -->
+      <div class="md:col-span-2 row-span-2 relative rounded-2xl bg-gradient-to-br from-forest-700 to-forest-900 text-white p-7 overflow-hidden">
+        <svg class="absolute -right-6 -top-6 opacity-15" width="220" height="220" viewBox="0 0 100 100" fill="none">
+          <path d="M50 5 Q80 30 80 60 Q80 90 50 95 Q20 90 20 60 Q20 30 50 5 Z" fill="white"/>
+        </svg>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-2.5 py-0.5 text-[11px] font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-clay-500"></span>本月主推
+        </span>
+        <h3 class="mt-4 font-display text-[28px] leading-[1.15] font-bold">陳守仁紀念幼稚園</h3>
+        <p class="mt-2 text-white/70 text-sm">中西區 · 非牟利幼稚園 · 設 N 班</p>
+        <p class="mt-4 text-white/85 text-[14px] leading-relaxed max-w-[420px]">
+          「家長口碑提到老師 turnover 低、課程注重感統發展」—— 來自 12 位家長真實心得
+        </p>
+        <div class="mt-5 flex flex-wrap gap-2">
+          <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/15 text-white text-[11px] font-medium">K1 尚有學額</span>
+          <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/15 text-white text-[11px] font-medium">月費 $4,800</span>
+          <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/15 text-white text-[11px] font-medium">2026/27 接受申請</span>
+        </div>
+        <div class="mt-6 flex items-center gap-3">
+          <a class="inline-flex items-center gap-1 h-10 px-5 rounded-full bg-white text-forest-900 text-sm font-semibold">查看詳情 →</a>
+          <a class="inline-flex items-center gap-1 h-10 px-4 rounded-full border border-white/40 text-white text-sm font-medium">加入對比</a>
+        </div>
+      </div>
+
+      <!-- 小卡 #1 -->
+      <div class="rounded-2xl bg-white p-4 border border-line-card hover:border-forest-200 chip-pop">
+        <div class="flex items-center gap-2.5">
+          <div class="w-10 h-10 rounded-xl bg-clay-50 text-clay-700 flex items-center justify-center font-bold">耀</div>
+          <div class="flex-1 min-w-0">
+            <h3 class="text-sm font-bold leading-tight">耀中國際幼稚園</h3>
+            <p class="text-[11px] text-ink-500">九龍塘 · 國際</p>
+          </div>
+        </div>
+        <div class="mt-3 flex items-center justify-between">
+          <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-[#EAF6EC] text-[#247A4D] text-[11px] font-semibold">招生中</span>
+          <span class="text-[11px] text-ink-500">月費 $19,800</span>
+        </div>
+      </div>
+
+      <!-- 小卡 #2 -->
+      <div class="rounded-2xl bg-white p-4 border border-line-card hover:border-forest-200 chip-pop">
+        <div class="flex items-center gap-2.5">
+          <div class="w-10 h-10 rounded-xl bg-sun-50 text-sun-700 flex items-center justify-center font-bold">聖</div>
+          <div class="flex-1 min-w-0">
+            <h3 class="text-sm font-bold leading-tight line-clamp-1">聖瑪加利幼稚園</h3>
+            <p class="text-[11px] text-ink-500">深水埗 · 私立獨立</p>
+          </div>
+        </div>
+        <div class="mt-3 flex items-center justify-between">
+          <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-[#FFEBB8] text-[#8E5F1E] text-[11px] font-semibold">本輪未開放</span>
+          <span class="text-[11px] text-ink-500">月費 $8,500</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ul class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-3 text-sm text-ink-700">
+    <li class="flex gap-2"><span class="text-forest-600">●</span> 採用 2×2 Bento，主推位含「editor's note」一句口碑摘要</li>
+    <li class="flex gap-2"><span class="text-forest-600">●</span> 深色卡限 1 張／頁段，符合 CLAUDE.md「max 1 featured per page section」原則</li>
+    <li class="flex gap-2"><span class="text-forest-600">●</span> 卡片不變動作量（仍是收藏／對比／詳情）</li>
+  </ul>
+</section>
+
+<!-- ───────────────────────────────────────────────── 6. 篩選條 ───────────────────────────────────────────────── -->
+<section class="max-w-[1200px] mx-auto px-6 pb-12">
+  <h2 class="text-xl font-semibold mb-1">⑥ /kg 列表 · 篩選條改為「快速 chip + 高級抽屜」雙層</h2>
+  <p class="text-sm text-ink-500 mb-6">現時 FilterBar 把 4 組 dropdown 平鋪佔了兩行；高頻 chip 應該前置，低頻拉進「更多篩選」抽屜，並支援「已選 chip」橫向列示，方便一鍵移除。</p>
+
+  <!-- 現時 -->
+  <div class="relative rounded-2xl bg-white border border-line-card p-5 ribbon-old mb-5">
+    <div class="flex flex-wrap gap-2 text-xs">
+      <button class="px-3 py-1.5 rounded-full border border-line-card bg-white text-ink-700">地區位置 ▾</button>
+      <button class="px-3 py-1.5 rounded-full border border-line-card bg-white text-ink-700">學位狀態 ▾</button>
+      <button class="px-3 py-1.5 rounded-full border border-line-card bg-white text-ink-700">學校類別 ▾</button>
+      <button class="px-3 py-1.5 rounded-full border border-line-card bg-white text-ink-700">更多篩選 ▾</button>
+    </div>
+    <div class="mt-4 flex flex-wrap gap-2 text-xs">
+      <button class="px-3 py-1.5 rounded-full bg-forest-50 text-forest-700 font-semibold">有位</button>
+      <button class="px-3 py-1.5 rounded-full bg-white border border-line-card text-ink-700">滿額</button>
+      <button class="px-3 py-1.5 rounded-full bg-white border border-line-card text-ink-700">候補</button>
+      <button class="px-3 py-1.5 rounded-full bg-white border border-line-card text-ink-700">待更新</button>
+    </div>
+  </div>
+
+  <!-- 建議 -->
+  <div class="relative rounded-2xl bg-white border border-line-card p-5 ribbon-new sticky">
+    <!-- L1: 高頻 chip -->
+    <div class="flex flex-wrap items-center gap-2">
+      <span class="label mr-1">快速</span>
+      <button class="chip-pop inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-forest-700 text-white text-xs font-semibold">📍 就近</button>
+      <button class="chip-pop inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-ivory-100 hover:bg-ivory-200 text-ink-800 text-xs font-medium">K1 有位</button>
+      <button class="chip-pop inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-ivory-100 hover:bg-ivory-200 text-ink-800 text-xs font-medium">免費計劃</button>
+      <button class="chip-pop inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-ivory-100 hover:bg-ivory-200 text-ink-800 text-xs font-medium">設 N 班</button>
+      <button class="chip-pop inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-ivory-100 hover:bg-ivory-200 text-ink-800 text-xs font-medium">半日班</button>
+      <button class="chip-pop inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-ivory-100 hover:bg-ivory-200 text-ink-800 text-xs font-medium">11 月開放日</button>
+      <span class="ml-auto flex items-center gap-2">
+        <button class="text-xs text-ink-700 hover:text-ink-900 inline-flex items-center gap-1">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M6 12h12M10 18h4"/></svg>
+          更多篩選
+        </button>
+        <button class="text-xs text-ink-700 hover:text-ink-900 inline-flex items-center gap-1 border-l border-line-soft pl-2">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5h10M11 19h10M3 12h18M3 5l3 3-3 3M3 14l3 3-3 3"/></svg>
+          排序：學額優先 ▾
+        </button>
+      </span>
+    </div>
+
+    <!-- L2: 已選 chip -->
+    <div class="mt-3 pt-3 border-t border-line-soft flex flex-wrap items-center gap-2">
+      <span class="label">已選</span>
+      <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-forest-50 text-forest-700 text-[12px] font-semibold">沙田 ×</span>
+      <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-forest-50 text-forest-700 text-[12px] font-semibold">非牟利 ×</span>
+      <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-forest-50 text-forest-700 text-[12px] font-semibold">月費 ≤ $6,000 ×</span>
+      <button class="ml-auto text-[12px] text-ink-500 hover:text-clay-600 underline-offset-2 hover:underline">全部清除</button>
+    </div>
+
+    <!-- 結果計數 -->
+    <p class="mt-3 text-[13px] text-ink-700">
+      共找到 <b class="text-forest-700">87</b> 間幼稚園，依「K1 有位 → 截止最近」排序
+    </p>
+  </div>
+
+  <ul class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-3 text-sm text-ink-700">
+    <li class="flex gap-2"><span class="text-forest-600">●</span> 高頻 chip 一行排開，低頻折進「更多篩選」抽屜</li>
+    <li class="flex gap-2"><span class="text-forest-600">●</span> 「已選」獨立一行，逐個 chip 可一鍵清除</li>
+    <li class="flex gap-2"><span class="text-forest-600">●</span> 排序入口由「依時間 / 依距離」隱性切換改為顯式按鈕</li>
+  </ul>
+</section>
+
+<!-- ───────────────────────────────────────────────── 7. 消息動態 ───────────────────────────────────────────────── -->
+<section class="max-w-[1200px] mx-auto px-6 pb-12">
+  <h2 class="text-xl font-semibold mb-1">⑦ 消息動態 · 由垂直列表改為「主+次」Bento</h2>
+  <p class="text-sm text-ink-500 mb-6">現時三條新聞同等視覺權重；建議首條（最新）做 hero 新聞卡，次兩條做 sidebar。</p>
+
+  <div class="compare-row">
+    <!-- 現時 -->
+    <div class="relative rounded-2xl bg-ivory-50 p-5 border border-line-card ribbon-old">
+      <div class="space-y-3">
+        <div class="rounded-2xl bg-white p-5 border border-line-card">
+          <div class="flex items-start gap-3">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700">教育局</span>
+            <div class="flex-1">
+              <h3 class="text-sm font-semibold leading-snug line-clamp-1">2026/27 學年幼稚園教育計劃名單已更新</h3>
+              <p class="mt-1 text-xs text-ink-500 line-clamp-1">教育局公布新一年度參與 KEP 計劃的幼稚園資料...</p>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-2xl bg-white p-5 border border-line-card">
+          <div class="flex items-start gap-3">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-sky-50 text-sky-700">GovHK</span>
+            <div class="flex-1">
+              <h3 class="text-sm font-semibold leading-snug line-clamp-1">康文署 6 月幼兒課程開始接受報名</h3>
+              <p class="mt-1 text-xs text-ink-500 line-clamp-1">SmartPLAY 系統將於 6 月 1 日早上 8 時開放...</p>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-2xl bg-white p-5 border border-line-card">
+          <div class="flex items-start gap-3">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-50 text-amber-700">HK01</span>
+            <div class="flex-1">
+              <h3 class="text-sm font-semibold leading-snug line-clamp-1">家長必讀：K1 面試常見問題拆解</h3>
+              <p class="mt-1 text-xs text-ink-500 line-clamp-1">資深幼稚園校長分享 5 個面試重點...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 建議 -->
+    <div class="relative rounded-2xl bg-ivory-50 p-5 border border-line-card ribbon-new">
+      <div class="grid grid-cols-3 gap-3">
+        <!-- 主新聞 -->
+        <div class="col-span-2 row-span-2 rounded-2xl bg-white p-5 border border-line-card hover:border-forest-200 chip-pop overflow-hidden">
+          <div class="aspect-[16/8] rounded-xl bg-gradient-to-br from-forest-100 to-forest-50 mb-4 flex items-center justify-center">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#247A4D" stroke-width="1.5"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 9h6v6H9z"/></svg>
+          </div>
+          <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-forest-50 text-forest-700">教育局 · 5 月 20 日</span>
+          <h3 class="mt-2 font-display text-[20px] leading-tight font-bold">2026/27 學年幼稚園教育計劃名單已更新</h3>
+          <p class="mt-2 text-sm text-ink-700 leading-relaxed line-clamp-2">教育局公布新一年度參與 KEP 計劃的幼稚園資料，本平台已同步更新 868 間學校。</p>
+        </div>
+        <!-- 次新聞 #1 -->
+        <div class="rounded-2xl bg-white p-4 border border-line-card hover:border-forest-200 chip-pop">
+          <span class="inline-flex px-2 py-0.5 rounded-full text-[10px] font-semibold bg-sky-50 text-sky-700">GovHK</span>
+          <h3 class="mt-2 text-[13px] font-bold leading-snug line-clamp-2">康文署 6 月幼兒課程開始接受報名</h3>
+          <p class="mt-1 text-[11px] text-ink-500">5 月 22 日</p>
+        </div>
+        <!-- 次新聞 #2 -->
+        <div class="rounded-2xl bg-white p-4 border border-line-card hover:border-forest-200 chip-pop">
+          <span class="inline-flex px-2 py-0.5 rounded-full text-[10px] font-semibold bg-clay-50 text-clay-700">HK01</span>
+          <h3 class="mt-2 text-[13px] font-bold leading-snug line-clamp-2">家長必讀：K1 面試常見問題拆解</h3>
+          <p class="mt-1 text-[11px] text-ink-500">5 月 18 日</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────────────────────────────── 8. 對比浮動 dock ───────────────────────────────────────────────── -->
+<section class="max-w-[1200px] mx-auto px-6 pb-12">
+  <h2 class="text-xl font-semibold mb-1">⑧ 對比浮動 Dock · 既有 useCompare hook 的 UI 載體</h2>
+  <p class="text-sm text-ink-500 mb-6">CLAUDE.md 已規劃 CompareBar，建議用「縮略卡 + 對比按鈕」的浮動 Dock，桌面置底，手機浮在 bottom nav 上方。</p>
+
+  <div class="relative rounded-3xl bg-ink-900 p-2 shadow-dock max-w-[760px] mx-auto">
+    <div class="bg-ink-800 rounded-[20px] p-3 flex items-center gap-3">
+      <span class="px-3 py-1 rounded-full bg-clay-500 text-white text-[12px] font-semibold flex-shrink-0">對比 2 / 3</span>
+
+      <!-- 對比佔位 -->
+      <div class="flex items-center gap-2 flex-1 min-w-0">
+        <div class="flex items-center gap-2 bg-ink-700 rounded-full pl-1 pr-2.5 py-1">
+          <div class="w-7 h-7 rounded-full bg-gradient-to-br from-forest-500 to-forest-700 text-white flex items-center justify-center text-[11px] font-bold">陳</div>
+          <span class="text-[12px] text-white whitespace-nowrap">陳守仁紀念幼稚園</span>
+          <button class="text-ink-400 hover:text-white">×</button>
+        </div>
+        <div class="flex items-center gap-2 bg-ink-700 rounded-full pl-1 pr-2.5 py-1">
+          <div class="w-7 h-7 rounded-full bg-gradient-to-br from-clay-500 to-clay-700 text-white flex items-center justify-center text-[11px] font-bold">耀</div>
+          <span class="text-[12px] text-white whitespace-nowrap">耀中國際</span>
+          <button class="text-ink-400 hover:text-white">×</button>
+        </div>
+        <div class="flex items-center gap-2 bg-ink-700/40 rounded-full pl-1 pr-2.5 py-1 border border-dashed border-ink-400/40">
+          <div class="w-7 h-7 rounded-full border border-dashed border-ink-400/60 flex items-center justify-center text-ink-400 text-[16px]">+</div>
+          <span class="text-[12px] text-ink-400 whitespace-nowrap">再加 1 間</span>
+        </div>
+      </div>
+
+      <button class="h-9 px-5 rounded-full bg-white text-ink-900 text-[13px] font-semibold flex-shrink-0">開始對比 →</button>
+    </div>
+  </div>
+
+  <ul class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-3 text-sm text-ink-700">
+    <li class="flex gap-2"><span class="text-forest-600">●</span> 圓角 + 深色，與全站米色背景產生視覺權重</li>
+    <li class="flex gap-2"><span class="text-forest-600">●</span> 預留「再加 1 間」虛線位，避免空狀態斷層</li>
+    <li class="flex gap-2"><span class="text-forest-600">●</span> 滾動時隱藏／靜止時浮現（throttle 200ms）</li>
+  </ul>
+</section>
+
+<!-- ───────────────────────────────────────────────── 9. 詳情頁 tab ───────────────────────────────────────────────── -->
+<section class="max-w-[1200px] mx-auto px-6 pb-12">
+  <h2 class="text-xl font-semibold mb-1">⑨ /kg/[id] 詳情頁 · 加入 sticky 區段導航</h2>
+  <p class="text-sm text-ink-500 mb-6">現時 4 段（學額 / 概況 / 學費 / 評價）長頁滑屏，建議加 sticky tab，並把 fixed bottom CTA 改成「申請倒數 + 主動作」雙列。</p>
+
+  <div class="relative rounded-2xl bg-white border border-line-card overflow-hidden ribbon-new">
+    <!-- Hero 區 -->
+    <div class="p-7 bg-gradient-to-br from-ivory-50 to-ivory-100 border-b border-line-soft">
+      <div class="flex items-center gap-4">
+        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-forest-500 to-forest-700 text-white flex items-center justify-center font-bold text-xl">陳</div>
+        <div class="flex-1">
+          <h1 class="font-display text-[26px] leading-tight font-bold">陳守仁紀念幼稚園</h1>
+          <p class="text-sm text-ink-500">Chan Shau Yan Memorial Kindergarten · 中西區</p>
+        </div>
+        <div class="flex gap-1.5">
+          <button class="w-9 h-9 rounded-full border border-line-card text-ink-700 hover:border-clay-500 flex items-center justify-center">⇄</button>
+          <button class="w-9 h-9 rounded-full border border-line-card text-ink-700 hover:border-clay-500 flex items-center justify-center">♡</button>
+          <button class="w-9 h-9 rounded-full border border-line-card text-ink-700 hover:border-clay-500 flex items-center justify-center">↗</button>
+        </div>
+      </div>
+      <div class="mt-4 flex flex-wrap gap-1.5">
+        <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-forest-50 text-forest-700 text-[11px] font-semibold">非牟利</span>
+        <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-ivory-100 text-ink-700 text-[11px]">半日 + 全日</span>
+        <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-ivory-100 text-ink-700 text-[11px]">設 N 班</span>
+        <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-ivory-100 text-ink-700 text-[11px]">中文教學</span>
+      </div>
+    </div>
+
+    <!-- Sticky tab -->
+    <div class="sticky top-0 z-10 bg-white/95 backdrop-blur border-b border-line-soft px-6 flex items-center gap-1 text-[13px]">
+      <a class="px-3 py-3 font-semibold text-forest-700 border-b-2 border-forest-700">即時學額</a>
+      <a class="px-3 py-3 text-ink-700 hover:text-ink-900">學校概況</a>
+      <a class="px-3 py-3 text-ink-700 hover:text-ink-900">學費收費</a>
+      <a class="px-3 py-3 text-ink-700 hover:text-ink-900">家長心得</a>
+      <span class="ml-auto inline-flex items-center gap-1.5 text-[12px] text-clay-700 font-semibold">
+        <span class="w-1.5 h-1.5 rounded-full bg-clay-500 animate-pulse"></span> 申請截止：6 月 3 日（12 日後）
+      </span>
+    </div>
+
+    <!-- 即時學額 -->
+    <div class="p-7">
+      <h2 class="text-[17px] font-semibold mb-4">即時學額狀態</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="rounded-2xl border border-line-card p-4">
+          <div class="label">N 班</div>
+          <div class="mt-1.5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#EAF6EC] text-[#247A4D] text-[12px] font-semibold">尚有學額</div>
+        </div>
+        <div class="rounded-2xl border border-line-card p-4">
+          <div class="label">K1</div>
+          <div class="mt-1.5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#EAF6EC] text-[#247A4D] text-[12px] font-semibold">尚有學額</div>
+        </div>
+        <div class="rounded-2xl border border-line-card p-4">
+          <div class="label">K2</div>
+          <div class="mt-1.5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#FFEBB8] text-[#8E5F1E] text-[12px] font-semibold">學額緊張</div>
+        </div>
+        <div class="rounded-2xl border border-line-card p-4">
+          <div class="label">K3</div>
+          <div class="mt-1.5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#FADFCB] text-[#8E3D17] text-[12px] font-semibold">名額已滿</div>
+        </div>
+      </div>
+      <p class="mt-4 text-[12px] text-ink-500">資料來源：教育局　最後更新：2026-05-19</p>
+    </div>
+
+    <!-- 底部 CTA bar -->
+    <div class="border-t border-line-soft bg-ivory-50/60 p-4 flex flex-wrap items-center gap-3 sticky bottom-0">
+      <div class="flex-1 min-w-[200px]">
+        <p class="text-[11px] text-ink-500">申請倒數</p>
+        <p class="text-[15px] font-bold text-clay-600">12 日 04 小時</p>
+      </div>
+      <button class="h-11 px-5 rounded-xl border border-line-card bg-white text-ink-800 text-sm font-semibold">設提醒</button>
+      <a class="h-11 px-6 rounded-xl bg-clay-500 hover:bg-clay-600 text-white text-sm font-semibold inline-flex items-center gap-1.5">
+        申請 2026/27 入學 →
+      </a>
+    </div>
+  </div>
+
+  <ul class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-3 text-sm text-ink-700">
+    <li class="flex gap-2"><span class="text-forest-600">●</span> Sticky tab 同時顯示「截止倒數」，滑到下面也不會忘記</li>
+    <li class="flex gap-2"><span class="text-forest-600">●</span> 主 CTA 改用 clay 橘，避免與大量森林綠 chip 撞色</li>
+    <li class="flex gap-2"><span class="text-forest-600">●</span> 入學年份保持 dynamic（CLAUDE.md 規則）</li>
+  </ul>
+</section>
+
+<!-- ───────────────────────────────────────────────── 額外：微互動 ───────────────────────────────────────────────── -->
+<section class="max-w-[1200px] mx-auto px-6 pb-12">
+  <h2 class="text-xl font-semibold mb-1">⑩ 微互動與細節</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+    <div class="rounded-2xl bg-white p-5 border border-line-card">
+      <div class="label">學額即時動態</div>
+      <div class="mt-3 overflow-hidden rounded-xl bg-ivory-50 p-3">
+        <div class="flex gap-3 marquee whitespace-nowrap">
+          <span class="text-[12px] text-ink-700">📍 沙田 5 間學校 K1 剛剛開放申請</span>
+          <span class="text-[12px] text-ink-700">⏰ 中西區 3 間 6 月 1 日截止</span>
+          <span class="text-[12px] text-ink-700">🔔 油尖旺新增 2 間有位</span>
+          <span class="text-[12px] text-ink-700">📍 沙田 5 間學校 K1 剛剛開放申請</span>
+          <span class="text-[12px] text-ink-700">⏰ 中西區 3 間 6 月 1 日截止</span>
+          <span class="text-[12px] text-ink-700">🔔 油尖旺新增 2 間有位</span>
+        </div>
+      </div>
+      <p class="mt-3 text-xs text-ink-500">首頁 Hero 上方加一條跑馬燈，呈現「網站活著」</p>
+    </div>
+
+    <div class="rounded-2xl bg-white p-5 border border-line-card">
+      <div class="label">收藏動畫</div>
+      <div class="mt-3 flex items-center justify-center h-20 bg-ivory-50 rounded-xl">
+        <button class="group">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="#D86A3A" class="group-active:scale-90 transition-transform">
+            <path d="M12 21s-7-4.5-9.5-9.5C.5 7 4 3 8 4c2 .5 3 2 4 3.5C13 6 14 4.5 16 4c4-1 7.5 3 5.5 7.5C19 16.5 12 21 12 21z"/>
+          </svg>
+        </button>
+      </div>
+      <p class="mt-3 text-xs text-ink-500">點擊心形：scale 0.8 → 1.2 → 1，附 200ms spring（CLAUDE.md 已有 keyframe）</p>
+    </div>
+
+    <div class="rounded-2xl bg-white p-5 border border-line-card">
+      <div class="label">骨架屏</div>
+      <div class="mt-3 rounded-xl bg-ivory-50 p-3 space-y-2">
+        <div class="h-3 rounded bg-line-soft animate-pulse"></div>
+        <div class="h-3 rounded bg-line-soft animate-pulse w-3/4"></div>
+        <div class="flex gap-2 pt-2">
+          <div class="h-6 w-12 rounded-full bg-line-soft animate-pulse"></div>
+          <div class="h-6 w-12 rounded-full bg-line-soft animate-pulse"></div>
+          <div class="h-6 w-12 rounded-full bg-line-soft animate-pulse"></div>
+        </div>
+      </div>
+      <p class="mt-3 text-xs text-ink-500">列表載入用骨架屏，避免空白閃爍（替代 spinner）</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────────────────────────────── 總結 ───────────────────────────────────────────────── -->
+<section class="max-w-[1200px] mx-auto px-6 pb-16">
+  <h2 class="text-xl font-semibold mb-4">改良清單一覽</h2>
+  <div class="rounded-2xl bg-white border border-line-card p-6">
+    <table class="w-full text-sm">
+      <thead>
+        <tr class="text-left text-ink-500 border-b border-line-soft">
+          <th class="py-2 font-semibold w-12">#</th>
+          <th class="py-2 font-semibold">改良項</th>
+          <th class="py-2 font-semibold">類別</th>
+          <th class="py-2 font-semibold">預期效益</th>
+        </tr>
+      </thead>
+      <tbody class="text-ink-800">
+        <tr class="border-b border-line-soft/60"><td class="py-3">①</td><td>配色收斂為 ivory + forest + clay + 4 級狀態</td><td><span class="px-2 py-0.5 rounded-full bg-ivory-100 text-[11px]">配色</span></td><td>對比度提升，CTA 不再淹沒</td></tr>
+        <tr class="border-b border-line-soft/60"><td class="py-3">②</td><td>Header 三段式、加「就近搜尋」、滾動縮高</td><td><span class="px-2 py-0.5 rounded-full bg-ivory-100 text-[11px]">佈局</span></td><td>首屏多露一行內容</td></tr>
+        <tr class="border-b border-line-soft/60"><td class="py-3">③</td><td>Hero 嵌入式搜尋條，砍掉重複的 HeroSearchBar</td><td><span class="px-2 py-0.5 rounded-full bg-ivory-100 text-[11px]">佈局</span></td><td>少滾一次，符合 Booking 心智</td></tr>
+        <tr class="border-b border-line-soft/60"><td class="py-3">④</td><td>學校卡：截止 chip + 學額 meter + 動作按鈕收進右下</td><td><span class="px-2 py-0.5 rounded-full bg-ivory-100 text-[11px]">組件</span></td><td>單卡資訊密度 +30%</td></tr>
+        <tr class="border-b border-line-soft/60"><td class="py-3">⑤</td><td>精選名校 Bento（1 大 + 2 小）+ editor's note</td><td><span class="px-2 py-0.5 rounded-full bg-ivory-100 text-[11px]">佈局</span></td><td>「精選」感真正成立</td></tr>
+        <tr class="border-b border-line-soft/60"><td class="py-3">⑥</td><td>篩選條雙層 chip + 已選列 + 排序按鈕</td><td><span class="px-2 py-0.5 rounded-full bg-ivory-100 text-[11px]">交互</span></td><td>常用篩選一步到位</td></tr>
+        <tr class="border-b border-line-soft/60"><td class="py-3">⑦</td><td>消息動態 Bento（主+次）+ 視覺占位</td><td><span class="px-2 py-0.5 rounded-full bg-ivory-100 text-[11px]">佈局</span></td><td>引導用戶讀最重要那條</td></tr>
+        <tr class="border-b border-line-soft/60"><td class="py-3">⑧</td><td>對比浮動 Dock（深色、置底）</td><td><span class="px-2 py-0.5 rounded-full bg-ivory-100 text-[11px]">組件</span></td><td>useCompare hook 終於落地</td></tr>
+        <tr class="border-b border-line-soft/60"><td class="py-3">⑨</td><td>詳情頁 sticky tab + 雙列底 CTA</td><td><span class="px-2 py-0.5 rounded-full bg-ivory-100 text-[11px]">交互</span></td><td>長頁面不迷路</td></tr>
+        <tr><td class="py-3">⑩</td><td>跑馬燈 / 心形動畫 / 骨架屏</td><td><span class="px-2 py-0.5 rounded-full bg-ivory-100 text-[11px]">微互動</span></td><td>「網站活著」感</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mt-8 rounded-2xl bg-ink-900 text-white p-7">
+    <p class="label text-ink-300 mb-2">實作優先順序建議</p>
+    <ol class="mt-3 space-y-2 text-sm leading-relaxed">
+      <li><b>P0（半天）：</b> 配色 token 收斂、Header 三段式 + 滾動縮高、Hero 嵌入式搜尋。對全站視覺感受影響最大，改動最少。</li>
+      <li><b>P1（一日）：</b> 學校卡片 meter + 截止 chip、篩選條雙層、對比浮動 Dock。直接影響「找位」核心流程。</li>
+      <li><b>P2（兩日）：</b> 精選名校 Bento、消息動態 Bento、詳情頁 sticky tab + 底 CTA。</li>
+      <li><b>P3：</b> 跑馬燈、心形動畫、骨架屏微互動。</li>
+    </ol>
+  </div>
+</section>
+
+</body>
+</html>
