@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { startsWithSearchText } from "@/lib/schools/searchText";
 
@@ -16,20 +16,55 @@ interface Suggestion {
   district: string;
 }
 
+const RECENT_SEARCHES_KEY = "hkschoolplace:kg:recent-searches";
+const COLLAPSED_SUGGESTION_COUNT = 5;
+
 export function SearchBar({ initialQuery, onSearch }: SearchBarProps) {
   const [input, setInput] = useState(initialQuery);
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
+  const [recentSearches, setRecentSearches] = useState<string[]>([]);
+  const [isFocused, setIsFocused] = useState(false);
+  const [showAllSuggestions, setShowAllSuggestions] = useState(false);
   const trimmed = input.trim();
+
+  useEffect(() => {
+    setInput(initialQuery);
+  }, [initialQuery]);
+
+  useEffect(() => {
+    try {
+      const saved = window.localStorage.getItem(RECENT_SEARCHES_KEY);
+      const parsed = saved ? JSON.parse(saved) : [];
+      if (Array.isArray(parsed)) {
+        setRecentSearches(parsed.filter((item): item is string => typeof item === "string").slice(0, 5));
+      }
+    } catch {
+      setRecentSearches([]);
+    }
+  }, []);
 
   // Debounced search — 300ms
   useEffect(() => {
     const timer = setTimeout(() => {
       onSearch(input);
+      const nextSearch = input.trim();
+      if (nextSearch) {
+        setRecentSearches((prev) => {
+          const next = [nextSearch, ...prev.filter((item) => item !== nextSearch)].slice(0, 5);
+          try {
+            window.localStorage.setItem(RECENT_SEARCHES_KEY, JSON.stringify(next));
+          } catch {
+            // Ignore storage errors; search should keep working.
+          }
+          return next;
+        });
+      }
     }, 300);
     return () => clearTimeout(timer);
   }, [input]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
+    setShowAllSuggestions(false);
     if (!trimmed) {
       setSuggestions([]);
       return;
@@ -38,19 +73,19 @@ export function SearchBar({ initialQuery, onSearch }: SearchBarProps) {
     const controller = new AbortController();
     const timer = setTimeout(async () => {
       try {
-        const res = await fetch(`/api/schools?search=${encodeURIComponent(trimmed)}&limit=8`, {
+        const res = await fetch(`/api/schools?search=${encodeURIComponent(trimmed)}&limit=100`, {
           signal: controller.signal,
         });
         if (!res.ok) return;
         const json = await res.json();
         const data = Array.isArray(json.data) ? json.data as Suggestion[] : [];
-        setSuggestions(
-          data.sort((a, b) => {
-            const aStarts = startsWithSearchText(a.name_tc, trimmed) ? 0 : 1;
-            const bStarts = startsWithSearchText(b.name_tc, trimmed) ? 0 : 1;
-            return aStarts - bStarts || a.name_tc.localeCompare(b.name_tc, "zh-Hant-HK");
-          }).slice(0, 5),
-        );
+        const sorted = data.sort((a, b) => {
+          const aStarts = startsWithSearchText(a.name_tc, trimmed) ? 0 : 1;
+          const bStarts = startsWithSearchText(b.name_tc, trimmed) ? 0 : 1;
+          return aStarts - bStarts || a.name_tc.localeCompare(b.name_tc, "zh-Hant-HK");
+        });
+        const prefixMatches = sorted.filter((school) => startsWithSearchText(school.name_tc, trimmed));
+        setSuggestions(prefixMatches.length > 0 ? prefixMatches : sorted);
       } catch (error) {
         if (!(error instanceof DOMException && error.name === "AbortError")) {
           setSuggestions([]);
@@ -63,6 +98,19 @@ export function SearchBar({ initialQuery, onSearch }: SearchBarProps) {
       clearTimeout(timer);
     };
   }, [trimmed]);
+
+  const visibleSuggestions = useMemo(
+    () => showAllSuggestions ? suggestions : suggestions.slice(0, COLLAPSED_SUGGESTION_COUNT),
+    [showAllSuggestions, suggestions],
+  );
+  const hasMoreSuggestions = suggestions.length > COLLAPSED_SUGGESTION_COUNT && !showAllSuggestions;
+  const showRecentSearches = isFocused && !trimmed && recentSearches.length > 0;
+  const showSuggestionPanel = (isFocused || trimmed) && (visibleSuggestions.length > 0 || showRecentSearches);
+
+  const selectRecentSearch = (query: string) => {
+    setInput(query);
+    onSearch(query);
+  };
 
   return (
     <div className="relative mb-6">
@@ -83,7 +131,10 @@ export function SearchBar({ initialQuery, onSearch }: SearchBarProps) {
           placeholder="搜尋學校名稱、地區或英文名..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          className="flex-1 bg-transparent text-base text-slate-900 placeholder:text-slate-400 outline-none"
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => window.setTimeout(() => setIsFocused(false), 120)}
+          className="flex-1 rounded-none border-0 bg-transparent text-base text-slate-900 placeholder:text-slate-400 outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none"
+          style={{ outline: "none" }}
         />
         {input && (
           <button
@@ -98,20 +149,46 @@ export function SearchBar({ initialQuery, onSearch }: SearchBarProps) {
           </button>
         )}
       </div>
-      {suggestions.length > 0 && (
+      {showSuggestionPanel && (
         <div className="absolute left-0 right-0 top-full z-20 mt-2 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card">
-          {suggestions.map((school) => (
-            <Link
-              key={school.id}
-              href={`/kg/${school.id}`}
-              className="block px-5 py-3 transition hover:bg-brand-50"
-            >
-              <p className="text-sm font-semibold text-slate-900">{school.name_tc}</p>
-              <p className="mt-0.5 truncate text-xs text-slate-500">
-                {[school.name_en, school.district].filter(Boolean).join(" · ")}
-              </p>
-            </Link>
-          ))}
+          {showRecentSearches ? (
+            recentSearches.map((query) => (
+              <button
+                key={query}
+                type="button"
+                onMouseDown={(event) => event.preventDefault()}
+                onClick={() => selectRecentSearch(query)}
+                className="block w-full px-5 py-3 text-left text-sm font-semibold text-slate-700 transition hover:bg-brand-50"
+              >
+                {query}
+              </button>
+            ))
+          ) : (
+            <>
+              {visibleSuggestions.map((school) => (
+                <Link
+                  key={school.id}
+                  href={`/kg/${school.id}`}
+                  className="block px-5 py-3 transition hover:bg-brand-50"
+                >
+                  <p className="text-sm font-semibold text-slate-900">{school.name_tc}</p>
+                  <p className="mt-0.5 truncate text-xs text-slate-500">
+                    {[school.name_en, school.district].filter(Boolean).join(" · ")}
+                  </p>
+                </Link>
+              ))}
+              {hasMoreSuggestions && (
+                <button
+                  type="button"
+                  onMouseDown={(event) => event.preventDefault()}
+                  onClick={() => setShowAllSuggestions(true)}
+                  className="block w-full border-t border-slate-100 px-5 py-3 text-left text-sm font-semibold text-brand-700 transition hover:bg-brand-50"
+                >
+                  查看更多
+                </button>
+              )}
+            </>
+          )}
         </div>
       )}
     </div>

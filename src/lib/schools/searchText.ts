@@ -1,6 +1,7 @@
 const SIMPLIFIED_TO_TRADITIONAL: Record<string, string> = {
   学: "學",
   园: "園",
+  苏: "蘇",
   际: "際",
   国: "國",
   华: "華",
@@ -56,11 +57,25 @@ export function getSearchTextVariants(input: string) {
   const trimmed = input.trim();
   if (!trimmed) return [];
 
-  return Array.from(new Set([
+  const scriptVariants = Array.from(new Set([
     trimmed,
     toTraditionalSearchText(trimmed),
     toSimplifiedSearchText(trimmed),
   ]));
+
+  const variants = scriptVariants.flatMap((value) => {
+    const coreName = value
+      .replace(/幼稚園|幼稚园|幼兒園|幼儿园|幼兒學校|幼儿学校/g, "")
+      .trim();
+
+    return [
+      value,
+      coreName,
+      coreName ? `${coreName}小學校` : "",
+    ];
+  });
+
+  return Array.from(new Set(variants.filter(Boolean)));
 }
 
 export function normalizeSearchText(input: string) {
@@ -68,13 +83,15 @@ export function normalizeSearchText(input: string) {
 }
 
 export function matchesSearchText(value: string, query: string) {
-  const normalizedQuery = normalizeSearchText(query.trim());
-  if (!normalizedQuery) return true;
-  return normalizeSearchText(value).includes(normalizedQuery);
+  const normalizedQueries = getSearchTextVariants(query).map(normalizeSearchText);
+  if (normalizedQueries.length === 0) return true;
+  const normalizedValue = normalizeSearchText(value);
+  return normalizedQueries.some((normalizedQuery) => normalizedValue.includes(normalizedQuery));
 }
 
 export function startsWithSearchText(value: string, query: string) {
-  const normalizedQuery = normalizeSearchText(query.trim());
-  if (!normalizedQuery) return false;
-  return normalizeSearchText(value).startsWith(normalizedQuery);
+  const normalizedQueries = getSearchTextVariants(query).map(normalizeSearchText);
+  if (normalizedQueries.length === 0) return false;
+  const normalizedValue = normalizeSearchText(value);
+  return normalizedQueries.some((normalizedQuery) => normalizedValue.startsWith(normalizedQuery));
 }

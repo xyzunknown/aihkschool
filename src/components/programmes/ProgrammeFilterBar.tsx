@@ -217,19 +217,33 @@ export function ProgrammeFilterBar({
       <div className="grid gap-3 border-b border-surface-border pb-3 md:grid-cols-[88px_1fr] md:items-center">
         <h4 className="text-xs font-semibold text-slate-600">地區位置</h4>
         <div className="flex flex-wrap items-center gap-2">
-        <button
-          type="button"
-          onClick={() => setOpenPanel(openPanel === "district" ? null : "district")}
-          className={`inline-flex h-8 items-center justify-center rounded-lg border px-3 text-xs font-semibold transition hover:border-brand-400 hover:bg-brand-50 ${
-            openPanel === "district"
+        <div
+          className={`inline-flex h-8 overflow-hidden rounded-lg border transition-colors ${
+            openPanel === "district" || selectedDistricts.length > 0
               ? "border-brand-700 bg-brand-700 text-white shadow-sm"
-              : "border-slate-200 bg-white text-ink-700"
+              : "border-slate-200 bg-white text-ink-700 hover:border-brand-200 hover:bg-brand-50"
           }`}
         >
-          <span className="mr-1">⌖</span>
-          {selectedDistrictText} <span className="ml-2 text-[10px]">{openPanel === "district" ? "⌃" : "⌄"}</span>
-        </button>
-        <span className="text-xs text-slate-400">or 搜尋課程地區</span>
+          <button
+            type="button"
+            onClick={() => setOpenPanel(openPanel === "district" ? null : "district")}
+            className="inline-flex items-center justify-center px-3 text-xs font-semibold"
+          >
+            {selectedDistrictText}
+          </button>
+          <button
+            type="button"
+            aria-label="展開地區選單"
+            onClick={() => setOpenPanel(openPanel === "district" ? null : "district")}
+            className={`inline-flex w-8 shrink-0 items-center justify-center border-l transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/30 focus-visible:ring-offset-2 ${
+              openPanel === "district" || selectedDistricts.length > 0
+                ? "border-white/20 bg-brand-600 text-white"
+                : "border-slate-200 bg-surface-soft text-ink-500 hover:bg-brand-50 hover:text-brand-700"
+            }`}
+          >
+            <ChevronDownIcon expanded={openPanel === "district"} />
+          </button>
+        </div>
         </div>
       </div>
 
@@ -330,7 +344,7 @@ export function ProgrammeFilterBar({
           <button
             type="button"
             onClick={() => setOpenPanel(openPanel === "sort" ? null : "sort")}
-            className={`inline-flex min-h-10 items-center justify-center rounded-xl border bg-white px-4 text-sm font-semibold shadow-sm transition hover:border-brand-400 hover:bg-brand-50 ${
+            className={`inline-flex h-9 items-center justify-center rounded-lg border bg-white px-3 text-sm font-semibold shadow-sm transition hover:border-brand-400 hover:bg-brand-50 ${
               openPanel === "sort"
                 ? "border-brand-700 text-brand-800"
                 : "border-slate-200 text-slate-700"
@@ -341,7 +355,7 @@ export function ProgrammeFilterBar({
               {openPanel === "sort" ? "⌃" : "⌄"}
             </span>
           </button>
-          <p className="text-sm text-slate-500">共 {courseCount} 個課程</p>
+          <p className="inline-flex h-9 items-center text-sm font-semibold text-slate-500">共 {courseCount} 個課程</p>
         </div>
       </div>
 
@@ -379,6 +393,14 @@ export function ProgrammeFilterBar({
         ) : null}
       </div>
     </div>
+  );
+}
+
+function ChevronDownIcon({ expanded }: { expanded: boolean }) {
+  return (
+    <svg viewBox="0 0 24 24" className={`h-4 w-4 transition-transform duration-200 ${expanded ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="m6 9 6 6 6-6" />
+    </svg>
   );
 }
 

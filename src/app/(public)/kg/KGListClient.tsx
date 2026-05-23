@@ -97,9 +97,6 @@ export default function KGListClient() {
       selectedGrade: (params.get("grade") as "n" | "k1" | "k2" | "k3" | null),
       sessionFilter: params.get("session") as string | null,
       hasNurseryFilter: params.get("hasNursery") === "true",
-      schoolandFreeSchemeFilter: params.get("schoolandFreeScheme") === "true",
-      schoolandGroupFilter: params.get("schoolandGroup"),
-      schoolandSizeFilter: params.get("schoolandSize"),
       sortBy: params.get("sort") ?? "default",
       searchQuery: params.get("search") ?? "",
       page: parseInt(params.get("page") ?? "1", 10),
@@ -113,9 +110,6 @@ export default function KGListClient() {
     selectedGrade,
     sessionFilter,
     hasNurseryFilter,
-    schoolandFreeSchemeFilter,
-    schoolandGroupFilter,
-    schoolandSizeFilter,
     sortBy,
     searchQuery,
     page,
@@ -132,10 +126,12 @@ export default function KGListClient() {
       if (selectedGrade) params.set("grade", selectedGrade);
       if (sessionFilter) params.set("session", sessionFilter);
       if (hasNurseryFilter) params.set("hasNursery", "true");
-      if (schoolandFreeSchemeFilter) params.set("schoolandFreeScheme", "true");
-      if (schoolandGroupFilter) params.set("schoolandGroup", schoolandGroupFilter);
-      if (schoolandSizeFilter) params.set("schoolandSize", schoolandSizeFilter);
       if (searchQuery) params.set("search", searchQuery);
+      if (sortBy === "distance") params.set("sort", sortBy);
+      if (sortBy === "distance" && userLat != null && userLng != null) {
+        params.set("lat", String(userLat));
+        params.set("lng", String(userLng));
+      }
       params.set("page", String(page));
       params.set("limit", String(PAGE_SIZE));
 
@@ -161,9 +157,9 @@ export default function KGListClient() {
     selectedGrade,
     sessionFilter,
     hasNurseryFilter,
-    schoolandFreeSchemeFilter,
-    schoolandGroupFilter,
-    schoolandSizeFilter,
+    sortBy,
+    userLat,
+    userLng,
     searchQuery,
     page,
   ]);
@@ -253,6 +249,9 @@ export default function KGListClient() {
     if (value === "default") { params.delete("sort"); } else { params.set("sort", value); }
     params.set("page", "1");
     router.push(`/kg?${params.toString()}`);
+    if (value === "distance" && !userLat && !geoLoading) {
+      requestLocation();
+    }
   };
 
   // Client-side sorting
@@ -289,7 +288,7 @@ export default function KGListClient() {
   const totalPages = Math.ceil(count / PAGE_SIZE);
 
   return (
-    <div className="mx-auto max-w-7xl px-5 py-6 md:px-8">
+    <div className="mx-auto max-w-[1800px] px-5 py-6 md:px-8">
       <h1 className="text-2xl font-bold tracking-tight text-slate-950 mb-2">策劃香港卓越教育藍圖</h1>
       <p className="text-slate-600 mb-8">權威性的教育機構指南，即時更新學位空缺狀態及報名資訊。</p>
 
@@ -302,16 +301,13 @@ export default function KGListClient() {
         selectedGrade={selectedGrade}
         sessionFilter={sessionFilter}
         hasNurseryFilter={hasNurseryFilter}
-        schoolandFreeSchemeFilter={schoolandFreeSchemeFilter}
-        schoolandGroupFilter={schoolandGroupFilter}
-        schoolandSizeFilter={schoolandSizeFilter}
         onToggleDistrict={toggleDistrict}
         onUpdateFilter={updateFilter}
         onToggleVacancy={toggleVacancy}
       />
 
       {loading ? (
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
           {[1, 2, 3, 4, 5, 6].map((i) => <SchoolCardSkeleton key={i} />)}
         </div>
       ) : error ? (
@@ -341,15 +337,16 @@ export default function KGListClient() {
               <select
                 value={sortBy}
                 onChange={(e) => handleSortChange(e.target.value)}
-                className="text-xs border border-slate-200 rounded-lg px-2 py-1.5 bg-white text-slate-600 focus:outline-none focus:ring-1 focus:ring-slate-300"
+                className="h-9 rounded-lg border border-slate-200 bg-white px-3 text-sm font-semibold text-slate-600 focus:outline-none focus:ring-1 focus:ring-slate-300"
               >
-                <option value="default">預設排序</option>
+                <option value="default">推薦排序</option>
+                <option value="distance">距離最近</option>
               </select>
               {!userLat && (
                 <button
                   onClick={requestLocation}
                   disabled={geoLoading}
-                  className="flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-700 transition-colors"
+                  className="inline-flex h-9 items-center gap-1.5 text-sm font-semibold text-slate-500 transition-colors hover:text-slate-700"
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="10" />
@@ -369,7 +366,7 @@ export default function KGListClient() {
               )}
             </div>
           </div>
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
             {displaySchools.map((school) => {
               const currentVacancy = school.vacancies?.[0];
               const vacancy = currentVacancy ? {

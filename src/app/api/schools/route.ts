@@ -43,6 +43,12 @@ export async function GET(request: NextRequest) {
       : undefined;
     const vacancyStatuses = searchParams.getAll("vacancy");
     const search = searchParams.get("search");
+    const sortParam = searchParams.get("sort");
+    const sort = sortParam === "distance" ? "distance" : "default";
+    const latitudeParam = searchParams.get("lat");
+    const longitudeParam = searchParams.get("lng");
+    const latitude = latitudeParam ? Number(latitudeParam) : undefined;
+    const longitude = longitudeParam ? Number(longitudeParam) : undefined;
     const page = parseInt(searchParams.get("page") ?? "1", 10);
     const limit = parseInt(searchParams.get("limit") ?? "20", 10);
 
@@ -59,6 +65,9 @@ export async function GET(request: NextRequest) {
       schoolandSize,
       vacancyStatuses: vacancyStatuses.length > 0 ? vacancyStatuses : undefined,
       search: search ?? undefined,
+      sort,
+      latitude: typeof latitude === "number" && Number.isFinite(latitude) ? latitude : undefined,
+      longitude: typeof longitude === "number" && Number.isFinite(longitude) ? longitude : undefined,
       page: isNaN(page) ? 1 : page,
       limit: isNaN(limit) ? 20 : limit,
     });

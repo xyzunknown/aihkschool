@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import type { ReactNode } from "react";
-import { DISTRICT_LABELS, SCHOOL_TYPE_LABELS, SCHOOLAND_GROUP_OPTIONS, SCHOOLAND_SIZE_LABELS } from "@/lib/utils";
+import { DISTRICT_LABELS, SCHOOL_TYPE_LABELS } from "@/lib/utils";
 import type { District, SchoolType } from "@/types/database";
 
 interface FilterBarProps {
@@ -12,9 +12,6 @@ interface FilterBarProps {
   selectedGrade: "n" | "k1" | "k2" | "k3" | null;
   sessionFilter: string | null;
   hasNurseryFilter: boolean;
-  schoolandFreeSchemeFilter: boolean;
-  schoolandGroupFilter: string | null;
-  schoolandSizeFilter: string | null;
   onToggleDistrict: (district: District) => void;
   onUpdateFilter: (key: string, value: string | null) => void;
   onToggleVacancy: (status: string) => void;
@@ -34,9 +31,6 @@ export function FilterBar({
   selectedGrade,
   sessionFilter,
   hasNurseryFilter,
-  schoolandFreeSchemeFilter,
-  schoolandGroupFilter,
-  schoolandSizeFilter,
   onToggleDistrict,
   onUpdateFilter,
   onToggleVacancy,
@@ -45,10 +39,7 @@ export function FilterBar({
   const [showMoreFilters, setShowMoreFilters] = useState(
     !!(
       sessionFilter ||
-      hasNurseryFilter ||
-      schoolandFreeSchemeFilter ||
-      schoolandGroupFilter ||
-      schoolandSizeFilter
+      hasNurseryFilter
     )
   );
 
@@ -87,10 +78,7 @@ export function FilterBar({
   const moreFilterCount =
     (sessionFilter ? 1 : 0) +
     (selectedGrade ? 1 : 0) +
-    (hasNurseryFilter ? 1 : 0) +
-    (schoolandFreeSchemeFilter ? 1 : 0) +
-    (schoolandGroupFilter ? 1 : 0) +
-    (schoolandSizeFilter ? 1 : 0);
+    (hasNurseryFilter ? 1 : 0);
 
   const activeTags = [
     ...selectedDistricts.map((district) => ({
@@ -100,9 +88,6 @@ export function FilterBar({
     })),
     ...(sessionFilter ? [{ key: "session", label: sessionOptions.find((item) => item.key === sessionFilter)?.label ?? sessionFilter, onRemove: () => onUpdateFilter("session", null) }] : []),
     ...(hasNurseryFilter ? [{ key: "nursery", label: "設有 N 班", onRemove: () => onUpdateFilter("hasNursery", null) }] : []),
-    ...(schoolandFreeSchemeFilter ? [{ key: "free-scheme", label: "免費計劃", onRemove: () => onUpdateFilter("schoolandFreeScheme", null) }] : []),
-    ...(schoolandGroupFilter ? [{ key: "group", label: `集團：${schoolandGroupFilter}`, onRemove: () => onUpdateFilter("schoolandGroup", null) }] : []),
-    ...(schoolandSizeFilter ? [{ key: "size", label: SCHOOLAND_SIZE_LABELS[schoolandSizeFilter] ?? schoolandSizeFilter, onRemove: () => onUpdateFilter("schoolandSize", null) }] : []),
   ];
 
   const districtSummary =
@@ -126,15 +111,33 @@ export function FilterBar({
           <div className="grid gap-3 py-3 md:grid-cols-[88px_1fr] md:items-center">
             <h4 className="text-xs font-semibold text-slate-600">地區位置</h4>
             <div className="relative flex flex-wrap items-center gap-2">
-            <button
-              onClick={() => setShowDistrictFilter(!showDistrictFilter)}
-              className={`${pillBase} ${selectedDistricts.length > 0 ? pillActive : pillInactive}`}
+            <div
+              className={`inline-flex h-8 overflow-hidden rounded-lg border transition-colors ${
+                selectedDistricts.length > 0
+                  ? "border-brand-700 bg-brand-700 text-white shadow-sm"
+                  : "border-slate-200 bg-white text-ink-700 hover:border-brand-200 hover:bg-brand-50"
+              }`}
             >
-              <span className="mr-1">⌖</span>
-              {districtSummary}
-              <span className="ml-2 text-[10px]">{showDistrictFilter ? "⌃" : "⌄"}</span>
-            </button>
-            <span className="text-xs text-slate-400">or 直接搜尋地區名稱</span>
+              <button
+                type="button"
+                onClick={() => setShowDistrictFilter(!showDistrictFilter)}
+                className="inline-flex items-center px-3 text-xs font-semibold"
+              >
+                {districtSummary}
+              </button>
+              <button
+                type="button"
+                aria-label="展開地區選單"
+                onClick={() => setShowDistrictFilter(!showDistrictFilter)}
+                className={`inline-flex w-8 shrink-0 items-center justify-center border-l transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/30 focus-visible:ring-offset-2 ${
+                  selectedDistricts.length > 0
+                    ? "border-white/20 bg-brand-600 text-white"
+                    : "border-slate-200 bg-surface-soft text-ink-500 hover:bg-brand-50 hover:text-brand-700"
+                }`}
+              >
+                <ChevronDownIcon expanded={showDistrictFilter} />
+              </button>
+            </div>
             {showDistrictFilter && (
               <div className="absolute left-0 top-full z-30 mt-2 w-[min(92vw,440px)] overflow-hidden rounded-card border border-surface-border bg-white shadow-card">
                 <div className="flex items-center justify-between border-b border-surface-border px-4 py-3 text-xs text-slate-500">
@@ -313,45 +316,6 @@ export function FilterBar({
                   設有N班
                 </button>
               </FilterSection>
-
-              <FilterSection title="免費計劃">
-                <button
-                  onClick={() =>
-                    onUpdateFilter("schoolandFreeScheme", schoolandFreeSchemeFilter ? null : "true")
-                  }
-                  className={`${pillBase} ${schoolandFreeSchemeFilter ? pillActive : pillInactive}`}
-                >
-                  參加
-                </button>
-              </FilterSection>
-
-              <FilterSection title="規模">
-                {Object.entries(SCHOOLAND_SIZE_LABELS).map(([key, label]) => (
-                  <button
-                    key={key}
-                    onClick={() =>
-                      onUpdateFilter("schoolandSize", schoolandSizeFilter === key ? null : key)
-                    }
-                    className={`${pillBase} ${schoolandSizeFilter === key ? pillActive : pillInactive}`}
-                  >
-                    {label}
-                  </button>
-                ))}
-              </FilterSection>
-
-              <FilterSection title="集團" wide>
-                {SCHOOLAND_GROUP_OPTIONS.slice(0, 12).map((group) => (
-                  <button
-                    key={group}
-                    onClick={() =>
-                      onUpdateFilter("schoolandGroup", schoolandGroupFilter === group ? null : group)
-                    }
-                    className={`${pillBase} ${schoolandGroupFilter === group ? pillActive : pillInactive}`}
-                  >
-                    {group}
-                  </button>
-                ))}
-              </FilterSection>
             </div>
           )}
         </div>
@@ -365,6 +329,14 @@ export function FilterBar({
         />
       )}
     </>
+  );
+}
+
+function ChevronDownIcon({ expanded }: { expanded: boolean }) {
+  return (
+    <svg viewBox="0 0 24 24" className={`h-4 w-4 transition-transform duration-200 ${expanded ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="m6 9 6 6 6-6" />
+    </svg>
   );
 }
 

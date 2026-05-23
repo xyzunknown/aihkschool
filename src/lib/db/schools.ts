@@ -5,7 +5,7 @@ import {
   getAdmissionSummary,
   shouldShowAdmissionSummary,
 } from "@/lib/schools/admissions";
-import { getSearchTextVariants } from "@/lib/schools/searchText";
+import { getSearchTextVariants, matchesSearchText } from "@/lib/schools/searchText";
 import type { School, District, SchoolType, SessionType, VacancyStatus } from "@/types/database";
 
 export type SessionFilter = SessionType | "half_day";
@@ -25,6 +25,9 @@ export interface FetchSchoolsParams {
   hasVacancy?: boolean;
   vacancyStatuses?: string[];
   search?: string;
+  sort?: "default" | "distance";
+  latitude?: number;
+  longitude?: number;
   page?: number;
   limit?: number;
 }
@@ -62,6 +65,91 @@ const NEW_COLUMN_NAMES = [
   "schooland_founded_year", "schooland_staff_count", "schooland_teacher_student_ratio",
   "publish_channels",
 ];
+
+const LOCAL_SCHOOL_FALLBACKS = [
+  {
+    id: "official-kg-132730",
+    school_code: "132730",
+    name_tc: "蘇浙小學校",
+    name_en: "Kiangsu & Chekiang Primary School",
+    district: "eastern",
+    address_tc: "香港北角清華街30號",
+    address_en: "30 Ching Wah Street, North Point, Hong Kong",
+    phone: "2570 4173",
+    fax: "2807 2739",
+    email: "kinder@kcs.edu.hk",
+    website: "http://www.kcs.edu.hk",
+    logo_url: null,
+    school_type: "non_profit",
+    kep_participant: true,
+    session_type: null,
+    language_primary: "普通話、英語",
+    language_secondary: null,
+    has_nursery: false,
+    grades_offered: ["K1", "K2", "K3"],
+    fee_monthly_hkd: 1570,
+    fee_annual_hkd: 62160,
+    application_fee_hkd: 40,
+    registration_fee_hkd: 970,
+    other_fees_note: "$40 (本地課程 Local classes) / $500 (國際班 International classes)",
+    fee_notes: null,
+    latitude: null,
+    longitude: null,
+    application_status: null,
+    application_details: null,
+    application_url: null,
+    open_day_details: null,
+    open_day_url: null,
+    official_profile_url: "http://www.kcs.edu.hk",
+    fee_certificate_url: "http://applications.edb.gov.hk/schoolsearch/schoolfee/132730.pdf",
+    fee_certificate_updated_at: null,
+    official_notice_url: null,
+    official_notice_updated_at: null,
+    inspection_report_url: null,
+    inspection_report_updated_at: null,
+    master_data_notes: "本地備用資料：教育局幼稚園概覽 2025。",
+    schooland_operator_name: "香港蘇浙滬同鄉會",
+    schooland_group_tag: null,
+    schooland_free_scheme: false,
+    schooland_nursery_service: null,
+    schooland_size_label: null,
+    schooland_session_label: null,
+    schooland_url: null,
+    schooland_source_url: null,
+    schooland_source_updated_at: null,
+    schooland_source_fields: {},
+    schooland_secondary_flags: {},
+    schooland_intro: "蘇浙小學幼稚園部重視兩文三語發展，並以活動及遊戲建立幼兒學習興趣。",
+    schooland_teaching_summary: "教學語言包括普通話及英語。",
+    schooland_facilities_summary: "設有禮堂、芭蕾舞室、電腦室、圖書館、多元活動室及閱覽室。",
+    schooland_founded_year: 1953,
+    schooland_staff_count: null,
+    schooland_teacher_student_ratio: "約 1:9",
+    data_source: "edb",
+    last_verified_at: "2025-01-01T00:00:00.000Z",
+    last_profile_scraped_at: null,
+    is_active: true,
+    publish_channels: ["web", "ios", "android"],
+    created_at: "2025-01-01T00:00:00.000Z",
+    updated_at: "2025-01-01T00:00:00.000Z",
+    vacancies: [],
+  },
+];
+
+function getLocalSearchFallbackSchools(params: FetchSchoolsParams) {
+  const { districts, type, search, vacancyStatuses } = params;
+  if (!search?.trim() || (vacancyStatuses && vacancyStatuses.length > 0)) return [];
+
+  return LOCAL_SCHOOL_FALLBACKS.filter((school) => {
+    if (districts && districts.length > 0 && !districts.includes(school.district as District)) return false;
+    if (type && school.school_type !== type) return false;
+    return matchesSearchText(school.name_tc, search) || matchesSearchText(school.name_en, search);
+  });
+}
+
+function getLocalSchoolFallbackById(id: string) {
+  return LOCAL_SCHOOL_FALLBACKS.find((school) => school.id === id) ?? null;
+}
 
 function buildSchoolListQuery(
   supabase: Awaited<ReturnType<typeof createClient>>,
@@ -148,6 +236,9 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
   const {
     grade,
     vacancyStatuses,
+    sort,
+    latitude,
+    longitude,
     page = 1,
     limit = 20,
   } = params;
@@ -236,6 +327,18 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
       ),
   }));
 
+  const localFallbackSchools = getLocalSearchFallbackSchools(params);
+  if (localFallbackSchools.length > 0) {
+    const existingCodes = new Set(schools.map((school) => school.school_code).filter(Boolean));
+    const existingNames = new Set(schools.map((school) => school.name_tc));
+    schools = [
+      ...schools,
+      ...localFallbackSchools.filter(
+        (school) => !existingCodes.has(school.school_code) && !existingNames.has(school.name_tc),
+      ),
+    ];
+  }
+
   if (vacancyStatuses && vacancyStatuses.length > 0) {
     schools = schools.filter((school) => {
       const currentVacancy = school.vacancies?.[0];
@@ -255,8 +358,7 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
     });
   }
 
-  // Sort: has_vacancy first → nearest deadline → most recently updated
-  schools.sort((a, b) => {
+  const defaultSort = (a: (typeof schools)[number], b: (typeof schools)[number]) => {
     const vA = a.vacancies?.[0];
     const vB = b.vacancies?.[0];
 
@@ -276,7 +378,26 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
     const updA = a.updated_at ? new Date(a.updated_at).getTime() : 0;
     const updB = b.updated_at ? new Date(b.updated_at).getTime() : 0;
     return updB - updA;
-  });
+  };
+
+  if (sort === "distance" && latitude != null && longitude != null) {
+    schools.sort((a, b) => {
+      const distanceA =
+        typeof a.latitude === "number" && typeof a.longitude === "number"
+          ? getDistanceKm(latitude, longitude, a.latitude, a.longitude)
+          : Infinity;
+      const distanceB =
+        typeof b.latitude === "number" && typeof b.longitude === "number"
+          ? getDistanceKm(latitude, longitude, b.latitude, b.longitude)
+          : Infinity;
+
+      if (distanceA !== distanceB) return distanceA - distanceB;
+      return defaultSort(a, b);
+    });
+  } else {
+    // Sort: has_vacancy first → nearest deadline → most recently updated
+    schools.sort(defaultSort);
+  }
 
   const totalCount = schools.length;
   const pagedSchools = schools.slice(offset, offset + safeLimit);
@@ -336,7 +457,29 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
   };
 }
 
+function getDistanceKm(lat1: number, lon1: number, lat2: number, lon2: number) {
+  const toRad = (deg: number) => deg * (Math.PI / 180);
+  const earthRadiusKm = 6371;
+  const dLat = toRad(lat2 - lat1);
+  const dLon = toRad(lon2 - lon1);
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(toRad(lat1)) *
+      Math.cos(toRad(lat2)) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2);
+  return earthRadiusKm * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
 export async function fetchSchoolById(id: string) {
+  const localFallback = getLocalSchoolFallbackById(id);
+  if (localFallback) {
+    return {
+      ...localFallback,
+      name_en: localFallback.name_en ?? getFallbackEnglishName(localFallback.school_code),
+    } as School;
+  }
+
   const supabase = await createClient();
 
   const fullSelect = `id, school_code, name_tc, name_en, district, address_tc, address_en,

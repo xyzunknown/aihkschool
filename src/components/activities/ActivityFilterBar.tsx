@@ -73,16 +73,33 @@ export function ActivityFilterBar({
           <div className="grid gap-3 py-3 md:grid-cols-[88px_1fr] md:items-center">
             <h4 className="text-xs font-semibold text-slate-600">地區位置</h4>
             <div className="relative flex flex-wrap items-center gap-2">
-              <button
-                type="button"
-                onClick={() => setShowDistrictFilter(!showDistrictFilter)}
-                className={`${pillBase} ${district ? pillActive : pillInactive}`}
+              <div
+                className={`inline-flex h-8 overflow-hidden rounded-lg border transition-colors ${
+                  district
+                    ? "border-brand-700 bg-brand-700 text-white shadow-sm"
+                    : "border-slate-200 bg-white text-ink-700 hover:border-brand-200 hover:bg-brand-50"
+                }`}
               >
-                <span className="mr-1">⌖</span>
-                {district ? DISTRICT_LABELS[district] : "全部地區"}
-                <span className="ml-2 text-[10px]">{showDistrictFilter ? "⌃" : "⌄"}</span>
-              </button>
-              <span className="text-xs text-slate-400">or 搜尋活動地區</span>
+                <button
+                  type="button"
+                  onClick={() => setShowDistrictFilter(!showDistrictFilter)}
+                  className="inline-flex items-center px-3 text-xs font-semibold"
+                >
+                  {district ? DISTRICT_LABELS[district] : "全部地區"}
+                </button>
+                <button
+                  type="button"
+                  aria-label="展開地區選單"
+                  onClick={() => setShowDistrictFilter(!showDistrictFilter)}
+                  className={`inline-flex w-8 shrink-0 items-center justify-center border-l transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/30 focus-visible:ring-offset-2 ${
+                    district
+                      ? "border-white/20 bg-brand-600 text-white"
+                      : "border-slate-200 bg-surface-soft text-ink-500 hover:bg-brand-50 hover:text-brand-700"
+                  }`}
+                >
+                  <ChevronDownIcon expanded={showDistrictFilter} />
+                </button>
+              </div>
               {showDistrictFilter && (
                 <div className="absolute left-0 top-full z-30 mt-2 w-[min(92vw,440px)] overflow-hidden rounded-card border border-surface-border bg-white shadow-card">
                   <div className="flex items-center justify-between border-b border-surface-border px-4 py-3 text-xs text-slate-500">
@@ -128,14 +145,14 @@ export function ActivityFilterBar({
               <button
                 type="button"
                 onClick={() => onChangeFree(!free)}
-                className={`${pillBase} ${free ? pillActive : pillInactive}`}
+                className={`inline-flex h-9 items-center rounded-lg px-3 text-sm font-semibold transition-colors ${free ? pillActive : pillInactive}`}
               >
                 只顯示免費
               </button>
               <button
                 type="button"
                 onClick={() => onChangeIncludeExpired(!includeExpired)}
-                className={`${pillBase} ${includeExpired ? pillActive : pillInactive}`}
+                className={`inline-flex h-9 items-center rounded-lg px-3 text-sm font-semibold transition-colors ${includeExpired ? pillActive : pillInactive}`}
               >
                 顯示已結束 ({expiredCount})
               </button>
@@ -153,5 +170,13 @@ export function ActivityFilterBar({
       </div>
       {showDistrictFilter && <div className="fixed inset-0 z-20" onClick={() => setShowDistrictFilter(false)} />}
     </>
+  );
+}
+
+function ChevronDownIcon({ expanded }: { expanded: boolean }) {
+  return (
+    <svg viewBox="0 0 24 24" className={`h-4 w-4 transition-transform duration-200 ${expanded ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="m6 9 6 6 6-6" />
+    </svg>
   );
 }
