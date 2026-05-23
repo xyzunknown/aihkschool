@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import type { Activity, ActivityDistrict } from "@/lib/db/activities";
 import type { ActivityCategoryGroup } from "@/lib/activities/labels";
 import { ActivityCard, ActivityCardSkeleton } from "@/components/activities/ActivityCard";
@@ -12,26 +12,22 @@ const PAGE_SIZE = 18;
 interface ApiResponse {
   data: Activity[];
   count: number;
-  expiredCount: number;
   page: number;
   limit: number;
 }
 
 export function ActivitiesClient() {
-  const router = useRouter();
   const searchParams = useSearchParams();
 
   const initialFilters = useMemo(() => {
     const group = searchParams?.get("group");
     const dist = searchParams?.get("district");
     const free = searchParams?.get("free");
-    const includeExpired = searchParams?.get("includeExpired");
     const page = parseInt(searchParams?.get("page") ?? "1", 10);
     return {
       group: (group || null) as ActivityCategoryGroup | null,
       district: (dist || null) as ActivityDistrict | null,
       free: free === "true",
-      includeExpired: includeExpired === "true",
       page: isNaN(page) ? 1 : page,
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -40,11 +36,9 @@ export function ActivitiesClient() {
   const [group, setGroup] = useState<ActivityCategoryGroup | null>(initialFilters.group);
   const [district, setDistrict] = useState<ActivityDistrict | null>(initialFilters.district);
   const [free, setFree] = useState<boolean>(initialFilters.free);
-  const [includeExpired, setIncludeExpired] = useState<boolean>(initialFilters.includeExpired);
   const [page, setPage] = useState<number>(initialFilters.page);
   const [activities, setActivities] = useState<Activity[]>([]);
   const [total, setTotal] = useState(0);
-  const [expiredCount, setExpiredCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
   // Sync filters → URL
@@ -53,11 +47,13 @@ export function ActivitiesClient() {
     if (group) params.set("group", group);
     if (district) params.set("district", district);
     if (free) params.set("free", "true");
-    if (includeExpired) params.set("includeExpired", "true");
     if (page > 1) params.set("page", String(page));
     const qs = params.toString();
-    router.replace(qs ? `/activities?${qs}` : "/activities", { scroll: false });
-  }, [group, district, free, includeExpired, page, router]);
+    const nextUrl = qs ? `/activities?${qs}` : "/activities";
+    if (window.location.pathname + window.location.search !== nextUrl) {
+      window.history.replaceState(null, "", nextUrl);
+    }
+  }, [group, district, free, page]);
 
   // Fetch activities
   const fetchData = useCallback(async () => {
@@ -67,7 +63,6 @@ export function ActivitiesClient() {
       if (group) params.set("group", group);
       if (district) params.set("district", district);
       if (free) params.set("free", "true");
-      if (includeExpired) params.set("includeExpired", "true");
       params.set("page", String(page));
       params.set("limit", String(PAGE_SIZE));
 
@@ -76,20 +71,17 @@ export function ActivitiesClient() {
         const json = (await res.json()) as ApiResponse;
         setActivities(json.data);
         setTotal(json.count);
-        setExpiredCount(json.expiredCount);
       } else {
         setActivities([]);
         setTotal(0);
-        setExpiredCount(0);
       }
     } catch {
       setActivities([]);
       setTotal(0);
-      setExpiredCount(0);
     } finally {
       setIsLoading(false);
     }
-  }, [group, district, free, includeExpired, page]);
+  }, [group, district, free, page]);
 
   useEffect(() => {
     void fetchData();
@@ -106,7 +98,6 @@ export function ActivitiesClient() {
     setGroup(null);
     setDistrict(null);
     setFree(false);
-    setIncludeExpired(false);
     setPage(1);
   };
 
@@ -119,12 +110,9 @@ export function ActivitiesClient() {
           group={group}
           district={district}
           free={free}
-          includeExpired={includeExpired}
-          expiredCount={expiredCount}
           onChangeGroup={handleFilterChange(setGroup)}
           onChangeDistrict={handleFilterChange(setDistrict)}
           onChangeFree={handleFilterChange(setFree)}
-          onChangeIncludeExpired={handleFilterChange(setIncludeExpired)}
           onReset={handleReset}
         />
       </div>
@@ -157,7 +145,7 @@ export function ActivitiesClient() {
       ) : (
         <>
           <p className="mb-4 text-sm text-slate-500">
-            共 {total} 個{includeExpired ? "活動" : "即將開始 / 長期可參與活動"}
+            共 {total} 個即將開始 / 長期可參與活動
           </p>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {activities.map((a, index) => (

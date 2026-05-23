@@ -20,12 +20,9 @@ interface ActivityFilterBarProps {
   group: ActivityCategoryGroup | null;
   district: ActivityDistrict | null;
   free: boolean;
-  includeExpired: boolean;
-  expiredCount: number;
   onChangeGroup: (v: ActivityCategoryGroup | null) => void;
   onChangeDistrict: (v: ActivityDistrict | null) => void;
   onChangeFree: (v: boolean) => void;
-  onChangeIncludeExpired: (v: boolean) => void;
   onReset: () => void;
 }
 
@@ -33,16 +30,13 @@ export function ActivityFilterBar({
   group,
   district,
   free,
-  includeExpired,
-  expiredCount,
   onChangeGroup,
   onChangeDistrict,
   onChangeFree,
-  onChangeIncludeExpired,
   onReset,
 }: ActivityFilterBarProps) {
   const [showDistrictFilter, setShowDistrictFilter] = useState(false);
-  const hasFilter = !!group || !!district || free || includeExpired;
+  const hasFilter = !!group || !!district || free;
   const pillBase = "inline-flex h-8 items-center rounded-lg px-3 text-xs font-semibold transition-colors";
   const pillActive = "bg-brand-700 text-white shadow-sm";
   const pillInactive = "border border-slate-200 bg-white text-ink-700 hover:border-brand-200 hover:bg-brand-50";
@@ -140,8 +134,9 @@ export function ActivityFilterBar({
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-between gap-3 py-3">
-            <div className="flex flex-wrap gap-2">
+          <div className="grid gap-3 py-3 md:grid-cols-[88px_1fr] md:items-center">
+            <h4 className="text-xs font-semibold text-slate-600">費用</h4>
+            <div className="flex flex-wrap items-center justify-between gap-3">
               <button
                 type="button"
                 onClick={() => onChangeFree(!free)}
@@ -149,22 +144,15 @@ export function ActivityFilterBar({
               >
                 只顯示免費
               </button>
-              <button
-                type="button"
-                onClick={() => onChangeIncludeExpired(!includeExpired)}
-                className={`inline-flex h-9 items-center rounded-lg px-3 text-sm font-semibold transition-colors ${includeExpired ? pillActive : pillInactive}`}
-              >
-                顯示已結束 ({expiredCount})
-              </button>
+              {hasFilter && (
+                <button
+                  onClick={onReset}
+                  className="text-xs font-semibold text-slate-500 transition hover:text-brand-700"
+                >
+                  清除全部
+                </button>
+              )}
             </div>
-            {hasFilter && (
-              <button
-                onClick={onReset}
-                className="text-xs font-semibold text-slate-500 transition hover:text-brand-700"
-              >
-                清除全部
-              </button>
-            )}
           </div>
         </div>
       </div>
