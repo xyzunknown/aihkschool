@@ -134,13 +134,13 @@ export function ActivityFilterBar({
             </div>
           </div>
 
-          <div className="grid gap-3 py-3 md:grid-cols-[88px_1fr] md:items-center">
+          <div className="grid gap-3 py-2 md:grid-cols-[88px_1fr] md:items-center">
             <h4 className="text-xs font-semibold text-slate-600">費用</h4>
             <div className="flex flex-wrap items-center justify-between gap-3">
               <button
                 type="button"
                 onClick={() => onChangeFree(!free)}
-                className={`inline-flex h-9 items-center rounded-lg px-3 text-sm font-semibold transition-colors ${free ? pillActive : pillInactive}`}
+                className={`${pillBase} ${free ? pillActive : pillInactive}`}
               >
                 只顯示免費
               </button>
