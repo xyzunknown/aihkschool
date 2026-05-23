@@ -12,6 +12,7 @@ export type SessionFilter = SessionType | "half_day";
 export type SchoolandSessionFilter = "am" | "pm" | "whole_day" | "mixed";
 
 export interface FetchSchoolsParams {
+  schoolCodes?: string[];
   districts?: District[];
   type?: SchoolType;
   language?: string;
@@ -159,7 +160,7 @@ function buildSchoolListQuery(
   canFilterPublishChannels = true,
 ) {
   const {
-    districts, type, language, session, hasNursery,
+    schoolCodes, districts, type, language, session, hasNursery,
     schoolandFreeScheme, schoolandNurseryService, schoolandGroup, schoolandSize,
     search,
   } = params;
@@ -173,6 +174,9 @@ function buildSchoolListQuery(
     query = query.contains("publish_channels", ["web"]);
   }
 
+  if (schoolCodes && schoolCodes.length > 0) {
+    query = query.in("school_code", schoolCodes);
+  }
   if (districts && districts.length > 0) {
     query = query.in("district", districts);
   }
@@ -234,6 +238,7 @@ function buildSchoolListQuery(
 export async function fetchSchools(params: FetchSchoolsParams = {}) {
   const supabase = await createClient();
   const {
+    schoolCodes,
     grade,
     vacancyStatuses,
     sort,
@@ -245,6 +250,7 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
 
   const safeLimit = Math.min(Math.max(limit, 1), 100);
   const offset = (page - 1) * safeLimit;
+  const schoolCodeRank = new Map((schoolCodes ?? []).map((code, index) => [code, index]));
 
   // Try full query first, fallback to legacy if new columns don't exist
   let result = await buildSchoolListQuery(supabase, FULL_LIST_SELECT, params, false);
@@ -380,7 +386,14 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
     return updB - updA;
   };
 
-  if (sort === "distance" && latitude != null && longitude != null) {
+  if (schoolCodeRank.size > 0 && sort !== "distance") {
+    schools.sort((a, b) => {
+      const rankA = a.school_code ? schoolCodeRank.get(a.school_code) ?? Infinity : Infinity;
+      const rankB = b.school_code ? schoolCodeRank.get(b.school_code) ?? Infinity : Infinity;
+      if (rankA !== rankB) return rankA - rankB;
+      return defaultSort(a, b);
+    });
+  } else if (sort === "distance" && latitude != null && longitude != null) {
     schools.sort((a, b) => {
       const distanceA =
         typeof a.latitude === "number" && typeof a.longitude === "number"

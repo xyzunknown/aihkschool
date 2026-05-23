@@ -20,9 +20,9 @@ export function FeaturedSchools({ schools }: FeaturedSchoolsProps) {
   return (
     <section className="mb-10">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-semibold text-slate-950">精選名校</h2>
+        <h2 className="text-xl font-semibold text-slate-950">熱點名校</h2>
         <Link
-          href="/priority"
+          href="/kg?hot=100"
           className="text-slate-500 hover:text-slate-950 text-sm font-medium transition-colors"
         >
           查看全部 →
@@ -43,6 +43,8 @@ export function FeaturedSchools({ schools }: FeaturedSchoolsProps) {
             : null;
 
           return (
+            // Homepage hot-school cards must stay on the shared KG list card.
+            // Any SchoolCard UI change should therefore be reflected here automatically.
             <SchoolCard
               key={school.id}
               id={schoolId}

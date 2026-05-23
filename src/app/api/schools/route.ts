@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { fetchSchools } from "@/lib/db/schools";
 import type { SessionFilter } from "@/lib/db/schools";
+import { getPrioritySchools } from "@/lib/prioritySchools";
 import type { District, SchoolType } from "@/types/database";
 
 export const dynamic = "force-dynamic";
@@ -45,14 +46,18 @@ export async function GET(request: NextRequest) {
     const search = searchParams.get("search");
     const sortParam = searchParams.get("sort");
     const sort = sortParam === "distance" ? "distance" : "default";
+    const hot = searchParams.get("hot");
     const latitudeParam = searchParams.get("lat");
     const longitudeParam = searchParams.get("lng");
     const latitude = latitudeParam ? Number(latitudeParam) : undefined;
     const longitude = longitudeParam ? Number(longitudeParam) : undefined;
     const page = parseInt(searchParams.get("page") ?? "1", 10);
     const limit = parseInt(searchParams.get("limit") ?? "20", 10);
+    const prioritySchools = hot === "100" ? await getPrioritySchools() : [];
+    const prioritySchoolCodes = prioritySchools.map((school) => school.school_code);
 
     const result = await fetchSchools({
+      schoolCodes: prioritySchoolCodes.length > 0 ? prioritySchoolCodes : undefined,
       districts: districts.length > 0 ? districts : undefined,
       type: type ?? undefined,
       language: language ?? undefined,

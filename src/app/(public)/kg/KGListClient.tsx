@@ -23,6 +23,11 @@ async function getErrorMessage(response: Response, fallback: string) {
 }
 
 const PAGE_SIZE = 18;
+const HOT_SCHOOL_PAGE_SIZE = 100;
+const SORT_OPTIONS = [
+  { key: "default", label: "推薦排序" },
+  { key: "distance", label: "距離最近" },
+];
 
 interface SchoolData {
   id: string;
@@ -79,6 +84,7 @@ export default function KGListClient() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [favoriteIds, setFavoriteIds] = useState<Set<string>>(new Set());
+  const [showSortFilter, setShowSortFilter] = useState(false);
   const { latitude: userLat, longitude: userLng, requestLocation, loading: geoLoading } = useGeolocation();
   const {
     addToCompare,
@@ -97,6 +103,7 @@ export default function KGListClient() {
       selectedGrade: (params.get("grade") as "n" | "k1" | "k2" | "k3" | null),
       sessionFilter: params.get("session") as string | null,
       hasNurseryFilter: params.get("hasNursery") === "true",
+      hotFilter: params.get("hot") === "100" ? "100" : null,
       sortBy: params.get("sort") ?? "default",
       searchQuery: params.get("search") ?? "",
       page: parseInt(params.get("page") ?? "1", 10),
@@ -110,6 +117,7 @@ export default function KGListClient() {
     selectedGrade,
     sessionFilter,
     hasNurseryFilter,
+    hotFilter,
     sortBy,
     searchQuery,
     page,
@@ -126,6 +134,7 @@ export default function KGListClient() {
       if (selectedGrade) params.set("grade", selectedGrade);
       if (sessionFilter) params.set("session", sessionFilter);
       if (hasNurseryFilter) params.set("hasNursery", "true");
+      if (hotFilter) params.set("hot", hotFilter);
       if (searchQuery) params.set("search", searchQuery);
       if (sortBy === "distance") params.set("sort", sortBy);
       if (sortBy === "distance" && userLat != null && userLng != null) {
@@ -133,7 +142,7 @@ export default function KGListClient() {
         params.set("lng", String(userLng));
       }
       params.set("page", String(page));
-      params.set("limit", String(PAGE_SIZE));
+      params.set("limit", String(hotFilter ? HOT_SCHOOL_PAGE_SIZE : PAGE_SIZE));
 
       const res = await fetch(`/api/schools?${params.toString()}`);
       const json = await res.json();
@@ -157,6 +166,7 @@ export default function KGListClient() {
     selectedGrade,
     sessionFilter,
     hasNurseryFilter,
+    hotFilter,
     sortBy,
     userLat,
     userLng,
@@ -249,6 +259,7 @@ export default function KGListClient() {
     if (value === "default") { params.delete("sort"); } else { params.set("sort", value); }
     params.set("page", "1");
     router.push(`/kg?${params.toString()}`);
+    setShowSortFilter(false);
     if (value === "distance" && !userLat && !geoLoading) {
       requestLocation();
     }
@@ -285,12 +296,16 @@ export default function KGListClient() {
     router.push(`/kg?${params.toString()}`);
   };
 
-  const totalPages = Math.ceil(count / PAGE_SIZE);
+  const totalPages = Math.ceil(count / (hotFilter ? HOT_SCHOOL_PAGE_SIZE : PAGE_SIZE));
 
   return (
     <div className="mx-auto max-w-[1800px] px-5 py-6 md:px-8">
-      <h1 className="text-2xl font-bold tracking-tight text-slate-950 mb-2">策劃香港卓越教育藍圖</h1>
-      <p className="text-slate-600 mb-8">權威性的教育機構指南，即時更新學位空缺狀態及報名資訊。</p>
+      <h1 className="text-2xl font-bold tracking-tight text-slate-950 mb-2">
+        {hotFilter ? "熱點名校 100" : "策劃香港卓越教育藍圖"}
+      </h1>
+      <p className="text-slate-600 mb-8">
+        {hotFilter ? "這裡集中顯示家長討論度高、平台已匹配資料的熱門幼稚園。" : "權威性的教育機構指南，即時更新學位空缺狀態及報名資訊。"}
+      </p>
 
       <SearchBar initialQuery={searchQuery} onSearch={handleSearch} />
 
@@ -331,17 +346,44 @@ export default function KGListClient() {
       ) : (
         <>
           <div className="flex items-center justify-between mb-4">
-            <p className="text-sm text-slate-500">共 {count} 所學校</p>
+            <p className="text-sm text-slate-500">{hotFilter ? `共 ${count} 所熱點名校` : `共 ${count} 所學校`}</p>
             <div className="flex items-center gap-3">
-              {/* Sort dropdown */}
-              <select
-                value={sortBy}
-                onChange={(e) => handleSortChange(e.target.value)}
-                className="h-9 rounded-lg border border-slate-200 bg-white px-3 text-sm font-semibold text-slate-600 focus:outline-none focus:ring-1 focus:ring-slate-300"
-              >
-                <option value="default">推薦排序</option>
-                <option value="distance">距離最近</option>
-              </select>
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => setShowSortFilter(!showSortFilter)}
+                  className={`inline-flex h-9 items-center justify-center rounded-lg border bg-white px-3 text-sm font-semibold shadow-sm transition hover:border-brand-400 hover:bg-brand-50 ${
+                    showSortFilter ? "border-brand-700 text-brand-800" : "border-slate-200 text-slate-700"
+                  }`}
+                >
+                  排序：{SORT_OPTIONS.find((item) => item.key === sortBy)?.label ?? "推薦排序"}
+                  <ChevronDownIcon expanded={showSortFilter} />
+                </button>
+                {showSortFilter && (
+                  <div className="absolute right-0 top-full z-30 mt-2 w-44 overflow-hidden rounded-card border border-surface-border bg-white shadow-card">
+                    <div className="border-b border-surface-border px-4 py-3 text-xs font-semibold text-slate-500">
+                      排序方式
+                    </div>
+                    <div className="p-2">
+                      {SORT_OPTIONS.map((option) => (
+                        <button
+                          key={option.key}
+                          type="button"
+                          onClick={() => handleSortChange(option.key)}
+                          className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm font-semibold transition ${
+                            sortBy === option.key
+                              ? "bg-brand-700 text-white"
+                              : "text-slate-700 hover:bg-brand-50 hover:text-brand-800"
+                          }`}
+                        >
+                          {option.label}
+                          {sortBy === option.key ? <span aria-hidden="true">✓</span> : null}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
               {!userLat && (
                 <button
                   onClick={requestLocation}
@@ -432,6 +474,15 @@ export default function KGListClient() {
           )}
         </>
       )}
+      {showSortFilter && <div className="fixed inset-0 z-20" onClick={() => setShowSortFilter(false)} />}
     </div>
+  );
+}
+
+function ChevronDownIcon({ expanded }: { expanded: boolean }) {
+  return (
+    <svg viewBox="0 0 24 24" className={`ml-2 h-4 w-4 transition-transform duration-200 ${expanded ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="m6 9 6 6 6-6" />
+    </svg>
   );
 }

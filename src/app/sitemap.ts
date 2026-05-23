@@ -19,7 +19,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/programmes`, lastModified: new Date(), priority: 0.6 },
     { url: `${BASE_URL}/ios-app`, lastModified: new Date(), priority: 0.6 },
     { url: `${BASE_URL}/topics`, lastModified: new Date(), priority: 0.6 },
-    { url: `${BASE_URL}/priority`, lastModified: new Date(), priority: 0.5 },
     { url: `${BASE_URL}/contact`, lastModified: new Date(), priority: 0.3 },
     { url: `${BASE_URL}/terms`, lastModified: new Date(), priority: 0.3 },
     { url: `${BASE_URL}/privacy`, lastModified: new Date(), priority: 0.3 },
