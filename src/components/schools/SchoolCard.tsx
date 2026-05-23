@@ -98,7 +98,7 @@ export function SchoolCard({
   return (
     <div
       className={`flex h-full cursor-pointer flex-col rounded-card border border-surface-border bg-white shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-card ${
-        compact ? "min-h-[258px] p-4" : "min-h-[376px] p-5"
+        compact ? "min-h-[250px] p-4" : "min-h-[356px] p-5"
       }`}
       role="link"
       tabIndex={0}
@@ -179,13 +179,13 @@ export function SchoolCard({
       </div>
 
       {/* Row 4: Footer */}
-      <div className={`${compact ? "gap-3 pt-3 text-xs" : "gap-4 pt-5 text-sm"} mt-auto flex items-end justify-between`}>
+      <div className={`${compact ? "gap-3 pt-3 text-xs" : "gap-4 pt-4 text-sm"} mt-auto flex items-center justify-between`}>
         <span className="min-w-0 text-slate-400">
           <span className="truncate">{formatFullUpdateDate(vacancy?.edb_published_date ?? null)}</span>
         </span>
-        <span className={`${compact ? "h-10 gap-1.5 px-4 text-sm" : "h-12 gap-2 px-6 text-base"} inline-flex flex-shrink-0 items-center rounded-full bg-forest-700 font-extrabold text-white shadow-sm`}>
+        <span className="inline-flex h-[34px] flex-shrink-0 items-center gap-1.5 rounded-full border border-forest-600/60 bg-white/95 px-[15px] text-sm font-extrabold text-forest-700">
           詳情
-          <svg width={compact ? "16" : "18"} height={compact ? "16" : "18"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M5 12h14" />
             <path d="m13 6 6 6-6 6" />
           </svg>
