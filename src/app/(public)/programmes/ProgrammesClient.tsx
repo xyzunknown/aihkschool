@@ -7,7 +7,6 @@ import { ProgrammeCardSkeleton, ProgrammeCourseCard } from "@/components/program
 import {
   ProgrammeFilterBar,
   type AgePresetKey,
-  type MoreFilterKey,
   type ProgrammeSortKey,
 } from "@/components/programmes/ProgrammeFilterBar";
 
@@ -123,15 +122,6 @@ function groupProgrammes(programmes: ProgrammeWithStatus[]): ProgrammeCourseGrou
     });
 }
 
-function priceValue(programme: ProgrammeWithStatus) {
-  return programme.fee_hkd ?? Number.POSITIVE_INFINITY;
-}
-
-function latestValue(programme: ProgrammeWithStatus) {
-  const time = new Date(programme.created_at).getTime();
-  return Number.isFinite(time) ? time : 0;
-}
-
 function closingTime(programme: ProgrammeWithStatus) {
   if (!programme.enrolment_close_at) return Number.POSITIVE_INFINITY;
   const time = new Date(programme.enrolment_close_at).getTime();
@@ -140,44 +130,10 @@ function closingTime(programme: ProgrammeWithStatus) {
 
 function applySort(groups: ProgrammeCourseGroup[], sort: ProgrammeSortKey) {
   const nextGroups = [...groups];
-  if (sort === "price_asc") {
-    return nextGroups.sort((a, b) => priceValue(a.representative) - priceValue(b.representative));
-  }
-  if (sort === "price_desc") {
-    return nextGroups.sort((a, b) => priceValue(b.representative) - priceValue(a.representative));
-  }
-  if (sort === "latest") {
-    return nextGroups.sort((a, b) => latestValue(b.representative) - latestValue(a.representative));
+  if (sort === "distance") {
+    return nextGroups.sort((a, b) => (a.representative.venue || "").localeCompare(b.representative.venue || "", "zh-Hant-HK"));
   }
   return nextGroups.sort((a, b) => closingTime(a.representative) - closingTime(b.representative));
-}
-
-function includesText(programme: ProgrammeWithStatus, terms: string[]) {
-  const text = `${programme.name_zh ?? ""} ${programme.name_en ?? ""} ${programme.venue ?? ""}`.toLocaleLowerCase("zh-Hant-HK");
-  return terms.some((term) => text.includes(term.toLocaleLowerCase("zh-Hant-HK")));
-}
-
-function matchesMoreFilter(programme: ProgrammeWithStatus, filter: MoreFilterKey) {
-  const status = programme.lcsd_programme_status;
-  if (filter === "available") return status?.enrolment_status === "open";
-  if (filter === "tight") return typeof status?.seats_available === "number" && status.seats_available > 0 && status.seats_available <= 5;
-  if (filter === "closing") {
-    const closeAt = programme.enrolment_close_at ? new Date(programme.enrolment_close_at).getTime() : Number.POSITIVE_INFINITY;
-    const now = Date.now();
-    return Number.isFinite(closeAt) && closeAt >= now && closeAt - now <= 7 * 24 * 60 * 60 * 1000;
-  }
-  if (filter === "single") return programme.sessions_count === 1;
-  if (filter === "multi") return (programme.sessions_count ?? 0) > 1;
-  if (filter === "trial") return includesText(programme, ["體驗", "試堂", "trial"]);
-  if (filter === "mtr") return includesText(programme, ["港鐵", "mtr", "站"]);
-  if (filter === "indoor") return includesText(programme, ["室內", "indoor", "體育館", "會堂"]);
-  if (filter === "outdoor") return includesText(programme, ["戶外", "outdoor", "公園", "遊樂場"]);
-  return true;
-}
-
-function applyMoreFilters(programmes: ProgrammeWithStatus[], filters: MoreFilterKey[]) {
-  if (filters.length === 0) return programmes;
-  return programmes.filter((programme) => filters.every((filter) => matchesMoreFilter(programme, filter)));
 }
 
 export function ProgrammesClient() {
@@ -209,7 +165,6 @@ export function ProgrammesClient() {
   const [selectedDistricts, setSelectedDistricts] = useState<string[]>(initialFilters.selectedDistricts);
   const [agePreset, setAgePreset] = useState<AgePresetKey>(initialFilters.agePreset);
   const [sort, setSort] = useState<ProgrammeSortKey>("deadline");
-  const [moreFilters, setMoreFilters] = useState<MoreFilterKey[]>([]);
   const [page, setPage] = useState<number>(initialFilters.page);
   const [programmes, setProgrammes] = useState<ProgrammeWithStatus[]>([]);
   const [total, setTotal] = useState(0);
@@ -288,21 +243,19 @@ export function ProgrammesClient() {
     setSelectedDistricts([]);
     setAgePreset("preschool");
     setSort("deadline");
-    setMoreFilters([]);
     setPage(1);
   };
 
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
-  const filteredProgrammes = useMemo(() => applyMoreFilters(programmes, moreFilters), [moreFilters, programmes]);
   const courseGroups = useMemo(
-    () => applySort(groupProgrammes(filteredProgrammes), sort),
-    [filteredProgrammes, sort],
+    () => applySort(groupProgrammes(programmes), sort),
+    [programmes, sort],
   );
   const [expandedGroups, setExpandedGroups] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     setExpandedGroups(new Set());
-  }, [category, selectedDistricts, agePreset, moreFilters, sort, page]);
+  }, [category, selectedDistricts, agePreset, sort, page]);
 
   const toggleGroup = useCallback((key: string) => {
     setExpandedGroups((prev) => {
@@ -321,13 +274,11 @@ export function ProgrammesClient() {
           selectedDistricts={selectedDistricts}
           agePreset={agePreset}
           sort={sort}
-          moreFilters={moreFilters}
           courseCount={courseGroups.length}
           onChangeCategory={handleFilterChange(setCategory)}
           onChangeDistricts={handleFilterChange(setSelectedDistricts)}
           onChangeAgePreset={handleFilterChange(setAgePreset)}
           onChangeSort={setSort}
-          onChangeMoreFilters={handleFilterChange(setMoreFilters)}
           onReset={handleReset}
         />
       </div>
