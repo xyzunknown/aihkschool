@@ -47,6 +47,9 @@ const JUNK_PNG_MD5 = new Set([
   "710eeec8a75793c318730eb29cc06a62", // corrupted red/black fragment
   "172e544e28c5526b010225dd9e702821", // generic navy anchor icon
   "0a7406bacf4f7d39410ec8f5b327a1c6", // generic pink smile shape
+  "82b1635122313c3fe181e4110e96d00e", // eClass vendor logo, not a school logo
+  "7c8d3a421545d8c34f014a0cafa7e206", // tiny website toolbar sprite, not a school logo
+  "02ecfefc128873ce79e47433fbbe3d4f", // Wikipedia globe placeholder, not a school logo
 ]);
 
 function isPlaceholderSvg(filePath) {

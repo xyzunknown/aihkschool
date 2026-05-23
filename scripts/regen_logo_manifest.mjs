@@ -11,15 +11,49 @@ const ROOT = path.resolve(import.meta.dirname, "..");
 const LOGOS_DIR = path.join(ROOT, "public", "logos");
 const TS_PATH = path.join(ROOT, "src", "lib", "schools", "schoolLogoSources.ts");
 const SQL_PATH = path.join(ROOT, "supabase", "seed", "003_school_logos.sql");
+const REVIEW_DECISIONS_PATH = path.join(
+  ROOT,
+  "..",
+  "HKSchoolPlaceiOS",
+  "tools",
+  "school-logo-autofetch",
+  "out",
+  "review",
+  "decisions.jsonl",
+);
+
+function loadRejectedReviewCodes() {
+  if (!fs.existsSync(REVIEW_DECISIONS_PATH)) return new Set();
+
+  const latest = new Map();
+  for (const line of fs.readFileSync(REVIEW_DECISIONS_PATH, "utf8").split(/\r?\n/)) {
+    if (!line.trim()) continue;
+    try {
+      const record = JSON.parse(line);
+      if (record?.school_code) latest.set(record.school_code, record);
+    } catch {
+      // Ignore hand-edited or partial lines; the review file is append-only.
+    }
+  }
+
+  return new Set(
+    [...latest.entries()]
+      .filter(([, record]) => record.decision === "skipped" || record.decision === "unusable")
+      .map(([code]) => code),
+  );
+}
+
+const rejectedReviewCodes = loadRejectedReviewCodes();
 
 const files = fs
   .readdirSync(LOGOS_DIR)
   .filter((f) => /^\d{6}\.(png|svg|webp)$/.test(f))
+  .filter((f) => !rejectedReviewCodes.has(f.slice(0, 6)))
   .sort();
 
 // --- schoolLogoSources.ts ---
 const ts = `// Generated from public/logos by scripts/regen_logo_manifest.mjs.
-// Only existing local logo files are listed here.
+// Only existing local logo files that have not been rejected in review are listed here.
 
 const LOCAL_SCHOOL_LOGO_FILES = new Set([
 ${files.map((f) => `  "${f}",`).join("\n")}
@@ -54,5 +88,6 @@ fs.writeFileSync(SQL_PATH, sql.join("\n") + "\n");
 
 console.log(`logo files: ${files.length}`);
 console.log(`unique school codes: ${byCode.size}`);
+console.log(`review-rejected school codes hidden: ${rejectedReviewCodes.size}`);
 console.log(`wrote ${path.relative(ROOT, TS_PATH)}`);
 console.log(`wrote ${path.relative(ROOT, SQL_PATH)}`);
