@@ -47,6 +47,7 @@ export function FeaturedSchools({ schools }: FeaturedSchoolsProps) {
             // Any SchoolCard UI change should therefore be reflected here automatically.
             <SchoolCard
               key={school.id}
+              compact
               id={schoolId}
               nameTc={school.name_tc}
               nameEn={school.name_en}
