@@ -30,11 +30,11 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
   const registrationHref = getActivityRegistrationHref(activity);
 
   return (
-    <article className="overflow-hidden rounded-card border border-surface-border bg-white p-5 shadow-soft transition-colors hover:border-forest-200">
-      <div className="flex min-h-[280px] flex-col md:flex-row">
+    <article className="overflow-hidden rounded-card border border-surface-border bg-white p-4 shadow-soft transition-colors hover:border-forest-200 md:p-5">
+      <div className="flex flex-col md:flex-row">
         <Link
           href={detailHref}
-          className="relative block h-[180px] overflow-hidden rounded-button bg-cream-100 md:h-auto md:w-[34%] md:shrink-0"
+          className="relative block h-[180px] overflow-hidden rounded-button bg-cream-100 md:h-[196px] md:w-[260px] md:shrink-0"
           aria-label={`${activity.title} 活動詳情`}
         >
           <Image
@@ -42,7 +42,7 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
             alt={activity.title}
             fill
             priority={priority}
-            sizes="(min-width: 1024px) 17vw, (min-width: 768px) 34vw, 100vw"
+            sizes="(min-width: 768px) 260px, 100vw"
             className="object-cover object-center saturate-[0.82] brightness-[1.06]"
           />
         </Link>
@@ -70,7 +70,7 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
             <span className="truncate">{venueSummary}</span>
           </div>
 
-          <div className="mt-4 flex flex-col gap-2 sm:flex-row md:mt-auto">
+          <div className="mt-5 flex flex-col gap-2 sm:flex-row">
             <Link
               href={detailHref}
               className="inline-flex h-9 flex-1 items-center justify-center whitespace-nowrap rounded-pill border border-forest-200 bg-white px-3 text-small font-semibold text-forest-700 transition hover:bg-forest-50"
@@ -121,9 +121,9 @@ const KNOWN_VENUES = [
 
 export function ActivityCardSkeleton() {
   return (
-    <div className="animate-pulse overflow-hidden rounded-card border border-surface-border bg-white p-5 shadow-soft">
-      <div className="flex min-h-[280px] flex-col md:flex-row">
-        <div className="h-[180px] w-full rounded-button bg-cream-100 md:h-auto md:w-[34%]" />
+    <div className="animate-pulse overflow-hidden rounded-card border border-surface-border bg-white p-4 shadow-soft md:p-5">
+      <div className="flex flex-col md:flex-row">
+        <div className="h-[180px] w-full rounded-button bg-cream-100 md:h-[196px] md:w-[260px]" />
         <div className="flex-1 space-y-4 pt-4 md:pl-5 md:pt-0">
           <div className="flex gap-2">
             <div className="h-6 w-16 rounded-pill bg-cream-100" />

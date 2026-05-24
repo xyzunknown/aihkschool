@@ -1,0 +1,29 @@
+import Link from "next/link";
+
+interface SectionHeaderProps {
+  title: string;
+  description?: string;
+  href: string;
+}
+
+export function SectionHeader({ title, description, href }: SectionHeaderProps) {
+  return (
+    <div className="mb-7 flex items-end justify-between gap-4">
+      <div className="min-w-0">
+        <h2 className="flex items-center gap-2 text-h2 font-semibold leading-tight text-ink-900">
+          <span className="inline-block h-6 w-1 rounded-pill bg-forest-700" />
+          {title}
+        </h2>
+        {description ? (
+          <p className="mt-2 text-body text-ink-500">{description}</p>
+        ) : null}
+      </div>
+      <Link
+        href={href}
+        className="shrink-0 text-small font-medium text-forest-700 transition-colors hover:text-forest-800 hover:underline"
+      >
+        查看全部 →
+      </Link>
+    </div>
+  );
+}

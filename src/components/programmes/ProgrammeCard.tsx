@@ -16,7 +16,6 @@ import {
   getEnrolmentCountdown,
 } from "@/lib/programmes/labels";
 import { SubscribeButton } from "@/components/programmes/SubscribeButton";
-import { CourseTrackAllButton } from "@/components/programmes/CourseTrackAllButton";
 
 interface ProgrammeCardProps {
   programme: ProgrammeWithStatus;
@@ -170,10 +169,10 @@ export function ProgrammeCourseCard({ group, expanded, onToggle }: ProgrammeCour
   const imagePositionClass = category === "swimming" ? "object-[45%_center]" : "object-center";
 
   return (
-    <article className="overflow-hidden rounded-card border border-surface-border bg-white p-5 shadow-soft transition-colors hover:border-forest-200">
-      <div className="flex min-h-[280px] flex-col md:flex-row">
-        <Link href={`/programmes/${representative.id}`} className="relative block h-[180px] overflow-hidden rounded-button bg-cream-100 md:h-auto md:w-[34%] md:shrink-0" aria-label={`${group.title} 課程詳情`}>
-          <Image src={imageSrc} alt="" fill sizes="(min-width: 1280px) 220px, (min-width: 1024px) 17vw, (min-width: 768px) 34vw, 100vw" className={`object-cover ${imagePositionClass} saturate-[0.82] brightness-[1.06]`} priority={false} />
+    <article className="overflow-hidden rounded-card border border-surface-border bg-white p-4 shadow-soft transition-colors hover:border-forest-200 md:p-5">
+      <div className="flex flex-col md:flex-row">
+        <Link href={`/programmes/${representative.id}`} className="relative block h-[180px] overflow-hidden rounded-button bg-cream-100 md:h-[196px] md:w-[260px] md:shrink-0" aria-label={`${group.title} 課程詳情`}>
+          <Image src={imageSrc} alt="" fill sizes="(min-width: 768px) 260px, 100vw" className={`object-cover ${imagePositionClass} saturate-[0.82] brightness-[1.06]`} priority={false} />
         </Link>
 
         <div className="flex min-w-0 flex-1 flex-col pt-4 md:pl-5 md:pt-0">
@@ -197,11 +196,10 @@ export function ProgrammeCourseCard({ group, expanded, onToggle }: ProgrammeCour
             <span>{formatEnrolmentTime(earliest.enrolment_open_at)} 開報</span>
           </div>
 
-          <div className="mt-4 flex flex-col gap-2 sm:flex-row md:mt-auto">
+          <div className="mt-5 flex flex-col gap-2 sm:flex-row">
             <button type="button" onClick={onToggle} className="inline-flex h-9 min-w-0 flex-[1.15] items-center justify-center whitespace-nowrap rounded-pill border border-forest-700 bg-forest-700 px-3 text-small font-semibold text-white transition hover:border-forest-800 hover:bg-forest-800" aria-expanded={expanded}>
               {expanded ? "收起場次" : "查看場次"}
             </button>
-            <CourseTrackAllButton programmeIds={programmes.map((p) => p.id)} className="inline-flex h-9 min-w-0 flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-pill border border-forest-200 bg-white px-3 text-small font-semibold text-forest-700 transition hover:bg-forest-50 disabled:opacity-50" />
           </div>
         </div>
       </div>

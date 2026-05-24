@@ -1,10 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { SchoolCard } from "@/components/schools/SchoolCard";
 import { FEATURED_SCHOOLS } from "@/data/homepage";
 import { useAuth } from "@/components/layout/AuthProvider";
 import { useCompare } from "@/lib/hooks/useCompare";
+import { SectionHeader } from "@/components/home/SectionHeader";
 import type { FeaturedSchool } from "@/types/homepage";
 import type { VacancyStatus } from "@/types/database";
 
@@ -21,15 +21,11 @@ export function FeaturedSchools({ schools }: FeaturedSchoolsProps) {
 
   return (
     <section className="mb-[72px] mt-8 md:mt-10">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-semibold text-ink-900">熱點學校</h2>
-        <Link
-          href="/kg?hot=100"
-          className="text-ink-500 hover:text-ink-900 text-sm font-medium transition-colors"
-        >
-          查看全部 →
-        </Link>
-      </div>
+      <SectionHeader
+        title="熱點學校"
+        description="家長近期關注的幼稚園，一次比較學位、地區和類別"
+        href="/kg?hot=100"
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
         {list.map((school) => {

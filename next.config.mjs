@@ -1,4 +1,6 @@
 import { withSentryConfig } from "@sentry/nextjs";
+import { mkdirSync, writeFileSync } from "node:fs";
+import path from "node:path";
 
 const legacyPagesManifest = {
   "/_document": "pages/_document.js",
@@ -35,6 +37,16 @@ class StablePagesManifestPlugin {
           }
         },
       );
+      compilation.hooks.afterProcessAssets.tap("StablePagesManifestPlugin", () => {
+        const outputPath = compiler.outputPath.endsWith(`${path.sep}chunks`)
+          ? path.dirname(compiler.outputPath)
+          : compiler.outputPath;
+        mkdirSync(outputPath, { recursive: true });
+        writeFileSync(
+          path.join(outputPath, "pages-manifest.json"),
+          `${JSON.stringify(legacyPagesManifest, null, 2)}\n`,
+        );
+      });
     });
   }
 }
@@ -61,7 +73,7 @@ class StaticBuildDirectoryPlugin {
 }
 
 /** @type {import('next').NextConfig} */
-const useStablePagesManifest = process.env.FORCE_STABLE_PAGES_MANIFEST === "1";
+const useStablePagesManifest = process.env.FORCE_STABLE_PAGES_MANIFEST !== "0";
 
 const nextConfig = {
   generateBuildId: async () => stableBuildId,
