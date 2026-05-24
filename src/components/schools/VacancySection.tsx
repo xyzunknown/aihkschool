@@ -1,27 +1,31 @@
 import { VacancyBadge } from "@/components/schools/VacancyBadge";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 import { formatDateCN } from "@/lib/utils";
 import type { Vacancy } from "@/types/database";
 
 interface VacancySectionProps {
   vacancy: Vacancy | null;
   isStale: boolean;
-  deadlineStatus: "safe" | "warn" | "urgent" | "past" | null;
-  schoolWebsite?: string | null;
 }
 
-export function VacancySection({ vacancy, isStale, deadlineStatus: dlStatus, schoolWebsite }: VacancySectionProps) {
+export function VacancySection({ vacancy, isStale }: VacancySectionProps) {
   return (
-    <section className="mb-8">
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-xl font-semibold text-ink-900">即時學額狀態</h2>
-        <a href="#report" className="text-sm text-ink-500 hover:text-ink-900 underline">
-          回報更新
-        </a>
-      </div>
+    <section>
       {vacancy ? (
-        <GlassCard className="p-4 md:p-6">
+        <GlassCard className="h-full p-5 md:p-6">
+          <div className="mb-4 flex items-start justify-between gap-4">
+            <div>
+              <h2 className="text-xl font-semibold text-ink-900">學額狀態</h2>
+              {vacancy.edb_published_date && (
+                <p className="mt-1 text-sm text-ink-500">
+                  最近更新：{formatDateCN(vacancy.edb_published_date)}
+                </p>
+              )}
+            </div>
+            <a href="#report" className="shrink-0 text-sm text-ink-500 underline underline-offset-2 hover:text-ink-900">
+              回報更新
+            </a>
+          </div>
           <div className="grid grid-cols-3 gap-2 md:gap-4">
             {(["K1", "K2", "K3"] as const).map((grade) => {
               const status =
@@ -39,59 +43,20 @@ export function VacancySection({ vacancy, isStale, deadlineStatus: dlStatus, sch
             })}
           </div>
 
-          {/* Stale warning + deadline — only once at bottom */}
-          <div className="mt-4 pt-3 border-t border-surface-border space-y-1">
+          <div className="mt-4 border-t border-surface-border pt-3">
             {isStale && (
               <p className="text-sm text-ink-500">
-                數據更新超過 30 天，建議直接聯絡學校確認。
-                {schoolWebsite && (
-                  <>
-                    {" "}
-                    <a
-                      href={schoolWebsite}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-ink-700 underline underline-offset-2 hover:text-ink-900"
-                    >
-                      <span className="inline-flex items-center gap-1">
-                        前往學校官網
-                        <CaretRight size={13} weight="bold" aria-hidden="true" />
-                      </span>
-                    </a>
-                  </>
-                )}
-              </p>
-            )}
-            {vacancy.application_deadline && dlStatus && dlStatus !== "past" && (
-              <p className="text-sm text-ink-700">
-                申請截止：{formatDateCN(vacancy.application_deadline)}
-              </p>
-            )}
-            {vacancy.edb_published_date && (
-              <p className="text-sm text-ink-500">
-                最後更新：{formatDateCN(vacancy.edb_published_date)}
+                資料更新超過 30 天，建議直接向學校確認。
               </p>
             )}
           </div>
         </GlassCard>
       ) : (
-        <GlassCard>
-          <p className="text-base text-ink-900">
+        <GlassCard className="h-full p-5 md:p-6">
+          <h2 className="text-xl font-semibold text-ink-900">學額狀態</h2>
+          <p className="mt-3 text-base text-ink-900">
             暫無空缺數據，建議直接聯絡學校。
           </p>
-          {schoolWebsite && (
-            <a
-              href={schoolWebsite}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block mt-3 text-sm text-ink-700 underline underline-offset-2 hover:text-ink-900"
-            >
-              <span className="inline-flex items-center gap-1">
-                前往學校官網查詢
-                <CaretRight size={13} weight="bold" aria-hidden="true" />
-              </span>
-            </a>
-          )}
         </GlassCard>
       )}
     </section>

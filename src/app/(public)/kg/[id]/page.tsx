@@ -2,11 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { fetchSchoolById, fetchSchoolEnrichment } from "@/lib/db/schools";
 import { fetchCurrentVacancy } from "@/lib/db/vacancies";
-import { createClient } from "@/lib/supabase/server";
 import { SchoolDetailClient } from "./SchoolDetailClient";
-import { ReputationSection } from "@/components/schools/ReputationSection";
-import { AdmissionsSection } from "@/components/schools/AdmissionsSection";
-import { OfficialProfileSection } from "@/components/schools/OfficialProfileSection";
 import { getKgpOfficialProfile } from "@/lib/schools/kgpProfile";
 import { DISTRICT_LABELS } from "@/lib/utils";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -27,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const district = DISTRICT_LABELS[school.district as keyof typeof DISTRICT_LABELS] ?? school.district;
   const title = `${school.name_tc}｜${district}幼稚園資料`;
-  const description = `${school.name_tc}（${district}）幼稚園資料：學額空缺、學費、班別、申請資訊、官方連結和家長口碑整理。`;
+  const description = `${school.name_tc}（${district}）幼稚園資料：學額狀態、學費、班別、申請資訊、位置和官方資料整理。`;
 
   return pageMetadata({
     title,
@@ -44,14 +40,9 @@ export default async function SchoolDetailPage({ params }: Props) {
     notFound();
   }
 
-  // Check auth for tiered enrichment payload (quote_highlights only for logged-in users)
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  const isAuthenticated = !!user;
-
   const [vacancy, enrichment] = await Promise.all([
     fetchCurrentVacancy(params.id),
-    fetchSchoolEnrichment(params.id, { includeRestricted: isAuthenticated }),
+    fetchSchoolEnrichment(params.id),
   ]);
   const officialProfile = getKgpOfficialProfile(school.school_code, school.name_tc);
   const district = DISTRICT_LABELS[school.district as keyof typeof DISTRICT_LABELS] ?? school.district;
@@ -74,7 +65,7 @@ export default async function SchoolDetailPage({ params }: Props) {
     email: school.email ?? undefined,
     sameAs: [school.website, school.official_profile_url, school.schooland_url].filter(Boolean),
     areaServed: district,
-    description: `${school.name_tc} 的學額空缺、學費、班別、申請資訊和家長口碑整理。`,
+    description: `${school.name_tc} 的學額狀態、學費、班別、申請資訊和位置整理。`,
   };
 
   return (
@@ -92,12 +83,9 @@ export default async function SchoolDetailPage({ params }: Props) {
       <SchoolDetailClient
         school={school}
         vacancy={vacancy}
+        enrichment={enrichment}
+        officialProfile={officialProfile}
       />
-      <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <OfficialProfileSection profile={officialProfile} />
-        <ReputationSection enrichment={enrichment} />
-        <AdmissionsSection school={school} enrichment={enrichment} />
-      </div>
     </div>
   );
 }

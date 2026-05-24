@@ -1,20 +1,22 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { CaretLeft } from "@phosphor-icons/react";
+import { ArrowSquareOut, CaretLeft } from "@phosphor-icons/react";
 import { SourceTag } from "@/components/schools/SourceTag";
 import { SchoolAvatar } from "@/components/schools/SchoolAvatar";
 import { VacancySection } from "@/components/schools/VacancySection";
 import { BasicInfoSection } from "@/components/schools/BasicInfoSection";
 import { FeesSection } from "@/components/schools/FeesSection";
-import { OfficialLinksSection } from "@/components/schools/OfficialLinksSection";
-import { DetailBottomCTA } from "@/components/schools/DetailBottomCTA";
+import { AdmissionsSection } from "@/components/schools/AdmissionsSection";
+import { OfficialProfileSection } from "@/components/schools/OfficialProfileSection";
 import { ReminderSheet } from "@/components/schools/ReminderSheet";
 import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
 import { useAuth } from "@/components/layout/AuthProvider";
 import { useToast } from "@/components/ui/Toast";
-import { DISTRICT_LABELS, formatEnglishSchoolName, isVacancyStale, deadlineStatus } from "@/lib/utils";
+import { DISTRICT_LABELS, formatEnglishSchoolName, isVacancyStale } from "@/lib/utils";
 import type { School, Vacancy, DataSource } from "@/types/database";
+import type { SchoolEnrichment } from "@/lib/db/schools";
+import type { KgpOfficialProfile } from "@/lib/schools/kgpProfile";
 import { useCompare } from "@/lib/hooks/useCompare";
 import Link from "next/link";
 
@@ -30,9 +32,11 @@ async function getErrorMessage(response: Response, fallback: string) {
 interface Props {
   school: School;
   vacancy: Vacancy | null;
+  enrichment: SchoolEnrichment | null;
+  officialProfile: KgpOfficialProfile | null;
 }
 
-export function SchoolDetailClient({ school, vacancy }: Props) {
+export function SchoolDetailClient({ school, vacancy, enrichment, officialProfile }: Props) {
   const { user, requireAuth } = useAuth();
   const { showToast } = useToast();
   const { addToCompare, removeFromCompare, isInCompare, canAdd } = useCompare();
@@ -41,7 +45,6 @@ export function SchoolDetailClient({ school, vacancy }: Props) {
   const [showUnfavoriteConfirm, setShowUnfavoriteConfirm] = useState(false);
 
   const stale = vacancy ? isVacancyStale(vacancy.edb_published_date) : true;
-  const dlStatus = vacancy ? deadlineStatus(vacancy.application_deadline) : null;
   const displayNameEn = formatEnglishSchoolName(school.name_en?.trim() || school.name_tc);
   const hasChineseName = /[\u3400-\u9fff]/.test(school.name_tc);
   // 中文名存在 → 中文为主标题、英文为副标题
@@ -136,9 +139,18 @@ export function SchoolDetailClient({ school, vacancy }: Props) {
     }
   };
 
+  const toggleCompare = () => {
+    if (isInCompare(school.id)) {
+      removeFromCompare(school.id);
+    } else if (canAdd) {
+      requireAuth(() => {
+        addToCompare({ id: school.id, nameTc: school.name_tc, logoUrl: school.logo_url });
+      });
+    }
+  };
+
   return (
-    <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
-      {/* Back link */}
+    <div className="mx-auto max-w-6xl px-5 py-8 md:px-8">
       <Link
         href="/kg"
         className="inline-flex items-center gap-1 text-sm text-ink-500 hover:text-ink-700 transition-colors mb-6"
@@ -147,56 +159,84 @@ export function SchoolDetailClient({ school, vacancy }: Props) {
         返回搵學校
       </Link>
 
-      {/* School header */}
-      <div className="mb-8">
-        <div className="flex items-start gap-4">
-          <SchoolAvatar
-            schoolId={school.id}
-            schoolName={primaryName}
-            logoUrl={school.logo_url}
-            schoolCode={school.school_code}
-            size="lg"
-            shape="rounded"
-          />
+      <div className="mb-8 grid gap-5 lg:grid-cols-[minmax(0,1fr)_360px]">
+        <section className="rounded-card border border-surface-border bg-white p-5 shadow-soft md:p-6">
+          <div className="flex items-start gap-4">
+            <SchoolAvatar
+              schoolId={school.id}
+              schoolName={primaryName}
+              logoUrl={school.logo_url}
+              schoolCode={school.school_code}
+              size="lg"
+              shape="rounded"
+            />
 
-          <div className="min-w-0">
-            <div className="flex items-center gap-2 mb-2 flex-wrap">
-              <span className="text-small text-ink-500">
-                {DISTRICT_LABELS[school.district as keyof typeof DISTRICT_LABELS]}
-              </span>
-              {school.school_code && (
-                <span className="px-2 py-1 rounded-full text-xs font-medium bg-cream-100 text-ink-700">
-                  {school.school_code}
+            <div className="min-w-0 flex-1">
+              <div className="mb-3 flex flex-wrap items-center gap-2">
+                <span className="inline-flex h-7 items-center rounded-pill bg-forest-50 px-3 text-xs font-semibold text-forest-700">
+                  {DISTRICT_LABELS[school.district as keyof typeof DISTRICT_LABELS]}
                 </span>
+                <span className="inline-flex h-7 items-center rounded-pill bg-cream-100 px-3 text-xs font-semibold text-ink-700">
+                  {school.school_type === "international"
+                    ? "國際"
+                    : school.school_type === "private_independent"
+                      ? "私立獨立"
+                      : "非牟利"}
+                </span>
+                <SourceTag source={school.data_source as DataSource} />
+              </div>
+              <h1 className="text-2xl font-bold tracking-normal text-ink-900 md:text-3xl">{primaryName}</h1>
+              {secondaryName && <p className="mt-2 text-base leading-relaxed text-ink-500">{secondaryName}</p>}
+              {school.school_code && (
+                <p className="mt-2 text-sm text-ink-500">學校編號：{school.school_code}</p>
               )}
-              <SourceTag source={school.data_source as DataSource} />
             </div>
-            <h1 className="text-2xl font-bold tracking-tight text-ink-900">{primaryName}</h1>
-            {secondaryName && <p className="text-base text-ink-500 mt-1">{secondaryName}</p>}
           </div>
-        </div>
+
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <button
+              type="button"
+              onClick={handleToggleFavorite}
+              className={`inline-flex h-12 items-center justify-center rounded-pill px-5 text-sm font-semibold transition ${
+                isFavorited
+                  ? "bg-forest-700 text-white"
+                  : "border border-forest-700 bg-white text-forest-700 hover:bg-forest-50"
+              }`}
+            >
+              {isFavorited ? "已收藏" : "收藏"}
+            </button>
+            <button
+              type="button"
+              onClick={toggleCompare}
+              className={`inline-flex h-12 items-center justify-center rounded-pill px-5 text-sm font-semibold transition ${
+                isInCompare(school.id)
+                  ? "bg-forest-700 text-white"
+                  : "border border-forest-700 bg-white text-forest-700 hover:bg-forest-50"
+              }`}
+            >
+              {isInCompare(school.id) ? "已加入對比" : "加入對比"}
+            </button>
+            {school.website && (
+              <a
+                href={school.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 items-center justify-center gap-1.5 rounded-pill bg-forest-700 px-5 text-sm font-semibold text-white hover:bg-forest-800"
+              >
+                學校官網
+                <ArrowSquareOut size={16} weight="regular" aria-hidden="true" />
+              </a>
+            )}
+          </div>
+        </section>
+
+        <VacancySection vacancy={vacancy} isStale={stale} />
       </div>
 
-      <VacancySection vacancy={vacancy} isStale={stale} deadlineStatus={dlStatus} schoolWebsite={school.website} />
       <BasicInfoSection school={school} />
-      <OfficialLinksSection school={school} />
       <FeesSection school={school} />
-
-      <DetailBottomCTA
-        school={school}
-        isFavorited={isFavorited}
-        onToggleFavorite={handleToggleFavorite}
-        isInCompare={isInCompare(school.id)}
-        onToggleCompare={() => {
-          if (isInCompare(school.id)) {
-            removeFromCompare(school.id);
-          } else if (canAdd) {
-            requireAuth(() => {
-              addToCompare({ id: school.id, nameTc: school.name_tc, logoUrl: school.logo_url });
-            });
-          }
-        }}
-      />
+      <AdmissionsSection school={school} enrichment={enrichment} />
+      <OfficialProfileSection profile={officialProfile} />
 
       <ReminderSheet
         isOpen={showReminderSheet}

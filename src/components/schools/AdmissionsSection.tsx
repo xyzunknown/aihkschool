@@ -130,31 +130,6 @@ export function AdmissionsSection({ school, enrichment }: AdmissionsSectionProps
             </div>
           )}
 
-          {/* K1/K2/K3 vacancy status from enrichment */}
-          {enrichment && (enrichment.vacancy_k1 || enrichment.vacancy_k2 || enrichment.vacancy_k3) && (
-            <div className="border-t border-surface-border pt-5">
-              <div className="text-xs font-medium text-ink-500 uppercase tracking-wide mb-2">
-                各級空缺狀態（官網）
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {enrichment.vacancy_k1 && (
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-cream-100 text-ink-700">
-                    K1：{enrichment.vacancy_k1}
-                  </span>
-                )}
-                {enrichment.vacancy_k2 && (
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-cream-100 text-ink-700">
-                    K2：{enrichment.vacancy_k2}
-                  </span>
-                )}
-                {enrichment.vacancy_k3 && (
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-cream-100 text-ink-700">
-                    K3：{enrichment.vacancy_k3}
-                  </span>
-                )}
-              </div>
-            </div>
-          )}
         </div>
       </GlassCard>
     </section>
