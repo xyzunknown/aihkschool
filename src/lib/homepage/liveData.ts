@@ -15,6 +15,7 @@ import {
   DISTRICT_LABELS,
   SCHOOL_TYPE_LABELS,
   formatEnglishSchoolName,
+  normalizeVacancyStatus,
 } from "@/lib/utils";
 import { extractIsoDate } from "@/lib/utils/extractIsoDate";
 import { normalizeNewsHref } from "@/lib/news/links";
@@ -83,6 +84,14 @@ type FeaturedSchoolRow = {
 
 const FEATURED_SCHOOL_FIELDS =
   "id, school_code, logo_url, name_tc, name_en, district, school_type, session_type, has_nursery, schooland_group_tag, schooland_nursery_service, schooland_size_label, schooland_session_label, vacancies ( k1_vacancy, k2_vacancy, k3_vacancy, edb_published_date, is_current )";
+
+const HOMEPAGE_FEATURED_SCHOOL_LIMIT = 3;
+const HOMEPAGE_FEATURED_STATUS_PRIORITY = {
+  has_vacancy: 4,
+  waiting_list: 3,
+  no_vacancy: 2,
+  no_information: 0,
+} as const;
 
 const HOMEPAGE_BANNER_ENABLED_VALUES = new Set([
   "1",
@@ -940,6 +949,47 @@ function toFeaturedSchool(
   } satisfies FeaturedSchool;
 }
 
+function getFeaturedVacancyStatuses(school: FeaturedSchool) {
+  const status = school.vacancyStatus;
+  if (!status) return [];
+
+  return ([status.k1, status.k2, status.k3] as const).map((value) =>
+    normalizeVacancyStatus(value as Parameters<typeof normalizeVacancyStatus>[0])
+  );
+}
+
+function hasHomepageVacancyStatus(school: FeaturedSchool): boolean {
+  return getFeaturedVacancyStatuses(school).some((status) => status !== "no_information");
+}
+
+function getHomepageVacancyPriority(school: FeaturedSchool): number {
+  return getFeaturedVacancyStatuses(school).reduce(
+    (best, status) => Math.max(best, HOMEPAGE_FEATURED_STATUS_PRIORITY[status]),
+    0
+  );
+}
+
+function getFeaturedVacancyDateTime(school: FeaturedSchool): number {
+  if (!school.vacancyPublishedDate) return 0;
+  const timestamp = new Date(school.vacancyPublishedDate).getTime();
+  return Number.isFinite(timestamp) ? timestamp : 0;
+}
+
+function getHomepageFeaturedSchools(schools: FeaturedSchool[]): FeaturedSchool[] {
+  return schools
+    .filter(hasHomepageVacancyStatus)
+    .sort((left, right) => {
+      const priorityDiff = getHomepageVacancyPriority(right) - getHomepageVacancyPriority(left);
+      if (priorityDiff !== 0) return priorityDiff;
+
+      const dateDiff = getFeaturedVacancyDateTime(right) - getFeaturedVacancyDateTime(left);
+      if (dateDiff !== 0) return dateDiff;
+
+      return left.name_tc.localeCompare(right.name_tc, "zh-Hant");
+    })
+    .slice(0, HOMEPAGE_FEATURED_SCHOOL_LIMIT);
+}
+
 function toVacancyTag(value: string | null | undefined): string | null {
   if (!value) return null;
 
@@ -1069,7 +1119,7 @@ async function getHomepageBanners(): Promise<HomeBanner[]> {
 /* ─── Featured schools (picked from top 100 priority list) ─── */
 
 async function getFeaturedSchoolsLive(): Promise<FeaturedSchool[]> {
-  const managed = await getManagedFeaturedSchools();
+  const managed = getHomepageFeaturedSchools(await getManagedFeaturedSchools());
   if (managed.length > 0) return managed;
 
   const parsedPriority = priorityTop100Data as { rows?: PriorityTop100Row[] };
@@ -1077,7 +1127,7 @@ async function getFeaturedSchoolsLive(): Promise<FeaturedSchool[]> {
   const schoolList = await readSchoolList();
 
   if (priorityRows.length === 0 || schoolList.length === 0) {
-    return FEATURED_SCHOOLS;
+    return getHomepageFeaturedSchools(FEATURED_SCHOOLS);
   }
 
   const priorityCodes = priorityRows
@@ -1138,10 +1188,10 @@ async function getFeaturedSchoolsLive(): Promise<FeaturedSchool[]> {
         vacancyPublishedDate: school?.edb_date ?? null,
       } satisfies FeaturedSchool;
     })
-    .filter((school): school is FeaturedSchool => school !== null)
-    .slice(0, 3);
+    .filter((school): school is FeaturedSchool => school !== null);
 
-  return featured.length > 0 ? featured : FEATURED_SCHOOLS;
+  const homepageFeatured = getHomepageFeaturedSchools(featured);
+  return homepageFeatured.length > 0 ? homepageFeatured : getHomepageFeaturedSchools(FEATURED_SCHOOLS);
 }
 
 async function getManagedHomepageBanners(): Promise<HomeBanner[]> {

@@ -15,7 +15,9 @@ interface FeaturedSchoolsProps {
 export function FeaturedSchools({ schools }: FeaturedSchoolsProps) {
   const { requireAuth } = useAuth();
   const { addToCompare, removeFromCompare, isInCompare, canAdd } = useCompare();
-  const list = schools && schools.length > 0 ? schools : FEATURED_SCHOOLS;
+  const list = schools ?? FEATURED_SCHOOLS;
+
+  if (list.length === 0) return null;
 
   return (
     <section className="mb-[72px]">
@@ -56,6 +58,7 @@ export function FeaturedSchools({ schools }: FeaturedSchoolsProps) {
               district={school.district}
               schoolType={school.schoolType ?? undefined}
               schoolandSessionLabel={school.schoolandSessionLabel}
+              hasNursery={school.hasN}
               vacancy={vacancy}
               onToggleFavorite={() => requireAuth(() => {})}
               isInCompare={isInCompare(schoolId)}

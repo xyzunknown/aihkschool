@@ -43,6 +43,7 @@ interface SchoolCardProps {
   distanceKm?: number;
   isInCompare?: boolean;
   onToggleCompare?: () => void;
+  hasNursery?: boolean;
   compact?: boolean;
 }
 
@@ -66,6 +67,7 @@ export function SchoolCard({
   distanceKm,
   isInCompare = false,
   onToggleCompare,
+  hasNursery,
   compact = false,
 }: SchoolCardProps) {
   const router = useRouter();
@@ -81,6 +83,7 @@ export function SchoolCard({
   const districtLabel = DISTRICT_LABELS[district as keyof typeof DISTRICT_LABELS] ?? district;
   const sessionText = formatSessionLabel(sessionType, schoolandSessionLabel);
   const isPrivateOrInternational = schoolType === "international" || schoolType === "private_independent";
+  const showNurseryChip = hasNursery ?? hasNurseryVacancy(vacancy?.n_vacancy);
   const admissionText = admissionSummary || getAdmissionSummary({
     schoolType,
     applicationStatus,
@@ -159,7 +162,7 @@ export function SchoolCard({
       <div className={`${compact ? "mt-3 gap-1.5" : "mt-5 gap-2"} flex flex-wrap items-center text-small`}>
         <InfoChip label={schoolTypeInfo.shortLabel} tone="brand" compact={compact} />
         <InfoChip label={sessionText === "—" ? "班別待更新" : `${sessionText}班`} compact={compact} />
-        <InfoChip label={hasNurseryVacancy(vacancy?.n_vacancy) ? "設 N 班" : "N 班待查"} compact={compact} />
+        {showNurseryChip ? <InfoChip label="設有 N 班" compact={compact} /> : null}
         <InfoChip label={formatLocationChip(distanceKm, districtLabel)} compact={compact} />
       </div>
 
