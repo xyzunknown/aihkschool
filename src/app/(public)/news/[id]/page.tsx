@@ -3,19 +3,13 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import * as cheerio from "cheerio";
 import { getAllNewsItems, getNewsItemById } from "@/lib/homepage/liveData";
-import { NEWS_ITEMS } from "@/data/homepage";
 import type { NewsItem } from "@/types/homepage";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { absoluteUrl, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 import { normalizeNewsHref } from "@/lib/news/links";
 
 export const revalidate = 3600;
-
-export function generateStaticParams() {
-  return NEWS_ITEMS
-    .filter((item) => !item.is_external)
-    .map((item) => ({ id: item.id }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,

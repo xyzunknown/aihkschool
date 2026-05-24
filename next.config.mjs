@@ -77,6 +77,7 @@ const nextConfig = {
   },
   experimental: {
     instrumentationHook: true,
+    webpackBuildWorker: false,
   },
   webpack(config, { isServer, nextRuntime }) {
     if (useStablePagesManifest && isServer) {
