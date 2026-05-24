@@ -20,7 +20,7 @@ export function FeaturedSchools({ schools }: FeaturedSchoolsProps) {
   if (list.length === 0) return null;
 
   return (
-    <section className="mb-[72px]">
+    <section className="mb-[72px] mt-8 md:mt-10">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-semibold text-ink-900">熱點學校</h2>
         <Link

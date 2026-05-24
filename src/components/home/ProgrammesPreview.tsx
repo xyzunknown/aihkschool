@@ -14,7 +14,7 @@ export async function ProgrammesPreview() {
   if (programmes.length === 0) return null;
 
   return (
-    <section className="mt-0">
+    <section className="mt-12">
       <div className="mb-7 flex items-center justify-between gap-4">
         <div>
           <h2 className="flex items-center gap-2 text-[24px] font-semibold leading-tight text-ink-900 md:text-[28px]">

@@ -17,7 +17,7 @@ interface NewsFeedProps {
 
 export function NewsFeed({ items }: NewsFeedProps) {
   return (
-    <section className="mb-10">
+    <section className="mb-10 mt-12">
       <div className="mb-6 flex items-center justify-between">
         <h2 className="text-xl font-semibold text-ink-900">消息動態</h2>
         <Link
