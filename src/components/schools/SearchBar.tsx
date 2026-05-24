@@ -182,7 +182,7 @@ export function SearchBar({ initialQuery, onSearch }: SearchBarProps) {
         </svg>
         <input
           type="text"
-          placeholder="搜尋學校名稱、地區或英文名..."
+          placeholder="搜尋學校名稱、地區、英文名或拼音..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onFocus={() => setIsFocused(true)}

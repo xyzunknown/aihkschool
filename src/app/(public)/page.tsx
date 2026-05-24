@@ -45,7 +45,7 @@ export default async function HomePage({
           ],
         })}
       />
-      <div className="max-w-6xl mx-auto px-5 md:px-8">
+      <div className="mx-auto max-w-[1280px] px-5 md:px-10">
         {authErrorMessage ? (
           <section className="pt-6">
             <div className="rounded-2xl border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-950 md:px-5">
@@ -57,7 +57,7 @@ export default async function HomePage({
 
       <Hero banners={liveData.banners} />
 
-      <div className="max-w-6xl mx-auto px-5 md:px-8">
+      <div className="mx-auto max-w-[1280px] px-5 md:px-10">
         {/* 熱點學校 */}
         <FeaturedSchools schools={liveData.featuredSchools} />
 

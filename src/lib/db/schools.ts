@@ -5,7 +5,7 @@ import {
   getAdmissionSummary,
   shouldShowAdmissionSummary,
 } from "@/lib/schools/admissions";
-import { getSearchTextVariants, matchesSearchText } from "@/lib/schools/searchText";
+import { getSearchDatabaseTerms, matchesSearchText } from "@/lib/schools/searchText";
 import type { School, District, SchoolType, SessionType, VacancyStatus } from "@/types/database";
 
 export type SessionFilter = SessionType | "half_day";
@@ -216,7 +216,7 @@ function buildSchoolListQuery(
     query = query.eq("schooland_size_label", schoolandSize);
   }
   if (search && search.trim()) {
-    const variants = getSearchTextVariants(search)
+    const variants = getSearchDatabaseTerms(search)
       .map((value) => value.replace(/[%_,()]/g, " ").replace(/\s+/g, " ").trim())
       .filter(Boolean);
     const clauses = variants.flatMap((value) => [
@@ -362,6 +362,14 @@ export async function fetchSchools(params: FetchSchoolsParams = {}) {
 
       return statuses.some((status) => vacancyStatuses.includes(status));
     });
+  }
+
+  if (params.search?.trim()) {
+    schools = schools.filter((school) =>
+      matchesSearchText(school.name_tc ?? "", params.search!) ||
+      matchesSearchText(school.name_en ?? "", params.search!) ||
+      matchesSearchText(school.district ?? "", params.search!),
+    );
   }
 
   const defaultSort = (a: (typeof schools)[number], b: (typeof schools)[number]) => {

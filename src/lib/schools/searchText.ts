@@ -1,3 +1,5 @@
+import { pinyin } from "pinyin-pro";
+
 const SIMPLIFIED_TO_TRADITIONAL: Record<string, string> = {
   学: "學",
   园: "園",
@@ -79,19 +81,90 @@ export function getSearchTextVariants(input: string) {
 }
 
 export function normalizeSearchText(input: string) {
-  return toTraditionalSearchText(input).toLocaleLowerCase("zh-Hant-HK");
+  return toTraditionalSearchText(input)
+    .toLocaleLowerCase("zh-Hant-HK")
+    .split("")
+    .filter((char) => /[a-z0-9]/i.test(char) || isChineseCharacter(char))
+    .join("");
+}
+
+function normalizePinyinText(input: string) {
+  return input
+    .toLocaleLowerCase("en")
+    .replace(/[^a-z0-9]+/g, "");
+}
+
+export function isLatinSearchText(input: string) {
+  const normalized = input.trim();
+  return /^[a-z0-9\s'-]+$/i.test(normalized) && /[a-z]/i.test(normalized);
+}
+
+export function getPinyinSearchText(input: string) {
+  return normalizePinyinText(pinyin(toTraditionalSearchText(input), { toneType: "none" }));
+}
+
+function isOrderedSubsequence(value: string, query: string) {
+  if (!query) return true;
+  let queryIndex = 0;
+  for (const char of value) {
+    if (char === query[queryIndex]) {
+      queryIndex += 1;
+      if (queryIndex === query.length) return true;
+    }
+  }
+  return false;
+}
+
+function isChineseCharacter(char: string) {
+  const code = char.charCodeAt(0);
+  return (
+    (code >= 0x3400 && code <= 0x4dbf) ||
+    (code >= 0x4e00 && code <= 0x9fff) ||
+    (code >= 0xf900 && code <= 0xfaff)
+  );
+}
+
+export function getSearchDatabaseTerms(input: string) {
+  const normalized = normalizeSearchText(input);
+  if (!normalized) return [];
+  if (isLatinSearchText(normalized)) return [];
+
+  const variants = getSearchTextVariants(input)
+    .map(normalizeSearchText)
+    .filter(Boolean);
+  const characters = Array.from(normalized).filter(isChineseCharacter);
+
+  return Array.from(new Set([
+    ...variants,
+    ...characters.filter((char, index) => index < 4),
+  ]));
 }
 
 export function matchesSearchText(value: string, query: string) {
   const normalizedQueries = getSearchTextVariants(query).map(normalizeSearchText);
   if (normalizedQueries.length === 0) return true;
   const normalizedValue = normalizeSearchText(value);
-  return normalizedQueries.some((normalizedQuery) => normalizedValue.includes(normalizedQuery));
+  const pinyinValue = getPinyinSearchText(value);
+
+  return normalizedQueries.some((normalizedQuery) => {
+    if (normalizedValue.includes(normalizedQuery)) return true;
+    if (isOrderedSubsequence(normalizedValue, normalizedQuery)) return true;
+    if (isLatinSearchText(query)) {
+      const pinyinQuery = normalizePinyinText(query);
+      if (pinyinValue.includes(pinyinQuery)) return true;
+      if (isOrderedSubsequence(pinyinValue, pinyinQuery)) return true;
+    }
+    return false;
+  });
 }
 
 export function startsWithSearchText(value: string, query: string) {
   const normalizedQueries = getSearchTextVariants(query).map(normalizeSearchText);
   if (normalizedQueries.length === 0) return false;
   const normalizedValue = normalizeSearchText(value);
-  return normalizedQueries.some((normalizedQuery) => normalizedValue.startsWith(normalizedQuery));
+  const pinyinValue = getPinyinSearchText(value);
+  return normalizedQueries.some((normalizedQuery) =>
+    normalizedValue.startsWith(normalizedQuery) ||
+    (isLatinSearchText(query) && pinyinValue.startsWith(normalizePinyinText(query)))
+  );
 }

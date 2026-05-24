@@ -18,7 +18,7 @@ export function FeaturedSchools({ schools }: FeaturedSchoolsProps) {
   const list = schools && schools.length > 0 ? schools : FEATURED_SCHOOLS;
 
   return (
-    <section className="mb-10">
+    <section className="mb-[72px]">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-semibold text-slate-950">熱點學校</h2>
         <Link

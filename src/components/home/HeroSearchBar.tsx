@@ -1,9 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
+import { startsWithSearchText } from "@/lib/schools/searchText";
+
+interface Suggestion {
+  id: string;
+  name_tc: string;
+  name_en: string | null;
+  district: string;
+}
 
 const QUICK_FILTERS = [
   { label: "中西區", href: "/kg?district=central_and_western" },
@@ -13,8 +21,47 @@ const QUICK_FILTERS = [
 
 export function HeroSearchBar({ variant = "default" }: { variant?: "default" | "hero" }) {
   const [query, setQuery] = useState("");
+  const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
+  const [isFocused, setIsFocused] = useState(false);
   const router = useRouter();
   const isHero = variant === "hero";
+  const trimmed = query.trim();
+
+  useEffect(() => {
+    if (!trimmed) {
+      setSuggestions([]);
+      return;
+    }
+
+    const controller = new AbortController();
+    const timer = setTimeout(async () => {
+      try {
+        const res = await fetch(`/api/schools?search=${encodeURIComponent(trimmed)}&limit=8`, {
+          signal: controller.signal,
+        });
+        if (!res.ok) return;
+        const json = await res.json();
+        const data = Array.isArray(json.data) ? json.data as Suggestion[] : [];
+        setSuggestions(data.sort((a, b) => {
+          const aStarts = startsWithSearchText(a.name_tc, trimmed) ? 0 : 1;
+          const bStarts = startsWithSearchText(b.name_tc, trimmed) ? 0 : 1;
+          return aStarts - bStarts || a.name_tc.localeCompare(b.name_tc, "zh-Hant-HK");
+        }));
+      } catch (error) {
+        if (!(error instanceof DOMException && error.name === "AbortError")) {
+          setSuggestions([]);
+        }
+      }
+    }, 120);
+
+    return () => {
+      controller.abort();
+      clearTimeout(timer);
+    };
+  }, [trimmed]);
+
+  const visibleSuggestions = useMemo(() => suggestions.slice(0, 6), [suggestions]);
+  const showSuggestions = (isFocused || trimmed) && visibleSuggestions.length > 0;
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -36,17 +83,38 @@ export function HeroSearchBar({ variant = "default" }: { variant?: "default" | "
             : "flex gap-3"
         }
       >
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="搜尋學校名稱、地區…"
-          className={
-            isHero
-              ? "min-w-0 flex-1 rounded-2xl border border-slate-200 bg-white/95 px-4 py-3 text-[15px] text-slate-950 placeholder-slate-400 shadow-[0_12px_28px_rgba(31,42,36,0.08)] transition-colors focus:border-brand-500 focus:outline-none"
-              : "flex-1 rounded-xl border border-slate-200 bg-white px-6 py-3 text-slate-950 placeholder-slate-400 transition-colors focus:border-slate-400 focus:outline-none"
-          }
-        />
+        <div className="relative min-w-0 flex-1">
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => window.setTimeout(() => setIsFocused(false), 120)}
+            placeholder="搜尋學校名稱、地區或拼音…"
+            className={
+              isHero
+                ? "min-w-0 w-full rounded-2xl border border-slate-200 bg-white/95 px-4 py-3 text-[15px] text-slate-950 placeholder-slate-400 shadow-[0_12px_28px_rgba(31,42,36,0.08)] transition-colors focus:border-brand-500 focus:outline-none"
+                : "w-full rounded-xl border border-slate-200 bg-white px-6 py-3 text-slate-950 placeholder-slate-400 transition-colors focus:border-slate-400 focus:outline-none"
+            }
+          />
+          {showSuggestions && (
+            <div className="absolute left-0 right-0 top-full z-30 mt-2 max-h-[320px] overflow-auto rounded-2xl border border-slate-200 bg-white text-left shadow-[0_18px_42px_rgba(15,23,42,0.14)]">
+              {visibleSuggestions.map((school) => (
+                <Link
+                  key={school.id}
+                  href={`/kg/${school.id}`}
+                  onMouseDown={(event) => event.preventDefault()}
+                  className="block px-4 py-3 transition hover:bg-brand-50"
+                >
+                  <p className="truncate text-sm font-semibold text-slate-900">{school.name_tc}</p>
+                  <p className="mt-0.5 truncate text-xs text-slate-500">
+                    {[school.name_en, school.district].filter(Boolean).join(" · ")}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
         <Button
           type="submit"
           variant="primary"

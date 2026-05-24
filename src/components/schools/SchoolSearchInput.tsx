@@ -34,7 +34,7 @@ export function SchoolSearchInput({ onSelect, inputClassName, labelClassName }: 
     <div>
       <label className={labelClassName}>學校 *</label>
       <div className="relative">
-        <input type="text" placeholder="輸入學校名稱搜尋…" value={query}
+        <input type="text" placeholder="輸入學校名稱或拼音搜尋…" value={query}
           onChange={(e) => search(e.target.value)} className={inputClassName} />
         {selected && <span className="text-sm text-emerald-700 mt-1 block">已選擇：{selected}</span>}
         {results.length > 0 && (

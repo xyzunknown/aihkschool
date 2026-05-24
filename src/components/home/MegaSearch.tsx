@@ -39,7 +39,7 @@ export function MegaSearch() {
 
   function buildSearchParams() {
     const params = new URLSearchParams();
-    if (q) params.set("q", q);
+    if (q) params.set("search", q);
     if (district) params.set("district", district);
     if (grade) params.set("grade", grade);
     if (session) params.set("session", session);
