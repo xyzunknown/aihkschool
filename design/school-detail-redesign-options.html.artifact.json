@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "design/school-detail-redesign-options.html",
+  "entry": "design/school-detail-redesign-options.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-05-24T14:22:59.221Z",
+  "updatedAt": "2026-05-24T14:22:59.225Z",
+  "metadata": {
+    "inferred": true
+  }
+}

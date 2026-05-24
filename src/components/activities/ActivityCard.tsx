@@ -28,11 +28,11 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
   const venueSummary = getDisplayVenue(activity, districtLabel);
 
   return (
-    <article className="overflow-hidden rounded-card border border-surface-border bg-white p-4 shadow-soft transition-colors hover:border-forest-200 md:p-5">
-      <div className="flex flex-col md:flex-row">
+    <article className="activity-card overflow-hidden rounded-card border border-surface-border bg-white p-4 shadow-soft transition-colors hover:border-forest-200 md:p-5">
+      <div className="activity-card__body">
         <Link
           href={detailHref}
-          className="relative block h-[180px] overflow-hidden rounded-button bg-cream-100 md:h-[196px] md:w-[260px] md:shrink-0"
+          className="activity-card__image relative block overflow-hidden rounded-button bg-cream-100"
           aria-label={`${activity.title} 活動詳情`}
         >
           <Image
@@ -40,12 +40,12 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
             alt={activity.title}
             fill
             priority={priority}
-            sizes="(min-width: 768px) 260px, 100vw"
+            sizes="(min-width: 1280px) 260px, (min-width: 768px) 50vw, 100vw"
             className="object-cover object-center saturate-[0.82] brightness-[1.06]"
           />
         </Link>
 
-        <div className="flex min-w-0 flex-1 flex-col pt-4 md:pl-5 md:pt-0">
+        <div className="activity-card__content flex min-w-0 flex-1 flex-col">
           <div className="flex items-center gap-2">
             <span className="inline-flex h-6 items-center justify-center whitespace-nowrap rounded-pill bg-leaf-50 px-2.5 text-label font-medium text-forest-700">
               {CATEGORY_LABELS[activity.category]}
@@ -108,10 +108,10 @@ const KNOWN_VENUES = [
 
 export function ActivityCardSkeleton() {
   return (
-    <div className="animate-pulse overflow-hidden rounded-card border border-surface-border bg-white p-4 shadow-soft md:p-5">
-      <div className="flex flex-col md:flex-row">
-        <div className="h-[180px] w-full rounded-button bg-cream-100 md:h-[196px] md:w-[260px]" />
-        <div className="flex-1 space-y-4 pt-4 md:pl-5 md:pt-0">
+    <div className="activity-card animate-pulse overflow-hidden rounded-card border border-surface-border bg-white p-4 shadow-soft md:p-5">
+      <div className="activity-card__body">
+        <div className="activity-card__image rounded-button bg-cream-100" />
+        <div className="activity-card__content flex-1 space-y-4">
           <div className="flex gap-2">
             <div className="h-6 w-16 rounded-pill bg-cream-100" />
             <div className="h-6 w-16 rounded-pill bg-cream-100" />

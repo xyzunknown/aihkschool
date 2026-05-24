@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { Check, Copy, ExternalLink, Facebook, Link2, MessageCircle, Send, Share2, X } from "lucide-react";
 import type { NewsItem } from "@/types/homepage";
 import { normalizeNewsHref } from "@/lib/news/links";
 
@@ -23,6 +24,12 @@ const SOURCE_STYLES: Record<string, string> = {
 };
 
 type CategoryKey = (typeof CATEGORIES)[number]["key"];
+
+type ShareTarget = {
+  title: string;
+  summary?: string | null;
+  url: string;
+};
 
 function sourceStyle(source: string): string {
   return SOURCE_STYLES[source] ?? "bg-cream-200 text-ink-700";
@@ -66,6 +73,9 @@ export function NewsClient() {
   const [items, setItems] = useState<NewsItem[]>([]);
   const [activeCategory, setActiveCategory] = useState<CategoryKey>("all");
   const [isLoading, setIsLoading] = useState(true);
+  const [shareTarget, setShareTarget] = useState<ShareTarget | null>(null);
+  const [shareStatus, setShareStatus] = useState<"idle" | "copied" | "failed">("idle");
+  const [canUseNativeShare, setCanUseNativeShare] = useState(false);
   const requestedTab = searchParams?.get("tab") ?? null;
 
   const fetchNews = useCallback(async () => {
@@ -88,6 +98,24 @@ export function NewsClient() {
   }, [fetchNews]);
 
   useEffect(() => {
+    setCanUseNativeShare(typeof navigator !== "undefined" && "share" in navigator);
+  }, []);
+
+  useEffect(() => {
+    if (!shareTarget) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setShareTarget(null);
+        setShareStatus("idle");
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [shareTarget]);
+
+  useEffect(() => {
     const normalizedTab = requestedTab === "latest" ? "all" : requestedTab;
     const nextCategory = CATEGORIES.some((cat) => cat.key === normalizedTab)
       ? (normalizedTab as CategoryKey)
@@ -105,28 +133,43 @@ export function NewsClient() {
 
   async function handleShare(item: NewsItem, href: string) {
     const shareUrl = buildShareUrl(href);
-    const shareData = {
+
+    setShareTarget({
       title: item.title,
-      text: item.summary || item.title,
+      summary: item.summary,
       url: shareUrl,
-    };
+    });
+    setShareStatus("idle");
+  }
+
+  async function copyShareLink() {
+    if (!shareTarget) return;
+    try {
+      setShareStatus((await copyTextToClipboard(shareTarget.url)) ? "copied" : "failed");
+    } catch {
+      setShareStatus("failed");
+    }
+  }
+
+  async function nativeShare() {
+    if (!shareTarget || typeof navigator === "undefined" || !("share" in navigator)) return;
 
     try {
-      if (typeof navigator !== "undefined" && "share" in navigator) {
-        await navigator.share(shareData);
-        return;
-      }
-
-      if (await copyTextToClipboard(shareUrl)) {
-        window.alert("連結已複製");
-        return;
-      }
+      await navigator.share({
+        title: shareTarget.title,
+        text: shareTarget.summary || shareTarget.title,
+        url: shareTarget.url,
+      });
+      setShareTarget(null);
+      setShareStatus("idle");
     } catch {
-      // Fall through to a simple, non-blocking message.
+      // User cancellation should keep the share sheet available.
     }
-
-    window.alert(`請手動複製這個連結：${shareUrl}`);
   }
+
+  const shareText = shareTarget ? `${shareTarget.title}\n${shareTarget.url}` : "";
+  const encodedShareText = encodeURIComponent(shareText);
+  const encodedShareUrl = encodeURIComponent(shareTarget?.url ?? "");
 
   return (
     <>
@@ -208,7 +251,7 @@ export function NewsClient() {
                         <button
                           type="button"
                           aria-label="分享"
-                          className="hover:text-forest-600"
+                          className="rounded-full p-1.5 transition hover:bg-leaf-50 hover:text-forest-600"
                           onClick={(e) => {
                             e.preventDefault();
                             e.stopPropagation();
@@ -243,6 +286,123 @@ export function NewsClient() {
           <polyline points="5 12 12 5 19 12" />
         </svg>
       </button>
+
+      {shareTarget ? (
+        <div
+          className="fixed inset-0 z-50 flex items-end justify-center bg-ink-900/45 px-4 py-4 backdrop-blur-sm md:items-center"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="news-share-title"
+          onClick={() => {
+            setShareTarget(null);
+            setShareStatus("idle");
+          }}
+        >
+          <div
+            className="w-full max-w-md animate-slide-up rounded-card border border-cream-200 bg-white p-5 shadow-card md:animate-fade-in"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="mb-4 flex items-start gap-3">
+              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-leaf-50 text-forest-700">
+                <Share2 aria-hidden="true" size={18} strokeWidth={1.9} />
+              </div>
+              <div className="min-w-0 flex-1">
+                <h2 id="news-share-title" className="text-base font-semibold text-ink-900">
+                  分享這則消息
+                </h2>
+                <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-ink-600">{shareTarget.title}</p>
+              </div>
+              <button
+                type="button"
+                aria-label="關閉分享"
+                className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-ink-500 transition hover:bg-cream-100 hover:text-ink-900"
+                onClick={() => {
+                  setShareTarget(null);
+                  setShareStatus("idle");
+                }}
+              >
+                <X aria-hidden="true" size={18} strokeWidth={1.8} />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-4 gap-2">
+              <a
+                href={`https://wa.me/?text=${encodedShareText}`}
+                target="_blank"
+                rel="noreferrer"
+                className="flex min-h-[76px] flex-col items-center justify-center rounded-card border border-cream-200 bg-white px-2 text-center text-xs font-medium text-ink-700 transition hover:border-forest-200 hover:bg-leaf-50"
+              >
+                <MessageCircle aria-hidden="true" className="mb-2 text-[#128C7E]" size={22} strokeWidth={1.8} />
+                WhatsApp
+              </a>
+              <a
+                href={`https://t.me/share/url?url=${encodedShareUrl}&text=${encodeURIComponent(shareTarget.title)}`}
+                target="_blank"
+                rel="noreferrer"
+                className="flex min-h-[76px] flex-col items-center justify-center rounded-card border border-cream-200 bg-white px-2 text-center text-xs font-medium text-ink-700 transition hover:border-forest-200 hover:bg-leaf-50"
+              >
+                <Send aria-hidden="true" className="mb-2 text-[#229ED9]" size={22} strokeWidth={1.8} />
+                Telegram
+              </a>
+              <a
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodedShareUrl}`}
+                target="_blank"
+                rel="noreferrer"
+                className="flex min-h-[76px] flex-col items-center justify-center rounded-card border border-cream-200 bg-white px-2 text-center text-xs font-medium text-ink-700 transition hover:border-forest-200 hover:bg-leaf-50"
+              >
+                <Facebook aria-hidden="true" className="mb-2 text-[#1877F2]" size={22} strokeWidth={1.8} />
+                Facebook
+              </a>
+              <button
+                type="button"
+                className="flex min-h-[76px] flex-col items-center justify-center rounded-card border border-cream-200 bg-white px-2 text-center text-xs font-medium text-ink-700 transition hover:border-forest-200 hover:bg-leaf-50"
+                onClick={copyShareLink}
+              >
+                {shareStatus === "copied" ? (
+                  <Check aria-hidden="true" className="mb-2 text-forest-600" size={22} strokeWidth={1.9} />
+                ) : (
+                  <Copy aria-hidden="true" className="mb-2 text-forest-700" size={22} strokeWidth={1.8} />
+                )}
+                複製連結
+              </button>
+            </div>
+
+            <div className="mt-4 rounded-card bg-cream-100 px-3 py-2">
+              <div className="flex items-center gap-2 text-xs text-ink-600">
+                <Link2 aria-hidden="true" size={14} strokeWidth={1.8} className="flex-shrink-0 text-forest-600" />
+                <span className="min-w-0 truncate">{shareTarget.url}</span>
+              </div>
+            </div>
+
+            <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+              {canUseNativeShare ? (
+                <button
+                  type="button"
+                  className="inline-flex h-11 flex-1 items-center justify-center gap-2 rounded-pill bg-forest-600 px-4 text-sm font-semibold text-white transition hover:bg-forest-700"
+                  onClick={nativeShare}
+                >
+                  <Share2 aria-hidden="true" size={16} strokeWidth={1.8} />
+                  更多分享方式
+                </button>
+              ) : null}
+              <a
+                href={shareTarget.url}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex h-11 flex-1 items-center justify-center gap-2 rounded-pill border border-cream-200 px-4 text-sm font-semibold text-ink-700 transition hover:bg-cream-100"
+              >
+                <ExternalLink aria-hidden="true" size={16} strokeWidth={1.8} />
+                打開原文
+              </a>
+            </div>
+
+            <div className="mt-3 min-h-5 text-center text-xs text-ink-500">
+              {shareStatus === "copied" ? "連結已複製，可以直接貼到訊息裡。" : null}
+              {shareStatus === "failed" ? "未能自動複製，請長按上方連結手動複製。" : null}
+            </div>
+          </div>
+        </div>
+      ) : null}
     </>
   );
 }

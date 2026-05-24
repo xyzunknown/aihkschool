@@ -69,6 +69,41 @@ main {
 .hide-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 
+.activity-card {
+  container-type: inline-size;
+}
+
+.activity-card__body {
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-card__image {
+  width: 100%;
+  height: 180px;
+  flex: none;
+}
+
+.activity-card__content {
+  padding-top: 1rem;
+}
+
+@container (min-width: 620px) {
+  .activity-card__body {
+    flex-direction: row;
+  }
+
+  .activity-card__image {
+    width: 260px;
+    height: 196px;
+  }
+
+  .activity-card__content {
+    padding-top: 0;
+    padding-left: 1.25rem;
+  }
+}
+
 :where(a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])):focus-visible {
   outline: 2px solid rgba(58, 129, 89, 0.5);
   outline-offset: 2px;

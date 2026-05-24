@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>學校詳情頁四個 redesign 方案</title>
+  <style>
+    :root {
+      --ink-900: #18231d;
+      --ink-700: #34423a;
+      --ink-500: #6b766f;
+      --forest-900: #153f2b;
+      --forest-800: #1d5b3d;
+      --forest-700: #24734b;
+      --forest-100: #e9f5ee;
+      --forest-50: #f4fbf7;
+      --cream-100: #f7f0df;
+      --cream-50: #fbf7ed;
+      --amber-100: #fff1cc;
+      --amber-600: #9b6a10;
+      --blue-50: #eef6ff;
+      --blue-700: #27608f;
+      --rose-50: #fff1f2;
+      --rose-700: #a13a47;
+      --border: #e4ded0;
+      --white: #ffffff;
+      --shadow: 0 18px 50px rgba(28, 48, 38, .08);
+      --soft: 0 8px 28px rgba(28, 48, 38, .07);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #fbf8ef;
+      color: var(--ink-900);
+      letter-spacing: 0;
+    }
+    .page { max-width: 1440px; margin: 0 auto; padding: 28px 24px 56px; }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 16px 18px; border: 1px solid var(--border); background: rgba(255,255,255,.82);
+      border-radius: 8px; box-shadow: var(--soft); position: sticky; top: 12px; z-index: 20; backdrop-filter: blur(16px);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .mark { width: 38px; height: 38px; border-radius: 8px; background: var(--forest-800); color: white; display: grid; place-items: center; font-weight: 900; }
+    .brand h1 { font-size: 18px; line-height: 1.2; margin: 0; }
+    .brand p { margin: 4px 0 0; color: var(--ink-500); font-size: 13px; }
+    .nav { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+    .nav a, .button { color: var(--ink-700); text-decoration: none; border: 1px solid var(--border); background: white; border-radius: 999px; padding: 9px 13px; font-weight: 750; font-size: 13px; }
+    .hero-note { margin: 28px 0 18px; max-width: 780px; }
+    .hero-note h2 { font-size: clamp(28px, 5vw, 48px); line-height: 1.05; margin: 0 0 12px; }
+    .hero-note p { margin: 0; color: var(--ink-700); font-size: 17px; line-height: 1.7; }
+    .scheme { margin-top: 28px; border: 1px solid var(--border); background: rgba(255,255,255,.72); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+    .scheme-head { display: flex; align-items: end; justify-content: space-between; gap: 20px; padding: 22px; border-bottom: 1px solid var(--border); background: white; }
+    .scheme-kicker { color: var(--forest-700); font-size: 13px; font-weight: 850; margin: 0 0 6px; }
+    .scheme h3 { margin: 0; font-size: 25px; line-height: 1.18; }
+    .scheme-head p:last-child { margin: 8px 0 0; color: var(--ink-500); max-width: 760px; line-height: 1.55; }
+    .bestfor { border-radius: 999px; background: var(--forest-50); color: var(--forest-800); padding: 8px 12px; font-size: 13px; font-weight: 850; white-space: nowrap; }
+    .mock { padding: 22px; background: linear-gradient(180deg, #fbf8ef 0%, #f8f1e2 100%); }
+    .browser { border: 1px solid var(--border); background: #fffdf7; border-radius: 8px; overflow: hidden; min-height: 720px; }
+    .chrome { height: 44px; display: flex; align-items: center; gap: 7px; padding: 0 16px; border-bottom: 1px solid var(--border); background: var(--cream-50); }
+    .dot { width: 10px; height: 10px; border-radius: 999px; background: #d2c9b7; }
+    .site-nav { margin-left: 14px; display: flex; align-items: center; gap: 18px; font-size: 13px; color: var(--ink-500); width: 100%; }
+    .site-nav strong { color: var(--forest-800); font-size: 15px; margin-right: auto; }
+    .content { padding: 24px; }
+    .crumb { color: var(--ink-500); font-size: 14px; margin-bottom: 18px; }
+    .school-logo { width: 72px; height: 72px; border-radius: 16px; border: 1px solid var(--border); background: white; display: grid; place-items: center; font-weight: 900; color: var(--forest-800); box-shadow: var(--soft); flex: 0 0 auto; }
+    .hgroup h4 { font-size: 30px; line-height: 1.18; margin: 0; }
+    .hgroup p { color: var(--ink-500); margin: 6px 0 0; font-size: 15px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .chip { border-radius: 999px; background: var(--cream-100); color: var(--ink-700); padding: 7px 10px; font-size: 12px; font-weight: 800; }
+    .chip.green { background: var(--forest-100); color: var(--forest-800); }
+    .chip.blue { background: var(--blue-50); color: var(--blue-700); }
+    .chip.rose { background: var(--rose-50); color: var(--rose-700); }
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .primary { background: var(--forest-800); color: white; border: 0; border-radius: 999px; padding: 12px 16px; font-weight: 900; }
+    .secondary { background: white; color: var(--forest-800); border: 1px solid var(--forest-700); border-radius: 999px; padding: 11px 15px; font-weight: 850; }
+    .ghost { background: white; border: 1px solid var(--border); color: var(--ink-700); border-radius: 999px; padding: 11px 14px; font-weight: 850; }
+    .grid { display: grid; gap: 16px; }
+    .card { border: 1px solid var(--border); background: white; border-radius: 8px; padding: 18px; box-shadow: var(--soft); }
+    .card h5 { margin: 0 0 12px; font-size: 17px; }
+    .muted { color: var(--ink-500); }
+    .small { font-size: 13px; }
+    .metric-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .metric { border-radius: 8px; background: var(--cream-50); border: 1px solid var(--border); padding: 13px; min-height: 82px; }
+    .metric b { display: block; font-size: 20px; margin-top: 8px; color: var(--forest-800); }
+    .vacancy { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .slot { border-radius: 8px; padding: 13px; border: 1px solid var(--border); background: var(--forest-50); min-height: 88px; }
+    .slot.warn { background: var(--amber-100); color: var(--amber-600); }
+    .slot.off { background: #f5f2eb; color: var(--ink-500); }
+    .slot strong { display: block; font-size: 22px; margin-top: 8px; color: inherit; }
+    .info-list { display: grid; gap: 12px; }
+    .info-line { display: grid; grid-template-columns: 120px 1fr; gap: 12px; padding-bottom: 11px; border-bottom: 1px solid #eee8dc; }
+    .map { min-height: 210px; border: 1px solid var(--border); border-radius: 8px; background: repeating-linear-gradient(45deg, #eef3e9 0 12px, #e3eadc 12px 24px); position: relative; overflow: hidden; }
+    .map::after { content: "地圖 / 交通"; position: absolute; inset: auto 14px 14px auto; background: white; color: var(--ink-700); border: 1px solid var(--border); border-radius: 999px; padding: 7px 11px; font-weight: 850; font-size: 12px; }
+    .side-layout { display: grid; grid-template-columns: 1.55fr .8fr; gap: 18px; align-items: start; }
+    .sticky-side { position: sticky; top: 82px; display: grid; gap: 14px; }
+    .summary-band { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 18px 0; }
+    .summary { padding: 15px; border: 1px solid var(--border); background: white; border-radius: 8px; }
+    .summary span { color: var(--ink-500); font-size: 12px; font-weight: 800; }
+    .summary strong { display: block; margin-top: 8px; font-size: 18px; }
+    .tabs { display: flex; gap: 8px; border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 16px; overflow-x: auto; }
+    .tab { border: 1px solid var(--border); background: white; border-radius: 999px; padding: 8px 12px; white-space: nowrap; font-weight: 850; font-size: 13px; }
+    .tab.active { background: var(--forest-800); color: white; border-color: var(--forest-800); }
+    .timeline { display: grid; gap: 12px; }
+    .step { display: grid; grid-template-columns: 32px 1fr; gap: 12px; align-items: start; }
+    .num { width: 32px; height: 32px; border-radius: 999px; background: var(--forest-800); color: white; display: grid; place-items: center; font-weight: 900; }
+    .step-card { padding: 14px; border: 1px solid var(--border); border-radius: 8px; background: white; }
+    .split-hero { display: grid; grid-template-columns: 1fr 420px; gap: 18px; align-items: stretch; margin-bottom: 18px; }
+    .hero-panel { background: var(--forest-900); color: white; border-radius: 8px; padding: 28px; min-height: 290px; display: flex; flex-direction: column; justify-content: space-between; }
+    .hero-panel .muted { color: rgba(255,255,255,.76); }
+    .hero-panel .chip { background: rgba(255,255,255,.12); color: white; border: 1px solid rgba(255,255,255,.2); }
+    .photo { border-radius: 8px; border: 1px solid var(--border); background: linear-gradient(135deg, #e6eadb, #f7e9bd 42%, #b6d1be 43%, #d7eadf); min-height: 290px; position: relative; overflow: hidden; }
+    .photo::before { content: "校園照片位"; position: absolute; left: 18px; bottom: 18px; background: white; border-radius: 999px; padding: 8px 12px; font-size: 12px; font-weight: 900; color: var(--forest-800); }
+    .compare-table { display: grid; gap: 10px; }
+    .compare-row { display: grid; grid-template-columns: 140px 1fr 1fr; gap: 10px; align-items: stretch; }
+    .compare-row > div { border: 1px solid var(--border); border-radius: 8px; padding: 12px; background: white; }
+    .compare-row .label { background: var(--cream-50); color: var(--ink-500); font-weight: 850; }
+    .mobile-wrap { display: flex; justify-content: center; padding: 16px 0 0; }
+    .phone { width: 390px; border: 10px solid #1e2722; border-radius: 34px; background: #fffdf7; overflow: hidden; box-shadow: var(--shadow); }
+    .phone .content { padding: 16px; }
+    .phone-top { height: 34px; display: grid; place-items: center; border-bottom: 1px solid var(--border); background: #fffdf7; }
+    .handle { width: 76px; height: 5px; border-radius: 999px; background: #1e2722; opacity: .18; }
+    .mobile-hero { display: flex; gap: 12px; align-items: start; margin-bottom: 14px; }
+    .phone .school-logo { width: 58px; height: 58px; border-radius: 14px; }
+    .phone h4 { font-size: 22px; margin: 0; line-height: 1.18; }
+    .quick-stack { display: grid; gap: 10px; }
+    .sticky-cta { display: grid; grid-template-columns: 1fr 1fr 52px; gap: 8px; padding: 12px; border-top: 1px solid var(--border); background: white; position: sticky; bottom: 0; }
+    .icon-btn { border: 1px solid var(--border); background: white; border-radius: 999px; display: grid; place-items: center; font-weight: 900; color: var(--forest-800); }
+    .ascii { margin-top: 20px; background: #17221c; color: #eaf4ed; padding: 16px; border-radius: 8px; overflow-x: auto; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; line-height: 1.45; }
+    @media (max-width: 980px) {
+      .side-layout, .split-hero { grid-template-columns: 1fr; }
+      .sticky-side { position: static; }
+      .metric-row, .summary-band { grid-template-columns: repeat(2, 1fr); }
+      .scheme-head { align-items: start; flex-direction: column; }
+    }
+    @media (max-width: 640px) {
+      .page { padding: 16px 12px 40px; }
+      .topbar { position: static; align-items: start; flex-direction: column; }
+      .content, .mock { padding: 14px; }
+      .browser { min-height: auto; }
+      .hgroup h4 { font-size: 24px; }
+      .metric-row, .summary-band, .vacancy { grid-template-columns: 1fr; }
+      .info-line { grid-template-columns: 1fr; gap: 4px; }
+      .compare-row { grid-template-columns: 1fr; }
+      .phone { width: 100%; border-width: 6px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="mark">HK</div>
+        <div>
+          <h1>HKSchoolPlace 學校詳情頁 redesign</h1>
+          <p>沿用現有官網風格，提供四個可選方向</p>
+        </div>
+      </div>
+      <nav class="nav" aria-label="方案導航">
+        <a href="#a">A 快速判斷</a>
+        <a href="#b">B 家長任務</a>
+        <a href="#c">C 信任資料</a>
+        <a href="#d">D 手機優先</a>
+      </nav>
+    </header>
+
+    <section class="hero-note">
+      <h2>四個方案都保留品牌感，但把詳情頁的重心分別放在「快、穩、全、順手」。</h2>
+      <p>示例內容使用同一所學校：太陽島英文幼稚園。每個方案都包含學額、報名、收藏、對比、基本資料、費用、交通等家長會真正用到的資訊。</p>
+    </section>
+
+    <section class="scheme" id="a">
+      <div class="scheme-head">
+        <div>
+          <p class="scheme-kicker">方案 A</p>
+          <h3>快速判斷型：一進頁先回答「值不值得看下去」</h3>
+          <p>把學額、學費、地區、班別、更新日期放到最前，適合搜尋結果點進來後快速做收藏/對比決策。</p>
+        </div>
+        <span class="bestfor">適合：高流量詳情頁</span>
+      </div>
+      <div class="mock">
+        <div class="browser">
+          <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><div class="site-nav"><strong>HKSchoolPlace</strong><span>搵學校</span><span>比較</span><span>收藏</span></div></div>
+          <div class="content">
+            <div class="crumb">返回搵學校 / 九龍城 / 學校詳情</div>
+            <div class="side-layout">
+              <div>
+                <div class="card" style="display:flex; justify-content:space-between; gap:20px; align-items:flex-start;">
+                  <div style="display:flex; gap:16px; min-width:0;">
+                    <div class="school-logo">太</div>
+                    <div class="hgroup">
+                      <div class="chips" style="margin-top:0; margin-bottom:10px;"><span class="chip green">九龍城</span><span class="chip">非牟利</span><span class="chip blue">資料已配對</span></div>
+                      <h4>太陽島英文幼稚園</h4>
+                      <p>SUN ISLAND ENGLISH KINDERGARTEN</p>
+                    </div>
+                  </div>
+                  <div class="actions"><button class="primary">收藏並提醒</button><button class="secondary">加入對比</button></div>
+                </div>
+                <div class="summary-band">
+                  <div class="summary"><span>K1 學額</span><strong>有空缺</strong></div>
+                  <div class="summary"><span>每月學費</span><strong>$3,180</strong></div>
+                  <div class="summary"><span>報名狀態</span><strong>接受申請</strong></div>
+                </div>
+                <div class="grid" style="grid-template-columns:1fr 1fr;">
+                  <div class="card">
+                    <h5>學額狀態</h5>
+                    <div class="vacancy"><div class="slot"><span>K1</span><strong>有</strong></div><div class="slot warn"><span>K2</span><strong>候補</strong></div><div class="slot off"><span>K3</span><strong>滿</strong></div></div>
+                  </div>
+                  <div class="card">
+                    <h5>家長最常查</h5>
+                    <div class="metric-row" style="grid-template-columns:1fr 1fr;"><div class="metric"><span class="small muted">上課時間</span><b>上午/全日</b></div><div class="metric"><span class="small muted">N 班</span><b>設有</b></div></div>
+                  </div>
+                </div>
+                <div class="card" style="margin-top:16px;">
+                  <h5>學校概況</h5>
+                  <div class="info-list"><div class="info-line"><span class="muted">地址</span><strong>九龍城太子道西 123 號</strong></div><div class="info-line"><span class="muted">教學語言</span><strong>中文及英文</strong></div><div class="info-line"><span class="muted">資助計劃</span><strong>已參加幼稚園教育計劃</strong></div></div>
+                </div>
+              </div>
+              <aside class="sticky-side">
+                <div class="card"><h5>下一步</h5><div class="grid"><button class="primary">開啟截止提醒</button><button class="ghost">查看官網</button><button class="ghost">Google 地圖</button></div></div>
+                <div class="map"></div>
+              </aside>
+            </div>
+          </div>
+        </div>
+        <pre class="ascii">+------------------------------------------------+
+| Logo  學校名 / 地區 / 類型        [收藏] [對比] |
++------------------------------------------------+
+| K1 有空缺 | 學費 $3,180 | 接受申請              |
++----------------------+-------------------------+
+| 學額狀態             | 家長最常查              |
++----------------------+-------------------------+
+| 學校概況 / 費用 / 地圖 / 官網連結               |
++------------------------------------------------+</pre>
+      </div>
+    </section>
+
+    <section class="scheme" id="b">
+      <div class="scheme-head">
+        <div>
+          <p class="scheme-kicker">方案 B</p>
+          <h3>家長任務型：用一條申請路線帶着家長走</h3>
+          <p>把「收藏、提醒、官網、交通、申請」做成右側任務欄，內容區按照家長決策順序排列。</p>
+        </div>
+        <span class="bestfor">適合：提升收藏和提醒</span>
+      </div>
+      <div class="mock">
+        <div class="browser">
+          <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><div class="site-nav"><strong>HKSchoolPlace</strong><span>搜尋</span><span>提醒</span><span>登入</span></div></div>
+          <div class="content">
+            <div class="crumb">搵學校 / 太陽島英文幼稚園</div>
+            <div class="side-layout">
+              <div>
+                <div style="display:flex; gap:16px; align-items:flex-start; margin-bottom:18px;">
+                  <div class="school-logo">太</div>
+                  <div class="hgroup"><h4>太陽島英文幼稚園</h4><p>SUN ISLAND ENGLISH KINDERGARTEN</p><div class="chips"><span class="chip green">九龍城</span><span class="chip">K1-K3</span><span class="chip rose">截止日待確認</span></div></div>
+                </div>
+                <div class="tabs"><span class="tab active">申請重點</span><span class="tab">學額</span><span class="tab">學費</span><span class="tab">概況</span><span class="tab">交通</span></div>
+                <div class="card">
+                  <h5>申請路線</h5>
+                  <div class="timeline">
+                    <div class="step"><div class="num">1</div><div class="step-card"><strong>先確認 K1 是否仍有空缺</strong><p class="muted small">最新資料顯示 K1 有空缺，K2 候補，K3 已滿。</p></div></div>
+                    <div class="step"><div class="num">2</div><div class="step-card"><strong>保存學校並開提醒</strong><p class="muted small">當截止日或學額資料更新時提示家長。</p></div></div>
+                    <div class="step"><div class="num">3</div><div class="step-card"><strong>到官網查看申請表</strong><p class="muted small">把官方入口和電話放在同一區，避免家長找不到。</p></div></div>
+                  </div>
+                </div>
+                <div class="grid" style="grid-template-columns:1fr 1fr; margin-top:16px;">
+                  <div class="card"><h5>基本資料</h5><div class="info-list"><div class="info-line"><span class="muted">類別</span><strong>非牟利</strong></div><div class="info-line"><span class="muted">語言</span><strong>中英</strong></div></div></div>
+                  <div class="card"><h5>費用摘要</h5><div class="metric-row" style="grid-template-columns:1fr 1fr;"><div class="metric"><span class="small muted">半日</span><b>$1,260</b></div><div class="metric"><span class="small muted">全日</span><b>$3,180</b></div></div></div>
+                </div>
+              </div>
+              <aside class="sticky-side">
+                <div class="card"><h5>你的下一步</h5><div class="quick-stack"><button class="primary">收藏並開提醒</button><button class="secondary">加入對比</button><button class="ghost">打電話</button><button class="ghost">開啟地圖</button></div></div>
+                <div class="card"><h5>目前判斷</h5><p class="muted small">有 K1 空缺，適合正在做第一輪名單的家長。資料需到官網再確認一次。</p></div>
+              </aside>
+            </div>
+          </div>
+        </div>
+        <pre class="ascii">+--------------------------+-------------------+
+| 學校名 + 標籤            | 你的下一步        |
++--------------------------+ [收藏提醒]        |
+| tabs: 申請/學額/學費...  | [加入對比]        |
++--------------------------+ [電話/地圖]       |
+| 1 確認空缺               +-------------------+
+| 2 開提醒                                     |
+| 3 去官網                                     |
++------------------------------------------------+</pre>
+      </div>
+    </section>
+
+    <section class="scheme" id="c">
+      <div class="scheme-head">
+        <div>
+          <p class="scheme-kicker">方案 C</p>
+          <h3>信任資料型：把詳情頁做成可靠的學校檔案</h3>
+          <p>更像官方資料冊，重點是資料來源、核實時間、補充資料和可比對欄位，適合建立信任感。</p>
+        </div>
+        <span class="bestfor">適合：資料完整度高的學校</span>
+      </div>
+      <div class="mock">
+        <div class="browser">
+          <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><div class="site-nav"><strong>HKSchoolPlace</strong><span>資料庫</span><span>熱門學校</span><span>家長指南</span></div></div>
+          <div class="content">
+            <div class="split-hero">
+              <div class="hero-panel">
+                <div><div class="chips"><span class="chip">EDB + Schooland</span><span class="chip">最後核實 2026-05-20</span></div><h4 style="font-size:36px; margin-top:16px;">太陽島英文幼稚園</h4><p class="muted">SUN ISLAND ENGLISH KINDERGARTEN</p></div>
+                <div class="actions"><button class="primary" style="background:white;color:var(--forest-900);">收藏</button><button class="secondary" style="border-color:white;color:white;background:transparent;">加入對比</button></div>
+              </div>
+              <div class="photo"></div>
+            </div>
+            <div class="metric-row" style="margin-bottom:16px;"><div class="metric"><span class="small muted">學校類別</span><b>非牟利</b></div><div class="metric"><span class="small muted">免費計劃</span><b>已參加</b></div><div class="metric"><span class="small muted">規模</span><b>中型</b></div><div class="metric"><span class="small muted">師生比例</span><b>1:9</b></div></div>
+            <div class="grid" style="grid-template-columns:1.1fr .9fr;">
+              <div class="card"><h5>資料對照</h5><div class="compare-table"><div class="compare-row"><div class="label">欄位</div><div>官方資料</div><div>補充資料</div></div><div class="compare-row"><div class="label">上課時間</div><div>上午 / 下午</div><div>另設全日班</div></div><div class="compare-row"><div class="label">N 班</div><div>未列明</div><div>設有 2-3 歲服務</div></div><div class="compare-row"><div class="label">辦學團體</div><div>--</div><div>太陽島教育機構</div></div></div></div>
+              <div class="card"><h5>學額與申請</h5><div class="vacancy"><div class="slot"><span>K1</span><strong>有</strong></div><div class="slot warn"><span>K2</span><strong>候補</strong></div><div class="slot off"><span>K3</span><strong>滿</strong></div></div><p class="small muted">建議收藏後開啟提醒，避免錯過資料更新。</p></div>
+            </div>
+            <div class="card" style="margin-top:16px;"><h5>地點與聯絡</h5><div class="grid" style="grid-template-columns:1fr 1fr;"><div class="info-list"><div class="info-line"><span class="muted">地址</span><strong>九龍城太子道西 123 號</strong></div><div class="info-line"><span class="muted">電話</span><strong>2345 6789</strong></div><div class="info-line"><span class="muted">官網</span><strong>school.example.hk</strong></div></div><div class="map"></div></div></div>
+          </div>
+        </div>
+        <pre class="ascii">+------------------------------------------------+
+| 深色學校檔案 Hero + 校園圖 / Logo / 資料來源    |
++------------------------------------------------+
+| 類別 | 免費計劃 | 規模 | 師生比例              |
++--------------------------+---------------------+
+| 官方資料 vs 補充資料表    | 學額與申請          |
++--------------------------+---------------------+
+| 地址 / 電話 / 官網 / 地圖                       |
++------------------------------------------------+</pre>
+      </div>
+    </section>
+
+    <section class="scheme" id="d">
+      <div class="scheme-head">
+        <div>
+          <p class="scheme-kicker">方案 D</p>
+          <h3>手機優先型：家長在路上也能順手查、收藏、比較</h3>
+          <p>資訊切得更短，底部固定操作列，適合手機搜尋、WhatsApp 分享和臨場打電話。</p>
+        </div>
+        <span class="bestfor">適合：手機流量為主</span>
+      </div>
+      <div class="mock">
+        <div class="mobile-wrap">
+          <div class="phone">
+            <div class="phone-top"><div class="handle"></div></div>
+            <div class="content">
+              <div class="crumb">‹ 返回搜尋</div>
+              <div class="mobile-hero"><div class="school-logo">太</div><div><div class="chips" style="margin-top:0;"><span class="chip green">九龍城</span><span class="chip">非牟利</span></div><h4>太陽島英文幼稚園</h4><p class="muted small">SUN ISLAND ENGLISH KINDERGARTEN</p></div></div>
+              <div class="quick-stack">
+                <div class="card"><h5>現在最重要</h5><div class="summary-band" style="grid-template-columns:1fr 1fr; margin:0;"><div class="summary"><span>K1</span><strong>有空缺</strong></div><div class="summary"><span>月費</span><strong>$3,180</strong></div></div></div>
+                <div class="card"><h5>學額</h5><div class="vacancy"><div class="slot"><span>K1</span><strong>有</strong></div><div class="slot warn"><span>K2</span><strong>候補</strong></div><div class="slot off"><span>K3</span><strong>滿</strong></div></div></div>
+                <div class="card"><h5>申請</h5><p class="small muted">接受申請。建議到官網確認表格和截止日期。</p><button class="secondary">查看官網</button></div>
+                <div class="card"><h5>地點</h5><p class="small muted">九龍城太子道西 123 號</p><div class="map" style="min-height:140px;"></div></div>
+              </div>
+            </div>
+            <div class="sticky-cta"><button class="primary">收藏</button><button class="secondary">對比</button><button class="icon-btn">☎</button></div>
+          </div>
+        </div>
+        <pre class="ascii">+----------------------+
+| ‹ 返回               |
+| Logo 學校名          |
+| [九龍城] [非牟利]    |
++----------------------+
+| 現在最重要           |
+| K1 有空缺 | $3,180   |
++----------------------+
+| 學額 / 申請 / 地點   |
++----------------------+
+| [收藏] [對比] [電話] |
++----------------------+</pre>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
