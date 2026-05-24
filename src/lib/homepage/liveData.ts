@@ -17,6 +17,7 @@ import {
   formatEnglishSchoolName,
 } from "@/lib/utils";
 import { extractIsoDate } from "@/lib/utils/extractIsoDate";
+import { normalizeNewsHref } from "@/lib/news/links";
 import type {
   FeaturedSchool,
   HomeBanner,
@@ -390,16 +391,17 @@ async function getEdbNewsItems(options: { includeOlder?: boolean } = {}): Promis
 
   return Promise.all(
     relevant.map(async (item) => {
-      const summary = await fetchNewsSummary(item.link, item.title);
-      const source = item.link.includes("info.gov.hk") ? "govhk" : "edb";
+      const href = normalizeNewsHref(item.link);
+      const summary = await fetchNewsSummary(href, item.title);
+      const source = href.includes("info.gov.hk") ? "govhk" : "edb";
       const { content_type, content_type_label } = detectContentType(
         item.title,
-        item.link,
+        href,
         source
       );
 
       return {
-        id: `rss-${source}-${simpleHash(item.link)}`,
+        id: `rss-${source}-${simpleHash(href)}`,
         source,
         source_category: toSourceCategory(source),
         source_label: source === "govhk" ? "政府公報" : "教育局",
@@ -407,7 +409,7 @@ async function getEdbNewsItems(options: { includeOlder?: boolean } = {}): Promis
         summary,
         date: formatMonthDay(item.pubDate),
         published_at: toIsoString(item.pubDate),
-        href: item.link,
+        href,
         is_external: isExternalSource(source),
         content_type,
         content_type_label,
@@ -1236,7 +1238,7 @@ async function getManagedNewsItems(): Promise<NewsItem[]> {
       summary: String(row.summary || ""),
       date: String(row.display_date || formatMonthDay(String(row.published_at))),
       published_at: String(row.published_at || new Date().toISOString()),
-      href: String(row.href || "/"),
+      href: normalizeNewsHref(String(row.href || "/")),
       is_external: Boolean(row.is_external),
       content_type: row.content_type as NewsItem["content_type"],
       content_type_label: typeof row.content_type_label === "string" ? row.content_type_label : undefined,

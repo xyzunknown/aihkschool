@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import type { NewsItem } from "@/types/homepage";
+import { normalizeNewsHref } from "@/lib/news/links";
 
 const CATEGORIES = [
   { key: "all", label: "全部" },
@@ -160,7 +161,8 @@ export function NewsClient() {
           <div className="space-y-3">
             {filtered.map((item) => {
               const isExternal = item.is_external;
-              const href = isExternal ? item.href : `/news/${encodeURIComponent(item.id)}`;
+              const sourceHref = normalizeNewsHref(item.href);
+              const href = isExternal ? sourceHref : `/news/${encodeURIComponent(item.id)}`;
 
               return (
                 <article
