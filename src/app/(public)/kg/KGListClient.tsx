@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback, useMemo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { CaretDown, Check, Crosshair, MagnifyingGlass } from "@phosphor-icons/react";
 import { SchoolCard } from "@/components/schools/SchoolCard";
 import { SchoolCardSkeleton } from "@/components/ui/Skeleton";
 import { Button } from "@/components/ui/Button";
@@ -353,10 +354,7 @@ export default function KGListClient() {
         <div className="py-16 text-center">
           <div className="mx-auto max-w-md rounded-card border border-surface-border bg-white px-6 py-8 shadow-soft">
             <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-forest-50 text-forest-700">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
-                <circle cx="11" cy="11" r="7" />
-                <path d="m20 20-3.5-3.5" />
-              </svg>
+              <MagnifyingGlass size={24} weight="regular" aria-hidden="true" />
             </div>
             <p className="mb-2 text-h2 font-semibold text-ink-900">沒有搵到學校</p>
             <p className="text-body text-ink-500">試下調整篩選條件</p>
@@ -376,7 +374,12 @@ export default function KGListClient() {
                   }`}
                 >
                   排序：{SORT_OPTIONS.find((item) => item.key === sortBy)?.label ?? "推薦排序"}
-                  <ChevronDownIcon expanded={showSortFilter} />
+                  <CaretDown
+                    size={16}
+                    weight="bold"
+                    aria-hidden="true"
+                    className={`ml-2 transition-transform duration-200 ${showSortFilter ? "rotate-180" : ""}`}
+                  />
                 </button>
                 {showSortFilter && (
                   <div className="absolute right-0 top-full z-30 mt-2 w-44 overflow-hidden rounded-card border border-surface-border bg-white shadow-card">
@@ -396,7 +399,7 @@ export default function KGListClient() {
                           }`}
                         >
                           {option.label}
-                          {sortBy === option.key ? <span aria-hidden="true">✓</span> : null}
+                          {sortBy === option.key ? <Check size={15} weight="bold" aria-hidden="true" /> : null}
                         </button>
                       ))}
                     </div>
@@ -409,19 +412,13 @@ export default function KGListClient() {
                   disabled={geoLoading}
                   className="inline-flex h-9 items-center gap-1.5 text-small font-semibold text-ink-500 transition-colors hover:text-ink-700"
                 >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <line x1="12" y1="2" x2="12" y2="6" />
-                    <line x1="12" y1="18" x2="12" y2="22" />
-                    <line x1="2" y1="12" x2="6" y2="12" />
-                    <line x1="18" y1="12" x2="22" y2="12" />
-                  </svg>
+                  <Crosshair size={14} weight="regular" aria-hidden="true" />
                   {geoLoading ? "定位中…" : "顯示距離"}
                 </button>
               )}
               {userLat && (
                 <span className="flex items-center gap-1 text-label text-forest-600">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2l-3.5-3.5L4.1 14.1 9 19 20.4 7.6 19 6.2z"/></svg>
+                  <Check size={13} weight="bold" aria-hidden="true" />
                   已定位
                 </span>
               )}
@@ -495,13 +492,5 @@ export default function KGListClient() {
       )}
       {showSortFilter && <div className="fixed inset-0 z-20" onClick={() => setShowSortFilter(false)} />}
     </div>
-  );
-}
-
-function ChevronDownIcon({ expanded }: { expanded: boolean }) {
-  return (
-    <svg viewBox="0 0 24 24" className={`ml-2 h-4 w-4 transition-transform duration-200 ${expanded ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="m6 9 6 6 6-6" />
-    </svg>
   );
 }

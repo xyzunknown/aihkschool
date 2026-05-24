@@ -2,7 +2,7 @@
 
 import { useAuth } from "@/components/layout/AuthProvider";
 import { useToast } from "@/components/ui/Toast";
-import { Bell } from "lucide-react";
+import { Bell } from "@phosphor-icons/react";
 import { useState, useEffect, useCallback } from "react";
 
 async function getErrorMessage(response: Response, fallback: string) {
@@ -110,7 +110,7 @@ export function SubscribeButton({ programmeId, size = "md" }: SubscribeButtonPro
       {loading ? (
         <span className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-t-transparent" />
       ) : (
-        <Bell aria-hidden="true" size={16} strokeWidth={1.7} />
+        <Bell aria-hidden="true" size={16} weight={isSubscribed ? "fill" : "regular"} />
       )}
       {isSubscribed ? "已追蹤" : "追蹤"}
     </button>

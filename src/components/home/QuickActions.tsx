@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Bell, Buildings, Heart, MagnifyingGlass } from "@phosphor-icons/react/dist/ssr";
 
 const ACTIONS = [
   {
@@ -7,12 +8,7 @@ const ACTIONS = [
     desc: "快速找到合適學校",
     iconBg: "bg-forest-50/70",
     iconFg: "text-forest-700",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="11" cy="11" r="7" />
-        <line x1="16.5" y1="16.5" x2="22" y2="22" />
-      </svg>
-    ),
+    icon: MagnifyingGlass,
   },
   {
     href: "/timeline?filter=deadline",
@@ -20,12 +16,7 @@ const ACTIONS = [
     desc: "重要日期不錯過",
     iconBg: "bg-sand-50/75",
     iconFg: "text-sand-700",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-        <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-      </svg>
-    ),
+    icon: Bell,
   },
   {
     href: "/kg?has_vacancy=1",
@@ -33,12 +24,7 @@ const ACTIONS = [
     desc: "即時查看空缺情況",
     iconBg: "bg-[#FFF4DC]/80",
     iconFg: "text-[#A46612]",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-        <polyline points="9 22 9 12 15 12 15 22" />
-      </svg>
-    ),
+    icon: Buildings,
   },
   {
     href: "/account",
@@ -46,11 +32,7 @@ const ACTIONS = [
     desc: "收藏學校與文章",
     iconBg: "bg-[#FCEBE8]/80",
     iconFg: "text-[#B4473B]",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 21s-7-4.35-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.65-7 10-11 10z" />
-      </svg>
-    ),
+    icon: Heart,
   },
 ];
 
@@ -67,7 +49,7 @@ export function QuickActions() {
             <span
               className={`shrink-0 w-9 h-9 rounded-full ${a.iconBg} ${a.iconFg} flex items-center justify-center`}
             >
-              {a.icon}
+              <a.icon size={20} weight="regular" aria-hidden="true" />
             </span>
             <span className="flex flex-col leading-tight min-w-0">
               <span className="text-sm font-semibold text-[#18352B] group-hover:text-forest-700 transition truncate">

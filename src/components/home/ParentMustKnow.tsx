@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 import { SCHOOL_TYPE_LABELS } from "@/lib/utils";
 import type { SchoolEventItem, EventType } from "@/types/homepage";
 
@@ -51,9 +52,10 @@ function EventCard({ event }: { event: SchoolEventItem }) {
         href={event.href}
         target="_blank"
         rel="noreferrer"
-        className="mt-3 block text-xs font-medium text-ink-500 transition-colors hover:text-ink-700"
+        className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-ink-500 transition-colors hover:text-ink-700"
       >
-        查看 →
+        查看
+        <CaretRight size={13} weight="bold" aria-hidden="true" />
       </Link>
     </div>
   );
@@ -74,7 +76,10 @@ export function ParentMustKnow({ events }: ParentMustKnowProps) {
           href="/timeline"
           className="text-sm font-medium text-ink-500 hover:text-ink-700 transition-colors"
         >
-          查看完整時間線 →
+          <span className="inline-flex items-center gap-1">
+            查看完整時間線
+            <CaretRight size={14} weight="bold" aria-hidden="true" />
+          </span>
         </Link>
       </div>
 

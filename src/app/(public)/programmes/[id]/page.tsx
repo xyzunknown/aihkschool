@@ -1,18 +1,19 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
+import type { ElementType } from "react";
 import {
+  ArrowSquareOut,
   BookOpen,
-  CalendarDays,
-  Clock3,
-  ExternalLink,
+  Calendar,
+  CaretLeft,
+  Clock,
   Info,
-  Map,
+  MapTrifold,
   MapPin,
   Tag,
-  UserRound,
-  type LucideIcon,
-} from "lucide-react";
+  UserCircle,
+} from "@phosphor-icons/react/dist/ssr";
 import { fetchProgrammeById } from "@/lib/db/programmes";
 import {
   PROGRAMME_CATEGORY_LABELS,
@@ -65,17 +66,17 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
       )}`
     : null;
   const infoItems = [
-    { label: "報名開放", value: enrolmentTime, icon: Clock3 },
-    { label: "課程日期", value: dateRange, icon: CalendarDays },
+    { label: "報名開放", value: enrolmentTime, icon: Clock },
+    { label: "課程日期", value: dateRange, icon: Calendar },
     { label: "場地", value: programme.venue || "未知", icon: MapPin, href: mapHref ?? undefined },
     {
       label: "地區",
       value: programme.district ? PROGRAMME_DISTRICT_LABELS[programme.district] || programme.district : "未知",
-      icon: Map,
+      icon: MapTrifold,
     },
     { label: "費用", value: fee.label, icon: Tag, highlight: fee.isFree },
     { label: "堂數", value: programme.sessions_count ? `${programme.sessions_count} 堂` : "未知", icon: BookOpen },
-    { label: "適合年齡", value: ageRange || "未知", icon: UserRound },
+    { label: "適合年齡", value: ageRange || "未知", icon: UserCircle },
   ];
   const programmeJsonLd = {
     "@context": "https://schema.org",
@@ -115,9 +116,7 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
         href="/programmes"
         className="mb-8 inline-flex items-center gap-1 text-small font-medium text-ink-500 transition hover:text-forest-700"
       >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="15 18 9 12 15 6" />
-        </svg>
+        <CaretLeft aria-hidden="true" size={16} weight="bold" />
         返回課程列表
       </a>
 
@@ -167,7 +166,7 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
               rel="noopener noreferrer"
               className="inline-flex h-14 min-w-[250px] items-center justify-center gap-2 rounded-pill border border-forest-700 bg-forest-700 px-6 text-body font-bold text-white shadow-soft transition hover:border-forest-800 hover:bg-forest-800"
             >
-              <ExternalLink aria-hidden="true" size={18} strokeWidth={2} />
+              <ArrowSquareOut aria-hidden="true" size={19} weight="regular" />
               前往 SmartPLAY 報名
             </a>
           </div>
@@ -183,7 +182,7 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
       </section>
 
       <div className="mt-6 flex gap-3 rounded-[18px] border border-surface-border bg-[#F7FBF3] px-5 py-4 text-ink-600">
-        <Info aria-hidden="true" className="mt-0.5 shrink-0 text-forest-700" size={18} strokeWidth={2} />
+        <Info aria-hidden="true" className="mt-0.5 shrink-0 text-forest-700" size={18} weight="regular" />
         <p className="text-small leading-relaxed">
           課程資料來自康文署 SmartPLAY，僅供參考。實際安排以官方為準。
           HKSchoolPlace 不提供代報名服務，請自行前往官網操作。
@@ -204,12 +203,12 @@ function InfoCell({
   value: string;
   highlight?: boolean;
   href?: string;
-  icon: LucideIcon;
+  icon: ElementType;
 }) {
   return (
     <div className="flex min-h-[92px] gap-4 rounded-[16px] border border-[#E8ECE3] bg-[#FFFDF8] px-5 py-5">
       <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[12px] bg-forest-50 text-forest-700">
-        <Icon aria-hidden="true" size={21} strokeWidth={1.9} />
+        <Icon aria-hidden="true" size={21} weight="regular" />
       </div>
       <div className="min-w-0">
         <p className="mb-1.5 text-small font-semibold text-ink-500">{label}</p>
@@ -223,7 +222,7 @@ function InfoCell({
             }`}
           >
             <span className="truncate">{value}</span>
-            <ExternalLink className="shrink-0" size={15} strokeWidth={2} aria-hidden="true" />
+            <ArrowSquareOut className="shrink-0" size={15} weight="regular" aria-hidden="true" />
           </a>
         ) : (
           <p className={`text-body font-bold ${highlight ? "text-forest-700" : "text-ink-900"}`}>

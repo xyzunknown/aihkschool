@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { ReactNode } from "react";
-import { Check, ChevronDown, SlidersHorizontal, X } from "lucide-react";
+import { CaretDown, Check, SlidersHorizontal, X } from "@phosphor-icons/react";
 import { DISTRICT_LABELS, SCHOOL_TYPE_LABELS } from "@/lib/utils";
 import type { District, SchoolType } from "@/types/database";
 
@@ -118,7 +118,7 @@ export function FilterBar({
             className={`inline-flex h-10 items-center gap-2 rounded-pill border px-3 text-small font-semibold transition ${moreCount > 0 || openPanel === "more" ? "border-forest-700 bg-forest-700 text-white" : "border-surface-border bg-white text-ink-700 hover:border-forest-200 hover:bg-forest-50"}`}
             aria-expanded={openPanel === "more"}
           >
-            <SlidersHorizontal aria-hidden="true" size={16} strokeWidth={1.7} />
+            <SlidersHorizontal aria-hidden="true" size={16} weight="regular" />
             更多篩選{moreCount > 0 ? ` ${moreCount}` : ""}
           </button>
           {activeTags.length > 0 ? (
@@ -134,7 +134,7 @@ export function FilterBar({
             {activeTags.map((tag) => (
               <button key={tag.key} type="button" onClick={tag.onRemove} className="inline-flex h-8 items-center gap-1 rounded-pill bg-leaf-50 px-2.5 text-label font-semibold text-forest-700 transition hover:bg-leaf-100">
                 {tag.label}
-                <X aria-hidden="true" size={13} strokeWidth={1.7} />
+                <X aria-hidden="true" size={13} weight="bold" />
               </button>
             ))}
           </div>
@@ -203,7 +203,7 @@ function SummaryButton({ label, value, active, open, onClick }: { label: string;
     >
       <span className="text-label font-medium opacity-75">{label}</span>
       <span>{value}</span>
-      <ChevronDown aria-hidden="true" size={15} strokeWidth={1.7} className={`transition ${open ? "rotate-180" : ""}`} />
+      <CaretDown aria-hidden="true" size={15} weight="bold" className={`transition ${open ? "rotate-180" : ""}`} />
     </button>
   );
 }
@@ -227,7 +227,7 @@ function OptionButton({ selected, onClick, children }: { selected: boolean; onCl
       onClick={onClick}
       className={`inline-flex h-9 items-center gap-1.5 rounded-pill border px-3 text-small font-semibold transition ${selected ? "border-forest-700 bg-forest-700 text-white" : "border-surface-border bg-white text-ink-700 hover:border-forest-200 hover:bg-forest-50"}`}
     >
-      {selected ? <Check aria-hidden="true" size={14} strokeWidth={1.7} /> : null}
+      {selected ? <Check aria-hidden="true" size={14} weight="bold" /> : null}
       {children}
     </button>
   );

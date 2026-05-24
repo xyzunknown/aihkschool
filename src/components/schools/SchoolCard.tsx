@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { ArrowRight } from "lucide-react";
+import { CaretRight } from "@phosphor-icons/react";
 import { VacancyBadge } from "./VacancyBadge";
 import { SchoolAvatar } from "./SchoolAvatar";
 import { SchoolActionButton } from "@/components/ui/SchoolActionIcon";
@@ -189,7 +189,7 @@ export function SchoolCard({
         </span>
         <span className="inline-flex h-9 flex-shrink-0 items-center gap-1.5 rounded-pill border border-forest-600/60 bg-white px-4 text-small font-extrabold text-forest-700">
           詳情
-          <ArrowRight aria-hidden="true" size={16} strokeWidth={1.7} />
+          <CaretRight aria-hidden="true" size={16} weight="bold" />
         </span>
       </div>
     </div>

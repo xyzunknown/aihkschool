@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 import type { FeaturedSchool } from "@/types/homepage";
 
 interface Props {
@@ -47,7 +48,8 @@ export function VacancyTicker({ schools }: Props) {
             href="/kg?has_vacancy=1"
             className="self-start md:self-auto px-4 h-9 rounded-pill bg-forest-600 text-white text-sm font-medium hover:bg-forest-700 transition inline-flex items-center gap-1"
           >
-            查看全部空缺 →
+            查看全部空缺
+            <CaretRight size={14} weight="bold" aria-hidden="true" />
           </Link>
         </div>
         <ul className="divide-y divide-cream-100">

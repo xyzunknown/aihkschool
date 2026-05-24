@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 import type { NewsItem } from "@/types/homepage";
 
 const ARTICLE_PHOTOS = [
@@ -25,8 +26,9 @@ export function ArticleGrid({ items }: Props) {
           <span className="inline-block w-1 h-5 bg-forest-700 rounded-full" />
           家長熱門主題
         </h2>
-        <Link href="/news" className="text-sm text-forest-700 hover:underline font-medium">
-          查看全部攻略 →
+        <Link href="/news" className="inline-flex items-center gap-1 text-sm text-forest-700 hover:underline font-medium">
+          查看全部攻略
+          <CaretRight size={14} weight="bold" aria-hidden="true" />
         </Link>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Bell, CaretRight } from "@phosphor-icons/react/dist/ssr";
 import type { SchoolEventItem } from "@/types/homepage";
 
 const HOT_DISTRICTS = [
@@ -34,8 +35,9 @@ export function InfoCard4Up({ events }: Props) {
       {/* 熱門地區 */}
       <Card>
         <CardHeader title="熱門地區">
-          <Link href="/kg" className="text-xs text-forest-600 hover:underline">
-            全部 →
+          <Link href="/kg" className="inline-flex items-center gap-1 text-xs text-forest-600 hover:underline">
+            全部
+            <CaretRight size={13} weight="bold" aria-hidden="true" />
           </Link>
         </CardHeader>
         <div className="flex flex-wrap gap-2 mt-2 flex-1">
@@ -59,9 +61,10 @@ export function InfoCard4Up({ events }: Props) {
 
       {/* 即將截止 */}
       <Card>
-        <CardHeader title="即將截止" icon="🔔" iconClass="text-rust-500">
-          <Link href="/timeline" className="text-xs text-forest-600 hover:underline">
-            查看全部 →
+        <CardHeader title="即將截止" icon={<Bell size={16} weight="regular" className="text-rust-500" aria-hidden="true" />}>
+          <Link href="/timeline" className="inline-flex items-center gap-1 text-xs text-forest-600 hover:underline">
+            查看全部
+            <CaretRight size={13} weight="bold" aria-hidden="true" />
           </Link>
         </CardHeader>
         <ul className="mt-2 space-y-3 flex-1">
@@ -137,18 +140,16 @@ function Card({ children, className = "" }: { children: React.ReactNode; classNa
 function CardHeader({
   title,
   icon,
-  iconClass = "",
   children,
 }: {
   title: string;
-  icon?: string;
-  iconClass?: string;
+  icon?: React.ReactNode;
   children?: React.ReactNode;
 }) {
   return (
     <div className="flex items-center justify-between">
       <h3 className="text-base font-semibold text-ink-900 flex items-center gap-1.5">
-        {icon && <span className={iconClass}>{icon}</span>}
+        {icon}
         {title}
       </h3>
       {children}

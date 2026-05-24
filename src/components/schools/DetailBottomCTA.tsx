@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowRight } from "@phosphor-icons/react";
 import { SchoolActionIcon } from "@/components/ui/SchoolActionIcon";
 import type { School } from "@/types/database";
 
@@ -43,18 +44,7 @@ export function DetailBottomCTA({ school, isFavorited, onToggleFavorite, isInCom
           className={`${buttonBase} ${primaryButtonClass}`}
         >
           {getApplyButtonText()}
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            className="ml-2"
-          >
-            <polyline points="5 12 19 12" />
-            <polyline points="12 5 19 12 12 19" />
-          </svg>
+          <ArrowRight size={16} weight="bold" className="ml-1" aria-hidden="true" />
         </a>
       );
     }

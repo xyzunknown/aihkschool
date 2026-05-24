@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Instagram, Youtube } from "lucide-react";
+import { FacebookLogo, InstagramLogo, YoutubeLogo } from "@phosphor-icons/react";
 import { useToast } from "@/components/ui/Toast";
 
 const QUICK_LINKS = [
@@ -90,9 +90,9 @@ export function Footer() {
           </p>
           <div className="flex items-center gap-3 mt-5">
             {[
-              { name: "facebook", icon: Facebook },
-              { name: "instagram", icon: Instagram },
-              { name: "youtube", icon: Youtube },
+              { name: "facebook", icon: FacebookLogo },
+              { name: "instagram", icon: InstagramLogo },
+              { name: "youtube", icon: YoutubeLogo },
             ].map(({ name, icon: Icon }) => (
               <Link
                 key={name}
@@ -100,7 +100,7 @@ export function Footer() {
                 className="flex h-9 w-9 items-center justify-center rounded-pill border border-surface-border bg-white text-forest-700 transition hover:border-forest-200 hover:bg-forest-50"
                 aria-label={name}
               >
-                <Icon aria-hidden="true" size={16} strokeWidth={1.7} />
+                <Icon aria-hidden="true" size={17} weight="regular" />
               </Link>
             ))}
           </div>

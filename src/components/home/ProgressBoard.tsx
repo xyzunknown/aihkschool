@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CaretRight, MapPin } from "@phosphor-icons/react/dist/ssr";
 import type { SchoolEventItem, FeaturedSchool } from "@/types/homepage";
 import { isVacancyStale } from "@/lib/utils";
 
@@ -109,7 +110,10 @@ export function ProgressBoard({ events, schools }: Props) {
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-semibold text-ink-900 truncate">{v.school.name_tc}</p>
                     <p className="text-xs text-ink-500 mt-0.5 flex items-center gap-2">
-                      <span>📍 {v.school.district}</span>
+                      <span className="inline-flex items-center gap-0.5">
+                        <MapPin size={13} weight="regular" aria-hidden="true" />
+                        {v.school.district}
+                      </span>
                       {v.grades && (
                         <>
                           <span className="text-ink-400">·</span>
@@ -131,7 +135,10 @@ export function ProgressBoard({ events, schools }: Props) {
             href="/kg?has_vacancy=1"
             className="block text-center px-4 py-3 text-sm font-semibold text-forest-700 hover:bg-surface-soft border-t border-surface-border transition"
           >
-            更多學位空缺 →
+            <span className="inline-flex items-center justify-center gap-1">
+              更多學位空缺
+              <CaretRight size={14} weight="bold" aria-hidden="true" />
+            </span>
           </Link>
         </div>
       </div>
@@ -147,7 +154,10 @@ function SectionHeader({ title, href }: { title: string; href: string }) {
         {title}
       </h2>
       <Link href={href} className="text-xs text-forest-700 hover:underline font-medium">
-        查看全部 →
+        <span className="inline-flex items-center gap-1">
+          查看全部
+          <CaretRight size={13} weight="bold" aria-hidden="true" />
+        </span>
       </Link>
     </div>
   );
@@ -182,8 +192,9 @@ function TaskCard({
         </div>
         <p className="text-sm text-ink-700 leading-snug">{desc}</p>
         {sub && <p className="text-xs text-ink-500 mt-0.5">{sub}</p>}
-        <Link href={href} className="inline-flex items-center mt-3 text-sm font-semibold text-forest-700 hover:underline">
-          {cta} →
+        <Link href={href} className="inline-flex items-center gap-1 mt-3 text-sm font-semibold text-forest-700 hover:underline">
+          {cta}
+          <CaretRight size={14} weight="bold" aria-hidden="true" />
         </Link>
       </div>
       <Image

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
-import { Check, ChevronDown, X } from "lucide-react";
+import { CaretDown, Check, X } from "@phosphor-icons/react";
 
 export interface FilterOption {
   key: string;
@@ -79,10 +79,10 @@ export function FilterBar({
                 aria-expanded={openPanel}
               >
                 {districtSummary}
-                <ChevronDown
+                <CaretDown
                   aria-hidden="true"
                   size={16}
-                  strokeWidth={1.7}
+                  weight="bold"
                   className={`transition-transform ${openPanel ? "rotate-180" : ""}`}
                 />
               </button>
@@ -119,7 +119,7 @@ export function FilterBar({
                                     : chipInactive
                                 }`}
                               >
-                                {active ? <Check aria-hidden="true" size={16} strokeWidth={1.7} /> : null}
+                                {active ? <Check aria-hidden="true" size={16} weight="bold" /> : null}
                                 {option.label}
                               </button>
                             );
@@ -174,7 +174,7 @@ export function FilterBar({
                   onClick={tag.onRemove}
                   className="inline-flex h-8 items-center gap-1 rounded-chip bg-forest-50 px-3 text-label font-semibold text-forest-800"
                 >
-                  <X aria-hidden="true" size={14} strokeWidth={1.7} />
+                  <X aria-hidden="true" size={14} weight="bold" />
                   {tag.label}
                 </button>
               ))}

@@ -2,38 +2,38 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { CalendarDays, Newspaper, Search, User, WandSparkles } from "lucide-react";
+import { CalendarDots, NewspaperClipping, MagnifyingGlass, UserCircle, Sparkle } from "@phosphor-icons/react";
 
 const ITEMS = [
   {
     href: "/kg",
     label: "找幼稚園",
     match: ["/kg"],
-    icon: Search,
+    icon: MagnifyingGlass,
   },
   {
     href: "/programmes",
     label: "康體通",
     match: ["/programmes"],
-    icon: CalendarDays,
+    icon: CalendarDots,
   },
   {
     href: "/activities",
     label: "活動",
     match: ["/activities"],
-    icon: WandSparkles,
+    icon: Sparkle,
   },
   {
     href: "/news",
     label: "資訊",
     match: ["/news"],
-    icon: Newspaper,
+    icon: NewspaperClipping,
   },
   {
     href: "/account",
     label: "我的",
     match: ["/account"],
-    icon: User,
+    icon: UserCircle,
   },
 ] as const;
 
@@ -64,7 +64,7 @@ export function MobileBottomNav() {
                 active ? "bg-forest-50" : "bg-transparent"
               }`}
             >
-              <Icon aria-hidden="true" size={20} strokeWidth={1.7} />
+              <Icon aria-hidden="true" size={21} weight={active ? "fill" : "regular"} />
             </span>
             <span className="truncate">{item.label}</span>
           </Link>

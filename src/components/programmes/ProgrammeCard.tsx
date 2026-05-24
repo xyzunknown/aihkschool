@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { ReactNode } from "react";
-import { CalendarDays, Clock, MapPin, UserRound, Waves } from "lucide-react";
+import { Calendar, Clock, MapPin, UserCircle, Waves } from "@phosphor-icons/react/dist/ssr";
 import type { ProgrammeWithStatus } from "@/lib/db/programmes";
 import { getProgrammeSceneImage } from "@/lib/media/activity-scenes";
 import {
@@ -63,13 +63,13 @@ export function ProgrammeCard({ programme }: ProgrammeCardProps) {
             <MetaLine icon={<ClockIcon />}>報名：{enrolmentTime}</MetaLine>
             {countdown ? <MetaLine icon={<ClockIcon className="text-rust-500" />} className="text-rust-600">{countdown}</MetaLine> : null}
             {programme.venue ? (
-              <MetaLine icon={<MapPin aria-hidden="true" size={16} strokeWidth={1.7} className="shrink-0 text-forest-500" />}>
+              <MetaLine icon={<MapPin aria-hidden="true" size={16} weight="regular" className="shrink-0 text-forest-500" />}>
                 {programme.district && `${PROGRAMME_DISTRICT_LABELS[programme.district] || ""} · `}
                 {programme.venue}
               </MetaLine>
             ) : null}
             <MetaLine icon={<CalendarIcon />}>{dateRange}</MetaLine>
-            {ageRange ? <MetaLine icon={<UserRound aria-hidden="true" size={16} strokeWidth={1.7} className="shrink-0 text-forest-500" />}>適合 {ageRange}</MetaLine> : null}
+            {ageRange ? <MetaLine icon={<UserCircle aria-hidden="true" size={16} weight="regular" className="shrink-0 text-forest-500" />}>適合 {ageRange}</MetaLine> : null}
           </div>
         </div>
       </Link>
@@ -252,14 +252,14 @@ function MetaLine({ icon, children, className = "" }: { icon: ReactNode; childre
 }
 
 function ClockIcon({ className = "text-forest-500" }: { className?: string }) {
-  return <Clock aria-hidden="true" size={16} strokeWidth={1.7} className={`shrink-0 ${className}`} />;
+  return <Clock aria-hidden="true" size={16} weight="regular" className={`shrink-0 ${className}`} />;
 }
 
 function CalendarIcon() {
-  return <CalendarDays aria-hidden="true" size={16} strokeWidth={1.7} className="shrink-0 text-forest-500" />;
+  return <Calendar aria-hidden="true" size={16} weight="regular" className="shrink-0 text-forest-500" />;
 }
 
 function CategoryIcon({ icon }: { icon: "wave" | "user" | "clock" | "calendar" }) {
-  const Icon = icon === "wave" ? Waves : icon === "user" ? UserRound : icon === "clock" ? Clock : CalendarDays;
-  return <Icon aria-hidden="true" size={14} strokeWidth={1.7} />;
+  const Icon = icon === "wave" ? Waves : icon === "user" ? UserCircle : icon === "clock" ? Clock : Calendar;
+  return <Icon aria-hidden="true" size={14} weight="regular" />;
 }

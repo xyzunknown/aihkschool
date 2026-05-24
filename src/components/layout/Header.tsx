@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useSearchParams } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Diamond, List, X } from "@phosphor-icons/react";
 import { useAuth } from "@/components/layout/AuthProvider";
 
 const NAV_ITEMS = [
@@ -96,9 +96,7 @@ export function Header() {
                 {/* Tiny leaf glyph for active item */}
                 <span className="inline-flex items-center gap-1.5">
                   {active && (
-                    <span className="text-forest-500" aria-hidden>
-                      ◆
-                    </span>
+                    <Diamond size={10} weight="fill" className="text-forest-500" aria-hidden />
                   )}
                   {item.label}
                 </span>
@@ -173,7 +171,7 @@ export function Header() {
             aria-controls="site-mobile-menu"
             aria-expanded={menuOpen}
           >
-            {menuOpen ? <X size={18} strokeWidth={1.7} /> : <Menu size={18} strokeWidth={1.7} />}
+            {menuOpen ? <X size={18} weight="regular" /> : <List size={20} weight="regular" />}
           </button>
         </div>
       </div>

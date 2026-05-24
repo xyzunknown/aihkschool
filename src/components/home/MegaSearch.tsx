@@ -1,7 +1,8 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState, type FormEvent } from "react";
+import { useState, type ElementType, type FormEvent } from "react";
+import { Clock, FunnelSimple, GlobeHemisphereEast, MagnifyingGlass, MapPin, Student } from "@phosphor-icons/react";
 import { BottomSheet } from "@/components/ui/BottomSheet";
 
 const DISTRICT_OPTIONS = [
@@ -72,10 +73,7 @@ export function MegaSearch() {
       >
         <div className="flex flex-col sm:flex-row gap-3 mb-4">
           <div className="flex items-center gap-2 px-4 h-[52px] flex-1 rounded-pill bg-surface-soft border border-surface-border focus-within:border-forest-500 focus-within:bg-white transition">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-ink-500">
-              <circle cx="11" cy="11" r="7" />
-              <line x1="16.5" y1="16.5" x2="22" y2="22" />
-            </svg>
+            <MagnifyingGlass aria-hidden="true" size={19} weight="regular" className="text-forest-700" />
             <input
               type="search"
               value={q}
@@ -99,11 +97,7 @@ export function MegaSearch() {
             className="flex-1 h-11 inline-flex items-center justify-between gap-3 rounded-card border border-surface-border bg-surface-soft px-4 text-sm text-ink-800 font-medium hover:border-forest-500 transition"
           >
             <span className="inline-flex items-center gap-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="4" y1="6" x2="20" y2="6" />
-                <line x1="7" y1="12" x2="17" y2="12" />
-                <line x1="10" y1="18" x2="14" y2="18" />
-              </svg>
+              <FunnelSimple aria-hidden="true" size={17} weight="regular" />
               篩選條件
             </span>
             <span className="text-xs text-ink-500">
@@ -113,10 +107,10 @@ export function MegaSearch() {
         </div>
 
         <div className="hidden md:grid grid-cols-2 md:grid-cols-5 gap-3 items-end">
-          <Select label="地區" icon="📍" value={district} onChange={setDistrict} options={DISTRICT_OPTIONS} />
+          <Select label="地區" icon={MapPin} value={district} onChange={setDistrict} options={DISTRICT_OPTIONS} />
           <Select
             label="年級"
-            icon="👶"
+            icon={Student}
             value={grade}
             onChange={setGrade}
             options={[
@@ -129,7 +123,7 @@ export function MegaSearch() {
           />
           <Select
             label="全日 / 半日"
-            icon="🕓"
+            icon={Clock}
             value={session}
             onChange={setSession}
             options={[
@@ -141,7 +135,7 @@ export function MegaSearch() {
           />
           <Select
             label="語言"
-            icon="🗣️"
+            icon={GlobeHemisphereEast}
             value={language}
             onChange={setLanguage}
             options={[
@@ -156,11 +150,7 @@ export function MegaSearch() {
             onClick={() => router.push("/kg")}
             className="h-11 inline-flex items-center justify-center gap-2 rounded-pill border border-surface-border bg-white text-sm text-ink-700 font-medium hover:border-forest-500 hover:text-forest-700 transition"
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="4" y1="6" x2="20" y2="6" />
-              <line x1="7" y1="12" x2="17" y2="12" />
-              <line x1="10" y1="18" x2="14" y2="18" />
-            </svg>
+            <FunnelSimple aria-hidden="true" size={17} weight="regular" />
             進階篩選
           </button>
         </div>
@@ -176,10 +166,10 @@ export function MegaSearch() {
           </div>
 
           <div className="grid grid-cols-1 gap-3">
-            <Select label="地區" icon="📍" value={district} onChange={setDistrict} options={DISTRICT_OPTIONS} />
+            <Select label="地區" icon={MapPin} value={district} onChange={setDistrict} options={DISTRICT_OPTIONS} />
             <Select
               label="年級"
-              icon="👶"
+              icon={Student}
               value={grade}
               onChange={setGrade}
               options={[
@@ -192,7 +182,7 @@ export function MegaSearch() {
             />
             <Select
               label="全日 / 半日"
-              icon="🕓"
+              icon={Clock}
               value={session}
               onChange={setSession}
               options={[
@@ -204,7 +194,7 @@ export function MegaSearch() {
             />
             <Select
               label="語言"
-              icon="🗣️"
+              icon={GlobeHemisphereEast}
               value={language}
               onChange={setLanguage}
               options={[
@@ -243,13 +233,13 @@ export function MegaSearch() {
 
 function Select({
   label,
-  icon,
+  icon: Icon,
   value,
   onChange,
   options,
 }: {
   label: string;
-  icon: string;
+  icon: ElementType;
   value: string;
   onChange: (v: string) => void;
   options: { value: string; label: string }[];
@@ -258,7 +248,7 @@ function Select({
     <label className="flex flex-col gap-1">
       <span className="text-[11px] text-ink-500 font-medium">{label}</span>
       <div className="flex items-center gap-1.5 px-3 h-11 rounded-button bg-white border border-surface-border hover:border-forest-500 transition">
-        <span className="text-sm shrink-0 opacity-80" aria-hidden>{icon}</span>
+        <Icon aria-hidden="true" size={17} weight="regular" className="shrink-0 text-forest-700" />
         <select
           value={value}
           onChange={(e) => onChange(e.target.value)}

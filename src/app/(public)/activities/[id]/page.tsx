@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { ElementType } from "react";
 import { fetchActivityById } from "@/lib/db/activities";
 import Image from "next/image";
 import { AddToCalendarButton } from "@/components/activities/AddToCalendarButton";
@@ -22,7 +23,7 @@ import {
 } from "@/lib/activities/links";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { absoluteUrl, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
-import { ExternalLink } from "lucide-react";
+import { ArrowSquareOut, Calendar, CaretLeft, Clock, MapPin, MapTrifold, Phone, Tag, UserCircle } from "@phosphor-icons/react/dist/ssr";
 
 export const revalidate = 3600;
 
@@ -58,6 +59,23 @@ export default async function ActivityDetailPage({ params }: PageProps) {
   const organizer = getDisplayOrganizer(activity.organizer);
   const registrationHref = getActivityRegistrationHref(activity);
   const organizerHref = getActivityOrganizerHref(activity);
+  const infoItems = [
+    { label: "日期", value: dateRange, icon: Calendar },
+    ...(activity.schedule ? [{ label: "時間", value: activity.schedule, icon: Clock }] : []),
+    ...(activity.district ? [{ label: "地區", value: DISTRICT_LABELS[activity.district], icon: MapTrifold }] : []),
+    ...(activity.address
+      ? [{
+          label: "地址",
+          value: activity.address,
+          icon: MapPin,
+          href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(activity.address)}`,
+          external: true,
+        }]
+      : []),
+    ...(ageRange ? [{ label: "適合年齡", value: ageRange, icon: UserCircle }] : []),
+    { label: "費用", value: fee.fullLabel, icon: Tag },
+    ...(activity.contact_phone ? [{ label: "聯繫電話", value: activity.contact_phone, icon: Phone, href: `tel:${activity.contact_phone}` }] : []),
+  ];
   const eventJsonLd = {
     "@context": "https://schema.org",
     "@type": "Event",
@@ -102,7 +120,8 @@ export default async function ActivityDetailPage({ params }: PageProps) {
         href="/activities"
         className="mb-6 inline-flex items-center text-sm text-ink-500 transition-colors hover:text-ink-900"
       >
-        ← 返回課外活動
+        <CaretLeft aria-hidden="true" size={16} weight="bold" />
+        返回課外活動
       </Link>
 
       {/* Hero */}
@@ -161,7 +180,7 @@ export default async function ActivityDetailPage({ params }: PageProps) {
                     className="inline-flex min-h-12 items-center justify-center rounded-button bg-forest-600 px-7 text-base font-semibold text-white shadow-sm transition hover:bg-forest-700"
                   >
                     立即了解 / 報名
-                    <ExternalLink aria-hidden="true" size={17} strokeWidth={2} className="ml-2" />
+                    <ArrowSquareOut aria-hidden="true" size={18} weight="regular" className="ml-2" />
                   </a>
                 )}
                 {activity.start_date && (
@@ -175,7 +194,7 @@ export default async function ActivityDetailPage({ params }: PageProps) {
                     className="inline-flex min-h-12 items-center gap-1 text-sm font-medium text-ink-500 underline decoration-slate-300 underline-offset-2 hover:text-ink-900 hover:decoration-slate-950"
                   >
                     主辦方官網
-                    <ExternalLink aria-hidden="true" size={15} strokeWidth={2} />
+                    <ArrowSquareOut aria-hidden="true" size={15} weight="regular" />
                   </a>
                 )}
               </div>
@@ -185,36 +204,10 @@ export default async function ActivityDetailPage({ params }: PageProps) {
       </div>
 
       {/* 核心信息卡片 */}
-      <div className="mb-8 rounded-card border border-surface-border bg-white p-6">
+      <div className="mb-8 rounded-card border border-surface-border bg-white p-6 shadow-soft">
         <h2 className="mb-4 text-xl font-semibold text-ink-900">活動資訊</h2>
         <dl className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <InfoRow label="日期" value={dateRange} />
-          {activity.schedule && (
-            <InfoRow label="時間" value={activity.schedule} />
-          )}
-          {activity.district && (
-            <InfoRow
-              label="地區"
-              value={DISTRICT_LABELS[activity.district]}
-            />
-          )}
-          {activity.address && (
-            <InfoRow
-              label="地址"
-              value={activity.address}
-              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(activity.address)}`}
-              external
-            />
-          )}
-          {ageRange && <InfoRow label="適合年齡" value={ageRange} />}
-          <InfoRow label="費用" value={fee.fullLabel} />
-          {activity.contact_phone && (
-            <InfoRow
-              label="聯繫電話"
-              value={activity.contact_phone}
-              href={`tel:${activity.contact_phone}`}
-            />
-          )}
+          {infoItems.map((item) => <InfoRow key={item.label} {...item} />)}
         </dl>
       </div>
 
@@ -243,51 +236,42 @@ function getDisplayOrganizer(organizer: string | null) {
 function InfoRow({
   label,
   value,
+  icon: Icon,
   href,
   external,
 }: {
   label: string;
   value: string;
+  icon: ElementType;
   href?: string;
   external?: boolean;
 }) {
   return (
-    <div>
-      <dt className="text-xs font-medium uppercase tracking-wide text-ink-500">
-        {label}
-      </dt>
-      <dd className="mt-1 text-base text-ink-900">
+    <div className="flex min-h-[88px] gap-4 rounded-button border border-[#E8ECE3] bg-[#FFFDF8] px-4 py-4">
+      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[12px] bg-forest-50 text-forest-700">
+        <Icon aria-hidden="true" size={20} weight="regular" />
+      </div>
+      <div className="min-w-0">
+        <dt className="text-xs font-semibold text-ink-500">{label}</dt>
+        <dd className="mt-1 text-base font-bold text-ink-900">
         {href ? (
           <a
             href={href}
             {...(external
               ? { target: "_blank", rel: "noopener noreferrer" }
               : {})}
-            className="inline-flex items-center gap-1 text-ink-900 underline decoration-slate-300 underline-offset-2 hover:decoration-slate-950"
+            className="inline-flex min-w-0 items-center gap-1 hover:text-forest-700"
           >
-            {value}
+            <span className="truncate">{value}</span>
             {external && (
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="flex-shrink-0 text-ink-500"
-              >
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                <polyline points="15 3 21 3 21 9" />
-                <line x1="10" y1="14" x2="21" y2="3" />
-              </svg>
+              <ArrowSquareOut aria-hidden="true" size={15} weight="regular" className="flex-shrink-0 text-ink-500" />
             )}
           </a>
         ) : (
           value
         )}
       </dd>
+      </div>
     </div>
   );
 }

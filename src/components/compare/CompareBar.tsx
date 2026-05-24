@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Columns, X } from "@phosphor-icons/react";
 import { useCompare } from "@/lib/hooks/useCompare";
 
 export function CompareBar() {
@@ -19,10 +20,7 @@ export function CompareBar() {
       <div className="mx-auto flex max-w-4xl flex-col gap-3 rounded-card border border-surface-border bg-white/96 p-3 shadow-dock  md:flex-row md:items-center md:gap-4 md:rounded-full md:px-4">
         <div className="flex min-w-0 flex-1 items-center gap-2">
           <div className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-forest-700 text-white">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M6.5 5.75h2.4c.55 0 1 .45 1 1v10.5c0 .55-.45 1-1 1H6.5c-.55 0-1-.45-1-1V6.75c0-.55.45-1 1-1Z" />
-              <path d="M15.1 5.75h2.4c.55 0 1 .45 1 1v10.5c0 .55-.45 1-1 1h-2.4c-.55 0-1-.45-1-1V6.75c0-.55.45-1 1-1Z" />
-            </svg>
+            <Columns aria-hidden="true" size={18} weight="regular" />
           </div>
           <div className="min-w-0">
             <p className="text-sm font-bold leading-tight text-ink-900">我的比較</p>
@@ -47,10 +45,7 @@ export function CompareBar() {
                 className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full text-ink-400 transition-colors hover:bg-forest-100 hover:text-forest-700"
                 aria-label={`移除 ${item.nameTc}`}
               >
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
+                <X aria-hidden="true" size={12} weight="bold" />
               </button>
             </div>
           ))}

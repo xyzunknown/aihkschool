@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { Search, X } from "lucide-react";
+import { MagnifyingGlass, X } from "@phosphor-icons/react";
 import { startsWithSearchText } from "@/lib/schools/searchText";
 
 interface SearchBarProps {
@@ -170,7 +170,7 @@ export function SearchBar({ initialQuery, onSearch }: SearchBarProps) {
   return (
     <div className="relative mb-6">
       <div className="flex items-center gap-3 rounded-card border border-surface-border bg-white px-5 py-3">
-        <Search aria-hidden="true" size={16} strokeWidth={1.7} className="flex-shrink-0 text-ink-400" />
+        <MagnifyingGlass aria-hidden="true" size={17} weight="regular" className="flex-shrink-0 text-forest-700" />
         <input
           type="text"
           placeholder="搜尋學校名稱、地區、英文名或拼音..."
@@ -187,7 +187,7 @@ export function SearchBar({ initialQuery, onSearch }: SearchBarProps) {
             className="text-ink-400 transition-colors hover:text-ink-700"
             aria-label="清除搜尋"
           >
-            <X aria-hidden="true" size={16} strokeWidth={1.7} />
+            <X aria-hidden="true" size={16} weight="regular" />
           </button>
         )}
       </div>
@@ -218,18 +218,7 @@ export function SearchBar({ initialQuery, onSearch }: SearchBarProps) {
                     }}
                     className="mr-3 inline-flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-pill text-ink-400 transition hover:bg-forest-50 hover:text-ink-700 focus:outline-none focus:ring-2 focus:ring-surface-border"
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="h-3.5 w-3.5"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                    >
-                      <path d="M4.25 4.25l7.5 7.5" />
-                      <path d="M11.75 4.25l-7.5 7.5" />
-                    </svg>
+                    <X aria-hidden="true" size={14} weight="regular" />
                   </button>
                 </div>
               ))}

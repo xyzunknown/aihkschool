@@ -25,6 +25,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### 必做
 
 **API 層**
+
 - 所有返回 enrichment 的 API 必須：
   - 強制分頁 `limit ≤ 20, max 50`，無匿名「給我全部」路徑
   - 登入用戶才返回完整 `quote_highlights`；匿名只返回 summary + tag 計數
@@ -32,6 +33,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   - User-Agent 白名單過濾：已知 AI 爬蟲 UA（GPTBot、ClaudeBot、PerplexityBot、CCBot、Google-Extended、Bytespider、anthropic-ai 等）→ 403
 
 **前端層**
+
 - `reputation_summary` 直接 SSR 輸出沒問題（本來就是給人看的摘要）
 - `quote_highlights` 客戶端按需 fetch，不要 SSR 全部 inline
 - 關鍵長文本（summary、interview_style）可選用「首次可見後才渲染尾段」漸進式策略
@@ -39,11 +41,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `robots.txt` 明確 `Disallow: /api/` + 對 GPTBot/ClaudeBot/CCBot/anthropic-ai 全站 `Disallow: /`
 
 **數據庫層**
+
 - `social_posts_raw` — service_role only，永不開放 anon/authenticated（已做）
 - `school_enrichments` RLS：anon 只能 SELECT 聚合欄位（`reputation_summary`, 計數），不能直接 SELECT `raw_extracted` / `quote_highlights` 明細 — 用 view 或 column-level GRANT 實現
 - 設 `pg_stat_statements` 或 Supabase log alert：單 IP >1000 rows/min 觸發告警
 
 **監控**
+
 - Vercel Analytics + 自建 `access_log` 表記錄可疑模式（同一 IP 連續 paginate 到底、User-Agent 為空、refer 為 null）
 - 每週人工 review top-20 consumers，可疑的直接 ban IP
 
@@ -173,6 +177,7 @@ scripts/
 ### Migration Fallback Pattern
 
 `fetchSchools()` and `fetchSchoolById()` in `src/lib/db/schools.ts` use a resilient query pattern:
+
 1. Try full query with all columns (including newer ones from migrations 006/008: `has_nursery`, `latitude`, `longitude`, `application_status`, `application_details`, `application_url`)
 2. If error mentions a missing column name → retry with legacy column set (omitting those columns)
 3. Fill missing columns with defaults in-memory (`has_nursery: false`, `latitude: null`, etc.)
@@ -188,14 +193,14 @@ This allows the app to work even if newer migrations haven't been applied to the
 
 ### RLS Summary
 
-| Table | Read | Write |
-|-------|------|-------|
-| schools | Everyone (`is_active = true`) | `service_role` only |
-| vacancies | Everyone | `service_role` only |
+| Table           | Read                           | Write                                     |
+| --------------- | ------------------------------ | ----------------------------------------- |
+| schools         | Everyone (`is_active = true`)  | `service_role` only                       |
+| vacancies       | Everyone                       | `service_role` only                       |
 | admission_intel | Everyone (`status = approved`) | Insert: logged-in; Update: `service_role` |
-| users | Own row only | Supabase Auth trigger |
-| favorites | Own rows only | Own rows only |
-| reminders | Own rows only | `service_role` only |
+| users           | Own row only                   | Supabase Auth trigger                     |
+| favorites       | Own rows only                  | Own rows only                             |
+| reminders       | Own rows only                  | `service_role` only                       |
 
 ## API Design
 
@@ -270,117 +275,16 @@ All user-facing text must be **Traditional Chinese (粵語風格)**. Use convers
 
 ## Design System
 
-### Core Principle
+The current source of truth is `docs/hkschoolplace_design_system_current.md`.
 
-> Color is information, not decoration. Keep one calm brand green, one warm alert accent, white cards, and clear status colors. Avoid parallel cream / sand / forest / brand variants that look different in code but identical to users.
+Core rules:
 
-### Palette (Tailwind)
-
-| Use | Color |
-|-----|-------|
-| Base background | `ivory-50` / `surface-page` (#FDFBF4) |
-| Section background | `ivory-100` / `surface-soft` (#FAF6E9) |
-| Card / surface | `white` (#ffffff) solid, 1px border |
-| Primary text | `ink-900` (#161D19) |
-| Secondary text | `ink-700` (#3F4B44) |
-| Muted text | `ink-500` (#6B766F) |
-| Border | `surface-border` / `line-card` (#E6ECE5) |
-| Featured surface (dark card) | `brand-900` / `forest-900` (#0F3D27) with `text-white` |
-| Main action | `brand-700` (#17623F) |
-| Alert accent | `clay-500` (#D86A3A) |
-
-#### Status Colors (vacancy badges & deadline indicators only)
-
-| Status | Background | Text | Use |
-|--------|-----------|------|-----|
-| 尚有學額 / safe (>14d) | `status-available-bg` (#EAF6EC) | `status-available-fg` (#247A4D) | Has vacancy |
-| 學額緊張 / warning (7-14d) | `status-limited-bg` (#FFEBB8) | `status-limited-fg` (#8E5F1E) | Running low / deadline approaching |
-| 名額已滿 / urgent (<7d) | `status-full-bg` (#FADFCB) | `status-full-fg` (#8E3D17) | Full / deadline imminent |
-| 未開放 / not applicable | `status-pending-bg` (#F2F4F2) | `status-pending-fg` (#7C837E) | Not offered / check school |
-
-### Cards
-
-Two card variants:
-
-**Content Card** (default — school list, detail sections, stats):
-```
-bg-white rounded-2xl border border-surface-border p-6
-hover: shadow-sm transition-shadow duration-200 — no scale, no color change
-```
-
-**Featured Card** (homepage highlights, promotional — max 1 per page section):
-```
-bg-brand-900 text-white rounded-2xl p-6
-```
-
-No glass/blur effect in V1. All cards use solid backgrounds.
-
-### Buttons (Two Types Only)
-
-- **Primary** (max one per page): `bg-brand-700 text-white rounded-xl px-6 py-3`
-- **Secondary**: `bg-white text-brand-700 border border-brand-200 rounded-xl px-6 py-3`
-- Hover: `scale(1.02)` over 200ms — no color change
-- Disabled: `opacity-50 cursor-not-allowed`
-
-### Vacancy Status Badges
-
-Pill-shaped badges positioned **top-right** of school cards:
-```
-inline-flex items-center rounded-full px-3 py-1 text-xs font-medium
-```
-
-- 尚有學額: `bg-status-available-bg text-status-available-fg`
-- 學額緊張: `bg-status-limited-bg text-status-limited-fg`
-- 名額已滿: `bg-status-full-bg text-status-full-fg`
-- 未開放: `bg-status-pending-bg text-status-pending-fg`
-
-### Compare Floating Dock
-
-When users add schools to compare, show one floating dock across public web pages and the iOS school list. It should:
-
-- Stay above mobile bottom navigation.
-- Show selected schools as removable chips.
-- Enable compare only after 2 schools are selected.
-- Use `brand-700` for the action, `brand-50` for selected chips, white for the dock surface, and `surface-border` for the outline.
-
-Each grade (N/K1/K2/K3) gets its own badge. Show grade prefix: `K1 尚有學額`, `K2 學額緊張`.
-
-### School Images & Fallback
-
-V1 does not use real school photos. All school cards display an **initial-letter avatar**:
-
-```
-Avatar circle: w-12 h-12 rounded-full flex items-center justify-center
-Background: deterministic from school_id — cycle through:
-  slate-200, emerald-100, amber-100, sky-100, violet-100
-Text: first character of name_tc, text-lg font-semibold, color matching bg shade-700
-```
-
-Detail page hero area: show a **generic placeholder** illustration (classroom vector or solid color block with school name overlay). Reserve the image container dimensions (`aspect-[16/9] rounded-2xl bg-slate-100`) for future real photos.
-
-### Spacing
-
-- Card padding: `p-6` (24px)
-- Card gap: `gap-5` (20px)
-- Page margin: `px-5` mobile / `px-8` desktop
-- Section spacing: `mb-10` (40px)
-- Inner section gap: `space-y-4`
-
-### Border Radii
-
-Tags/pills: `rounded-full` (99px) · Buttons: `rounded-xl` (14px) · Cards: `rounded-2xl` (16px) · Avatar: `rounded-full`
-
-### Typography
-
-| Level | Tailwind | Size/Weight | Use |
-|-------|----------|------------|-----|
-| Display | `text-4xl font-bold tracking-tight` | 40px / 700 / tight | Homepage hero |
-| H1 | `text-2xl font-bold tracking-tight` | 28px / 700 / tight | Page titles (e.g. 「策劃香港卓越教育藍圖」) |
-| H2 | `text-xl font-semibold` | 20px / 600 | Section headers (e.g. 「即時學額狀態」) |
-| H3 | `text-lg font-semibold` | 18px / 600 | Card titles, school names |
-| Body | `text-base font-normal leading-relaxed` | 16px / 400 / 1.625 | Main content |
-| Small | `text-sm text-slate-500` | 14px / 400 | Timestamps, sources, update hints |
-| Label | `text-xs font-medium uppercase tracking-wide` | 12px / 500 | Field labels, grade prefix |
+- HKSchoolPlace should feel warm, clear, credible, and parent-friendly.
+- Use the existing warm ivory background, white cards, forest green actions, and soft green-gray borders.
+- Product UI icons should use Phosphor. Do not mix Lucide, hand-written SVGs, emoji, and text arrows for normal UI.
+- Back, expand, detail, external-link, close, and menu indicators must use the same Phosphor navigation set.
+- Login, account, detail, list, and mobile views must look like one product system.
+- For UI changes, visually verify desktop and mobile layouts before shipping.
 
 ## Page Layouts
 
@@ -438,6 +342,7 @@ No sidebar navigation. Single-page layout:
 **Layout**: Search bar + FilterBar (top) + 3-column card grid (desktop) / stacked (mobile). Geolocation toggle button for distance display.
 
 **FilterBar** (`src/components/schools/FilterBar.tsx`) — 4 filter groups:
+
 - 地區位置: dropdown with checkbox list of 18 districts
 - 學位狀態: pill toggles — 有位 / 满额 / 候补 / 待更新 (multi-select)
 - 學校類別: radio buttons — 全部 / 非牟利 / 私立獨立 / 國際
@@ -446,6 +351,7 @@ No sidebar navigation. Single-page layout:
 **Geolocation**: 「📍 顯示距離」button triggers browser location permission. Once granted, each school card shows distance (km or m) after district name. Uses `useGeolocation()` hook + `haversineDistance()` from `src/lib/hooks/useGeolocation.ts`. Requires `latitude`/`longitude` columns in schools table (migration 008).
 
 **School card layout** (in grid):
+
 ```
 ┌──────────────────────────────┐
 │  [Avatar]  學校中文名          │
@@ -497,14 +403,14 @@ Shows school events (open days, interviews, briefings, deadlines, trials, talks)
 
 ## Naming Conventions
 
-| Thing | Convention | Example |
-|-------|-----------|---------|
-| Components | PascalCase | `SchoolCard`, `VacancyBadge` |
-| Functions/variables | camelCase | `getSchools`, `isLoading` |
-| DB query functions | camelCase verb-first | `fetchSchools`, `insertFavorite` |
-| Constants | SCREAMING_SNAKE_CASE | `MAX_FAVORITES`, `REMINDER_DAYS` |
-| DB columns | snake_case | `school_id`, `created_at` |
-| CSS | Tailwind utility only | No custom class names |
+| Thing               | Convention            | Example                          |
+| ------------------- | --------------------- | -------------------------------- |
+| Components          | PascalCase            | `SchoolCard`, `VacancyBadge`     |
+| Functions/variables | camelCase             | `getSchools`, `isLoading`        |
+| DB query functions  | camelCase verb-first  | `fetchSchools`, `insertFavorite` |
+| Constants           | SCREAMING_SNAKE_CASE  | `MAX_FAVORITES`, `REMINDER_DAYS` |
+| DB columns          | snake_case            | `school_id`, `created_at`        |
+| CSS                 | Tailwind utility only | No custom class names            |
 
 ## Production Database Seed 操作
 
@@ -521,9 +427,11 @@ DATABASE_URL='postgresql://postgres.ordaiibaaqkdsiqparqe:密码@aws-1-ap-northea
 **连接字符串获取**：Supabase Dashboard → Project Settings → Database → Connection string → 选 **Session pooler** mode → 复制 URI。
 
 **已废弃的 pipeline**：
+
 - `media_articles` 表 / `scripts/crawlers/media-articles.mjs` — 无法抓取到有效数据，已永久废弃。不要尝试重新运行或修复。
 
 **执行顺序**（脚本已自动处理）：
+
 1. `supabase/migrations/` — 按文件名顺序，添加新列/表（幂等，可重复跑）
 2. `supabase/seed/001_schools.sql` — 873 所 EDB 非牟利学校 + 学位数据
 3. `supabase/seed/002_private_international_schools.sql` — 私立/国际学校补充
@@ -551,12 +459,12 @@ DATABASE_URL='postgresql://postgres.ordaiibaaqkdsiqparqe:密码@aws-1-ap-northea
 
 ## Specification Files
 
-| File | Purpose |
-|------|---------|
-| `HKSchoolPlace_PRD_V1.docx` | Full product requirements |
-| `HKSchoolPlace_DataDictionary_V1.docx` | Complete DB schema with field definitions and enums |
-| `HKSchoolPlace_EngineeringConstraints_V1.docx` | Technical constraints and code rules |
-| `HKSchoolPlace_UXFlows_V1.docx` | Interaction flows, edge cases, error states |
-| `hkschoolplace_design_system_2026.html` | Visual design system (open in browser) |
-| `hkschoolplace_ia.svg` | Information architecture diagram |
-| `TODO.md` | Ordered 12-phase build checklist |
+| File                                           | Purpose                                             |
+| ---------------------------------------------- | --------------------------------------------------- |
+| `HKSchoolPlace_PRD_V1.docx`                    | Full product requirements                           |
+| `HKSchoolPlace_DataDictionary_V1.docx`         | Complete DB schema with field definitions and enums |
+| `HKSchoolPlace_EngineeringConstraints_V1.docx` | Technical constraints and code rules                |
+| `HKSchoolPlace_UXFlows_V1.docx`                | Interaction flows, edge cases, error states         |
+| `hkschoolplace_design_system_2026.html`        | Visual design system (open in browser)              |
+| `hkschoolplace_ia.svg`                         | Information architecture diagram                    |
+| `TODO.md`                                      | Ordered 12-phase build checklist                    |

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowSquareOut, CaretRight } from "@phosphor-icons/react/dist/ssr";
 import type { NewsItem } from "@/types/homepage";
 
 const SOURCE_CATEGORY_STYLES: Record<string, string> = {
@@ -24,7 +25,10 @@ export function NewsFeed({ items }: NewsFeedProps) {
           href="/news"
           className="text-sm font-medium text-ink-500 transition-colors hover:text-ink-900"
         >
-          查看更多 →
+          <span className="inline-flex items-center gap-1">
+            查看更多
+            <CaretRight size={14} weight="bold" aria-hidden="true" />
+          </span>
         </Link>
       </div>
 
@@ -61,21 +65,7 @@ export function NewsFeed({ items }: NewsFeedProps) {
                   <div className="flex flex-shrink-0 items-center gap-1.5 mt-1">
                     <span className="text-xs text-ink-500">{item.date}</span>
                     {isExternal && (
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="text-ink-300"
-                      >
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                        <polyline points="15 3 21 3 21 9" />
-                        <line x1="10" y1="14" x2="21" y2="3" />
-                      </svg>
+                      <ArrowSquareOut size={12} weight="regular" className="text-ink-300" aria-hidden="true" />
                     )}
                   </div>
                 </div>

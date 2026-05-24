@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { CaretLeft } from "@phosphor-icons/react";
 import { SourceTag } from "@/components/schools/SourceTag";
 import { SchoolAvatar } from "@/components/schools/SchoolAvatar";
 import { VacancySection } from "@/components/schools/VacancySection";
@@ -142,9 +143,7 @@ export function SchoolDetailClient({ school, vacancy }: Props) {
         href="/kg"
         className="inline-flex items-center gap-1 text-sm text-ink-500 hover:text-ink-700 transition-colors mb-6"
       >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="15 18 9 12 15 6" />
-        </svg>
+        <CaretLeft size={16} weight="bold" aria-hidden="true" />
         返回搵學校
       </Link>
 

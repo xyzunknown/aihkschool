@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CaretRight, Heart, MapPin } from "@phosphor-icons/react/dist/ssr";
 import type { FeaturedSchool } from "@/types/homepage";
 
 const SCHOOL_PHOTOS = [
@@ -43,8 +44,9 @@ export function FeaturedSchoolsRow({ schools }: Props) {
           <span className="inline-block w-1 h-5 bg-forest-700 rounded-full" />
           推薦幼稚園
         </h2>
-        <Link href="/kg" className="text-sm text-forest-700 hover:underline font-medium">
-          查看全部學校 →
+        <Link href="/kg" className="inline-flex items-center gap-1 text-sm text-forest-700 hover:underline font-medium">
+          查看全部學校
+          <CaretRight size={14} weight="bold" aria-hidden="true" />
         </Link>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -81,9 +83,7 @@ function SchoolCard({
           aria-label="收藏"
           className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full border border-white/80 bg-white/95 flex items-center justify-center text-ink-500 hover:text-[#B4473B] shadow-soft"
         >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-          </svg>
+          <Heart size={14} weight="regular" aria-hidden="true" />
         </span>
       </div>
       <div className="p-4 flex flex-col flex-1">
@@ -91,7 +91,10 @@ function SchoolCard({
           {school.name_tc}
         </h3>
         <div className="flex items-center gap-1.5 mt-1.5 text-xs">
-          <span className="text-ink-500 inline-flex items-center gap-0.5">📍 {school.district}</span>
+          <span className="text-ink-500 inline-flex items-center gap-0.5">
+            <MapPin size={13} weight="regular" aria-hidden="true" />
+            {school.district}
+          </span>
           {school.sessionTags?.slice(0, 2).map((t) => (
             <span key={t} className="px-1.5 py-0.5 rounded-md bg-surface-soft text-ink-700 text-[11px]">
               {t}
@@ -112,8 +115,9 @@ function SchoolCard({
             );
           })}
         </div>
-        <div className="flex items-center justify-end mt-3 pt-3 border-t border-surface-border text-[11px] text-forest-700 font-medium">
-          查看詳情 →
+        <div className="flex items-center justify-end gap-1 mt-3 pt-3 border-t border-surface-border text-[11px] text-forest-700 font-medium">
+          查看詳情
+          <CaretRight size={12} weight="bold" aria-hidden="true" />
         </div>
       </div>
     </Link>

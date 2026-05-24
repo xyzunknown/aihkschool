@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { CaretDown } from "@phosphor-icons/react";
 import { FilterBar, type FilterActiveTag, type FilterOptionGroup } from "@/components/ui/FilterBar";
 import type { ProgrammeCategory } from "@/lib/db/programmes";
 import {
@@ -155,7 +155,7 @@ export function ProgrammeFilterBar({
             aria-expanded={sortOpen}
           >
             排序：{SORT_OPTIONS.find((item) => item.key === sort)?.label}
-            <ChevronDown aria-hidden="true" size={16} strokeWidth={1.7} className={sortOpen ? "rotate-180" : ""} />
+            <CaretDown aria-hidden="true" size={16} weight="bold" className={sortOpen ? "rotate-180" : ""} />
           </button>
           <p className="text-small font-semibold text-ink-500">共 {courseCount} 個課程</p>
           {sortOpen ? (

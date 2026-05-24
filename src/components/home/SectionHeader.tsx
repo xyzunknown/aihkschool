@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 
 interface SectionHeaderProps {
   title: string;
@@ -20,9 +21,10 @@ export function SectionHeader({ title, description, href }: SectionHeaderProps) 
       </div>
       <Link
         href={href}
-        className="shrink-0 text-small font-medium text-forest-700 transition-colors hover:text-forest-800 hover:underline"
+        className="inline-flex shrink-0 items-center gap-1 text-small font-semibold text-forest-700 transition-colors hover:text-forest-800 hover:underline"
       >
-        查看全部 →
+        查看全部
+        <CaretRight aria-hidden="true" size={14} weight="bold" />
       </Link>
     </div>
   );

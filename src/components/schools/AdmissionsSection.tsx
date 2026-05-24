@@ -1,4 +1,5 @@
 import { GlassCard } from "@/components/ui/GlassCard";
+import { Calendar } from "@phosphor-icons/react/dist/ssr";
 import { getApplicationStatusLabel, hasAdmissionInfo } from "@/lib/schools/admissions";
 import type { School } from "@/types/database";
 import type { SchoolEnrichment } from "@/lib/db/schools";
@@ -105,7 +106,10 @@ export function AdmissionsSection({ school, enrichment }: AdmissionsSectionProps
                 開放日 / 參觀資訊
               </div>
               {openDayDate && (
-                <p className="text-base font-medium text-ink-900 mb-1">📅 {openDayDate}</p>
+                <p className="mb-1 inline-flex items-center gap-1.5 text-base font-medium text-ink-900">
+                  <Calendar size={17} weight="regular" className="text-forest-700" aria-hidden="true" />
+                  {openDayDate}
+                </p>
               )}
               {openDayDetails && (
                 <p className="text-base text-ink-900 leading-relaxed whitespace-pre-line">{openDayDetails}</p>

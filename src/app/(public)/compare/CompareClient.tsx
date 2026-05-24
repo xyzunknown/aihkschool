@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
+import { CheckCircle, Columns, Lightbulb, X, XCircle } from "@phosphor-icons/react";
 import { SchoolAvatar } from "@/components/schools/SchoolAvatar";
 import { VacancyBadge } from "@/components/schools/VacancyBadge";
 import { Button } from "@/components/ui/Button";
@@ -177,10 +178,7 @@ export function CompareClient() {
       <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 text-center">
         <div className="mx-auto max-w-md rounded-card border border-surface-border bg-white px-6 py-8 shadow-soft">
           <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-forest-50 text-forest-700">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
-              <rect x="3" y="4" width="7" height="16" rx="1.5" />
-              <rect x="14" y="4" width="7" height="16" rx="1.5" />
-            </svg>
+            <Columns size={24} weight="regular" aria-hidden="true" />
           </div>
           <p className="text-xl font-semibold text-ink-900 mb-2">
             請至少選擇 2 所學校進行對比
@@ -199,9 +197,29 @@ export function CompareClient() {
   const schoolIds = schools.map((s) => s.id);
   const districtValues = schools.map((s) => DISTRICT_LABELS[s.district as keyof typeof DISTRICT_LABELS] ?? s.district);
   const typeValues = schools.map((s) => SCHOOL_TYPE_LABELS[s.school_type] ?? s.school_type);
-  const kepValues = schools.map((s) => (s.kep_participant ? "✅ 已參加" : "❌ 未參加"));
+  const kepCompareValues = schools.map((s) => (s.kep_participant ? "yes" : "no"));
+  const kepValues = schools.map((s) => (
+    <span key={s.id} className="inline-flex items-center gap-1.5">
+      {s.kep_participant ? (
+        <CheckCircle size={17} weight="fill" className="text-forest-700" aria-hidden="true" />
+      ) : (
+        <XCircle size={17} weight="fill" className="text-ink-400" aria-hidden="true" />
+      )}
+      {s.kep_participant ? "已參加" : "未參加"}
+    </span>
+  ));
   const sessionValues = schools.map((s) => SESSION_TYPE_LABELS[s.session_type ?? ""] ?? "—");
-  const nurseryValues = schools.map((s) => (hasNursery(s.grades_offered) ? "✅" : "❌"));
+  const nurseryCompareValues = schools.map((s) => (hasNursery(s.grades_offered) ? "yes" : "no"));
+  const nurseryValues = schools.map((s) => (
+    <span key={s.id} className="inline-flex items-center gap-1.5">
+      {hasNursery(s.grades_offered) ? (
+        <CheckCircle size={17} weight="fill" className="text-forest-700" aria-hidden="true" />
+      ) : (
+        <XCircle size={17} weight="fill" className="text-ink-400" aria-hidden="true" />
+      )}
+      {hasNursery(s.grades_offered) ? "設有" : "未設"}
+    </span>
+  ));
   const langValues = schools.map((s) => getLanguageLabel(s.language_primary));
   const monthlyValues = schools.map((s) => formatFee(s.fee_monthly_hkd));
   const annualValues = schools.map((s) => formatFee(s.fee_annual_hkd));
@@ -250,10 +268,7 @@ export function CompareClient() {
                           className="absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center rounded-full bg-surface-soft text-ink-500 hover:bg-status-full-bg hover:text-status-full-fg transition-colors"
                           aria-label={`移除 ${school.name_tc}`}
                         >
-                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                            <line x1="18" y1="6" x2="6" y2="18" />
-                            <line x1="6" y1="6" x2="18" y2="18" />
-                          </svg>
+                          <X size={10} weight="bold" aria-hidden="true" />
                         </button>
                       </div>
                       <Link href={`/kg/${school.id}`} className="hover:underline text-center">
@@ -269,9 +284,9 @@ export function CompareClient() {
           <tbody>
             <CompareRow label="地區" values={districtValues} schoolIds={schoolIds} highlight={valuesDiffer(districtValues)} />
             <CompareRow label="學校類別" values={typeValues} schoolIds={schoolIds} highlight={valuesDiffer(typeValues)} />
-            <CompareRow label="KEP 計劃" values={kepValues} schoolIds={schoolIds} highlight={valuesDiffer(kepValues)} />
+            <CompareRow label="KEP 計劃" values={kepValues} schoolIds={schoolIds} highlight={valuesDiffer(kepCompareValues)} />
             <CompareRow label="班制" values={sessionValues} schoolIds={schoolIds} highlight={valuesDiffer(sessionValues)} />
-            <CompareRow label="設 N 班" values={nurseryValues} schoolIds={schoolIds} highlight={valuesDiffer(nurseryValues)} />
+            <CompareRow label="設 N 班" values={nurseryValues} schoolIds={schoolIds} highlight={valuesDiffer(nurseryCompareValues)} />
             <CompareRow
               label="K1 學位"
               schoolIds={schoolIds}
@@ -315,8 +330,9 @@ export function CompareClient() {
       </div>
 
       {/* Share hint */}
-      <p className="mt-4 text-xs text-ink-500 text-center">
-        💡 你可以複製網址分享對比結果給家人
+      <p className="mt-4 inline-flex w-full items-center justify-center gap-1.5 text-xs text-ink-500">
+        <Lightbulb size={14} weight="regular" aria-hidden="true" />
+        你可以複製網址分享對比結果給家人
       </p>
     </div>
   );

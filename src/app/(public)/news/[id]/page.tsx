@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import * as cheerio from "cheerio";
+import { ArrowSquareOut, CaretLeft } from "@phosphor-icons/react/dist/ssr";
 import { getAllNewsItems, getNewsItemById } from "@/lib/homepage/liveData";
 import type { NewsItem } from "@/types/homepage";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -273,9 +274,10 @@ export default async function ArticlePage({ params }: PageProps) {
       />
       <Link
         href="/news"
-        className="mb-6 inline-flex items-center text-sm text-ink-500 transition-colors hover:text-ink-900"
+        className="mb-6 inline-flex items-center gap-1 text-sm text-ink-500 transition-colors hover:text-ink-900"
       >
-        ← 返回消息動態
+        <CaretLeft size={16} weight="bold" aria-hidden="true" />
+        返回消息動態
       </Link>
 
       <div className="mb-6">
@@ -316,20 +318,7 @@ export default async function ArticlePage({ params }: PageProps) {
             className="inline-flex items-center gap-2 rounded-button bg-ink-900 px-6 py-3 text-sm font-medium text-white transition-transform "
           >
             閱讀全文
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-              <polyline points="15 3 21 3 21 9" />
-              <line x1="10" y1="14" x2="21" y2="3" />
-            </svg>
+            <ArrowSquareOut size={14} weight="regular" aria-hidden="true" />
           </Link>
         </div>
       )}
@@ -342,21 +331,7 @@ export default async function ArticlePage({ params }: PageProps) {
           className="inline-flex items-center gap-1.5 rounded-button border border-surface-border bg-white px-5 py-2.5 text-sm font-medium text-ink-700 transition-colors hover:bg-cream-50"
         >
           來源：{article.source_label}
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-ink-500"
-          >
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-            <polyline points="15 3 21 3 21 9" />
-            <line x1="10" y1="14" x2="21" y2="3" />
-          </svg>
+          <ArrowSquareOut size={14} weight="regular" className="text-ink-500" aria-hidden="true" />
         </Link>
       </div>
 

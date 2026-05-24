@@ -2,6 +2,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import {
+  CaretRight,
+  ChalkboardTeacher,
+  ChatCircleText,
+  ClipboardText,
+  Megaphone,
+  MicrophoneStage,
+  Target,
+} from "@phosphor-icons/react/dist/ssr";
 import { SCHOOL_TYPE_LABELS, DISTRICT_LABELS } from "@/lib/utils";
 import type { SchoolEventItem, EventType } from "@/types/homepage";
 
@@ -14,13 +23,13 @@ const EVENT_IMAGE: Record<EventType, string | null> = {
   talk: null,
 };
 
-const EVENT_ICONS: Record<EventType, string> = {
-  open_day: "🏫",
-  interview: "🎤",
-  briefing: "📢",
-  deadline: "📋",
-  trial: "🎯",
-  talk: "💬",
+const EVENT_ICONS: Record<EventType, typeof ChalkboardTeacher> = {
+  open_day: ChalkboardTeacher,
+  interview: MicrophoneStage,
+  briefing: Megaphone,
+  deadline: ClipboardText,
+  trial: Target,
+  talk: ChatCircleText,
 };
 
 const EVENT_PILL_STYLES: Record<EventType, string> = {
@@ -75,7 +84,7 @@ interface EventRowProps {
 }
 
 export function EventRow({ event }: EventRowProps) {
-  const icon = EVENT_ICONS[event.event_type] || "📅";
+  const Icon = EVENT_ICONS[event.event_type] || ClipboardText;
   const pillStyle = event.is_past
     ? "bg-cream-200 text-ink-400"
     : EVENT_PILL_STYLES[event.event_type];
@@ -99,7 +108,7 @@ export function EventRow({ event }: EventRowProps) {
             className="w-12 h-12 object-contain"
           />
         ) : (
-          <span className="text-2xl">{icon}</span>
+          <Icon size={28} weight="regular" className="text-forest-700" aria-hidden="true" />
         )}
       </div>
 
@@ -139,9 +148,10 @@ export function EventRow({ event }: EventRowProps) {
           href={event.href}
           target="_blank"
           rel="noreferrer"
-          className="mt-2 inline-flex items-center text-xs font-medium text-forest-600 transition hover:text-forest-700"
+          className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-forest-600 transition hover:text-forest-700"
         >
-          查看詳情 →
+          查看詳情
+          <CaretRight size={13} weight="bold" aria-hidden="true" />
         </Link>
       </div>
 

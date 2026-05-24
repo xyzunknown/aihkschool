@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin } from "lucide-react";
+import { MapPin } from "@phosphor-icons/react/dist/ssr";
 import type { Activity } from "@/lib/db/activities";
 import {
   CATEGORY_LABELS,
@@ -64,7 +64,7 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
           <p className="mt-2.5 line-clamp-1 text-small font-medium text-ink-500">{dateRange}</p>
 
           <div className="mt-2.5 flex min-w-0 items-center gap-2 text-small font-medium text-ink-500 md:truncate">
-            <MapPin aria-hidden="true" size={16} strokeWidth={1.7} className="shrink-0 text-forest-500" />
+            <MapPin aria-hidden="true" size={16} weight="regular" className="shrink-0 text-forest-500" />
             <span className="truncate">{venueSummary}</span>
           </div>
 

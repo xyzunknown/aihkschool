@@ -3,7 +3,19 @@
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { Check, Copy, ExternalLink, Facebook, Link2, MessageCircle, Send, Share2, X } from "lucide-react";
+import {
+  ArrowSquareOut,
+  ArrowUp,
+  Check,
+  Copy,
+  FacebookLogo,
+  LinkSimple,
+  NewspaperClipping,
+  PaperPlaneTilt,
+  ShareNetwork,
+  WhatsappLogo,
+  X,
+} from "@phosphor-icons/react";
 import type { NewsItem } from "@/types/homepage";
 import { normalizeNewsHref } from "@/lib/news/links";
 
@@ -219,8 +231,8 @@ export function NewsClient() {
                       rel={isExternal ? "noreferrer" : undefined}
                       className="flex min-w-0 flex-1 items-start gap-3 group"
                     >
-                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-leaf-50 flex items-center justify-center text-base">
-                        📰
+                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-leaf-50 text-forest-700">
+                        <NewspaperClipping aria-hidden="true" size={20} weight="regular" />
                       </div>
                       <div className="min-w-0 flex-1">
                         <div className="flex flex-wrap items-center gap-2 mb-1">
@@ -258,13 +270,7 @@ export function NewsClient() {
                             void handleShare(item, href);
                           }}
                         >
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <circle cx="18" cy="5" r="3" />
-                            <circle cx="6" cy="12" r="3" />
-                            <circle cx="18" cy="19" r="3" />
-                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
-                          </svg>
+                          <ShareNetwork aria-hidden="true" size={15} weight="regular" />
                         </button>
                       </div>
                     </div>
@@ -281,10 +287,7 @@ export function NewsClient() {
         className="fixed bottom-6 right-6 w-11 h-11 rounded-full bg-forest-600 text-white shadow-card hover:bg-forest-700 transition flex items-center justify-center"
         aria-label="返回頂部"
       >
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round">
-          <line x1="12" y1="19" x2="12" y2="5" />
-          <polyline points="5 12 12 5 19 12" />
-        </svg>
+        <ArrowUp aria-hidden="true" size={18} weight="bold" />
       </button>
 
       {shareTarget ? (
@@ -304,7 +307,7 @@ export function NewsClient() {
           >
             <div className="mb-4 flex items-start gap-3">
               <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-leaf-50 text-forest-700">
-                <Share2 aria-hidden="true" size={18} strokeWidth={1.9} />
+                <ShareNetwork aria-hidden="true" size={18} weight="regular" />
               </div>
               <div className="min-w-0 flex-1">
                 <h2 id="news-share-title" className="text-base font-semibold text-ink-900">
@@ -321,7 +324,7 @@ export function NewsClient() {
                   setShareStatus("idle");
                 }}
               >
-                <X aria-hidden="true" size={18} strokeWidth={1.8} />
+                <X aria-hidden="true" size={18} weight="regular" />
               </button>
             </div>
 
@@ -332,7 +335,7 @@ export function NewsClient() {
                 rel="noreferrer"
                 className="flex min-h-[76px] flex-col items-center justify-center rounded-card border border-cream-200 bg-white px-2 text-center text-xs font-medium text-ink-700 transition hover:border-forest-200 hover:bg-leaf-50"
               >
-                <MessageCircle aria-hidden="true" className="mb-2 text-[#128C7E]" size={22} strokeWidth={1.8} />
+                <WhatsappLogo aria-hidden="true" className="mb-2 text-[#128C7E]" size={22} weight="regular" />
                 WhatsApp
               </a>
               <a
@@ -341,7 +344,7 @@ export function NewsClient() {
                 rel="noreferrer"
                 className="flex min-h-[76px] flex-col items-center justify-center rounded-card border border-cream-200 bg-white px-2 text-center text-xs font-medium text-ink-700 transition hover:border-forest-200 hover:bg-leaf-50"
               >
-                <Send aria-hidden="true" className="mb-2 text-[#229ED9]" size={22} strokeWidth={1.8} />
+                <PaperPlaneTilt aria-hidden="true" className="mb-2 text-[#229ED9]" size={22} weight="regular" />
                 Telegram
               </a>
               <a
@@ -350,7 +353,7 @@ export function NewsClient() {
                 rel="noreferrer"
                 className="flex min-h-[76px] flex-col items-center justify-center rounded-card border border-cream-200 bg-white px-2 text-center text-xs font-medium text-ink-700 transition hover:border-forest-200 hover:bg-leaf-50"
               >
-                <Facebook aria-hidden="true" className="mb-2 text-[#1877F2]" size={22} strokeWidth={1.8} />
+                <FacebookLogo aria-hidden="true" className="mb-2 text-[#1877F2]" size={22} weight="regular" />
                 Facebook
               </a>
               <button
@@ -359,9 +362,9 @@ export function NewsClient() {
                 onClick={copyShareLink}
               >
                 {shareStatus === "copied" ? (
-                  <Check aria-hidden="true" className="mb-2 text-forest-600" size={22} strokeWidth={1.9} />
+                  <Check aria-hidden="true" className="mb-2 text-forest-600" size={22} weight="bold" />
                 ) : (
-                  <Copy aria-hidden="true" className="mb-2 text-forest-700" size={22} strokeWidth={1.8} />
+                  <Copy aria-hidden="true" className="mb-2 text-forest-700" size={22} weight="regular" />
                 )}
                 複製連結
               </button>
@@ -369,7 +372,7 @@ export function NewsClient() {
 
             <div className="mt-4 rounded-card bg-cream-100 px-3 py-2">
               <div className="flex items-center gap-2 text-xs text-ink-600">
-                <Link2 aria-hidden="true" size={14} strokeWidth={1.8} className="flex-shrink-0 text-forest-600" />
+                <LinkSimple aria-hidden="true" size={14} weight="regular" className="flex-shrink-0 text-forest-600" />
                 <span className="min-w-0 truncate">{shareTarget.url}</span>
               </div>
             </div>
@@ -381,7 +384,7 @@ export function NewsClient() {
                   className="inline-flex h-11 flex-1 items-center justify-center gap-2 rounded-pill bg-forest-600 px-4 text-sm font-semibold text-white transition hover:bg-forest-700"
                   onClick={nativeShare}
                 >
-                  <Share2 aria-hidden="true" size={16} strokeWidth={1.8} />
+                  <ShareNetwork aria-hidden="true" size={16} weight="regular" />
                   更多分享方式
                 </button>
               ) : null}
@@ -391,7 +394,7 @@ export function NewsClient() {
                 rel="noreferrer"
                 className="inline-flex h-11 flex-1 items-center justify-center gap-2 rounded-pill border border-cream-200 px-4 text-sm font-semibold text-ink-700 transition hover:bg-cream-100"
               >
-                <ExternalLink aria-hidden="true" size={16} strokeWidth={1.8} />
+                <ArrowSquareOut aria-hidden="true" size={16} weight="regular" />
                 打開原文
               </a>
             </div>

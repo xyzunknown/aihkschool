@@ -1,5 +1,6 @@
 import { VacancyBadge } from "@/components/schools/VacancyBadge";
 import { GlassCard } from "@/components/ui/GlassCard";
+import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 import { formatDateCN } from "@/lib/utils";
 import type { Vacancy } from "@/types/database";
 
@@ -52,7 +53,10 @@ export function VacancySection({ vacancy, isStale, deadlineStatus: dlStatus, sch
                       rel="noopener noreferrer"
                       className="text-ink-700 underline underline-offset-2 hover:text-ink-900"
                     >
-                      前往學校官網 →
+                      <span className="inline-flex items-center gap-1">
+                        前往學校官網
+                        <CaretRight size={13} weight="bold" aria-hidden="true" />
+                      </span>
                     </a>
                   </>
                 )}
@@ -82,7 +86,10 @@ export function VacancySection({ vacancy, isStale, deadlineStatus: dlStatus, sch
               rel="noopener noreferrer"
               className="inline-block mt-3 text-sm text-ink-700 underline underline-offset-2 hover:text-ink-900"
             >
-              前往學校官網查詢 →
+              <span className="inline-flex items-center gap-1">
+                前往學校官網查詢
+                <CaretRight size={13} weight="bold" aria-hidden="true" />
+              </span>
             </a>
           )}
         </GlassCard>
