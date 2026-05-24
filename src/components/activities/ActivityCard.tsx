@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import type { Activity } from "@/lib/db/activities";
 import {
   CATEGORY_LABELS,
@@ -13,7 +13,6 @@ import {
 import {
   getActivitySceneImage,
 } from "@/lib/media/activity-scenes";
-import { getActivityRegistrationHref } from "@/lib/activities/links";
 
 interface ActivityCardProps {
   activity: Activity;
@@ -27,7 +26,6 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
   const imageSrc = getActivitySceneImage(activity);
   const detailHref = `/activities/${activity.id}`;
   const venueSummary = getDisplayVenue(activity, districtLabel);
-  const registrationHref = getActivityRegistrationHref(activity);
 
   return (
     <article className="overflow-hidden rounded-card border border-surface-border bg-white p-4 shadow-soft transition-colors hover:border-forest-200 md:p-5">
@@ -70,24 +68,13 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
             <span className="truncate">{venueSummary}</span>
           </div>
 
-          <div className="mt-5 flex flex-col gap-2 sm:flex-row">
+          <div className="mt-5 flex justify-end">
             <Link
               href={detailHref}
-              className="inline-flex h-9 flex-1 items-center justify-center whitespace-nowrap rounded-pill border border-forest-200 bg-white px-3 text-small font-semibold text-forest-700 transition hover:bg-forest-50"
+              className="inline-flex h-9 w-full items-center justify-center whitespace-nowrap rounded-pill border border-forest-200 bg-white px-3 text-small font-semibold text-forest-700 transition hover:bg-forest-50 sm:w-[140px]"
             >
               查看詳情
             </Link>
-            {registrationHref ? (
-              <a
-                href={registrationHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-9 flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-pill border border-forest-700 bg-forest-700 px-3 text-small font-semibold text-white transition hover:border-forest-800 hover:bg-forest-800"
-              >
-                報名
-                <ExternalIcon />
-              </a>
-            ) : null}
           </div>
         </div>
       </div>
@@ -132,17 +119,10 @@ export function ActivityCardSkeleton() {
           <div className="h-6 w-4/5 rounded bg-cream-100" />
           <div className="h-5 w-3/5 rounded bg-cream-100" />
           <div className="flex gap-2 pt-4">
-            <div className="h-9 flex-1 rounded-pill bg-cream-100" />
-            <div className="h-9 flex-1 rounded-pill bg-cream-100" />
+            <div className="ml-auto h-9 w-full rounded-pill bg-cream-100 sm:w-[140px]" />
           </div>
         </div>
       </div>
     </div>
-  );
-}
-
-function ExternalIcon() {
-  return (
-    <ArrowUpRight aria-hidden="true" size={16} strokeWidth={1.7} />
   );
 }
