@@ -6,9 +6,11 @@ import { useSearchParams } from "next/navigation";
 import {
   ArrowSquareOut,
   ArrowUp,
+  CalendarBlank,
   Check,
   Copy,
   FacebookLogo,
+  Funnel,
   LinkSimple,
   NewspaperClipping,
   PaperPlaneTilt,
@@ -142,6 +144,13 @@ export function NewsClient() {
     if (activeCategory === "edu_policy") return item.content_type === "policy";
     return true;
   });
+  const [leadItem, ...restItems] = filtered;
+  const stats = [
+    { label: "全部消息", value: items.length },
+    { label: "學校活動", value: items.filter((item) => item.content_type === "school_event").length },
+    { label: "升學安排", value: items.filter((item) => item.content_type === "admission").length },
+    { label: "教育政策", value: items.filter((item) => item.content_type === "policy").length },
+  ];
 
   async function handleShare(item: NewsItem, href: string) {
     const shareUrl = buildShareUrl(href);
@@ -185,85 +194,193 @@ export function NewsClient() {
 
   return (
     <>
-      <div id="news-list" className="mx-auto max-w-7xl px-5 py-8 pt-6 md:px-8">
-        <div className="mb-6 flex gap-2 overflow-x-auto hide-scrollbar">
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat.key}
-              onClick={() => setActiveCategory(cat.key)}
-              className={`flex-shrink-0 rounded-pill px-4 h-10 text-sm font-medium transition ${
-                activeCategory === cat.key
-                  ? "bg-forest-600 text-white shadow-soft"
-                  : "bg-white text-ink-700 border border-cream-200 hover:bg-leaf-50 hover:border-forest-300"
-              }`}
-            >
-              {cat.label}
-            </button>
+      <div id="news-list" className="mx-auto max-w-[1280px] px-5 py-8 md:px-10 md:py-10">
+        <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map((stat) => (
+            <div key={stat.label} className="rounded-card border border-surface-border bg-white px-4 py-3 shadow-soft">
+              <p className="text-label text-ink-500">{stat.label}</p>
+              <p className="mt-1 text-2xl font-bold text-ink-900">{isLoading ? "—" : stat.value}</p>
+            </div>
           ))}
         </div>
 
         {isLoading ? (
           <div className="space-y-3">
             {Array.from({ length: 5 }).map((_, i) => (
-              <div key={i} className="h-24 animate-pulse rounded-card bg-cream-100" />
+              <div key={i} className="h-28 animate-pulse rounded-card border border-surface-border bg-white" />
             ))}
           </div>
         ) : filtered.length === 0 ? (
-          <div className="rounded-card border border-cream-200 bg-white p-10 text-center">
-            <p className="text-sm text-ink-500">暫無相關消息</p>
-          </div>
+          <>
+            <div className="mb-6 flex flex-col gap-3 rounded-card border border-surface-border bg-white px-4 py-4 shadow-soft md:flex-row md:items-center md:justify-between">
+              <div className="flex items-center gap-2 text-sm font-semibold text-ink-800">
+                <Funnel aria-hidden="true" size={18} weight="regular" className="text-forest-700" />
+                按主題查看
+              </div>
+              <div className="flex gap-2 overflow-x-auto hide-scrollbar">
+                {CATEGORIES.map((cat) => (
+                  <button
+                    key={cat.key}
+                    type="button"
+                    onClick={() => setActiveCategory(cat.key)}
+                    className={`h-10 flex-shrink-0 rounded-pill px-4 text-sm font-medium transition ${
+                      activeCategory === cat.key
+                        ? "bg-forest-700 text-white shadow-soft"
+                        : "border border-surface-border bg-white text-ink-700 hover:border-forest-200 hover:bg-forest-50"
+                    }`}
+                  >
+                    {cat.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-card border border-surface-border bg-white p-10 text-center shadow-soft">
+              <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-forest-50 text-forest-700">
+                <NewspaperClipping aria-hidden="true" size={26} weight="regular" />
+              </div>
+              <p className="text-sm text-ink-500">暫無相關消息</p>
+            </div>
+          </>
         ) : (
-          <div className="space-y-3">
-            {filtered.map((item) => {
-              const isExternal = item.is_external;
-              const sourceHref = normalizeNewsHref(item.href);
-              const href = isExternal ? sourceHref : `/news/${encodeURIComponent(item.id)}`;
+          <>
+            <div className="mb-6 flex flex-col gap-3 rounded-card border border-surface-border bg-white px-4 py-4 shadow-soft md:flex-row md:items-center md:justify-between">
+              <div className="flex items-center gap-2 text-sm font-semibold text-ink-800">
+                <Funnel aria-hidden="true" size={18} weight="regular" className="text-forest-700" />
+                按主題查看
+              </div>
+              <div className="flex gap-2 overflow-x-auto hide-scrollbar">
+                {CATEGORIES.map((cat) => (
+                  <button
+                    key={cat.key}
+                    type="button"
+                    onClick={() => setActiveCategory(cat.key)}
+                    className={`h-10 flex-shrink-0 rounded-pill px-4 text-sm font-medium transition ${
+                      activeCategory === cat.key
+                        ? "bg-forest-700 text-white shadow-soft"
+                        : "border border-surface-border bg-white text-ink-700 hover:border-forest-200 hover:bg-forest-50"
+                    }`}
+                  >
+                    {cat.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {leadItem ? (() => {
+              const isExternal = leadItem.is_external;
+              const sourceHref = normalizeNewsHref(leadItem.href);
+              const href = isExternal ? sourceHref : `/news/${encodeURIComponent(leadItem.id)}`;
 
               return (
-                <article
-                  key={item.id}
-                  className="rounded-card border border-cream-200 bg-white px-5 py-4 transition hover:shadow-card hover:border-forest-200"
-                >
-                  <div className="flex items-start gap-3">
+                <article className="mb-4 overflow-hidden rounded-card border border-surface-border bg-white shadow-card">
+                  <div className="grid gap-0 lg:grid-cols-[minmax(0,1fr)_320px]">
                     <Link
                       href={href}
                       target={isExternal ? "_blank" : undefined}
                       rel={isExternal ? "noreferrer" : undefined}
-                      className="flex min-w-0 flex-1 items-start gap-3 group"
+                      className="group block min-w-0 px-5 py-5 md:px-6 md:py-6"
                     >
-                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-leaf-50 text-forest-700">
-                        <NewspaperClipping aria-hidden="true" size={20} weight="regular" />
+                      <div className="mb-4 flex flex-wrap items-center gap-2">
+                        <span
+                          className={`inline-flex items-center rounded-md px-2.5 py-1 text-label font-semibold ${sourceStyle(leadItem.source)}`}
+                        >
+                          {leadItem.source_label}
+                        </span>
+                        {leadItem.content_type_label && (
+                          <span className="inline-flex items-center rounded-md bg-cream-100 px-2.5 py-1 text-label font-semibold text-ink-700">
+                            {leadItem.content_type_label}
+                          </span>
+                        )}
                       </div>
-                      <div className="min-w-0 flex-1">
-                        <div className="flex flex-wrap items-center gap-2 mb-1">
+                      <h2 className="max-w-3xl text-xl font-bold leading-snug text-ink-900 transition group-hover:text-forest-700 md:text-2xl">
+                        {leadItem.title}
+                      </h2>
+                      {leadItem.summary ? (
+                        <p className="mt-3 max-w-3xl text-body text-ink-700 line-clamp-3">
+                          {leadItem.summary}
+                        </p>
+                      ) : null}
+                    </Link>
+                    <div className="border-t border-surface-border bg-cream-50 px-5 py-5 lg:border-l lg:border-t-0">
+                      <div className="mb-4 flex items-center gap-2 text-sm text-ink-600">
+                        <CalendarBlank aria-hidden="true" size={18} weight="regular" className="text-forest-700" />
+                        {leadItem.date}
+                      </div>
+                      <div className="flex flex-col gap-2 sm:flex-row lg:flex-col">
+                        <Link
+                          href={href}
+                          target={isExternal ? "_blank" : undefined}
+                          rel={isExternal ? "noreferrer" : undefined}
+                          className="inline-flex h-11 items-center justify-center gap-2 rounded-pill bg-forest-700 px-4 text-sm font-semibold text-white transition hover:bg-forest-800"
+                        >
+                          閱讀全文
+                          {isExternal ? <ArrowSquareOut aria-hidden="true" size={16} weight="regular" /> : null}
+                        </Link>
+                        <button
+                          type="button"
+                          className="inline-flex h-11 items-center justify-center gap-2 rounded-pill border border-surface-border bg-white px-4 text-sm font-semibold text-ink-700 transition hover:bg-forest-50"
+                          onClick={() => void handleShare(leadItem, href)}
+                        >
+                          <ShareNetwork aria-hidden="true" size={16} weight="regular" />
+                          分享
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              );
+            })() : null}
+
+            <div className="space-y-3">
+              {restItems.map((item) => {
+                const isExternal = item.is_external;
+                const sourceHref = normalizeNewsHref(item.href);
+                const href = isExternal ? sourceHref : `/news/${encodeURIComponent(item.id)}`;
+
+                return (
+                  <article
+                    key={item.id}
+                    className="rounded-card border border-surface-border bg-white px-4 py-4 shadow-soft transition hover:border-forest-200 hover:shadow-card md:px-5"
+                  >
+                    <div className="flex items-start gap-3">
+                      <Link
+                        href={href}
+                        target={isExternal ? "_blank" : undefined}
+                        rel={isExternal ? "noreferrer" : undefined}
+                        className="group flex min-w-0 flex-1 items-start gap-3"
+                      >
+                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-forest-50 text-forest-700">
+                          <NewspaperClipping aria-hidden="true" size={20} weight="regular" />
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <div className="mb-1 flex flex-wrap items-center gap-2">
                           <span
-                            className={`inline-flex items-center rounded-md px-2 py-0.5 text-[11px] font-bold ${sourceStyle(item.source)}`}
+                            className={`inline-flex items-center rounded-md px-2 py-0.5 text-label font-semibold ${sourceStyle(item.source)}`}
                           >
                             {item.source_label}
                           </span>
                           {item.content_type_label && (
-                            <span className="inline-flex items-center rounded-md bg-cream-200 px-2 py-0.5 text-[11px] font-medium text-ink-700">
+                            <span className="inline-flex items-center rounded-md bg-cream-100 px-2 py-0.5 text-label font-semibold text-ink-700">
                               {item.content_type_label}
                             </span>
                           )}
+                          </div>
+                          <h3 className="text-sm font-semibold leading-snug text-ink-900 line-clamp-2 transition group-hover:text-forest-700 md:text-base">
+                            {item.title}
+                          </h3>
+                          {item.summary ? (
+                            <p className="mt-1 text-small text-ink-500 line-clamp-2">
+                              {item.summary}
+                            </p>
+                          ) : null}
                         </div>
-                        <h3 className="text-sm font-semibold leading-snug text-ink-900 line-clamp-2 group-hover:text-forest-700 transition">
-                          {item.title}
-                        </h3>
-                        {item.summary && (
-                          <p className="mt-1 text-xs text-ink-500 line-clamp-2 leading-relaxed">
-                            {item.summary}
-                          </p>
-                        )}
-                      </div>
-                    </Link>
-                    <div className="flex-shrink-0 flex flex-col items-end gap-2">
-                      <span className="text-[11px] text-ink-500">{item.date}</span>
-                      <div className="flex items-center gap-1.5 text-ink-400">
+                      </Link>
+                      <div className="flex flex-shrink-0 flex-col items-end gap-2">
+                        <span className="text-label text-ink-500">{item.date}</span>
                         <button
                           type="button"
                           aria-label="分享"
-                          className="rounded-full p-1.5 transition hover:bg-leaf-50 hover:text-forest-600"
+                          className="flex h-9 w-9 items-center justify-center rounded-full text-ink-500 transition hover:bg-forest-50 hover:text-forest-700"
                           onClick={(e) => {
                             e.preventDefault();
                             e.stopPropagation();
@@ -274,11 +391,11 @@ export function NewsClient() {
                         </button>
                       </div>
                     </div>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
+                  </article>
+                );
+              })}
+            </div>
+          </>
         )}
       </div>
 

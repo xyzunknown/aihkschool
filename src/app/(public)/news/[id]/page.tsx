@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import * as cheerio from "cheerio";
-import { ArrowSquareOut, CaretLeft } from "@phosphor-icons/react/dist/ssr";
+import { ArrowSquareOut, CalendarBlank, CaretLeft, LinkSimple, NewspaperClipping } from "@phosphor-icons/react/dist/ssr";
 import { getAllNewsItems, getNewsItemById } from "@/lib/homepage/liveData";
 import type { NewsItem } from "@/types/homepage";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -187,7 +187,7 @@ function extractHostname(url: string): string {
 
 function RelatedNewsCard({ item }: { item: NewsItem }) {
   const href = item.is_external
-    ? item.href
+    ? normalizeNewsHref(item.href)
     : `/news/${encodeURIComponent(item.id)}`;
 
   return (
@@ -195,19 +195,20 @@ function RelatedNewsCard({ item }: { item: NewsItem }) {
       href={href}
       target={item.is_external ? "_blank" : undefined}
       rel={item.is_external ? "noreferrer" : undefined}
-      className="block"
+      className="group block h-full rounded-card border border-surface-border bg-white p-5 shadow-soft transition hover:border-forest-200 hover:shadow-card"
     >
-      <div className="rounded-card border border-surface-border bg-white p-5 transition-all duration-200  hover:shadow-sm">
-        <div className="flex items-center gap-2 mb-2">
-          <span className="inline-flex items-center rounded-full bg-forest-50 px-2 py-0.5 text-xs font-medium text-forest-700">
-            {item.source_label}
-          </span>
-          <span className="text-xs text-ink-500">{item.date}</span>
-        </div>
-        <h3 className="text-sm font-semibold leading-snug text-ink-900 line-clamp-2">
-          {item.title}
-        </h3>
+      <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-full bg-forest-50 text-forest-700">
+        <NewspaperClipping aria-hidden="true" size={19} weight="regular" />
       </div>
+      <div className="mb-2 flex flex-wrap items-center gap-2">
+        <span className="inline-flex items-center rounded-md bg-forest-50 px-2 py-0.5 text-label font-semibold text-forest-700">
+          {item.source_label}
+        </span>
+        <span className="text-label text-ink-500">{item.date}</span>
+      </div>
+      <h3 className="text-sm font-semibold leading-snug text-ink-900 line-clamp-3 transition group-hover:text-forest-700">
+        {item.title}
+      </h3>
     </Link>
   );
 }
@@ -261,7 +262,7 @@ export default async function ArticlePage({ params }: PageProps) {
   };
 
   return (
-    <div className="mx-auto max-w-4xl px-5 py-8 md:px-8 md:py-12">
+    <div className="bg-surface-page">
       <JsonLd
         data={[
           breadcrumbJsonLd([
@@ -272,81 +273,113 @@ export default async function ArticlePage({ params }: PageProps) {
           articleJsonLd,
         ]}
       />
-      <Link
-        href="/news"
-        className="mb-6 inline-flex items-center gap-1 text-sm text-ink-500 transition-colors hover:text-ink-900"
-      >
-        <CaretLeft size={16} weight="bold" aria-hidden="true" />
-        返回消息動態
-      </Link>
 
-      <div className="mb-6">
-        <div className="mb-3 flex items-center gap-3">
-          <span className="inline-flex items-center rounded-full bg-forest-50 px-2.5 py-0.5 text-xs font-medium text-forest-700">
-            {article.source_label}
-          </span>
-          <span className="text-xs text-ink-500">{article.date}</span>
-        </div>
-        <h1 className="text-2xl font-bold leading-tight tracking-tight text-ink-900">
-          {article.title}
-        </h1>
-        {article.summary && (
-          <p className="mt-3 text-base leading-relaxed text-ink-700">
-            {article.summary}
-          </p>
-        )}
-      </div>
-
-      {hasContent ? (
-        <div className="mb-8 rounded-card border border-surface-border bg-white p-6 md:p-8">
-          <div
-            className="prose prose-slate max-w-none [&_p]:mb-4 [&_p]:text-base [&_p]:leading-relaxed [&_p]:text-ink-700 [&_h1]:text-xl [&_h1]:font-bold [&_h1]:mt-8 [&_h1]:mb-4 [&_h2]:text-lg [&_h2]:font-semibold [&_h2]:mt-6 [&_h2]:mb-3 [&_h3]:text-base [&_h3]:font-semibold [&_h3]:mt-4 [&_h3]:mb-2 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_li]:mb-1 [&_li]:text-ink-700"
-            dangerouslySetInnerHTML={{ __html: mainContent }}
-          />
-        </div>
-      ) : (
-        <div className="mb-8 rounded-card border border-surface-border bg-white p-10 text-center">
-          <p className="mb-3 text-sm text-ink-500">
-            {html ? "無法解析文章內容" : "無法載入原始網頁"}
-            ，請前往原始來源查看。
-          </p>
-          <p className="mb-5 text-xs text-ink-500">{hostname}</p>
-          <Link
-            href={articleHref}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-button bg-ink-900 px-6 py-3 text-sm font-medium text-white transition-transform "
-          >
-            閱讀全文
-            <ArrowSquareOut size={14} weight="regular" aria-hidden="true" />
-          </Link>
-        </div>
-      )}
-
-      <div className="mb-10 flex justify-center">
+      <div className="mx-auto max-w-[1120px] px-5 py-8 md:px-10 md:py-10">
         <Link
-          href={articleHref}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-button border border-surface-border bg-white px-5 py-2.5 text-sm font-medium text-ink-700 transition-colors hover:bg-cream-50"
+          href="/news"
+          className="mb-5 inline-flex h-10 items-center gap-2 rounded-pill border border-surface-border bg-white px-4 text-sm font-semibold text-ink-700 shadow-soft transition hover:bg-forest-50 hover:text-forest-700"
         >
-          來源：{article.source_label}
-          <ArrowSquareOut size={14} weight="regular" className="text-ink-500" aria-hidden="true" />
+          <CaretLeft size={16} weight="bold" aria-hidden="true" />
+          返回消息資訊
         </Link>
-      </div>
 
-      {relatedNews.length > 0 && (
-        <div>
-          <h2 className="mb-4 text-lg font-semibold text-ink-900">
-            相關消息
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {relatedNews.map((item) => (
-              <RelatedNewsCard key={item.id} item={item} />
-            ))}
+        <header className="relative mb-6 overflow-hidden rounded-[28px] border border-surface-border bg-white px-5 py-7 shadow-card md:px-8 md:py-9">
+          <div className="leaf-decor leaf-decor-tr opacity-40" aria-hidden="true" />
+          <div className="relative">
+            <div className="mb-4 flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center rounded-md bg-forest-50 px-2.5 py-1 text-label font-semibold text-forest-700">
+                {article.source_label}
+              </span>
+              {article.content_type_label ? (
+                <span className="inline-flex items-center rounded-md bg-cream-100 px-2.5 py-1 text-label font-semibold text-ink-700">
+                  {article.content_type_label}
+                </span>
+              ) : null}
+            </div>
+            <h1 className="max-w-3xl text-h1 leading-tight text-ink-900 md:text-[36px]">
+              {article.title}
+            </h1>
+            {article.summary ? (
+              <p className="mt-4 max-w-3xl text-body text-ink-700">
+                {article.summary}
+              </p>
+            ) : null}
+            <div className="mt-5 flex flex-wrap gap-3 text-small text-ink-600">
+              <span className="inline-flex items-center gap-2 rounded-pill border border-surface-border bg-white px-3 py-2">
+                <CalendarBlank aria-hidden="true" size={16} weight="regular" className="text-forest-700" />
+                {article.date}
+              </span>
+              <span className="inline-flex min-w-0 items-center gap-2 rounded-pill border border-surface-border bg-white px-3 py-2">
+                <LinkSimple aria-hidden="true" size={16} weight="regular" className="text-forest-700" />
+                <span className="truncate">{hostname}</span>
+              </span>
+            </div>
           </div>
+        </header>
+
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_280px]">
+          <main className="min-w-0">
+            {hasContent ? (
+              <article className="rounded-card border border-surface-border bg-white px-5 py-6 shadow-soft md:px-8 md:py-8">
+                <div
+                  className="max-w-none [&_blockquote]:border-l-4 [&_blockquote]:border-forest-200 [&_blockquote]:pl-4 [&_blockquote]:text-ink-700 [&_h1]:mb-4 [&_h1]:mt-8 [&_h1]:text-xl [&_h1]:font-bold [&_h2]:mb-3 [&_h2]:mt-7 [&_h2]:text-lg [&_h2]:font-semibold [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-base [&_h3]:font-semibold [&_li]:mb-1 [&_li]:text-ink-700 [&_ol]:mb-5 [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_p]:text-base [&_p]:leading-relaxed [&_p]:text-ink-700 [&_table]:my-5 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-surface-border [&_td]:p-2 [&_th]:border [&_th]:border-surface-border [&_th]:bg-cream-100 [&_th]:p-2 [&_ul]:mb-5 [&_ul]:list-disc [&_ul]:pl-6"
+                  dangerouslySetInnerHTML={{ __html: mainContent }}
+                />
+              </article>
+            ) : (
+              <div className="rounded-card border border-surface-border bg-white p-10 text-center shadow-soft">
+                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-forest-50 text-forest-700">
+                  <NewspaperClipping aria-hidden="true" size={26} weight="regular" />
+                </div>
+                <p className="mb-3 text-sm text-ink-500">
+                  {html ? "暫時未能整理文章內容" : "暫時未能載入原始網頁"}
+                  ，可以直接前往原始來源查看。
+                </p>
+                <p className="mb-5 text-xs text-ink-500">{hostname}</p>
+                <Link
+                  href={articleHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-pill bg-forest-700 px-5 text-sm font-semibold text-white transition hover:bg-forest-800"
+                >
+                  閱讀全文
+                  <ArrowSquareOut size={16} weight="regular" aria-hidden="true" />
+                </Link>
+              </div>
+            )}
+          </main>
+
+          <aside className="space-y-4">
+            <div className="rounded-card border border-surface-border bg-white p-5 shadow-soft">
+              <p className="text-label font-semibold text-forest-700">原始來源</p>
+              <p className="mt-2 text-sm font-semibold text-ink-900">{article.source_label}</p>
+              <p className="mt-1 break-words text-small text-ink-500">{hostname}</p>
+              <Link
+                href={articleHref}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 inline-flex h-10 w-full items-center justify-center gap-2 rounded-pill border border-surface-border bg-white px-4 text-sm font-semibold text-ink-700 transition hover:bg-forest-50"
+              >
+                打開原文
+                <ArrowSquareOut size={15} weight="regular" aria-hidden="true" />
+              </Link>
+            </div>
+
+            {relatedNews.length > 0 ? (
+              <div>
+                <h2 className="mb-3 text-lg font-semibold text-ink-900">
+                  相關消息
+                </h2>
+                <div className="grid grid-cols-1 gap-3">
+                  {relatedNews.map((item) => (
+                    <RelatedNewsCard key={item.id} item={item} />
+                  ))}
+                </div>
+              </div>
+            ) : null}
+          </aside>
         </div>
-      )}
+      </div>
     </div>
   );
 }
