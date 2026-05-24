@@ -2,7 +2,6 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 import { ActivitiesClient } from "./ActivitiesClient";
 import { ActivityCardSkeleton } from "@/components/activities/ActivityCard";
-import { FeatureBanner } from "@/components/feature/FeatureBanner";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
@@ -24,20 +23,11 @@ export default function ActivitiesPage() {
           { name: "課外活動", path: "/activities" },
         ])}
       />
-      <FeatureBanner
-        eyebrow="幼稚園階段興趣探索"
-        title="課外活動"
-        description="按類別、地區和費用篩選，幫小朋友找到合適的親子玩樂、展覽演出、學習體驗和節慶活動。"
-        imageSrc="/images/feature-banners/activities-discovery.webp"
-        imageAlt="課外活動探索插畫"
-        imagePosition="73% center"
-        actions={[
-          { label: "瀏覽活動", href: "#activity-list" },
-          { label: "只看免費", href: "/activities?free=true", variant: "secondary" },
-        ]}
-      />
-
-      <div id="activity-list" className="mx-auto max-w-[1440px] px-5 pt-10 pb-28 md:px-8 md:py-10">
+      <div id="activity-list" className="mx-auto max-w-[1440px] px-5 py-6 pb-28 md:px-8">
+        <h1 className="mb-2 text-h1 font-bold text-ink-900">課外活動</h1>
+        <p className="mb-8 max-w-3xl text-body text-ink-700">
+          按類別、地區和費用篩選，幫小朋友找到合適的親子玩樂、展覽演出、學習體驗和節慶活動。
+        </p>
         <Suspense fallback={<ActivitiesListSkeleton />}>
           <ActivitiesClient />
         </Suspense>

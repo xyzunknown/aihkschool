@@ -2,7 +2,6 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 import { ProgrammesClient } from "./ProgrammesClient";
 import { ProgrammeCardSkeleton } from "@/components/programmes/ProgrammeCard";
-import { FeatureBanner } from "@/components/feature/FeatureBanner";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
@@ -24,21 +23,11 @@ export default function ProgrammesPage() {
           { name: "SmartPLAY 開報前追蹤", path: "/programmes" },
         ])}
       />
-      <FeatureBanner
-        eyebrow="康文署 SmartPLAY"
-        title="SmartPLAY 開報前追蹤"
-        description="按報名時間整理仍可追蹤的課程，已截止場次會自動收起。"
-        imageSrc="/images/feature-banners/smartplay-tracking.webp"
-        imageAlt="SmartPLAY 開報提醒插畫"
-        imagePosition="74% center"
-        stats={[]}
-        actions={[
-          { label: "瀏覽課程", href: "#programme-list" },
-          { label: "查看提醒", href: "/account/alerts", variant: "secondary" },
-        ]}
-      />
-
-      <div id="programme-list" className="mx-auto max-w-7xl px-5 pt-10 pb-28 md:px-8 md:py-10">
+      <div id="programme-list" className="mx-auto max-w-7xl px-5 py-6 pb-28 md:px-8">
+        <h1 className="mb-2 text-h1 font-bold text-ink-900">SmartPLAY 開報前追蹤</h1>
+        <p className="mb-8 max-w-3xl text-body text-ink-700">
+          按報名時間整理仍可追蹤的康文署課程，已截止場次會自動收起。
+        </p>
         <Suspense fallback={<ProgrammesListSkeleton />}>
           <ProgrammesClient />
         </Suspense>

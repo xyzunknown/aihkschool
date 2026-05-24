@@ -130,7 +130,7 @@ export function NewsClient() {
 
   return (
     <>
-      <div id="news-list" className="mx-auto max-w-7xl px-5 md:px-8 py-8">
+      <div id="news-list" className="mx-auto max-w-7xl px-5 py-8 pt-6 md:px-8">
         <div className="mb-6 flex gap-2 overflow-x-auto hide-scrollbar">
           {CATEGORIES.map((cat) => (
             <button
