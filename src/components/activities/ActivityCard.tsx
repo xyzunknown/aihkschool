@@ -29,11 +29,11 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
   const registrationHref = getActivityRegistrationHref(activity);
 
   return (
-    <article className="overflow-hidden rounded-[22px] border border-cream-200 bg-white shadow-soft transition hover:shadow-card">
-      <div className="flex h-full flex-col md:min-h-[250px] md:flex-row">
+    <article className="overflow-hidden rounded-card border border-cream-200 bg-white shadow-soft transition hover:shadow-card">
+      <div className="flex h-full flex-col md:min-h-[252px] md:flex-row">
         <Link
           href={detailHref}
-          className="relative block h-[180px] overflow-hidden bg-cream-100 md:h-auto md:w-[38%] md:shrink-0"
+          className="relative block h-[180px] overflow-hidden bg-cream-100 md:h-auto md:w-[34%] md:shrink-0"
           aria-label={`${activity.title} 活動詳情`}
         >
           <Image
@@ -41,30 +41,30 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
             alt={activity.title}
             fill
             priority={priority}
-            sizes="(min-width: 1024px) 20vw, (min-width: 768px) 38vw, 100vw"
-            className="object-cover object-center"
+            sizes="(min-width: 1024px) 17vw, (min-width: 768px) 34vw, 100vw"
+            className="object-cover object-center saturate-[0.82] brightness-[1.06]"
           />
         </Link>
 
-        <div className="flex min-w-0 flex-1 flex-col p-5 sm:p-6 md:px-7 md:py-6">
-          <div className="flex items-center gap-2.5">
-            <span className="inline-flex h-7 items-center justify-center whitespace-nowrap rounded-full bg-leaf-50 px-3 text-[13px] font-bold text-forest-700">
+        <div className="flex min-w-0 flex-1 flex-col p-4 sm:p-5">
+          <div className="flex items-center gap-2">
+            <span className="inline-flex h-6 items-center justify-center whitespace-nowrap rounded-full bg-leaf-50 px-2.5 text-[12px] font-medium text-forest-700">
               {CATEGORY_LABELS[activity.category]}
             </span>
-            <span className="inline-flex h-7 shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-leaf-50 px-3 text-[13px] font-bold text-forest-700">
+            <span className="inline-flex h-6 shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-cream-100 px-2.5 text-[12px] font-medium text-ink-700">
               {fee.shortLabel}
             </span>
           </div>
 
           <Link href={detailHref} className="block">
-            <h3 className="mt-3 line-clamp-2 text-[20px] font-bold leading-[1.28] text-[#101828] hover:text-brand-700 lg:text-[22px]">
+            <h3 className="mt-3 line-clamp-2 text-[18px] font-semibold leading-snug text-ink-900 hover:text-brand-700 lg:text-[19px]">
               {activity.title}
             </h3>
           </Link>
 
-          <p className="mt-3 line-clamp-1 text-base leading-[1.4] text-ink-700">{dateRange}</p>
+          <p className="mt-2.5 line-clamp-1 text-[13px] font-medium leading-[1.45] text-ink-500">{dateRange}</p>
 
-          <div className="mt-3 flex min-w-0 items-center gap-2 text-base text-ink-700 md:truncate">
+          <div className="mt-2.5 flex min-w-0 items-center gap-2 text-[13px] font-medium text-ink-500 md:truncate">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-forest-500" aria-hidden="true">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
               <circle cx="12" cy="10" r="3" />
@@ -72,10 +72,10 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
             <span className="truncate">{venueSummary}</span>
           </div>
 
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row md:mt-auto">
+          <div className="mt-4 flex flex-col gap-2 sm:flex-row md:mt-auto">
             <Link
               href={detailHref}
-              className="inline-flex h-11 flex-1 items-center justify-center whitespace-nowrap rounded-xl border border-brand-200 bg-white px-4 text-[14px] font-bold text-brand-700 transition hover:bg-brand-50"
+              className="inline-flex h-9 flex-1 items-center justify-center whitespace-nowrap rounded-pill border border-brand-200 bg-white px-3 text-[14px] font-semibold text-brand-700 transition hover:bg-brand-50"
             >
               查看詳情
             </Link>
@@ -84,7 +84,7 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
                 href={registrationHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-11 flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-xl border border-brand-700 bg-brand-700 px-4 text-[14px] font-bold text-white transition hover:border-brand-800 hover:bg-brand-800"
+                className="inline-flex h-9 flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-pill border border-brand-700 bg-brand-700 px-3 text-[14px] font-semibold text-white transition hover:border-brand-800 hover:bg-brand-800"
               >
                 報名
                 <ExternalIcon />
@@ -123,19 +123,19 @@ const KNOWN_VENUES = [
 
 export function ActivityCardSkeleton() {
   return (
-    <div className="animate-pulse overflow-hidden rounded-[22px] border border-cream-200 bg-white shadow-soft">
-      <div className="flex flex-col md:min-h-[250px] md:flex-row">
-        <div className="h-[180px] w-full bg-cream-100 md:h-auto md:w-[38%]" />
-        <div className="flex-1 space-y-4 p-5 sm:p-6 md:px-7 md:py-6">
-          <div className="flex gap-2.5">
-            <div className="h-7 w-16 rounded-pill bg-cream-100" />
-            <div className="h-7 w-16 rounded-pill bg-cream-100" />
+    <div className="animate-pulse overflow-hidden rounded-card border border-cream-200 bg-white shadow-soft">
+      <div className="flex flex-col md:min-h-[252px] md:flex-row">
+        <div className="h-[180px] w-full bg-cream-100 md:h-auto md:w-[34%]" />
+        <div className="flex-1 space-y-4 p-4 sm:p-5">
+          <div className="flex gap-2">
+            <div className="h-6 w-16 rounded-pill bg-cream-100" />
+            <div className="h-6 w-16 rounded-pill bg-cream-100" />
           </div>
           <div className="h-6 w-4/5 rounded bg-cream-100" />
           <div className="h-5 w-3/5 rounded bg-cream-100" />
-          <div className="flex gap-3 pt-4">
-            <div className="h-11 flex-1 rounded-xl bg-cream-100" />
-            <div className="h-11 flex-1 rounded-xl bg-cream-100" />
+          <div className="flex gap-2 pt-4">
+            <div className="h-9 flex-1 rounded-pill bg-cream-100" />
+            <div className="h-9 flex-1 rounded-pill bg-cream-100" />
           </div>
         </div>
       </div>

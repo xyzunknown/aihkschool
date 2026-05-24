@@ -187,15 +187,19 @@ interface ProgrammeCourseCardProps {
   onToggle: () => void;
 }
 
-const CATEGORY_ACCENTS: Record<string, { bar: string; bg: string; text: string; icon: string }> = {
-  swimming: { bar: "bg-sky-500", bg: "bg-sky-50", text: "text-sky-700", icon: "泳" },
-  dance: { bar: "bg-pink-500", bg: "bg-pink-50", text: "text-pink-700", icon: "舞" },
-  parent_child: { bar: "bg-emerald-500", bg: "bg-emerald-50", text: "text-emerald-700", icon: "親" },
-  music: { bar: "bg-violet-500", bg: "bg-violet-50", text: "text-violet-700", icon: "音" },
-  art: { bar: "bg-amber-500", bg: "bg-amber-50", text: "text-amber-700", icon: "藝" },
-  sport: { bar: "bg-lime-600", bg: "bg-lime-50", text: "text-lime-700", icon: "動" },
-  other: { bar: "bg-slate-500", bg: "bg-slate-50", text: "text-slate-700", icon: "課" },
+const CATEGORY_ACCENTS: Record<string, { bg: string; text: string; icon: string }> = {
+  swimming: { bg: "bg-sky-50", text: "text-sky-700", icon: "泳" },
+  dance: { bg: "bg-rose-50", text: "text-rose-700", icon: "舞" },
+  parent_child: { bg: "bg-leaf-50", text: "text-forest-700", icon: "親" },
+  music: { bg: "bg-violet-50", text: "text-violet-700", icon: "音" },
+  art: { bg: "bg-cream-100", text: "text-rust-700", icon: "藝" },
+  sport: { bg: "bg-leaf-50", text: "text-forest-700", icon: "動" },
+  other: { bg: "bg-slate-50", text: "text-slate-700", icon: "課" },
 };
+
+function cleanAgeRangeLabel(ageRange: string | null) {
+  return ageRange?.replace(/^適合\s*/, "") ?? null;
+}
 
 const STATUS_ORDER: Record<string, number> = {
   open: 0,
@@ -219,19 +223,6 @@ function sortSessions(programmes: ProgrammeWithStatus[]) {
     });
 }
 
-function uniqueVenueCount(programmes: ProgrammeWithStatus[]) {
-  return new Set(programmes.map((p) => p.venue).filter(Boolean)).size;
-}
-
-function districtSummary(programmes: ProgrammeWithStatus[]) {
-  const districts = Array.from(new Set(programmes.map((p) => p.district).filter(Boolean)));
-  if (districts.length === 0) return "地區待定";
-  return districts
-    .slice(0, 3)
-    .map((d) => PROGRAMME_DISTRICT_LABELS[d as string] || d)
-    .join("、") + (districts.length > 3 ? ` 等 ${districts.length} 區` : "");
-}
-
 export function ProgrammeCourseCard({ group, expanded, onToggle }: ProgrammeCourseCardProps) {
   const representative = group.representative;
   const programmes = sortSessions(group.programmes);
@@ -239,103 +230,84 @@ export function ProgrammeCourseCard({ group, expanded, onToggle }: ProgrammeCour
   const category = representative.category || "other";
   const accent = CATEGORY_ACCENTS[category] || CATEGORY_ACCENTS.other;
   const fee = formatProgrammeFee(representative.fee_hkd);
-  const ageRange = formatAgeRange(representative.age_min, representative.age_max);
+  const ageRange = cleanAgeRangeLabel(formatAgeRange(representative.age_min, representative.age_max));
   const earliest = programmes[0];
-  const countdown = getEnrolmentCountdown(earliest.enrolment_open_at);
-  const venueCount = uniqueVenueCount(programmes);
-  const preview = programmes.slice(0, 2);
   const imageSrc = getProgrammeSceneImage(representative);
+  const imagePositionClass = category === "swimming" ? "object-[45%_center]" : "object-center";
 
   return (
-    <article className="relative overflow-hidden rounded-card border border-cream-200 bg-white shadow-soft transition hover:shadow-card">
-      <div className={`absolute inset-y-0 left-0 w-1.5 ${accent.bar}`} />
-      <div className="flex min-h-[520px] flex-col md:min-h-[320px] md:flex-row">
+    <article className="overflow-hidden rounded-card border border-cream-200 bg-white shadow-soft transition hover:shadow-card">
+      <div className="flex flex-col md:h-[252px] md:flex-row">
         <Link
           href={`/programmes/${representative.id}`}
-          className="relative ml-1.5 block h-56 overflow-hidden rounded-r-none rounded-t-[18px] md:h-[320px] md:w-[38%] md:shrink-0 md:self-start md:rounded-l-[18px] md:rounded-r-none md:rounded-t-none"
+          className="relative block h-[180px] overflow-hidden bg-cream-100 md:h-full md:w-[34%] md:shrink-0"
           aria-label={`${group.title} 課程詳情`}
         >
           <Image
             src={imageSrc}
             alt=""
             fill
-            sizes="(min-width: 1024px) 20vw, (min-width: 768px) 38vw, 100vw"
-            className="object-cover"
+            sizes="(min-width: 1280px) 220px, (min-width: 1024px) 17vw, (min-width: 768px) 34vw, 100vw"
+            className={`object-cover ${imagePositionClass} saturate-[0.82] brightness-[1.06]`}
             priority={false}
           />
         </Link>
 
-        <div className="flex min-w-0 flex-1 flex-col p-5 sm:p-6">
-          <div className="min-w-0 flex-1">
-            <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-2">
-              <span className={`inline-flex items-center gap-1 rounded-lg px-2.5 py-1 text-xs font-semibold ${accent.bg} ${accent.text}`}>
-                <span className="grid h-4 w-4 place-items-center rounded bg-white/70 text-[10px]" aria-hidden="true">
+        <div className="flex min-w-0 flex-1 flex-col p-4 sm:p-5">
+          <div className="min-w-0">
+            <div className="flex items-center">
+              <span className={`inline-flex h-6 items-center gap-1 rounded-full px-2.5 text-[12px] font-medium ${accent.bg} ${accent.text}`}>
+                <span className="grid h-3.5 w-3.5 place-items-center rounded bg-white/70 text-[9px]" aria-hidden="true">
                   {accent.icon}
                 </span>
                 {PROGRAMME_CATEGORY_LABELS[category]}
               </span>
-              <span className="min-w-0 text-sm text-ink-500 md:truncate">
-                {venueCount || programmes.length} 個地點開辦 · {districtSummary(programmes)}
-              </span>
             </div>
             <Link href={`/programmes/${representative.id}`} className="block">
-              <h3 className="line-clamp-2 text-[22px] font-bold leading-[1.3] text-[#111827] hover:text-brand-700 lg:text-[24px]">
+              <h3 className="mt-3 line-clamp-2 text-[18px] font-semibold leading-snug text-ink-900 hover:text-brand-700 lg:text-[19px]">
                 {group.title}
               </h3>
             </Link>
-            <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-base">
-              <span className="font-bold text-forest-700">{fee.label}</span>
-              {representative.sessions_count && <span className="text-ink-500">{representative.sessions_count} 堂</span>}
-              {ageRange && <span className="text-ink-500">適合 {ageRange}</span>}
+            <div className="mt-2.5 flex flex-wrap items-center gap-x-1 text-[13px] font-medium leading-[1.45] text-ink-500">
+              <span className="font-semibold text-forest-700">{fee.label}</span>
+              {representative.sessions_count && <span> · {representative.sessions_count}堂</span>}
+              {ageRange && <span> · {ageRange}</span>}
             </div>
           </div>
 
-        <div className="mt-5 rounded-xl bg-slate-50 px-4 py-3 text-sm text-ink-700">
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-            <span className="inline-flex items-center gap-2 font-semibold text-ink-900">
+        <div className="mt-4 flex items-center gap-2 text-[13px] font-medium text-ink-500">
+            <span className="text-forest-600">
               <ClockIcon />
-              最快報名：{formatEnrolmentTime(earliest.enrolment_open_at)}
             </span>
-            {countdown && <span className="text-xs font-semibold text-rust-600">{countdown}</span>}
-          </div>
+            <span>{formatEnrolmentTime(earliest.enrolment_open_at)} 開報</span>
         </div>
 
-        <div className="mt-5 space-y-2.5">
-          {preview.map((programme) => (
-            <div key={programme.id} className="flex min-w-0 items-center gap-2 text-base text-ink-700">
-              <PinIcon />
-              <Link href={`/programmes/${programme.id}`} className="truncate hover:text-brand-700">
-                {programme.venue || "場地待定"}
-                {programme.district && ` · ${PROGRAMME_DISTRICT_LABELS[programme.district] || ""}`}
-              </Link>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-auto flex flex-wrap items-center gap-3 pt-6">
+        <div className="mt-4 flex flex-col gap-2 sm:flex-row md:mt-auto">
           <button
             type="button"
             onClick={onToggle}
-            className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-slate-900 px-4 text-sm font-semibold text-white transition hover:bg-slate-800"
+            className="inline-flex h-9 min-w-0 flex-[1.15] items-center justify-center whitespace-nowrap rounded-pill border border-brand-700 bg-brand-700 px-3 text-[14px] font-semibold text-white transition hover:border-brand-800 hover:bg-brand-800"
             aria-expanded={expanded}
           >
-            {expanded ? "收起場次" : `查看全部 ${programmes.length} 個場次`}
-            <ChevronIcon expanded={expanded} />
+            {expanded ? "收起場次" : "查看場次"}
           </button>
-          <CourseTrackAllButton programmeIds={programmes.map((p) => p.id)} />
+          <CourseTrackAllButton
+            programmeIds={programmes.map((p) => p.id)}
+            className="inline-flex h-9 min-w-0 flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-pill border border-brand-200 bg-white px-3 text-[14px] font-semibold text-brand-700 transition hover:bg-brand-50 disabled:opacity-50"
+          />
         </div>
-
-        {expanded && (
-          <div className="mt-4 divide-y divide-slate-100 rounded-lg border border-slate-100 bg-white">
-            {programmes.map((programme) => (
-              <div key={programme.id} className="p-3">
-                <SessionMetaRow programme={programme} />
-              </div>
-            ))}
-          </div>
-        )}
         </div>
       </div>
+
+      {expanded && (
+        <div className="mx-4 mb-4 divide-y divide-cream-100 rounded-card border border-cream-200 bg-cream-50/40">
+          {programmes.map((programme) => (
+            <div key={programme.id} className="p-3">
+              <SessionMetaRow programme={programme} />
+            </div>
+          ))}
+        </div>
+      )}
     </article>
   );
 }
@@ -391,23 +363,6 @@ function CalendarIcon() {
       <line x1="16" y1="2" x2="16" y2="6" />
       <line x1="8" y1="2" x2="8" y2="6" />
       <line x1="3" y1="10" x2="21" y2="10" />
-    </svg>
-  );
-}
-
-function PinIcon() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-forest-500" aria-hidden="true">
-      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-      <circle cx="12" cy="10" r="3" />
-    </svg>
-  );
-}
-
-function ChevronIcon({ expanded }: { expanded: boolean }) {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`transition ${expanded ? "rotate-180" : ""}`} aria-hidden="true">
-      <path d="m6 9 6 6 6-6" />
     </svg>
   );
 }

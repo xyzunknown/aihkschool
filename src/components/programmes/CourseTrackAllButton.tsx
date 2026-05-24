@@ -6,6 +6,7 @@ import { useToast } from "@/components/ui/Toast";
 
 interface CourseTrackAllButtonProps {
   programmeIds: string[];
+  className?: string;
 }
 
 async function getSubscriptionIds() {
@@ -16,7 +17,7 @@ async function getSubscriptionIds() {
   return new Set(json.data.map((item: { programme_id: string }) => item.programme_id));
 }
 
-export function CourseTrackAllButton({ programmeIds }: CourseTrackAllButtonProps) {
+export function CourseTrackAllButton({ programmeIds, className }: CourseTrackAllButtonProps) {
   const { user, requireAuth } = useAuth();
   const { showToast } = useToast();
   const [loading, setLoading] = useState(false);
@@ -69,14 +70,17 @@ export function CourseTrackAllButton({ programmeIds }: CourseTrackAllButtonProps
       type="button"
       onClick={handleTrackAll}
       disabled={loading}
-      className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-brand-200 bg-white px-4 text-sm font-semibold text-brand-700 transition hover:bg-brand-50 disabled:opacity-50"
+      className={
+        className ??
+        "inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-brand-200 bg-white px-4 text-sm font-bold text-brand-700 transition hover:bg-brand-50 disabled:opacity-50"
+      }
     >
       {loading ? (
         <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-t-transparent" />
       ) : (
         <BellIcon />
       )}
-      追蹤全部
+      追蹤
     </button>
   );
 }

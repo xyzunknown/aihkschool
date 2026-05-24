@@ -40,11 +40,11 @@ function groupProgrammes(programmes: ProgrammeWithStatus[]): ProgrammeCourseGrou
 }
 
 export function ProgrammesPreviewClient({ programmes }: ProgrammesPreviewClientProps) {
-  const groups = useMemo(() => groupProgrammes(programmes).slice(0, 4), [programmes]);
+  const groups = useMemo(() => groupProgrammes(programmes).slice(0, 2), [programmes]);
   const [expandedGroups, setExpandedGroups] = useState<Set<string>>(new Set());
 
   return (
-    <div className="grid grid-cols-1 items-start gap-4 lg:grid-cols-2">
+    <div className="grid grid-cols-1 items-start gap-7 lg:grid-cols-2">
       {groups.map((group) => (
         <ProgrammeCourseCard
           key={group.key}
