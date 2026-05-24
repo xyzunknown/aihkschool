@@ -131,30 +131,30 @@ export default function AccountPage() {
     }
   };
 
-  if (loading) return <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 text-center"><p className="text-base text-slate-400">載入中…</p></div>;
+  if (loading) return <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 text-center"><p className="text-base text-ink-500">載入中…</p></div>;
   if (!user) return null;
 
   return (
     <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
       <div className="max-w-2xl mx-auto">
-        <h1 className="text-2xl font-bold text-slate-950 mb-6">我的</h1>
+        <h1 className="text-2xl font-bold text-ink-900 mb-6">我的</h1>
 
         {/* User card */}
-        <div className="bg-white rounded-2xl border border-slate-200 p-6 mb-8">
+        <div className="bg-white rounded-card border border-surface-border p-6 mb-8">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-base font-semibold text-slate-950">{user.user_metadata?.full_name ?? user.email}</p>
-              <p className="text-sm text-slate-500">{user.email}</p>
+              <p className="text-base font-semibold text-ink-900">{user.user_metadata?.full_name ?? user.email}</p>
+              <p className="text-sm text-ink-500">{user.email}</p>
             </div>
             <Button variant="secondary" size="sm" onClick={signOut}>登出</Button>
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl border border-slate-200 p-6 mb-8">
+        <div className="bg-white rounded-card border border-surface-border p-6 mb-8">
           <div className="flex items-start justify-between gap-4 mb-4">
             <div>
-              <h2 className="text-lg font-semibold text-slate-950">開報前追蹤</h2>
-              <p className="text-sm text-slate-500 mt-1">
+              <h2 className="text-lg font-semibold text-ink-900">開報前追蹤</h2>
+              <p className="text-sm text-ink-500 mt-1">
                 全局管理你追蹤中的 SmartPLAY 課程，不用再回列表逐個找。
               </p>
             </div>
@@ -162,15 +162,15 @@ export default function AccountPage() {
           </div>
 
           {loadingProgrammeSubs ? (
-            <p className="text-sm text-slate-500">載入中…</p>
+            <p className="text-sm text-ink-500">載入中…</p>
           ) : programmeSubscriptions.length === 0 ? (
-            <div className="rounded-2xl bg-slate-50 px-4 py-5">
-              <p className="text-sm text-slate-600 mb-4">你仲未追蹤任何 SmartPLAY 課程。</p>
+            <div className="rounded-card bg-cream-50 px-4 py-5">
+              <p className="text-sm text-ink-700 mb-4">你仲未追蹤任何 SmartPLAY 課程。</p>
               <Button variant="primary" size="sm" onClick={() => router.push("/programmes")}>去追蹤課程</Button>
             </div>
           ) : (
             <div>
-              <p className="text-sm text-slate-500 mb-4">共 {programmeSubscriptions.length} 個課程追蹤</p>
+              <p className="text-sm text-ink-500 mb-4">共 {programmeSubscriptions.length} 個課程追蹤</p>
               <div className="space-y-3">
                 {programmeSubscriptions.slice(0, 3).map((subscription) => {
                   const programme = subscription.lcsd_programmes;
@@ -178,12 +178,12 @@ export default function AccountPage() {
                     <button
                       key={subscription.id}
                       onClick={() => router.push(`/programmes/${programme.id}`)}
-                      className="w-full rounded-2xl border border-slate-200 px-4 py-3 text-left transition-colors hover:bg-slate-50"
+                      className="w-full rounded-card border border-surface-border px-4 py-3 text-left transition-colors hover:bg-cream-50"
                     >
-                      <p className="text-sm font-semibold text-slate-950">
+                      <p className="text-sm font-semibold text-ink-900">
                         {programme.name_zh || programme.name_en || "未知課程"}
                       </p>
-                      <p className="mt-1 text-xs text-slate-500">
+                      <p className="mt-1 text-xs text-ink-500">
                         {programme.venue || "場地待定"} · 報名：{formatEnrolmentTime(programme.enrolment_open_at)}
                       </p>
                     </button>
@@ -193,7 +193,7 @@ export default function AccountPage() {
               {programmeSubscriptions.length > 3 && (
                 <button
                   onClick={() => router.push("/account/alerts")}
-                  className="mt-4 text-sm font-medium text-slate-700 underline underline-offset-4"
+                  className="mt-4 text-sm font-medium text-ink-700 underline underline-offset-4"
                 >
                   查看全部追蹤
                 </button>
@@ -204,15 +204,15 @@ export default function AccountPage() {
 
         {/* Favorites section */}
         <div id="favorites" className="flex items-center justify-between mb-6 scroll-mt-24">
-          <h2 className="text-lg font-semibold text-slate-950">收藏中的學校 ({favorites.length}/{MAX_FAVORITES})</h2>
+          <h2 className="text-lg font-semibold text-ink-900">收藏中的學校 ({favorites.length}/{MAX_FAVORITES})</h2>
           {favorites.length >= MAX_FAVORITES && <span className="text-sm text-orange-600 font-medium">已達上限，先刪一所再加新收藏</span>}
         </div>
 
         {loadingFavs ? (
-          <p className="text-base text-slate-500 text-center py-8">載入中…</p>
+          <p className="text-base text-ink-500 text-center py-8">載入中…</p>
         ) : favorites.length === 0 ? (
-          <div className="bg-white rounded-2xl border border-slate-200 p-8 text-center">
-            <p className="text-base text-slate-600 mb-6">未有收藏學校，去搵學校睇下？</p>
+          <div className="bg-white rounded-card border border-surface-border p-8 text-center">
+            <p className="text-base text-ink-700 mb-6">未有收藏學校，去搵學校睇下？</p>
             <Button variant="primary" onClick={() => router.push("/kg")}>瀏覽學校</Button>
           </div>
         ) : (

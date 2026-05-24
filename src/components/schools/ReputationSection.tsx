@@ -61,33 +61,33 @@ export function ReputationSection({ enrichment }: ReputationSectionProps) {
   return (
     <section className="mb-10">
       <div className="mb-4 flex items-center justify-between">
-        <h2 className="text-xl font-semibold text-slate-950">家長口碑</h2>
+        <h2 className="text-xl font-semibold text-ink-900">家長口碑</h2>
         {totalPosts > 0 && (
-          <span className="text-xs text-slate-500">
+          <span className="text-xs text-ink-500">
             基於 {totalPosts} 條公開貼文（{platformList.join(" · ")}）
           </span>
         )}
       </div>
 
       {scrape_confidence === "low" && (
-        <div className="mb-4 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-700">
+        <div className="mb-4 rounded-button border border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-700">
           資料量較少，以下內容僅供參考。
         </div>
       )}
 
-      <div className="rounded-2xl border border-slate-200 bg-white p-6 space-y-5">
+      <div className="rounded-card border border-surface-border bg-white p-6 space-y-5">
         {/* Summary + sentiment */}
         {(reputation_summary || typeof sentiment_positive_ratio === "number") && (
           <div>
             {reputation_summary && (
-              <p className="text-base leading-relaxed text-slate-700">
+              <p className="text-base leading-relaxed text-ink-700">
                 {reputation_summary}
               </p>
             )}
             {typeof sentiment_positive_ratio === "number" && (
-              <div className={`${reputation_summary ? "mt-3" : ""} flex items-center gap-2 text-xs text-slate-500`}>
+              <div className={`${reputation_summary ? "mt-3" : ""} flex items-center gap-2 text-xs text-ink-500`}>
                 <span>家長正面評價佔比</span>
-                <span className="font-medium text-slate-950">
+                <span className="font-medium text-ink-900">
                   {Math.round(sentiment_positive_ratio * 100)}%
                 </span>
               </div>
@@ -100,14 +100,14 @@ export function ReputationSection({ enrichment }: ReputationSectionProps) {
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {pros_tags.length > 0 && (
               <div>
-                <h3 className="mb-2 text-xs font-medium uppercase tracking-wide text-slate-500">
+                <h3 className="mb-2 text-xs font-medium uppercase tracking-wide text-ink-500">
                   家長讚賞
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {pros_tags.map((t) => (
                     <span
                       key={t.tag}
-                      className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700"
+                      className="inline-flex items-center gap-1 rounded-full bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700"
                     >
                       {t.tag}
                       <span className="text-emerald-500">·{t.count}</span>
@@ -118,7 +118,7 @@ export function ReputationSection({ enrichment }: ReputationSectionProps) {
             )}
             {cons_tags.length > 0 && (
               <div>
-                <h3 className="mb-2 text-xs font-medium uppercase tracking-wide text-slate-500">
+                <h3 className="mb-2 text-xs font-medium uppercase tracking-wide text-ink-500">
                   家長關注點
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -139,11 +139,11 @@ export function ReputationSection({ enrichment }: ReputationSectionProps) {
 
         {/* Interview style */}
         {interview_style && (
-          <div className="rounded-xl bg-slate-50 p-4">
-            <h3 className="mb-2 text-xs font-medium uppercase tracking-wide text-slate-500">
+          <div className="rounded-button bg-cream-50 p-4">
+            <h3 className="mb-2 text-xs font-medium uppercase tracking-wide text-ink-500">
               面試風格
             </h3>
-            <p className="text-sm leading-relaxed text-slate-700">
+            <p className="text-sm leading-relaxed text-ink-700">
               {interview_style}
             </p>
           </div>
@@ -152,17 +152,17 @@ export function ReputationSection({ enrichment }: ReputationSectionProps) {
         {/* Quote highlights */}
         {quote_highlights && quote_highlights.length > 0 && (
           <div>
-            <h3 className="mb-3 text-xs font-medium uppercase tracking-wide text-slate-500">
+            <h3 className="mb-3 text-xs font-medium uppercase tracking-wide text-ink-500">
               家長原話
             </h3>
             <ul className="space-y-2">
               {quote_highlights.map((q, i) => (
                 <li
                   key={i}
-                  className="rounded-xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm text-slate-700"
+                  className="rounded-button border border-surface-border bg-cream-50 px-4 py-3 text-sm text-ink-700"
                 >
                   「{q.text}」
-                  <span className="ml-2 text-xs text-slate-400">
+                  <span className="ml-2 text-xs text-ink-500">
                     — {PLATFORM_LABELS[q.source_platform] ?? q.source_platform}
                   </span>
                 </li>
@@ -171,7 +171,7 @@ export function ReputationSection({ enrichment }: ReputationSectionProps) {
           </div>
         )}
 
-        <p className="text-xs text-slate-400">
+        <p className="text-xs text-ink-500">
           以上內容由 AI 聚合自公開社交媒體貼文，並非學校官方聲明。
         </p>
       </div>

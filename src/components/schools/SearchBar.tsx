@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { Search, X } from "lucide-react";
 import { startsWithSearchText } from "@/lib/schools/searchText";
 
 interface SearchBarProps {
@@ -168,55 +169,42 @@ export function SearchBar({ initialQuery, onSearch }: SearchBarProps) {
 
   return (
     <div className="relative mb-6">
-      <div className="bg-white rounded-2xl border border-slate-200 px-5 py-3 flex items-center gap-3">
-        <svg
-          className="w-4 h-4 text-slate-400 flex-shrink-0"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        >
-          <circle cx="11" cy="11" r="7" />
-          <line x1="16.5" y1="16.5" x2="22" y2="22" />
-        </svg>
+      <div className="flex items-center gap-3 rounded-card border border-surface-border bg-white px-5 py-3">
+        <Search aria-hidden="true" size={16} strokeWidth={1.7} className="flex-shrink-0 text-ink-400" />
         <input
           type="text"
           placeholder="搜尋學校名稱、地區、英文名或拼音..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onFocus={() => setIsFocused(true)}
-          onBlur={() => window.setTimeout(() => setIsFocused(false), 120)}
-          className="flex-1 rounded-none border-0 bg-transparent text-base text-slate-900 placeholder:text-slate-400 outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none"
+          onBlur={() => window.setTimeout(() => setIsFocused(false), 220)}
+          className="flex-1 rounded-none border-0 bg-transparent text-body text-ink-900 placeholder:text-ink-400 outline-none ring-0 focus:outline-none focus:ring-0 focus-visible:outline-none"
           style={{ outline: "none" }}
         />
         {input && (
           <button
             onClick={() => setInput("")}
-            className="text-slate-400 hover:text-slate-600 transition-colors"
+            className="text-ink-400 transition-colors hover:text-ink-700"
             aria-label="清除搜尋"
           >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
+            <X aria-hidden="true" size={16} strokeWidth={1.7} />
           </button>
         )}
       </div>
       {showSuggestionPanel && (
-        <div className="absolute left-0 right-0 top-full z-20 mt-2 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card">
+        <div className="absolute left-0 right-0 top-full z-20 mt-2 overflow-hidden rounded-card border border-surface-border bg-white shadow-card">
           {showRecentSearches ? (
             <>
               {recentSearches.map((query) => (
                 <div
                   key={query}
-                  className="flex items-center gap-2 transition hover:bg-brand-50"
+                  className="flex items-center gap-2 transition hover:bg-forest-50"
                 >
                   <button
                     type="button"
                     onMouseDown={(event) => event.preventDefault()}
                     onClick={() => selectRecentSearch(query)}
-                    className="min-w-0 flex-1 px-5 py-3 text-left text-sm font-semibold text-slate-700"
+                    className="min-w-0 flex-1 px-5 py-3 text-left text-small font-semibold text-ink-700"
                   >
                     <span className="block truncate">{query}</span>
                   </button>
@@ -228,7 +216,7 @@ export function SearchBar({ initialQuery, onSearch }: SearchBarProps) {
                       event.stopPropagation();
                       removeRecentSearch(query);
                     }}
-                    className="mr-3 inline-flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-slate-400 transition hover:bg-slate-100 hover:text-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-200"
+                    className="mr-3 inline-flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-pill text-ink-400 transition hover:bg-forest-50 hover:text-ink-700 focus:outline-none focus:ring-2 focus:ring-surface-border"
                   >
                     <svg
                       aria-hidden="true"
@@ -249,7 +237,7 @@ export function SearchBar({ initialQuery, onSearch }: SearchBarProps) {
                 type="button"
                 onMouseDown={(event) => event.preventDefault()}
                 onClick={clearRecentSearches}
-                className="block w-full border-t border-slate-100 px-5 py-3 text-left text-sm font-semibold text-slate-500 transition hover:bg-brand-50 hover:text-brand-700"
+                className="block w-full border-t border-surface-border px-5 py-3 text-left text-small font-semibold text-ink-500 transition hover:bg-forest-50 hover:text-forest-700"
               >
                 清除全部歷史記錄
               </button>
@@ -271,10 +259,10 @@ export function SearchBar({ initialQuery, onSearch }: SearchBarProps) {
                     saveRecentSearch(school.name_tc, trimmed ? [trimmed] : []);
                   }}
                   onClick={() => selectSuggestedSchool(school.name_tc)}
-                  className="block px-5 py-3 transition hover:bg-brand-50"
+                  className="block px-5 py-3 transition hover:bg-forest-50"
                 >
-                  <p className="text-sm font-semibold text-slate-900">{school.name_tc}</p>
-                  <p className="mt-0.5 truncate text-xs text-slate-500">
+                  <p className="text-small font-semibold text-ink-900">{school.name_tc}</p>
+                  <p className="mt-0.5 truncate text-label text-ink-500">
                     {[school.name_en, school.district].filter(Boolean).join(" · ")}
                   </p>
                 </Link>
@@ -284,7 +272,7 @@ export function SearchBar({ initialQuery, onSearch }: SearchBarProps) {
                   type="button"
                   onMouseDown={(event) => event.preventDefault()}
                   onClick={() => setShowAllSuggestions(true)}
-                  className="block w-full border-t border-slate-100 px-5 py-3 text-left text-sm font-semibold text-brand-700 transition hover:bg-brand-50"
+                  className="block w-full border-t border-surface-border px-5 py-3 text-left text-small font-semibold text-forest-700 transition hover:bg-forest-50"
                 >
                   查看更多
                 </button>

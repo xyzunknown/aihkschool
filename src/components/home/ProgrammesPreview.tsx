@@ -18,14 +18,14 @@ export async function ProgrammesPreview() {
       <div className="mb-7 flex items-center justify-between gap-4">
         <div>
           <h2 className="flex items-center gap-2 text-[24px] font-semibold leading-tight text-ink-900 md:text-[28px]">
-            <span className="inline-block h-6 w-1 rounded-full bg-brand-700" />
+            <span className="inline-block h-6 w-1 rounded-full bg-forest-700" />
             康體通報名倒數
           </h2>
           <p className="mt-2 text-base text-ink-500">
             追蹤 SmartPLAY 課程開報時間，提早提醒家長準備報名
           </p>
         </div>
-        <Link href="/programmes" className="shrink-0 text-sm text-brand-700 hover:underline font-medium">
+        <Link href="/programmes" className="shrink-0 text-sm text-forest-700 hover:underline font-medium">
           查看全部 →
         </Link>
       </div>

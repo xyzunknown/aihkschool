@@ -17,8 +17,8 @@ export const metadata: Metadata = pageMetadata({
 function KGListFallback() {
   return (
     <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
-      <div className="h-7 w-24 bg-slate-200/60 rounded-xl animate-pulse mb-6" />
-      <div className="h-12 bg-slate-200/40 rounded-2xl border border-slate-200 mb-6 animate-pulse" />
+      <div className="h-7 w-24 bg-cream-200/60 rounded-button animate-pulse mb-6" />
+      <div className="h-12 bg-cream-200/40 rounded-card border border-surface-border mb-6 animate-pulse" />
       <div className="grid gap-4">
         {[1, 2, 3, 4].map((i) => (
           <SchoolCardSkeleton key={i} />

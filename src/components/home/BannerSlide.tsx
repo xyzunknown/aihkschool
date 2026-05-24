@@ -11,7 +11,7 @@ interface BannerSlideProps {
 function ClassicLayout({ banner }: { banner: HomeBanner }) {
   return (
     <>
-      <span className="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium bg-white/20 backdrop-blur-sm text-white mb-4">
+      <span className="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium bg-white/20  text-white mb-4">
         {banner.is_ad ? "推廣" : banner.source_label}
       </span>
       <h2 className="text-2xl md:text-4xl font-bold text-white leading-tight mb-2">
@@ -37,14 +37,14 @@ function ClassicLayout({ banner }: { banner: HomeBanner }) {
       <div className="flex flex-wrap gap-3">
         <Link
           href={banner.cta_primary.url}
-          className="inline-flex items-center px-6 py-3 bg-white text-slate-950 rounded-xl text-sm font-medium hover:scale-[1.02] transition-transform"
+          className="inline-flex items-center px-6 py-3 bg-white text-ink-900 rounded-button text-sm font-medium  transition-transform"
         >
           {banner.cta_primary.label}
         </Link>
         {banner.cta_secondary && (
           <Link
             href={banner.cta_secondary.url}
-            className="inline-flex items-center px-6 py-3 bg-white/15 text-white border border-white/30 rounded-xl text-sm font-medium hover:scale-[1.02] transition-transform"
+            className="inline-flex items-center px-6 py-3 bg-white/15 text-white border border-white/30 rounded-button text-sm font-medium  transition-transform"
           >
             {banner.cta_secondary.label}
           </Link>
@@ -60,7 +60,7 @@ function ClassicLayout({ banner }: { banner: HomeBanner }) {
 function EventLayout({ banner }: { banner: HomeBanner }) {
   return (
     <>
-      <span className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-semibold bg-white/20 backdrop-blur-sm text-white mb-4">
+      <span className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-semibold bg-white/20  text-white mb-4">
         {banner.tags[0] ?? banner.source_label}
       </span>
       <h2 className="text-2xl md:text-4xl font-bold text-white leading-tight mb-2">
@@ -71,7 +71,7 @@ function EventLayout({ banner }: { banner: HomeBanner }) {
       )}
       <Link
         href={banner.cta_primary.url}
-        className="inline-flex items-center px-6 py-3 bg-white text-slate-950 rounded-xl text-sm font-medium hover:scale-[1.02] transition-transform"
+        className="inline-flex items-center px-6 py-3 bg-white text-ink-900 rounded-button text-sm font-medium  transition-transform"
       >
         {banner.cta_primary.label}
       </Link>
@@ -87,7 +87,7 @@ function MinimalLayout({ banner }: { banner: HomeBanner }) {
       </h2>
       <Link
         href={banner.cta_primary.url}
-        className="inline-flex items-center px-6 py-3 bg-white text-slate-950 rounded-xl text-sm font-medium hover:scale-[1.02] transition-transform"
+        className="inline-flex items-center px-6 py-3 bg-white text-ink-900 rounded-button text-sm font-medium  transition-transform"
       >
         {banner.cta_primary.label}
       </Link>

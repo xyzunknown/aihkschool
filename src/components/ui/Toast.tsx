@@ -35,12 +35,12 @@ export function Toast({ message, action, secondaryAction, duration = 4000, onClo
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
       }`}
     >
-      <div className="bg-slate-950 text-white rounded-2xl px-5 py-3 flex items-center gap-3 shadow-lg max-w-[90vw]">
-        <span className="text-sm">{message}</span>
+      <div className="flex max-w-[90vw] items-center gap-3 rounded-card bg-ink-900 px-5 py-3 text-white shadow-card">
+        <span className="text-small">{message}</span>
         {action && (
           <button
             onClick={action.onClick}
-            className="text-sm font-semibold text-white/90 hover:text-white whitespace-nowrap"
+            className="whitespace-nowrap text-small font-semibold text-white/90 hover:text-white"
           >
             {action.label}
           </button>
@@ -48,7 +48,7 @@ export function Toast({ message, action, secondaryAction, duration = 4000, onClo
         {secondaryAction && (
           <button
             onClick={secondaryAction.onClick}
-            className="text-sm text-white/60 hover:text-white/80 whitespace-nowrap"
+            className="whitespace-nowrap text-small text-white/60 hover:text-white/80"
           >
             {secondaryAction.label}
           </button>

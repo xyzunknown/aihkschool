@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useSearchParams } from "next/navigation";
+import { Menu, X } from "lucide-react";
 import { useAuth } from "@/components/layout/AuthProvider";
 
 const NAV_ITEMS = [
@@ -61,8 +62,8 @@ export function Header() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-surface-border">
-      <div className="relative max-w-[1200px] mx-auto px-5 md:px-8 h-[72px] flex items-center gap-4">
+    <header className="sticky top-0 z-40 border-b border-surface-border bg-white">
+      <div className="relative mx-auto flex h-[72px] max-w-[1200px] items-center gap-4 px-5 md:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 shrink-0">
           <Image
@@ -70,13 +71,12 @@ export function Header() {
             alt="HKSchoolPlace"
             width={42}
             height={42}
-            className="rounded-xl object-contain"
-            style={{ width: 42, height: 42 }}
+            className="h-[42px] w-[42px] rounded-button object-contain"
             priority
           />
           <div className="hidden sm:flex flex-col leading-none">
-            <span className="text-[17px] font-bold text-forest-700 tracking-tight">HKSchoolPlace</span>
-            <span className="text-[11px] text-ink-600 mt-1">全港幼稚園搜尋平台</span>
+            <span className="text-body font-bold text-forest-700">HKSchoolPlace</span>
+            <span className="mt-1 text-label text-ink-500">全港幼稚園搜尋平台</span>
           </div>
         </Link>
 
@@ -88,7 +88,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative text-sm py-5 transition-colors ${
+                className={`relative py-5 text-small transition-colors ${
                   active ? "text-forest-700 font-semibold" : "text-ink-700 hover:text-forest-600"
                 }`}
               >
@@ -122,13 +122,13 @@ export function Header() {
                 {(user.user_metadata?.full_name ?? user.email ?? "U").charAt(0).toUpperCase()}
               </button>
               {accountMenuOpen ? (
-                <div className="absolute right-0 top-full mt-2 w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg">
+                <div className="absolute right-0 top-full mt-2 w-40 rounded-card border border-surface-border bg-white p-2 shadow-card">
                   {ACCOUNT_MENU_ITEMS.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
                       onClick={() => setAccountMenuOpen(false)}
-                      className="block rounded-xl px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-950"
+                      className="block rounded-button px-3 py-2 text-small text-ink-700 hover:bg-forest-50 hover:text-ink-900"
                     >
                       {item.label}
                     </Link>
@@ -139,7 +139,7 @@ export function Header() {
                       setAccountMenuOpen(false);
                       await signOut();
                     }}
-                    className="mt-1 block w-full rounded-xl px-3 py-2 text-left text-sm text-slate-700 hover:bg-slate-50 hover:text-slate-950"
+                    className="mt-1 block w-full rounded-button px-3 py-2 text-left text-small text-ink-700 hover:bg-forest-50 hover:text-ink-900"
                   >
                     登出
                   </button>
@@ -150,7 +150,7 @@ export function Header() {
             <div className="hidden sm:flex items-center gap-2">
               <Link
                 href="/login"
-                className="inline-flex h-9 min-w-[136px] items-center justify-center rounded-pill bg-forest-600 px-5 text-center text-sm font-medium text-white transition hover:bg-forest-700"
+                className="inline-flex h-9 min-w-[136px] items-center justify-center rounded-pill bg-forest-600 px-5 text-center text-small font-medium text-white transition hover:bg-forest-700"
               >
                 登入 / 建立帳戶
               </Link>
@@ -161,28 +161,17 @@ export function Header() {
             onClick={() => setMenuOpen(!menuOpen)}
             className="lg:hidden w-9 h-9 flex items-center justify-center rounded-full hover:bg-cream-200 transition"
             aria-label="選單"
+            aria-controls="site-mobile-menu"
+            aria-expanded={menuOpen}
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-              {menuOpen ? (
-                <>
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </>
-              ) : (
-                <>
-                  <line x1="3" y1="6" x2="21" y2="6" />
-                  <line x1="3" y1="12" x2="21" y2="12" />
-                  <line x1="3" y1="18" x2="21" y2="18" />
-                </>
-              )}
-            </svg>
+            {menuOpen ? <X size={18} strokeWidth={1.7} /> : <Menu size={18} strokeWidth={1.7} />}
           </button>
         </div>
       </div>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <nav className="lg:hidden border-t border-cream-200 bg-cream-50 px-5 py-3">
+        <nav id="site-mobile-menu" className="lg:hidden border-t border-surface-border bg-cream-50 px-5 py-3">
           {NAV_ITEMS.map((item) => {
             const active = isActiveItem(pathname, activeTab, item);
             return (
@@ -190,7 +179,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className={`block py-2.5 text-sm ${
+                className={`block py-2.5 text-small ${
                   active ? "text-forest-700 font-semibold" : "text-ink-700"
                 }`}
               >
@@ -199,11 +188,11 @@ export function Header() {
             );
           })}
           {!user && (
-            <div className="flex items-center gap-2 pt-3 mt-3 border-t border-cream-200">
+            <div className="mt-3 flex items-center gap-2 border-t border-surface-border pt-3">
               <Link
                 href="/login"
                 onClick={() => setMenuOpen(false)}
-                className="inline-flex h-9 flex-1 items-center justify-center rounded-pill bg-forest-600 text-center text-sm font-medium text-white"
+                className="inline-flex h-9 flex-1 items-center justify-center rounded-pill bg-forest-600 text-center text-small font-medium text-white"
               >
                 登入 / 建立帳戶
               </Link>

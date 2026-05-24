@@ -134,34 +134,34 @@ export function AdminActivitiesClient() {
     <div>
       <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-slate-950">課外活動管理</h1>
-          <p className="mt-1 text-sm text-slate-500">清理低質量活動、隱藏過期內容，也可手動新增活動。</p>
+          <h1 className="text-2xl font-bold text-ink-900">課外活動管理</h1>
+          <p className="mt-1 text-sm text-ink-500">清理低質量活動、隱藏過期內容，也可手動新增活動。</p>
         </div>
-        <button onClick={() => setEditing({ ...EMPTY })} className="rounded-xl bg-slate-950 px-4 py-2 text-sm font-medium text-white">新增活動</button>
+        <button onClick={() => setEditing({ ...EMPTY })} className="rounded-button bg-ink-900 px-4 py-2 text-sm font-medium text-white">新增活動</button>
       </div>
-      {message ? <div className="mb-4 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700">{message}</div> : null}
+      {message ? <div className="mb-4 rounded-button border border-surface-border bg-white px-4 py-3 text-sm text-ink-700">{message}</div> : null}
 
-      <div className="mb-4 grid gap-3 rounded-2xl border border-slate-200 bg-white p-4 md:grid-cols-5">
-        <input value={filters.search} onChange={(e) => setFilters({ ...filters, search: e.target.value })} placeholder="搜尋活動/機構" className="rounded-xl border border-slate-200 px-3 py-2 text-sm" />
-        <select value={filters.category} onChange={(e) => setFilters({ ...filters, category: e.target.value })} className="rounded-xl border border-slate-200 px-3 py-2 text-sm">{CATEGORY_OPTIONS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
-        <select value={filters.district} onChange={(e) => setFilters({ ...filters, district: e.target.value })} className="rounded-xl border border-slate-200 px-3 py-2 text-sm"><option value="">全部地區</option>{DISTRICT_OPTIONS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
-        <select value={filters.status} onChange={(e) => setFilters({ ...filters, status: e.target.value })} className="rounded-xl border border-slate-200 px-3 py-2 text-sm"><option value="">全部狀態</option><option value="visible">顯示</option><option value="hidden">隱藏</option><option value="low_quality">低質量</option></select>
-        <button onClick={loadRows} className="rounded-xl border border-slate-200 px-3 py-2 text-sm font-medium">套用</button>
+      <div className="mb-4 grid gap-3 rounded-card border border-surface-border bg-white p-4 md:grid-cols-5">
+        <input value={filters.search} onChange={(e) => setFilters({ ...filters, search: e.target.value })} placeholder="搜尋活動/機構" className="rounded-button border border-surface-border px-3 py-2 text-sm" />
+        <select value={filters.category} onChange={(e) => setFilters({ ...filters, category: e.target.value })} className="rounded-button border border-surface-border px-3 py-2 text-sm">{CATEGORY_OPTIONS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
+        <select value={filters.district} onChange={(e) => setFilters({ ...filters, district: e.target.value })} className="rounded-button border border-surface-border px-3 py-2 text-sm"><option value="">全部地區</option>{DISTRICT_OPTIONS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
+        <select value={filters.status} onChange={(e) => setFilters({ ...filters, status: e.target.value })} className="rounded-button border border-surface-border px-3 py-2 text-sm"><option value="">全部狀態</option><option value="visible">顯示</option><option value="hidden">隱藏</option><option value="low_quality">低質量</option></select>
+        <button onClick={loadRows} className="rounded-button border border-surface-border px-3 py-2 text-sm font-medium">套用</button>
       </div>
 
-      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
+      <div className="overflow-hidden rounded-card border border-surface-border bg-white">
         <table className="w-full text-left text-sm">
-          <thead className="bg-slate-50 text-xs text-slate-500">
+          <thead className="bg-cream-50 text-xs text-ink-500">
             <tr><th className="px-4 py-3">活動</th><th className="px-4 py-3">機構</th><th className="px-4 py-3">日期</th><th className="px-4 py-3">狀態</th><th className="px-4 py-3 text-right">操作</th></tr>
           </thead>
           <tbody className="divide-y divide-slate-100">
             {rows.map((row) => (
               <tr key={row.id}>
-                <td className="px-4 py-3 font-medium text-slate-950">{row.title}<div className="text-xs text-slate-400">{row.source_url || "沒有來源連結"}</div></td>
-                <td className="px-4 py-3 text-slate-600">{row.organizer || "-"}</td>
-                <td className="px-4 py-3 text-slate-600">{row.start_date || "-"} 至 {row.end_date || "長期"}</td>
+                <td className="px-4 py-3 font-medium text-ink-900">{row.title}<div className="text-xs text-ink-500">{row.source_url || "沒有來源連結"}</div></td>
+                <td className="px-4 py-3 text-ink-700">{row.organizer || "-"}</td>
+                <td className="px-4 py-3 text-ink-700">{row.start_date || "-"} 至 {row.end_date || "長期"}</td>
                 <td className="px-4 py-3"><AdminStatusPill tone={statusTone(row)}>{statusLabel(row)}</AdminStatusPill></td>
-                <td className="px-4 py-3 text-right"><button onClick={() => setEditing(row)} className="font-medium text-slate-950 underline">編輯</button></td>
+                <td className="px-4 py-3 text-right"><button onClick={() => setEditing(row)} className="font-medium text-ink-900 underline">編輯</button></td>
               </tr>
             ))}
             {rows.length === 0 ? <EmptyTableRow colSpan={5} message="沒有符合條件的活動" /> : null}
@@ -177,9 +177,9 @@ export function AdminActivitiesClient() {
           onClose={() => setEditing(null)}
           actions={
             <>
-              <button onClick={() => save({ admin_status: "hidden" })} className="rounded-lg border border-slate-200 bg-white px-5 py-2 text-sm">隱藏</button>
-              <button onClick={() => save({ admin_status: "low_quality" })} className="rounded-lg border border-slate-200 bg-white px-5 py-2 text-sm">標記低質量</button>
-              <button onClick={() => save()} className="rounded-lg bg-slate-950 px-5 py-2 text-sm font-medium text-white">保存</button>
+              <button onClick={() => save({ admin_status: "hidden" })} className="rounded-chip border border-surface-border bg-white px-5 py-2 text-sm">隱藏</button>
+              <button onClick={() => save({ admin_status: "low_quality" })} className="rounded-chip border border-surface-border bg-white px-5 py-2 text-sm">標記低質量</button>
+              <button onClick={() => save()} className="rounded-chip bg-ink-900 px-5 py-2 text-sm font-medium text-white">保存</button>
             </>
           }
         >

@@ -85,11 +85,11 @@ export function EventRow({ event }: EventRowProps) {
 
   return (
     <div
-      className={`flex items-start gap-4 rounded-card border border-cream-200 bg-white p-5 shadow-soft transition hover:shadow-card ${
+      className={`flex items-start gap-4 rounded-card border border-surface-border bg-white p-5 shadow-soft transition hover:shadow-card ${
         event.is_past ? "opacity-60" : ""
       }`}
     >
-      <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-leaf-50 flex items-center justify-center overflow-hidden">
+      <div className="flex-shrink-0 w-16 h-16 rounded-card bg-leaf-50 flex items-center justify-center overflow-hidden">
         {EVENT_IMAGE[event.event_type] ? (
           <Image
             src={EVENT_IMAGE[event.event_type] as string}
@@ -113,7 +113,7 @@ export function EventRow({ event }: EventRowProps) {
           {event.school_type && (
             <span
               className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${
-                SCHOOL_TYPE_PILL_STYLES[event.school_type] ?? "bg-slate-100 text-slate-500"
+                SCHOOL_TYPE_PILL_STYLES[event.school_type] ?? "bg-cream-100 text-ink-500"
               }`}
             >
               {SCHOOL_TYPE_LABELS[event.school_type] ?? event.school_type}

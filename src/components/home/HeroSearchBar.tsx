@@ -89,25 +89,25 @@ export function HeroSearchBar({ variant = "default" }: { variant?: "default" | "
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onFocus={() => setIsFocused(true)}
-            onBlur={() => window.setTimeout(() => setIsFocused(false), 120)}
+            onBlur={() => window.setTimeout(() => setIsFocused(false), 220)}
             placeholder="搜尋學校名稱、地區或拼音…"
             className={
               isHero
-                ? "min-w-0 w-full rounded-2xl border border-slate-200 bg-white/95 px-4 py-3 text-[15px] text-slate-950 placeholder-slate-400 shadow-[0_12px_28px_rgba(31,42,36,0.08)] transition-colors focus:border-brand-500 focus:outline-none"
-                : "w-full rounded-xl border border-slate-200 bg-white px-6 py-3 text-slate-950 placeholder-slate-400 transition-colors focus:border-slate-400 focus:outline-none"
+                ? "min-w-0 w-full rounded-card border border-surface-border bg-white px-4 py-3 text-body text-ink-900 placeholder:text-ink-400 shadow-soft transition-colors focus:border-forest-500 focus:outline-none"
+                : "w-full rounded-button border border-surface-border bg-white px-6 py-3 text-body text-ink-900 placeholder:text-ink-400 transition-colors focus:border-ink-400 focus:outline-none"
             }
           />
           {showSuggestions && (
-            <div className="absolute left-0 right-0 top-full z-30 mt-2 max-h-[320px] overflow-auto rounded-2xl border border-slate-200 bg-white text-left shadow-[0_18px_42px_rgba(15,23,42,0.14)]">
+            <div className="absolute left-0 right-0 top-full z-30 mt-2 max-h-[320px] overflow-auto rounded-card border border-surface-border bg-white text-left shadow-card">
               {visibleSuggestions.map((school) => (
                 <Link
                   key={school.id}
                   href={`/kg/${school.id}`}
                   onMouseDown={(event) => event.preventDefault()}
-                  className="block px-4 py-3 transition hover:bg-brand-50"
+                  className="block px-4 py-3 transition hover:bg-forest-50"
                 >
-                  <p className="truncate text-sm font-semibold text-slate-900">{school.name_tc}</p>
-                  <p className="mt-0.5 truncate text-xs text-slate-500">
+                  <p className="truncate text-small font-semibold text-ink-900">{school.name_tc}</p>
+                  <p className="mt-0.5 truncate text-label text-ink-500">
                     {[school.name_en, school.district].filter(Boolean).join(" · ")}
                   </p>
                 </Link>
@@ -120,7 +120,7 @@ export function HeroSearchBar({ variant = "default" }: { variant?: "default" | "
           variant="primary"
           className={
             isHero
-              ? "h-12 shrink-0 rounded-2xl px-5 text-[15px] font-semibold shadow-[0_12px_28px_rgba(30,82,56,0.18)] sm:w-[112px]"
+              ? "h-12 shrink-0 px-5 text-body font-semibold sm:w-[112px]"
               : "px-8 py-3"
           }
         >
@@ -134,8 +134,8 @@ export function HeroSearchBar({ variant = "default" }: { variant?: "default" | "
             <span
               className={
                 isHero
-                  ? "inline-flex cursor-pointer items-center rounded-full bg-brand-50 px-3.5 py-1.5 text-sm text-ink-700 transition-colors hover:bg-brand-100"
-                  : "inline-flex cursor-pointer items-center rounded-full bg-slate-100 px-4 py-2 text-sm text-slate-700 transition-colors hover:bg-slate-200"
+                  ? "inline-flex cursor-pointer items-center rounded-pill bg-forest-50 px-3.5 py-1.5 text-small text-ink-700 transition-colors hover:bg-forest-100"
+                  : "inline-flex cursor-pointer items-center rounded-pill bg-forest-50 px-4 py-2 text-small text-ink-700 transition-colors hover:bg-forest-100"
               }
             >
               {filter.label}

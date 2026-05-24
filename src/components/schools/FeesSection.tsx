@@ -216,9 +216,9 @@ export function FeesSection({ school }: FeesSectionProps) {
   if (!showKepStatus && !hasMonthlyFee && !hasAnnualFee && !hasApplicationFee && !hasRegistrationFee && !hasOtherFeesNote) {
     return (
       <section className="mb-8">
-        <h2 className="text-xl font-semibold text-slate-950 mb-4">學費及各項收費</h2>
+        <h2 className="text-xl font-semibold text-ink-900 mb-4">學費及各項收費</h2>
         <GlassCard>
-          <p className="text-base text-slate-900">
+          <p className="text-base text-ink-900">
             暫無學費資料，請瀏覽學校官網查詢。
           </p>
         </GlassCard>
@@ -228,22 +228,22 @@ export function FeesSection({ school }: FeesSectionProps) {
 
   return (
     <section className="mb-8">
-      <h2 className="text-xl font-semibold text-slate-950 mb-4">學費及各項收費</h2>
+      <h2 className="text-xl font-semibold text-ink-900 mb-4">學費及各項收費</h2>
       <GlassCard>
         <table className="w-full text-sm">
           <tbody>
             {showKepStatus && (
-              <tr className="border-b border-slate-100 hover:bg-slate-50">
-                <td className="px-0 py-3 text-slate-900">資助計劃</td>
-                <td className="px-4 py-3 text-right text-slate-900 font-medium">
+              <tr className="border-b border-surface-border hover:bg-cream-50">
+                <td className="px-0 py-3 text-ink-900">資助計劃</td>
+                <td className="px-4 py-3 text-right text-ink-900 font-medium">
                   {school.kep_participant ? "已參加幼稚園教育計劃" : "未參加幼稚園教育計劃"}
                 </td>
               </tr>
             )}
             {(hasMonthlyFee || hasAnnualFee) && (
-              <tr className="border-b border-slate-100 hover:bg-slate-50">
-                <td className="px-0 py-3 text-slate-900">學費</td>
-                <td className="px-4 py-3 text-right text-slate-900 font-medium">
+              <tr className="border-b border-surface-border hover:bg-cream-50">
+                <td className="px-0 py-3 text-ink-900">學費</td>
+                <td className="px-4 py-3 text-right text-ink-900 font-medium">
                   {[
                     hasMonthlyFee ? `每月 ${formatCurrency(school.fee_monthly_hkd!)}` : null,
                     hasAnnualFee ? `全年 ${formatCurrency(school.fee_annual_hkd!)}` : null,
@@ -252,17 +252,17 @@ export function FeesSection({ school }: FeesSectionProps) {
               </tr>
             )}
             {hasApplicationFee && (
-              <tr className="border-b border-slate-100 hover:bg-slate-50">
-                <td className="px-0 py-3 text-slate-900">報名費</td>
-                <td className="px-4 py-3 text-right text-slate-900 font-medium">
+              <tr className="border-b border-surface-border hover:bg-cream-50">
+                <td className="px-0 py-3 text-ink-900">報名費</td>
+                <td className="px-4 py-3 text-right text-ink-900 font-medium">
                   {formatCurrency(school.application_fee_hkd!)}
                 </td>
               </tr>
             )}
             {hasRegistrationFee && (
-              <tr className="border-b border-slate-100 hover:bg-slate-50">
-                <td className="px-0 py-3 text-slate-900">留位費</td>
-                <td className="px-4 py-3 text-right text-slate-900 font-medium">
+              <tr className="border-b border-surface-border hover:bg-cream-50">
+                <td className="px-0 py-3 text-ink-900">留位費</td>
+                <td className="px-4 py-3 text-right text-ink-900 font-medium">
                   {formatCurrency(school.registration_fee_hkd!)}
                 </td>
               </tr>
@@ -271,15 +271,15 @@ export function FeesSection({ school }: FeesSectionProps) {
         </table>
 
         {hasOtherFeesNote && (
-          <div className="mt-4 space-y-3 border-t border-slate-200 pt-4">
+          <div className="mt-4 space-y-3 border-t border-surface-border pt-4">
             {feeBlocks.map(({ title, block }) => (
               <div key={title}>
-                <div className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">{title}</div>
+                <div className="text-xs font-medium text-ink-500 uppercase tracking-wide mb-1">{title}</div>
                 <div className="space-y-3">
                   {block.lead.length > 0 && (
                     <div className="space-y-2">
                       {block.lead.map((segment) => (
-                        <p key={segment} className="text-sm text-slate-900 leading-relaxed break-words">
+                        <p key={segment} className="text-sm text-ink-900 leading-relaxed break-words">
                           {segment}
                         </p>
                       ))}
@@ -287,13 +287,13 @@ export function FeesSection({ school }: FeesSectionProps) {
                   )}
 
                   {block.table && (
-                    <div className="overflow-x-auto rounded-xl border border-slate-200">
+                    <div className="overflow-x-auto rounded-button border border-surface-border">
                       <table className="min-w-full border-collapse text-sm">
-                        <thead className="bg-slate-50">
+                        <thead className="bg-cream-50">
                           <tr>
-                            <th className="px-3 py-2 text-left font-medium text-slate-500">班別</th>
+                            <th className="px-3 py-2 text-left font-medium text-ink-500">班別</th>
                             {block.table.headers.map((header) => (
-                              <th key={header} className="px-3 py-2 text-left font-medium text-slate-500 whitespace-nowrap">
+                              <th key={header} className="px-3 py-2 text-left font-medium text-ink-500 whitespace-nowrap">
                                 {header}
                               </th>
                             ))}
@@ -301,12 +301,12 @@ export function FeesSection({ school }: FeesSectionProps) {
                         </thead>
                         <tbody>
                           {block.table.rows.map((row) => (
-                            <tr key={row.label} className="border-t border-slate-100">
-                              <th className="px-3 py-2 text-left font-medium text-slate-900 whitespace-nowrap bg-white">
+                            <tr key={row.label} className="border-t border-surface-border">
+                              <th className="px-3 py-2 text-left font-medium text-ink-900 whitespace-nowrap bg-white">
                                 {row.label}
                               </th>
                               {block.table?.headers.map((header, index) => (
-                                <td key={header} className="px-3 py-2 text-slate-900 whitespace-nowrap bg-white">
+                                <td key={header} className="px-3 py-2 text-ink-900 whitespace-nowrap bg-white">
                                   {row.values[index] ?? "—"}
                                 </td>
                               ))}
@@ -322,8 +322,8 @@ export function FeesSection({ school }: FeesSectionProps) {
           </div>
         )}
 
-        <div className="mt-4 pt-4 border-t border-slate-200">
-          <p className="text-xs text-slate-500 leading-relaxed">
+        <div className="mt-4 pt-4 border-t border-surface-border">
+          <p className="text-xs text-ink-500 leading-relaxed">
             註：學費、報名費、留位費及其他收費以學校最新官方公布為準。
           </p>
         </div>

@@ -79,7 +79,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-[calc(100vh-72px)] bg-[linear-gradient(135deg,#F8FCFA_0%,#FFFFFF_44%,#EAF7F4_100%)]">
       <div className="mx-auto grid min-h-[calc(100vh-72px)] max-w-[1180px] grid-cols-1 items-center gap-8 px-5 py-8 md:px-8 lg:grid-cols-[1.08fr_0.92fr] lg:py-10">
-        <section className="relative hidden min-h-[640px] overflow-hidden rounded-[28px] border border-white/70 bg-[#EAF8F6] shadow-[0_30px_80px_rgba(26,76,55,0.12)] lg:block">
+        <section className="relative hidden min-h-[640px] overflow-hidden rounded-[28px] border border-white/70 bg-[#EAF8F6] shadow-soft lg:block">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(255,255,255,0.95),transparent_30%),linear-gradient(180deg,rgba(255,255,255,0.3),rgba(164,221,215,0.45))]" />
           <div className="relative z-10 flex h-full flex-col justify-between p-12">
             <div>
@@ -89,7 +89,7 @@ export default function LoginPage() {
                   alt="HKSchoolPlace"
                   width={54}
                   height={54}
-                  className="rounded-2xl"
+                  className="rounded-card"
                   priority
                 />
                 <div>
@@ -107,8 +107,8 @@ export default function LoginPage() {
             </div>
 
             <div className="relative h-[350px]">
-              <div className="absolute inset-x-0 bottom-0 h-[260px] rounded-[36px] bg-[linear-gradient(180deg,#FFFFFF_0%,#D7F1EF_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]" />
-              <div className="absolute bottom-12 left-8 right-8 h-[190px] rounded-[32px] border border-white/80 bg-[linear-gradient(135deg,#F9FFFF,#DFF2EE)] shadow-[0_24px_60px_rgba(21,112,91,0.16)]">
+              <div className="absolute inset-x-0 bottom-0 h-[260px] rounded-[36px] bg-[linear-gradient(180deg,#FFFFFF_0%,#D7F1EF_100%)] shadow-soft" />
+              <div className="absolute bottom-12 left-8 right-8 h-[190px] rounded-[32px] border border-white/80 bg-[linear-gradient(135deg,#F9FFFF,#DFF2EE)] shadow-soft">
                 <div className="absolute left-12 top-14 h-2 w-[72%] -rotate-6 rounded-full bg-white/80" />
                 <div className="absolute left-20 top-24 h-2 w-[65%] rotate-3 rounded-full bg-white/80" />
                 <div className="absolute left-16 top-36 h-2 w-[58%] -rotate-3 rounded-full bg-white/80" />
@@ -117,12 +117,12 @@ export default function LoginPage() {
                 <MapPin className="absolute left-[69%] top-[52%] text-[#168A7A]" icon="cap" />
               </div>
 
-              <div className="absolute bottom-20 left-0 w-[315px] rounded-2xl border border-white/80 bg-white/95 p-5 shadow-[0_24px_55px_rgba(27,65,48,0.16)]">
+              <div className="absolute bottom-20 left-0 w-[315px] rounded-card border border-white/80 bg-white/95 p-5 shadow-soft">
                 <p className="text-lg font-bold text-[#10213B]">我的選校清單</p>
                 <div className="mt-4 space-y-3">
                   {selectedSchools.map((school) => (
                     <div key={school.name} className="flex items-center gap-3 border-b border-[#E8EFED] pb-3 last:border-0 last:pb-0">
-                      <div className={`grid h-11 w-11 place-items-center rounded-xl ${school.accent} text-sm font-bold text-[#1B6B52]`}>
+                      <div className={`grid h-11 w-11 place-items-center rounded-button ${school.accent} text-sm font-bold text-[#1B6B52]`}>
                         校
                       </div>
                       <div className="min-w-0 flex-1">
@@ -135,7 +135,7 @@ export default function LoginPage() {
                 </div>
               </div>
 
-              <div className="absolute bottom-0 right-2 flex w-[330px] items-center gap-4 rounded-2xl border border-white/80 bg-white/95 p-5 shadow-[0_24px_55px_rgba(27,65,48,0.14)]">
+              <div className="absolute bottom-0 right-2 flex w-[330px] items-center gap-4 rounded-card border border-white/80 bg-white/95 p-5 shadow-soft">
                 <div className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-[#FFF0EB] text-[#F15B52]">
                   <BellIcon />
                 </div>
@@ -148,9 +148,9 @@ export default function LoginPage() {
           </div>
         </section>
 
-        <section className="mx-auto w-full max-w-[460px] rounded-[28px] border border-[#E4ECE8] bg-white/95 p-6 shadow-[0_24px_70px_rgba(31,42,36,0.10)] md:p-9 lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none">
+        <section className="mx-auto w-full max-w-[460px] rounded-[28px] border border-[#E4ECE8] bg-white/95 p-6 shadow-soft md:p-9 lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none">
           <div className="mb-8 flex items-center gap-3 lg:hidden">
-            <Image src="/brand/Web Logo/Logo.png" alt="HKSchoolPlace" width={48} height={48} className="rounded-2xl" priority />
+            <Image src="/brand/Web Logo/Logo.png" alt="HKSchoolPlace" width={48} height={48} className="rounded-card" priority />
             <div>
               <p className="text-lg font-bold text-[#10213B]">HKSchoolPlace</p>
               <p className="text-sm text-[#52665F]">香港學校選擇助手</p>
@@ -169,7 +169,7 @@ export default function LoginPage() {
           <form className="mt-8 space-y-5" onSubmit={handleEmailSubmit}>
             <label className="block">
               <span className="text-sm font-bold text-[#10213B]">郵箱</span>
-              <span className="mt-2 flex h-12 items-center gap-3 rounded-lg border border-[#D7E0DC] bg-white px-4 transition focus-within:border-[#168A7A] focus-within:ring-4 focus-within:ring-[#168A7A]/10">
+              <span className="mt-2 flex h-12 items-center gap-3 rounded-chip border border-[#D7E0DC] bg-white px-4 transition focus-within:border-[#168A7A] focus-within:ring-4 focus-within:ring-[#168A7A]/10">
                 <MailIcon />
                 <input
                   type="email"
@@ -184,7 +184,7 @@ export default function LoginPage() {
 
             <label className="block">
               <span className="text-sm font-bold text-[#10213B]">密碼</span>
-              <span className="mt-2 flex h-12 items-center gap-3 rounded-lg border border-[#D7E0DC] bg-white px-4 transition focus-within:border-[#168A7A] focus-within:ring-4 focus-within:ring-[#168A7A]/10">
+              <span className="mt-2 flex h-12 items-center gap-3 rounded-chip border border-[#D7E0DC] bg-white px-4 transition focus-within:border-[#168A7A] focus-within:ring-4 focus-within:ring-[#168A7A]/10">
                 <LockIcon />
                 <input
                   type={showPassword ? "text" : "password"}
@@ -206,7 +206,7 @@ export default function LoginPage() {
 
             {status ? (
               <div
-                className={`rounded-lg px-4 py-3 text-sm font-medium ${
+                className={`rounded-chip px-4 py-3 text-sm font-medium ${
                   status.kind === "ok"
                     ? "border border-[#B8DDD1] bg-[#F0FAF6] text-[#17623F]"
                     : "border border-[#FFD0C7] bg-[#FFF3EF] text-[#A84620]"
@@ -219,7 +219,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={submitting}
-              className="h-[52px] w-full rounded-lg bg-[#F15B52] text-base font-bold text-white shadow-[0_14px_28px_rgba(241,91,82,0.24)] transition hover:bg-[#E34E45] disabled:cursor-not-allowed disabled:opacity-60"
+              className="h-[52px] w-full rounded-chip bg-[#F15B52] text-base font-bold text-white shadow-soft transition hover:bg-[#E34E45] disabled:cursor-not-allowed disabled:opacity-60"
             >
               {submitting ? "處理中…" : mode === "login" ? "用郵箱繼續" : "用郵箱註冊"}
             </button>
@@ -235,7 +235,7 @@ export default function LoginPage() {
             <button
               type="button"
               onClick={handleGoogle}
-              className="flex h-[52px] w-full items-center justify-center gap-3 rounded-lg border border-[#D7E0DC] bg-white text-base font-bold text-[#10213B] transition hover:bg-[#F8FCFA]"
+              className="flex h-[52px] w-full items-center justify-center gap-3 rounded-chip border border-[#D7E0DC] bg-white text-base font-bold text-[#10213B] transition hover:bg-[#F8FCFA]"
             >
               <span className="text-lg font-bold text-[#4285F4]">G</span>
               Google
@@ -243,7 +243,7 @@ export default function LoginPage() {
             <button
               type="button"
               onClick={handleFacebook}
-              className="flex h-[52px] w-full items-center justify-center gap-3 rounded-lg border border-[#D7E0DC] bg-white text-base font-bold text-[#10213B] transition hover:bg-[#F8FCFA]"
+              className="flex h-[52px] w-full items-center justify-center gap-3 rounded-chip border border-[#D7E0DC] bg-white text-base font-bold text-[#10213B] transition hover:bg-[#F8FCFA]"
             >
               <span className="grid h-6 w-6 place-items-center rounded-full bg-[#1877F2] text-sm font-bold text-white">f</span>
               Facebook
@@ -251,7 +251,7 @@ export default function LoginPage() {
             <button
               type="button"
               onClick={handleApple}
-              className="flex h-[52px] w-full items-center justify-center gap-3 rounded-lg border border-[#D7E0DC] bg-white text-base font-bold text-[#10213B] transition hover:bg-[#F8FCFA]"
+              className="flex h-[52px] w-full items-center justify-center gap-3 rounded-chip border border-[#D7E0DC] bg-white text-base font-bold text-[#10213B] transition hover:bg-[#F8FCFA]"
             >
               <AppleIcon />
               Apple
@@ -285,7 +285,7 @@ export default function LoginPage() {
 function MapPin({ className, icon }: { className?: string; icon: "cap" | "school" }) {
   return (
     <div className={className}>
-      <div className="grid h-14 w-14 place-items-center rounded-full bg-current shadow-[0_10px_22px_rgba(16,33,59,0.18)]">
+      <div className="grid h-14 w-14 place-items-center rounded-full bg-current shadow-soft">
         <div className="grid h-10 w-10 place-items-center rounded-full bg-white">
           {icon === "cap" ? <CapIcon /> : <SchoolIcon />}
         </div>

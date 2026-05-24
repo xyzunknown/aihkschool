@@ -1,6 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { ChevronDown } from "lucide-react";
+import { FilterBar, type FilterActiveTag, type FilterOptionGroup } from "@/components/ui/FilterBar";
 import type { ProgrammeCategory } from "@/lib/db/programmes";
 import {
   PROGRAMME_CATEGORY_LABELS,
@@ -16,9 +18,7 @@ export type AgePresetKey =
   | "adult"
   | "family";
 
-export type ProgrammeSortKey =
-  | "deadline"
-  | "distance";
+export type ProgrammeSortKey = "deadline" | "distance";
 
 interface ProgrammeFilterBarProps {
   category: ProgrammeCategory | null;
@@ -33,23 +33,11 @@ interface ProgrammeFilterBarProps {
   onReset: () => void;
 }
 
-const DISTRICT_GROUPS = [
-  {
-    label: "港島",
-    districts: ["central_and_western", "wan_chai", "eastern", "southern"],
-  },
-  {
-    label: "九龍",
-    districts: ["yau_tsim_mong", "sham_shui_po", "kowloon_city", "wong_tai_sin", "kwun_tong"],
-  },
-  {
-    label: "新界",
-    districts: ["tsuen_wan", "tuen_mun", "yuen_long", "north", "tai_po", "sha_tin", "sai_kung", "kwai_tsing"],
-  },
-  {
-    label: "離島",
-    districts: ["islands"],
-  },
+const DISTRICT_GROUPS: FilterOptionGroup[] = [
+  { label: "港島", options: ["central_and_western", "wan_chai", "eastern", "southern"].map(toDistrictOption) },
+  { label: "九龍", options: ["yau_tsim_mong", "sham_shui_po", "kowloon_city", "wong_tai_sin", "kwun_tong"].map(toDistrictOption) },
+  { label: "新界", options: ["tsuen_wan", "tuen_mun", "yuen_long", "north", "tai_po", "sha_tin", "sai_kung", "kwai_tsing"].map(toDistrictOption) },
+  { label: "離島", options: ["islands"].map(toDistrictOption) },
 ];
 
 const AGE_PRESETS: { key: AgePresetKey; label: string }[] = [
@@ -69,17 +57,13 @@ const TYPE_PRESETS: { key: ProgrammeCategory; label: string }[] = [
   { key: "other", label: "其他" },
 ];
 
-const SORT_OPTIONS: { key: ProgrammeSortKey; label: string; hint?: string }[] = [
+const SORT_OPTIONS: { key: ProgrammeSortKey; label: string }[] = [
   { key: "deadline", label: "最快截止報名" },
   { key: "distance", label: "距離最近" },
 ];
 
-function ageLabel(key: AgePresetKey) {
-  return AGE_PRESETS.find((item) => item.key === key)?.label ?? "";
-}
-
-function sortLabel(key: ProgrammeSortKey) {
-  return SORT_OPTIONS.find((item) => item.key === key)?.label ?? "最快截止報名";
+function toDistrictOption(key: string) {
+  return { key, label: PROGRAMME_DISTRICT_LABELS[key] ?? key };
 }
 
 function districtSummary(selectedDistricts: string[]) {
@@ -101,310 +85,99 @@ export function ProgrammeFilterBar({
   onChangeSort,
   onReset,
 }: ProgrammeFilterBarProps) {
-  const [openPanel, setOpenPanel] = useState<"district" | "sort" | null>(null);
+  const [sortOpen, setSortOpen] = useState(false);
 
-  const selectedTags = useMemo(() => {
-    const tags: { key: string; label: string; remove: () => void }[] = [];
-    if (selectedDistricts.length > 0) {
-      selectedDistricts.forEach((district) => {
-        tags.push({
-          key: `district-${district}`,
-          label: PROGRAMME_DISTRICT_LABELS[district] ?? district,
-          remove: () => onChangeDistricts(selectedDistricts.filter((item) => item !== district)),
-        });
-      });
-    }
+  const selectedTags = useMemo<FilterActiveTag[]>(() => {
+    const tags: FilterActiveTag[] = selectedDistricts.map((district) => ({
+      key: `district-${district}`,
+      label: PROGRAMME_DISTRICT_LABELS[district] ?? district,
+      onRemove: () => onChangeDistricts(selectedDistricts.filter((item) => item !== district)),
+    }));
     if (agePreset !== "all") {
       tags.push({
         key: `age-${agePreset}`,
-        label: ageLabel(agePreset),
-        remove: () => onChangeAgePreset("all"),
+        label: AGE_PRESETS.find((item) => item.key === agePreset)?.label ?? agePreset,
+        onRemove: () => onChangeAgePreset("all"),
       });
     }
     if (category) {
       tags.push({
         key: `category-${category}`,
         label: PROGRAMME_CATEGORY_LABELS[category],
-        remove: () => onChangeCategory(null),
+        onRemove: () => onChangeCategory(null),
       });
     }
     return tags;
   }, [agePreset, category, onChangeAgePreset, onChangeCategory, onChangeDistricts, selectedDistricts]);
 
-  const showClear = selectedDistricts.length > 0 || agePreset !== "preschool" || category !== "swimming";
-  const selectedDistrictText = districtSummary(selectedDistricts);
-
-  const chooseSort = (key: ProgrammeSortKey) => {
-    onChangeSort(key);
-    setOpenPanel(null);
+  const toggleDistrict = (district: string) => {
+    onChangeDistricts(
+      selectedDistricts.includes(district)
+        ? selectedDistricts.filter((item) => item !== district)
+        : [...selectedDistricts, district],
+    );
   };
 
   return (
-    <div className="relative rounded-card border border-surface-border bg-white px-4 py-4 shadow-soft md:px-5">
-      <div className="grid gap-3 border-b border-surface-border pb-3 md:grid-cols-[88px_1fr] md:items-center">
-        <h4 className="text-xs font-semibold text-slate-600">地區位置</h4>
-        <div className="relative flex flex-wrap items-center gap-2">
-          <div
-            className={`inline-flex h-8 overflow-hidden rounded-lg border transition-colors ${
-              openPanel === "district" || selectedDistricts.length > 0
-                ? "border-brand-700 bg-brand-700 text-white shadow-sm"
-                : "border-slate-200 bg-white text-ink-700 hover:border-brand-200 hover:bg-brand-50"
+    <FilterBar
+      districtGroups={DISTRICT_GROUPS}
+      selectedDistrictKeys={selectedDistricts}
+      districtSummary={districtSummary(selectedDistricts)}
+      onToggleDistrict={toggleDistrict}
+      onClearDistricts={() => onChangeDistricts([])}
+      sections={[
+        {
+          key: "age",
+          label: "年齡",
+          options: AGE_PRESETS,
+          selectedKeys: [agePreset],
+          onToggle: (key) => onChangeAgePreset(key as AgePresetKey),
+        },
+        {
+          key: "category",
+          label: "課程類別",
+          options: TYPE_PRESETS,
+          selectedKeys: category ? [category] : [],
+          onToggle: (key) => onChangeCategory(category === key ? null : (key as ProgrammeCategory)),
+        },
+      ]}
+      activeTags={selectedTags}
+      onReset={onReset}
+      footer={
+        <div className="relative flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => setSortOpen((value) => !value)}
+            className={`inline-flex h-8 items-center gap-2 rounded-chip border px-3 text-label font-semibold transition-colors ${
+              sortOpen ? "border-forest-700 text-forest-800" : "border-surface-border text-ink-700"
             }`}
+            aria-expanded={sortOpen}
           >
-            <button
-              type="button"
-              onClick={() => setOpenPanel(openPanel === "district" ? null : "district")}
-              className="inline-flex items-center justify-center px-3 text-xs font-semibold"
-            >
-              {selectedDistrictText}
-            </button>
-            <button
-              type="button"
-              aria-label="展開地區選單"
-              onClick={() => setOpenPanel(openPanel === "district" ? null : "district")}
-              className={`inline-flex w-8 shrink-0 items-center justify-center border-l transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/30 focus-visible:ring-offset-2 ${
-                openPanel === "district" || selectedDistricts.length > 0
-                  ? "border-white/20 bg-brand-600 text-white"
-                  : "border-slate-200 bg-surface-soft text-ink-500 hover:bg-brand-50 hover:text-brand-700"
-              }`}
-            >
-              <ChevronDownIcon expanded={openPanel === "district"} />
-            </button>
-          </div>
-          {openPanel === "district" ? (
-            <InlineDistrictPanel
-              selectedDistricts={selectedDistricts}
-              onChangeDistricts={onChangeDistricts}
-              onClose={() => setOpenPanel(null)}
-            />
+            排序：{SORT_OPTIONS.find((item) => item.key === sort)?.label}
+            <ChevronDown aria-hidden="true" size={16} strokeWidth={1.7} className={sortOpen ? "rotate-180" : ""} />
+          </button>
+          <p className="text-small font-semibold text-ink-500">共 {courseCount} 個課程</p>
+          {sortOpen ? (
+            <div className="absolute right-0 top-full z-30 mt-2 w-44 overflow-hidden rounded-card border border-surface-border bg-white p-2 shadow-card">
+              {SORT_OPTIONS.map((option) => (
+                <button
+                  key={option.key}
+                  type="button"
+                  onClick={() => {
+                    onChangeSort(option.key);
+                    setSortOpen(false);
+                  }}
+                  className={`flex w-full rounded-chip px-3 py-2 text-left text-small font-semibold transition ${
+                    sort === option.key ? "bg-forest-700 text-white" : "text-ink-700 hover:bg-forest-50"
+                  }`}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
           ) : null}
         </div>
-      </div>
-
-      <div className="grid gap-3 border-b border-surface-border py-3 md:grid-cols-[88px_1fr] md:items-center">
-        <h4 className="text-xs font-semibold text-slate-600">年齡</h4>
-        <div className="flex flex-wrap gap-2">
-        {AGE_PRESETS.map((p) => {
-          const isActive = agePreset === p.key;
-          return (
-            <button
-              key={p.key}
-              type="button"
-              onClick={() => onChangeAgePreset(p.key)}
-              className={`inline-flex h-8 items-center rounded-lg px-3 text-xs font-semibold transition-colors ${
-                isActive
-                  ? "bg-brand-700 text-white shadow-sm"
-                  : "border border-slate-200 bg-white text-ink-700 hover:border-brand-200 hover:bg-brand-50"
-              }`}
-            >
-              {p.label}
-            </button>
-          );
-        })}
-        </div>
-      </div>
-
-      <div className="grid gap-3 border-b border-surface-border py-3 md:grid-cols-[88px_1fr] md:items-center">
-        <h4 className="text-xs font-semibold text-slate-600">課程類別</h4>
-        <div className="flex flex-wrap gap-2">
-        {TYPE_PRESETS.map((item) => {
-          const isActive = category === item.key;
-          return (
-            <button
-              key={item.key}
-              type="button"
-              onClick={() => onChangeCategory(isActive ? null : item.key)}
-              className={`inline-flex h-8 items-center rounded-lg px-3 text-xs font-semibold transition-colors ${
-                isActive
-                  ? "bg-brand-700 text-white"
-                  : "border border-slate-200 bg-white text-ink-700 hover:border-brand-200 hover:bg-brand-50"
-              }`}
-            >
-              {item.label}
-            </button>
-          );
-        })}
-        </div>
-      </div>
-
-      <div className="flex flex-col gap-3 py-3 md:flex-row md:items-center md:justify-between">
-        {selectedTags.length > 0 ? (
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 text-sm scrollbar-hide">
-            <span className="flex-shrink-0 text-slate-500">已選：</span>
-            {selectedTags.map((tag) => (
-              <button
-                key={tag.key}
-                type="button"
-                onClick={tag.remove}
-                className="flex-shrink-0 rounded-full bg-slate-100 px-3 py-1.5 font-medium text-slate-600 transition hover:bg-slate-200"
-              >
-                {tag.label} ×
-              </button>
-            ))}
-            {showClear ? (
-              <button
-                type="button"
-                onClick={onReset}
-                className="flex-shrink-0 rounded-full px-2 py-1 text-sm font-semibold text-brand-700 hover:bg-brand-50"
-              >
-                清除全部
-              </button>
-            ) : null}
-          </div>
-        ) : (
-          <span className="text-sm text-slate-500">已選：無</span>
-        )}
-
-        <div className="flex flex-shrink-0 items-center gap-3 self-start md:self-auto">
-          <div className="relative">
-            <button
-              type="button"
-              onClick={() => setOpenPanel(openPanel === "sort" ? null : "sort")}
-              className={`inline-flex h-9 items-center justify-center rounded-lg border bg-white px-3 text-sm font-semibold shadow-sm transition hover:border-brand-400 hover:bg-brand-50 ${
-                openPanel === "sort"
-                  ? "border-brand-700 text-brand-800"
-                  : "border-slate-200 text-slate-700"
-              }`}
-            >
-              排序：{sortLabel(sort)}
-              <ChevronDownIcon expanded={openPanel === "sort"} />
-            </button>
-            {openPanel === "sort" ? (
-              <InlineSortPanel activeSort={sort} onChoose={chooseSort} />
-            ) : null}
-          </div>
-          <p className="inline-flex h-9 items-center text-sm font-semibold text-slate-500">共 {courseCount} 個課程</p>
-        </div>
-      </div>
-
-      {openPanel ? <div className="fixed inset-0 z-20" onClick={() => setOpenPanel(null)} /> : null}
-    </div>
-  );
-}
-
-function ChevronDownIcon({ expanded }: { expanded: boolean }) {
-  return (
-    <svg viewBox="0 0 24 24" className={`h-4 w-4 transition-transform duration-200 ${expanded ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="m6 9 6 6 6-6" />
-    </svg>
-  );
-}
-
-function InlineDistrictPanel({
-  selectedDistricts,
-  onChangeDistricts,
-  onClose,
-}: {
-  selectedDistricts: string[];
-  onChangeDistricts: (v: string[]) => void;
-  onClose: () => void;
-}) {
-  const toggleDistrict = (district: string) => {
-    if (selectedDistricts.includes(district)) {
-      onChangeDistricts(selectedDistricts.filter((item) => item !== district));
-    } else {
-      onChangeDistricts([...selectedDistricts, district]);
-    }
-  };
-
-  return (
-    <section className="absolute left-0 top-full z-30 mt-2 w-[min(92vw,440px)] overflow-hidden rounded-card border border-surface-border bg-white shadow-card">
-      <div className="flex items-center justify-between gap-3 border-b border-surface-border px-4 py-3">
-        <h3 className="text-xs font-semibold text-slate-500">共 18 區 · 已選 {selectedDistricts.length}</h3>
-        <button
-          type="button"
-          onClick={() => onChangeDistricts([])}
-          className="text-xs font-semibold text-slate-500 transition hover:text-brand-700"
-        >
-          清除全部
-        </button>
-      </div>
-      <div className="max-h-[300px] overflow-y-auto px-4 py-3">
-        <div className="divide-y divide-surface-border overflow-hidden">
-          {DISTRICT_GROUPS.map((group) => (
-            <div key={group.label} className="grid grid-cols-[70px_1fr]">
-              <div className="px-1 py-3 text-xs font-bold text-slate-600">
-                {group.label}
-              </div>
-              <div className="flex flex-wrap gap-2 py-2.5">
-                {group.districts.map((district) => (
-                  <FilterChip
-                    key={district}
-                    label={PROGRAMME_DISTRICT_LABELS[district] ?? district}
-                    active={selectedDistricts.includes(district)}
-                    onClick={() => toggleDistrict(district)}
-                  />
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="flex items-center justify-between border-t border-surface-border px-4 py-3">
-        <button type="button" onClick={onClose} className="text-xs font-semibold text-slate-500 hover:text-slate-700">
-          取消
-        </button>
-        <button type="button" onClick={onClose} className="rounded-full bg-brand-700 px-5 py-2 text-xs font-bold text-white shadow-sm">
-          套用 {selectedDistricts.length}
-        </button>
-      </div>
-    </section>
-  );
-}
-
-function InlineSortPanel({
-  activeSort,
-  onChoose,
-}: {
-  activeSort: ProgrammeSortKey;
-  onChoose: (v: ProgrammeSortKey) => void;
-}) {
-  return (
-    <section className="absolute right-0 top-full z-30 mt-2 w-44 overflow-hidden rounded-card border border-surface-border bg-white shadow-card">
-      <div className="border-b border-surface-border px-4 py-3">
-        <h3 className="text-xs font-semibold text-slate-500">排序方式</h3>
-      </div>
-      <div className="p-2">
-        {SORT_OPTIONS.map((option) => (
-          <button
-            key={option.key}
-            type="button"
-            onClick={() => onChoose(option.key)}
-            className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm font-semibold transition ${
-              activeSort === option.key
-                ? "bg-brand-700 text-white"
-                : "text-slate-700 hover:bg-brand-50 hover:text-brand-800"
-            }`}
-          >
-            {option.label}
-            {activeSort === option.key ? <span aria-hidden="true">✓</span> : null}
-          </button>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function FilterChip({
-  label,
-  active,
-  onClick,
-}: {
-  label: string;
-  active: boolean;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
-        active
-          ? "bg-brand-700 text-white"
-          : "border border-slate-200 bg-white text-ink-700 hover:border-brand-200 hover:bg-brand-50"
-      }`}
-    >
-      {label}
-    </button>
+      }
+    />
   );
 }

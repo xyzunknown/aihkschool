@@ -40,30 +40,30 @@ export function AdminOverviewClient() {
   return (
     <div>
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-slate-950">今日概覽</h1>
-        <p className="mt-1 text-sm text-slate-500">集中處理今天最重要的資料、投稿和提醒。</p>
+        <h1 className="text-2xl font-bold text-ink-900">今日概覽</h1>
+        <p className="mt-1 text-sm text-ink-500">集中處理今天最重要的資料、投稿和提醒。</p>
       </div>
 
-      {error ? <div className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">{error}</div> : null}
+      {error ? <div className="rounded-button border border-red-200 bg-red-50 p-4 text-sm text-red-700">{error}</div> : null}
 
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-7">
         {CARDS.map((card) => (
-          <Link key={card.key} href={card.href} className="rounded-2xl border border-slate-200 bg-white p-5 hover:border-slate-300">
-            <p className="text-sm text-slate-500">{card.label}</p>
-            <p className="mt-3 text-3xl font-bold text-slate-950">{data ? data[card.key] : "..."}</p>
+          <Link key={card.key} href={card.href} className="rounded-card border border-surface-border bg-white p-5 hover:border-surface-border">
+            <p className="text-sm text-ink-500">{card.label}</p>
+            <p className="mt-3 text-3xl font-bold text-ink-900">{data ? data[card.key] : "..."}</p>
           </Link>
         ))}
       </div>
 
-      <section className="mt-6 rounded-2xl border border-slate-200 bg-white">
-        <div className="border-b border-slate-100 px-5 py-4">
-          <h2 className="font-semibold text-slate-950">今日待處理</h2>
+      <section className="mt-6 rounded-card border border-surface-border bg-white">
+        <div className="border-b border-surface-border px-5 py-4">
+          <h2 className="font-semibold text-ink-900">今日待處理</h2>
         </div>
         <div className="divide-y divide-slate-100">
           {CARDS.map((card) => (
-            <Link key={card.key} href={card.href} className="flex items-center justify-between px-5 py-4 text-sm hover:bg-slate-50">
-              <span className="text-slate-700">{data ? data[card.key] : "..."} 條 {card.label}</span>
-              <span className="font-medium text-slate-950">去處理</span>
+            <Link key={card.key} href={card.href} className="flex items-center justify-between px-5 py-4 text-sm hover:bg-cream-50">
+              <span className="text-ink-700">{data ? data[card.key] : "..."} 條 {card.label}</span>
+              <span className="font-medium text-ink-900">去處理</span>
             </Link>
           ))}
         </div>

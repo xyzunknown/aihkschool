@@ -195,8 +195,8 @@ export const NOTES_MAX_LENGTH = 500;
  * 根據 school_id 確定性地選擇頭像背景色
  */
 const AVATAR_COLORS = [
-  { bg: "bg-slate-200", text: "text-slate-700" },
-  { bg: "bg-emerald-100", text: "text-emerald-700" },
+  { bg: "bg-cream-200", text: "text-ink-700" },
+  { bg: "bg-emerald-100", text: "text-forest-700" },
   { bg: "bg-amber-100", text: "text-amber-700" },
   { bg: "bg-sky-100", text: "text-sky-700" },
   { bg: "bg-violet-100", text: "text-violet-700" },

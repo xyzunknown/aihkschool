@@ -107,7 +107,7 @@ function BrandBoard() {
               alt="猫头鹰 IP"
               width={280}
               height={280}
-              className="max-h-[280px] w-full max-w-[280px] object-contain drop-shadow-[0_18px_28px_rgba(32,85,59,0.18)]"
+              className="max-h-[280px] w-full max-w-[280px] object-contain drop-shadow-soft"
             />
           </div>
           <div className="space-y-3">
@@ -135,8 +135,8 @@ function AppShell({
   theme: string;
 }) {
   return (
-    <div className="rounded-[30px] bg-[#202822] p-2 shadow-[0_24px_50px_rgba(31,42,36,0.20)]">
-      <div className={`h-[690px] w-[318px] overflow-hidden rounded-[24px] ${theme}`}>
+    <div className="rounded-card bg-[#202822] p-2 shadow-soft">
+      <div className={`h-[690px] w-[318px] overflow-hidden rounded-card ${theme}`}>
         <div className="mx-auto mt-3 h-1.5 w-20 rounded-full bg-black/15" />
         {children}
       </div>

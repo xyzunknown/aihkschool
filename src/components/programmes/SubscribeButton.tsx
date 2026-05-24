@@ -98,10 +98,10 @@ export function SubscribeButton({ programmeId, size = "md" }: SubscribeButtonPro
     <button
       onClick={handleToggle}
       disabled={loading}
-      className={`inline-flex items-center gap-1.5 rounded-xl font-medium transition-all disabled:opacity-50 ${sizeClasses} ${
+      className={`inline-flex items-center gap-1.5 rounded-button font-medium transition-all disabled:opacity-50 ${sizeClasses} ${
         isSubscribed
-          ? "border border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
-          : "bg-slate-900 text-white hover:bg-slate-800"
+          ? "border border-surface-border bg-white text-ink-700 hover:bg-cream-50"
+          : "bg-ink-900 text-white hover:bg-slate-800"
       }`}
     >
       {loading ? (

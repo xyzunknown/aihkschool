@@ -68,10 +68,10 @@ export function MegaSearch() {
     <section className="max-w-[1200px] mx-auto px-5 md:px-8 mt-1 md:mt-2">
       <form
         onSubmit={submit}
-        className="bg-white rounded-card border border-surface-border shadow-[0_12px_32px_rgba(30,82,56,0.07)] p-5 md:p-6"
+        className="bg-white rounded-card border border-surface-border shadow-soft p-5 md:p-6"
       >
         <div className="flex flex-col sm:flex-row gap-3 mb-4">
-          <div className="flex items-center gap-2 px-4 h-[52px] flex-1 rounded-pill bg-surface-soft border border-surface-border focus-within:border-brand-500 focus-within:bg-white transition">
+          <div className="flex items-center gap-2 px-4 h-[52px] flex-1 rounded-pill bg-surface-soft border border-surface-border focus-within:border-forest-500 focus-within:bg-white transition">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-ink-500">
               <circle cx="11" cy="11" r="7" />
               <line x1="16.5" y1="16.5" x2="22" y2="22" />
@@ -86,7 +86,7 @@ export function MegaSearch() {
           </div>
           <button
             type="submit"
-            className="h-[52px] px-6 inline-flex items-center justify-center gap-2 rounded-pill bg-brand-700 text-white text-sm font-semibold hover:bg-brand-500 transition shadow-[0_10px_24px_rgba(30,82,56,0.16)]"
+            className="h-[52px] px-6 inline-flex items-center justify-center gap-2 rounded-pill bg-forest-700 text-white text-sm font-semibold hover:bg-forest-500 transition shadow-soft"
           >
             搜尋
           </button>
@@ -96,7 +96,7 @@ export function MegaSearch() {
           <button
             type="button"
             onClick={() => setIsFilterSheetOpen(true)}
-            className="flex-1 h-11 inline-flex items-center justify-between gap-3 rounded-2xl border border-surface-border bg-surface-soft px-4 text-sm text-ink-800 font-medium hover:border-brand-500 transition"
+            className="flex-1 h-11 inline-flex items-center justify-between gap-3 rounded-card border border-surface-border bg-surface-soft px-4 text-sm text-ink-800 font-medium hover:border-forest-500 transition"
           >
             <span className="inline-flex items-center gap-2">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -154,7 +154,7 @@ export function MegaSearch() {
           <button
             type="button"
             onClick={() => router.push("/kg")}
-            className="h-11 inline-flex items-center justify-center gap-2 rounded-pill border border-surface-border bg-white text-sm text-ink-700 font-medium hover:border-brand-500 hover:text-brand-700 transition"
+            className="h-11 inline-flex items-center justify-center gap-2 rounded-pill border border-surface-border bg-white text-sm text-ink-700 font-medium hover:border-forest-500 hover:text-forest-700 transition"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="4" y1="6" x2="20" y2="6" />
@@ -220,7 +220,7 @@ export function MegaSearch() {
             <button
               type="button"
               onClick={resetFilters}
-              className="h-11 rounded-pill border border-surface-border bg-white text-sm font-medium text-ink-700 hover:border-brand-500 hover:text-brand-700 transition"
+              className="h-11 rounded-pill border border-surface-border bg-white text-sm font-medium text-ink-700 hover:border-forest-500 hover:text-forest-700 transition"
             >
               清除篩選
             </button>
@@ -230,7 +230,7 @@ export function MegaSearch() {
                 runSearch();
                 setIsFilterSheetOpen(false);
               }}
-              className="h-11 rounded-pill bg-brand-700 text-sm font-semibold text-white hover:bg-brand-500 transition shadow-[0_10px_24px_rgba(30,82,56,0.16)]"
+              className="h-11 rounded-pill bg-forest-700 text-sm font-semibold text-white hover:bg-forest-500 transition shadow-soft"
             >
               查看結果
             </button>
@@ -257,7 +257,7 @@ function Select({
   return (
     <label className="flex flex-col gap-1">
       <span className="text-[11px] text-ink-500 font-medium">{label}</span>
-      <div className="flex items-center gap-1.5 px-3 h-11 rounded-xl bg-white border border-surface-border hover:border-brand-500 transition">
+      <div className="flex items-center gap-1.5 px-3 h-11 rounded-button bg-white border border-surface-border hover:border-forest-500 transition">
         <span className="text-sm shrink-0 opacity-80" aria-hidden>{icon}</span>
         <select
           value={value}

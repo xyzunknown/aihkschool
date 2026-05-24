@@ -84,28 +84,28 @@ export function AdminContentClient() {
     <div>
       <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-slate-950">消息和時間線</h1>
-          <p className="mt-1 text-sm text-slate-500">管理首頁消息、置頂內容，以及可綁定學校的時間線事件。</p>
+          <h1 className="text-2xl font-bold text-ink-900">消息和時間線</h1>
+          <p className="mt-1 text-sm text-ink-500">管理首頁消息、置頂內容，以及可綁定學校的時間線事件。</p>
         </div>
-        <button onClick={() => setEditing(tab === "news" ? { ...NEWS_EMPTY } : { ...TIMELINE_EMPTY })} className="rounded-xl bg-slate-950 px-4 py-2 text-sm font-medium text-white">新增</button>
+        <button onClick={() => setEditing(tab === "news" ? { ...NEWS_EMPTY } : { ...TIMELINE_EMPTY })} className="rounded-button bg-ink-900 px-4 py-2 text-sm font-medium text-white">新增</button>
       </div>
-      {message ? <div className="mb-4 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700">{message}</div> : null}
+      {message ? <div className="mb-4 rounded-button border border-surface-border bg-white px-4 py-3 text-sm text-ink-700">{message}</div> : null}
 
       <div className="mb-4 flex gap-2">
-        <button onClick={() => setTab("news")} className={`rounded-xl px-4 py-2 text-sm font-medium ${tab === "news" ? "bg-slate-950 text-white" : "border border-slate-200 bg-white text-slate-700"}`}>消息資訊</button>
-        <button onClick={() => setTab("timeline")} className={`rounded-xl px-4 py-2 text-sm font-medium ${tab === "timeline" ? "bg-slate-950 text-white" : "border border-slate-200 bg-white text-slate-700"}`}>時間線事件</button>
+        <button onClick={() => setTab("news")} className={`rounded-button px-4 py-2 text-sm font-medium ${tab === "news" ? "bg-ink-900 text-white" : "border border-surface-border bg-white text-ink-700"}`}>消息資訊</button>
+        <button onClick={() => setTab("timeline")} className={`rounded-button px-4 py-2 text-sm font-medium ${tab === "timeline" ? "bg-ink-900 text-white" : "border border-surface-border bg-white text-ink-700"}`}>時間線事件</button>
       </div>
 
-      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
+      <div className="overflow-hidden rounded-card border border-surface-border bg-white">
         <table className="w-full text-left text-sm">
-          <thead className="bg-slate-50 text-xs text-slate-500"><tr><th className="px-4 py-3">標題</th><th className="px-4 py-3">日期</th><th className="px-4 py-3">狀態</th><th className="px-4 py-3 text-right">操作</th></tr></thead>
+          <thead className="bg-cream-50 text-xs text-ink-500"><tr><th className="px-4 py-3">標題</th><th className="px-4 py-3">日期</th><th className="px-4 py-3">狀態</th><th className="px-4 py-3 text-right">操作</th></tr></thead>
           <tbody className="divide-y divide-slate-100">
             {items.map((item) => (
               <tr key={String(item.id)}>
-                <td className="px-4 py-3 font-medium text-slate-950">{String(tab === "news" ? item.title : item.school_name)}<div className="text-xs text-slate-400">{String(tab === "news" ? item.summary ?? "" : item.event_label ?? "")}</div></td>
-                <td className="px-4 py-3 text-slate-600">{String(tab === "news" ? item.published_at ?? "" : item.event_date ?? "").slice(0, 10)}</td>
+                <td className="px-4 py-3 font-medium text-ink-900">{String(tab === "news" ? item.title : item.school_name)}<div className="text-xs text-ink-500">{String(tab === "news" ? item.summary ?? "" : item.event_label ?? "")}</div></td>
+                <td className="px-4 py-3 text-ink-700">{String(tab === "news" ? item.published_at ?? "" : item.event_date ?? "").slice(0, 10)}</td>
                 <td className="px-4 py-3">{item.is_pinned ? "置頂 · " : ""}{item.is_visible ? "顯示" : "隱藏"}</td>
-                <td className="px-4 py-3 text-right"><button onClick={() => setEditing(item)} className="font-medium text-slate-950 underline">編輯</button></td>
+                <td className="px-4 py-3 text-right"><button onClick={() => setEditing(item)} className="font-medium text-ink-900 underline">編輯</button></td>
               </tr>
             ))}
             {items.length === 0 ? <EmptyTableRow colSpan={4} message={tab === "news" ? "沒有消息內容" : "沒有時間線事件"} /> : null}
@@ -121,8 +121,8 @@ export function AdminContentClient() {
           onClose={() => setEditing(null)}
           actions={
             <>
-              <button onClick={() => setEditing(null)} className="rounded-lg border border-slate-200 bg-white px-5 py-2 text-sm">取消</button>
-              <button onClick={save} className="rounded-lg bg-slate-950 px-5 py-2 text-sm font-medium text-white">保存</button>
+              <button onClick={() => setEditing(null)} className="rounded-chip border border-surface-border bg-white px-5 py-2 text-sm">取消</button>
+              <button onClick={save} className="rounded-chip bg-ink-900 px-5 py-2 text-sm font-medium text-white">保存</button>
             </>
           }
         >

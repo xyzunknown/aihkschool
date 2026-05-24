@@ -85,11 +85,11 @@ export default function SchoolCardImageTestPage() {
     <main className="min-h-screen bg-[#F8FBF8] px-5 py-8 md:px-10">
       <section className="mx-auto max-w-6xl">
         <div className="mb-6">
-          <p className="text-sm font-semibold text-emerald-700">V1.1 卡片壓測</p>
-          <h1 className="mt-2 text-2xl font-bold text-slate-950 md:text-3xl">
+          <p className="text-sm font-semibold text-forest-700">V1.1 卡片壓測</p>
+          <h1 className="mt-2 text-2xl font-bold text-ink-900 md:text-3xl">
             徽章 + 數據卡片測試
           </h1>
-          <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-500">
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-ink-500">
             校徽、學校名、標籤、K1/K2/K3 學額與詳情按鈕按新版卡片順序呈現。
           </p>
         </div>

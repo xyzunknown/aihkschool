@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { NewsItem } from "@/types/homepage";
 
 const SOURCE_CATEGORY_STYLES: Record<string, string> = {
-  edb: "bg-emerald-50 text-emerald-700",
+  edb: "bg-forest-50 text-forest-700",
   govhk: "bg-sky-50 text-sky-700",
   hk01: "bg-amber-50 text-amber-700",
 };
@@ -19,10 +19,10 @@ export function NewsFeed({ items }: NewsFeedProps) {
   return (
     <section className="mb-10">
       <div className="mb-6 flex items-center justify-between">
-        <h2 className="text-xl font-semibold text-slate-950">消息動態</h2>
+        <h2 className="text-xl font-semibold text-ink-900">消息動態</h2>
         <Link
           href="/news"
-          className="text-sm font-medium text-slate-500 transition-colors hover:text-slate-950"
+          className="text-sm font-medium text-ink-500 transition-colors hover:text-ink-900"
         >
           查看更多 →
         </Link>
@@ -43,7 +43,7 @@ export function NewsFeed({ items }: NewsFeedProps) {
               rel={isExternal ? "noreferrer" : undefined}
               className="block"
             >
-              <div className="rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm">
+              <div className="rounded-card border border-surface-border bg-white p-5 transition-all duration-200  hover:shadow-sm">
                 <div className="flex items-start gap-3">
                   <span
                     className={`mt-0.5 inline-flex flex-shrink-0 items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${sourceStyle(item.source)}`}
@@ -51,15 +51,15 @@ export function NewsFeed({ items }: NewsFeedProps) {
                     {item.source_label}
                   </span>
                   <div className="min-w-0 flex-1">
-                    <h3 className="text-base font-semibold leading-snug text-slate-900 line-clamp-1">
+                    <h3 className="text-base font-semibold leading-snug text-ink-900 line-clamp-1">
                       {item.title}
                     </h3>
-                    <p className="mt-1 text-sm text-slate-500 line-clamp-1">
+                    <p className="mt-1 text-sm text-ink-500 line-clamp-1">
                       {item.summary}
                     </p>
                   </div>
                   <div className="flex flex-shrink-0 items-center gap-1.5 mt-1">
-                    <span className="text-xs text-slate-400">{item.date}</span>
+                    <span className="text-xs text-ink-500">{item.date}</span>
                     {isExternal && (
                       <svg
                         width="12"
@@ -70,7 +70,7 @@ export function NewsFeed({ items }: NewsFeedProps) {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="text-slate-300"
+                        className="text-ink-300"
                       >
                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                         <polyline points="15 3 21 3 21 9" />

@@ -11,11 +11,11 @@ interface GlassCardProps {
 }
 
 export function GlassCard({ children, className = "", hoverable = false, onClick, variant = "content" }: GlassCardProps) {
-  const baseStyles = "rounded-2xl p-6 transition-shadow duration-200";
+  const baseStyles = "rounded-card p-6 transition-shadow duration-200";
 
   const variantStyles = {
-    content: "bg-white border border-slate-200 hover:shadow-sm",
-    featured: "bg-slate-900 text-white rounded-2xl",
+    content: "bg-white border border-surface-border hover:shadow-sm",
+    featured: "bg-ink-900 text-white rounded-card",
   };
 
   const interactiveStyles = hoverable ? "cursor-pointer" : "";

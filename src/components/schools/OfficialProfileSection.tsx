@@ -27,14 +27,14 @@ export function OfficialProfileSection({ profile }: OfficialProfileSectionProps)
 
   return (
     <section className="mb-8">
-      <h2 className="mb-4 text-xl font-semibold text-slate-950">官方資料</h2>
+      <h2 className="mb-4 text-xl font-semibold text-ink-900">官方資料</h2>
       <GlassCard>
         {highlights.length > 0 && (
           <div className="mb-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {highlights.map((entry) => (
-              <div key={entry.label} className="rounded-xl border border-slate-100 bg-slate-50 px-4 py-3">
-                <p className="text-xs font-medium uppercase tracking-wide text-slate-500">{entry.label}</p>
-                <p className="mt-1 text-base font-semibold text-slate-950">{entry.value}</p>
+              <div key={entry.label} className="rounded-button border border-surface-border bg-cream-50 px-4 py-3">
+                <p className="text-xs font-medium uppercase tracking-wide text-ink-500">{entry.label}</p>
+                <p className="mt-1 text-base font-semibold text-ink-900">{entry.value}</p>
               </div>
             ))}
           </div>
@@ -42,13 +42,13 @@ export function OfficialProfileSection({ profile }: OfficialProfileSectionProps)
 
         <div className="space-y-6">
           {groups.map((group) => (
-            <div key={group.title} className="border-t border-slate-100 pt-5 first:border-t-0 first:pt-0">
-              <h3 className="mb-3 text-sm font-semibold text-slate-800">{group.title}</h3>
+            <div key={group.title} className="border-t border-surface-border pt-5 first:border-t-0 first:pt-0">
+              <h3 className="mb-3 text-sm font-semibold text-ink-800">{group.title}</h3>
               <div className="grid gap-x-6 gap-y-4 md:grid-cols-2">
                 {group.items.map((entry) => (
                   <div key={`${group.title}-${entry.label}`} className="min-w-0">
-                    <p className="mb-1 text-xs font-medium uppercase tracking-wide text-slate-500">{entry.label}</p>
-                    <p className="text-sm leading-6 text-slate-900">{entry.value}</p>
+                    <p className="mb-1 text-xs font-medium uppercase tracking-wide text-ink-500">{entry.label}</p>
+                    <p className="text-sm leading-6 text-ink-900">{entry.value}</p>
                   </div>
                 ))}
               </div>
@@ -56,7 +56,7 @@ export function OfficialProfileSection({ profile }: OfficialProfileSectionProps)
           ))}
         </div>
 
-        <p className="mt-5 border-t border-slate-100 pt-4 text-xs leading-5 text-slate-500">
+        <p className="mt-5 border-t border-surface-border pt-4 text-xs leading-5 text-ink-500">
           資料來自教育局幼稚園概覽；個別學校資料每年可能更新，最終以學校及教育局公布為準。
         </p>
       </GlassCard>

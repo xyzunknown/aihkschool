@@ -68,7 +68,7 @@ export function PrioritySchoolsSection({
 
   return (
     <section className="max-w-[1200px] mx-auto px-5 md:px-8 mt-12">
-      <div className="overflow-hidden rounded-[28px] border border-emerald-100 bg-[radial-gradient(circle_at_top_left,_rgba(218,245,229,0.9),_rgba(255,255,255,0.96)_45%,_rgba(245,250,247,0.96)_100%)] p-6 md:p-8 shadow-[0_18px_60px_rgba(26,71,52,0.08)]">
+      <div className="overflow-hidden rounded-[28px] border border-emerald-100 bg-[radial-gradient(circle_at_top_left,_rgba(218,245,229,0.9),_rgba(255,255,255,0.96)_45%,_rgba(245,250,247,0.96)_100%)] p-6 md:p-8 shadow-soft">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <div className="inline-flex items-center rounded-full border border-emerald-200 bg-white/85 px-3 py-1 text-[11px] font-semibold tracking-[0.18em] text-emerald-800 uppercase">
@@ -84,7 +84,7 @@ export function PrioritySchoolsSection({
           {ctaHref && ctaLabel ? (
             <Link
               href={ctaHref}
-              className="inline-flex items-center justify-center rounded-2xl border border-emerald-200 bg-white px-4 py-2.5 text-sm font-medium text-emerald-900 transition hover:-translate-y-0.5 hover:border-emerald-300"
+              className="inline-flex items-center justify-center rounded-card border border-emerald-200 bg-white px-4 py-2.5 text-sm font-medium text-emerald-900 transition  hover:border-emerald-300"
             >
               {ctaLabel}
             </Link>
@@ -105,24 +105,24 @@ export function PrioritySchoolsSection({
             return (
               <article
                 key={school.school_code}
-                className="rounded-[24px] border border-white/80 bg-white/90 p-5 shadow-[0_12px_30px_rgba(26,71,52,0.06)] backdrop-blur"
+                className="rounded-card border border-white/80 bg-white/90 p-5 shadow-soft"
               >
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <div className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-800">
+                    <div className="inline-flex items-center rounded-full bg-forest-50 px-2.5 py-1 text-xs font-semibold text-emerald-800">
                       #{school.rank}
                     </div>
-                    <h3 className="mt-3 text-lg font-semibold leading-tight text-slate-950">
+                    <h3 className="mt-3 text-lg font-semibold leading-tight text-ink-900">
                       {school.name_tc}
                     </h3>
                     {school.name_en ? (
-                      <p className="mt-1 text-sm leading-5 text-slate-500">
+                      <p className="mt-1 text-sm leading-5 text-ink-500">
                         {formatEnglishSchoolName(school.name_en)}
                       </p>
                     ) : null}
                   </div>
                   {confidenceLabel ? (
-                    <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-medium text-slate-600">
+                    <span className="rounded-full bg-cream-100 px-2.5 py-1 text-[11px] font-medium text-ink-700">
                       {confidenceLabel}
                     </span>
                   ) : null}
@@ -133,14 +133,14 @@ export function PrioritySchoolsSection({
                     {schoolTypeLabel}
                   </span>
                   {school.has_application_signal ? (
-                    <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700">
+                    <span className="rounded-full bg-forest-50 px-2.5 py-1 text-xs font-medium text-forest-700">
                       有報名信號
                     </span>
                   ) : null}
                   {school.queue_sources.slice(0, 2).map((source) => (
                     <span
                       key={source}
-                      className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600"
+                      className="rounded-full bg-cream-100 px-2.5 py-1 text-xs font-medium text-ink-700"
                     >
                       {sourceLabel(source)}
                     </span>
@@ -148,11 +148,11 @@ export function PrioritySchoolsSection({
                 </div>
 
                 {summary ? (
-                  <p className="mt-4 min-h-[72px] text-sm leading-6 text-slate-600">
+                  <p className="mt-4 min-h-[72px] text-sm leading-6 text-ink-700">
                     {summary}
                   </p>
                 ) : (
-                  <p className="mt-4 min-h-[72px] text-sm leading-6 text-slate-400">
+                  <p className="mt-4 min-h-[72px] text-sm leading-6 text-ink-500">
                     暫未提取到可展示的報名摘要。
                   </p>
                 )}
@@ -161,10 +161,10 @@ export function PrioritySchoolsSection({
                   <div
                     className={
                       school.has_validated_open_day
-                        ? "mt-4 rounded-2xl border border-sky-100 bg-sky-50/80 px-3 py-2 text-xs text-sky-800"
+                        ? "mt-4 rounded-card border border-sky-100 bg-sky-50/80 px-3 py-2 text-xs text-sky-800"
                         : school.open_day_signal_tier === "activity_signal"
-                          ? "mt-4 rounded-2xl border border-violet-100 bg-violet-50/90 px-3 py-2 text-xs text-violet-900"
-                          : "mt-4 rounded-2xl border border-amber-100 bg-amber-50/90 px-3 py-2 text-xs text-amber-900"
+                          ? "mt-4 rounded-card border border-violet-100 bg-violet-50/90 px-3 py-2 text-xs text-violet-900"
+                          : "mt-4 rounded-card border border-amber-100 bg-amber-50/90 px-3 py-2 text-xs text-amber-900"
                     }
                   >
                     <div
@@ -185,7 +185,7 @@ export function PrioritySchoolsSection({
                 <div className="mt-5 flex flex-wrap gap-2">
                   <Link
                     href={searchHref}
-                    className="inline-flex items-center rounded-xl bg-slate-950 px-3.5 py-2 text-sm font-medium text-white transition hover:opacity-92"
+                    className="inline-flex items-center rounded-button bg-ink-900 px-3.5 py-2 text-sm font-medium text-white transition hover:opacity-92"
                   >
                     平台內查看
                   </Link>
@@ -194,7 +194,7 @@ export function PrioritySchoolsSection({
                       href={school.application_url}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-sm font-medium text-slate-800 transition hover:border-slate-300"
+                      className="inline-flex items-center rounded-button border border-surface-border bg-white px-3.5 py-2 text-sm font-medium text-ink-800 transition hover:border-surface-border"
                     >
                       官方招生
                     </a>
@@ -203,7 +203,7 @@ export function PrioritySchoolsSection({
                       href={school.website}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-sm font-medium text-slate-800 transition hover:border-slate-300"
+                      className="inline-flex items-center rounded-button border border-surface-border bg-white px-3.5 py-2 text-sm font-medium text-ink-800 transition hover:border-surface-border"
                     >
                       學校官網
                     </a>

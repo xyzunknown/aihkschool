@@ -20,10 +20,10 @@ export function FeaturedSchools({ schools }: FeaturedSchoolsProps) {
   return (
     <section className="mb-[72px]">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-semibold text-slate-950">熱點學校</h2>
+        <h2 className="text-xl font-semibold text-ink-900">熱點學校</h2>
         <Link
           href="/kg?hot=100"
-          className="text-slate-500 hover:text-slate-950 text-sm font-medium transition-colors"
+          className="text-ink-500 hover:text-ink-900 text-sm font-medium transition-colors"
         >
           查看全部 →
         </Link>

@@ -284,15 +284,15 @@ export function ProgrammesClient() {
       </div>
 
       {isRefreshing && programmes.length > 0 && (
-        <div className="mb-4 flex items-center gap-2 text-xs text-slate-400">
-          <div className="h-1 w-8 animate-pulse rounded-full bg-brand-700" />
+        <div className="mb-4 flex items-center gap-2 text-label text-ink-500">
+          <div className="h-1 w-8 animate-pulse rounded-pill bg-forest-700" />
           <span>更新中...</span>
         </div>
       )}
 
       {isInitialLoad ? (
         <>
-          <p className="mb-4 text-sm text-slate-500">載入課程中...</p>
+          <p className="mb-4 text-small text-ink-500">載入課程中...</p>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {Array.from({ length: 6 }).map((_, i) => (
               <ProgrammeCardSkeleton key={i} />
@@ -300,8 +300,8 @@ export function ProgrammesClient() {
           </div>
         </>
       ) : courseGroups.length === 0 ? (
-        <div className="rounded-2xl border border-slate-200 bg-white p-10 text-center">
-          <p className="text-sm text-slate-500">
+        <div className="rounded-card border border-surface-border bg-white p-10 text-center">
+          <p className="text-small text-ink-500">
             暫無符合條件嘅課程，試試調整篩選條件
           </p>
         </div>
@@ -323,17 +323,17 @@ export function ProgrammesClient() {
               <button
                 onClick={() => setPage((prev) => Math.max(1, prev - 1))}
                 disabled={page <= 1}
-                className="rounded-xl border border-slate-200 bg-white px-5 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+                className="rounded-pill border border-surface-border bg-white px-5 py-2 text-small font-medium text-ink-700 transition-colors hover:bg-forest-50 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 上一頁
               </button>
-              <span className="text-sm text-slate-500">
+              <span className="text-small text-ink-500">
                 第 {page} / {totalPages} 頁
               </span>
               <button
                 onClick={() => setPage((prev) => Math.min(totalPages, prev + 1))}
                 disabled={page >= totalPages}
-                className="rounded-xl border border-slate-200 bg-white px-5 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+                className="rounded-pill border border-surface-border bg-white px-5 py-2 text-small font-medium text-ink-700 transition-colors hover:bg-forest-50 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 下一頁
               </button>

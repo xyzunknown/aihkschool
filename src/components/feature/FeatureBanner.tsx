@@ -38,7 +38,7 @@ export function FeatureBanner({
   const hasStats = Boolean(stats?.length);
 
   return (
-    <section className="relative overflow-hidden border-b border-cream-200 bg-cream-50">
+    <section className="relative overflow-hidden border-b border-surface-border bg-cream-50">
       <div className="absolute inset-0">
         <Image
           src={imageSrc}
@@ -70,7 +70,7 @@ export function FeatureBanner({
               {(stats ?? []).map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-[14px] border border-white/80 bg-white/84 px-3.5 py-2 shadow-soft backdrop-blur"
+                  className="rounded-button border border-white/80 bg-white/84 px-3.5 py-2 shadow-soft"
                 >
                   <p className="text-[11px] font-semibold text-ink-500">{stat.label}</p>
                   <p className="mt-0.5 text-sm font-bold text-ink-900">{stat.value}</p>

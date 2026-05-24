@@ -3,7 +3,7 @@ import type { DataSource } from "@/types/database";
 const sourceConfig: Record<DataSource, { label: string; className: string }> = {
   edb: {
     label: "教育局官方",
-    className: "bg-brand-50 text-brand-700",
+    className: "bg-forest-50 text-forest-700",
   },
   school: {
     label: "學校公佈",

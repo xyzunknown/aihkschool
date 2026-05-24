@@ -17,14 +17,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label
             htmlFor={inputId}
-            className="text-xs font-medium text-slate-500 uppercase tracking-wide block mb-2"
+            className="mb-2 block text-label font-medium uppercase text-ink-500"
           >
             {label}
           </label>
         )}
         <div className="relative">
           {icon && (
-            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">
+            <div className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-ink-400">
               {icon}
             </div>
           )}
@@ -33,11 +33,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             id={inputId}
             className={`
               w-full bg-white
-              border rounded-xl px-4 py-3
-              text-base text-slate-900
-              placeholder:text-slate-400
+              border rounded-button px-4 py-3
+              text-body text-ink-900
+              placeholder:text-ink-400
               outline-none transition-colors
-              ${error ? "border-red-300 focus:border-red-400" : "border-slate-200 focus:border-slate-400"}
+              ${error ? "border-red-300 focus:border-red-400" : "border-surface-border focus:border-ink-400"}
               ${icon ? "pl-11" : ""}
               disabled:opacity-50 disabled:cursor-not-allowed
               ${className}
@@ -46,7 +46,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           />
         </div>
         {error && (
-          <p className="text-sm text-red-500 mt-1">{error}</p>
+          <p className="mt-1 text-small text-red-500">{error}</p>
         )}
       </div>
     );

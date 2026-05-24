@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Check } from "lucide-react";
 import type { HomeBanner } from "@/types/homepage";
 import { HeroSearchBar } from "@/components/home/HeroSearchBar";
 
@@ -16,8 +17,8 @@ export function Hero({ banners = [] }: { banners?: HomeBanner[] }) {
 
   return (
     <section className="bg-white">
-      <div className="max-w-[1200px] mx-auto px-5 md:px-8 pt-8 pb-2 md:pt-10 md:pb-3">
-        <div className="relative overflow-hidden rounded-[30px] min-h-[360px] md:min-h-[420px] lg:min-h-[460px] border border-[#F2E7CC] bg-[#FFF8E9] shadow-[0_20px_44px_rgba(143,111,43,0.08)]">
+      <div className="mx-auto max-w-[1200px] px-5 pb-2 pt-8 md:px-8 md:pb-3 md:pt-10">
+        <div className="relative min-h-[360px] overflow-hidden rounded-card border border-cream-200 bg-cream-50 shadow-soft md:min-h-[420px] lg:min-h-[460px]">
           <Image
             src={mobileImageSrc || "/brand/hero/bg-mobile.jpg"}
             alt={imageAlt}
@@ -37,23 +38,21 @@ export function Hero({ banners = [] }: { banners?: HomeBanner[] }) {
 
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,250,239,0.3)_0%,rgba(255,250,239,0.18)_100%)] md:hidden" />
 
-          <div className="relative z-10 h-full flex items-start md:items-center px-6 pt-8 pb-7 md:px-10 md:py-10 lg:px-12 lg:py-12">
-            <div className="w-full min-w-0 max-w-[640px] md:w-[460px] lg:w-[500px] xl:w-[530px] 2xl:w-[560px] md:max-w-none flex-none rounded-[28px] bg-white/80 md:bg-white/50 backdrop-blur-[2px] border border-white/55 shadow-[0_10px_30px_rgba(143,111,43,0.06)] px-5 py-5 md:pl-7 md:pr-6 md:py-7 lg:pl-8 lg:pr-7 lg:py-8 xl:pr-7">
-              <h1 className="max-w-[13ch] md:max-w-[380px] lg:max-w-[410px] xl:max-w-[440px] text-[34px] md:text-[38px] lg:text-[42px] xl:text-[46px] font-semibold text-ink-900 leading-[1.16] md:leading-[1.08] tracking-[-0.03em]">
+          <div className="relative z-10 flex h-full items-start px-5 pb-7 pt-8 md:items-center md:px-8 md:py-10 lg:py-12">
+            <div className="w-full min-w-0 max-w-[640px] flex-none rounded-card border border-white/70 bg-white/88 px-5 py-5 shadow-soft md:w-[460px] md:max-w-none md:px-7 md:py-7 lg:w-[500px] lg:px-8 lg:py-8 xl:w-[530px] 2xl:w-[560px]">
+              <h1 className="max-w-[13ch] text-display font-semibold text-ink-900 md:max-w-[380px] lg:max-w-[410px] xl:max-w-[440px]">
                 {title.split("\n").map((line, index) => (
                   <span key={line || index} className={index > 0 ? "block" : undefined}>{line}</span>
                 ))}
               </h1>
-              <p className="mt-4 md:mt-5 text-[15px] md:text-[14px] lg:text-[15px] xl:text-[15px] text-ink-700 leading-relaxed max-w-[560px] md:max-w-[330px] lg:max-w-[360px] xl:max-w-[390px]">
+              <p className="mt-4 max-w-[560px] text-body text-ink-800 md:mt-5 md:max-w-[330px] lg:max-w-[360px] xl:max-w-[390px]">
                 {subtitle}
               </p>
               <HeroSearchBar variant="hero" />
-              <ul className="mt-5 max-w-[560px] md:max-w-[320px] lg:max-w-[350px] xl:max-w-[380px] flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-ink-700">
+              <ul className="mt-5 flex max-w-[560px] flex-wrap items-center gap-x-5 gap-y-2 text-small text-ink-700 md:max-w-[320px] lg:max-w-[350px] xl:max-w-[380px]">
                 {TRUST_POINTS.map((t) => (
                   <li key={t} className="inline-flex items-center gap-1.5">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#247A4D" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
+                    <Check aria-hidden="true" size={16} strokeWidth={1.7} className="text-forest-600" />
                     {t}
                   </li>
                 ))}

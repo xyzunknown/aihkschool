@@ -44,9 +44,9 @@ export function AdmissionsSection({ school, enrichment }: AdmissionsSectionProps
   if (!hasAnyInfo) {
     return (
       <section className="mb-8">
-        <h2 className="text-xl font-semibold text-slate-950 mb-4">招生與開放日</h2>
+        <h2 className="text-xl font-semibold text-ink-900 mb-4">招生與開放日</h2>
         <GlassCard>
-          <p className="text-base text-slate-900">
+          <p className="text-base text-ink-900">
             暫時未有招生或開放日資料，建議查看學校官網最新公布。
           </p>
         </GlassCard>
@@ -56,24 +56,24 @@ export function AdmissionsSection({ school, enrichment }: AdmissionsSectionProps
 
   return (
     <section className="mb-8">
-      <h2 className="text-xl font-semibold text-slate-950 mb-4">招生與開放日</h2>
+      <h2 className="text-xl font-semibold text-ink-900 mb-4">招生與開放日</h2>
       <GlassCard>
         <div className="space-y-5">
           <div>
-            <div className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">
+            <div className="text-xs font-medium text-ink-500 uppercase tracking-wide mb-1">
               報名狀態
             </div>
-            <div className="text-base text-slate-900">
+            <div className="text-base text-ink-900">
               {getApplicationStatusLabel(applicationStatus)}
             </div>
           </div>
 
           {applicationProcess && (
             <div>
-              <div className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">
+              <div className="text-xs font-medium text-ink-500 uppercase tracking-wide mb-1">
                 報名資訊
               </div>
-              <p className="text-base text-slate-900 leading-relaxed whitespace-pre-line">{applicationProcess}</p>
+              <p className="text-base text-ink-900 leading-relaxed whitespace-pre-line">{applicationProcess}</p>
             </div>
           )}
 
@@ -83,7 +83,7 @@ export function AdmissionsSection({ school, enrichment }: AdmissionsSectionProps
                 href={applicationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-medium text-slate-700 underline hover:text-slate-950"
+                className="text-sm font-medium text-ink-700 underline hover:text-ink-900"
               >
                 前往報名或招生頁面
               </a>
@@ -91,24 +91,24 @@ export function AdmissionsSection({ school, enrichment }: AdmissionsSectionProps
           )}
 
           {admissionHours && (
-            <div className="border-t border-slate-200 pt-5">
-              <div className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">
+            <div className="border-t border-surface-border pt-5">
+              <div className="text-xs font-medium text-ink-500 uppercase tracking-wide mb-1">
                 上課時間
               </div>
-              <p className="text-base text-slate-900 leading-relaxed whitespace-pre-line">{admissionHours}</p>
+              <p className="text-base text-ink-900 leading-relaxed whitespace-pre-line">{admissionHours}</p>
             </div>
           )}
 
           {(openDayDetails || openDayDate) && (
-            <div className="border-t border-slate-200 pt-5">
-              <div className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-1">
+            <div className="border-t border-surface-border pt-5">
+              <div className="text-xs font-medium text-ink-500 uppercase tracking-wide mb-1">
                 開放日 / 參觀資訊
               </div>
               {openDayDate && (
-                <p className="text-base font-medium text-slate-900 mb-1">📅 {openDayDate}</p>
+                <p className="text-base font-medium text-ink-900 mb-1">📅 {openDayDate}</p>
               )}
               {openDayDetails && (
-                <p className="text-base text-slate-900 leading-relaxed whitespace-pre-line">{openDayDetails}</p>
+                <p className="text-base text-ink-900 leading-relaxed whitespace-pre-line">{openDayDetails}</p>
               )}
             </div>
           )}
@@ -119,7 +119,7 @@ export function AdmissionsSection({ school, enrichment }: AdmissionsSectionProps
                 href={openDayUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-medium text-slate-700 underline hover:text-slate-950"
+                className="text-sm font-medium text-ink-700 underline hover:text-ink-900"
               >
                 查看開放日或參觀詳情
               </a>
@@ -128,23 +128,23 @@ export function AdmissionsSection({ school, enrichment }: AdmissionsSectionProps
 
           {/* K1/K2/K3 vacancy status from enrichment */}
           {enrichment && (enrichment.vacancy_k1 || enrichment.vacancy_k2 || enrichment.vacancy_k3) && (
-            <div className="border-t border-slate-200 pt-5">
-              <div className="text-xs font-medium text-slate-500 uppercase tracking-wide mb-2">
+            <div className="border-t border-surface-border pt-5">
+              <div className="text-xs font-medium text-ink-500 uppercase tracking-wide mb-2">
                 各級空缺狀態（官網）
               </div>
               <div className="flex flex-wrap gap-2">
                 {enrichment.vacancy_k1 && (
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-700">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-cream-100 text-ink-700">
                     K1：{enrichment.vacancy_k1}
                   </span>
                 )}
                 {enrichment.vacancy_k2 && (
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-700">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-cream-100 text-ink-700">
                     K2：{enrichment.vacancy_k2}
                   </span>
                 )}
                 {enrichment.vacancy_k3 && (
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-700">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-cream-100 text-ink-700">
                     K3：{enrichment.vacancy_k3}
                   </span>
                 )}

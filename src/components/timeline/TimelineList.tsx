@@ -36,8 +36,8 @@ export function TimelineList({ events }: TimelineListProps) {
   if (events.length === 0) {
     return (
       <div className="text-center py-16">
-        <p className="text-xl font-semibold text-slate-950 mb-2">暫無活動</p>
-        <p className="text-base text-slate-500">
+        <p className="text-xl font-semibold text-ink-900 mb-2">暫無活動</p>
+        <p className="text-base text-ink-500">
           調整篩選條件或稍後再來查看
         </p>
       </div>

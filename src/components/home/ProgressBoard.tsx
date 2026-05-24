@@ -9,10 +9,10 @@ interface Props {
 }
 
 const STATUS_STYLE: Record<string, string> = {
-  available: "bg-status-available-bg text-status-available-fg ring-1 ring-status-available-fg/12 shadow-[0_6px_18px_rgba(46,125,50,0.14)]",
-  limited: "bg-status-limited-bg text-status-limited-fg ring-1 ring-status-limited-fg/12 shadow-[0_6px_18px_rgba(180,120,0,0.12)]",
-  full: "bg-status-full-bg text-status-full-fg ring-1 ring-status-full-fg/12 shadow-[0_6px_18px_rgba(177,61,38,0.12)]",
-  pending: "bg-status-pending-bg text-status-pending-fg ring-1 ring-status-pending-fg/12 shadow-[0_6px_18px_rgba(107,114,128,0.12)]",
+  available: "bg-status-available-bg text-status-available-fg ring-1 ring-status-available-fg/12 shadow-soft",
+  limited: "bg-status-limited-bg text-status-limited-fg ring-1 ring-status-limited-fg/12 shadow-soft",
+  full: "bg-status-full-bg text-status-full-fg ring-1 ring-status-full-fg/12 shadow-soft",
+  pending: "bg-status-pending-bg text-status-pending-fg ring-1 ring-status-pending-fg/12 shadow-soft",
 };
 
 function vacancyKey(status?: string) {
@@ -89,7 +89,7 @@ export function ProgressBoard({ events, schools }: Props) {
       {/* Right column — vacancy ticker list */}
       <div>
         <SectionHeader title="學位空缺速遞" href="/kg?has_vacancy=1" />
-        <div className="bg-white rounded-card border border-surface-border shadow-[0_8px_24px_rgba(30,82,56,0.06)] overflow-hidden">
+        <div className="bg-white rounded-card border border-surface-border shadow-soft overflow-hidden">
           <ul className="divide-y divide-surface-border">
             {vacancyItems.map((v) => (
               <li key={v.school.id}>
@@ -97,7 +97,7 @@ export function ProgressBoard({ events, schools }: Props) {
                   href={v.school.href}
                   className="flex items-center gap-3 px-4 py-3.5 min-h-[78px] hover:bg-surface-soft transition"
                 >
-                  <div className="shrink-0 w-12 h-12 rounded-lg bg-surface-soft flex items-center justify-center overflow-hidden">
+                  <div className="shrink-0 w-12 h-12 rounded-chip bg-surface-soft flex items-center justify-center overflow-hidden">
                     <Image
                       src="/brand/timeline/school.png"
                       alt=""
@@ -129,7 +129,7 @@ export function ProgressBoard({ events, schools }: Props) {
           </ul>
           <Link
             href="/kg?has_vacancy=1"
-            className="block text-center px-4 py-3 text-sm font-semibold text-brand-700 hover:bg-surface-soft border-t border-surface-border transition"
+            className="block text-center px-4 py-3 text-sm font-semibold text-forest-700 hover:bg-surface-soft border-t border-surface-border transition"
           >
             更多學位空缺 →
           </Link>
@@ -143,10 +143,10 @@ function SectionHeader({ title, href }: { title: string; href: string }) {
   return (
     <div className="flex items-center justify-between mb-5">
       <h2 className="text-xl md:text-2xl font-semibold text-ink-900 flex items-center gap-2">
-        <span className="inline-block w-1 h-5 bg-brand-700 rounded-full" />
+        <span className="inline-block w-1 h-5 bg-forest-700 rounded-full" />
         {title}
       </h2>
-      <Link href={href} className="text-xs text-brand-700 hover:underline font-medium">
+      <Link href={href} className="text-xs text-forest-700 hover:underline font-medium">
         查看全部 →
       </Link>
     </div>
@@ -172,9 +172,9 @@ function TaskCard({
   illustration: string;
   tone: "brand" | "warn";
 }) {
-  const badgeStyle = tone === "warn" ? "bg-status-limited-bg text-status-limited-fg" : "bg-brand-50 text-brand-700";
+  const badgeStyle = tone === "warn" ? "bg-status-limited-bg text-status-limited-fg" : "bg-forest-50 text-forest-700";
   return (
-    <div className="bg-white rounded-card border border-surface-border shadow-[0_8px_24px_rgba(30,82,56,0.06)] p-5 min-h-[138px] flex items-center gap-3 hover:shadow-[0_12px_30px_rgba(30,82,56,0.1)] transition">
+    <div className="bg-white rounded-card border border-surface-border shadow-soft p-5 min-h-[138px] flex items-center gap-3 hover:shadow-soft transition">
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-1">
           <h3 className="text-base font-semibold text-ink-900">{title}</h3>
@@ -182,7 +182,7 @@ function TaskCard({
         </div>
         <p className="text-sm text-ink-700 leading-snug">{desc}</p>
         {sub && <p className="text-xs text-ink-500 mt-0.5">{sub}</p>}
-        <Link href={href} className="inline-flex items-center mt-3 text-sm font-semibold text-brand-700 hover:underline">
+        <Link href={href} className="inline-flex items-center mt-3 text-sm font-semibold text-forest-700 hover:underline">
           {cta} →
         </Link>
       </div>

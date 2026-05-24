@@ -81,34 +81,34 @@ export function AdminHomepageClient() {
     <div>
       <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-slate-950">首頁內容</h1>
-          <p className="mt-1 text-sm text-slate-500">管理首頁 Banner、推薦學校和消息。沒有後台資料時，前台會保留原本內容。</p>
+          <h1 className="text-2xl font-bold text-ink-900">首頁內容</h1>
+          <p className="mt-1 text-sm text-ink-500">管理首頁 Banner、推薦學校和消息。沒有後台資料時，前台會保留原本內容。</p>
         </div>
-        <button onClick={() => setEditing({ ...EMPTY[tab] })} className="rounded-xl bg-slate-950 px-4 py-2 text-sm font-medium text-white">新增</button>
+        <button onClick={() => setEditing({ ...EMPTY[tab] })} className="rounded-button bg-ink-900 px-4 py-2 text-sm font-medium text-white">新增</button>
       </div>
 
       <div className="mb-4 flex gap-2">
         {TABS.map((item) => (
-          <button key={item.key} onClick={() => setTab(item.key)} className={`rounded-xl px-4 py-2 text-sm font-medium ${tab === item.key ? "bg-slate-950 text-white" : "border border-slate-200 bg-white text-slate-700"}`}>
+          <button key={item.key} onClick={() => setTab(item.key)} className={`rounded-button px-4 py-2 text-sm font-medium ${tab === item.key ? "bg-ink-900 text-white" : "border border-surface-border bg-white text-ink-700"}`}>
             {item.label}
           </button>
         ))}
       </div>
-      {message ? <div className="mb-4 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700">{message}</div> : null}
+      {message ? <div className="mb-4 rounded-button border border-surface-border bg-white px-4 py-3 text-sm text-ink-700">{message}</div> : null}
 
-      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
+      <div className="overflow-hidden rounded-card border border-surface-border bg-white">
         <table className="w-full text-left text-sm">
-          <thead className="bg-slate-50 text-xs text-slate-500">
+          <thead className="bg-cream-50 text-xs text-ink-500">
             <tr><th className="px-4 py-3">標題</th><th className="px-4 py-3">狀態</th><th className="px-4 py-3">排序</th><th className="px-4 py-3 text-right">操作</th></tr>
           </thead>
           <tbody className="divide-y divide-slate-100">
             {items.map((item) => (
               <tr key={String(item.id)}>
-                <td className="px-4 py-3 font-medium text-slate-950">{titleFor(tab, item)}</td>
+                <td className="px-4 py-3 font-medium text-ink-900">{titleFor(tab, item)}</td>
                 <td className="px-4 py-3">{item.is_visible ? "顯示" : "隱藏"}</td>
                 <td className="px-4 py-3">{String(item.sort_order ?? "")}</td>
                 <td className="px-4 py-3 text-right">
-                  <button onClick={() => setEditing(item)} className="mr-4 font-medium text-slate-950 underline">編輯</button>
+                  <button onClick={() => setEditing(item)} className="mr-4 font-medium text-ink-900 underline">編輯</button>
                   <button onClick={() => remove(String(item.id))} className="font-medium text-red-600 underline">刪除</button>
                 </td>
               </tr>
@@ -126,8 +126,8 @@ export function AdminHomepageClient() {
           onClose={() => setEditing(null)}
           actions={
             <>
-              <button onClick={() => setEditing(null)} className="rounded-lg border border-slate-200 bg-white px-5 py-2 text-sm">取消</button>
-              <button onClick={save} className="rounded-lg bg-slate-950 px-5 py-2 text-sm font-medium text-white">保存</button>
+              <button onClick={() => setEditing(null)} className="rounded-chip border border-surface-border bg-white px-5 py-2 text-sm">取消</button>
+              <button onClick={save} className="rounded-chip bg-ink-900 px-5 py-2 text-sm font-medium text-white">保存</button>
             </>
           }
         >

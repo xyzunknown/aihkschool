@@ -36,14 +36,14 @@ export function BottomSheet({ isOpen, onClose, title, children }: BottomSheetPro
       {/* Sheet */}
       <div
         ref={sheetRef}
-        className="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl px-6 pb-8 pt-4 animate-slide-up max-h-[85vh] overflow-y-auto shadow-[0_-4px_30px_rgba(0,0,0,0.08)]"
+        className="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl px-6 pb-8 pt-4 animate-slide-up max-h-[85vh] overflow-y-auto shadow-soft"
       >
         {/* Handle */}
         <div className="flex justify-center mb-4">
-          <div className="w-10 h-1 bg-slate-200 rounded-full" />
+          <div className="w-10 h-1 bg-cream-200 rounded-full" />
         </div>
         {title && (
-          <h3 className="text-xl font-semibold text-slate-950 mb-4">{title}</h3>
+          <h3 className="text-xl font-semibold text-ink-900 mb-4">{title}</h3>
         )}
         {children}
       </div>

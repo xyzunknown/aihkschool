@@ -16,9 +16,9 @@ export function CompareBar() {
       className="fixed inset-x-3 bottom-[82px] z-[55] animate-slide-up sm:inset-x-6 lg:bottom-6"
       aria-label="已選學校比較"
     >
-      <div className="mx-auto flex max-w-4xl flex-col gap-3 rounded-2xl border border-surface-border bg-white/96 p-3 shadow-dock backdrop-blur md:flex-row md:items-center md:gap-4 md:rounded-full md:px-4">
+      <div className="mx-auto flex max-w-4xl flex-col gap-3 rounded-card border border-surface-border bg-white/96 p-3 shadow-dock  md:flex-row md:items-center md:gap-4 md:rounded-full md:px-4">
         <div className="flex min-w-0 flex-1 items-center gap-2">
-          <div className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-brand-700 text-white">
+          <div className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-forest-700 text-white">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M6.5 5.75h2.4c.55 0 1 .45 1 1v10.5c0 .55-.45 1-1 1H6.5c-.55 0-1-.45-1-1V6.75c0-.55.45-1 1-1Z" />
               <path d="M15.1 5.75h2.4c.55 0 1 .45 1 1v10.5c0 .55-.45 1-1 1h-2.4c-.55 0-1-.45-1-1V6.75c0-.55.45-1 1-1Z" />
@@ -36,15 +36,15 @@ export function CompareBar() {
           {items.map((item) => (
             <div
               key={item.id}
-              className="flex min-w-0 flex-none items-center gap-1.5 rounded-full border border-brand-100 bg-brand-50 py-1 pl-3 pr-1"
+              className="flex min-w-0 flex-none items-center gap-1.5 rounded-full border border-forest-100 bg-forest-50 py-1 pl-3 pr-1"
             >
-              <span className="max-w-[128px] truncate text-xs font-semibold text-brand-700">
+              <span className="max-w-[128px] truncate text-xs font-semibold text-forest-700">
                 {item.nameTc}
               </span>
               <button
                 type="button"
                 onClick={() => removeFromCompare(item.id)}
-                className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full text-ink-400 transition-colors hover:bg-brand-100 hover:text-brand-700"
+                className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full text-ink-400 transition-colors hover:bg-forest-100 hover:text-forest-700"
                 aria-label={`移除 ${item.nameTc}`}
               >
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -65,14 +65,14 @@ export function CompareBar() {
           <button
             type="button"
             onClick={clearCompare}
-            className="h-10 rounded-full px-3 text-xs font-semibold text-ink-500 transition-colors hover:bg-surface-soft hover:text-brand-700"
+            className="h-10 rounded-full px-3 text-xs font-semibold text-ink-500 transition-colors hover:bg-surface-soft hover:text-forest-700"
           >
             清除
           </button>
           {compareUrl ? (
             <Link
               href={compareUrl}
-              className="inline-flex h-10 items-center justify-center gap-1.5 rounded-full bg-brand-700 px-5 text-sm font-bold text-white shadow-soft transition hover:bg-brand-900"
+              className="inline-flex h-10 items-center justify-center gap-1.5 rounded-full bg-forest-700 px-5 text-sm font-bold text-white shadow-soft transition hover:bg-forest-900"
             >
               對比（{items.length}）
             </Link>
@@ -80,7 +80,7 @@ export function CompareBar() {
             <button
               type="button"
               disabled
-              className="inline-flex h-10 cursor-not-allowed items-center justify-center gap-1.5 rounded-full bg-brand-700 px-5 text-sm font-bold text-white opacity-50"
+              className="inline-flex h-10 cursor-not-allowed items-center justify-center gap-1.5 rounded-full bg-forest-700 px-5 text-sm font-bold text-white opacity-50"
             >
               對比（{items.length}）
             </button>

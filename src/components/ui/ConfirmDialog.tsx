@@ -31,7 +31,7 @@ export function ConfirmDialog({
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} title={title}>
-      <p className="text-body text-slate-500 mb-6">{message}</p>
+      <p className="text-body text-ink-500 mb-6">{message}</p>
       <div className="flex gap-3">
         <Button
           variant="secondary"

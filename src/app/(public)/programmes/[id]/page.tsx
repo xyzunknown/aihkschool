@@ -86,7 +86,7 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
       {/* 返回 */}
       <a
         href="/programmes"
-        className="mb-6 inline-flex items-center gap-1 text-sm text-slate-500 hover:text-slate-700"
+        className="mb-6 inline-flex items-center gap-1 text-sm text-ink-500 hover:text-ink-700"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="15 18 9 12 15 6" />
@@ -95,12 +95,12 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
       </a>
 
       {/* 主卡片 */}
-      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
+      <div className="overflow-hidden rounded-card border border-surface-border bg-white">
         <div className="p-6 md:p-8">
           <div className="mb-6">
               {/* 類別 + 狀態 */}
               <div className="mb-3 flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
+                <span className="inline-flex items-center rounded-full bg-cream-100 px-3 py-1 text-xs font-medium text-ink-700">
                   {PROGRAMME_CATEGORY_LABELS[programme.category || "other"]}
                 </span>
                 <span
@@ -113,17 +113,17 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
               </div>
 
               {/* 標題 */}
-              <h1 className="mb-2 text-2xl font-bold tracking-tight text-slate-950">
+              <h1 className="mb-2 text-2xl font-bold tracking-tight text-ink-900">
                 {programme.name_zh || programme.name_en || "未知課程"}
               </h1>
               {programme.name_en && programme.name_zh && (
-                <p className="text-sm text-slate-500">{programme.name_en}</p>
+                <p className="text-sm text-ink-500">{programme.name_en}</p>
               )}
           </div>
 
           {/* 倒計時 banner */}
           {countdown && (
-            <div className="mb-6 rounded-xl bg-amber-50 border border-amber-100 px-4 py-3 flex items-center gap-2">
+            <div className="mb-6 rounded-button bg-amber-50 border border-amber-100 px-4 py-3 flex items-center gap-2">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-amber-600">
                 <circle cx="12" cy="12" r="10" />
                 <polyline points="12 6 12 12 16 14" />
@@ -158,7 +158,7 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
               href={programme.raw_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50"
+              className="inline-flex items-center justify-center gap-1.5 rounded-button border border-surface-border bg-white px-5 py-2.5 text-sm font-medium text-ink-700 transition-colors hover:bg-cream-50"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
@@ -173,8 +173,8 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
       </div>
 
       {/* 免責聲明 */}
-      <div className="mt-6 rounded-xl bg-slate-50 border border-slate-100 px-4 py-3">
-        <p className="text-xs text-slate-400">
+      <div className="mt-6 rounded-button bg-cream-50 border border-surface-border px-4 py-3">
+        <p className="text-xs text-ink-500">
           課程資料來自康文署 SmartPLAY，僅供參考。實際安排以官方為準。
           HKSchoolPlace 不提供代報名服務，請自行前往官網操作。
         </p>
@@ -195,8 +195,8 @@ function InfoCell({
   href?: string;
 }) {
   return (
-    <div className="rounded-xl bg-slate-50 px-4 py-3">
-      <p className="text-xs text-slate-400 font-medium uppercase tracking-wider mb-1">
+    <div className="rounded-button bg-cream-50 px-4 py-3">
+      <p className="text-xs text-ink-500 font-medium uppercase tracking-wider mb-1">
         {label}
       </p>
       {href ? (
@@ -205,7 +205,7 @@ function InfoCell({
           target="_blank"
           rel="noopener noreferrer"
           className={`inline-flex items-center gap-1 text-sm font-semibold underline decoration-slate-300 underline-offset-2 hover:decoration-slate-900 ${
-            highlight ? "text-emerald-600" : "text-slate-900"
+            highlight ? "text-forest-600" : "text-ink-900"
           }`}
         >
           {value}
@@ -218,7 +218,7 @@ function InfoCell({
       ) : (
         <p
           className={`text-sm font-semibold ${
-            highlight ? "text-emerald-600" : "text-slate-900"
+            highlight ? "text-forest-600" : "text-ink-900"
           }`}
         >
           {value}

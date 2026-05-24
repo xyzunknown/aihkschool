@@ -140,7 +140,7 @@ export function SchoolDetailClient({ school, vacancy }: Props) {
       {/* Back link */}
       <Link
         href="/kg"
-        className="inline-flex items-center gap-1 text-sm text-slate-500 hover:text-slate-700 transition-colors mb-6"
+        className="inline-flex items-center gap-1 text-sm text-ink-500 hover:text-ink-700 transition-colors mb-6"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="15 18 9 12 15 6" />
@@ -161,18 +161,18 @@ export function SchoolDetailClient({ school, vacancy }: Props) {
 
           <div className="min-w-0">
             <div className="flex items-center gap-2 mb-2 flex-wrap">
-              <span className="text-small text-slate-400">
+              <span className="text-small text-ink-500">
                 {DISTRICT_LABELS[school.district as keyof typeof DISTRICT_LABELS]}
               </span>
               {school.school_code && (
-                <span className="px-2 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-600">
+                <span className="px-2 py-1 rounded-full text-xs font-medium bg-cream-100 text-ink-700">
                   {school.school_code}
                 </span>
               )}
               <SourceTag source={school.data_source as DataSource} />
             </div>
-            <h1 className="text-2xl font-bold tracking-tight text-slate-950">{primaryName}</h1>
-            {secondaryName && <p className="text-base text-slate-500 mt-1">{secondaryName}</p>}
+            <h1 className="text-2xl font-bold tracking-tight text-ink-900">{primaryName}</h1>
+            {secondaryName && <p className="text-base text-ink-500 mt-1">{secondaryName}</p>}
           </div>
         </div>
       </div>

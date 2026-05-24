@@ -9,31 +9,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ivory: {
-          50: "#FDFBF4",
-          100: "#FAF6E9",
-          200: "#F1ECDA",
-        },
         cream: {
           50: "#FDFBF4",
           100: "#FAF6E9",
           200: "#F1ECDA",
           300: "#E6DDC7",
         },
+        ivory: {
+          50: "#FDFBF4",
+          100: "#FAF6E9",
+          200: "#F1ECDA",
+        },
         surface: {
           page: "#FDFBF4",
           soft: "#FAF6E9",
           card: "#FFFFFF",
           border: "#E6ECE5",
-        },
-        brand: {
-          50: "#EEF6F0",
-          100: "#DCEBE1",
-          200: "#B7D8C2",
-          500: "#2F7D55",
-          600: "#247A4D",
-          700: "#17623F",
-          900: "#0F3D27",
         },
         "status-available-bg": "#EAF6EC",
         "status-available-fg": "#247A4D",
@@ -52,6 +43,15 @@ const config: Config = {
           600: "#247A4D",
           700: "#17623F",
           800: "#134F34",
+          900: "#0F3D27",
+        },
+        brand: {
+          50: "#EEF6F0",
+          100: "#DCEBE1",
+          200: "#B7D8C2",
+          500: "#2F7D55",
+          600: "#247A4D",
+          700: "#17623F",
           900: "#0F3D27",
         },
         clay: {
@@ -91,6 +91,8 @@ const config: Config = {
         },
       },
       borderRadius: {
+        chip: "0.5rem",
+        button: "0.75rem",
         card: "1.25rem",
         pill: "999px",
       },
@@ -120,12 +122,12 @@ const config: Config = {
         ],
       },
       fontSize: {
-        display: ["44px", { lineHeight: "1.15", fontWeight: "700", letterSpacing: "-0.02em" }],
-        h1: ["28px", { lineHeight: "1.2", fontWeight: "700", letterSpacing: "-0.015em" }],
-        h2: ["20px", { lineHeight: "1.3", fontWeight: "600", letterSpacing: "-0.01em" }],
+        display: ["44px", { lineHeight: "1.15", fontWeight: "700", letterSpacing: "0" }],
+        h1: ["28px", { lineHeight: "1.2", fontWeight: "700", letterSpacing: "0" }],
+        h2: ["20px", { lineHeight: "1.3", fontWeight: "600", letterSpacing: "0" }],
         body: ["15px", { lineHeight: "1.65", fontWeight: "400" }],
         small: ["13px", { lineHeight: "1.5", fontWeight: "400" }],
-        label: ["11px", { lineHeight: "1.4", fontWeight: "600", letterSpacing: "0.06em" }],
+        label: ["11px", { lineHeight: "1.4", fontWeight: "600", letterSpacing: "0" }],
       },
       spacing: {
         "7": "28px",

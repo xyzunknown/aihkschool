@@ -196,14 +196,14 @@ function RelatedNewsCard({ item }: { item: NewsItem }) {
       rel={item.is_external ? "noreferrer" : undefined}
       className="block"
     >
-      <div className="rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm">
+      <div className="rounded-card border border-surface-border bg-white p-5 transition-all duration-200  hover:shadow-sm">
         <div className="flex items-center gap-2 mb-2">
-          <span className="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-medium text-emerald-700">
+          <span className="inline-flex items-center rounded-full bg-forest-50 px-2 py-0.5 text-xs font-medium text-forest-700">
             {item.source_label}
           </span>
-          <span className="text-xs text-slate-400">{item.date}</span>
+          <span className="text-xs text-ink-500">{item.date}</span>
         </div>
-        <h3 className="text-sm font-semibold leading-snug text-slate-900 line-clamp-2">
+        <h3 className="text-sm font-semibold leading-snug text-ink-900 line-clamp-2">
           {item.title}
         </h3>
       </div>
@@ -273,47 +273,47 @@ export default async function ArticlePage({ params }: PageProps) {
       />
       <Link
         href="/news"
-        className="mb-6 inline-flex items-center text-sm text-slate-500 transition-colors hover:text-slate-950"
+        className="mb-6 inline-flex items-center text-sm text-ink-500 transition-colors hover:text-ink-900"
       >
         ← 返回消息動態
       </Link>
 
       <div className="mb-6">
         <div className="mb-3 flex items-center gap-3">
-          <span className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-700">
+          <span className="inline-flex items-center rounded-full bg-forest-50 px-2.5 py-0.5 text-xs font-medium text-forest-700">
             {article.source_label}
           </span>
-          <span className="text-xs text-slate-400">{article.date}</span>
+          <span className="text-xs text-ink-500">{article.date}</span>
         </div>
-        <h1 className="text-2xl font-bold leading-tight tracking-tight text-slate-950">
+        <h1 className="text-2xl font-bold leading-tight tracking-tight text-ink-900">
           {article.title}
         </h1>
         {article.summary && (
-          <p className="mt-3 text-base leading-relaxed text-slate-600">
+          <p className="mt-3 text-base leading-relaxed text-ink-700">
             {article.summary}
           </p>
         )}
       </div>
 
       {hasContent ? (
-        <div className="mb-8 rounded-2xl border border-slate-200 bg-white p-6 md:p-8">
+        <div className="mb-8 rounded-card border border-surface-border bg-white p-6 md:p-8">
           <div
-            className="prose prose-slate max-w-none [&_p]:mb-4 [&_p]:text-base [&_p]:leading-relaxed [&_p]:text-slate-700 [&_h1]:text-xl [&_h1]:font-bold [&_h1]:mt-8 [&_h1]:mb-4 [&_h2]:text-lg [&_h2]:font-semibold [&_h2]:mt-6 [&_h2]:mb-3 [&_h3]:text-base [&_h3]:font-semibold [&_h3]:mt-4 [&_h3]:mb-2 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_li]:mb-1 [&_li]:text-slate-700"
+            className="prose prose-slate max-w-none [&_p]:mb-4 [&_p]:text-base [&_p]:leading-relaxed [&_p]:text-ink-700 [&_h1]:text-xl [&_h1]:font-bold [&_h1]:mt-8 [&_h1]:mb-4 [&_h2]:text-lg [&_h2]:font-semibold [&_h2]:mt-6 [&_h2]:mb-3 [&_h3]:text-base [&_h3]:font-semibold [&_h3]:mt-4 [&_h3]:mb-2 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:mb-4 [&_li]:mb-1 [&_li]:text-ink-700"
             dangerouslySetInnerHTML={{ __html: mainContent }}
           />
         </div>
       ) : (
-        <div className="mb-8 rounded-2xl border border-slate-200 bg-white p-10 text-center">
-          <p className="mb-3 text-sm text-slate-500">
+        <div className="mb-8 rounded-card border border-surface-border bg-white p-10 text-center">
+          <p className="mb-3 text-sm text-ink-500">
             {html ? "無法解析文章內容" : "無法載入原始網頁"}
             ，請前往原始來源查看。
           </p>
-          <p className="mb-5 text-xs text-slate-400">{hostname}</p>
+          <p className="mb-5 text-xs text-ink-500">{hostname}</p>
           <Link
             href={articleHref}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl bg-slate-950 px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-[1.02]"
+            className="inline-flex items-center gap-2 rounded-button bg-ink-900 px-6 py-3 text-sm font-medium text-white transition-transform "
           >
             閱讀全文
             <svg
@@ -339,7 +339,7 @@ export default async function ArticlePage({ params }: PageProps) {
           href={articleHref}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50"
+          className="inline-flex items-center gap-1.5 rounded-button border border-surface-border bg-white px-5 py-2.5 text-sm font-medium text-ink-700 transition-colors hover:bg-cream-50"
         >
           來源：{article.source_label}
           <svg
@@ -351,7 +351,7 @@ export default async function ArticlePage({ params }: PageProps) {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="text-slate-400"
+            className="text-ink-500"
           >
             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
             <polyline points="15 3 21 3 21 9" />
@@ -362,7 +362,7 @@ export default async function ArticlePage({ params }: PageProps) {
 
       {relatedNews.length > 0 && (
         <div>
-          <h2 className="mb-4 text-lg font-semibold text-slate-950">
+          <h2 className="mb-4 text-lg font-semibold text-ink-900">
             相關消息
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

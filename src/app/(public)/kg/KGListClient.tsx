@@ -299,11 +299,11 @@ export default function KGListClient() {
   const totalPages = Math.ceil(count / (hotFilter ? HOT_SCHOOL_PAGE_SIZE : PAGE_SIZE));
 
   return (
-    <div className="mx-auto max-w-[1800px] px-5 py-6 md:px-8">
-      <h1 className="text-2xl font-bold tracking-tight text-slate-950 mb-2">
+    <div className="mx-auto max-w-[1200px] px-5 py-6 md:px-8">
+      <h1 className="mb-2 text-h1 font-bold text-ink-900">
         {hotFilter ? "熱點學校 100" : "策劃香港卓越教育藍圖"}
       </h1>
-      <p className="text-slate-600 mb-8">
+      <p className="mb-8 text-body text-ink-700">
         {hotFilter ? "這裡集中顯示家長討論度高、平台已匹配資料的熱門幼稚園。" : "權威性的教育機構指南，即時更新學位空缺狀態及報名資訊。"}
       </p>
 
@@ -327,33 +327,33 @@ export default function KGListClient() {
         </div>
       ) : error ? (
         <div className="text-center py-16">
-          <p className="text-base text-slate-500">{error}</p>
+          <p className="text-body text-ink-500">{error}</p>
           <Button variant="secondary" className="mt-4" onClick={fetchData}>重試</Button>
         </div>
       ) : schools.length === 0 ? (
         <div className="py-16 text-center">
           <div className="mx-auto max-w-md rounded-card border border-surface-border bg-white px-6 py-8 shadow-soft">
-            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-brand-50 text-brand-700">
+            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-forest-50 text-forest-700">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
                 <circle cx="11" cy="11" r="7" />
                 <path d="m20 20-3.5-3.5" />
               </svg>
             </div>
-            <p className="text-xl font-semibold text-ink-900 mb-2">沒有搵到學校</p>
-            <p className="text-base text-ink-500">試下調整篩選條件</p>
+            <p className="mb-2 text-h2 font-semibold text-ink-900">沒有搵到學校</p>
+            <p className="text-body text-ink-500">試下調整篩選條件</p>
           </div>
         </div>
       ) : (
         <>
           <div className="flex items-center justify-between mb-4">
-            <p className="text-sm text-slate-500">{hotFilter ? `共 ${count} 所熱點學校` : `共 ${count} 所學校`}</p>
+            <p className="text-small text-ink-500">{hotFilter ? `共 ${count} 所熱點學校` : `共 ${count} 所學校`}</p>
             <div className="flex items-center gap-3">
               <div className="relative">
                 <button
                   type="button"
                   onClick={() => setShowSortFilter(!showSortFilter)}
-                  className={`inline-flex h-9 items-center justify-center rounded-lg border bg-white px-3 text-sm font-semibold shadow-sm transition hover:border-brand-400 hover:bg-brand-50 ${
-                    showSortFilter ? "border-brand-700 text-brand-800" : "border-slate-200 text-slate-700"
+                  className={`inline-flex h-9 items-center justify-center rounded-chip border bg-white px-3 text-small font-semibold shadow-soft transition hover:border-forest-400 hover:bg-forest-50 ${
+                    showSortFilter ? "border-forest-700 text-forest-800" : "border-surface-border text-ink-700"
                   }`}
                 >
                   排序：{SORT_OPTIONS.find((item) => item.key === sortBy)?.label ?? "推薦排序"}
@@ -361,7 +361,7 @@ export default function KGListClient() {
                 </button>
                 {showSortFilter && (
                   <div className="absolute right-0 top-full z-30 mt-2 w-44 overflow-hidden rounded-card border border-surface-border bg-white shadow-card">
-                    <div className="border-b border-surface-border px-4 py-3 text-xs font-semibold text-slate-500">
+                    <div className="border-b border-surface-border px-4 py-3 text-label font-semibold text-ink-500">
                       排序方式
                     </div>
                     <div className="p-2">
@@ -370,10 +370,10 @@ export default function KGListClient() {
                           key={option.key}
                           type="button"
                           onClick={() => handleSortChange(option.key)}
-                          className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm font-semibold transition ${
+                          className={`flex w-full items-center justify-between rounded-chip px-3 py-2 text-left text-sm font-semibold transition ${
                             sortBy === option.key
-                              ? "bg-brand-700 text-white"
-                              : "text-slate-700 hover:bg-brand-50 hover:text-brand-800"
+                              ? "bg-forest-700 text-white"
+                              : "text-ink-700 hover:bg-forest-50 hover:text-forest-800"
                           }`}
                         >
                           {option.label}
@@ -388,7 +388,7 @@ export default function KGListClient() {
                 <button
                   onClick={requestLocation}
                   disabled={geoLoading}
-                  className="inline-flex h-9 items-center gap-1.5 text-sm font-semibold text-slate-500 transition-colors hover:text-slate-700"
+                  className="inline-flex h-9 items-center gap-1.5 text-small font-semibold text-ink-500 transition-colors hover:text-ink-700"
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="10" />
@@ -401,7 +401,7 @@ export default function KGListClient() {
                 </button>
               )}
               {userLat && (
-                <span className="text-xs text-emerald-600 flex items-center gap-1">
+                <span className="flex items-center gap-1 text-label text-forest-600">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2l-3.5-3.5L4.1 14.1 9 19 20.4 7.6 19 6.2z"/></svg>
                   已定位
                 </span>
@@ -465,7 +465,7 @@ export default function KGListClient() {
             <div className="flex justify-center gap-2 mt-8">
               <Button variant="secondary" size="sm" disabled={page <= 1}
                 onClick={() => goToPage(page - 1)}>上一頁</Button>
-              <span className="flex items-center text-sm text-slate-400 px-3">
+              <span className="flex items-center px-3 text-small text-ink-500">
                 {page} / {totalPages}
               </span>
               <Button variant="secondary" size="sm" disabled={page >= totalPages}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { FilterBar, type FilterActiveTag, type FilterOptionGroup } from "@/components/ui/FilterBar";
 import type { ActivityDistrict } from "@/lib/db/activities";
 import {
   CATEGORY_GROUP_LABELS,
@@ -8,13 +8,6 @@ import {
   DISTRICT_LABELS,
   type ActivityCategoryGroup,
 } from "@/lib/activities/labels";
-
-const DISTRICT_GROUPS: { label: string; districts: ActivityDistrict[] }[] = [
-  { label: "港島", districts: ["central_and_western", "eastern", "southern", "wan_chai"] },
-  { label: "九龍", districts: ["kowloon_city", "kwun_tong", "sham_shui_po", "wong_tai_sin", "yau_tsim_mong"] },
-  { label: "新界", districts: ["kwai_tsing", "north", "sai_kung", "sha_tin", "tai_po", "tsuen_wan", "tuen_mun", "yuen_long"] },
-  { label: "離島", districts: ["islands"] },
-];
 
 interface ActivityFilterBarProps {
   group: ActivityCategoryGroup | null;
@@ -26,6 +19,17 @@ interface ActivityFilterBarProps {
   onReset: () => void;
 }
 
+const DISTRICT_GROUPS: FilterOptionGroup[] = [
+  { label: "港島", options: ["central_and_western", "eastern", "southern", "wan_chai"].map(toDistrictOption) },
+  { label: "九龍", options: ["kowloon_city", "kwun_tong", "sham_shui_po", "wong_tai_sin", "yau_tsim_mong"].map(toDistrictOption) },
+  { label: "新界", options: ["kwai_tsing", "north", "sai_kung", "sha_tin", "tai_po", "tsuen_wan", "tuen_mun", "yuen_long"].map(toDistrictOption) },
+  { label: "離島", options: ["islands"].map(toDistrictOption) },
+];
+
+function toDistrictOption(key: string) {
+  return { key, label: DISTRICT_LABELS[key as ActivityDistrict] ?? key };
+}
+
 export function ActivityFilterBar({
   group,
   district,
@@ -35,136 +39,37 @@ export function ActivityFilterBar({
   onChangeFree,
   onReset,
 }: ActivityFilterBarProps) {
-  const [showDistrictFilter, setShowDistrictFilter] = useState(false);
-  const hasFilter = !!group || !!district || free;
-  const pillBase = "inline-flex h-8 items-center rounded-lg px-3 text-xs font-semibold transition-colors";
-  const pillActive = "bg-brand-700 text-white shadow-sm";
-  const pillInactive = "border border-slate-200 bg-white text-ink-700 hover:border-brand-200 hover:bg-brand-50";
+  const tags: FilterActiveTag[] = [
+    ...(district ? [{ key: `district-${district}`, label: DISTRICT_LABELS[district], onRemove: () => onChangeDistrict(null) }] : []),
+    ...(group ? [{ key: `group-${group}`, label: CATEGORY_GROUP_LABELS[group], onRemove: () => onChangeGroup(null) }] : []),
+    ...(free ? [{ key: "free", label: "免費", onRemove: () => onChangeFree(false) }] : []),
+  ];
 
   return (
-    <>
-      <div className="rounded-card border border-surface-border bg-white px-4 py-4 shadow-soft md:px-5">
-        <div className="grid divide-y divide-surface-border">
-          <div className="grid gap-3 py-3 md:grid-cols-[88px_1fr] md:items-center">
-            <h4 className="text-xs font-semibold text-slate-600">活動類別</h4>
-            <div className="flex flex-wrap gap-2">
-              {CATEGORY_GROUP_ORDER.map((key) => {
-                const label = CATEGORY_GROUP_LABELS[key];
-                const isActive = group === key;
-                return (
-                  <button
-                    key={key}
-                    onClick={() => onChangeGroup(isActive ? null : key)}
-                    className={`${pillBase} ${isActive ? pillActive : pillInactive}`}
-                  >
-                    {label}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="grid gap-3 py-3 md:grid-cols-[88px_1fr] md:items-center">
-            <h4 className="text-xs font-semibold text-slate-600">地區位置</h4>
-            <div className="relative flex flex-wrap items-center gap-2">
-              <div
-                className={`inline-flex h-8 overflow-hidden rounded-lg border transition-colors ${
-                  district
-                    ? "border-brand-700 bg-brand-700 text-white shadow-sm"
-                    : "border-slate-200 bg-white text-ink-700 hover:border-brand-200 hover:bg-brand-50"
-                }`}
-              >
-                <button
-                  type="button"
-                  onClick={() => setShowDistrictFilter(!showDistrictFilter)}
-                  className="inline-flex items-center px-3 text-xs font-semibold"
-                >
-                  {district ? DISTRICT_LABELS[district] : "全部地區"}
-                </button>
-                <button
-                  type="button"
-                  aria-label="展開地區選單"
-                  onClick={() => setShowDistrictFilter(!showDistrictFilter)}
-                  className={`inline-flex w-8 shrink-0 items-center justify-center border-l transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/30 focus-visible:ring-offset-2 ${
-                    district
-                      ? "border-white/20 bg-brand-600 text-white"
-                      : "border-slate-200 bg-surface-soft text-ink-500 hover:bg-brand-50 hover:text-brand-700"
-                  }`}
-                >
-                  <ChevronDownIcon expanded={showDistrictFilter} />
-                </button>
-              </div>
-              {showDistrictFilter && (
-                <div className="absolute left-0 top-full z-30 mt-2 w-[min(92vw,440px)] overflow-hidden rounded-card border border-surface-border bg-white shadow-card">
-                  <div className="flex items-center justify-between border-b border-surface-border px-4 py-3 text-xs text-slate-500">
-                    <span>共 18 區 · {district ? "已選 1" : "未選"}</span>
-                    <button type="button" onClick={() => onChangeDistrict(null)} className="font-semibold hover:text-brand-700">
-                      清除全部
-                    </button>
-                  </div>
-                  <div className="max-h-[300px] overflow-y-auto px-4 py-3">
-                    {DISTRICT_GROUPS.map((area) => (
-                      <div key={area.label} className="mb-4 last:mb-0">
-                        <div className="mb-2 text-xs font-semibold text-slate-600">{area.label}</div>
-                        <div className="flex flex-wrap gap-2">
-                          {area.districts.map((item) => (
-                            <button
-                              key={item}
-                              type="button"
-                              onClick={() => onChangeDistrict(district === item ? null : item)}
-                              className={`${pillBase} ${district === item ? "bg-brand-50 text-brand-800 ring-1 ring-brand-200" : pillInactive}`}
-                            >
-                              {district === item ? "✓ " : ""}{DISTRICT_LABELS[item]}
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="flex items-center justify-between border-t border-surface-border px-4 py-3">
-                    <button type="button" onClick={() => setShowDistrictFilter(false)} className="text-xs font-semibold text-slate-500 hover:text-slate-700">
-                      取消
-                    </button>
-                    <button type="button" onClick={() => setShowDistrictFilter(false)} className="rounded-full bg-brand-700 px-5 py-2 text-xs font-bold text-white shadow-sm">
-                      套用 {district ? 1 : 0}
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className="grid gap-3 py-2 md:grid-cols-[88px_1fr] md:items-center">
-            <h4 className="text-xs font-semibold text-slate-600">費用</h4>
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <button
-                type="button"
-                onClick={() => onChangeFree(!free)}
-                className={`${pillBase} ${free ? pillActive : pillInactive}`}
-              >
-                只顯示免費
-              </button>
-              {hasFilter && (
-                <button
-                  onClick={onReset}
-                  className="text-xs font-semibold text-slate-500 transition hover:text-brand-700"
-                >
-                  清除全部
-                </button>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-      {showDistrictFilter && <div className="fixed inset-0 z-20" onClick={() => setShowDistrictFilter(false)} />}
-    </>
-  );
-}
-
-function ChevronDownIcon({ expanded }: { expanded: boolean }) {
-  return (
-    <svg viewBox="0 0 24 24" className={`h-4 w-4 transition-transform duration-200 ${expanded ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="m6 9 6 6 6-6" />
-    </svg>
+    <FilterBar
+      districtGroups={DISTRICT_GROUPS}
+      selectedDistrictKeys={district ? [district] : []}
+      districtSummary={district ? DISTRICT_LABELS[district] : "全部地區"}
+      onToggleDistrict={(key) => onChangeDistrict(district === key ? null : (key as ActivityDistrict))}
+      onClearDistricts={() => onChangeDistrict(null)}
+      sections={[
+        {
+          key: "activity-category",
+          label: "活動類別",
+          options: CATEGORY_GROUP_ORDER.map((key) => ({ key, label: CATEGORY_GROUP_LABELS[key] })),
+          selectedKeys: group ? [group] : [],
+          onToggle: (key) => onChangeGroup(group === key ? null : (key as ActivityCategoryGroup)),
+        },
+        {
+          key: "fee",
+          label: "費用",
+          options: [{ key: "free", label: "只顯示免費" }],
+          selectedKeys: free ? ["free"] : [],
+          onToggle: () => onChangeFree(!free),
+        },
+      ]}
+      activeTags={tags}
+      onReset={onReset}
+    />
   );
 }

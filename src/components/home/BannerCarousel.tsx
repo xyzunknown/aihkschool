@@ -31,7 +31,7 @@ export function BannerCarousel({ banners }: BannerCarouselProps) {
 
   return (
     <div
-      className="relative aspect-[4/3] md:aspect-[16/7] rounded-2xl overflow-hidden bg-slate-200"
+      className="relative aspect-[4/3] md:aspect-[16/7] rounded-card overflow-hidden bg-cream-200"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >

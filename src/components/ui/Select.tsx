@@ -22,7 +22,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
         {label && (
           <label
             htmlFor={selectId}
-            className="text-xs font-medium text-slate-500 uppercase tracking-wide block mb-2"
+            className="mb-2 block text-label font-medium uppercase text-ink-500"
           >
             {label}
           </label>
@@ -32,10 +32,10 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
           id={selectId}
           className={`
             w-full bg-white
-            border border-slate-200 rounded-xl
-            px-4 py-3 text-base text-slate-900
+            border border-surface-border rounded-button
+            px-4 py-3 text-body text-ink-900
             outline-none transition-colors
-            focus:border-slate-400
+            focus:border-ink-400
             disabled:opacity-50 disabled:cursor-not-allowed
             appearance-none
             bg-[url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='12'%20height='12'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%2364748b'%20stroke-width='2'%3E%3Cpath%20d='M6%209l6%206%206-6'/%3E%3C/svg%3E")]

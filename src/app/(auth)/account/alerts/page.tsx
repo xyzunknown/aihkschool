@@ -92,7 +92,7 @@ export default function AlertsPage() {
   if (loading) {
     return (
       <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 text-center">
-        <p className="text-base text-slate-400">載入中…</p>
+        <p className="text-base text-ink-500">載入中…</p>
       </div>
     );
   }
@@ -102,21 +102,21 @@ export default function AlertsPage() {
   return (
     <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
       <div className="max-w-2xl mx-auto">
-        <h1 className="text-2xl font-bold text-slate-950 mb-2">開報前追蹤</h1>
-        <p className="text-sm text-slate-500 mb-6">
+        <h1 className="text-2xl font-bold text-ink-900 mb-2">開報前追蹤</h1>
+        <p className="text-sm text-ink-500 mb-6">
           你已追蹤嘅 SmartPLAY 課程，系統會在報名開放前發送郵件提醒。
         </p>
 
         {loadingSubs ? (
-          <p className="text-base text-slate-500 text-center py-8">載入中…</p>
+          <p className="text-base text-ink-500 text-center py-8">載入中…</p>
         ) : subscriptions.length === 0 ? (
-          <div className="bg-white rounded-2xl border border-slate-200 p-8 text-center">
-            <p className="text-base text-slate-600 mb-6">
+          <div className="bg-white rounded-card border border-surface-border p-8 text-center">
+            <p className="text-base text-ink-700 mb-6">
               你仲未追蹤任何課程，去睇下有咩啱？
             </p>
             <button
               onClick={() => router.push("/programmes")}
-              className="bg-slate-950 text-white rounded-xl px-5 py-2.5 text-sm font-medium hover:bg-slate-800 transition-colors"
+              className="bg-ink-900 text-white rounded-button px-5 py-2.5 text-sm font-medium hover:bg-slate-800 transition-colors"
             >
               開始追蹤
             </button>
@@ -135,31 +135,31 @@ export default function AlertsPage() {
               return (
                 <div
                   key={sub.id}
-                  className="bg-white rounded-2xl border border-slate-200 p-5 flex items-center justify-between gap-4"
+                  className="bg-white rounded-card border border-surface-border p-5 flex items-center justify-between gap-4"
                 >
                   <div
                     className="flex-1 min-w-0 cursor-pointer"
                     onClick={() => router.push(`/programmes/${prog.id}`)}
                   >
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-600">
+                      <span className="inline-flex items-center rounded-full bg-cream-100 px-2.5 py-0.5 text-xs font-medium text-ink-700">
                         {catLabel}
                       </span>
-                      <span className="text-xs text-slate-400">
+                      <span className="text-xs text-ink-500">
                         {fee.isFree ? "免費" : fee.label}
                       </span>
                     </div>
-                    <h3 className="text-base font-semibold text-slate-900 truncate">
+                    <h3 className="text-base font-semibold text-ink-900 truncate">
                       {prog.name_zh || prog.name_en || "未知課程"}
                     </h3>
-                    <p className="text-sm text-slate-500 truncate">
+                    <p className="text-sm text-ink-500 truncate">
                       {prog.venue || ""} · 報名：{enrolment}
                     </p>
                   </div>
 
                   <button
                     onClick={() => setUnsubTarget(sub.programme_id)}
-                    className="flex-shrink-0 rounded-xl border border-slate-200 px-3 py-1.5 text-xs text-slate-500 hover:bg-slate-50 transition-colors"
+                    className="flex-shrink-0 rounded-button border border-surface-border px-3 py-1.5 text-xs text-ink-500 hover:bg-cream-50 transition-colors"
                   >
                     取消
                   </button>

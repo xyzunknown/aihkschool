@@ -124,32 +124,32 @@ export function AdminSchoolsClient() {
     <div>
       <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-slate-950">學校管理</h1>
-          <p className="mt-1 text-sm text-slate-500">搜尋、篩選和編輯前台會展示的學校資料。</p>
+          <h1 className="text-2xl font-bold text-ink-900">學校管理</h1>
+          <p className="mt-1 text-sm text-ink-500">搜尋、篩選和編輯前台會展示的學校資料。</p>
         </div>
-        <button onClick={loadRows} className="rounded-xl bg-slate-950 px-4 py-2 text-sm font-medium text-white">刷新</button>
+        <button onClick={loadRows} className="rounded-button bg-ink-900 px-4 py-2 text-sm font-medium text-white">刷新</button>
       </div>
 
-      <div className="mb-4 grid gap-3 rounded-2xl border border-slate-200 bg-white p-4 md:grid-cols-5">
-        <input value={filters.search} onChange={(e) => setFilters({ ...filters, search: e.target.value })} placeholder="搜尋學校" className="rounded-xl border border-slate-200 px-3 py-2 text-sm" />
-        <select value={filters.district} onChange={(e) => setFilters({ ...filters, district: e.target.value })} className="rounded-xl border border-slate-200 px-3 py-2 text-sm">
+      <div className="mb-4 grid gap-3 rounded-card border border-surface-border bg-white p-4 md:grid-cols-5">
+        <input value={filters.search} onChange={(e) => setFilters({ ...filters, search: e.target.value })} placeholder="搜尋學校" className="rounded-button border border-surface-border px-3 py-2 text-sm" />
+        <select value={filters.district} onChange={(e) => setFilters({ ...filters, district: e.target.value })} className="rounded-button border border-surface-border px-3 py-2 text-sm">
           <option value="">全部地區</option>
           {DISTRICT_OPTIONS.map(([value, label]) => <option key={value} value={value}>{label}</option>)}
         </select>
-        <select value={filters.type} onChange={(e) => setFilters({ ...filters, type: e.target.value })} className="rounded-xl border border-slate-200 px-3 py-2 text-sm">
+        <select value={filters.type} onChange={(e) => setFilters({ ...filters, type: e.target.value })} className="rounded-button border border-surface-border px-3 py-2 text-sm">
           <option value="">全部類型</option>
           {SCHOOL_TYPE_OPTIONS.map(([value, label]) => <option key={value} value={value}>{label}</option>)}
         </select>
-        <select value={filters.completeness} onChange={(e) => setFilters({ ...filters, completeness: e.target.value })} className="rounded-xl border border-slate-200 px-3 py-2 text-sm">
+        <select value={filters.completeness} onChange={(e) => setFilters({ ...filters, completeness: e.target.value })} className="rounded-button border border-surface-border px-3 py-2 text-sm">
           <option value="">全部完整度</option>
           <option value="incomplete">資料不完整</option>
         </select>
-        <button onClick={loadRows} className="rounded-xl border border-slate-200 px-3 py-2 text-sm font-medium">套用</button>
+        <button onClick={loadRows} className="rounded-button border border-surface-border px-3 py-2 text-sm font-medium">套用</button>
       </div>
 
-      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
+      <div className="overflow-hidden rounded-card border border-surface-border bg-white">
         <table className="w-full text-left text-sm">
-          <thead className="bg-slate-50 text-xs text-slate-500">
+          <thead className="bg-cream-50 text-xs text-ink-500">
             <tr>
               <th className="px-4 py-3">學校</th>
               <th className="px-4 py-3">地區</th>
@@ -165,11 +165,11 @@ export function AdminSchoolsClient() {
               const miss = missing(row);
               return (
                 <tr key={row.id}>
-                  <td className="px-4 py-3 font-medium text-slate-950">{row.name_tc}<div className="text-xs text-slate-400">{row.school_code}</div></td>
-                  <td className="px-4 py-3 text-slate-600">{row.district}</td>
+                  <td className="px-4 py-3 font-medium text-ink-900">{row.name_tc}<div className="text-xs text-ink-500">{row.school_code}</div></td>
+                  <td className="px-4 py-3 text-ink-700">{row.district}</td>
                   <td className="px-4 py-3"><AdminStatusPill tone={row.is_active ? "good" : "neutral"}>{row.is_active ? "前台顯示" : "已隱藏"}</AdminStatusPill></td>
-                  <td className="px-4 py-3 text-slate-600"><AdminStatusPill tone={completionTone(row)}>{miss.length ? `缺 ${miss.join("、")}` : "資料完整"}</AdminStatusPill></td>
-                  <td className="px-4 py-3 text-right"><button onClick={() => openEdit(row.id)} className="font-medium text-slate-950 underline">編輯</button></td>
+                  <td className="px-4 py-3 text-ink-700"><AdminStatusPill tone={completionTone(row)}>{miss.length ? `缺 ${miss.join("、")}` : "資料完整"}</AdminStatusPill></td>
+                  <td className="px-4 py-3 text-right"><button onClick={() => openEdit(row.id)} className="font-medium text-ink-900 underline">編輯</button></td>
                 </tr>
               );
             })}
@@ -186,8 +186,8 @@ export function AdminSchoolsClient() {
           onClose={() => setEditing(null)}
           actions={
             <>
-              <button onClick={() => setEditing(null)} className="rounded-lg border border-slate-200 bg-white px-5 py-2 text-sm">取消</button>
-              <button disabled={saving} onClick={saveSchool} className="rounded-lg bg-slate-950 px-5 py-2 text-sm font-medium text-white disabled:opacity-50">保存</button>
+              <button onClick={() => setEditing(null)} className="rounded-chip border border-surface-border bg-white px-5 py-2 text-sm">取消</button>
+              <button disabled={saving} onClick={saveSchool} className="rounded-chip bg-ink-900 px-5 py-2 text-sm font-medium text-white disabled:opacity-50">保存</button>
             </>
           }
         >
@@ -208,8 +208,8 @@ export function AdminSchoolsClient() {
               <AdminField label="官網" value={editing.website ?? ""} onChange={(v) => setEditing({ ...editing, website: v })} />
               <AdminField label="Logo 地址" value={editing.logo_url ?? ""} onChange={(v) => setEditing({ ...editing, logo_url: v })} />
               <label className="block md:col-span-2">
-                <span className="mb-1 block text-xs font-medium text-slate-500">上傳 Logo</span>
-                <input type="file" accept="image/*" onChange={(e) => e.target.files?.[0] && uploadLogo(e.target.files[0])} className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+                <span className="mb-1 block text-xs font-medium text-ink-500">上傳 Logo</span>
+                <input type="file" accept="image/*" onChange={(e) => e.target.files?.[0] && uploadLogo(e.target.files[0])} className="w-full rounded-chip border border-surface-border px-3 py-2 text-sm" />
               </label>
             </AdminFormGrid>
           </AdminSection>

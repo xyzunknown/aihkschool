@@ -62,11 +62,11 @@ export default function IOSAppLandingPage() {
                 <p className="text-xs font-semibold text-forest-700">今日重點</p>
                 <p className="mt-1 text-lg font-bold text-ink-900">K1 學額與開報提醒</p>
               </div>
-              <div className="h-10 w-10 rounded-2xl bg-forest-600" />
+              <div className="h-10 w-10 rounded-card bg-forest-600" />
             </div>
             <div className="space-y-3">
               {FEATURES.map((feature) => (
-                <div key={feature} className="rounded-2xl border border-surface-border bg-surface-soft px-4 py-3 text-sm font-medium text-ink-800">
+                <div key={feature} className="rounded-card border border-surface-border bg-surface-soft px-4 py-3 text-sm font-medium text-ink-800">
                   {feature}
                 </div>
               ))}

@@ -105,16 +105,16 @@ export default async function ActivityDetailPage({ params }: PageProps) {
       />
       <Link
         href="/activities"
-        className="mb-6 inline-flex items-center text-sm text-slate-500 transition-colors hover:text-slate-950"
+        className="mb-6 inline-flex items-center text-sm text-ink-500 transition-colors hover:text-ink-900"
       >
         ← 返回課外活動
       </Link>
 
       {/* Hero */}
       <div className="mb-8">
-        <div className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5">
+        <div className="flex gap-4 rounded-card border border-surface-border bg-white p-5">
           {hasImage ? (
-            <div className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-xl bg-slate-100 sm:h-36 sm:w-36">
+            <div className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-button bg-cream-100 sm:h-36 sm:w-36">
               <Image
                 src={activity.image_url!}
                 alt=""
@@ -125,7 +125,7 @@ export default async function ActivityDetailPage({ params }: PageProps) {
               />
             </div>
           ) : (
-            <div className={`flex h-28 w-28 flex-shrink-0 flex-col items-center justify-center gap-2 rounded-xl sm:h-36 sm:w-36 ${placeholder.className}`}>
+            <div className={`flex h-28 w-28 flex-shrink-0 flex-col items-center justify-center gap-2 rounded-button sm:h-36 sm:w-36 ${placeholder.className}`}>
               <span className="text-4xl font-semibold leading-none">{placeholder.emoji}</span>
               <span className="rounded-full bg-white/55 px-3 py-1 text-xs font-semibold">
                 {placeholder.label}
@@ -134,25 +134,25 @@ export default async function ActivityDetailPage({ params }: PageProps) {
           )}
           <div className="min-w-0 flex-1">
             <div className="mb-4 flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
+              <span className="inline-flex items-center rounded-full bg-cream-100 px-3 py-1 text-xs font-medium text-ink-700">
                 {CATEGORY_LABELS[activity.category]}
               </span>
               {fee.isFree && (
-                <span className="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
+                <span className="inline-flex items-center rounded-full bg-forest-50 px-3 py-1 text-xs font-medium text-forest-700">
                   免費
                 </span>
               )}
               {expired && (
-                <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-500">
+                <span className="inline-flex items-center rounded-full bg-cream-100 px-3 py-1 text-xs font-medium text-ink-500">
                   已結束
                 </span>
               )}
             </div>
-            <h1 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">
+            <h1 className="text-2xl font-bold tracking-tight text-ink-900 md:text-3xl">
               {activity.title}
             </h1>
             {organizer && (
-              <p className="mt-2 text-sm text-slate-500">
+              <p className="mt-2 text-sm text-ink-500">
                 主辦：{organizer}
               </p>
             )}
@@ -161,8 +161,8 @@ export default async function ActivityDetailPage({ params }: PageProps) {
       </div>
 
       {/* 核心信息卡片 */}
-      <div className="mb-8 rounded-2xl border border-slate-200 bg-white p-6">
-        <h2 className="mb-4 text-xl font-semibold text-slate-950">活動資訊</h2>
+      <div className="mb-8 rounded-card border border-surface-border bg-white p-6">
+        <h2 className="mb-4 text-xl font-semibold text-ink-900">活動資訊</h2>
         <dl className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <InfoRow label="日期" value={dateRange} />
           {activity.schedule && (
@@ -196,9 +196,9 @@ export default async function ActivityDetailPage({ params }: PageProps) {
 
       {/* 描述 */}
       {activity.description && (
-        <div className="mb-8 rounded-2xl border border-slate-200 bg-white p-6">
-          <h2 className="mb-4 text-xl font-semibold text-slate-950">活動介紹</h2>
-          <p className="whitespace-pre-line text-base leading-relaxed text-slate-700">
+        <div className="mb-8 rounded-card border border-surface-border bg-white p-6">
+          <h2 className="mb-4 text-xl font-semibold text-ink-900">活動介紹</h2>
+          <p className="whitespace-pre-line text-base leading-relaxed text-ink-700">
             {activity.description}
           </p>
         </div>
@@ -212,7 +212,7 @@ export default async function ActivityDetailPage({ params }: PageProps) {
               href={registrationHref}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center rounded-xl bg-slate-950 px-6 py-3 text-base font-medium text-white transition-transform hover:scale-[1.02]"
+              className="inline-flex items-center justify-center rounded-button bg-ink-900 px-6 py-3 text-base font-medium text-white transition-transform "
             >
               立即了解 / 報名
               <svg
@@ -240,7 +240,7 @@ export default async function ActivityDetailPage({ params }: PageProps) {
               href={organizerHref}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1 text-sm text-slate-500 underline decoration-slate-300 underline-offset-2 hover:text-slate-950 hover:decoration-slate-950"
+              className="inline-flex items-center gap-1 text-sm text-ink-500 underline decoration-slate-300 underline-offset-2 hover:text-ink-900 hover:decoration-slate-950"
             >
               主辦方官網
             </a>
@@ -251,7 +251,7 @@ export default async function ActivityDetailPage({ params }: PageProps) {
       {/* 相關活動 */}
       {related.length > 0 && (
         <section className="mt-12">
-          <h2 className="mb-5 text-xl font-semibold text-slate-950">
+          <h2 className="mb-5 text-xl font-semibold text-ink-900">
             相關活動
           </h2>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
@@ -286,17 +286,17 @@ function InfoRow({
 }) {
   return (
     <div>
-      <dt className="text-xs font-medium uppercase tracking-wide text-slate-500">
+      <dt className="text-xs font-medium uppercase tracking-wide text-ink-500">
         {label}
       </dt>
-      <dd className="mt-1 text-base text-slate-900">
+      <dd className="mt-1 text-base text-ink-900">
         {href ? (
           <a
             href={href}
             {...(external
               ? { target: "_blank", rel: "noopener noreferrer" }
               : {})}
-            className="inline-flex items-center gap-1 text-slate-950 underline decoration-slate-300 underline-offset-2 hover:decoration-slate-950"
+            className="inline-flex items-center gap-1 text-ink-900 underline decoration-slate-300 underline-offset-2 hover:decoration-slate-950"
           >
             {value}
             {external && (
@@ -309,7 +309,7 @@ function InfoRow({
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="flex-shrink-0 text-slate-400"
+                className="flex-shrink-0 text-ink-500"
               >
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                 <polyline points="15 3 21 3 21 9" />

@@ -44,12 +44,12 @@ export function SchoolActionButton({
       disabled={disabled}
       className={[
         "group inline-flex shrink-0 items-center justify-center rounded-full border transition-all duration-200",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/30 focus-visible:ring-offset-2",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest-500/30 focus-visible:ring-offset-2",
         "disabled:cursor-not-allowed disabled:opacity-50",
         buttonSize[size],
         active
-          ? "border-brand-200 bg-brand-600 text-white shadow-[0_8px_18px_rgba(36,122,77,0.18)]"
-          : "border-surface-border bg-surface-soft text-ink-500 hover:border-brand-200 hover:bg-brand-50 hover:text-brand-700",
+          ? "border-forest-200 bg-forest-600 text-white shadow-soft"
+          : "border-surface-border bg-surface-soft text-ink-500 hover:border-forest-200 hover:bg-forest-50 hover:text-forest-700",
         className,
       ].join(" ")}
     >

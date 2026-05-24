@@ -36,13 +36,13 @@ export function SchoolSearchInput({ onSelect, inputClassName, labelClassName }: 
       <div className="relative">
         <input type="text" placeholder="輸入學校名稱或拼音搜尋…" value={query}
           onChange={(e) => search(e.target.value)} className={inputClassName} />
-        {selected && <span className="text-sm text-emerald-700 mt-1 block">已選擇：{selected}</span>}
+        {selected && <span className="text-sm text-forest-700 mt-1 block">已選擇：{selected}</span>}
         {results.length > 0 && (
-          <div className="absolute top-full left-0 right-0 mt-1 bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden z-10">
+          <div className="absolute top-full left-0 right-0 mt-1 bg-white rounded-button shadow-lg border border-surface-border overflow-hidden z-10">
             {results.map((s) => (
               <button key={s.id} onClick={() => select(s)}
-                className="w-full text-left px-4 py-3 hover:bg-slate-50 text-sm text-slate-900 border-b border-slate-100 last:border-b-0">
-                {s.name_tc}<span className="text-slate-500 ml-2">{s.district}</span>
+                className="w-full text-left px-4 py-3 hover:bg-cream-50 text-sm text-ink-900 border-b border-surface-border last:border-b-0">
+                {s.name_tc}<span className="text-ink-500 ml-2">{s.district}</span>
               </button>
             ))}
           </div>

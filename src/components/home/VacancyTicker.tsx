@@ -7,10 +7,10 @@ interface Props {
 
 function getVacancyLabel(status: string | undefined): { text: string; className: string } {
   const s = status?.toLowerCase() ?? "";
-  if (s.includes("has")) return { text: "有位", className: "bg-emerald-50 text-emerald-700" };
+  if (s.includes("has")) return { text: "有位", className: "bg-forest-50 text-forest-700" };
   if (s.includes("wait")) return { text: "候補", className: "bg-amber-50 text-amber-700" };
   if (s.includes("no")) return { text: "滿額", className: "bg-red-50 text-red-700" };
-  return { text: "—", className: "bg-slate-50 text-slate-400" };
+  return { text: "—", className: "bg-cream-50 text-ink-500" };
 }
 
 export function VacancyTicker({ schools }: Props) {
@@ -26,8 +26,8 @@ export function VacancyTicker({ schools }: Props) {
 
   return (
     <section className="max-w-7xl mx-auto px-5 md:px-8 mt-12">
-      <div className="rounded-card bg-white border border-cream-200 shadow-soft overflow-hidden">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 px-5 py-4 bg-leaf-50 border-b border-cream-200">
+      <div className="rounded-card bg-white border border-surface-border shadow-soft overflow-hidden">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 px-5 py-4 bg-leaf-50 border-b border-surface-border">
           <div>
             <div className="flex items-center gap-2">
               <h2 className="text-lg font-bold text-ink-900">學位空缺速遞</h2>

@@ -72,7 +72,7 @@ export function CourseTrackAllButton({ programmeIds, className }: CourseTrackAll
       disabled={loading}
       className={
         className ??
-        "inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-brand-200 bg-white px-4 text-sm font-bold text-brand-700 transition hover:bg-brand-50 disabled:opacity-50"
+        "inline-flex h-11 items-center justify-center gap-2 rounded-pill border border-forest-200 bg-white px-4 text-small font-bold text-forest-700 transition hover:bg-forest-50 disabled:opacity-50"
       }
     >
       {loading ? (

@@ -11,10 +11,10 @@ export default function Error({
 }) {
   return (
     <div className="max-w-lg mx-auto px-5 md:px-8 py-16 text-center">
-      <div className="bg-white rounded-2xl border border-slate-200 p-8">
+      <div className="bg-white rounded-card border border-surface-border p-8">
         <div className="text-4xl mb-4">😕</div>
-        <h2 className="text-xl font-semibold text-slate-950 mb-2">出咗點問題</h2>
-        <p className="text-base text-slate-600 mb-6">
+        <h2 className="text-xl font-semibold text-ink-900 mb-2">出咗點問題</h2>
+        <p className="text-base text-ink-700 mb-6">
           頁面載入過程中遇到咗錯誤，請試試刷新頁面。
         </p>
         <div className="flex gap-3 justify-center">
@@ -26,7 +26,7 @@ export default function Error({
           </Button>
         </div>
         {error.digest && (
-          <p className="text-sm text-slate-500 mt-6">
+          <p className="text-sm text-ink-500 mt-6">
             錯誤編號：{error.digest}
           </p>
         )}

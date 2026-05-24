@@ -21,19 +21,19 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   await requireAdminPage();
 
   return (
-    <div className="min-h-[calc(100vh-73px)] bg-slate-50">
+    <div className="min-h-[calc(100vh-73px)] bg-cream-50">
       <div className="mx-auto flex max-w-[1400px] gap-6 px-5 py-6 md:px-8">
-        <aside className="sticky top-24 hidden h-fit w-56 shrink-0 rounded-2xl border border-slate-200 bg-white p-3 lg:block">
+        <aside className="sticky top-24 hidden h-fit w-56 shrink-0 rounded-card border border-surface-border bg-white p-3 lg:block">
           <div className="px-3 py-3">
-            <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">HKSchoolPlace</p>
-            <h1 className="mt-1 text-lg font-bold text-slate-950">後台</h1>
+            <p className="text-xs font-semibold uppercase tracking-wide text-ink-500">HKSchoolPlace</p>
+            <h1 className="mt-1 text-lg font-bold text-ink-900">後台</h1>
           </div>
           <nav className="mt-2 space-y-1">
             {NAV.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="block rounded-xl px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-950"
+                className="block rounded-button px-3 py-2 text-sm font-medium text-ink-700 hover:bg-cream-50 hover:text-ink-900"
               >
                 {item.label}
               </Link>
@@ -46,7 +46,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
               <Link
                 key={item.href}
                 href={item.href}
-                className="shrink-0 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700"
+                className="shrink-0 rounded-button border border-surface-border bg-white px-4 py-2 text-sm font-medium text-ink-700"
               >
                 {item.label}
               </Link>

@@ -43,7 +43,7 @@ export function ReminderSheet({
   return (
     <BottomSheet isOpen={isOpen} onClose={onClose} title="截止提醒設定">
       {schoolName && (
-        <p className="text-sm text-slate-500 mb-4">
+        <p className="text-sm text-ink-500 mb-4">
           為 {schoolName} 設定申請截止提醒
         </p>
       )}
@@ -52,19 +52,19 @@ export function ReminderSheet({
         {REMINDER_OPTIONS.map((opt) => (
           <label
             key={opt.value}
-            className="flex items-center gap-3 p-4 rounded-xl border border-slate-200 bg-white cursor-pointer transition-colors hover:bg-slate-50"
+            className="flex items-center gap-3 p-4 rounded-button border border-surface-border bg-white cursor-pointer transition-colors hover:bg-cream-50"
           >
             <input
               type="checkbox"
               checked={selectedDays.includes(opt.value)}
               onChange={() => toggleDay(opt.value)}
-              className="w-4 h-4 rounded border-slate-300 text-slate-950 focus:ring-slate-950"
+              className="w-4 h-4 rounded border-surface-border text-ink-900 focus:ring-slate-950"
             />
             <div className="flex-1">
-              <span className="text-base font-medium text-slate-900">
+              <span className="text-base font-medium text-ink-900">
                 {opt.label}
               </span>
-              <span className="text-sm text-slate-500 ml-2">
+              <span className="text-sm text-ink-500 ml-2">
                 ({opt.description})
               </span>
             </div>
@@ -86,7 +86,7 @@ export function ReminderSheet({
         </Button>
       </div>
 
-      <p className="text-sm text-slate-500 text-center mt-4">
+      <p className="text-sm text-ink-500 text-center mt-4">
         提醒將透過電郵發送到您嘅登入郵箱
       </p>
     </BottomSheet>

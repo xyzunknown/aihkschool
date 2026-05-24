@@ -5,8 +5,8 @@ const ACTIONS = [
     href: "/kg",
     title: "搜尋學校",
     desc: "快速找到合適學校",
-    iconBg: "bg-brand-50/70",
-    iconFg: "text-brand-700",
+    iconBg: "bg-forest-50/70",
+    iconFg: "text-forest-700",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="11" cy="11" r="7" />
@@ -57,12 +57,12 @@ const ACTIONS = [
 export function QuickActions() {
   return (
     <section className="max-w-[1200px] mx-auto px-5 md:px-8 mt-2 md:mt-1">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-0 bg-white rounded-card border border-surface-border shadow-[0_12px_32px_rgba(30,82,56,0.07)] p-3 md:p-3 md:divide-x md:divide-surface-border">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-0 bg-white rounded-card border border-surface-border shadow-soft p-3 md:p-3 md:divide-x md:divide-surface-border">
         {ACTIONS.map((a) => (
           <Link
             key={a.title}
             href={a.href}
-            className="group flex items-center gap-3 px-3 md:px-4 py-1.5 rounded-2xl hover:bg-surface-soft transition min-h-[58px]"
+            className="group flex items-center gap-3 px-3 md:px-4 py-1.5 rounded-card hover:bg-surface-soft transition min-h-[58px]"
           >
             <span
               className={`shrink-0 w-9 h-9 rounded-full ${a.iconBg} ${a.iconFg} flex items-center justify-center`}
@@ -70,7 +70,7 @@ export function QuickActions() {
               {a.icon}
             </span>
             <span className="flex flex-col leading-tight min-w-0">
-              <span className="text-sm font-semibold text-[#18352B] group-hover:text-brand-700 transition truncate">
+              <span className="text-sm font-semibold text-[#18352B] group-hover:text-forest-700 transition truncate">
                 {a.title}
               </span>
               <span className="text-[12px] text-[#7A877F] truncate">{a.desc}</span>

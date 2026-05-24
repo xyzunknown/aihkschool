@@ -48,7 +48,7 @@ export default async function HomePage({
       <div className="mx-auto max-w-[1280px] px-5 md:px-10">
         {authErrorMessage ? (
           <section className="pt-6">
-            <div className="rounded-2xl border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-950 md:px-5">
+            <div className="rounded-card border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-950 md:px-5">
               {authErrorMessage}
             </div>
           </section>

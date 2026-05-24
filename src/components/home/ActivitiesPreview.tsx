@@ -17,7 +17,7 @@ export async function ActivitiesPreview() {
       <div className="mb-7 flex items-center justify-between gap-4">
         <div>
           <h2 className="flex items-center gap-2 text-[24px] font-semibold leading-tight text-ink-900 md:text-[28px]">
-            <span className="inline-block h-6 w-1 rounded-full bg-brand-700" />
+            <span className="inline-block h-6 w-1 rounded-full bg-forest-700" />
             課外活動精選
           </h2>
           <p className="mt-2 text-base text-ink-500">
@@ -26,7 +26,7 @@ export async function ActivitiesPreview() {
         </div>
         <Link
           href="/activities"
-          className="shrink-0 text-sm font-medium text-brand-700 hover:underline"
+          className="shrink-0 text-sm font-medium text-forest-700 hover:underline"
         >
           查看全部 →
         </Link>

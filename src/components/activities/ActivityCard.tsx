@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import type { Activity } from "@/lib/db/activities";
 import {
   CATEGORY_LABELS,
@@ -29,11 +30,11 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
   const registrationHref = getActivityRegistrationHref(activity);
 
   return (
-    <article className="overflow-hidden rounded-card border border-cream-200 bg-white shadow-soft transition hover:shadow-card">
-      <div className="flex h-full flex-col md:min-h-[252px] md:flex-row">
+    <article className="overflow-hidden rounded-card border border-surface-border bg-white p-5 shadow-soft transition-colors hover:border-forest-200">
+      <div className="flex min-h-[280px] flex-col md:flex-row">
         <Link
           href={detailHref}
-          className="relative block h-[180px] overflow-hidden bg-cream-100 md:h-auto md:w-[34%] md:shrink-0"
+          className="relative block h-[180px] overflow-hidden rounded-button bg-cream-100 md:h-auto md:w-[34%] md:shrink-0"
           aria-label={`${activity.title} 活動詳情`}
         >
           <Image
@@ -46,36 +47,33 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
           />
         </Link>
 
-        <div className="flex min-w-0 flex-1 flex-col p-4 sm:p-5">
+        <div className="flex min-w-0 flex-1 flex-col pt-4 md:pl-5 md:pt-0">
           <div className="flex items-center gap-2">
-            <span className="inline-flex h-6 items-center justify-center whitespace-nowrap rounded-full bg-leaf-50 px-2.5 text-[12px] font-medium text-forest-700">
+            <span className="inline-flex h-6 items-center justify-center whitespace-nowrap rounded-pill bg-leaf-50 px-2.5 text-label font-medium text-forest-700">
               {CATEGORY_LABELS[activity.category]}
             </span>
-            <span className="inline-flex h-6 shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-cream-100 px-2.5 text-[12px] font-medium text-ink-700">
+            <span className="inline-flex h-6 shrink-0 items-center justify-center whitespace-nowrap rounded-pill bg-cream-100 px-2.5 text-label font-medium text-ink-700">
               {fee.shortLabel}
             </span>
           </div>
 
           <Link href={detailHref} className="block">
-            <h3 className="mt-3 line-clamp-2 text-[18px] font-semibold leading-snug text-ink-900 hover:text-brand-700 lg:text-[19px]">
+            <h3 className="mt-3 line-clamp-2 text-h2 font-semibold text-ink-900 hover:text-forest-700">
               {activity.title}
             </h3>
           </Link>
 
-          <p className="mt-2.5 line-clamp-1 text-[13px] font-medium leading-[1.45] text-ink-500">{dateRange}</p>
+          <p className="mt-2.5 line-clamp-1 text-small font-medium text-ink-500">{dateRange}</p>
 
-          <div className="mt-2.5 flex min-w-0 items-center gap-2 text-[13px] font-medium text-ink-500 md:truncate">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-forest-500" aria-hidden="true">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
+          <div className="mt-2.5 flex min-w-0 items-center gap-2 text-small font-medium text-ink-500 md:truncate">
+            <MapPin aria-hidden="true" size={16} strokeWidth={1.7} className="shrink-0 text-forest-500" />
             <span className="truncate">{venueSummary}</span>
           </div>
 
           <div className="mt-4 flex flex-col gap-2 sm:flex-row md:mt-auto">
             <Link
               href={detailHref}
-              className="inline-flex h-9 flex-1 items-center justify-center whitespace-nowrap rounded-pill border border-brand-200 bg-white px-3 text-[14px] font-semibold text-brand-700 transition hover:bg-brand-50"
+              className="inline-flex h-9 flex-1 items-center justify-center whitespace-nowrap rounded-pill border border-forest-200 bg-white px-3 text-small font-semibold text-forest-700 transition hover:bg-forest-50"
             >
               查看詳情
             </Link>
@@ -84,7 +82,7 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
                 href={registrationHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-9 flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-pill border border-brand-700 bg-brand-700 px-3 text-[14px] font-semibold text-white transition hover:border-brand-800 hover:bg-brand-800"
+                className="inline-flex h-9 flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-pill border border-forest-700 bg-forest-700 px-3 text-small font-semibold text-white transition hover:border-forest-800 hover:bg-forest-800"
               >
                 報名
                 <ExternalIcon />
@@ -123,10 +121,10 @@ const KNOWN_VENUES = [
 
 export function ActivityCardSkeleton() {
   return (
-    <div className="animate-pulse overflow-hidden rounded-card border border-cream-200 bg-white shadow-soft">
-      <div className="flex flex-col md:min-h-[252px] md:flex-row">
-        <div className="h-[180px] w-full bg-cream-100 md:h-auto md:w-[34%]" />
-        <div className="flex-1 space-y-4 p-4 sm:p-5">
+    <div className="animate-pulse overflow-hidden rounded-card border border-surface-border bg-white p-5 shadow-soft">
+      <div className="flex min-h-[280px] flex-col md:flex-row">
+        <div className="h-[180px] w-full rounded-button bg-cream-100 md:h-auto md:w-[34%]" />
+        <div className="flex-1 space-y-4 pt-4 md:pl-5 md:pt-0">
           <div className="flex gap-2">
             <div className="h-6 w-16 rounded-pill bg-cream-100" />
             <div className="h-6 w-16 rounded-pill bg-cream-100" />
@@ -145,9 +143,6 @@ export function ActivityCardSkeleton() {
 
 function ExternalIcon() {
   return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M7 17 17 7" />
-      <path d="M7 7h10v10" />
-    </svg>
+    <ArrowUpRight aria-hidden="true" size={16} strokeWidth={1.7} />
   );
 }

@@ -118,29 +118,29 @@ export function AdminProgrammesClient() {
     <div>
       <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-slate-950">課程管理</h1>
-          <p className="mt-1 text-sm text-slate-500">查看康體通課程、報名狀態、追蹤人數和提醒資料。</p>
+          <h1 className="text-2xl font-bold text-ink-900">課程管理</h1>
+          <p className="mt-1 text-sm text-ink-500">查看康體通課程、報名狀態、追蹤人數和提醒資料。</p>
         </div>
-        <button onClick={() => { void loadRows(); }} className="rounded-xl bg-slate-950 px-4 py-2 text-sm font-medium text-white">刷新</button>
+        <button onClick={() => { void loadRows(); }} className="rounded-button bg-ink-900 px-4 py-2 text-sm font-medium text-white">刷新</button>
       </div>
-      {message ? <div className="mb-4 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700">{message}</div> : null}
+      {message ? <div className="mb-4 rounded-button border border-surface-border bg-white px-4 py-3 text-sm text-ink-700">{message}</div> : null}
 
-      <div className="mb-4 grid gap-3 rounded-2xl border border-slate-200 bg-white p-4 md:grid-cols-6">
-        <input value={filters.search} onChange={(e) => setFilters({ ...filters, search: e.target.value })} placeholder="搜尋課程/場地/編號" className="rounded-xl border border-slate-200 px-3 py-2 text-sm md:col-span-2" />
-        <select value={filters.category} onChange={(e) => setFilters({ ...filters, category: e.target.value })} className="rounded-xl border border-slate-200 px-3 py-2 text-sm">{CATEGORY_OPTIONS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
-        <select value={filters.district} onChange={(e) => setFilters({ ...filters, district: e.target.value })} className="rounded-xl border border-slate-200 px-3 py-2 text-sm"><option value="">全部地區</option>{DISTRICT_OPTIONS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
-        <input value={filters.age} onChange={(e) => setFilters({ ...filters, age: e.target.value })} placeholder="年齡" type="number" className="rounded-xl border border-slate-200 px-3 py-2 text-sm" />
-        <button onClick={() => { void loadRows(); }} className="rounded-xl border border-slate-200 px-3 py-2 text-sm font-medium">套用</button>
+      <div className="mb-4 grid gap-3 rounded-card border border-surface-border bg-white p-4 md:grid-cols-6">
+        <input value={filters.search} onChange={(e) => setFilters({ ...filters, search: e.target.value })} placeholder="搜尋課程/場地/編號" className="rounded-button border border-surface-border px-3 py-2 text-sm md:col-span-2" />
+        <select value={filters.category} onChange={(e) => setFilters({ ...filters, category: e.target.value })} className="rounded-button border border-surface-border px-3 py-2 text-sm">{CATEGORY_OPTIONS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
+        <select value={filters.district} onChange={(e) => setFilters({ ...filters, district: e.target.value })} className="rounded-button border border-surface-border px-3 py-2 text-sm"><option value="">全部地區</option>{DISTRICT_OPTIONS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>
+        <input value={filters.age} onChange={(e) => setFilters({ ...filters, age: e.target.value })} placeholder="年齡" type="number" className="rounded-button border border-surface-border px-3 py-2 text-sm" />
+        <button onClick={() => { void loadRows(); }} className="rounded-button border border-surface-border px-3 py-2 text-sm font-medium">套用</button>
       </div>
       <div className="mb-4 flex gap-2">
         {STATUS_OPTIONS.map(([value, label]) => (
-          <button key={value} onClick={() => { const next = { ...filters, status: value }; setFilters(next); void loadRows(next); }} className={`rounded-xl px-4 py-2 text-sm ${filters.status === value ? "bg-slate-950 text-white" : "border border-slate-200 bg-white text-slate-700"}`}>{label}</button>
+          <button key={value} onClick={() => { const next = { ...filters, status: value }; setFilters(next); void loadRows(next); }} className={`rounded-button px-4 py-2 text-sm ${filters.status === value ? "bg-ink-900 text-white" : "border border-surface-border bg-white text-ink-700"}`}>{label}</button>
         ))}
       </div>
 
-      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
+      <div className="overflow-hidden rounded-card border border-surface-border bg-white">
         <table className="w-full text-left text-sm">
-          <thead className="bg-slate-50 text-xs text-slate-500">
+          <thead className="bg-cream-50 text-xs text-ink-500">
             <tr><th className="px-4 py-3">課程</th><th className="px-4 py-3">地區/年齡</th><th className="px-4 py-3">報名狀態</th><th className="px-4 py-3">追蹤</th><th className="px-4 py-3">最近刷新</th><th className="px-4 py-3 text-right">操作</th></tr>
           </thead>
           <tbody className="divide-y divide-slate-100">
@@ -148,12 +148,12 @@ export function AdminProgrammesClient() {
               const raw = Array.isArray(row.lcsd_programme_status) ? row.lcsd_programme_status[0] : row.lcsd_programme_status;
               return (
                 <tr key={row.id}>
-                  <td className="px-4 py-3 font-medium text-slate-950">{row.name_zh || row.name_en || row.lcsd_programme_id}<div className="text-xs text-slate-400">{row.venue}</div></td>
-                  <td className="px-4 py-3 text-slate-600">{row.district ?? "-"} · {row.age_min ?? "?"}-{row.age_max ?? "?"}</td>
+                  <td className="px-4 py-3 font-medium text-ink-900">{row.name_zh || row.name_en || row.lcsd_programme_id}<div className="text-xs text-ink-500">{row.venue}</div></td>
+                  <td className="px-4 py-3 text-ink-700">{row.district ?? "-"} · {row.age_min ?? "?"}-{row.age_max ?? "?"}</td>
                   <td className="px-4 py-3"><AdminStatusPill tone={statusTone(row)}>{status(row)}</AdminStatusPill></td>
                   <td className="px-4 py-3">{row.subscription_count}</td>
-                  <td className="px-4 py-3 text-slate-600">{formatAdminDate(raw?.last_checked_at)}</td>
-                  <td className="px-4 py-3 text-right"><button onClick={() => setEditing(row)} className="font-medium text-slate-950 underline">查看</button></td>
+                  <td className="px-4 py-3 text-ink-700">{formatAdminDate(raw?.last_checked_at)}</td>
+                  <td className="px-4 py-3 text-right"><button onClick={() => setEditing(row)} className="font-medium text-ink-900 underline">查看</button></td>
                 </tr>
               );
             })}
@@ -170,10 +170,10 @@ export function AdminProgrammesClient() {
           onClose={() => setEditing(null)}
           actions={
             <>
-              <button onClick={() => save({ action: "refresh" })} className="rounded-lg border border-slate-200 bg-white px-5 py-2 text-sm">刷新狀態</button>
-              <button onClick={() => save({ admin_status: "hidden", admin_notes: editing.admin_notes })} className="rounded-lg border border-slate-200 bg-white px-5 py-2 text-sm">隱藏</button>
-              <button onClick={() => save({ admin_status: "ended", admin_notes: editing.admin_notes })} className="rounded-lg border border-slate-200 bg-white px-5 py-2 text-sm">標記已結束</button>
-              <button onClick={() => save()} className="rounded-lg bg-slate-950 px-5 py-2 text-sm font-medium text-white">保存</button>
+              <button onClick={() => save({ action: "refresh" })} className="rounded-chip border border-surface-border bg-white px-5 py-2 text-sm">刷新狀態</button>
+              <button onClick={() => save({ admin_status: "hidden", admin_notes: editing.admin_notes })} className="rounded-chip border border-surface-border bg-white px-5 py-2 text-sm">隱藏</button>
+              <button onClick={() => save({ admin_status: "ended", admin_notes: editing.admin_notes })} className="rounded-chip border border-surface-border bg-white px-5 py-2 text-sm">標記已結束</button>
+              <button onClick={() => save()} className="rounded-chip bg-ink-900 px-5 py-2 text-sm font-medium text-white">保存</button>
             </>
           }
         >

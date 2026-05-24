@@ -58,7 +58,7 @@ export function SchoolAvatar({
   }, [candidates]);
 
   return (
-    <div className={`${sizeClass} ${shapeClass} shrink-0 overflow-hidden border border-slate-200 bg-white shadow-[0_1px_3px_rgba(15,23,42,0.08)]`}>
+    <div className={`${sizeClass} ${shapeClass} shrink-0 overflow-hidden border border-surface-border bg-white shadow-soft`}>
       {showLogo && resolved ? (
         <div className="relative h-full w-full bg-white">
           <Image
@@ -79,7 +79,7 @@ export function SchoolAvatar({
         </div>
       ) : (
         <div
-          className="flex h-full w-full items-center justify-center bg-slate-50"
+          className="flex h-full w-full items-center justify-center bg-cream-50"
         >
           <span className={`flex h-full w-full items-center justify-center ${textSize} font-semibold ${colors.text}`}>
             {firstChar}

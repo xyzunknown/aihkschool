@@ -40,10 +40,10 @@ export function FeaturedSchoolsRow({ schools }: Props) {
     <section className="max-w-[1200px] mx-auto px-5 md:px-8 mt-12">
       <div className="flex items-center justify-between mb-5">
         <h2 className="text-2xl font-semibold text-ink-900 flex items-center gap-2">
-          <span className="inline-block w-1 h-5 bg-brand-700 rounded-full" />
+          <span className="inline-block w-1 h-5 bg-forest-700 rounded-full" />
           推薦幼稚園
         </h2>
-        <Link href="/kg" className="text-sm text-brand-700 hover:underline font-medium">
+        <Link href="/kg" className="text-sm text-forest-700 hover:underline font-medium">
           查看全部學校 →
         </Link>
       </div>
@@ -67,7 +67,7 @@ function SchoolCard({
   return (
     <Link
       href={school.href}
-      className="group bg-white rounded-[20px] border border-surface-border overflow-hidden shadow-[0_8px_24px_rgba(30,82,56,0.06)] hover:shadow-[0_14px_32px_rgba(30,82,56,0.1)] transition-all duration-200 flex flex-col"
+      className="group bg-white rounded-card border border-surface-border overflow-hidden shadow-soft hover:shadow-soft transition-all duration-200 flex flex-col"
     >
       <div className="relative aspect-[16/9] bg-surface-soft overflow-hidden">
         <Image
@@ -75,11 +75,11 @@ function SchoolCard({
           alt=""
           fill
           sizes="(max-width: 768px) 100vw, 360px"
-          className="object-cover group-hover:scale-[1.04] transition duration-500"
+          className="object-cover group- transition duration-500"
         />
         <span
           aria-label="收藏"
-          className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full border border-white/80 bg-white/95 flex items-center justify-center text-ink-500 hover:text-[#B4473B] shadow-[0_8px_18px_rgba(30,82,56,0.12)]"
+          className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full border border-white/80 bg-white/95 flex items-center justify-center text-ink-500 hover:text-[#B4473B] shadow-soft"
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
@@ -87,7 +87,7 @@ function SchoolCard({
         </span>
       </div>
       <div className="p-4 flex flex-col flex-1">
-        <h3 className="text-base font-semibold text-ink-900 line-clamp-1 group-hover:text-brand-700 transition">
+        <h3 className="text-base font-semibold text-ink-900 line-clamp-1 group-hover:text-forest-700 transition">
           {school.name_tc}
         </h3>
         <div className="flex items-center gap-1.5 mt-1.5 text-xs">
@@ -104,7 +104,7 @@ function SchoolCard({
             return (
               <div
                 key={g}
-                className={`py-1.5 rounded-lg text-center ${STATUS_STYLE[key]}`}
+                className={`py-1.5 rounded-chip text-center ${STATUS_STYLE[key]}`}
               >
                 <p className="text-[10px] font-medium opacity-90">{g.toUpperCase()}</p>
                 <p className="text-xs font-bold mt-0.5">{vacancyLabel(key)}</p>
@@ -112,7 +112,7 @@ function SchoolCard({
             );
           })}
         </div>
-        <div className="flex items-center justify-end mt-3 pt-3 border-t border-surface-border text-[11px] text-brand-700 font-medium">
+        <div className="flex items-center justify-end mt-3 pt-3 border-t border-surface-border text-[11px] text-forest-700 font-medium">
           查看詳情 →
         </div>
       </div>

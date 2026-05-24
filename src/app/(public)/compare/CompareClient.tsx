@@ -106,11 +106,11 @@ interface CompareRowProps {
 function CompareRow({ label, values, schoolIds, highlight }: CompareRowProps) {
   return (
     <tr className={highlight ? "bg-amber-50/50" : ""}>
-      <td className="sticky left-0 z-10 bg-inherit py-3 px-4 text-xs font-medium text-slate-500 whitespace-nowrap border-b border-slate-100">
+      <td className="sticky left-0 z-10 bg-inherit py-3 px-4 text-xs font-medium text-ink-500 whitespace-nowrap border-b border-surface-border">
         {label}
       </td>
       {values.map((val, i) => (
-        <td key={schoolIds[i]} className="py-3 px-4 text-sm text-slate-900 border-b border-slate-100 min-w-[160px]">
+        <td key={schoolIds[i]} className="py-3 px-4 text-sm text-ink-900 border-b border-surface-border min-w-[160px]">
           {val ?? "—"}
         </td>
       ))}
@@ -165,8 +165,8 @@ export function CompareClient() {
     return (
       <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
         <div className="animate-pulse space-y-4">
-          <div className="h-8 bg-slate-200 rounded w-48" />
-          <div className="h-64 bg-slate-100 rounded-2xl" />
+          <div className="h-8 bg-cream-200 rounded w-48" />
+          <div className="h-64 bg-cream-100 rounded-card" />
         </div>
       </div>
     );
@@ -176,7 +176,7 @@ export function CompareClient() {
     return (
       <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 text-center">
         <div className="mx-auto max-w-md rounded-card border border-surface-border bg-white px-6 py-8 shadow-soft">
-          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-brand-50 text-brand-700">
+          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-forest-50 text-forest-700">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
               <rect x="3" y="4" width="7" height="16" rx="1.5" />
               <rect x="14" y="4" width="7" height="16" rx="1.5" />
@@ -213,10 +213,10 @@ export function CompareClient() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-slate-950 mb-1">
+          <h1 className="text-2xl font-bold tracking-tight text-ink-900 mb-1">
             學校對比
           </h1>
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-ink-500">
             並排對比 {schools.length} 所學校的關鍵資訊
           </p>
         </div>
@@ -232,11 +232,11 @@ export function CompareClient() {
         <table className="w-full border-collapse">
           <thead>
             <tr>
-              <th className="sticky left-0 z-10 bg-white py-3 px-4 border-b border-slate-200" />
+              <th className="sticky left-0 z-10 bg-white py-3 px-4 border-b border-surface-border" />
               {schools.map((school) => {
                 const displayNameEn = formatEnglishSchoolName(school.name_en?.trim() || school.name_tc);
                 return (
-                  <th key={school.id} className="py-4 px-4 border-b border-slate-200 min-w-[160px]">
+                  <th key={school.id} className="py-4 px-4 border-b border-surface-border min-w-[160px]">
                     <div className="flex flex-col items-center gap-2">
                       <div className="relative">
                         <SchoolAvatar
@@ -257,8 +257,8 @@ export function CompareClient() {
                         </button>
                       </div>
                       <Link href={`/kg/${school.id}`} className="hover:underline text-center">
-                        <p className="text-sm font-bold text-slate-950 leading-snug">{school.name_tc}</p>
-                        <p className="text-xs text-slate-400 leading-snug mt-0.5">{displayNameEn}</p>
+                        <p className="text-sm font-bold text-ink-900 leading-snug">{school.name_tc}</p>
+                        <p className="text-xs text-ink-500 leading-snug mt-0.5">{displayNameEn}</p>
                       </Link>
                     </div>
                   </th>
@@ -315,7 +315,7 @@ export function CompareClient() {
       </div>
 
       {/* Share hint */}
-      <p className="mt-4 text-xs text-slate-400 text-center">
+      <p className="mt-4 text-xs text-ink-500 text-center">
         💡 你可以複製網址分享對比結果給家人
       </p>
     </div>

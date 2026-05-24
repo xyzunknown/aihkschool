@@ -54,8 +54,8 @@ export const ENROLMENT_STATUS_LABELS: Record<string, string> = {
 
 export const ENROLMENT_STATUS_COLORS: Record<string, string> = {
   pre_open: "bg-amber-50 text-amber-700",
-  open: "bg-emerald-50 text-emerald-700",
-  closed: "bg-slate-100 text-slate-500",
+  open: "bg-forest-50 text-forest-700",
+  closed: "bg-cream-100 text-ink-500",
   full: "bg-red-50 text-red-700",
 };
 

@@ -117,18 +117,18 @@ export function AdminGrowthClient() {
     <div>
       <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-slate-950">增長後台</h1>
-          <p className="mt-1 text-sm text-slate-500">查看用戶關注點，管理推薦、合作、郵件、專題和運營建議。</p>
+          <h1 className="text-2xl font-bold text-ink-900">增長後台</h1>
+          <p className="mt-1 text-sm text-ink-500">查看用戶關注點，管理推薦、合作、郵件、專題和運營建議。</p>
         </div>
-        {tab !== "dashboard" && tab !== "newsletter" ? <button onClick={() => openCreate()} className="rounded-xl bg-slate-950 px-4 py-2 text-sm font-medium text-white">新增</button> : null}
-        {tab === "newsletter" ? <button onClick={() => openCreate("campaigns")} className="rounded-xl bg-slate-950 px-4 py-2 text-sm font-medium text-white">新增郵件</button> : null}
+        {tab !== "dashboard" && tab !== "newsletter" ? <button onClick={() => openCreate()} className="rounded-button bg-ink-900 px-4 py-2 text-sm font-medium text-white">新增</button> : null}
+        {tab === "newsletter" ? <button onClick={() => openCreate("campaigns")} className="rounded-button bg-ink-900 px-4 py-2 text-sm font-medium text-white">新增郵件</button> : null}
       </div>
 
-      {message ? <div className="mb-4 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700">{message}</div> : null}
+      {message ? <div className="mb-4 rounded-button border border-surface-border bg-white px-4 py-3 text-sm text-ink-700">{message}</div> : null}
 
       <div className="mb-5 flex flex-wrap gap-2">
         {TABS.map((item) => (
-          <button key={item.key} onClick={() => setTab(item.key)} className={`rounded-xl px-4 py-2 text-sm font-medium ${tab === item.key ? "bg-slate-950 text-white" : "border border-slate-200 bg-white text-slate-700"}`}>
+          <button key={item.key} onClick={() => setTab(item.key)} className={`rounded-button px-4 py-2 text-sm font-medium ${tab === item.key ? "bg-ink-900 text-white" : "border border-surface-border bg-white text-ink-700"}`}>
             {item.label}
           </button>
         ))}
@@ -149,8 +149,8 @@ export function AdminGrowthClient() {
           onClose={() => setEditing(null)}
           actions={
             <>
-              <button onClick={() => setEditing(null)} className="rounded-lg border border-slate-200 bg-white px-5 py-2 text-sm">取消</button>
-              <button onClick={save} className="rounded-lg bg-slate-950 px-5 py-2 text-sm font-medium text-white">保存</button>
+              <button onClick={() => setEditing(null)} className="rounded-chip border border-surface-border bg-white px-5 py-2 text-sm">取消</button>
+              <button onClick={save} className="rounded-chip bg-ink-900 px-5 py-2 text-sm font-medium text-white">保存</button>
             </>
           }
         >
@@ -170,7 +170,7 @@ function Dashboard({ data }: { data: Item | null }) {
   ];
   return <div className="space-y-5">
     <div className="grid gap-4 md:grid-cols-4">
-      {stats.map(([label, value]) => <div key={label} className="rounded-2xl border border-slate-200 bg-white p-5"><div className="text-sm text-slate-500">{label}</div><div className="mt-2 text-3xl font-bold text-slate-950">{String(value)}</div></div>)}
+      {stats.map(([label, value]) => <div key={label} className="rounded-card border border-surface-border bg-white p-5"><div className="text-sm text-ink-500">{label}</div><div className="mt-2 text-3xl font-bold text-ink-900">{String(value)}</div></div>)}
     </div>
     <div className="grid gap-4 lg:grid-cols-3">
       <Rank title="熱門學校" rows={data?.hotSchools as Item[] | undefined} />
@@ -181,20 +181,20 @@ function Dashboard({ data }: { data: Item | null }) {
 }
 
 function Rank({ title, rows = [] }: { title: string; rows?: Item[] }) {
-  return <div className="rounded-2xl border border-slate-200 bg-white p-5">
-    <h3 className="font-semibold text-slate-950">{title}</h3>
+  return <div className="rounded-card border border-surface-border bg-white p-5">
+    <h3 className="font-semibold text-ink-900">{title}</h3>
     <div className="mt-4 space-y-3 text-sm">
-      {rows.length ? rows.map((row) => <div key={String(row.label)} className="flex justify-between gap-4"><span className="truncate text-slate-700">{String(row.label)}</span><span className="font-medium text-slate-950">{String(row.count)}</span></div>) : <div className="text-slate-400">暫無資料</div>}
+      {rows.length ? rows.map((row) => <div key={String(row.label)} className="flex justify-between gap-4"><span className="truncate text-ink-700">{String(row.label)}</span><span className="font-medium text-ink-900">{String(row.count)}</span></div>) : <div className="text-ink-500">暫無資料</div>}
     </div>
   </div>;
 }
 
 function SimpleTable({ items, columns, onEdit }: { items: Item[]; columns: string[]; onEdit?: (item: Item) => void }) {
-  return <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
+  return <div className="overflow-hidden rounded-card border border-surface-border bg-white">
     <table className="w-full text-left text-sm">
-      <thead className="bg-slate-50 text-xs text-slate-500"><tr>{columns.map((col) => <th key={col} className="px-4 py-3">{col}</th>)}{onEdit ? <th className="px-4 py-3 text-right">操作</th> : null}</tr></thead>
+      <thead className="bg-cream-50 text-xs text-ink-500"><tr>{columns.map((col) => <th key={col} className="px-4 py-3">{col}</th>)}{onEdit ? <th className="px-4 py-3 text-right">操作</th> : null}</tr></thead>
       <tbody className="divide-y divide-slate-100">
-        {items.map((item) => <tr key={String(item.id)}>{columns.map((col) => <td key={col} className="max-w-xs truncate px-4 py-3 text-slate-700">{format(item[col])}</td>)}{onEdit ? <td className="px-4 py-3 text-right"><button onClick={() => onEdit(item)} className="font-medium text-slate-950 underline">編輯</button></td> : null}</tr>)}
+        {items.map((item) => <tr key={String(item.id)}>{columns.map((col) => <td key={col} className="max-w-xs truncate px-4 py-3 text-ink-700">{format(item[col])}</td>)}{onEdit ? <td className="px-4 py-3 text-right"><button onClick={() => onEdit(item)} className="font-medium text-ink-900 underline">編輯</button></td> : null}</tr>)}
         {!items.length ? <EmptyTableRow colSpan={columns.length + (onEdit ? 1 : 0)} message="暫無資料" /> : null}
       </tbody>
     </table>
@@ -204,11 +204,11 @@ function SimpleTable({ items, columns, onEdit }: { items: Item[]; columns: strin
 function Newsletter({ subscribers, campaigns, onEditCampaign }: { subscribers: Item[]; campaigns: Item[]; onEditCampaign: (item: Item) => void }) {
   return <div className="grid gap-5 lg:grid-cols-2">
     <section>
-      <h2 className="mb-3 font-semibold text-slate-950">訂閱名單</h2>
+      <h2 className="mb-3 font-semibold text-ink-900">訂閱名單</h2>
       <SimpleTable items={subscribers} columns={["email", "status", "source", "subscribed_at"]} />
     </section>
     <section>
-      <h2 className="mb-3 font-semibold text-slate-950">郵件計劃</h2>
+      <h2 className="mb-3 font-semibold text-ink-900">郵件計劃</h2>
       <SimpleTable items={campaigns} columns={["title", "status", "subject", "open_count", "click_count"]} onEdit={onEditCampaign} />
     </section>
   </div>;

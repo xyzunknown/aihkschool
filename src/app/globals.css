@@ -69,7 +69,7 @@ main {
 .hide-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 
-*:focus-visible {
+:where(a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])):focus-visible {
   outline: 2px solid rgba(58, 129, 89, 0.5);
   outline-offset: 2px;
   border-radius: 8px;

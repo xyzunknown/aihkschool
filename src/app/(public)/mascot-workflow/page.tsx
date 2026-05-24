@@ -65,7 +65,7 @@ function MiniLogo() {
 function BottomNav({ active, brand }: { active: string; brand: string }) {
   const items = ["找幼稚園", "康體通", "活動", "資訊", "我的"];
   return (
-    <div className="absolute bottom-0 left-0 right-0 grid h-[58px] grid-cols-5 border-t border-black/5 bg-white/92 px-2 backdrop-blur">
+    <div className="absolute bottom-0 left-0 right-0 grid h-[58px] grid-cols-5 border-t border-black/5 bg-white/92 px-2 shadow-soft">
       {items.map((item) => (
         <div key={item} className="flex flex-col items-center justify-center gap-1 text-[10px] font-bold" style={{ color: item === active ? brand : "#8A958E" }}>
           <span className="h-4 w-4 rounded-full" style={{ background: item === active ? brand : "#DDE5DE" }} />
@@ -78,8 +78,8 @@ function BottomNav({ active, brand }: { active: string; brand: string }) {
 
 function Phone({ children }: { children: React.ReactNode }) {
   return (
-    <div className="rounded-[30px] bg-[#171D1A] p-2 shadow-[0_24px_44px_rgba(25,35,30,.22)]">
-      <div className="relative h-[660px] w-[310px] overflow-hidden rounded-[24px] bg-white">
+    <div className="rounded-card bg-[#171D1A] p-2 shadow-soft">
+      <div className="relative h-[660px] w-[310px] overflow-hidden rounded-card bg-white">
         <div className="absolute left-1/2 top-3 z-10 h-1.5 w-20 -translate-x-1/2 rounded-full bg-black/14" />
         {children}
       </div>
@@ -101,10 +101,10 @@ function HomeScreen({ s }: { s: (typeof sets)[number] }) {
           </div>
           <Image src={`${mascot}/03_elephant_search_home.png`} alt="" width={92} height={92} className="h-[92px] w-[92px] object-contain" />
         </div>
-        <div className="mt-5 rounded-[8px] bg-white px-4 py-3 shadow-[0_12px_26px_rgba(33,66,48,.10)]">
+        <div className="mt-5 rounded-[8px] bg-white px-4 py-3 shadow-soft">
           <p className="text-[12px] font-bold text-[#93A098]">輸入地區 / 學校名稱</p>
         </div>
-        <div className="mt-4 w-full rounded-[8px] py-3 text-center text-[14px] font-black text-white shadow-[0_10px_22px_rgba(31,80,55,.22)]" style={{ background: s.brand }}>
+        <div className="mt-4 w-full rounded-[8px] py-3 text-center text-[14px] font-black text-white shadow-soft" style={{ background: s.brand }}>
           立即搜尋幼稚園
         </div>
         <div className="mt-5 grid grid-cols-4 gap-2 rounded-[8px] bg-white/75 p-3">
@@ -135,7 +135,7 @@ function SearchScreen({ s }: { s: (typeof sets)[number] }) {
           <h3 className="text-[20px] font-black" style={{ color: s.ink }}>學校結果</h3>
           <span className="rounded-full bg-white px-3 py-1 text-[11px] font-bold" style={{ color: s.brand }}>篩選</span>
         </div>
-        <div className="mt-4 flex items-center gap-3 rounded-[8px] bg-white p-3 shadow-[0_12px_26px_rgba(33,66,48,.10)]">
+        <div className="mt-4 flex items-center gap-3 rounded-[8px] bg-white p-3 shadow-soft">
           <Image src={`${mascot}/03_elephant_search_home.png`} alt="" width={44} height={44} className="h-11 w-11 object-contain" />
           <div>
             <p className="text-[13px] font-black" style={{ color: s.ink }}>為你找到 128 間學校</p>
@@ -151,7 +151,7 @@ function SearchScreen({ s }: { s: (typeof sets)[number] }) {
         </div>
         <div className="mt-4 space-y-3">
           {["明慧幼稚園", "快樂天地幼稚園", "培正幼稚園"].map((name, i) => (
-            <div key={name} className="rounded-[8px] bg-white p-3 shadow-[0_10px_24px_rgba(33,66,48,.10)]">
+            <div key={name} className="rounded-[8px] bg-white p-3 shadow-soft">
               <div className="flex gap-3">
                 <Image src={schoolImages[i]} alt="" width={74} height={58} className="h-[58px] w-[74px] rounded-[6px] object-cover" />
                 <div className="flex-1">
@@ -188,7 +188,7 @@ function ProgrammeScreen({ s }: { s: (typeof sets)[number] }) {
           </div>
           <Image src={`${mascot}/06_elephant_celebration_success.png`} alt="" width={88} height={88} className="h-[88px] w-[88px] object-contain" />
         </div>
-        <div className="mt-5 rounded-[8px] p-4 text-white shadow-[0_14px_28px_rgba(33,66,48,.16)]" style={{ background: s.brand }}>
+        <div className="mt-5 rounded-[8px] p-4 text-white shadow-soft" style={{ background: s.brand }}>
           <p className="text-[12px] font-bold text-white/80">今日可報名</p>
           <div className="mt-2 flex items-end justify-between">
             <p className="text-[34px] font-black">24</p>
@@ -197,7 +197,7 @@ function ProgrammeScreen({ s }: { s: (typeof sets)[number] }) {
         </div>
         <div className="mt-4 grid grid-cols-2 gap-3">
           {["音樂班", "游泳班", "STEM", "繪畫"].map((x, i) => (
-            <div key={x} className="rounded-[8px] bg-white p-3 shadow-[0_10px_20px_rgba(33,66,48,.08)]">
+            <div key={x} className="rounded-[8px] bg-white p-3 shadow-soft">
               <span className="block h-9 w-9 rounded-[8px]" style={{ background: i % 2 ? s.soft : s.warm }} />
               <p className="mt-3 text-[13px] font-black" style={{ color: s.ink }}>{x}</p>
               <p className="mt-1 text-[10px] text-[#6D7A72]">附近 6 個名額</p>
@@ -231,7 +231,7 @@ function FavoriteScreen({ s }: { s: (typeof sets)[number] }) {
         </div>
         <div className="mt-4 space-y-3">
           {["明慧幼稚園", "快樂天地幼稚園", "真光幼稚園"].map((name, i) => (
-            <div key={name} className="rounded-[8px] bg-white p-3 shadow-[0_10px_24px_rgba(33,66,48,.10)]">
+            <div key={name} className="rounded-[8px] bg-white p-3 shadow-soft">
               <div className="flex gap-3">
                 <Image src={schoolImages[i]} alt="" width={76} height={58} className="h-[58px] w-[76px] rounded-[6px] object-cover" />
                 <div className="flex-1">
