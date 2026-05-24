@@ -5,7 +5,7 @@ import {
   ArrowSquareOut,
   Bell,
   Calendar,
-  CaretDown,
+  CaretRight,
   Clock,
   MapPin,
   Tag,
@@ -206,26 +206,17 @@ export function ProgrammeCourseCard({ group, expanded, onToggle }: ProgrammeCour
             <span>{formatEnrolmentTime(earliest.enrolment_open_at)} 開報</span>
           </div>
 
-          <div className="mt-5 flex flex-col gap-2 sm:flex-row">
-            <button type="button" onClick={onToggle} className="inline-flex h-10 min-w-0 flex-[1.15] items-center justify-center gap-2 whitespace-nowrap rounded-pill border border-forest-700 bg-forest-700 px-4 text-small font-semibold text-white shadow-soft transition hover:border-forest-800 hover:bg-forest-800" aria-expanded={expanded}>
-              {expanded ? "收起場次" : "查看場次"}
-              <CaretDown aria-hidden="true" size={15} weight="bold" className={`transition-transform ${expanded ? "rotate-180" : ""}`} />
+          <div className="mt-5 flex">
+            <button type="button" onClick={onToggle} className="inline-flex h-10 items-center justify-center gap-1.5 whitespace-nowrap rounded-pill border border-forest-600/60 bg-white px-5 text-small font-extrabold text-forest-700 transition hover:bg-forest-50" aria-expanded={expanded}>
+              {expanded ? `收起場次（${programmes.length}）` : `查看場次（${programmes.length}）`}
+              <CaretRight aria-hidden="true" size={16} weight="bold" className={`transition-transform ${expanded ? "rotate-90" : ""}`} />
             </button>
           </div>
         </div>
       </div>
 
       {expanded ? (
-        <div className="mt-5 rounded-[20px] border border-surface-border bg-[#FBFDF8] p-3 shadow-soft">
-          <div className="mb-3 flex flex-wrap items-center justify-between gap-2 px-1">
-            <div>
-              <p className="text-small font-bold text-ink-900">可追蹤場次</p>
-              <p className="mt-0.5 text-label font-medium text-ink-500">選一個地點或時間，開報前會提醒你。</p>
-            </div>
-            <span className="inline-flex h-7 items-center rounded-pill bg-forest-50 px-3 text-label font-semibold text-forest-700">
-              {programmes.length} 個場次
-            </span>
-          </div>
+        <div className="mt-4 rounded-[16px] border border-surface-border bg-[#FBFDF8] p-2 shadow-soft">
           <div className="grid gap-2">
           {programmes.map((programme) => (
             <SessionMetaRow key={programme.id} programme={programme} />
@@ -246,9 +237,9 @@ function SessionMetaRow({ programme }: { programme: ProgrammeWithStatus }) {
   const statusLabel = ENROLMENT_STATUS_LABELS[statusKey] ?? "待開放";
 
   return (
-    <div className="grid gap-3 rounded-[16px] border border-surface-border bg-white p-4 text-small text-ink-700 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center">
+    <div className="grid gap-3 rounded-[14px] border border-surface-border bg-white p-3 text-small text-ink-700 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center">
       <div className="min-w-0">
-        <div className="mb-2 flex flex-wrap items-center gap-2">
+        <div className="mb-1.5 flex flex-wrap items-center gap-2">
           <span className={`inline-flex h-6 items-center rounded-pill px-2.5 text-label font-semibold ${ENROLMENT_STATUS_COLORS[statusKey] ?? "bg-cream-100 text-ink-700"}`}>
             {statusLabel}
           </span>
@@ -262,7 +253,7 @@ function SessionMetaRow({ programme }: { programme: ProgrammeWithStatus }) {
           <span className="truncate">{programme.venue || "場地待定"}</span>
           {programme.district ? <span className="shrink-0 font-medium text-ink-500"> · {PROGRAMME_DISTRICT_LABELS[programme.district] || ""}</span> : null}
         </Link>
-        <div className="mt-2 grid gap-1.5 text-label text-ink-500 sm:grid-cols-2">
+        <div className="mt-1.5 grid gap-1.5 text-label text-ink-500 sm:grid-cols-2">
           <span className="inline-flex items-center gap-1"><CalendarIcon />{dateRange}</span>
           <span className="inline-flex items-center gap-1"><ClockIcon />報名 {enrolmentTime}</span>
         </div>
@@ -274,13 +265,13 @@ function SessionMetaRow({ programme }: { programme: ProgrammeWithStatus }) {
         ) : null}
       </div>
       <div className="flex flex-wrap items-center gap-2 sm:justify-end">
-        <SubscribeButton programmeId={programme.id} size="sm" />
+        <SubscribeButton programmeId={programme.id} size="sm" className="h-10 w-[92px] px-3 text-small font-bold" />
         {programme.raw_url ? (
           <a
             href={programme.raw_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-9 items-center justify-center gap-1.5 rounded-pill border border-surface-border bg-white px-3 text-label font-bold text-forest-700 transition hover:bg-forest-50"
+            className="inline-flex h-10 w-[92px] items-center justify-center gap-1.5 rounded-pill border border-surface-border bg-white px-3 text-small font-bold text-forest-700 transition hover:bg-forest-50"
           >
             報名
             <ArrowSquareOut aria-hidden="true" size={14} weight="regular" />

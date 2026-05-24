@@ -17,9 +17,10 @@ async function getErrorMessage(response: Response, fallback: string) {
 interface SubscribeButtonProps {
   programmeId: string;
   size?: "sm" | "md" | "lg";
+  className?: string;
 }
 
-export function SubscribeButton({ programmeId, size = "md" }: SubscribeButtonProps) {
+export function SubscribeButton({ programmeId, size = "md", className = "" }: SubscribeButtonProps) {
   const { user, requireAuth } = useAuth();
   const { showToast } = useToast();
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -105,7 +106,7 @@ export function SubscribeButton({ programmeId, size = "md" }: SubscribeButtonPro
         isSubscribed
           ? "border-forest-700 bg-forest-700 text-white hover:border-forest-800 hover:bg-forest-800"
           : "border-forest-200 bg-white text-forest-700 hover:bg-forest-50"
-      }`}
+      } ${className}`}
     >
       {loading ? (
         <span className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-t-transparent" />
