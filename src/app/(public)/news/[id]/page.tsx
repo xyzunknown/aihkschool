@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import * as cheerio from "cheerio";
 import { getAllNewsItems, getNewsItemById } from "@/lib/homepage/liveData";
 import { NEWS_ITEMS } from "@/data/homepage";
 import type { NewsItem } from "@/types/homepage";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { absoluteUrl, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+import { normalizeNewsHref } from "@/lib/news/links";
 
 export const revalidate = 3600;
 
@@ -68,7 +70,7 @@ async function fetchHtml(url: string): Promise<string | null> {
  * GovHK English pages contain a link to the TC version: <a href="..."><img id="hdrTCLnk">
  */
 async function fetchArticleContent(url: string): Promise<string | null> {
-  const html = await fetchHtml(url);
+  const html = await fetchHtml(normalizeNewsHref(url));
   if (!html) return null;
 
   // If this is a GovHK English page, find and fetch the Chinese version instead
@@ -87,45 +89,72 @@ async function fetchArticleContent(url: string): Promise<string | null> {
 }
 
 function extractMainContent(html: string): string {
-  // Try site-specific selectors first, then generic fallbacks
-  // GovHK uses <span id="pressrelease">, not <div>
-  const contentMatch =
-    // GovHK press releases — uses <span> or <div>
-    html.match(/<(?:div|span)[^>]*id=["']pressrelease["'][^>]*>([\s\S]*?)<\/(?:div|span)>/i) ??
-    html.match(/<(?:div|span)[^>]*class=["']acontent["'][^>]*>([\s\S]*?)<\/(?:div|span)>/i) ??
-    // EDB content areas (order by specificity)
-    html.match(/<(?:div|td|section)[^>]*id=["']mainContent["'][^>]*>([\s\S]*?)<\/(?:div|td|section)>/i) ??
-    html.match(/<(?:div|td|section)[^>]*id=["']content["'][^>]*>([\s\S]*?)<\/(?:div|td|section)>/i) ??
-    html.match(/<div[^>]*class=["'][^"]*edb-content[^"]*["'][^>]*>([\s\S]*?)<\/div>/i) ??
-    html.match(/<div[^>]*class=["'][^"]*edb_content[^"]*["'][^>]*>([\s\S]*?)<\/div>/i) ??
-    html.match(/<div[^>]*class=["'][^"]*content\s[^"]*["'][^>]*>([\s\S]*?)<\/div>/i) ??
-    html.match(/<div[^>]*class=["'][^"]*page-content[^"]*["'][^>]*>([\s\S]*?)<\/div>/i) ??
-    // Generic patterns
-    html.match(/<article[^>]*>([\s\S]*?)<\/article>/i) ??
-    html.match(/<main[^>]*>([\s\S]*?)<\/main>/i) ??
-    html.match(/<div[^>]*class=["'][^"]*content-body[^"]*["'][^>]*>([\s\S]*?)<\/div>/i) ??
-    html.match(/<div[^>]*role=["']main["'][^>]*>([\s\S]*?)<\/div>/i) ??
-    // Last resort: extract body content
-    html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+  const $ = cheerio.load(html);
+  const candidates = [
+    "#pressrelease",
+    ".acontent",
+    ".inner_page_content_container",
+    "#mainContent",
+    "#content",
+    ".edb-content",
+    ".edb_content",
+    ".page-content",
+    "article",
+    "main",
+    ".content-body",
+    "[role='main']",
+    "body",
+  ];
+  const content = candidates
+    .map((selector) => $(selector).first())
+    .find((element) => element.length && element.text().replace(/\s+/g, "").length > 20);
 
-  const raw = contentMatch?.[1] ?? "";
+  content
+    ?.find(
+      "script, style, nav, header, footer, form, img, iframe, noscript, .controlDisplay, .mobile_all_over_content, .mobile_all_over_content_menu_lv2, .mobile_all_over_content_menu_lv3"
+    )
+    .remove();
+  content?.find("a[href^='#']").remove();
+  content?.find("a").each((_, element) => {
+    $(element).replaceWith($(element).html() ?? "");
+  });
+
+  const raw = content?.html() ?? "";
   if (!raw) return "";
 
-  // Strip scripts, styles, nav, forms, images
+  const allowedTags = new Set([
+    "p",
+    "h1",
+    "h2",
+    "h3",
+    "h4",
+    "h5",
+    "h6",
+    "ul",
+    "ol",
+    "li",
+    "br",
+    "blockquote",
+    "table",
+    "thead",
+    "tbody",
+    "tr",
+    "td",
+    "th",
+    "strong",
+    "em",
+    "b",
+    "i",
+    "u",
+    "sub",
+    "sup",
+    "hr",
+    "pre",
+    "code",
+  ]);
+
   return raw
-    .replace(/<script[\s\S]*?<\/script>/gi, "")
-    .replace(/<style[\s\S]*?<\/style>/gi, "")
-    .replace(/<nav[\s\S]*?<\/nav>/gi, "")
-    .replace(/<header[\s\S]*?<\/header>/gi, "")
-    .replace(/<footer[\s\S]*?<\/footer>/gi, "")
-    .replace(/<form[\s\S]*?<\/form>/gi, "")
-    .replace(/<img[^>]*>/gi, "")
-    // Remove skip-nav / anchor-only links entirely (before generic <a> cleanup)
-    .replace(/<a\s[^>]*href=["']#[^"']*["'][^>]*>[\s\S]*?<\/a>/gi, "")
-    // Strip remaining <a> tags, keep text
-    .replace(/<a\s[^>]*>([\s\S]*?)<\/a>/gi, "$1")
     // GovHK / EDB boilerplate cleanup
-    .replace(/<div[^>]*class=["'][^"]*controlDisplay[^"]*["'][^>]*>[\s\S]*?<\/div>/gi, "")
     .replace(/\bNNNN\b/g, "")
     .replace(/Ends\/\w+,\s+\w+\s+\d{1,2},\s+\d{4}/gi, "")
     .replace(/完\s*\/\s*\S{2,3}\s*，\s*\d{1,2}月\d{1,2}日/g, "")
@@ -139,8 +168,13 @@ function extractMainContent(html: string): string {
     .replace(/Skip to main content/gi, "")
     // Preserve structural + formatting tags; strip the rest
     .replace(/<[^>]+>/g, (tag) => {
-      if (/^<\/?(p|h[1-6]|ul|ol|li|br|blockquote|table|thead|tbody|tr|t[dh]|strong|em|b|i|u|sub|sup|hr|pre|code)\s*\/?>/i.test(tag)) return tag;
-      return "";
+      const match = tag.match(/^<\s*(\/?)\s*([a-z0-9]+)(?:\s[^>]*)?(\/?)\s*>$/i);
+      if (!match) return "";
+      const [, closing, name, selfClosing] = match;
+      const tagName = name.toLowerCase();
+      if (!allowedTags.has(tagName)) return "";
+      if (tagName === "br" || tagName === "hr" || selfClosing) return `<${tagName}>`;
+      return closing ? `</${tagName}>` : `<${tagName}>`;
     })
     .replace(/\son[a-z-]+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, "")
     .replace(/\sstyle\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, "")
@@ -197,16 +231,17 @@ export default async function ArticlePage({ params }: PageProps) {
     notFound();
   }
 
-  const html = await fetchArticleContent(article.href);
+  const articleHref = normalizeNewsHref(article.href);
+  const html = await fetchArticleContent(articleHref);
   const mainContent = html ? extractMainContent(html) : "";
   const hasContent = mainContent.length > 20;
 
   if (!html) {
-    console.error(`[ArticlePage] fetchArticleContent returned null for: ${article.href}`);
+    console.error(`[ArticlePage] fetchArticleContent returned null for: ${articleHref}`);
   } else if (!hasContent) {
-    console.warn(`[ArticlePage] extractMainContent produced no usable content for: ${article.href} (html length: ${html.length})`);
+    console.warn(`[ArticlePage] extractMainContent produced no usable content for: ${articleHref} (html length: ${html.length})`);
   }
-  const hostname = extractHostname(article.href);
+  const hostname = extractHostname(articleHref);
   const allNews = await getAllNewsItems();
 
   const relatedNews = allNews
@@ -227,7 +262,7 @@ export default async function ArticlePage({ params }: PageProps) {
     inLanguage: "zh-HK",
     author: { "@type": "Organization", name: article.source_label },
     publisher: { "@type": "Organization", name: "HKSchoolPlace" },
-    isBasedOn: article.href,
+    isBasedOn: articleHref,
   };
 
   return (
@@ -281,7 +316,7 @@ export default async function ArticlePage({ params }: PageProps) {
           </p>
           <p className="mb-5 text-xs text-slate-400">{hostname}</p>
           <Link
-            href={article.href}
+            href={articleHref}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-xl bg-slate-950 px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-[1.02]"
@@ -307,7 +342,7 @@ export default async function ArticlePage({ params }: PageProps) {
 
       <div className="mb-10 flex justify-center">
         <Link
-          href={article.href}
+          href={articleHref}
           target="_blank"
           rel="noreferrer"
           className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50"
