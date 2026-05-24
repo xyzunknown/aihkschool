@@ -16,7 +16,7 @@ async function getErrorMessage(response: Response, fallback: string) {
 
 interface SubscribeButtonProps {
   programmeId: string;
-  size?: "sm" | "md";
+  size?: "sm" | "md" | "lg";
 }
 
 export function SubscribeButton({ programmeId, size = "md" }: SubscribeButtonProps) {
@@ -93,7 +93,9 @@ export function SubscribeButton({ programmeId, size = "md" }: SubscribeButtonPro
 
   const sizeClasses = size === "sm"
     ? "h-9 px-4 text-small"
-    : "h-10 px-5 text-small";
+    : size === "lg"
+      ? "h-14 px-6 text-body"
+      : "h-10 px-5 text-small";
 
   return (
     <button

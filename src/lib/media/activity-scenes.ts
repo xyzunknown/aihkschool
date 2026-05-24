@@ -29,7 +29,7 @@ const TITLE_SCENE_RULES = [
   { pattern: /清晨太極|簡易太極|太極|太极/i, image: `${SCENE_BASE}/tai-chi-park.webp` },
   { pattern: /乒乓|table\s*tennis/i, image: `${SCENE_BASE}/table-tennis-room.webp` },
   { pattern: /柔道|跆拳道|空手道|武術|武术|judo|taekwondo|martial/i, image: `${SCENE_BASE}/judo-dojo.webp` },
-  { pattern: /水上安全/i, image: `${SCENE_BASE}/water-safety-toddler.webp` },
+  { pattern: /水上安全/i, image: `${SCENE_BASE}/water-safety-baby-course.webp` },
   { pattern: /胸泳|breaststroke/i, image: `${SCENE_BASE}/breaststroke-kids.webp` },
   { pattern: /捷泳|自由泳|freestyle/i, image: `${SCENE_BASE}/freestyle-kids.webp` },
   { pattern: /游泳|swim|aquatic/i, image: `${SCENE_BASE}/swimming-kickboard.webp` },

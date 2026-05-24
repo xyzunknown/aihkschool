@@ -1,5 +1,18 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Image from "next/image";
+import {
+  BookOpen,
+  CalendarDays,
+  Clock3,
+  ExternalLink,
+  Info,
+  Map,
+  MapPin,
+  Tag,
+  UserRound,
+  type LucideIcon,
+} from "lucide-react";
 import { fetchProgrammeById } from "@/lib/db/programmes";
 import {
   PROGRAMME_CATEGORY_LABELS,
@@ -10,8 +23,8 @@ import {
   formatEnrolmentTime,
   formatProgrammeDateRange,
   formatAgeRange,
-  getEnrolmentCountdown,
 } from "@/lib/programmes/labels";
+import { getProgrammeSceneImage } from "@/lib/media/activity-scenes";
 import { SubscribeButton } from "@/components/programmes/SubscribeButton";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { absoluteUrl, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
@@ -42,14 +55,28 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
   const dateRange = formatProgrammeDateRange(programme.start_date, programme.end_date);
   const ageRange = formatAgeRange(programme.age_min, programme.age_max);
   const enrolmentTime = formatEnrolmentTime(programme.enrolment_open_at);
-  const countdown = getEnrolmentCountdown(programme.enrolment_open_at);
   const status = programme.lcsd_programme_status;
   const enrolmentStatus = status?.enrolment_status || "pre_open";
+  const heroImage = getProgrammeSceneImage(programme);
+  const programmeHref = programme.raw_url ?? "https://www.smartplay.lcsd.gov.hk/";
   const mapHref = programme.venue
     ? `https://maps.google.com/?q=${encodeURIComponent(
         `${programme.venue}${programme.district ? ` ${PROGRAMME_DISTRICT_LABELS[programme.district] || programme.district}` : ""} Hong Kong`,
       )}`
     : null;
+  const infoItems = [
+    { label: "報名開放", value: enrolmentTime, icon: Clock3 },
+    { label: "課程日期", value: dateRange, icon: CalendarDays },
+    { label: "場地", value: programme.venue || "未知", icon: MapPin, href: mapHref ?? undefined },
+    {
+      label: "地區",
+      value: programme.district ? PROGRAMME_DISTRICT_LABELS[programme.district] || programme.district : "未知",
+      icon: Map,
+    },
+    { label: "費用", value: fee.label, icon: Tag, highlight: fee.isFree },
+    { label: "堂數", value: programme.sessions_count ? `${programme.sessions_count} 堂` : "未知", icon: BookOpen },
+    { label: "適合年齡", value: ageRange || "未知", icon: UserRound },
+  ];
   const programmeJsonLd = {
     "@context": "https://schema.org",
     "@type": "Course",
@@ -72,7 +99,7 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
   };
 
   return (
-    <div className="mx-auto max-w-3xl px-5 py-8 md:px-8 md:py-12">
+    <div className="mx-auto max-w-[1200px] px-5 py-9 md:px-8 md:py-12">
       <JsonLd
         data={[
           breadcrumbJsonLd([
@@ -83,10 +110,10 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
           programmeJsonLd,
         ]}
       />
-      {/* 返回 */}
+
       <a
         href="/programmes"
-        className="mb-6 inline-flex items-center gap-1 text-sm text-ink-500 hover:text-ink-700"
+        className="mb-8 inline-flex items-center gap-1 text-small font-medium text-ink-500 transition hover:text-forest-700"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="15 18 9 12 15 6" />
@@ -94,87 +121,70 @@ export default async function ProgrammeDetailPage({ params }: PageProps) {
         返回課程列表
       </a>
 
-      {/* 主卡片 */}
-      <div className="overflow-hidden rounded-card border border-surface-border bg-white">
-        <div className="p-6 md:p-8">
-          <div className="mb-6">
-              {/* 類別 + 狀態 */}
-              <div className="mb-3 flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center rounded-full bg-cream-100 px-3 py-1 text-xs font-medium text-ink-700">
-                  {PROGRAMME_CATEGORY_LABELS[programme.category || "other"]}
-                </span>
-                <span
-                  className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ${
-                    ENROLMENT_STATUS_COLORS[enrolmentStatus]
-                  }`}
-                >
-                  {ENROLMENT_STATUS_LABELS[enrolmentStatus]}
-                </span>
-              </div>
+      <section className="grid items-center gap-8 md:grid-cols-[minmax(0,0.92fr)_minmax(0,1fr)] md:gap-11">
+        <div className="relative h-[300px] overflow-hidden rounded-[24px] bg-cream-100 shadow-card md:h-[370px]">
+          <Image
+            src={heroImage}
+            alt=""
+            fill
+            sizes="(min-width: 768px) 520px, 100vw"
+            className="object-cover object-center saturate-[0.86] brightness-[1.04]"
+            priority
+          />
+        </div>
 
-              {/* 標題 */}
-              <h1 className="mb-2 text-2xl font-bold tracking-tight text-ink-900">
-                {programme.name_zh || programme.name_en || "未知課程"}
-              </h1>
-              {programme.name_en && programme.name_zh && (
-                <p className="text-sm text-ink-500">{programme.name_en}</p>
-              )}
+        <div className="max-w-[520px]">
+          <div className="mb-5 flex flex-wrap items-center gap-2.5">
+            <span className="inline-flex h-8 items-center rounded-pill bg-[#EAF6FB] px-3.5 text-small font-semibold text-[#166A8F]">
+              {PROGRAMME_CATEGORY_LABELS[programme.category || "other"]}
+            </span>
+            <span
+              className={`inline-flex h-8 items-center rounded-pill px-3.5 text-small font-semibold ${
+                ENROLMENT_STATUS_COLORS[enrolmentStatus]
+              }`}
+            >
+              {ENROLMENT_STATUS_LABELS[enrolmentStatus]}
+            </span>
           </div>
 
-          {/* 倒計時 banner */}
-          {countdown && (
-            <div className="mb-6 rounded-button bg-amber-50 border border-amber-100 px-4 py-3 flex items-center gap-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-amber-600">
-                <circle cx="12" cy="12" r="10" />
-                <polyline points="12 6 12 12 16 14" />
-              </svg>
-              <span className="text-sm font-medium text-amber-700">{countdown}</span>
-            </div>
+          <h1 className="text-[32px] font-bold leading-tight tracking-normal text-ink-900 md:text-[40px]">
+            {programme.name_zh || programme.name_en || "未知課程"}
+          </h1>
+          {programme.name_en && programme.name_zh && (
+            <p className="mt-3 text-[17px] leading-relaxed text-ink-500">{programme.name_en}</p>
           )}
 
-        {/* 信息格子 */}
-        <div className="grid grid-cols-2 gap-4 mb-6">
-          <InfoCell label="報名開放" value={enrolmentTime} />
-          <InfoCell label="課程日期" value={dateRange} />
-          <InfoCell label="場地" value={programme.venue || "未知"} href={mapHref ?? undefined} />
-          <InfoCell
-            label="地區"
-            value={programme.district ? PROGRAMME_DISTRICT_LABELS[programme.district] || programme.district : "未知"}
-          />
-          <InfoCell label="費用" value={fee.label} highlight={fee.isFree} />
-          <InfoCell label="堂數" value={programme.sessions_count ? `${programme.sessions_count} 堂` : "未知"} />
-          {ageRange && <InfoCell label="適合年齡" value={ageRange} />}
-          {status?.seats_available !== null && status?.seats_available !== undefined && (
-            <InfoCell label="剩餘名額" value={`${status.seats_available} 個`} />
-          )}
-        </div>
+          <p className="mt-7 max-w-[500px] text-body leading-8 text-ink-700">
+            透過遊戲及專業指導，讓幼兒在安全有趣的水中環境中建立自信，
+            學習基本水上安全知識與技巧，培養良好親水習慣。
+          </p>
 
-        {/* 操作按鈕 */}
-        <div className="flex flex-col gap-3 sm:flex-row">
-          <SubscribeButton programmeId={programme.id} />
-
-          {programme.raw_url && (
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <SubscribeButton programmeId={programme.id} size="lg" />
             <a
-              href={programme.raw_url}
+              href={programmeHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-1.5 rounded-button border border-surface-border bg-white px-5 py-2.5 text-sm font-medium text-ink-700 transition-colors hover:bg-cream-50"
+              className="inline-flex h-14 min-w-[250px] items-center justify-center gap-2 rounded-pill border border-forest-700 bg-forest-700 px-6 text-body font-bold text-white shadow-soft transition hover:border-forest-800 hover:bg-forest-800"
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                <polyline points="15 3 21 3 21 9" />
-                <line x1="10" y1="14" x2="21" y2="3" />
-              </svg>
+              <ExternalLink aria-hidden="true" size={18} strokeWidth={2} />
               前往 SmartPLAY 報名
             </a>
-          )}
+          </div>
         </div>
-        </div>
-      </div>
+      </section>
 
-      {/* 免責聲明 */}
-      <div className="mt-6 rounded-button bg-cream-50 border border-surface-border px-4 py-3">
-        <p className="text-xs text-ink-500">
+      <section className="mt-11 rounded-[24px] border border-surface-border bg-white p-6 shadow-card md:p-9">
+        <div className="grid gap-4 md:grid-cols-2 md:gap-5">
+          {infoItems.map((item) => (
+            <InfoCell key={item.label} {...item} />
+          ))}
+        </div>
+      </section>
+
+      <div className="mt-6 flex gap-3 rounded-[18px] border border-surface-border bg-[#F7FBF3] px-5 py-4 text-ink-600">
+        <Info aria-hidden="true" className="mt-0.5 shrink-0 text-forest-700" size={18} strokeWidth={2} />
+        <p className="text-small leading-relaxed">
           課程資料來自康文署 SmartPLAY，僅供參考。實際安排以官方為準。
           HKSchoolPlace 不提供代報名服務，請自行前往官網操作。
         </p>
@@ -188,42 +198,39 @@ function InfoCell({
   value,
   highlight,
   href,
+  icon: Icon,
 }: {
   label: string;
   value: string;
   highlight?: boolean;
   href?: string;
+  icon: LucideIcon;
 }) {
   return (
-    <div className="rounded-button bg-cream-50 px-4 py-3">
-      <p className="text-xs text-ink-500 font-medium uppercase tracking-wider mb-1">
-        {label}
-      </p>
-      {href ? (
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`inline-flex items-center gap-1 text-sm font-semibold underline decoration-slate-300 underline-offset-2 hover:decoration-slate-900 ${
-            highlight ? "text-forest-600" : "text-ink-900"
-          }`}
-        >
-          {value}
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-            <polyline points="15 3 21 3 21 9" />
-            <line x1="10" y1="14" x2="21" y2="3" />
-          </svg>
-        </a>
-      ) : (
-        <p
-          className={`text-sm font-semibold ${
-            highlight ? "text-forest-600" : "text-ink-900"
-          }`}
-        >
-          {value}
-        </p>
-      )}
+    <div className="flex min-h-[92px] gap-4 rounded-[16px] border border-[#E8ECE3] bg-[#FFFDF8] px-5 py-5">
+      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[12px] bg-forest-50 text-forest-700">
+        <Icon aria-hidden="true" size={21} strokeWidth={1.9} />
+      </div>
+      <div className="min-w-0">
+        <p className="mb-1.5 text-small font-semibold text-ink-500">{label}</p>
+        {href ? (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`inline-flex min-w-0 items-center gap-1 text-body font-bold hover:text-forest-700 ${
+              highlight ? "text-forest-700" : "text-ink-900"
+            }`}
+          >
+            <span className="truncate">{value}</span>
+            <ExternalLink className="shrink-0" size={15} strokeWidth={2} aria-hidden="true" />
+          </a>
+        ) : (
+          <p className={`text-body font-bold ${highlight ? "text-forest-700" : "text-ink-900"}`}>
+            {value}
+          </p>
+        )}
+      </div>
     </div>
   );
 }

@@ -32,6 +32,7 @@ export function Header() {
   const [accountMenuOpen, setAccountMenuOpen] = useState(false);
   const accountMenuRef = useRef<HTMLDivElement | null>(null);
   const activeTab = searchParams?.get("tab") ?? null;
+  const showCloseButton = pathname?.startsWith("/programmes") ?? false;
 
   useEffect(() => {
     const handlePointerDown = (event: MouseEvent | TouchEvent) => {
@@ -111,7 +112,15 @@ export function Header() {
 
         {/* Right cluster: auth buttons */}
         <div className="flex items-center gap-2 ml-auto">
-          {user ? (
+          {showCloseButton ? (
+            <Link
+              href="/"
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-forest-600 text-small font-bold text-white transition hover:bg-forest-700"
+              aria-label="返回首頁"
+            >
+              X
+            </Link>
+          ) : user ? (
             <div ref={accountMenuRef} className="relative">
               <button
                 onClick={() => setAccountMenuOpen((value) => !value)}
