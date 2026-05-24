@@ -301,7 +301,7 @@ export default function KGListClient() {
   return (
     <div className="mx-auto max-w-[1800px] px-5 py-6 md:px-8">
       <h1 className="text-2xl font-bold tracking-tight text-slate-950 mb-2">
-        {hotFilter ? "熱點名校 100" : "策劃香港卓越教育藍圖"}
+        {hotFilter ? "熱點學校 100" : "策劃香港卓越教育藍圖"}
       </h1>
       <p className="text-slate-600 mb-8">
         {hotFilter ? "這裡集中顯示家長討論度高、平台已匹配資料的熱門幼稚園。" : "權威性的教育機構指南，即時更新學位空缺狀態及報名資訊。"}
@@ -346,7 +346,7 @@ export default function KGListClient() {
       ) : (
         <>
           <div className="flex items-center justify-between mb-4">
-            <p className="text-sm text-slate-500">{hotFilter ? `共 ${count} 所熱點名校` : `共 ${count} 所學校`}</p>
+            <p className="text-sm text-slate-500">{hotFilter ? `共 ${count} 所熱點學校` : `共 ${count} 所學校`}</p>
             <div className="flex items-center gap-3">
               <div className="relative">
                 <button
