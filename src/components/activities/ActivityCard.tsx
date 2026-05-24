@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin } from "@phosphor-icons/react/dist/ssr";
+import { CaretRight, MapPin } from "@phosphor-icons/react/dist/ssr";
 import type { Activity } from "@/lib/db/activities";
 import {
   CATEGORY_LABELS,
@@ -28,22 +28,22 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
   const venueSummary = getDisplayVenue(activity, districtLabel);
 
   return (
-    <article className="activity-card overflow-hidden rounded-card border border-surface-border bg-white p-4 shadow-soft transition-colors hover:border-forest-200 md:p-5">
+    <Link
+      href={detailHref}
+      className="activity-card group block overflow-hidden rounded-card border border-surface-border bg-white p-3.5 shadow-soft transition hover:-translate-y-0.5 hover:border-forest-200 hover:shadow-card md:p-4"
+      aria-label={`${activity.title} 活動詳情`}
+    >
       <div className="activity-card__body">
-        <Link
-          href={detailHref}
-          className="activity-card__image relative block overflow-hidden rounded-button bg-cream-100"
-          aria-label={`${activity.title} 活動詳情`}
-        >
+        <div className="activity-card__image relative block overflow-hidden rounded-button bg-cream-100">
           <Image
             src={imageSrc}
             alt={activity.title}
             fill
             priority={priority}
-            sizes="(min-width: 1280px) 260px, (min-width: 768px) 50vw, 100vw"
-            className="object-cover object-center saturate-[0.82] brightness-[1.06]"
+            sizes="(min-width: 1280px) 31vw, (min-width: 768px) 48vw, 100vw"
+            className="object-cover object-center saturate-[0.82] brightness-[1.06] transition duration-300 group-hover:scale-[1.025]"
           />
-        </Link>
+        </div>
 
         <div className="activity-card__content flex min-w-0 flex-1 flex-col">
           <div className="flex items-center gap-2">
@@ -55,11 +55,9 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
             </span>
           </div>
 
-          <Link href={detailHref} className="block">
-            <h3 className="mt-3 line-clamp-2 text-h2 font-semibold text-ink-900 hover:text-forest-700">
-              {activity.title}
-            </h3>
-          </Link>
+          <h3 className="mt-3 line-clamp-2 text-[18px] font-semibold leading-snug text-ink-900 transition-colors group-hover:text-forest-700">
+            {activity.title}
+          </h3>
 
           <p className="mt-2.5 line-clamp-1 text-small font-medium text-ink-500">{dateRange}</p>
 
@@ -68,17 +66,14 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
             <span className="truncate">{venueSummary}</span>
           </div>
 
-          <div className="mt-5 flex justify-end">
-            <Link
-              href={detailHref}
-              className="inline-flex h-9 w-full items-center justify-center whitespace-nowrap rounded-pill border border-forest-200 bg-white px-3 text-small font-semibold text-forest-700 transition hover:bg-forest-50 sm:w-[140px]"
-            >
-              查看詳情
-            </Link>
+          <div className="mt-4 flex justify-end">
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-forest-100 text-forest-600 transition-colors group-hover:border-forest-200 group-hover:bg-forest-50">
+              <CaretRight aria-hidden="true" size={16} weight="bold" />
+            </span>
           </div>
         </div>
       </div>
-    </article>
+    </Link>
   );
 }
 
@@ -108,7 +103,7 @@ const KNOWN_VENUES = [
 
 export function ActivityCardSkeleton() {
   return (
-    <div className="activity-card animate-pulse overflow-hidden rounded-card border border-surface-border bg-white p-4 shadow-soft md:p-5">
+    <div className="activity-card animate-pulse overflow-hidden rounded-card border border-surface-border bg-white p-3.5 shadow-soft md:p-4">
       <div className="activity-card__body">
         <div className="activity-card__image rounded-button bg-cream-100" />
         <div className="activity-card__content flex-1 space-y-4">
@@ -118,8 +113,8 @@ export function ActivityCardSkeleton() {
           </div>
           <div className="h-6 w-4/5 rounded bg-cream-100" />
           <div className="h-5 w-3/5 rounded bg-cream-100" />
-          <div className="flex gap-2 pt-4">
-            <div className="ml-auto h-9 w-full rounded-pill bg-cream-100 sm:w-[140px]" />
+          <div className="flex justify-end pt-2">
+            <div className="h-8 w-8 rounded-full bg-cream-100" />
           </div>
         </div>
       </div>
