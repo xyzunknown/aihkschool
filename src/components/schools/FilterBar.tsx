@@ -2,7 +2,8 @@
 
 import { useMemo, useState } from "react";
 import type { ReactNode } from "react";
-import { CaretDown, Check, SlidersHorizontal, X } from "@phosphor-icons/react";
+import type { Icon } from "@phosphor-icons/react";
+import { CaretDown, Check, GraduationCap, MapPin, SlidersHorizontal, Student, Tag, X } from "@phosphor-icons/react";
 import { DISTRICT_LABELS, SCHOOL_TYPE_LABELS } from "@/lib/utils";
 import type { District, SchoolType } from "@/types/database";
 
@@ -56,7 +57,7 @@ function toDistrictOption(key: string) {
 }
 
 function districtSummary(selectedDistricts: District[]) {
-  if (selectedDistricts.length === 0) return "全部地區";
+  if (selectedDistricts.length === 0) return "地區";
   if (selectedDistricts.length <= 2) return selectedDistricts.map((district) => DISTRICT_LABELS[district]).join("、");
   return `${DISTRICT_LABELS[selectedDistricts[0]]}等 ${selectedDistricts.length} 區`;
 }
@@ -108,10 +109,10 @@ export function FilterBar({
     <div className="relative z-10 mb-6">
       <div className="relative z-30 rounded-card border border-surface-border bg-white p-3 shadow-soft md:p-4">
         <div className="flex flex-wrap items-center gap-2">
-          <SummaryButton label="地區" value={districtSummary(selectedDistricts)} active={selectedDistricts.length > 0} open={openPanel === "district"} onClick={() => setOpenPanel(openPanel === "district" ? null : "district")} />
-          <SummaryButton label="學位" value={vacancyFilter.length === 0 ? "全部學位" : vacancyFilter.length === 1 ? optionLabel(vacancyOptions, vacancyFilter[0]) ?? "已選" : `已選 ${vacancyFilter.length}`} active={vacancyFilter.length > 0} open={openPanel === "vacancy"} onClick={() => setOpenPanel(openPanel === "vacancy" ? null : "vacancy")} />
-          <SummaryButton label="年級" value={selectedGrade ? selectedGrade.toUpperCase() : "全部年級"} active={Boolean(selectedGrade)} open={openPanel === "grade"} onClick={() => setOpenPanel(openPanel === "grade" ? null : "grade")} />
-          <SummaryButton label="類別" value={selectedType ? SCHOOL_TYPE_LABELS[selectedType] ?? selectedType : "全部類別"} active={Boolean(selectedType)} open={openPanel === "type"} onClick={() => setOpenPanel(openPanel === "type" ? null : "type")} />
+          <SummaryButton icon={MapPin} value={districtSummary(selectedDistricts)} active={selectedDistricts.length > 0} open={openPanel === "district"} onClick={() => setOpenPanel(openPanel === "district" ? null : "district")} />
+          <SummaryButton icon={GraduationCap} value={vacancyFilter.length === 0 ? "學位" : vacancyFilter.length === 1 ? optionLabel(vacancyOptions, vacancyFilter[0]) ?? "已選" : `已選 ${vacancyFilter.length}`} active={vacancyFilter.length > 0} open={openPanel === "vacancy"} onClick={() => setOpenPanel(openPanel === "vacancy" ? null : "vacancy")} />
+          <SummaryButton icon={Student} value={selectedGrade ? selectedGrade.toUpperCase() : "年級"} active={Boolean(selectedGrade)} open={openPanel === "grade"} onClick={() => setOpenPanel(openPanel === "grade" ? null : "grade")} />
+          <SummaryButton icon={Tag} value={selectedType ? SCHOOL_TYPE_LABELS[selectedType] ?? selectedType : "類別"} active={Boolean(selectedType)} open={openPanel === "type"} onClick={() => setOpenPanel(openPanel === "type" ? null : "type")} />
           <button
             type="button"
             onClick={() => setOpenPanel(openPanel === "more" ? null : "more")}
@@ -119,7 +120,7 @@ export function FilterBar({
             aria-expanded={openPanel === "more"}
           >
             <SlidersHorizontal aria-hidden="true" size={16} weight="regular" />
-            更多篩選{moreCount > 0 ? ` ${moreCount}` : ""}
+            更多{moreCount > 0 ? ` ${moreCount}` : ""}
           </button>
           {activeTags.length > 0 ? (
             <button type="button" onClick={resetAll} className="ml-auto inline-flex h-10 items-center rounded-pill px-3 text-small font-semibold text-ink-500 transition hover:bg-cream-50 hover:text-ink-900">
@@ -193,7 +194,7 @@ export function FilterBar({
   );
 }
 
-function SummaryButton({ label, value, active, open, onClick }: { label: string; value: string; active: boolean; open: boolean; onClick: () => void }) {
+function SummaryButton({ icon: IconComponent, value, active, open, onClick }: { icon: Icon; value: string; active: boolean; open: boolean; onClick: () => void }) {
   return (
     <button
       type="button"
@@ -201,7 +202,7 @@ function SummaryButton({ label, value, active, open, onClick }: { label: string;
       className={`inline-flex h-10 items-center gap-2 rounded-pill border px-3 text-small font-semibold transition ${active || open ? "border-forest-700 bg-forest-700 text-white" : "border-surface-border bg-white text-ink-700 hover:border-forest-200 hover:bg-forest-50"}`}
       aria-expanded={open}
     >
-      <span className="text-label font-medium opacity-75">{label}</span>
+      <IconComponent aria-hidden="true" size={16} weight={active || open ? "fill" : "regular"} />
       <span>{value}</span>
       <CaretDown aria-hidden="true" size={15} weight="bold" className={`transition ${open ? "rotate-180" : ""}`} />
     </button>
