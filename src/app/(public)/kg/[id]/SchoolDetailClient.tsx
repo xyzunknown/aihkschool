@@ -157,6 +157,7 @@ export function SchoolDetailClient({ school, vacancy }: Props) {
             logoUrl={school.logo_url}
             schoolCode={school.school_code}
             size="lg"
+            shape="rounded"
           />
 
           <div className="min-w-0">

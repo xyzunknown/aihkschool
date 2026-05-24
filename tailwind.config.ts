@@ -6,6 +6,19 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    "h-10",
+    "w-10",
+    "h-12",
+    "w-12",
+    "h-16",
+    "w-16",
+    "rounded-[12px]",
+    "rounded-full",
+    "text-lg",
+    "text-xl",
+    "text-2xl",
+  ],
   theme: {
     extend: {
       colors: {
