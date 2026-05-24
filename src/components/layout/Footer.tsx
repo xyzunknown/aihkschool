@@ -8,6 +8,8 @@ import { useToast } from "@/components/ui/Toast";
 
 const QUICK_LINKS = [
   { href: "/kg", label: "找幼稚園" },
+  { href: "/programmes", label: "康體通" },
+  { href: "/activities", label: "課外活動" },
   { href: "/ios-app", label: "iOS App" },
   { href: "/account", label: "我的" },
 ] as const;
