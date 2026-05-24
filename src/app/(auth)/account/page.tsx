@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { Bell, CaretRight, Heart, UserCircle } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/Button";
 import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
 import { ReminderSheet } from "@/components/schools/ReminderSheet";
@@ -137,10 +138,22 @@ export default function AccountPage() {
   return (
     <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
       <div className="max-w-2xl mx-auto">
-        <h1 className="text-2xl font-bold text-ink-900 mb-6">我的</h1>
+        <section className="mb-7 rounded-[24px] border border-surface-border bg-white p-6 shadow-soft">
+          <div className="flex items-start gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[16px] bg-forest-50 text-forest-700">
+              <UserCircle aria-hidden="true" size={26} weight="regular" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <h1 className="text-2xl font-bold text-ink-900">我的</h1>
+              <p className="mt-1 text-sm leading-6 text-ink-500">
+                集中管理收藏學校、報名提醒和 SmartPLAY 追蹤。
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* User card */}
-        <div className="bg-white rounded-card border border-surface-border p-6 mb-8">
+        <div className="bg-white rounded-[20px] border border-surface-border p-6 mb-6 shadow-soft">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-base font-semibold text-ink-900">{user.user_metadata?.full_name ?? user.email}</p>
@@ -150,13 +163,18 @@ export default function AccountPage() {
           </div>
         </div>
 
-        <div className="bg-white rounded-card border border-surface-border p-6 mb-8">
+        <div className="bg-white rounded-[20px] border border-surface-border p-6 mb-8 shadow-soft">
           <div className="flex items-start justify-between gap-4 mb-4">
-            <div>
+            <div className="flex min-w-0 gap-3">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[14px] bg-forest-50 text-forest-700">
+                <Bell aria-hidden="true" size={21} weight="regular" />
+              </span>
+              <div>
               <h2 className="text-lg font-semibold text-ink-900">開報前追蹤</h2>
               <p className="text-sm text-ink-500 mt-1">
                 全局管理你追蹤中的 SmartPLAY 課程，不用再回列表逐個找。
               </p>
+              </div>
             </div>
             <Button variant="secondary" size="sm" onClick={() => router.push("/account/alerts")}>管理追蹤</Button>
           </div>
@@ -186,6 +204,10 @@ export default function AccountPage() {
                       <p className="mt-1 text-xs text-ink-500">
                         {programme.venue || "場地待定"} · 報名：{formatEnrolmentTime(programme.enrolment_open_at)}
                       </p>
+                      <span className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-forest-700">
+                        查看詳情
+                        <CaretRight aria-hidden="true" size={12} weight="bold" />
+                      </span>
                     </button>
                   );
                 })}
@@ -203,8 +225,11 @@ export default function AccountPage() {
         </div>
 
         {/* Favorites section */}
-        <div id="favorites" className="flex items-center justify-between mb-6 scroll-mt-24">
-          <h2 className="text-lg font-semibold text-ink-900">收藏中的學校 ({favorites.length}/{MAX_FAVORITES})</h2>
+        <div id="favorites" className="flex items-center justify-between gap-4 mb-6 scroll-mt-24">
+          <h2 className="inline-flex items-center gap-2 text-lg font-semibold text-ink-900">
+            <Heart aria-hidden="true" size={20} weight="regular" className="text-forest-700" />
+            收藏中的學校 ({favorites.length}/{MAX_FAVORITES})
+          </h2>
           {favorites.length >= MAX_FAVORITES && <span className="text-sm text-orange-600 font-medium">已達上限，先刪一所再加新收藏</span>}
         </div>
 

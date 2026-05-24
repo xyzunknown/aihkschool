@@ -23,7 +23,7 @@ import {
 } from "@/lib/activities/links";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { absoluteUrl, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
-import { ArrowSquareOut, Calendar, CaretLeft, Clock, MapPin, MapTrifold, Phone, Tag, UserCircle } from "@phosphor-icons/react/dist/ssr";
+import { ArrowSquareOut, Calendar, CaretLeft, Clock, Confetti, MapPin, MapTrifold, Phone, Tag, UserCircle } from "@phosphor-icons/react/dist/ssr";
 
 export const revalidate = 3600;
 
@@ -139,8 +139,10 @@ export default async function ActivityDetailPage({ params }: PageProps) {
               />
             </div>
           ) : (
-            <div className={`flex aspect-square w-full flex-col items-center justify-center gap-2 rounded-card border border-surface-border ${placeholder.className}`}>
-              <span className="text-4xl font-semibold leading-none">{placeholder.emoji}</span>
+            <div className={`flex aspect-square w-full flex-col items-center justify-center gap-3 rounded-card border border-surface-border ${placeholder.className}`}>
+              <span className="flex h-16 w-16 items-center justify-center rounded-[20px] bg-white/70 text-forest-700 shadow-soft">
+                <Confetti aria-hidden="true" size={34} weight="regular" />
+              </span>
               <span className="rounded-full bg-white/55 px-3 py-1 text-xs font-semibold">
                 {placeholder.label}
               </span>

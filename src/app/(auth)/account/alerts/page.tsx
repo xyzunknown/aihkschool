@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { Bell, CaretRight, Clock, MapPin } from "@phosphor-icons/react";
 import { useAuth } from "@/components/layout/AuthProvider";
 import { useToast } from "@/components/ui/Toast";
 import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
@@ -102,10 +103,19 @@ export default function AlertsPage() {
   return (
     <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
       <div className="max-w-2xl mx-auto">
-        <h1 className="text-2xl font-bold text-ink-900 mb-2">開報前追蹤</h1>
-        <p className="text-sm text-ink-500 mb-6">
-          你已追蹤嘅 SmartPLAY 課程，系統會在報名開放前發送郵件提醒。
-        </p>
+        <section className="mb-7 rounded-[24px] border border-surface-border bg-white p-6 shadow-soft">
+          <div className="flex items-start gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[16px] bg-forest-50 text-forest-700">
+              <Bell aria-hidden="true" size={25} weight="regular" />
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold text-ink-900">開報前追蹤</h1>
+              <p className="mt-1 text-sm leading-6 text-ink-500">
+                你已追蹤的 SmartPLAY 課程，系統會在報名開放前提醒你。
+              </p>
+            </div>
+          </div>
+        </section>
 
         {loadingSubs ? (
           <p className="text-base text-ink-500 text-center py-8">載入中…</p>
@@ -116,7 +126,7 @@ export default function AlertsPage() {
             </p>
             <button
               onClick={() => router.push("/programmes")}
-              className="bg-ink-900 text-white rounded-button px-5 py-2.5 text-sm font-medium hover:bg-slate-800 transition-colors"
+              className="rounded-pill bg-forest-700 px-5 py-2.5 text-sm font-bold text-white shadow-soft transition hover:bg-forest-800"
             >
               開始追蹤
             </button>
@@ -135,7 +145,7 @@ export default function AlertsPage() {
               return (
                 <div
                   key={sub.id}
-                  className="bg-white rounded-card border border-surface-border p-5 flex items-center justify-between gap-4"
+                  className="bg-white rounded-[20px] border border-surface-border p-5 flex items-center justify-between gap-4 shadow-soft"
                 >
                   <div
                     className="flex-1 min-w-0 cursor-pointer"
@@ -153,8 +163,20 @@ export default function AlertsPage() {
                       {prog.name_zh || prog.name_en || "未知課程"}
                     </h3>
                     <p className="text-sm text-ink-500 truncate">
-                      {prog.venue || ""} · 報名：{enrolment}
+                      <span className="inline-flex items-center gap-1">
+                        <MapPin aria-hidden="true" size={14} weight="regular" className="text-forest-600" />
+                        {prog.venue || "場地待定"}
+                      </span>
+                      <span className="mx-1.5">·</span>
+                      <span className="inline-flex items-center gap-1">
+                        <Clock aria-hidden="true" size={14} weight="regular" className="text-forest-600" />
+                        報名：{enrolment}
+                      </span>
                     </p>
+                    <span className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-forest-700">
+                      查看詳情
+                      <CaretRight aria-hidden="true" size={12} weight="bold" />
+                    </span>
                   </div>
 
                   <button

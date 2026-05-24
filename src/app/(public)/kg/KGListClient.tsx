@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback, useMemo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { CaretDown, Check, Crosshair, MagnifyingGlass } from "@phosphor-icons/react";
+import { Bell, Buildings, CaretDown, Check, Crosshair, MagnifyingGlass, MapTrifold } from "@phosphor-icons/react";
 import { SchoolCard } from "@/components/schools/SchoolCard";
 import { SchoolCardSkeleton } from "@/components/ui/Skeleton";
 import { Button } from "@/components/ui/Button";
@@ -319,12 +319,26 @@ export default function KGListClient() {
 
   return (
     <div className="mx-auto max-w-[1200px] px-5 py-6 md:px-8">
-      <h1 className="mb-2 text-h1 font-bold text-ink-900">
-        {hotFilter ? "熱點學校 100" : "策劃香港卓越教育藍圖"}
-      </h1>
-      <p className="mb-8 text-body text-ink-700">
-        {hotFilter ? "這裡集中顯示家長討論度高、平台已匹配資料的熱門幼稚園。" : "權威性的教育機構指南，即時更新學位空缺狀態及報名資訊。"}
-      </p>
+      <section className="mb-7 rounded-[24px] border border-surface-border bg-white px-5 py-6 shadow-soft md:px-8 md:py-7">
+        <div className="grid gap-5 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
+          <div>
+            <span className="inline-flex h-8 items-center rounded-pill bg-forest-50 px-3 text-small font-bold text-forest-700">
+              {hotFilter ? "家長熱門關注" : "全港幼稚園搜尋"}
+            </span>
+            <h1 className="mt-4 text-h1 font-bold text-ink-900">
+              {hotFilter ? "熱點學校 100" : "找幼稚園"}
+            </h1>
+            <p className="mt-2 max-w-3xl text-body leading-7 text-ink-700">
+              {hotFilter ? "集中顯示家長討論度高、平台已匹配資料的熱門幼稚園。" : "按地區、N 班、學額、班制和學校類別快速篩選，方便一次比較心儀學校。"}
+            </p>
+          </div>
+          <div className="grid grid-cols-3 gap-2 md:w-[360px]">
+            <PageSignal icon={Buildings} title="學校" desc="全港搜尋" />
+            <PageSignal icon={MapTrifold} title="地區" desc="18 區篩選" />
+            <PageSignal icon={Bell} title="提醒" desc="收藏追蹤" />
+          </div>
+        </div>
+      </section>
 
       <SearchBar initialQuery={searchQuery} onSearch={handleSearch} />
 
@@ -491,6 +505,24 @@ export default function KGListClient() {
         </>
       )}
       {showSortFilter && <div className="fixed inset-0 z-20" onClick={() => setShowSortFilter(false)} />}
+    </div>
+  );
+}
+
+function PageSignal({
+  icon: Icon,
+  title,
+  desc,
+}: {
+  icon: typeof Buildings;
+  title: string;
+  desc: string;
+}) {
+  return (
+    <div className="rounded-[14px] border border-surface-border bg-[#FBFDF8] p-3">
+      <Icon aria-hidden="true" size={18} weight="regular" className="text-forest-700" />
+      <p className="mt-2 text-small font-bold text-ink-900">{title}</p>
+      <p className="mt-0.5 text-label font-semibold text-ink-500">{desc}</p>
     </div>
   );
 }

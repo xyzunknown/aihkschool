@@ -1,7 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { ReactNode } from "react";
-import { Calendar, Clock, MapPin, UserCircle, Waves } from "@phosphor-icons/react/dist/ssr";
+import {
+  ArrowSquareOut,
+  Bell,
+  Calendar,
+  CaretDown,
+  Clock,
+  MapPin,
+  Tag,
+  UserCircle,
+  Waves,
+} from "@phosphor-icons/react/dist/ssr";
 import type { ProgrammeWithStatus } from "@/lib/db/programmes";
 import { getProgrammeSceneImage } from "@/lib/media/activity-scenes";
 import {
@@ -197,20 +207,30 @@ export function ProgrammeCourseCard({ group, expanded, onToggle }: ProgrammeCour
           </div>
 
           <div className="mt-5 flex flex-col gap-2 sm:flex-row">
-            <button type="button" onClick={onToggle} className="inline-flex h-9 min-w-0 flex-[1.15] items-center justify-center whitespace-nowrap rounded-pill border border-forest-700 bg-forest-700 px-3 text-small font-semibold text-white transition hover:border-forest-800 hover:bg-forest-800" aria-expanded={expanded}>
+            <button type="button" onClick={onToggle} className="inline-flex h-10 min-w-0 flex-[1.15] items-center justify-center gap-2 whitespace-nowrap rounded-pill border border-forest-700 bg-forest-700 px-4 text-small font-semibold text-white shadow-soft transition hover:border-forest-800 hover:bg-forest-800" aria-expanded={expanded}>
               {expanded ? "收起場次" : "查看場次"}
+              <CaretDown aria-hidden="true" size={15} weight="bold" className={`transition-transform ${expanded ? "rotate-180" : ""}`} />
             </button>
           </div>
         </div>
       </div>
 
       {expanded ? (
-        <div className="mt-4 divide-y divide-surface-border rounded-card border border-surface-border bg-cream-50/40">
-          {programmes.map((programme) => (
-            <div key={programme.id} className="p-3">
-              <SessionMetaRow programme={programme} />
+        <div className="mt-5 rounded-[20px] border border-surface-border bg-[#FBFDF8] p-3 shadow-soft">
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-2 px-1">
+            <div>
+              <p className="text-small font-bold text-ink-900">可追蹤場次</p>
+              <p className="mt-0.5 text-label font-medium text-ink-500">選一個地點或時間，開報前會提醒你。</p>
             </div>
+            <span className="inline-flex h-7 items-center rounded-pill bg-forest-50 px-3 text-label font-semibold text-forest-700">
+              {programmes.length} 個場次
+            </span>
+          </div>
+          <div className="grid gap-2">
+          {programmes.map((programme) => (
+            <SessionMetaRow key={programme.id} programme={programme} />
           ))}
+          </div>
         </div>
       ) : null}
     </article>
@@ -221,22 +241,51 @@ function SessionMetaRow({ programme }: { programme: ProgrammeWithStatus }) {
   const dateRange = formatProgrammeDateRange(programme.start_date, programme.end_date);
   const enrolmentTime = formatEnrolmentTime(programme.enrolment_open_at);
   const countdown = getEnrolmentCountdown(programme.enrolment_open_at);
+  const fee = formatProgrammeFee(programme.fee_hkd);
+  const statusKey = programme.lcsd_programme_status?.enrolment_status || "pre_open";
+  const statusLabel = ENROLMENT_STATUS_LABELS[statusKey] ?? "待開放";
 
   return (
-    <div className="grid gap-2 text-small text-ink-700 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center">
-      <div className="min-w-0 space-y-1">
-        <Link href={`/programmes/${programme.id}`} className="block truncate font-semibold text-ink-900 hover:text-forest-700">
-          {programme.venue || "場地待定"}
-          {programme.district ? <span className="font-normal text-ink-500"> · {PROGRAMME_DISTRICT_LABELS[programme.district] || ""}</span> : null}
+    <div className="grid gap-3 rounded-[16px] border border-surface-border bg-white p-4 text-small text-ink-700 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center">
+      <div className="min-w-0">
+        <div className="mb-2 flex flex-wrap items-center gap-2">
+          <span className={`inline-flex h-6 items-center rounded-pill px-2.5 text-label font-semibold ${ENROLMENT_STATUS_COLORS[statusKey] ?? "bg-cream-100 text-ink-700"}`}>
+            {statusLabel}
+          </span>
+          <span className="inline-flex h-6 items-center gap-1 rounded-pill bg-cream-100 px-2.5 text-label font-semibold text-ink-700">
+            <Tag aria-hidden="true" size={13} weight="regular" />
+            {fee.isFree ? "免費" : fee.label}
+          </span>
+        </div>
+        <Link href={`/programmes/${programme.id}`} className="inline-flex max-w-full items-center gap-1 font-bold text-ink-900 hover:text-forest-700">
+          <MapPin aria-hidden="true" size={16} weight="regular" className="shrink-0 text-forest-600" />
+          <span className="truncate">{programme.venue || "場地待定"}</span>
+          {programme.district ? <span className="shrink-0 font-medium text-ink-500"> · {PROGRAMME_DISTRICT_LABELS[programme.district] || ""}</span> : null}
         </Link>
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-label text-ink-500">
+        <div className="mt-2 grid gap-1.5 text-label text-ink-500 sm:grid-cols-2">
           <span className="inline-flex items-center gap-1"><CalendarIcon />{dateRange}</span>
           <span className="inline-flex items-center gap-1"><ClockIcon />報名 {enrolmentTime}</span>
         </div>
-        {countdown ? <p className="text-label font-medium text-rust-600">{countdown}</p> : null}
+        {countdown ? (
+          <p className="mt-2 inline-flex items-center gap-1 text-label font-semibold text-rust-600">
+            <Bell aria-hidden="true" size={14} weight="regular" />
+            {countdown}
+          </p>
+        ) : null}
       </div>
-      <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center gap-2 sm:justify-end">
         <SubscribeButton programmeId={programme.id} size="sm" />
+        {programme.raw_url ? (
+          <a
+            href={programme.raw_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-9 items-center justify-center gap-1.5 rounded-pill border border-surface-border bg-white px-3 text-label font-bold text-forest-700 transition hover:bg-forest-50"
+          >
+            報名
+            <ArrowSquareOut aria-hidden="true" size={14} weight="regular" />
+          </a>
+        ) : null}
       </div>
     </div>
   );
