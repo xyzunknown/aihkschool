@@ -808,7 +808,6 @@ const LOCAL_SCHOOL_LOGO_FILES = new Set([
   "607223.png",
   "607592.png",
   "607703.png",
-  "607703.svg",
   "607886.png",
   "608319.png",
   "609137.png",
