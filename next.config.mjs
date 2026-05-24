@@ -6,11 +6,14 @@ const legacyPagesManifest = {
   "/_error": "pages/_error.js",
 };
 
-const stableBuildId = (
-  process.env.VERCEL_GIT_COMMIT_SHA ??
-  process.env.NEXT_BUILD_ID ??
-  "local-dev-build"
-).replace(/[^a-zA-Z0-9_-]/g, "-");
+function normalizeBuildId(value) {
+  return value?.trim().replace(/[^a-zA-Z0-9_-]/g, "-");
+}
+
+const stableBuildId =
+  normalizeBuildId(process.env.VERCEL_GIT_COMMIT_SHA) ||
+  normalizeBuildId(process.env.NEXT_BUILD_ID) ||
+  "local-dev-build";
 
 class StablePagesManifestPlugin {
   apply(compiler) {
