@@ -30,7 +30,7 @@ function resolveLogoCandidates(
         .map((fileName) => `/logos/${fileName}`)
     : [];
 
-  return Array.from(new Set([safeLocalLogo, ...codeCandidates].filter((value): value is string => Boolean(value))));
+  return Array.from(new Set([...codeCandidates, safeLocalLogo].filter((value): value is string => Boolean(value))));
 }
 
 export function SchoolAvatar({
