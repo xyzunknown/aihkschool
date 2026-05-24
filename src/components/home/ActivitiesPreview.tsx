@@ -13,26 +13,26 @@ export async function ActivitiesPreview() {
   if (activities.length === 0) return null;
 
   return (
-    <section className="mt-12 py-8">
-      <div className="mb-8 flex items-start justify-between gap-4">
+    <section className="mt-12">
+      <div className="mb-7 flex items-center justify-between gap-4">
         <div>
-          <h2 className="flex items-center gap-2.5 text-[28px] font-bold leading-[1.25] text-[#10231C]">
-            <span className="inline-block h-7 w-1 rounded-full bg-[#247A4D]" />
+          <h2 className="flex items-center gap-2 text-[24px] font-semibold leading-tight text-ink-900 md:text-[28px]">
+            <span className="inline-block h-6 w-1 rounded-full bg-brand-700" />
             課外活動精選
           </h2>
-          <p className="mt-2 text-base text-[#6B7280]">
+          <p className="mt-2 text-base text-ink-500">
             幼稚園到小學及適合親子參與的藝術、文化及免費活動
           </p>
         </div>
         <Link
           href="/activities"
-          className="shrink-0 text-[15px] font-semibold text-[#247A4D] hover:underline"
+          className="shrink-0 text-sm font-medium text-brand-700 hover:underline"
         >
           查看全部 →
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="grid grid-cols-1 items-start gap-4 lg:grid-cols-2">
         {activities.map((a) => (
           <div key={a.id} className="min-w-0">
             <ActivityCard activity={a} />
