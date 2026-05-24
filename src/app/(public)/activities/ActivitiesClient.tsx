@@ -120,7 +120,7 @@ export function ActivitiesClient() {
       {isLoading ? (
         <>
           <p className="mb-4 text-sm text-slate-500">載入活動中...</p>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {Array.from({ length: 6 }).map((_, i) => (
               <ActivityCardSkeleton key={i} />
             ))}
@@ -147,7 +147,7 @@ export function ActivitiesClient() {
           <p className="mb-4 text-sm text-slate-500">
             共 {total} 個即將開始 / 長期可參與活動
           </p>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {activities.map((a, index) => (
               <ActivityCard key={a.id} activity={a} priority={index < 3} />
             ))}

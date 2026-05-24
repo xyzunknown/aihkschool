@@ -37,7 +37,7 @@ export default function ActivitiesPage() {
         ]}
       />
 
-      <div id="activity-list" className="mx-auto max-w-[1680px] px-5 pt-10 pb-28 md:px-8 md:py-10">
+      <div id="activity-list" className="mx-auto max-w-[1440px] px-5 pt-10 pb-28 md:px-8 md:py-10">
         <Suspense fallback={<ActivitiesListSkeleton />}>
           <ActivitiesClient />
         </Suspense>
@@ -51,7 +51,7 @@ function ActivitiesListSkeleton() {
     <div>
       <div className="mb-6 h-10 animate-pulse rounded-pill bg-cream-100" />
       <div className="mb-6 h-10 animate-pulse rounded-pill bg-cream-100" />
-      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
         {Array.from({ length: 6 }).map((_, i) => (
           <ActivityCardSkeleton key={i} />
         ))}
