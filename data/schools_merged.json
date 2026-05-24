@@ -84,7 +84,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.28718614,
     "longitude": 114.14740117,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/564648.png"
   },
   {
     "code": "564850",
@@ -105,7 +106,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.28488904,
     "longitude": 114.14423731,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/564850.png"
   },
   {
     "code": "565253",
@@ -170,7 +172,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.28163124,
     "longitude": 114.15187752,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/536911.png"
   },
   {
     "code": "512273",
@@ -235,8 +238,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.27933399,
     "longitude": 114.15281235,
-    "has_nursery": false,
-    "logo_url": "/logos/325970.png"
+    "has_nursery": false
   },
   {
     "code": "564354",
@@ -257,7 +259,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.28505355,
     "longitude": 114.13331976,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/564354.png"
   },
   {
     "code": "213632",
@@ -409,7 +412,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.28258516,
     "longitude": 114.128986,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/552739.png"
   },
   {
     "code": "214248",
@@ -537,7 +541,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.27850567,
     "longitude": 114.1690934,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/563447.png"
   },
   {
     "code": "133280",
@@ -558,7 +563,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.27419725,
     "longitude": 114.17178326,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/133280.png"
   },
   {
     "code": "133744",
@@ -579,7 +585,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.27729892,
     "longitude": 114.18369559,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/133744.png"
   },
   {
     "code": "323853",
@@ -644,7 +651,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.27742848,
     "longitude": 114.1792875,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/324922.png"
   },
   {
     "code": "563641",
@@ -687,7 +695,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.27561012,
     "longitude": 114.18511214,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/323896.png"
   },
   {
     "code": "133019",
@@ -818,7 +827,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.2786717,
     "longitude": 114.17440974,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/614920.png"
   },
   {
     "code": "311910",
@@ -882,7 +892,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.27843678,
     "longitude": 114.2397206,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/216135.png"
   },
   {
     "code": "325996",
@@ -1078,7 +1089,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.26756911,
     "longitude": 114.23285519,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/564583.png"
   },
   {
     "code": "325619",
@@ -1187,7 +1199,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.275751,
     "longitude": 114.23988823,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/565830.png"
   },
   {
     "code": "563897",
@@ -1293,7 +1306,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.28507179,
     "longitude": 114.21611278,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/215848.png"
   },
   {
     "code": "589144",
@@ -1423,7 +1437,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.28930601,
     "longitude": 114.19797255,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/215538.png"
   },
   {
     "code": "563161",
@@ -1596,7 +1611,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.28818922,
     "longitude": 114.19556389,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/315435.png"
   },
   {
     "code": "324094",
@@ -1660,7 +1676,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.26340793,
     "longitude": 114.23985748,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/564095.png"
   },
   {
     "code": "564133",
@@ -1681,7 +1698,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.28847686,
     "longitude": 114.19098857,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/564133.png"
   },
   {
     "code": "564222",
@@ -1746,7 +1764,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.27853571,
     "longitude": 114.22192314,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/326011.png"
   },
   {
     "code": "316660",
@@ -1767,7 +1786,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.29030154,
     "longitude": 114.19507121,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/316660.png"
   },
   {
     "code": "523089",
@@ -1832,7 +1852,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.24376182,
     "longitude": 114.15018466,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/565849.png"
   },
   {
     "code": "560090",
@@ -1875,7 +1896,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.24400212,
     "longitude": 114.15708477,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/325570.png"
   },
   {
     "code": "324850",
@@ -1918,7 +1940,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.24148327,
     "longitude": 114.15561063,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/565750.png"
   },
   {
     "code": "563773",
@@ -2049,7 +2072,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.22155929,
     "longitude": 114.20679158,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/326003.png"
   },
   {
     "code": "313637",
@@ -2465,7 +2489,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.31908823,
     "longitude": 114.16683356,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/516929.png"
   },
   {
     "code": "563820",
@@ -2662,7 +2687,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.32451692,
     "longitude": 114.16057259,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/555436.png"
   },
   {
     "code": "133582",
@@ -2705,7 +2731,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.30463992,
     "longitude": 114.16335439,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/564249.png"
   },
   {
     "code": "565024",
@@ -3054,8 +3081,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.33816557,
     "longitude": 114.15899455,
-    "has_nursery": true,
-    "logo_url": "/logos/565407.png"
+    "has_nursery": true
   },
   {
     "code": "566705",
@@ -3098,8 +3124,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.33026647,
     "longitude": 114.17016702,
-    "has_nursery": true,
-    "logo_url": "/logos/565393.png"
+    "has_nursery": true
   },
   {
     "code": "601861",
@@ -3120,7 +3145,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.33471706,
     "longitude": 114.1468349,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/601861.png"
   },
   {
     "code": "564478",
@@ -3229,7 +3255,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.33471329,
     "longitude": 114.14681943,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/596787.png"
   },
   {
     "code": "623580",
@@ -3338,7 +3365,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.32730042,
     "longitude": 114.15523369,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/548723.png"
   },
   {
     "code": "564044",
@@ -3554,7 +3582,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.33611816,
     "longitude": 114.16773996,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/536482.png"
   },
   {
     "code": "514659",
@@ -3575,7 +3604,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.32908063,
     "longitude": 114.16773071,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/514659.png"
   },
   {
     "code": "613169",
@@ -3662,7 +3692,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.33268219,
     "longitude": 114.14670439,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/567051.png"
   },
   {
     "code": "133850",
@@ -4098,7 +4129,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.328421,
     "longitude": 114.18771662,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/617741.png"
   },
   {
     "code": "324930",
@@ -4163,7 +4195,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.32753729,
     "longitude": 114.18623243,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/564524.png"
   },
   {
     "code": "324680",
@@ -4184,7 +4217,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.32754813,
     "longitude": 114.18621981,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/324680.png"
   },
   {
     "code": "565695",
@@ -4205,7 +4239,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.31630078,
     "longitude": 114.17941144,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/565695.png"
   },
   {
     "code": "325040",
@@ -4336,7 +4371,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.30871933,
     "longitude": 114.18633696,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/325988.png"
   },
   {
     "code": "539104",
@@ -4357,7 +4393,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.30386765,
     "longitude": 114.19205378,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/539104.png"
   },
   {
     "code": "563803",
@@ -4553,7 +4590,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.31726861,
     "longitude": 114.18606577,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/523526.png"
   },
   {
     "code": "215678",
@@ -4574,7 +4612,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.3214793,
     "longitude": 114.19006982,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/215678.png"
   },
   {
     "code": "563781",
@@ -4617,7 +4656,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.31148747,
     "longitude": 114.17923472,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/563579.png"
   },
   {
     "code": "610771",
@@ -4660,8 +4700,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.33362203,
     "longitude": 114.20318312,
-    "has_nursery": false,
-    "logo_url": "/logos/599700.png"
+    "has_nursery": false
   },
   {
     "code": "565520",
@@ -4682,8 +4721,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.3214669,
     "longitude": 114.18676586,
-    "has_nursery": true,
-    "logo_url": "/logos/565520.png"
+    "has_nursery": true
   },
   {
     "code": "316504",
@@ -4726,7 +4764,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.34306487,
     "longitude": 114.19259681,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/563463.png"
   },
   {
     "code": "325678",
@@ -4791,7 +4830,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.33604495,
     "longitude": 114.18703869,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/323268.png"
   },
   {
     "code": "530379",
@@ -4812,7 +4852,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.34083481,
     "longitude": 114.2028418,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/530379.png"
   },
   {
     "code": "549169",
@@ -4964,8 +5005,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.33374811,
     "longitude": 114.19178911,
-    "has_nursery": true,
-    "logo_url": "/logos/325716.png"
+    "has_nursery": true
   },
   {
     "code": "564451",
@@ -5074,7 +5114,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.34145921,
     "longitude": 114.20026555,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/595144.png"
   },
   {
     "code": "324833",
@@ -5249,7 +5290,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.34420734,
     "longitude": 114.19935543,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/325821.png"
   },
   {
     "code": "563919",
@@ -5358,7 +5400,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.34951637,
     "longitude": 114.19965432,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/523933.png"
   },
   {
     "code": "216259",
@@ -5488,7 +5531,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.3429127,
     "longitude": 114.18709161,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/563552.png"
   },
   {
     "code": "564176",
@@ -5509,7 +5553,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.34428967,
     "longitude": 114.18977006,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/564176.png"
   },
   {
     "code": "325414",
@@ -5552,7 +5597,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.32143104,
     "longitude": 114.21124757,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/563455.png"
   },
   {
     "code": "565946",
@@ -5594,7 +5640,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.30564579,
     "longitude": 114.23801402,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/323497.png"
   },
   {
     "code": "614114",
@@ -5615,7 +5662,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.32808815,
     "longitude": 114.22810563,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/614114.png"
   },
   {
     "code": "216054",
@@ -5899,8 +5947,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.32764945,
     "longitude": 114.21547824,
-    "has_nursery": false,
-    "logo_url": "/logos/577987.png"
+    "has_nursery": false
   },
   {
     "code": "595837",
@@ -6030,8 +6077,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.32984604,
     "longitude": 114.20981402,
-    "has_nursery": true,
-    "logo_url": "/logos/564575.png"
+    "has_nursery": true
   },
   {
     "code": "323055",
@@ -6227,7 +6273,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.3324719,
     "longitude": 114.22198026,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/550892.png"
   },
   {
     "code": "324248",
@@ -6269,8 +6316,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.31567171,
     "longitude": 114.22086064,
-    "has_nursery": false,
-    "logo_url": "/logos/319775.png"
+    "has_nursery": false
   },
   {
     "code": "524034",
@@ -6291,7 +6337,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.30518705,
     "longitude": 114.22654447,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/524034.png"
   },
   {
     "code": "548278",
@@ -6334,8 +6381,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.32718509,
     "longitude": 114.2281053,
-    "has_nursery": false,
-    "logo_url": "/logos/613509.png"
+    "has_nursery": false
   },
   {
     "code": "546038",
@@ -6400,7 +6446,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.31918729,
     "longitude": 114.21750348,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/550663.png"
   },
   {
     "code": "516309",
@@ -6421,7 +6468,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.29861585,
     "longitude": 114.24166083,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/516309.png"
   },
   {
     "code": "563951",
@@ -6486,7 +6534,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.32929877,
     "longitude": 114.22641711,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/604259.png"
   },
   {
     "code": "563935",
@@ -6639,7 +6688,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.3217386,
     "longitude": 114.22035103,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/325236.png"
   },
   {
     "code": "324426",
@@ -6660,7 +6710,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.32725734,
     "longitude": 114.2261252,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/324426.png"
   },
   {
     "code": "543390",
@@ -6878,7 +6929,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.31477913,
     "longitude": 114.22216286,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/563510.png"
   },
   {
     "code": "324736",
@@ -6965,7 +7017,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.31675188,
     "longitude": 114.23227013,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/563536.png"
   },
   {
     "code": "605530",
@@ -7030,8 +7083,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.30731502,
     "longitude": 114.23621153,
-    "has_nursery": true,
-    "logo_url": "/logos/528366.png"
+    "has_nursery": true
   },
   {
     "code": "601497",
@@ -7052,7 +7104,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.36205698,
     "longitude": 114.11380522,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/601497.png"
   },
   {
     "code": "563846",
@@ -7073,7 +7126,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.3684226,
     "longitude": 114.11778223,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/563846.png"
   },
   {
     "code": "159220",
@@ -7226,8 +7280,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.36957317,
     "longitude": 114.09939303,
-    "has_nursery": true,
-    "logo_url": "/logos/598038.png"
+    "has_nursery": true
   },
   {
     "code": "575640",
@@ -7248,8 +7301,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.37316882,
     "longitude": 114.10259524,
-    "has_nursery": true,
-    "logo_url": "/logos/575640.png"
+    "has_nursery": true
   },
   {
     "code": "152269",
@@ -7358,8 +7410,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.37524456,
     "longitude": 114.12203322,
-    "has_nursery": true,
-    "logo_url": "/logos/157066.png"
+    "has_nursery": true
   },
   {
     "code": "563293",
@@ -7402,7 +7453,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.3611331,
     "longitude": 114.1128998,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/595969.png"
   },
   {
     "code": "156612",
@@ -7642,7 +7694,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.37130981,
     "longitude": 114.10084074,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/231584.png"
   },
   {
     "code": "158496",
@@ -7663,7 +7716,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.37034152,
     "longitude": 114.12011655,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/158496.png"
   },
   {
     "code": "153907",
@@ -7859,7 +7913,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.41375314,
     "longitude": 113.98442028,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/565784.png"
   },
   {
     "code": "156930",
@@ -7924,7 +7979,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.40528064,
     "longitude": 113.96209172,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/563277.png"
   },
   {
     "code": "563307",
@@ -7945,7 +8001,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.40252356,
     "longitude": 113.97034117,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/563307.png"
   },
   {
     "code": "565059",
@@ -8032,7 +8089,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.40339822,
     "longitude": 113.97892894,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/567892.png"
   },
   {
     "code": "536768",
@@ -8119,7 +8177,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.40766514,
     "longitude": 113.96380223,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/565725.png"
   },
   {
     "code": "599999",
@@ -8162,7 +8221,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.40604166,
     "longitude": 113.9612223,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/158380.png"
   },
   {
     "code": "158836",
@@ -8249,7 +8309,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.40241625,
     "longitude": 113.97987237,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/231185.png"
   },
   {
     "code": "157503",
@@ -8314,7 +8375,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.40295545,
     "longitude": 113.97482152,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/539872.png"
   },
   {
     "code": "565318",
@@ -8379,7 +8441,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.41144586,
     "longitude": 113.97287649,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/158623.png"
   },
   {
     "code": "157376",
@@ -8400,7 +8463,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.41246369,
     "longitude": 113.97803228,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/157376.png"
   },
   {
     "code": "563080",
@@ -8640,7 +8704,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.40587036,
     "longitude": 113.96484705,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/564150.png"
   },
   {
     "code": "611093",
@@ -8683,7 +8748,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.37533509,
     "longitude": 113.96306594,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/563595.png"
   },
   {
     "code": "565911",
@@ -8704,8 +8770,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.38541721,
     "longitude": 113.96619091,
-    "has_nursery": true,
-    "logo_url": "/logos/565911.png"
+    "has_nursery": true
   },
   {
     "code": "565890",
@@ -8726,8 +8791,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.37405748,
     "longitude": 113.9659711,
-    "has_nursery": true,
-    "logo_url": "/logos/565890.png"
+    "has_nursery": true
   },
   {
     "code": "563412",
@@ -8791,8 +8855,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.41483688,
     "longitude": 113.96939445,
-    "has_nursery": false,
-    "logo_url": "/logos/539163.png"
+    "has_nursery": false
   },
   {
     "code": "157279",
@@ -8813,7 +8876,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.37418487,
     "longitude": 113.96486205,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/157279.png"
   },
   {
     "code": "564265",
@@ -8834,7 +8898,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.39653324,
     "longitude": 113.97598643,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/564265.png"
   },
   {
     "code": "157031",
@@ -8855,7 +8920,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.38611694,
     "longitude": 113.97409812,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/157031.png"
   },
   {
     "code": "564273",
@@ -8876,7 +8942,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.4128103,
     "longitude": 113.9769236,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/564273.png"
   },
   {
     "code": "597384",
@@ -8897,8 +8964,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.44648432,
     "longitude": 114.03338514,
-    "has_nursery": false,
-    "logo_url": "/logos/597384.png"
+    "has_nursery": false
   },
   {
     "code": "597384",
@@ -8919,8 +8985,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.44648432,
     "longitude": 114.03338514,
-    "has_nursery": false,
-    "logo_url": "/logos/597384.png"
+    "has_nursery": false
   },
   {
     "code": "537594",
@@ -9005,7 +9070,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.46238421,
     "longitude": 114.00059618,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/541427.png"
   },
   {
     "code": "565814",
@@ -9026,7 +9092,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.4606879,
     "longitude": 113.99858717,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/565814.png"
   },
   {
     "code": "156949",
@@ -9047,7 +9114,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.47741579,
     "longitude": 114.04487951,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/156949.png"
   },
   {
     "code": "534790",
@@ -9396,7 +9464,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.43268592,
     "longitude": 113.99736696,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/519812.png"
   },
   {
     "code": "231886",
@@ -9526,8 +9595,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.44358594,
     "longitude": 114.0220726,
-    "has_nursery": true,
-    "logo_url": "/logos/566349.png"
+    "has_nursery": true
   },
   {
     "code": "575666",
@@ -9548,7 +9616,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.46241075,
     "longitude": 114.00258207,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/575666.png"
   },
   {
     "code": "159034",
@@ -9569,7 +9638,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.45676412,
     "longitude": 113.99608754,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/159034.png"
   },
   {
     "code": "605735",
@@ -9590,7 +9660,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.437868,
     "longitude": 113.99774109,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/605735.png"
   },
   {
     "code": "564982",
@@ -9633,8 +9704,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.4486848,
     "longitude": 114.0242596,
-    "has_nursery": true,
-    "logo_url": "/logos/564028.png"
+    "has_nursery": true
   },
   {
     "code": "564010",
@@ -9677,7 +9747,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.44166894,
     "longitude": 114.0260557,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/157732.png"
   },
   {
     "code": "156981",
@@ -9698,8 +9769,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.44484109,
     "longitude": 114.03203843,
-    "has_nursery": false,
-    "logo_url": "/logos/156981.png"
+    "has_nursery": false
   },
   {
     "code": "562866",
@@ -9742,7 +9812,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.444342,
     "longitude": 114.02708839,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/542687.png"
   },
   {
     "code": "154601",
@@ -9807,7 +9878,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.4456872,
     "longitude": 114.02100554,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/564710.png"
   },
   {
     "code": "543012",
@@ -9828,7 +9900,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.4497722,
     "longitude": 114.00129509,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/543012.png"
   },
   {
     "code": "231010",
@@ -9849,7 +9922,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.44543967,
     "longitude": 114.03493279,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/231010.png"
   },
   {
     "code": "544167",
@@ -9978,7 +10052,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.46244122,
     "longitude": 114.0006991,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/564125.png"
   },
   {
     "code": "543918",
@@ -10043,7 +10118,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.45017114,
     "longitude": 114.00445974,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/564257.png"
   },
   {
     "code": "570885",
@@ -10174,8 +10250,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.42535841,
     "longitude": 114.07777722,
-    "has_nursery": false,
-    "logo_url": "/logos/158321.png"
+    "has_nursery": false
   },
   {
     "code": "151629",
@@ -10218,7 +10293,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.4453753,
     "longitude": 114.02378039,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/155624.png"
   },
   {
     "code": "159018",
@@ -10283,7 +10359,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.44514019,
     "longitude": 114.02312977,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/159158.png"
   },
   {
     "code": "545333",
@@ -10304,8 +10381,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.46777816,
     "longitude": 113.99985093,
-    "has_nursery": true,
-    "logo_url": "/logos/545333.png"
+    "has_nursery": true
   },
   {
     "code": "157252",
@@ -10544,7 +10620,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.48771828,
     "longitude": 114.14080536,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/519499.png"
   },
   {
     "code": "153451",
@@ -10586,8 +10663,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.49589719,
     "longitude": 114.14111131,
-    "has_nursery": false,
-    "logo_url": "/logos/156230.png"
+    "has_nursery": false
   },
   {
     "code": "158364",
@@ -10806,7 +10882,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.49229875,
     "longitude": 114.13439905,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/563285.png"
   },
   {
     "code": "156191",
@@ -10849,7 +10926,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.49343835,
     "longitude": 114.13427139,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/516627.png"
   },
   {
     "code": "566390",
@@ -10914,8 +10992,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.50167433,
     "longitude": 114.1287691,
-    "has_nursery": true,
-    "logo_url": "/logos/566330.png"
+    "has_nursery": true
   },
   {
     "code": "158780",
@@ -10936,7 +11013,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.4831247,
     "longitude": 114.14164807,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/158780.png"
   },
   {
     "code": "516384",
@@ -10957,7 +11035,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.50437915,
     "longitude": 114.1568439,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/516384.png"
   },
   {
     "code": "563110",
@@ -11000,7 +11079,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.50890616,
     "longitude": 114.12676251,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/150843.png"
   },
   {
     "code": "157406",
@@ -11043,7 +11123,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.50400141,
     "longitude": 114.13172184,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/158208.png"
   },
   {
     "code": "158593",
@@ -11282,8 +11363,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.463705,
     "longitude": 114.17725647,
-    "has_nursery": false,
-    "logo_url": "/logos/627550.png"
+    "has_nursery": false
   },
   {
     "code": "565237",
@@ -11326,8 +11406,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.45481363,
     "longitude": 114.17570272,
-    "has_nursery": true,
-    "logo_url": "/logos/158062.png"
+    "has_nursery": true
   },
   {
     "code": "231134",
@@ -11370,7 +11449,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.45236477,
     "longitude": 114.16171966,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/566578.png"
   },
   {
     "code": "157449",
@@ -11391,7 +11471,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.44870785,
     "longitude": 114.17606805,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/157449.png"
   },
   {
     "code": "563722",
@@ -11499,7 +11580,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.44680211,
     "longitude": 114.16661555,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/151157.png"
   },
   {
     "code": "158585",
@@ -11564,8 +11646,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.45176874,
     "longitude": 114.16496361,
-    "has_nursery": false,
-    "logo_url": "/logos/150860.png"
+    "has_nursery": false
   },
   {
     "code": "150860",
@@ -11586,8 +11667,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.45176874,
     "longitude": 114.16496361,
-    "has_nursery": false,
-    "logo_url": "/logos/150860.png"
+    "has_nursery": false
   },
   {
     "code": "564087",
@@ -11652,7 +11732,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.44675088,
     "longitude": 114.16594815,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/563560.png"
   },
   {
     "code": "621366",
@@ -11695,7 +11776,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.44221218,
     "longitude": 114.16605148,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/564281.png"
   },
   {
     "code": "158739",
@@ -11760,7 +11842,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.30839913,
     "longitude": 114.25688408,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/565458.png"
   },
   {
     "code": "159255",
@@ -11781,7 +11864,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.31833688,
     "longitude": 114.26632484,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/159255.png"
   },
   {
     "code": "524026",
@@ -11802,7 +11886,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.32121027,
     "longitude": 114.25619254,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/524026.png"
   },
   {
     "code": "619787",
@@ -11888,7 +11973,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.31816107,
     "longitude": 114.26742925,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/563480.png"
   },
   {
     "code": "563340",
@@ -12018,7 +12104,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.38207077,
     "longitude": 114.26977386,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/563269.png"
   },
   {
     "code": "565008",
@@ -12127,7 +12214,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.3195797,
     "longitude": 114.26086699,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/565768.png"
   },
   {
     "code": "542830",
@@ -12170,7 +12258,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.30604211,
     "longitude": 114.25127613,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/554901.png"
   },
   {
     "code": "616311",
@@ -12234,8 +12323,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.31043994,
     "longitude": 114.25709099,
-    "has_nursery": true,
-    "logo_url": "/logos/530735.png"
+    "has_nursery": true
   },
   {
     "code": "566586",
@@ -12278,7 +12366,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.31751087,
     "longitude": 114.26580699,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/159204.png"
   },
   {
     "code": "563978",
@@ -12321,7 +12410,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.30474646,
     "longitude": 114.26464595,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/158232.png"
   },
   {
     "code": "159239",
@@ -12430,7 +12520,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.30683856,
     "longitude": 114.25331851,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/324957.png"
   },
   {
     "code": "525731",
@@ -12451,7 +12542,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.37961702,
     "longitude": 114.26846816,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/525731.png"
   },
   {
     "code": "530417",
@@ -12493,7 +12585,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.31531695,
     "longitude": 114.26650344,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/534153.png"
   },
   {
     "code": "158470",
@@ -12602,7 +12695,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.30658563,
     "longitude": 114.25285543,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/540811.png"
   },
   {
     "code": "563838",
@@ -12623,7 +12717,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.37212733,
     "longitude": 114.18869778,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/563838.png"
   },
   {
     "code": "543861",
@@ -12686,7 +12781,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.3784128,
     "longitude": 114.19582549,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/565857.png"
   },
   {
     "code": "524328",
@@ -13117,7 +13213,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.38129097,
     "longitude": 114.21409378,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/158569.png"
   },
   {
     "code": "158704",
@@ -13160,7 +13257,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.36094937,
     "longitude": 114.17135974,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/621986.png"
   },
   {
     "code": "324884",
@@ -13225,7 +13323,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.42216736,
     "longitude": 114.22598186,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/520071.png"
   },
   {
     "code": "563625",
@@ -13312,7 +13411,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.38101347,
     "longitude": 114.18719927,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/158429.png"
   },
   {
     "code": "158240",
@@ -13333,7 +13433,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.4176461,
     "longitude": 114.22791311,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/158240.png"
   },
   {
     "code": "156779",
@@ -13354,7 +13455,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.39178782,
     "longitude": 114.19393658,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/156779.png"
   },
   {
     "code": "565326",
@@ -13463,8 +13565,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.38728161,
     "longitude": 114.19376123,
-    "has_nursery": false,
-    "logo_url": "/logos/156493.png"
+    "has_nursery": false
   },
   {
     "code": "159212",
@@ -13485,7 +13586,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.42553644,
     "longitude": 114.24185753,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/159212.png"
   },
   {
     "code": "158160",
@@ -13748,7 +13850,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.42323152,
     "longitude": 114.22770729,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/564109.png"
   },
   {
     "code": "618594",
@@ -13769,7 +13872,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.39934671,
     "longitude": 114.19015972,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/618594.png"
   },
   {
     "code": "540498",
@@ -13790,8 +13894,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.37082751,
     "longitude": 114.13920723,
-    "has_nursery": false,
-    "logo_url": "/logos/540498.png"
+    "has_nursery": false
   },
   {
     "code": "510726",
@@ -13834,8 +13937,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.36761831,
     "longitude": 114.12682387,
-    "has_nursery": false,
-    "logo_url": "/logos/559962.png"
+    "has_nursery": false
   },
   {
     "code": "565733",
@@ -13856,7 +13958,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.34583759,
     "longitude": 114.10953818,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/565733.png"
   },
   {
     "code": "564680",
@@ -13964,7 +14067,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.35358843,
     "longitude": 114.10311822,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/564842.png"
   },
   {
     "code": "156272",
@@ -14007,7 +14111,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.35734751,
     "longitude": 114.12861198,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/157643.png"
   },
   {
     "code": "612561",
@@ -14292,7 +14397,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.35656163,
     "longitude": 114.09625272,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/546127.png"
   },
   {
     "code": "158488",
@@ -14313,7 +14419,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.36870935,
     "longitude": 114.12444857,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/158488.png"
   },
   {
     "code": "566675",
@@ -14378,7 +14485,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.36054739,
     "longitude": 114.10315437,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/158453.png"
   },
   {
     "code": "542768",
@@ -14399,7 +14507,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.34230321,
     "longitude": 114.13753742,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/542768.png"
   },
   {
     "code": "157813",
@@ -14420,7 +14529,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.34978449,
     "longitude": 114.10251735,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/157813.png"
   },
   {
     "code": "157856",
@@ -14639,7 +14749,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.36305639,
     "longitude": 114.13092172,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/231347.png"
   },
   {
     "code": "519103",
@@ -14748,7 +14859,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.37092572,
     "longitude": 114.1422725,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/518077.png"
   },
   {
     "code": "158640",
@@ -14813,7 +14925,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.36001148,
     "longitude": 114.12275181,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/564141.png"
   },
   {
     "code": "565903",
@@ -14834,8 +14947,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.35025819,
     "longitude": 114.10361703,
-    "has_nursery": true,
-    "logo_url": "/logos/565903.png"
+    "has_nursery": true
   },
   {
     "code": "563374",
@@ -14899,7 +15011,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.3660041,
     "longitude": 114.12261551,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/159093.png"
   },
   {
     "code": "563382",
@@ -15030,7 +15143,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.20534648,
     "longitude": 114.0302856,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/565741.png"
   },
   {
     "code": "152978",
@@ -15073,7 +15187,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.29621086,
     "longitude": 113.94831755,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/520144.png"
   },
   {
     "code": "554251",
@@ -15116,7 +15231,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.28888697,
     "longitude": 113.94234513,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/524123.png"
   },
   {
     "code": "566926",
@@ -15246,7 +15362,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.20966827,
     "longitude": 114.02994846,
-    "has_nursery": true
+    "has_nursery": true,
+    "logo_url": "/logos/565717.png"
   },
   {
     "code": "566381",
@@ -15311,8 +15428,7 @@
     "edb_date": "2026-04-21",
     "latitude": 22.28245952,
     "longitude": 114.03777596,
-    "has_nursery": false,
-    "logo_url": "/logos/156698.png"
+    "has_nursery": false
   },
   {
     "code": "151564",
@@ -15333,7 +15449,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.22489177,
     "longitude": 114.11529252,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/151564.png"
   },
   {
     "code": "523445",
@@ -15354,7 +15471,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.28891499,
     "longitude": 113.94235964,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/523445.png"
   },
   {
     "code": "556122",
@@ -15375,7 +15493,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.28205404,
     "longitude": 113.93529541,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/556122.png"
   },
   {
     "code": "555576",
@@ -15396,7 +15515,8 @@
     "edb_date": "2026-04-21",
     "latitude": 22.2918224,
     "longitude": 113.94457118,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/555576.png"
   },
   {
     "code": "612936",
@@ -15483,7 +15603,8 @@
     "edb_date": null,
     "latitude": 22.2853154,
     "longitude": 114.13316151,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/542164.png"
   },
   {
     "code": "545589",
@@ -15504,7 +15625,8 @@
     "edb_date": null,
     "latitude": 22.26860087,
     "longitude": 114.15152181,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/545589.png"
   },
   {
     "code": "566284",
@@ -15567,7 +15689,8 @@
     "edb_date": null,
     "latitude": 22.27946487,
     "longitude": 114.15442111,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/593133.png"
   },
   {
     "code": "594725",
@@ -15609,7 +15732,8 @@
     "edb_date": null,
     "latitude": 22.28261118,
     "longitude": 114.12940518,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/603643.png"
   },
   {
     "code": "603724",
@@ -15651,7 +15775,8 @@
     "edb_date": null,
     "latitude": 22.28715551,
     "longitude": 114.13649708,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/605026.png"
   },
   {
     "code": "607215",
@@ -15672,7 +15797,8 @@
     "edb_date": null,
     "latitude": 22.27949586,
     "longitude": 114.12923158,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/607215.png"
   },
   {
     "code": "608319",
@@ -15693,7 +15819,8 @@
     "edb_date": null,
     "latitude": 22.28072359,
     "longitude": 114.12874599,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/608319.png"
   },
   {
     "code": "611484",
@@ -15756,7 +15883,8 @@
     "edb_date": null,
     "latitude": 22.28196647,
     "longitude": 114.15525521,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/614904.png"
   },
   {
     "code": "215694",
@@ -15777,7 +15905,8 @@
     "edb_date": null,
     "latitude": 22.28940967,
     "longitude": 114.19942232,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/215694.png"
   },
   {
     "code": "215767",
@@ -15798,7 +15927,8 @@
     "edb_date": null,
     "latitude": 22.28083466,
     "longitude": 114.21544868,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/215767.png"
   },
   {
     "code": "321087",
@@ -15819,7 +15949,8 @@
     "edb_date": null,
     "latitude": 22.29048865,
     "longitude": 114.20067528,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/321087.png"
   },
   {
     "code": "324965",
@@ -15861,7 +15992,8 @@
     "edb_date": null,
     "latitude": 22.28424208,
     "longitude": 114.21522953,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/325481.png"
   },
   {
     "code": "566934",
@@ -15882,7 +16014,8 @@
     "edb_date": null,
     "latitude": 22.28810842,
     "longitude": 114.19090703,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/566934.png"
   },
   {
     "code": "566942",
@@ -15903,7 +16036,8 @@
     "edb_date": null,
     "latitude": 22.28823395,
     "longitude": 114.19081388,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/566942.png"
   },
   {
     "code": "566977",
@@ -15924,7 +16058,8 @@
     "edb_date": null,
     "latitude": 22.29053467,
     "longitude": 114.20091886,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/566977.png"
   },
   {
     "code": "567329",
@@ -15945,7 +16080,8 @@
     "edb_date": null,
     "latitude": 22.29083991,
     "longitude": 114.20091018,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/567329.png"
   },
   {
     "code": "569828",
@@ -15966,7 +16102,8 @@
     "edb_date": null,
     "latitude": 22.28349585,
     "longitude": 114.2165131,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/569828.png"
   },
   {
     "code": "575852",
@@ -15987,7 +16124,8 @@
     "edb_date": null,
     "latitude": 22.28473866,
     "longitude": 114.19998826,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/575852.png"
   },
   {
     "code": "602329",
@@ -16008,7 +16146,8 @@
     "edb_date": null,
     "latitude": 22.28511464,
     "longitude": 114.2169211,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/602329.png"
   },
   {
     "code": "604585",
@@ -16029,7 +16168,8 @@
     "edb_date": null,
     "latitude": 22.28685603,
     "longitude": 114.2226759,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/604585.png"
   },
   {
     "code": "607223",
@@ -16092,7 +16232,8 @@
     "edb_date": null,
     "latitude": 22.28982138,
     "longitude": 114.20894582,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/613681.svg"
   },
   {
     "code": "622699",
@@ -16197,7 +16338,8 @@
     "edb_date": null,
     "latitude": 22.265653,
     "longitude": 113.99678028,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/587877.png"
   },
   {
     "code": "590029",
@@ -16218,7 +16360,8 @@
     "edb_date": null,
     "latitude": 22.30810476,
     "longitude": 114.01640408,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/590029.png"
   },
   {
     "code": "600814",
@@ -16281,7 +16424,8 @@
     "edb_date": null,
     "latitude": 22.32800595,
     "longitude": 114.1781265,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/212466.png"
   },
   {
     "code": "214868",
@@ -16407,7 +16551,8 @@
     "edb_date": null,
     "latitude": 22.33122114,
     "longitude": 114.1774956,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/519863.png"
   },
   {
     "code": "526100",
@@ -16449,7 +16594,8 @@
     "edb_date": null,
     "latitude": 22.32767121,
     "longitude": 114.17623664,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/535818.png"
   },
   {
     "code": "537713",
@@ -16491,7 +16637,8 @@
     "edb_date": null,
     "latitude": 22.33835799,
     "longitude": 114.17861294,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/542504.png"
   },
   {
     "code": "544744",
@@ -16512,7 +16659,8 @@
     "edb_date": null,
     "latitude": 22.32894537,
     "longitude": 114.18116469,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/544744.png"
   },
   {
     "code": "566900",
@@ -16533,7 +16681,8 @@
     "edb_date": null,
     "latitude": 22.31384716,
     "longitude": 114.17928134,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/566900.png"
   },
   {
     "code": "578479",
@@ -16596,7 +16745,8 @@
     "edb_date": null,
     "latitude": 22.3306802,
     "longitude": 114.1769394,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/584517.png"
   },
   {
     "code": "586625",
@@ -16638,7 +16788,8 @@
     "edb_date": null,
     "latitude": 22.30514883,
     "longitude": 114.19170357,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/593630.png"
   },
   {
     "code": "597031",
@@ -16659,7 +16810,8 @@
     "edb_date": null,
     "latitude": 22.31785675,
     "longitude": 114.17434501,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/597031.png"
   },
   {
     "code": "597538",
@@ -16680,7 +16832,8 @@
     "edb_date": null,
     "latitude": 22.32852935,
     "longitude": 114.18798842,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/597538.png"
   },
   {
     "code": "599182",
@@ -16743,7 +16896,8 @@
     "edb_date": null,
     "latitude": 22.30918554,
     "longitude": 114.19141284,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/603864.png"
   },
   {
     "code": "604445",
@@ -16785,7 +16939,8 @@
     "edb_date": null,
     "latitude": 22.31102817,
     "longitude": 114.18621094,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/609528.svg"
   },
   {
     "code": "610623",
@@ -16806,7 +16961,8 @@
     "edb_date": null,
     "latitude": 22.30398388,
     "longitude": 114.19175197,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/610623.png"
   },
   {
     "code": "618039",
@@ -16827,7 +16983,8 @@
     "edb_date": null,
     "latitude": 22.31380081,
     "longitude": 114.17927163,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/618039.png"
   },
   {
     "code": "231614",
@@ -16869,7 +17026,8 @@
     "edb_date": null,
     "latitude": 22.36155707,
     "longitude": 114.10532668,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/534200.svg"
   },
   {
     "code": "609919",
@@ -16911,7 +17069,8 @@
     "edb_date": null,
     "latitude": 22.35173337,
     "longitude": 114.13689597,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/622982.png"
   },
   {
     "code": "216267",
@@ -16932,7 +17091,8 @@
     "edb_date": null,
     "latitude": 22.30461981,
     "longitude": 114.22735801,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/216267.png"
   },
   {
     "code": "593788",
@@ -16974,7 +17134,8 @@
     "edb_date": null,
     "latitude": 22.32341444,
     "longitude": 114.21275835,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/601985.png"
   },
   {
     "code": "627275",
@@ -16995,7 +17156,8 @@
     "edb_date": null,
     "latitude": 22.33121005,
     "longitude": 114.20975373,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/627275.png"
   },
   {
     "code": "566241",
@@ -17016,7 +17178,8 @@
     "edb_date": null,
     "latitude": 22.49000784,
     "longitude": 114.14241501,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/566241.png"
   },
   {
     "code": "582417",
@@ -17058,7 +17221,8 @@
     "edb_date": null,
     "latitude": 22.50160501,
     "longitude": 114.14550266,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/601250.png"
   },
   {
     "code": "523984",
@@ -17079,7 +17243,8 @@
     "edb_date": null,
     "latitude": 22.31495169,
     "longitude": 114.26397294,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/523984.png"
   },
   {
     "code": "530131",
@@ -17121,7 +17286,8 @@
     "edb_date": null,
     "latitude": 22.3335156,
     "longitude": 114.26772649,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/532355.png"
   },
   {
     "code": "537527",
@@ -17142,7 +17308,8 @@
     "edb_date": null,
     "latitude": 22.31417204,
     "longitude": 114.2662028,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/537527.png"
   },
   {
     "code": "567108",
@@ -17205,7 +17372,8 @@
     "edb_date": null,
     "latitude": 22.32424922,
     "longitude": 114.27108372,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/575755.png"
   },
   {
     "code": "578630",
@@ -17247,7 +17415,8 @@
     "edb_date": null,
     "latitude": 22.30766662,
     "longitude": 114.25156454,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/581836.png"
   },
   {
     "code": "583774",
@@ -17289,7 +17458,8 @@
     "edb_date": null,
     "latitude": 22.29726548,
     "longitude": 114.27113354,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/604372.png"
   },
   {
     "code": "609749",
@@ -17331,7 +17501,8 @@
     "edb_date": null,
     "latitude": 22.30362926,
     "longitude": 114.26255625,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/612391.svg"
   },
   {
     "code": "613088",
@@ -17352,7 +17523,8 @@
     "edb_date": null,
     "latitude": 22.30177872,
     "longitude": 114.25826808,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/613088.png"
   },
   {
     "code": "613665",
@@ -17415,7 +17587,8 @@
     "edb_date": null,
     "latitude": 22.29409604,
     "longitude": 114.27060059,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/616443.png"
   },
   {
     "code": "604470",
@@ -17436,7 +17609,8 @@
     "edb_date": null,
     "latitude": 22.32726519,
     "longitude": 114.16766288,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/604470.png"
   },
   {
     "code": "604615",
@@ -17478,7 +17652,8 @@
     "edb_date": null,
     "latitude": 22.33513912,
     "longitude": 114.15887748,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/607703.png"
   },
   {
     "code": "612782",
@@ -17499,7 +17674,8 @@
     "edb_date": null,
     "latitude": 22.32822086,
     "longitude": 114.15250114,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/612782.png"
   },
   {
     "code": "615250",
@@ -17520,7 +17696,8 @@
     "edb_date": null,
     "latitude": 22.33302511,
     "longitude": 114.15234499,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/615250.svg"
   },
   {
     "code": "231266",
@@ -17541,7 +17718,8 @@
     "edb_date": null,
     "latitude": 22.38540176,
     "longitude": 114.20465623,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/231266.png"
   },
   {
     "code": "231517",
@@ -17604,7 +17782,8 @@
     "edb_date": null,
     "latitude": 22.40000308,
     "longitude": 114.20157961,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/522953.png"
   },
   {
     "code": "533360",
@@ -17625,7 +17804,8 @@
     "edb_date": null,
     "latitude": 22.42498186,
     "longitude": 114.22980017,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/533360.png"
   },
   {
     "code": "559415",
@@ -17646,7 +17826,8 @@
     "edb_date": null,
     "latitude": 22.41913557,
     "longitude": 114.22382647,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/559415.png"
   },
   {
     "code": "565113",
@@ -17688,7 +17869,8 @@
     "edb_date": null,
     "latitude": 22.39541626,
     "longitude": 114.1973563,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/581739.png"
   },
   {
     "code": "591777",
@@ -17730,7 +17912,8 @@
     "edb_date": null,
     "latitude": 22.3793253,
     "longitude": 114.19737244,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/598054.png"
   },
   {
     "code": "604291",
@@ -17751,7 +17934,8 @@
     "edb_date": null,
     "latitude": 22.43084138,
     "longitude": 114.242267,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/604291.svg"
   },
   {
     "code": "613916",
@@ -17793,7 +17977,8 @@
     "edb_date": null,
     "latitude": 22.42428126,
     "longitude": 114.22838371,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/616290.png"
   },
   {
     "code": "622389",
@@ -17835,7 +18020,8 @@
     "edb_date": null,
     "latitude": 22.25794432,
     "longitude": 114.19850531,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/215937.png"
   },
   {
     "code": "216194",
@@ -17856,7 +18042,8 @@
     "edb_date": null,
     "latitude": 22.24305134,
     "longitude": 114.14639667,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/216194.png"
   },
   {
     "code": "325961",
@@ -17898,7 +18085,8 @@
     "edb_date": null,
     "latitude": 22.21878533,
     "longitude": 114.2142156,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/565466.png"
   },
   {
     "code": "578053",
@@ -18003,7 +18191,8 @@
     "edb_date": null,
     "latitude": 22.43574919,
     "longitude": 114.18585988,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/565199.png"
   },
   {
     "code": "567027",
@@ -18024,7 +18213,8 @@
     "edb_date": null,
     "latitude": 22.45387894,
     "longitude": 114.17307766,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/567027.png"
   },
   {
     "code": "601721",
@@ -18066,7 +18256,8 @@
     "edb_date": null,
     "latitude": 22.37338011,
     "longitude": 114.11958808,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/157716.png"
   },
   {
     "code": "565105",
@@ -18087,7 +18278,8 @@
     "edb_date": null,
     "latitude": 22.36186225,
     "longitude": 114.11453569,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/565105.png"
   },
   {
     "code": "583340",
@@ -18129,7 +18321,8 @@
     "edb_date": null,
     "latitude": 22.36878631,
     "longitude": 114.11800635,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/590860.png"
   },
   {
     "code": "597716",
@@ -18171,7 +18364,8 @@
     "edb_date": null,
     "latitude": 22.36860207,
     "longitude": 114.10873398,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/619850.png"
   },
   {
     "code": "572764",
@@ -18192,7 +18386,8 @@
     "edb_date": null,
     "latitude": 22.37420872,
     "longitude": 113.96932848,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/572764.png"
   },
   {
     "code": "587524",
@@ -18234,7 +18429,8 @@
     "edb_date": null,
     "latitude": 22.41891247,
     "longitude": 113.98638584,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/590401.png"
   },
   {
     "code": "615170",
@@ -18297,7 +18493,8 @@
     "edb_date": null,
     "latitude": 22.26656062,
     "longitude": 114.1881562,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/325848.png"
   },
   {
     "code": "564958",
@@ -18381,7 +18578,8 @@
     "edb_date": null,
     "latitude": 22.28200329,
     "longitude": 114.19225421,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/593770.png"
   },
   {
     "code": "600334",
@@ -18402,7 +18600,8 @@
     "edb_date": null,
     "latitude": 22.27773156,
     "longitude": 114.19459219,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/600334.png"
   },
   {
     "code": "607592",
@@ -18423,7 +18622,8 @@
     "edb_date": null,
     "latitude": 22.26385613,
     "longitude": 114.18272518,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/607592.png"
   },
   {
     "code": "216178",
@@ -18444,7 +18644,8 @@
     "edb_date": null,
     "latitude": 22.29488461,
     "longitude": 114.17114107,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/216178.png"
   },
   {
     "code": "561207",
@@ -18465,7 +18666,8 @@
     "edb_date": null,
     "latitude": 22.3207081,
     "longitude": 114.15527838,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/561207.svg"
   },
   {
     "code": "566748",
@@ -18486,7 +18688,8 @@
     "edb_date": null,
     "latitude": 22.31910131,
     "longitude": 114.16091778,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/566748.png"
   },
   {
     "code": "571490",
@@ -18507,7 +18710,8 @@
     "edb_date": null,
     "latitude": 22.30551472,
     "longitude": 114.16206023,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/571490.png"
   },
   {
     "code": "574708",
@@ -18528,7 +18732,8 @@
     "edb_date": null,
     "latitude": 22.32176423,
     "longitude": 114.15900246,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/574708.png"
   },
   {
     "code": "583421",
@@ -18549,7 +18754,8 @@
     "edb_date": null,
     "latitude": 22.32556783,
     "longitude": 114.16954797,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/583421.png"
   },
   {
     "code": "595543",
@@ -18633,7 +18839,8 @@
     "edb_date": null,
     "latitude": 22.32070781,
     "longitude": 114.15527837,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/617474.svg"
   },
   {
     "code": "151696",
@@ -18654,7 +18861,8 @@
     "edb_date": null,
     "latitude": 22.44198417,
     "longitude": 114.02839848,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/151696.png"
   },
   {
     "code": "517828",
@@ -18675,7 +18883,8 @@
     "edb_date": null,
     "latitude": 22.48642949,
     "longitude": 114.05423675,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/517828.png"
   },
   {
     "code": "602000",
@@ -18738,7 +18947,8 @@
     "edb_date": null,
     "latitude": 22.36094937,
     "longitude": 114.17135974,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/605794.png"
   },
   {
     "code": "612189",
@@ -18780,7 +18990,8 @@
     "edb_date": null,
     "latitude": 22.47353174,
     "longitude": 114.05511483,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/615633.png"
   },
   {
     "code": "621480",
@@ -18822,6 +19033,7 @@
     "edb_date": null,
     "latitude": 22.4468979,
     "longitude": 114.05103844,
-    "has_nursery": false
+    "has_nursery": false,
+    "logo_url": "/logos/622060.png"
   }
 ]
