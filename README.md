@@ -18,9 +18,9 @@ npm run lint
 HOMEPAGE_BANNER_ENABLED=true
 ```
 
-### 首页热点名校规则
+### 首页热点学校规则
 
-首页“热点名校”区域必须复用 `src/components/schools/SchoolCard.tsx`，和“找幼稚园”列表保持同一张学校卡片。
+首页“热点学校”区域必须复用 `src/components/schools/SchoolCard.tsx`，和“找幼稚园”列表保持同一张学校卡片。
 
 以后只要调整学校卡片样式、信息层级、按钮或学额展示，必须改共享的 `SchoolCard`，不要给首页另写一套卡片。
 
