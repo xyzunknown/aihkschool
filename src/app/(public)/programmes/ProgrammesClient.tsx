@@ -146,10 +146,10 @@ export function ProgrammesClient() {
     const districtsRaw = searchParams?.get("districts");
     const ageRaw = searchParams?.get("age") as AgePresetKey | null;
     const age: AgePresetKey =
-      ageRaw && VALID_PRESETS.has(ageRaw) ? ageRaw : "preschool";
+      ageRaw && VALID_PRESETS.has(ageRaw) ? ageRaw : "all";
     const page = parseInt(searchParams?.get("page") ?? "1", 10);
     return {
-      category: (cat || "swimming") as ProgrammeCategory | null,
+      category: (cat || null) as ProgrammeCategory | null,
       selectedDistricts: districtsRaw
         ? districtsRaw.split(",").filter(Boolean)
         : dist
@@ -174,9 +174,9 @@ export function ProgrammesClient() {
   // Sync filters → URL
   useEffect(() => {
     const params = new URLSearchParams();
-    if (category && category !== "swimming") params.set("category", category);
+    if (category) params.set("category", category);
     if (selectedDistricts.length > 0) params.set("districts", selectedDistricts.join(","));
-    if (agePreset !== "preschool") params.set("age", agePreset);
+    if (agePreset !== "all") params.set("age", agePreset);
     if (page > 1) params.set("page", String(page));
     const qs = params.toString();
     router.replace(qs ? `/programmes?${qs}` : "/programmes", { scroll: false });
@@ -239,9 +239,9 @@ export function ProgrammesClient() {
   };
 
   const handleReset = () => {
-    setCategory("swimming");
+    setCategory(null);
     setSelectedDistricts([]);
-    setAgePreset("preschool");
+    setAgePreset("all");
     setSort("deadline");
     setPage(1);
   };

@@ -16,6 +16,7 @@ interface FilterBarProps {
   onToggleDistrict: (district: District) => void;
   onUpdateFilter: (key: string, value: string | null) => void;
   onToggleVacancy: (status: string) => void;
+  onResetAll: () => void;
 }
 
 type PanelKey = "district" | "vacancy" | "grade" | "type" | "more" | null;
@@ -75,6 +76,7 @@ export function FilterBar({
   onToggleDistrict,
   onUpdateFilter,
   onToggleVacancy,
+  onResetAll,
 }: FilterBarProps) {
   const [openPanel, setOpenPanel] = useState<PanelKey>(null);
 
@@ -98,21 +100,13 @@ export function FilterBar({
   const moreCount = (sessionFilter ? 1 : 0) + (hasNurseryFilter ? 1 : 0);
 
   const resetAll = () => {
-    selectedDistricts.forEach(onToggleDistrict);
-    vacancyFilter.forEach(onToggleVacancy);
-    onUpdateFilter("grade", null);
-    onUpdateFilter("type", null);
-    onUpdateFilter("session", null);
-    onUpdateFilter("hasNursery", null);
-    onUpdateFilter("schoolandFreeScheme", null);
-    onUpdateFilter("schoolandGroup", null);
-    onUpdateFilter("schoolandSize", null);
+    onResetAll();
     setOpenPanel(null);
   };
 
   return (
     <div className="relative z-10 mb-6">
-      <div className="rounded-card border border-surface-border bg-white p-3 shadow-soft md:p-4">
+      <div className="relative z-30 rounded-card border border-surface-border bg-white p-3 shadow-soft md:p-4">
         <div className="flex flex-wrap items-center gap-2">
           <SummaryButton label="地區" value={districtSummary(selectedDistricts)} active={selectedDistricts.length > 0} open={openPanel === "district"} onClick={() => setOpenPanel(openPanel === "district" ? null : "district")} />
           <SummaryButton label="學位" value={vacancyFilter.length === 0 ? "全部學位" : vacancyFilter.length === 1 ? optionLabel(vacancyOptions, vacancyFilter[0]) ?? "已選" : `已選 ${vacancyFilter.length}`} active={vacancyFilter.length > 0} open={openPanel === "vacancy"} onClick={() => setOpenPanel(openPanel === "vacancy" ? null : "vacancy")} />
@@ -149,7 +143,7 @@ export function FilterBar({
 
       {openPanel ? (
         <>
-          <div className="absolute left-0 top-full z-30 mt-2 w-[min(92vw,760px)] rounded-card border border-surface-border bg-white p-4 shadow-card">
+          <div className="absolute left-0 top-full z-40 mt-2 w-[min(92vw,760px)] rounded-card border border-surface-border bg-white p-4 shadow-card">
             {openPanel === "district" ? (
               <div className="grid gap-4 md:grid-cols-2">
                 {DISTRICT_GROUPS.map((group) => (

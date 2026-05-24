@@ -296,6 +296,24 @@ export default function KGListClient() {
     router.push(`/kg?${params.toString()}`);
   };
 
+  const resetFilters = () => {
+    const params = new URLSearchParams(searchParams?.toString() ?? "");
+    [
+      "district",
+      "type",
+      "vacancy",
+      "grade",
+      "session",
+      "hasNursery",
+      "schoolandFreeScheme",
+      "schoolandGroup",
+      "schoolandSize",
+    ].forEach((key) => params.delete(key));
+    params.set("page", "1");
+    const qs = params.toString();
+    router.push(qs ? `/kg?${qs}` : "/kg");
+  };
+
   const totalPages = Math.ceil(count / (hotFilter ? HOT_SCHOOL_PAGE_SIZE : PAGE_SIZE));
 
   return (
@@ -319,6 +337,7 @@ export default function KGListClient() {
         onToggleDistrict={toggleDistrict}
         onUpdateFilter={updateFilter}
         onToggleVacancy={toggleVacancy}
+        onResetAll={resetFilters}
       />
 
       {loading ? (

@@ -61,11 +61,11 @@ export function FilterBar({
   const [openPanel, setOpenPanel] = useState(false);
   const hasDistricts = selectedDistrictKeys.length > 0;
   const hasFilters =
-    hasDistricts || sections.some((section) => section.selectedKeys.length > 0) || activeTags.length > 0;
+    hasDistricts || sections.some((section) => section.selectedKeys.some((key) => key !== "all")) || activeTags.length > 0;
 
   return (
     <div className="relative rounded-card border border-surface-border bg-white px-4 py-4 shadow-soft md:px-5">
-      <div className="grid divide-y divide-surface-border">
+      <div className="relative z-30 grid divide-y divide-surface-border">
         {districtGroups.length > 0 && onToggleDistrict ? (
           <div className="grid gap-3 py-3 md:grid-cols-[88px_1fr] md:items-center">
             <h4 className="text-label font-semibold text-ink-700">{districtLabel}</h4>
@@ -88,7 +88,7 @@ export function FilterBar({
               </button>
 
               {openPanel ? (
-                <section className="absolute left-0 top-full z-30 mt-2 w-[min(92vw,440px)] overflow-hidden rounded-card border border-surface-border bg-white shadow-card">
+                <section className="absolute left-0 top-full z-40 mt-2 w-[min(92vw,440px)] overflow-hidden rounded-card border border-surface-border bg-white shadow-card">
                   <div className="flex items-center justify-between gap-3 border-b border-surface-border px-4 py-3">
                     <h3 className="text-label font-semibold text-ink-500">
                       共 18 區 · 已選 {selectedDistrictKeys.length}

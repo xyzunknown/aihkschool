@@ -41,6 +41,7 @@ const DISTRICT_GROUPS: FilterOptionGroup[] = [
 ];
 
 const AGE_PRESETS: { key: AgePresetKey; label: string }[] = [
+  { key: "all", label: "全部年齡" },
   { key: "preschool", label: "幼兒 3–5" },
   { key: "infant", label: "嬰幼兒 0–2" },
   { key: "primary", label: "兒童 6–11" },
