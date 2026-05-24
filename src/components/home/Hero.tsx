@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { HomeBanner } from "@/types/homepage";
+import { HeroSearchBar } from "@/components/home/HeroSearchBar";
 
 const TRUST_POINTS = ["資料齊全更新", "免費使用", "專為香港家長設計"];
 
@@ -47,15 +47,7 @@ export function Hero({ banners = [] }: { banners?: HomeBanner[] }) {
               <p className="mt-4 md:mt-5 text-[15px] md:text-[14px] lg:text-[15px] xl:text-[15px] text-ink-700 leading-relaxed max-w-[560px] md:max-w-[330px] lg:max-w-[360px] xl:max-w-[390px]">
                 {subtitle}
               </p>
-              <div className="mt-6 md:mt-7 flex flex-wrap items-center gap-3 md:gap-4">
-                <Link
-                  href={banner?.cta_primary.url ?? "/kg"}
-                  className="inline-flex min-w-[190px] items-center justify-center gap-1.5 px-6 h-12 rounded-pill bg-brand-700 text-white text-base font-semibold hover:bg-brand-500 transition shadow-[0_12px_28px_rgba(30,82,56,0.18)]"
-                >
-                  {banner?.cta_primary.label ?? "立即搜尋幼稚園"}
-                  <span aria-hidden>→</span>
-                </Link>
-              </div>
+              <HeroSearchBar variant="hero" />
               <ul className="mt-5 max-w-[560px] md:max-w-[320px] lg:max-w-[350px] xl:max-w-[380px] flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-ink-700">
                 {TRUST_POINTS.map((t) => (
                   <li key={t} className="inline-flex items-center gap-1.5">

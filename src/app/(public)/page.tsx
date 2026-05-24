@@ -1,5 +1,4 @@
 import { Hero } from "@/components/home/Hero";
-import { HeroSearchBar } from "@/components/home/HeroSearchBar";
 import { NewsFeed } from "@/components/home/NewsFeed";
 import { FeaturedSchools } from "@/components/home/FeaturedSchools";
 import { ActivitiesPreview } from "@/components/home/ActivitiesPreview";
@@ -59,11 +58,6 @@ export default async function HomePage({
       <Hero banners={liveData.banners} />
 
       <div className="max-w-6xl mx-auto px-5 md:px-8">
-        {/* Hero Search */}
-        <section className="pb-10 md:pb-14">
-          <HeroSearchBar />
-        </section>
-
         {/* 熱點學校 */}
         <FeaturedSchools schools={liveData.featuredSchools} />
 
