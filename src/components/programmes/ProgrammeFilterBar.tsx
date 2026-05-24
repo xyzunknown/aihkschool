@@ -227,10 +227,6 @@ export function ProgrammeFilterBar({
         </div>
       </div>
 
-      {openPanel === "sort" ? (
-        <InlineSortPanel activeSort={sort} onChoose={chooseSort} />
-      ) : null}
-
       <div className="flex flex-col gap-3 py-3 md:flex-row md:items-center md:justify-between">
         {selectedTags.length > 0 ? (
           <div className="flex items-center gap-2 overflow-x-auto pb-1 text-sm scrollbar-hide">
@@ -260,25 +256,28 @@ export function ProgrammeFilterBar({
         )}
 
         <div className="flex flex-shrink-0 items-center gap-3 self-start md:self-auto">
-          <button
-            type="button"
-            onClick={() => setOpenPanel(openPanel === "sort" ? null : "sort")}
-            className={`inline-flex h-9 items-center justify-center rounded-lg border bg-white px-3 text-sm font-semibold shadow-sm transition hover:border-brand-400 hover:bg-brand-50 ${
-              openPanel === "sort"
-                ? "border-brand-700 text-brand-800"
-                : "border-slate-200 text-slate-700"
-            }`}
-          >
-            排序：{sortLabel(sort)}
-            <span className={`ml-2 ${openPanel === "sort" ? "text-brand-700" : "text-slate-500"}`}>
+          <div className="relative">
+            <button
+              type="button"
+              onClick={() => setOpenPanel(openPanel === "sort" ? null : "sort")}
+              className={`inline-flex h-9 items-center justify-center rounded-lg border bg-white px-3 text-sm font-semibold shadow-sm transition hover:border-brand-400 hover:bg-brand-50 ${
+                openPanel === "sort"
+                  ? "border-brand-700 text-brand-800"
+                  : "border-slate-200 text-slate-700"
+              }`}
+            >
+              排序：{sortLabel(sort)}
               <ChevronDownIcon expanded={openPanel === "sort"} />
-            </span>
-          </button>
+            </button>
+            {openPanel === "sort" ? (
+              <InlineSortPanel activeSort={sort} onChoose={chooseSort} />
+            ) : null}
+          </div>
           <p className="inline-flex h-9 items-center text-sm font-semibold text-slate-500">共 {courseCount} 個課程</p>
         </div>
       </div>
 
-      {openPanel === "district" ? <div className="fixed inset-0 z-20" onClick={() => setOpenPanel(null)} /> : null}
+      {openPanel ? <div className="fixed inset-0 z-20" onClick={() => setOpenPanel(null)} /> : null}
     </div>
   );
 }
@@ -361,27 +360,26 @@ function InlineSortPanel({
   onChoose: (v: ProgrammeSortKey) => void;
 }) {
   return (
-    <section className="mt-3 overflow-hidden rounded-card border border-surface-border bg-white shadow-card">
-      <div className="flex items-center justify-between gap-3 border-b border-surface-border px-4 py-3 md:px-5">
+    <section className="absolute right-0 top-full z-30 mt-2 w-44 overflow-hidden rounded-card border border-surface-border bg-white shadow-card">
+      <div className="border-b border-surface-border px-4 py-3">
         <h3 className="text-xs font-semibold text-slate-500">排序方式</h3>
       </div>
-      <div className="px-4 py-3 md:px-5">
-        <div className="flex flex-wrap gap-2">
-          {SORT_OPTIONS.map((option) => (
-            <button
-              key={option.key}
-              type="button"
-              onClick={() => onChoose(option.key)}
-              className={`rounded-lg border px-3 py-1.5 text-xs font-semibold transition ${
-                activeSort === option.key
-                  ? "border-brand-700 bg-brand-700 text-white"
-                  : "border-slate-200 bg-white text-slate-700 hover:border-brand-200 hover:bg-brand-50"
-              }`}
-            >
-              {option.label}
-            </button>
-          ))}
-        </div>
+      <div className="p-2">
+        {SORT_OPTIONS.map((option) => (
+          <button
+            key={option.key}
+            type="button"
+            onClick={() => onChoose(option.key)}
+            className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm font-semibold transition ${
+              activeSort === option.key
+                ? "bg-brand-700 text-white"
+                : "text-slate-700 hover:bg-brand-50 hover:text-brand-800"
+            }`}
+          >
+            {option.label}
+            {activeSort === option.key ? <span aria-hidden="true">✓</span> : null}
+          </button>
+        ))}
       </div>
     </section>
   );
