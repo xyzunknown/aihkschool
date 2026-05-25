@@ -16,7 +16,10 @@ const NAV_ITEMS = [
 
 const ACCOUNT_MENU_ITEMS = [
   { href: "/account", label: "我的" },
+  { href: "/account/calendar", label: "我的日程" },
+  { href: "/account/alerts", label: "SmartPLAY 追蹤" },
   { href: "/account#favorites", label: "收藏管理" },
+  { href: "/account/settings", label: "帳戶設定" },
 ] as const;
 
 function isActiveItem(pathname: string | null, _activeTab: string | null, item: (typeof NAV_ITEMS)[number]) {
@@ -129,7 +132,7 @@ export function Header() {
                 {(user.user_metadata?.full_name ?? user.email ?? "U").charAt(0).toUpperCase()}
               </button>
               {accountMenuOpen ? (
-                <div className="absolute right-0 top-full mt-2 w-40 rounded-card border border-surface-border bg-white p-2 shadow-card">
+                <div className="absolute right-0 top-full mt-2 w-48 rounded-card border border-surface-border bg-white p-2 shadow-card">
                   {ACCOUNT_MENU_ITEMS.map((item) => (
                     <Link
                       key={item.href}

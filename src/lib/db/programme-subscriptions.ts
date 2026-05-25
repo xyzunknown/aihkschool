@@ -1,4 +1,3 @@
-import { createClient } from "@/lib/supabase/server";
 import { createServiceClient } from "@/lib/supabase/server";
 import type { TablesInsert } from "@/types/database";
 
@@ -54,7 +53,7 @@ const SUB_WITH_PROGRAMME_SELECT = `id, user_id, programme_id, notify_before_open
 export async function fetchUserSubscriptions(
   userId: string,
 ): Promise<ProgrammeSubscriptionWithProgramme[]> {
-  const supabase = await createClient();
+  const supabase = await createServiceClient();
 
   const { data, error } = await supabase
     .from("programme_subscriptions")
@@ -82,7 +81,7 @@ export async function insertSubscription(
   programmeId: string,
   notifyBeforeMinutes: number = 1440,
 ) {
-  const supabase = await createClient();
+  const supabase = await createServiceClient();
 
   // 檢查上限
   const { count } = await supabase
@@ -114,7 +113,7 @@ export async function insertSubscription(
 }
 
 export async function deleteSubscription(userId: string, programmeId: string) {
-  const supabase = await createClient();
+  const supabase = await createServiceClient();
 
   const { error } = await supabase
     .from("programme_subscriptions")
@@ -131,7 +130,7 @@ export async function checkIsSubscribed(
   userId: string,
   programmeId: string,
 ): Promise<boolean> {
-  const supabase = await createClient();
+  const supabase = await createServiceClient();
 
   const { data } = await supabase
     .from("programme_subscriptions")
