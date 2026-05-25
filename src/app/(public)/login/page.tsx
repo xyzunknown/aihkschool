@@ -1,15 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { FormEvent, useEffect, useState, type ElementType } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
-  AppleLogo,
   Bell,
   Buildings,
   EnvelopeSimple,
-  FacebookLogo,
-  GoogleLogo,
   Heart,
   LockSimple,
   MapPin,
@@ -75,7 +72,7 @@ export default function LoginPage() {
           <div className="flex h-full flex-col justify-between">
             <div>
               <div className="flex items-center gap-3">
-                <Image src="/brand/Web Logo/Logo.png" alt="HKSchoolPlace" width={54} height={54} className="rounded-card" priority />
+                <Image src="/brand/Web Logo/Logo.png" alt="HKSchoolPlace" width={54} height={54} className="h-[54px] w-[54px] rounded-card object-contain" priority />
                 <div>
                   <p className="text-xl font-bold text-forest-700">HKSchoolPlace</p>
                   <p className="mt-1 text-sm font-medium text-ink-500">全港幼稚園搜尋平台</p>
@@ -122,7 +119,7 @@ export default function LoginPage() {
 
         <section className="mx-auto w-full max-w-[460px] rounded-[28px] border border-surface-border bg-white p-6 shadow-card md:p-9">
           <div className="mb-8 flex items-center gap-3 lg:hidden">
-            <Image src="/brand/Web Logo/Logo.png" alt="HKSchoolPlace" width={48} height={48} className="rounded-card" priority />
+            <Image src="/brand/Web Logo/Logo.png" alt="HKSchoolPlace" width={48} height={48} className="h-12 w-12 rounded-card object-contain" priority />
             <div>
               <p className="text-lg font-bold text-forest-700">HKSchoolPlace</p>
               <p className="text-sm text-ink-500">全港幼稚園搜尋平台</p>
@@ -194,9 +191,9 @@ export default function LoginPage() {
           </div>
 
           <div className="space-y-3">
-            <ProviderButton onClick={() => handleProvider(signInWithGoogle)} icon={GoogleLogo} label="Google" />
-            <ProviderButton onClick={() => handleProvider(signInWithFacebook)} icon={FacebookLogo} label="Facebook" />
-            <ProviderButton onClick={() => handleProvider(signInWithApple)} icon={AppleLogo} label="Apple" />
+            <ProviderButton onClick={() => handleProvider(signInWithGoogle)} icon={GoogleBrandIcon} label="Google" />
+            <ProviderButton onClick={() => handleProvider(signInWithFacebook)} icon={FacebookBrandIcon} label="Facebook" />
+            <ProviderButton onClick={() => handleProvider(signInWithApple)} icon={AppleBrandIcon} label="Apple" />
           </div>
 
           <div className="mt-7 text-center text-small font-medium text-ink-500">
@@ -229,7 +226,7 @@ function ProviderButton({
   label,
 }: {
   onClick: () => void;
-  icon: ElementType;
+  icon: (props: { className?: string }) => JSX.Element;
   label: string;
 }) {
   return (
@@ -238,8 +235,56 @@ function ProviderButton({
       onClick={onClick}
       className="flex h-[52px] w-full items-center justify-center gap-3 rounded-pill border border-surface-border bg-white text-body font-bold text-ink-900 transition hover:bg-forest-50"
     >
-      <Icon aria-hidden="true" size={21} weight="regular" />
+      <span className="flex h-6 w-6 shrink-0 items-center justify-center">
+        <Icon className="h-5 w-5" />
+      </span>
       {label}
     </button>
+  );
+}
+
+function GoogleBrandIcon({ className }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 18 18" className={className} focusable="false">
+      <path
+        fill="#4285F4"
+        d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.91c1.7-1.57 2.69-3.88 2.69-6.62Z"
+      />
+      <path
+        fill="#34A853"
+        d="M9 18c2.43 0 4.47-.81 5.96-2.18l-2.91-2.26c-.81.54-1.84.86-3.05.86a5.37 5.37 0 0 1-5.05-3.71H.94v2.33A9 9 0 0 0 9 18Z"
+      />
+      <path
+        fill="#FBBC05"
+        d="M3.95 10.71a5.41 5.41 0 0 1 0-3.42V4.96H.94a9 9 0 0 0 0 8.08l3.01-2.33Z"
+      />
+      <path
+        fill="#EA4335"
+        d="M9 3.58c1.32 0 2.51.45 3.44 1.35l2.58-2.58A8.65 8.65 0 0 0 9 0 9 9 0 0 0 .94 4.96l3.01 2.33A5.37 5.37 0 0 1 9 3.58Z"
+      />
+    </svg>
+  );
+}
+
+function FacebookBrandIcon({ className }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className={className} focusable="false">
+      <circle cx="12" cy="12" r="12" fill="#1877F2" />
+      <path
+        fill="#FFFFFF"
+        d="m16.67 15.47.53-3.47h-3.33V9.75c0-.95.47-1.88 1.96-1.88h1.51V4.92s-1.37-.23-2.68-.23c-2.74 0-4.54 1.66-4.54 4.67V12H7.08v3.47h3.04v8.38a12.1 12.1 0 0 0 3.75 0v-8.38h2.8Z"
+      />
+    </svg>
+  );
+}
+
+function AppleBrandIcon({ className }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className={className} focusable="false">
+      <path
+        fill="currentColor"
+        d="M12.15 6.9c-.95 0-2.42-1.08-3.96-1.04-2.04.03-3.91 1.18-4.96 3.01-2.12 3.68-.55 9.1 1.52 12.09 1.01 1.45 2.21 3.09 3.79 3.04 1.52-.07 2.09-.99 3.94-.99 1.83 0 2.35.99 3.96.95 1.64-.03 2.68-1.48 3.68-2.95 1.16-1.69 1.64-3.33 1.66-3.42-.04-.01-3.18-1.22-3.22-4.86-.03-3.04 2.48-4.49 2.6-4.56-1.43-2.09-3.62-2.32-4.39-2.38-2-.16-3.68 1.09-4.62 1.09Zm3.38-3.07C16.37 2.82 16.93 1.4 16.78 0c-1.21.05-2.66.8-3.53 1.82-.78.9-1.45 2.34-1.27 3.71 1.34.1 2.71-.69 3.55-1.7Z"
+      />
+    </svg>
   );
 }
