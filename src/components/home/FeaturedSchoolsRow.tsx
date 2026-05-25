@@ -77,7 +77,7 @@ function SchoolCard({
           alt=""
           fill
           sizes="(max-width: 768px) 100vw, 360px"
-          className="object-cover group- transition duration-500"
+          className="object-cover transition duration-500 group-hover:scale-[1.02]"
         />
         <span
           aria-label="收藏"

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowSquareOut, CaretRight } from "@phosphor-icons/react/dist/ssr";
+import { ArrowSquareOut } from "@phosphor-icons/react/dist/ssr";
+import { SectionHeader } from "@/components/home/SectionHeader";
 import type { NewsItem } from "@/types/homepage";
 
 const SOURCE_CATEGORY_STYLES: Record<string, string> = {
@@ -9,7 +10,7 @@ const SOURCE_CATEGORY_STYLES: Record<string, string> = {
 };
 
 function sourceStyle(source: string): string {
-  return SOURCE_CATEGORY_STYLES[source] ?? "bg-blue-50 text-blue-700";
+  return SOURCE_CATEGORY_STYLES[source] ?? "bg-forest-50 text-forest-700";
 }
 
 interface NewsFeedProps {
@@ -19,18 +20,7 @@ interface NewsFeedProps {
 export function NewsFeed({ items }: NewsFeedProps) {
   return (
     <section className="mb-10 mt-12">
-      <div className="mb-6 flex items-center justify-between">
-        <h2 className="text-xl font-semibold text-ink-900">消息動態</h2>
-        <Link
-          href="/news"
-          className="text-sm font-medium text-ink-500 transition-colors hover:text-ink-900"
-        >
-          <span className="inline-flex items-center gap-1">
-            查看更多
-            <CaretRight size={14} weight="bold" aria-hidden="true" />
-          </span>
-        </Link>
-      </div>
+      <SectionHeader title="消息動態" href="/news" />
 
       <div className="space-y-3">
         {items.map((item) => {
@@ -47,10 +37,10 @@ export function NewsFeed({ items }: NewsFeedProps) {
               rel={isExternal ? "noreferrer" : undefined}
               className="block"
             >
-              <div className="rounded-card border border-surface-border bg-white p-5 transition-all duration-200  hover:shadow-sm">
-                <div className="flex items-start gap-3">
+              <div className="rounded-card border border-surface-border bg-white p-4 transition-all duration-200 hover:border-forest-100 hover:shadow-soft sm:p-5">
+                <div className="grid gap-3 sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:items-start">
                   <span
-                    className={`mt-0.5 inline-flex flex-shrink-0 items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${sourceStyle(item.source)}`}
+                    className={`inline-flex w-fit flex-shrink-0 items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${sourceStyle(item.source)}`}
                   >
                     {item.source_label}
                   </span>
@@ -62,10 +52,10 @@ export function NewsFeed({ items }: NewsFeedProps) {
                       {item.summary}
                     </p>
                   </div>
-                  <div className="flex flex-shrink-0 items-center gap-1.5 mt-1">
-                    <span className="text-xs text-ink-500">{item.date}</span>
+                  <div className="flex flex-shrink-0 items-center gap-1.5 text-ink-500 sm:justify-end">
+                    <span className="text-xs">{item.date}</span>
                     {isExternal && (
-                      <ArrowSquareOut size={12} weight="regular" className="text-ink-300" aria-hidden="true" />
+                      <ArrowSquareOut size={13} weight="regular" aria-hidden="true" />
                     )}
                   </div>
                 </div>

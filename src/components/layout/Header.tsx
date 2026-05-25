@@ -116,10 +116,10 @@ export function Header() {
           {showCloseButton ? (
             <Link
               href="/"
-              className="flex h-11 w-11 items-center justify-center rounded-full bg-forest-600 text-small font-bold text-white transition hover:bg-forest-700"
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-forest-600 text-white transition hover:bg-forest-700"
               aria-label="返回首頁"
             >
-              X
+              <X aria-hidden="true" size={18} weight="bold" />
             </Link>
           ) : user ? (
             <div ref={accountMenuRef} className="relative">

@@ -23,7 +23,7 @@ export function SectionHeader({ title, description, href }: SectionHeaderProps) 
         href={href}
         className="inline-flex shrink-0 items-center gap-1 text-small font-semibold text-forest-700 transition-colors hover:text-forest-800 hover:underline"
       >
-        查看全部
+        查看更多
         <CaretRight aria-hidden="true" size={14} weight="bold" />
       </Link>
     </div>
