@@ -24,12 +24,20 @@ interface BasicInfoSectionProps {
 }
 
 export function BasicInfoSection({ school }: BasicInfoSectionProps) {
-  const mapQuery = [school.name_tc, school.address_tc].filter(Boolean).join(" ");
+  const hasCoordinates =
+    typeof school.latitude === "number" &&
+    Number.isFinite(school.latitude) &&
+    typeof school.longitude === "number" &&
+    Number.isFinite(school.longitude);
+  const coordinateQuery = hasCoordinates ? `${school.latitude},${school.longitude}` : null;
+  const addressQuery = [school.address_tc, school.name_tc].filter(Boolean).join(" ");
+  const mapQuery = coordinateQuery ?? addressQuery;
+  const mapDisplayQuery = [school.name_tc, school.address_tc].filter(Boolean).join(" ");
   const mapSearchHref = mapQuery
-    ? `https://www.google.com/maps/search/${encodeURIComponent(mapQuery)}`
+    ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`
     : null;
   const mapEmbedSrc = mapQuery
-    ? `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=16&output=embed`
+    ? `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=18&iwloc=near&output=embed`
     : null;
   const hasNurseryService =
     school.has_nursery === true || school.schooland_nursery_service === "yes";
@@ -184,34 +192,47 @@ export function BasicInfoSection({ school }: BasicInfoSectionProps) {
         <GlassCard className="p-5 md:p-6">
           <h2 className="mb-4 text-xl font-semibold text-ink-900">位置</h2>
           <div className="overflow-hidden rounded-card border border-surface-border bg-cream-100">
-          {mapEmbedSrc ? (
-            <iframe
-              title={`${school.name_tc} 地圖`}
-              src={mapEmbedSrc}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="h-48 w-full border-0"
-            />
-          ) : (
-            <div className="flex h-48 items-center justify-center px-6 text-center text-sm text-ink-500">
-              暫時未有足夠位置資料顯示地圖
-            </div>
-          )}
+            {mapEmbedSrc ? (
+              <div className="relative h-48">
+                <iframe
+                  title={`${school.name_tc} 地圖`}
+                  src={mapEmbedSrc}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="h-full w-full border-0"
+                />
+                <div className="pointer-events-none absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-full flex-col items-center">
+                  <div className="mb-1 rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-forest-700 shadow-soft">
+                    學校位置
+                  </div>
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-white bg-forest-700 text-white shadow-card">
+                    <MapPin size={20} weight="fill" aria-hidden="true" />
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="flex h-48 items-center justify-center px-6 text-center text-sm text-ink-500">
+                暫時未有足夠位置資料顯示地圖
+              </div>
+            )}
 
-          {mapSearchHref && (
-            <div className="flex flex-col gap-3 border-t border-surface-border bg-white px-4 py-3">
-              <p className="text-sm text-ink-500">地圖會根據學校名稱和地址自動定位</p>
-              <a
-                href={mapSearchHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-10 items-center justify-center gap-1.5 rounded-pill border border-forest-700 px-4 text-sm font-semibold text-forest-700 hover:bg-forest-50"
-              >
-                <Globe size={16} weight="regular" aria-hidden="true" />
-                打開 Google 地圖
-              </a>
-            </div>
-          )}
+            {mapSearchHref && (
+              <div className="flex flex-col gap-3 border-t border-surface-border bg-white px-4 py-3">
+                <p className="text-sm text-ink-500">
+                  {hasCoordinates ? "地圖已用學校座標定位，並放大至附近街區。" : "地圖已放大至學校附近，並以地址優先定位。"}
+                </p>
+                <a
+                  href={mapSearchHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-10 items-center justify-center gap-1.5 rounded-pill border border-forest-700 px-4 text-sm font-semibold text-forest-700 hover:bg-forest-50"
+                  aria-label={`在 Google 地圖打開 ${mapDisplayQuery}`}
+                >
+                  <Globe size={16} weight="regular" aria-hidden="true" />
+                  打開 Google 地圖
+                </a>
+              </div>
+            )}
           </div>
         </GlassCard>
       </div>

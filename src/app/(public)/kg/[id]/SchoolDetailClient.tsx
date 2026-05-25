@@ -159,8 +159,8 @@ export function SchoolDetailClient({ school, vacancy, enrichment, officialProfil
         返回搵學校
       </Link>
 
-      <div className="mb-8 grid gap-5 lg:grid-cols-[minmax(0,1fr)_360px]">
-        <section className="rounded-card border border-surface-border bg-white p-5 shadow-soft md:p-6">
+      <div className="mb-8 grid items-start gap-5 lg:grid-cols-[minmax(0,1fr)_340px]">
+        <section className="rounded-card border border-surface-border bg-white p-5 shadow-soft">
           <div className="flex items-start gap-4">
             <SchoolAvatar
               schoolId={school.id}
@@ -185,19 +185,19 @@ export function SchoolDetailClient({ school, vacancy, enrichment, officialProfil
                 </span>
                 <SourceTag source={school.data_source as DataSource} />
               </div>
-              <h1 className="text-2xl font-bold tracking-normal text-ink-900 md:text-3xl">{primaryName}</h1>
-              {secondaryName && <p className="mt-2 text-base leading-relaxed text-ink-500">{secondaryName}</p>}
+              <h1 className="text-[26px] font-bold leading-tight tracking-normal text-ink-900 md:text-h1">{primaryName}</h1>
+              {secondaryName && <p className="mt-2 text-small leading-relaxed text-ink-500">{secondaryName}</p>}
               {school.school_code && (
                 <p className="mt-2 text-sm text-ink-500">學校編號：{school.school_code}</p>
               )}
             </div>
           </div>
 
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-5 flex flex-col gap-2.5 sm:flex-row">
             <button
               type="button"
               onClick={handleToggleFavorite}
-              className={`inline-flex h-12 items-center justify-center rounded-pill px-5 text-sm font-semibold transition ${
+              className={`inline-flex h-10 items-center justify-center rounded-pill px-4 text-small font-semibold transition ${
                 isFavorited
                   ? "bg-forest-700 text-white"
                   : "border border-forest-700 bg-white text-forest-700 hover:bg-forest-50"
@@ -208,7 +208,7 @@ export function SchoolDetailClient({ school, vacancy, enrichment, officialProfil
             <button
               type="button"
               onClick={toggleCompare}
-              className={`inline-flex h-12 items-center justify-center rounded-pill px-5 text-sm font-semibold transition ${
+              className={`inline-flex h-10 items-center justify-center rounded-pill px-4 text-small font-semibold transition ${
                 isInCompare(school.id)
                   ? "bg-forest-700 text-white"
                   : "border border-forest-700 bg-white text-forest-700 hover:bg-forest-50"
@@ -221,7 +221,7 @@ export function SchoolDetailClient({ school, vacancy, enrichment, officialProfil
                 href={school.website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-12 items-center justify-center gap-1.5 rounded-pill bg-forest-700 px-5 text-sm font-semibold text-white hover:bg-forest-800"
+                className="inline-flex h-10 items-center justify-center gap-1.5 rounded-pill bg-forest-700 px-4 text-small font-semibold text-white hover:bg-forest-800"
               >
                 學校官網
                 <ArrowSquareOut size={16} weight="regular" aria-hidden="true" />

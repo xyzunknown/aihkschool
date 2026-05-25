@@ -39,9 +39,9 @@ export function VacancyBadge({ grade, status, isStale = false, variant = "pill" 
     <div className="flex justify-center">
       <span
         aria-label={`${grade} ${VACANCY_STATUS_LABELS[normalizedStatus]}`}
-        className={`inline-flex min-h-9 min-w-[78px] items-center justify-center gap-1 rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors duration-200 ${styles[normalizedStatus]} ${staleClass}`}
+        className={`inline-flex min-h-8 min-w-[68px] items-center justify-center gap-1 rounded-full border px-2.5 py-1 text-label font-semibold transition-colors duration-200 ${styles[normalizedStatus]} ${staleClass}`}
       >
-        <span className="text-[10px] font-bold opacity-75">{grade}</span>
+        <span className="text-[9px] font-bold opacity-75">{grade}</span>
         {VACANCY_STATUS_LABELS[normalizedStatus]}
       </span>
     </div>
