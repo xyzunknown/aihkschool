@@ -2,6 +2,15 @@
 
 This is the current source of truth for new HKSchoolPlace web UI work. Older visual references can still be useful for history, but new features should follow this document first.
 
+## Brand Name
+
+The product brand is now fixed as:
+
+- English: DingGo
+- Traditional Chinese: 叮叮升學
+
+Use this pair for public-facing product copy, page titles, brand identity work, and future launch materials.
+
 ## Design Intent
 
 HKSchoolPlace should feel warm, clear, credible, and parent-friendly. It is a practical decision tool for families, not a cold admin product and not a decorative marketing site.
