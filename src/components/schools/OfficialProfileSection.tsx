@@ -1,11 +1,13 @@
 import { GlassCard } from "@/components/ui/GlassCard";
+import type { ReactNode } from "react";
 import type { DetailItem, KgpOfficialProfile } from "@/lib/schools/kgpProfile";
 
 interface OfficialProfileSectionProps {
   profile: KgpOfficialProfile | null;
+  admissions?: ReactNode;
 }
 
-export function OfficialProfileSection({ profile }: OfficialProfileSectionProps) {
+export function OfficialProfileSection({ profile, admissions }: OfficialProfileSectionProps) {
   if (!profile) return null;
 
   const highlights = [
@@ -24,6 +26,7 @@ export function OfficialProfileSection({ profile }: OfficialProfileSectionProps)
   ].filter((group) => group.items.length > 0);
 
   if (groups.length === 0) return null;
+  const hasCourseSupport = groups.some((group) => group.title === "課程與支援");
 
   return (
     <section className="mb-8">
@@ -42,24 +45,32 @@ export function OfficialProfileSection({ profile }: OfficialProfileSectionProps)
 
         <div className="space-y-3">
           {groups.map((group) => (
-            <details key={group.title} className="group rounded-button border border-surface-border bg-cream-50/50 px-4 py-3" open={group.title === "基本資料"}>
-              <summary className="cursor-pointer list-none text-sm font-semibold text-ink-800">
-                <span className="inline-flex w-full items-center justify-between gap-3">
-                  {group.title}
-                  <span className="text-xs font-medium text-ink-500 group-open:hidden">展開</span>
-                  <span className="hidden text-xs font-medium text-ink-500 group-open:inline">收起</span>
-                </span>
-              </summary>
-              <div className="grid gap-x-6 gap-y-4 md:grid-cols-2">
-                {group.items.map((entry) => (
-                  <div key={`${group.title}-${entry.label}`} className="min-w-0 pt-4">
-                    <p className="mb-1 text-xs font-medium uppercase tracking-wide text-ink-500">{entry.label}</p>
-                    <p className="text-sm leading-6 text-ink-900">{entry.value}</p>
-                  </div>
-                ))}
-              </div>
-            </details>
+            <div key={group.title}>
+              {group.title === "課程與支援" && admissions && (
+                <AdmissionsDetailsBlock>{admissions}</AdmissionsDetailsBlock>
+              )}
+              <details className="group rounded-button border border-surface-border bg-cream-50/50 px-4 py-3" open={group.title === "基本資料"}>
+                <summary className="cursor-pointer list-none text-sm font-semibold text-ink-800">
+                  <span className="inline-flex w-full items-center justify-between gap-3">
+                    {group.title}
+                    <span className="text-xs font-medium text-ink-500 group-open:hidden">展開</span>
+                    <span className="hidden text-xs font-medium text-ink-500 group-open:inline">收起</span>
+                  </span>
+                </summary>
+                <div className="grid gap-x-6 gap-y-4 md:grid-cols-2">
+                  {group.items.map((entry) => (
+                    <div key={`${group.title}-${entry.label}`} className="min-w-0 pt-4">
+                      <p className="mb-1 text-xs font-medium uppercase tracking-wide text-ink-500">{entry.label}</p>
+                      <p className="text-sm leading-6 text-ink-900">{entry.value}</p>
+                    </div>
+                  ))}
+                </div>
+              </details>
+            </div>
           ))}
+          {!hasCourseSupport && admissions && (
+            <AdmissionsDetailsBlock>{admissions}</AdmissionsDetailsBlock>
+          )}
         </div>
 
         <p className="mt-5 border-t border-surface-border pt-4 text-xs leading-5 text-ink-500">
@@ -72,4 +83,19 @@ export function OfficialProfileSection({ profile }: OfficialProfileSectionProps)
 
 function firstValue(items: DetailItem[], labels: string[]) {
   return labels.map((label) => items.find((entry) => entry.label === label)).find(Boolean) ?? null;
+}
+
+function AdmissionsDetailsBlock({ children }: { children: ReactNode }) {
+  return (
+    <details className="group mb-3 rounded-button border border-surface-border bg-cream-50/50 px-4 py-3" open>
+      <summary className="cursor-pointer list-none text-sm font-semibold text-ink-800">
+        <span className="inline-flex w-full items-center justify-between gap-3">
+          招生與開放日
+          <span className="text-xs font-medium text-ink-500 group-open:hidden">展開</span>
+          <span className="hidden text-xs font-medium text-ink-500 group-open:inline">收起</span>
+        </span>
+      </summary>
+      <div className="pt-4">{children}</div>
+    </details>
+  );
 }

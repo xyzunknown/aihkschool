@@ -7,7 +7,7 @@ import { SchoolAvatar } from "@/components/schools/SchoolAvatar";
 import { VacancySection } from "@/components/schools/VacancySection";
 import { BasicInfoSection } from "@/components/schools/BasicInfoSection";
 import { FeesSection } from "@/components/schools/FeesSection";
-import { AdmissionsSection } from "@/components/schools/AdmissionsSection";
+import { AdmissionsDetails, AdmissionsSection } from "@/components/schools/AdmissionsSection";
 import { OfficialProfileSection } from "@/components/schools/OfficialProfileSection";
 import { ReminderSheet } from "@/components/schools/ReminderSheet";
 import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
@@ -235,8 +235,14 @@ export function SchoolDetailClient({ school, vacancy, enrichment, officialProfil
 
       <BasicInfoSection school={school} />
       <FeesSection school={school} />
-      <AdmissionsSection school={school} enrichment={enrichment} />
-      <OfficialProfileSection profile={officialProfile} />
+      {officialProfile ? (
+        <OfficialProfileSection
+          profile={officialProfile}
+          admissions={<AdmissionsDetails school={school} enrichment={enrichment} />}
+        />
+      ) : (
+        <AdmissionsSection school={school} enrichment={enrichment} />
+      )}
 
       <ReminderSheet
         isOpen={showReminderSheet}
