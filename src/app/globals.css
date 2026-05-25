@@ -76,6 +76,7 @@ main {
 .activity-card__body {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .activity-card__image {
@@ -85,7 +86,9 @@ main {
 }
 
 .activity-card__content {
+  flex: 1;
   padding-top: 1rem;
+  padding-bottom: 0.25rem;
 }
 
 @container (min-width: 620px) {

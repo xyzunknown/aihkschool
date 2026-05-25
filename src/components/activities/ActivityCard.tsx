@@ -30,7 +30,7 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
   return (
     <Link
       href={detailHref}
-      className="activity-card group block overflow-hidden rounded-card border border-surface-border bg-white p-3.5 shadow-soft transition hover:-translate-y-0.5 hover:border-forest-200 hover:shadow-card md:p-4"
+      className="activity-card group block h-full overflow-hidden rounded-card border border-surface-border bg-white p-3.5 shadow-soft transition hover:-translate-y-0.5 hover:border-forest-200 hover:shadow-card md:p-4"
       aria-label={`${activity.title} 活動詳情`}
     >
       <div className="activity-card__body">
@@ -55,18 +55,17 @@ export function ActivityCard({ activity, priority = false }: ActivityCardProps) 
             </span>
           </div>
 
-          <h3 className="mt-3 line-clamp-2 text-[18px] font-semibold leading-snug text-ink-900 transition-colors group-hover:text-forest-700">
+          <h3 className="mt-3 line-clamp-2 min-h-[3.1rem] text-[18px] font-semibold leading-snug text-ink-900 transition-colors group-hover:text-forest-700">
             {activity.title}
           </h3>
 
           <p className="mt-2.5 line-clamp-1 text-small font-medium text-ink-500">{dateRange}</p>
 
-          <div className="mt-2.5 flex min-w-0 items-center gap-2 text-small font-medium text-ink-500 md:truncate">
-            <MapPin aria-hidden="true" size={16} weight="regular" className="shrink-0 text-forest-500" />
-            <span className="truncate">{venueSummary}</span>
-          </div>
-
-          <div className="mt-4 flex justify-end">
+          <div className="mt-2.5 flex min-w-0 items-center gap-3">
+            <div className="flex min-w-0 flex-1 items-center gap-2 text-small font-medium text-ink-500 md:truncate">
+              <MapPin aria-hidden="true" size={16} weight="regular" className="shrink-0 text-forest-500" />
+              <span className="truncate">{venueSummary}</span>
+            </div>
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-forest-100 text-forest-600 transition-colors group-hover:border-forest-200 group-hover:bg-forest-50">
               <CaretRight aria-hidden="true" size={16} weight="bold" />
             </span>
@@ -103,7 +102,7 @@ const KNOWN_VENUES = [
 
 export function ActivityCardSkeleton() {
   return (
-    <div className="activity-card animate-pulse overflow-hidden rounded-card border border-surface-border bg-white p-3.5 shadow-soft md:p-4">
+    <div className="activity-card h-full animate-pulse overflow-hidden rounded-card border border-surface-border bg-white p-3.5 shadow-soft md:p-4">
       <div className="activity-card__body">
         <div className="activity-card__image rounded-button bg-cream-100" />
         <div className="activity-card__content flex-1 space-y-4">
@@ -113,7 +112,8 @@ export function ActivityCardSkeleton() {
           </div>
           <div className="h-6 w-4/5 rounded bg-cream-100" />
           <div className="h-5 w-3/5 rounded bg-cream-100" />
-          <div className="flex justify-end pt-2">
+          <div className="flex items-center justify-between gap-3 pt-2">
+            <div className="h-5 w-2/5 rounded bg-cream-100" />
             <div className="h-8 w-8 rounded-full bg-cream-100" />
           </div>
         </div>
