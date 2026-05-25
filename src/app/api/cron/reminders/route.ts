@@ -3,7 +3,7 @@ import { createServiceClient } from "@/lib/supabase/server";
 import { sendEmail } from "@/lib/email/resend";
 import { buildReminderEmailHtml } from "@/lib/email/templates";
 import { formatDateCN } from "@/lib/utils";
-import { syncAllFavoriteReminders } from "@/lib/db/favorites";
+import { getTodayInHongKong, parseDateOnly, syncAllFavoriteReminders } from "@/lib/db/favorites";
 
 interface SchoolReminderRawRow {
   id: string;
@@ -49,6 +49,17 @@ interface SchoolReminderRow {
 
 const MAX_RETRIES = 3;
 
+function daysUntilHongKongDate(dateIso: string, todayIso: string) {
+  const target = parseDateOnly(dateIso);
+  const today = parseDateOnly(todayIso);
+
+  if (Number.isNaN(target.getTime()) || Number.isNaN(today.getTime())) {
+    return 0;
+  }
+
+  return Math.max(0, Math.ceil((target.getTime() - today.getTime()) / (24 * 60 * 60 * 1000)));
+}
+
 export async function POST(request: NextRequest) {
   return handleCronReminders(request);
 }
@@ -70,10 +81,11 @@ async function handleCronReminders(request: NextRequest) {
     }
 
     const supabase = await createServiceClient();
-    const today = new Date().toISOString().split("T")[0];
+    const today = getTodayInHongKong();
     const syncedReminderCount = await syncAllFavoriteReminders();
 
-    // Fetch today's pending reminders with joined data
+    // Fetch due pending reminders with joined data. Use HKT date so the
+    // 09:00 Hong Kong cron does not accidentally look for yesterday's UTC date.
     const { data: reminders, error } = await supabase
       .from("reminders")
       .select(
@@ -81,7 +93,7 @@ async function handleCronReminders(request: NextRequest) {
          users ( email, notification_email ),
          schools ( name_tc, website )`
       )
-      .eq("scheduled_date", today)
+      .lte("scheduled_date", today)
       .eq("reminder_status", "pending");
 
     if (error) {
@@ -150,13 +162,6 @@ async function handleCronReminders(request: NextRequest) {
       const recipientEmail = userRecord.notification_email ?? userRecord.email;
       if (!recipientEmail) continue;
 
-      const daysMap: Record<string, number> = {
-        deadline_7d: 7,
-        deadline_3d: 3,
-        deadline_1d: 1,
-      };
-
-      const daysRemaining = daysMap[reminder.reminder_type] ?? 0;
       const deadline = deadlineMap.get(reminder.school_id);
 
       if (!deadline) {
@@ -166,6 +171,8 @@ async function handleCronReminders(request: NextRequest) {
           .eq("id", reminder.id);
         continue;
       }
+
+      const daysRemaining = daysUntilHongKongDate(deadline, today);
 
       try {
         await sendEmail({

@@ -8,7 +8,7 @@ const REMINDER_TYPES = [
   { days: 1, type: "deadline_1d" },
 ] as const;
 
-function parseDateOnly(value: string) {
+export function parseDateOnly(value: string) {
   const [year, month, day] = value.split("-").map(Number);
   return new Date(Date.UTC(year, month - 1, day));
 }
@@ -17,7 +17,7 @@ function formatDateOnly(date: Date) {
   return date.toISOString().slice(0, 10);
 }
 
-function getTodayInHongKong() {
+export function getTodayInHongKong() {
   const formatter = new Intl.DateTimeFormat("en-CA", {
     timeZone: "Asia/Hong_Kong",
     year: "numeric",
@@ -80,7 +80,7 @@ async function clearPendingReminders(favoriteId: string) {
     .from("reminders")
     .delete()
     .eq("favorite_id", favoriteId)
-    .in("reminder_status", ["pending", "failed", "cancelled"]);
+    .eq("reminder_status", "pending");
 
   if (error) {
     throw new Error(`Failed to clear reminders: ${error.message}`);
