@@ -1073,7 +1073,7 @@ UPDATE schools SET
 WHERE school_code = '610623';
 UPDATE schools SET
   name_tc = COALESCE('茵晴幼稚園', name_tc),
-  logo_url = '/logos/617741.svg',
+  logo_url = '/logos/617741.png',
   fee_monthly_hkd = NULL,
   fee_annual_hkd = NULL,
   application_fee_hkd = COALESCE(NULL, application_fee_hkd),
