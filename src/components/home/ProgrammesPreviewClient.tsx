@@ -50,6 +50,7 @@ export function ProgrammesPreviewClient({ programmes }: ProgrammesPreviewClientP
           key={group.key}
           group={group}
           expanded={expandedGroups.has(group.key)}
+          compactMobileImage
           onToggle={() => {
             setExpandedGroups((prev) => {
               const next = new Set(prev);

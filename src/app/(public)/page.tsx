@@ -58,11 +58,11 @@ export default async function HomePage({
       <Hero banners={liveData.banners} />
 
       <div className="mx-auto max-w-[1280px] px-5 md:px-10">
-        {/* 熱點學校 */}
-        <FeaturedSchools schools={liveData.featuredSchools} />
-
         {/* 康體通開報倒數 */}
         <ProgrammesPreview />
+
+        {/* 熱點學校 */}
+        <FeaturedSchools schools={liveData.featuredSchools} />
 
         {/* 課外活動精選 */}
         <ActivitiesPreview />

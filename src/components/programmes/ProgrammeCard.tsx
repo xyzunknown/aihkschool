@@ -128,6 +128,7 @@ interface ProgrammeCourseCardProps {
   };
   expanded: boolean;
   onToggle: () => void;
+  compactMobileImage?: boolean;
 }
 
 const CATEGORY_ACCENTS: Record<string, { bg: string; text: string; icon: "wave" | "user" | "clock" | "calendar" }> = {
@@ -166,7 +167,7 @@ function sortSessions(programmes: ProgrammeWithStatus[]) {
     });
 }
 
-export function ProgrammeCourseCard({ group, expanded, onToggle }: ProgrammeCourseCardProps) {
+export function ProgrammeCourseCard({ group, expanded, onToggle, compactMobileImage = false }: ProgrammeCourseCardProps) {
   const representative = group.representative;
   const programmes = sortSessions(group.programmes);
   if (programmes.length === 0) return null;
@@ -181,11 +182,15 @@ export function ProgrammeCourseCard({ group, expanded, onToggle }: ProgrammeCour
   return (
     <article className="overflow-hidden rounded-card border border-surface-border bg-white p-4 shadow-soft transition-colors hover:border-forest-200 md:p-5">
       <div className="flex flex-col md:flex-row">
-        <Link href={`/programmes/${representative.id}`} className="relative block h-[180px] overflow-hidden rounded-button bg-cream-100 md:h-[196px] md:w-[260px] md:shrink-0" aria-label={`${group.title} 課程詳情`}>
+        <Link
+          href={`/programmes/${representative.id}`}
+          className={`relative h-[180px] overflow-hidden rounded-button bg-cream-100 md:block md:h-[196px] md:w-[260px] md:shrink-0 ${compactMobileImage ? "hidden" : "block"}`}
+          aria-label={`${group.title} 課程詳情`}
+        >
           <Image src={imageSrc} alt="" fill sizes="(min-width: 768px) 260px, 100vw" className={`object-cover ${imagePositionClass} saturate-[0.82] brightness-[1.06]`} priority={false} />
         </Link>
 
-        <div className="flex min-w-0 flex-1 flex-col pt-4 md:pl-5 md:pt-0">
+        <div className={`flex min-w-0 flex-1 flex-col md:pl-5 md:pt-0 ${compactMobileImage ? "pt-0" : "pt-4"}`}>
           <div className="min-w-0">
             <span className={`inline-flex h-6 items-center gap-1 rounded-pill px-2.5 text-label font-medium ${accent.bg} ${accent.text}`}>
               <CategoryIcon icon={accent.icon} />

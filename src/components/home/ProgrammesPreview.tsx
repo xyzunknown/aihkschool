@@ -14,7 +14,7 @@ export async function ProgrammesPreview() {
   if (programmes.length === 0) return null;
 
   return (
-    <section className="mt-12">
+    <section className="mt-2">
       <SectionHeader
         title="康體通報名倒數"
         description="追蹤 SmartPLAY 課程開報時間，提早提醒家長準備報名"
